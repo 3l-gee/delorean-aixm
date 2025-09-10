@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-    xmlns:annox="urn:jaxb.jvnet.org:annox"
+    xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
     xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
@@ -16,8 +16,6 @@
                 <jaxb:elementName suffix="Element"/>
             </jaxb:nameXmlTransform>
         </jaxb:schemaBindings>
-        
-        <hj:ignored/>
-        
+        <hj:ignored-package name="com.aixm.delorean.core.org.w3.xlink"/>
      </jaxb:bindings>
 </jaxb:bindings>

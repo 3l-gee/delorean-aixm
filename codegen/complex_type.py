@@ -34,6 +34,7 @@ class ComplexType:
 
         node.append(Jaxb.complex(element.attrib["name"]))
         node.extend(ComplexType.class_writer(element, schema))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         parent_xpath = Jaxb.complex_xpath(element.attrib.get("name"))
@@ -81,20 +82,20 @@ class ComplexType:
         # Abstract types are entity and have a inheritance strategy
         if element.attrib.get("name") in Content.get_abstract().keys() :
             Content.append_entity(element.attrib["name"])
-            node.append(Annox.class_add(Jpa.entity))
-            node.append(Annox.class_add(Jpa.relation.inhertiance()))
+            node.append(Jpa.super)
+            # node.append(Annox.class_add(Jpa.relation.inhertiance()))
             return node
 
         # Types that are embeddable 
         if element.attrib.get("name") in Content.get_embed().keys():
-            node.append(Annox.class_add(Jpa.embeddable))
+            node.append(Jpa.embeddable)
             return node
         
         Content.append_entity(element.attrib["name"])
-        node.append(Annox.class_add(Jpa.entity))
+        node.append((Jpa.entity))
         base = element.find(".//" + Tag.restriction) or element.find(".//" + Tag.extension) 
-        if base is not None:
-            node.append(Annox.class_add(Jpa.table(element.attrib["name"],schema)))
-        else :  
-            node.append(Annox.class_add(Jpa.table(element.attrib["name"],schema)))
+        # if base is not None:
+        #     node.append(Annox.class_add(Jpa.table(element.attrib["name"],schema)))
+        # else :  
+        #     node.append(Annox.class_add(Jpa.table(element.attrib["name"],schema)))
         return node

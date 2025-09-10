@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" version="3.2.1">
+<schema targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" version="3.2.2">
 	<annotation>
-		<appinfo source="urn:x-ogc:specification:gml:schema-xsd:coverage:3.2.1">coverage.xsd</appinfo>
+		<appinfo source="urn:x-ogc:specification:gml:schema-xsd:coverage:3.2.2">coverage.xsd</appinfo>
 		<documentation>See ISO/DIS 19136 20.3.
 A coverage incorporates a mapping from a spatiotemporal domain to a range set, the latter providing the set in which the attribute values live.  The range set may be an arbitrary set including discrete lists, integer or floating point ranges, and multi-dimensional vector spaces.
 A coverage can be viewed as the graph of the coverage function f:A à B, that is as the set of ordered pairs {(x, f(x)) | where x is in A}. This view is especially applicable to the GML encoding of a coverage.  In the case of a discrete coverage, the domain set A is partitioned into a collection of subsets (typically a disjoint collection) A = UAi and the function f is constant on each Ai. For a spatial domain, the Ai are geometry elements, hence the coverage can be viewed as a collection of (geometry,value) pairs, where the value is an element of the range set.  If the spatial domain A is a topological space then the coverage can be viewed as a collection of (topology,value) pairs, where the topology element in the pair is a topological n-chain (in GML terms this is a gml:TopoPoint, gml:TopoCurve, gml:TopoSurface or gml:TopoSolid). 
-A coverage is implemented as a GML feature. We can thus speak of a “temperature distribution feature”, or a “remotely sensed image feature”, or a “soil distribution feature”.
-As is the case for any GML object, a coverage object may also be the value of a property of a feature.  
-</documentation>
+A coverage is implemented as a GML feature. We can thus speak of a "temperature distribution feature", or a "remotely sensed image feature", or a "soil distribution feature".
+As is the case for any GML object, a coverage object may also be the value of a property of a feature.
+
+GML is an OGC Standard.
+Copyright (c) 2007, 2010, 2016, 2018 Open Geospatial Consortium.
+To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
+		</documentation>
 	</annotation>
+	<include schemaLocation="gml.xsd"/>
 	<include schemaLocation="feature.xsd"/>
 	<include schemaLocation="valueObjects.xsd"/>
 	<include schemaLocation="grids.xsd"/>
@@ -84,7 +89,7 @@ The presence of the gml:AssociationAttributeGroup means that domainSet follows t
 		<annotation>
 			<documentation>The gml:rangeSet property element contains the values of the coverage (sometimes called the attribute values).  Its content model is given by gml:RangeSetType.
 This content model supports a structural description of the range.  The semantic information describing the range set is embedded using a uniform method, as part of the explicit values, or as a template value accompanying the representation using gml:DataBlock and gml:File.
-The values from each component (or “band”) in the range may be encoded within a gml:ValueArray element or a concrete member of the gml:AbstractScalarValueList substitution group . Use of these elements satisfies the value-type homogeneity requirement.</documentation>
+The values from each component (or "band") in the range may be encoded within a gml:ValueArray element or a concrete member of the gml:AbstractScalarValueList substitution group . Use of these elements satisfies the value-type homogeneity requirement.</documentation>
 		</annotation>
 	</element>
 	<complexType name="RangeSetType">
@@ -114,7 +119,7 @@ The range set parameterization is described by the property gml:rangeParameters.
 	<element name="tupleList" type="gml:CoordinatesType">
 		<annotation>
 			<documentation>gml:CoordinatesType consists of a list of coordinate tuples, with each coordinate tuple separated by the ts or tuple separator (whitespace), and each coordinate in the tuple by the cs or coordinate separator (comma).
-The gml:tupleList encoding is effectively “band-interleaved”.</documentation>
+The gml:tupleList encoding is effectively "band-interleaved".</documentation>
 		</annotation>
 	</element>
 	<element name="doubleOrNilReasonTupleList" type="gml:doubleOrNilReasonList">
@@ -124,7 +129,7 @@ The gml:tupleList encoding is effectively “band-interleaved”.</documentation
 	</element>
 	<element name="File" type="gml:FileType" substitutionGroup="gml:AbstractObject">
 		<annotation>
-			<documentation>for efficiency reasons, GML also provides a means of encoding the range set in an arbitrary external encoding, such as a binary file.  This encoding may be “well-known” but this is not required. This mode uses the gml:File element.
+			<documentation>for efficiency reasons, GML also provides a means of encoding the range set in an arbitrary external encoding, such as a binary file.  This encoding may be "well-known" but this is not required. This mode uses the gml:File element.
 The values of the coverage (attribute values in the range set) are transmitted in a external file that is referenced from the XML structure described by gml:FileType.  The external file is referenced by the gml:fileReference property that is an anyURI (the gml:fileName property has been deprecated).  This means that the external file may be located remotely from the referencing GML instance. 
 The gml:compression property points to a definition of a compression algorithm through an anyURI.  This may be a retrievable, computable definition or simply a reference to an unambiguous name for the compression method.
 The gml:mimeType property points to a definition of the file mime type.
@@ -154,7 +159,7 @@ Note that the fields within a record match the gml:valueComponents of the gml:Co
 		<annotation>
 			<documentation>The gml:coverageFunction property describes the mapping function from the domain to the range of the coverage.
 The value of the CoverageFunction is one of gml:CoverageMappingRule and gml:GridFunction.
-If the gml:coverageFunction property is omitted for a gridded coverage (including rectified gridded coverages) the gml:startPoint is assumed to be the value of the gml:low property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be linear and the gml:axisOrder property is assumed to be “+1 +2”.</documentation>
+If the gml:coverageFunction property is omitted for a gridded coverage (including rectified gridded coverages) the gml:startPoint is assumed to be the value of the gml:low property in the gml:Grid geometry, and the gml:sequenceRule is assumed to be linear and the gml:axisOrder property is assumed to be "+1 +2".</documentation>
 		</annotation>
 	</element>
 	<complexType name="CoverageFunctionType">
@@ -168,7 +173,7 @@ If the gml:coverageFunction property is omitted for a gridded coverage (includin
 		<annotation>
 			<documentation>gml:CoverageMappingRule provides a formal or informal description of the coverage function.
 The mapping rule may be defined as an in-line string (gml:ruleDefinition) or via a remote reference through xlink:href (gml:ruleReference).  
-If no rule name is specified, the default is ‘Linear’ with respect to members of the domain in document order.</documentation>
+If no rule name is specified, the default is 'Linear' with respect to members of the domain in document order.</documentation>
 		</annotation>
 	</element>
 	<complexType name="MappingRuleType" final="#all">
@@ -191,7 +196,7 @@ The gml:startPoint is the index position of a point in the grid that is mapped t
 	</complexType>
 	<complexType name="SequenceRuleType">
 		<annotation>
-			<documentation>The gml:SequenceRuleType is derived from the gml:SequenceRuleEnumeration through the addition of an axisOrder attribute.  The gml:SequenceRuleEnumeration is an enumerated type. The rule names are defined in ISO 19123. If no rule name is specified the default is “Linear”.</documentation>
+			<documentation>The gml:SequenceRuleType is derived from the gml:SequenceRuleEnumeration through the addition of an axisOrder attribute.  The gml:SequenceRuleEnumeration is an enumerated type. The rule names are defined in ISO 19123. If no rule name is specified the default is "Linear".</documentation>
 		</annotation>
 		<simpleContent>
 			<extension base="gml:SequenceRuleEnumeration">

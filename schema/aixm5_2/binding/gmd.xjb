@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-    xmlns:annox="urn:jaxb.jvnet.org:annox"
+    xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
     xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
@@ -15,7 +15,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gmd.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored/>
+        <hj:ignored-package name="om.aixm.delorean.core.org.gmd.v2007"/>
 
     </jaxb:bindings>
     <jaxb:bindings schemaLocation="../aixm/ISO_19139_Schemas/gco/gco.xsd"
@@ -24,7 +24,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gco.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored/>
+        <hj:ignored-package name="om.aixm.delorean.core.org.gco.v2007"/>
         
     </jaxb:bindings>
     <jaxb:bindings schemaLocation="../aixm/ISO_19139_Schemas/gsr/gsr.xsd"
@@ -33,7 +33,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gsr.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored/>
+        <hj:ignored-package name="om.aixm.delorean.core.org.gsr.v2007"/>
         
     </jaxb:bindings>
     <jaxb:bindings schemaLocation="../aixm/ISO_19139_Schemas/gss/gss.xsd"
@@ -42,7 +42,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gss.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored/>
+        <hj:ignored-package name="om.aixm.delorean.core.org.gss.v2007"/>
         
     </jaxb:bindings>
     <jaxb:bindings schemaLocation="../aixm/ISO_19139_Schemas/gts/gts.xsd"
@@ -51,7 +51,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gts.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored/>
+        <hj:ignored-package name="om.aixm.delorean.core.org.gts.v2007"/>
         
     </jaxb:bindings>
  </jaxb:bindings>

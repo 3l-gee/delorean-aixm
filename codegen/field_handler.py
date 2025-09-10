@@ -106,8 +106,12 @@ class FieldHandler:
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name())
 
-        name = parent.attrib.get("name") + "_" + attribute.attrib.get("name")
-        node.append(Annox.field_add(Jpa.column(name)))
+        if attribute.attrib.get("name") == "extension":
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+
+        # name = parent.attrib.get("name") + "_" + attribute.attrib.get("name")
+        # node.append(Annox.field_add(Jpa.column(name)))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
         return node
 
@@ -133,27 +137,32 @@ class FieldHandler:
                 node.append(Jaxb.end)
                 return node
             
-            if element.attrib.get("name") == "dbid":
-                node.append(Annox.field_add(Jpa.id))
-                node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
-                node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
-                node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
-                node.append(Annox.field_add(Xml.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if element.attrib.get("name") == "dbid":
+        #         node.append(Annox.field_add(Jpa.id))
+        #         node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
+        #         node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
+        #         node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
+        #         node.append(Annox.field_add(Xml.transient))
+        #         node.append(Jaxb.end)
+        #         return node
                                             
-            if element.attrib.get("name") == "name":
-                node.append(Jaxb.property.name_element())
-            else :
-                node.append(Jaxb.property.element)
-
+        if element.attrib.get("name") == "name":
+            node.append(Jaxb.property.name_element())
         else :
-            print(element.attrib)
+            node.append(Jaxb.property.element)
 
-        annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
-        snowflake_text = annotation.text if annotation is not None and annotation.text else ""
+        if element.attrib.get("name") == "extension":
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+
+
+        # else :
+        #     print(element.attrib)
+
+        # annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
+        # snowflake_text = annotation.text if annotation is not None and annotation.text else ""
             
-        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        # node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         return node
@@ -179,13 +188,18 @@ class FieldHandler:
                 node.append(Annox.field_add(Jpa.transient))
                 node.append(Jaxb.end)
                 return node
-            if attribute.attrib.get("name") == "name":
-                node.append(Jaxb.property.name())
+            
+        if attribute.attrib.get("name") == "name":
+            node.append(Jaxb.property.name())
 
-        else : 
-            print(attribute.attrib)
+        if attribute.attrib.get("name") == "extension":
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
-        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        # else : 
+        #     print(attribute.attrib)
+
+        # node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         return node
@@ -212,50 +226,54 @@ class FieldHandler:
                 node.append(Jaxb.end)
                 return node
             
-            if element.attrib.get("name") == "dbid":
-                node.append(Annox.field_add(Jpa.id))
-                node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
-                node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
-                node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
-                node.append(Annox.field_add(Xml.transient))
-                node.append(Annox.end)
-                return node
+        #     if element.attrib.get("name") == "dbid":
+        #         node.append(Annox.field_add(Jpa.id))
+        #         node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
+        #         node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
+        #         node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
+        #         node.append(Annox.field_add(Xml.transient))
+        #         node.append(Annox.end)
+        #         return node
                                     
-            if element.attrib.get("name") == "name":
-                node.append(Jaxb.property.name_element())
-            else :
-                node.append(Jaxb.property.element)
-        else : 
-            print(element.attrib)
+        if element.attrib.get("name") == "name":
+            node.append(Jaxb.property.name_element())
+        else :
+            node.append(Jaxb.property.element)
 
-        annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
-        snowflake_text = annotation.text if annotation is not None and annotation.text else ""
+        if element.attrib.get("name") == "extension":
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+        # else : 
+        #     print(element.attrib)
 
-        if snowflake_text == "snowflake:DateTimeType" :
-            node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
-            node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateTimeType.class", False)))
-            node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTimeTypeAdapter.class")))
-            node.append(Annox.field_add(Jpa.embedded))
-            node.append(Annox.field_add(Jpa.attribute_main_override([
-                str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
-                str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
-                ])))
-            node.append(Jaxb.end)
-            return node
+        # annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
+        # snowflake_text = annotation.text if annotation is not None and annotation.text else ""
 
-        if snowflake_text == "snowflake:DateType" :
-            node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
-            node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateType.class", False)))
-            node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTypeAdapter.class")))
-            node.append(Annox.field_add(Jpa.embedded))
-            node.append(Annox.field_add(Jpa.attribute_main_override([
-                str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
-                str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
-                ])))
-            node.append(Jaxb.end)
-            return node
+        # if snowflake_text == "snowflake:DateTimeType" :
+        #     node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
+        #     node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateTimeType.class", False)))
+        #     node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTimeTypeAdapter.class")))
+        #     node.append(Annox.field_add(Jpa.embedded))
+        #     node.append(Annox.field_add(Jpa.attribute_main_override([
+        #         str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
+        #         str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
+        #         ])))
+        #     node.append(Jaxb.end)
+        #     return node
 
-        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        # if snowflake_text == "snowflake:DateType" :
+        #     node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
+        #     node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateType.class", False)))
+        #     node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTypeAdapter.class")))
+        #     node.append(Annox.field_add(Jpa.embedded))
+        #     node.append(Annox.field_add(Jpa.attribute_main_override([
+        #         str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
+        #         str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
+        #         ])))
+        #     node.append(Jaxb.end)
+        #     return node
+
+        # node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         return node
@@ -282,13 +300,17 @@ class FieldHandler:
                 node.append(Jaxb.end)
                 return node
             
-            if attribute.attrib.get("name") == "name":
-                node.append(Jaxb.property.name())
+        if attribute.attrib.get("name") == "name":
+            node.append(Jaxb.property.name())
 
-        else : 
-            print(attribute.attrib)
+        if attribute.attrib.get("name") == "extension":
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
-        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        # else : 
+        #     print(attribute.attrib)
+
+        # node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         return node

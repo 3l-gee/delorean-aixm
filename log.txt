@@ -1,0 +1,51 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.aixm.delorean:delorean >---------------------
+[INFO] Building delorean 0.2.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ delorean ---
+[INFO] 
+[INFO] --- hisrc-hyperjaxb:2.2.1:generate (generate) @ delorean ---
+[INFO] Latest timestamp of the source resources is [2025-09-07 17:54:49.711], earliest timestamp of the target resources is [2025-02-24 22:59:04.166].
+[INFO] Sources are not up-to-date, XJC will be executed.
+[ERROR] TODO Wildcard.
+[INFO] Episode file [C:\Users\rapha\Documents\project\delorean\src\main\java\META-INF\sun-jaxb.episode] was augmented with if-exists="true" attributes.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ delorean ---
+[INFO] Copying 311 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\java to target\classes
+[INFO] Copying 1 resource from src\main\java to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ delorean ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4325 source files with javac [debug release 21] to target\classes
+[INFO] Hibernate compile-time tooling 7.1.0.Final
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,79] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,87] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,108] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,117] illegal start of type
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:30 min
+[INFO] Finished at: 2025-09-07T17:56:25+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project delorean: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,79] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,87] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,108] <identifier> expected
+[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,117] illegal start of type
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

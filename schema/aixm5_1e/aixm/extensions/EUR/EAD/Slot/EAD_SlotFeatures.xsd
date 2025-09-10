@@ -23,7 +23,7 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 <!-- Component: EAD: Slot: Features -->
 <schema xmlns:EAD_Slot="http://www.aixm.aero/schema/5.1/extensions/EUR/EAD/Slot" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aixm="http://www.aixm.aero/schema/5.1" targetNamespace="http://www.aixm.aero/schema/5.1/extensions/EUR/EAD/Slot" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../../ISO_19136_Schemas/gml.xsd"/>
-	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../../xlink/xlinks.xsd"/>
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../../xlink/xlink.xsd"/>
 	<import namespace="http://www.aixm.aero/schema/5.1" schemaLocation="../../../../AIXM_Features.xsd"/>
 	<include schemaLocation="./EAD_SlotDataTypes.xsd"/>
 	<annotation>

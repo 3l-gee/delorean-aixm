@@ -497,7 +497,7 @@ message = {
 
 
 
-out = Machinery(config, [data_types, feature, abstract, message])
+# out = Machinery(config, [data_types, feature, abstract, message])
 
 config = {
     "ignore": [
@@ -633,5 +633,125 @@ message = {
     "manual" : "codegen/manual/a5_1/AIXM_BasicMessage.xjb"
 }
 
-out = Machinery(config, [data_types, feature, abstract, message])
+# out = Machinery(config, [data_types, feature, abstract, message])
 
+config = {
+    "ignore": [
+        "XHTMLType"
+
+        # Core
+        "AIXMBasicMessageType",
+        "AIXMBasicMessagePropertyGroup",
+        "BasicMessageMemberAIXMPropertyType",
+        "MessageMetadataPropertyType",
+        "FeatureMetadataPropertyType",
+        "FeatureTimeSliceMetadataPropertyType",
+        "MessageMetadataPropertyType,",
+
+        # Gis
+        # "PointPropertyType",
+        # "CurvePropertyType",
+        # "SurfacePropertyType",
+        # "ElevatedPointPropertyType",
+        # "ElevatedCurvePropertyType",
+        # "ElevatedSurfacePropertyType",
+
+        # Core Abstract
+        "AbstractAIXMMessageBaseType",
+        "AbstractAIXMMessageType",
+        "AbstractAIXMFeatureBaseType",
+        "AbstractAIXMFeatureType",
+        "AbstractAIXMTimeSliceBaseType",
+        "AbstractAIXMTimeSliceType",
+        "AbstractAIXMPropertyType",
+        "AbstractAIXMObjectBaseType",
+        "AbstractAIXMObjectType",
+    ],
+    "transient" : [
+        "aixm:XHTMLType",
+
+        # Core
+        "aixm:AIXMBasicMessageType",
+        "aixm:AIXMBasicMessagePropertyGroup",
+        "aixm:BasicMessageMemberAIXMPropertyType",
+        "aixm:MessageMetadataPropertyType",
+        "aixm:FeatureMetadataPropertyType",
+        "aixm:FeatureTimeSliceMetadataPropertyType",
+        "aixm:MessageMetadataPropertyType,",
+
+        # Feature Abstract
+        "aixm:AbstractDirectFlight",
+        "aixm:AbstractPropertiesWithSchedule",
+        "aixm:AbstractUsageConditio",
+        "aixm:AbstractSurfaceContamination",
+        "aixm:AbstractSegmentPoint",
+        "aixm:AbstractUsageCondition",
+        "aixm:AbstractAIXMMessageBaseType",
+        "aixm:AbstractAIXMMessageType",
+        "aixm:AbstractAIXMFeatureBaseType",
+        "aixm:AbstractAIXMFeatureType",
+        "aixm:AbstractAIXMTimeSliceBaseType",
+        "aixm:AbstractAIXMTimeSliceType",
+        "aixm:AbstractAIXMPropertyType",
+        "aixm:AbstractAIXMObjectBaseType",
+        "aixm:AbstractAIXMObjectType",
+    ],
+    "embed": [
+
+    ],
+    "abstract": [
+        "AbstractMarkingType",
+        "AbstractAirportHeliportProtectionAreaType",
+        "AbstractGroundLightSystemType",
+        "AbstractNavigationSystemCheckpointType",
+        "AbstractNavaidEquipmentType",
+        "AbstractProcedureType",
+        "AbstractSegmentLegType",
+        "AbstractApproachLegType",
+        "AbstractServiceType",
+        "AbstractTrafficSeparationServiceType",
+        "AbstractAirportGroundServiceType",
+        "AbstractRadarEquipmentType",
+        "AbstractExtensionType",
+        "AbstractUsageConditionType",
+        "AbstractSurfaceContaminationType",
+        "AbstractSegmentPointType",
+        "AbstractDirectFlightType",
+        "AbstractPropertiesWithScheduleType",
+    ],
+    "output_path": "schema/aixm5_2/binding/aixm.xjb",
+    "version" : "a5_2",
+}
+
+
+feature = {
+    "name" : "../aixm/AIXM_Features",
+    "path" : "schema/aixm5_2/aixm/AIXM_Features.xsd",
+    "strategy" : Strategy.feature,
+    "package" : "com.aixm.delorean.core.schema.a5_2.aixm",
+    "manual" : "codegen/manual/a5_2/AIXM_Features.xjb"
+}
+
+data_types = {
+    "name" : "../aixm/AIXM_DataTypes",
+    "path" : "schema/aixm5_2/aixm/AIXM_DataTypes.xsd",
+    "strategy" : Strategy.data_type,
+    "manual" : "codegen/manual/a5_2/AIXM_DataTypes.xjb"
+}
+
+abstract = {
+    "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
+    "path" : "schema/aixm5_2/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
+    "strategy" : Strategy.abstract,
+    "manual" : "codegen/manual/a5_2/AIXM_AbstractGML_ObjectTypes.xjb"
+}
+
+message = {
+    "name" : "../aixm/message/AIXM_BasicMessage",
+    "path" : "schema/aixm5_2/aixm/message/AIXM_BasicMessage.xsd",
+    "strategy" : Strategy.other,
+    "package" : "com.aixm.delorean.core.schema.a5_2.aixm.message",
+    "manual" : "codegen/manual/a5_2/AIXM_BasicMessage.xjb"
+}
+
+out = Machinery(config, [data_types, feature, abstract, message])

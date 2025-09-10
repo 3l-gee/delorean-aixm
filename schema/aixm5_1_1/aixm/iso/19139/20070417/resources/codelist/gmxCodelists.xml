@@ -6,7 +6,7 @@ PURPOSE: Use of absolute path in xsi:schemaLocation
 DESCRIPTION:
 - ../gmx/gmx.xsd replaced by http://schemas.opengis.net/iso/19139/20070417/gmx/gmx.xsd
 - ../gco/gco.xsd replaced by http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
-- ../xlink/xlinks.xsd replaced by http://www.w3.org/1999/xlink.xsd
+- ../xlink/xlink.xsd replaced by http://www.w3.org/1999/xlink.xsd
 - ../gml/gml.xsd replaced by http://schemas.opengis.net/gml/3.2.1/gml.xsd
 
 CORRECTIONS referenced 2012-07-13 #02

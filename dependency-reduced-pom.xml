@@ -44,6 +44,61 @@
   </build>
   <profiles>
     <profile>
+      <id>enable-hyper-jaxb</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jvnet.jaxb</groupId>
+            <artifactId>jaxb-maven-plugin</artifactId>
+            <version>4.0.8</version>
+            <executions>
+              <execution>
+                <id>generate-aixm5_2</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <configuration>
+                  <noFileHeader>true</noFileHeader>
+                  <extension>true</extension>
+                  <schemaDirectory>${project.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
+                  <schemaIncludes>
+                    <include>AIXM_BasicMessage.xsd</include>
+                  </schemaIncludes>
+                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
+                  <bindingIncludes>
+                    <include>*.xjb</include>
+                  </bindingIncludes>
+                  <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                </configuration>
+              </execution>
+            </executions>
+            <configuration>
+              <extension>true</extension>
+              <args>
+                <arg>-Xannotate</arg>
+                <arg>-XremoveAnnotation</arg>
+                <arg>-Xhyperjaxb-jpa</arg>
+              </args>
+              <plugins>
+                <plugin>
+                  <groupId>org.jvnet.jaxb</groupId>
+                  <artifactId>jaxb-plugin-annotate</artifactId>
+                  <version>4.0.8</version>
+                </plugin>
+                <plugin>
+                  <groupId>org.patrodyne.jvnet</groupId>
+                  <artifactId>hisrc-hyperjaxb-ejb-plugin</artifactId>
+                  <version>${hyperjaxb.version}</version>
+                </plugin>
+              </plugins>
+              <verbose>true</verbose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
       <id>enable-jaxb</id>
       <build>
         <plugins>
@@ -53,35 +108,17 @@
             <version>4.0.8</version>
             <executions>
               <execution>
-                <id>generate-aixm5_1</id>
+                <id>generate-aixm5_2</id>
                 <phase>generate-sources</phase>
                 <goals>
                   <goal>generate</goal>
                 </goals>
                 <configuration>
-                  <schemaDirectory>${project.basedir}/schema/aixm5_1/aixm/message</schemaDirectory>
+                  <schemaDirectory>${project.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
                   <schemaIncludes>
                     <include>AIXM_BasicMessage.xsd</include>
                   </schemaIncludes>
-                  <bindingDirectory>${project.basedir}/schema/aixm5_1/binding</bindingDirectory>
-                  <bindingIncludes>
-                    <include>*.xjb</include>
-                  </bindingIncludes>
-                  <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                </configuration>
-              </execution>
-              <execution>
-                <id>generate-aixm5_1_1</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-                <configuration>
-                  <schemaDirectory>${project.basedir}/schema/aixm5_1_1/aixm/message</schemaDirectory>
-                  <schemaIncludes>
-                    <include>AIXM_BasicMessage.xsd</include>
-                  </schemaIncludes>
-                  <bindingDirectory>${project.basedir}/schema/aixm5_1_1/binding</bindingDirectory>
+                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
                   <bindingIncludes>
                     <include>*.xjb</include>
                   </bindingIncludes>
@@ -89,33 +126,6 @@
                 </configuration>
               </execution>
             </executions>
-            <dependencies>
-              <dependency>
-                <groupId>com.fillumina</groupId>
-                <artifactId>krasa-jaxb-tools</artifactId>
-                <version>2.3.3</version>
-              </dependency>
-              <dependency>
-                <groupId>org.jvnet.jaxb</groupId>
-                <artifactId>jaxb-plugins</artifactId>
-                <version>4.0.8</version>
-              </dependency>
-              <dependency>
-                <groupId>org.jvnet.jaxb</groupId>
-                <artifactId>jaxb-plugin-annotate</artifactId>
-                <version>4.0.8</version>
-              </dependency>
-              <dependency>
-                <groupId>org.jvnet.jaxb</groupId>
-                <artifactId>hyperjaxb3-ejb-plugin</artifactId>
-                <version>4.0.8</version>
-              </dependency>
-              <dependency>
-                <groupId>org.hibernate.orm</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>6.6.13.Final</version>
-              </dependency>
-            </dependencies>
             <configuration>
               <extension>true</extension>
               <args>
@@ -147,6 +157,13 @@
       <url>https://repo.osgeo.org/repository/release/</url>
     </repository>
   </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>hisrc-maven-repository</id>
+      <name>Hi-s-rc Maven Repository</name>
+      <url>https://storage.googleapis.com/hisrc-maven-repository/releases</url>
+    </pluginRepository>
+  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -182,9 +199,13 @@
     </dependency>
   </dependencies>
   <properties>
+    <hibernate.version>6.6.1.Final</hibernate.version>
     <maven.compiler.target>21</maven.compiler.target>
     <maven.compiler.source>21</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jpa.version>3.2.0</jpa.version>
     <geotools.version>32.0</geotools.version>
+    <jaxb.version>4.0.2</jaxb.version>
+    <hyperjaxb.version>2.2.1</hyperjaxb.version>
   </properties>
 </project>

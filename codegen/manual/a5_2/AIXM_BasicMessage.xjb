@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jaxb:bindings version="3.0"
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:annox="urn:jaxb.jvnet.org:annox"
+    xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
+    xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
+    jaxb:extensionBindingPrefixes="xjc annox hj orm">
+
+  <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd"
+                 node="/xs:schema">
+    <jaxb:bindings node="manual">
+          <jaxb:bindings node="xs:complexType[@name='AIXMBasicMessageType']">
+          <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
+          <hj:mapped-superclass/>
+      </jaxb:bindings>
+      <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
+        <hj:mapped-superclass/>
+      </jaxb:bindings>
+      <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
+        <hj:mapped-superclass/>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
+        <hj:mapped-superclass/>
+      </jaxb:bindings>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>

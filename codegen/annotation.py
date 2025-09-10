@@ -611,6 +611,12 @@ class Property:
     @staticmethod
     def name_element(name="aixmName"):
         return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
+        # return f'<jaxb:property name="{name}"/>'
+    
+    @staticmethod
+    def nameClass(name="aixmName"):
+        return f'<jaxb:class  name="{name}"/>'
+    
 
 
 class Jaxb:
@@ -629,6 +635,10 @@ class Jaxb:
     @staticmethod
     def package(value):
         return f'''<jaxb:package name="{value}" />'''
+    
+    @staticmethod
+    def basic(xpath):
+        return f'''<jaxb:bindings node="{xpath}">'''
 
     @staticmethod
     def simple(value, xpath = Xpath.GLOBAL.value, at="name", ):
@@ -668,21 +678,22 @@ class Jaxb:
     
     start ="""
 <jaxb:bindings 
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" 
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" 
+    xmlns:hj="http://jvnet.org/hyperjaxb/jpa" 
+    xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" 
     version="3.0"
-    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
-    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xml="http://www.w3.org/XML/1998/namespace"
-    xmlns:annox="urn:jaxb.jvnet.org:annox"
-    jaxb:extensionBindingPrefixes="xjc annox">
+    jaxb:extensionBindingPrefixes="xjc annox hj orm">
 """
     enum_end = '</jaxb:typesafeEnumClass>'
     end = '</jaxb:bindings>'
     binding_start = '<jaxb:schemaBindings>'
     binding_end = '</jaxb:schemaBindings>'
 
-    property = Property
+    property = Property 
 
 class Annox:
     @staticmethod
@@ -866,10 +877,11 @@ class Relation:
 class Jpa:
     relation = Relation
     constraint = Constraint
-    entity = '@jakarta.persistence.Entity'
+    entity = '''<hj:entity/>'''
+    super = '''<hj:mapped-superclass/>'''
     id = '@jakarta.persistence.Id'
     transient = '@jakarta.persistence.Transient'
-    embeddable = '@jakarta.persistence.Embeddable'
+    embeddable = '''<hj:embeddable/>'''
     embedded = '@jakarta.persistence.Embedded'
 
     @staticmethod

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jaxb:bindings 
+  xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" 
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" 
+  xmlns:hj="http://jvnet.org/hyperjaxb/jpa" 
+  xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" 
+  version="3.0"
+  jaxb:extensionBindingPrefixes="xjc annox hj orm">
+
+  <jaxb:bindings schemaLocation="../aixm/AIXM_Features.xsd"
+                 node="/xs:schema">
+    <jaxb:bindings node="manual">
+      <jaxb:serializable uid="1"/>
+
+    <jaxb:globalBindings
+      fixedAttributeAsConstantProperty="true" 
+      typesafeEnumBase="xs:string" 
+      typesafeEnumMemberName="generateName" 
+      generateIsSetMethod="true" 
+      localScoping="toplevel">
+      <xjc:noValidator/>
+      <xjc:noValidatingUnmarshaller/>
+      <jaxb:serializable uid="1"/>
+    </jaxb:globalBindings>
+    <hj:persistence>
+      <hj:default-generated-id>
+        <orm:generated-value strategy="SEQUENCE" generator="global_seq"/>
+        <orm:sequence-generator name="global_seq" sequence-name="my_seq" allocation-size="1"/>
+      </hj:default-generated-id>
+      <hj:default-one-to-one fetch="EAGER"/>
+      <hj:default-one-to-many fetch="EAGER"/>
+      <hj:default-many-to-many fetch="LAZY"/>
+      <hj:default-many-to-one merge="false" fetch="EAGER">
+        <orm:join-column/>
+        <orm:cascade>
+          <orm:cascade-refresh/>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-detach/>
+        </orm:cascade>
+      </hj:default-many-to-one>
+    </hj:persistence>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>
