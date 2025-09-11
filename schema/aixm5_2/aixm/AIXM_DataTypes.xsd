@@ -8939,8 +8939,9 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
     </complexType>
     <complexType name="XHTMLType">
         <sequence>
-            <any maxOccurs="unbounded"
-                namespace="http://www.w3.org/1999/xhtml" processContents="skip"/>
+            <element name="content" type="string" maxOccurs="unbounded"/>
+            <!-- <any maxOccurs="unbounded"
+                namespace="http://www.w3.org/1999/xhtml" processContents="skip"/> -->
         </sequence>
         <attribute name="nilReason" type="gml:NilReasonEnumeration"/>
     </complexType>

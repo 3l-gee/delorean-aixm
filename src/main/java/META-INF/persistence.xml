@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence version="3.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <persistence-unit name="com.aixm.delorean.core.org.gco.v2007:com.aixm.delorean.core.org.gmd.v2007:com.aixm.delorean.core.org.gsr.v2007:com.aixm.delorean.core.org.gss.v2007:com.aixm.delorean.core.org.gts.v2007:com.aixm.delorean.core.schema.a5_2.aixm:com.aixm.delorean.core.schema.a5_2.aixm.message">
+    <persistence-unit name="com.aixm.delorean.core.org.gco.v2007:com.aixm.delorean.core.org.gmd.v2007:com.aixm.delorean.core.org.gml.v_3_2_2:com.aixm.delorean.core.org.gsr.v2007:com.aixm.delorean.core.org.gss.v2007:com.aixm.delorean.core.org.gts.v2007:com.aixm.delorean.core.schema.a5_2.aixm:com.aixm.delorean.core.schema.a5_2.aixm.message">
         <class>com.aixm.delorean.core.org.gco.v2007.AbstractObjectType</class>
         <class>com.aixm.delorean.core.org.gco.v2007.AnglePropertyType</class>
         <class>com.aixm.delorean.core.org.gco.v2007.BinaryPropertyType</class>
@@ -276,171 +276,305 @@
         <class>com.aixm.delorean.core.org.gmd.v2007.RSIdentifierType</class>
         <class>com.aixm.delorean.core.org.gmd.v2007.RSReferenceSystemPropertyType</class>
         <class>com.aixm.delorean.core.org.gmd.v2007.URLPropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractFeatureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractGMLType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractTimeSliceType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.Boolean</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ControlPoint</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CoordinateOperationAccuracy</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.Count</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.DomainOfValidity</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.DynamicFeatureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.FormulaCitation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.RefLocation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.Rows</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameter</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameterPropertyElement</class>
         <class>com.aixm.delorean.core.org.gsr.v2007.SCCRSPropertyType</class>
         <class>com.aixm.delorean.core.org.gss.v2007.GMObjectPropertyType</class>
         <class>com.aixm.delorean.core.org.gss.v2007.GMPointPropertyType</class>
         <class>com.aixm.delorean.core.org.gts.v2007.TMPeriodDurationPropertyType</class>
         <class>com.aixm.delorean.core.org.gts.v2007.TMPrimitivePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureBaseType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMMessageBaseType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMMessageType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMObjectType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMTimeSliceBaseType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAirportGroundServiceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAirportHeliportProtectionAreaType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractApproachLegType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractDirectFlightType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractExtensionType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractGroundLightSystemType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractMarkingType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractNavaidEquipmentType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractNavigationSystemCheckpointType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractProcedureType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractPropertiesWithScheduleType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractRadarEquipmentType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractSegmentLegType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractSegmentPointType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractServiceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractSurfaceContaminationType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractSurveillanceRadarType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractTrafficSeparationServiceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractUsageConditionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingAnchorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingAnchorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingAnchorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingPointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingTimeSliceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingTrackPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingTrackType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingTrackTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AeronauticalGroundLightExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AeronauticalGroundLightPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AeronauticalGroundLightTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AeronauticalGroundLightTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AeronauticalGroundLightType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficControlServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficControlServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficControlServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficControlServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficControlServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficFlowManagementServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficFlowManagementServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficFlowManagementServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficFlowManagementServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirTrafficFlowManagementServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftCharacteristicPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftCharacteristicType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftCharacteristicTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftGroundServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftGroundServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftGroundServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftGroundServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftGroundServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftNavigationEquipmentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftNavigationEquipmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftNavigationEquipmentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AircraftStandType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportClearanceServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportClearanceServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportClearanceServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportClearanceServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportClearanceServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportGroundServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportCollocationExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportCollocationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportCollocationTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportCollocationTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportCollocationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportProtectionAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportResponsibilityOrganisationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportResponsibilityOrganisationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportResponsibilityOrganisationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportUsagePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportUsageType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHeliportUsageTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHotSpotExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHotSpotPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHotSpotTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHotSpotTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportHotSpotType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportProtectionAreaMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportProtectionAreaMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportProtectionAreaMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportProtectionAreaMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportProtectionAreaMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSignType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSuppliesServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSuppliesServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSuppliesServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSuppliesServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirportSuppliesServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceActivationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceActivationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceActivationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceBorderCrossingPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceBorderCrossingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceBorderCrossingTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceGeometryComponentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceGeometryComponentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceGeometryComponentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerClassPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerClassType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerClassTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceLayerTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspacePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumeDependencyPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumeDependencyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumeDependencyTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AirspaceVolumeTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterCheckpointExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterCheckpointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterCheckpointTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterCheckpointTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterCheckpointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterSourcePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterSourceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltimeterSourceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeAdjustmentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeAdjustmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeAdjustmentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeIndicationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeIndicationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AltitudeIndicationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AnglePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AngleType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AngleTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AngleUsePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AngleUseType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AngleUseTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachConditionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachConditionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachConditionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLightingSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLightingSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLightingSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLightingSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApproachLightingSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaUsagePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaUsageType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronAreaUsageTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronElementExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronElementPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronElementTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronElementTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ApronType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrestingGearExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrestingGearPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrestingGearTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrestingGearTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrestingGearType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalFeederLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalFeederLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalFeederLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalFeederLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalFeederLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ArrivalLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAerialRefuellingPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAerialRefuellingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAerialRefuellingTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAirspaceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAirspacePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAirspaceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAirspaceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForAirspaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForNavaidEquipmentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForNavaidEquipmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForNavaidEquipmentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationStationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationStationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationStationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationSystemPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AuthorityForSpecialNavigationSystemTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AzimuthExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AzimuthPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AzimuthTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AzimuthTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AzimuthType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CallsignDetailPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CallsignDetailType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CallsignDetailTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ChangeOverPointExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ChangeOverPointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ChangeOverPointTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ChangeOverPointTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ChangeOverPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointINSExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointINSPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointINSTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointINSTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointINSType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointVORExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointVORPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointVORTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointVORTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CheckpointVORType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CircleSectorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CircleSectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CircleSectorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingRestrictionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingRestrictionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CirclingRestrictionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeATCReportingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeAdditionalEquipmentType</class>
@@ -711,16 +845,21 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeWorkAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeYesNoType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ConditionCombinationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ConditionCombinationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ConditionCombinationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ContactInformationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ContactInformationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ContactInformationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CurvePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateMonthDayType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateTimeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateType</class>
@@ -729,25 +868,39 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DeicingAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DepartureLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DepartureLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DepartureLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DepartureLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DepartureLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignStandardPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignStandardType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignStandardTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignatedPointExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignatedPointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignatedPointTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignatedPointTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DesignatedPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightClassPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightClassType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightClassTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightSegmentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightSegmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectFlightSegmentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectionFinderExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectionFinderPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectionFinderTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectionFinderTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DirectionFinderType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DistancePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.DistanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DistanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurvePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveTypeExtension</class>
@@ -758,427 +911,673 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EnRouteSegmentPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.EnRouteSegmentPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EnRouteSegmentPointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentColumnPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentColumnType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentColumnTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudeTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlPositionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlPositionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlPositionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachProfilePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachProfileType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachProfileTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachSegmentDataPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachSegmentDataType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachSegmentDataTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FireFightingServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FireFightingServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FireFightingServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FireFightingServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FireFightingServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightCharacteristicPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightCharacteristicType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightCharacteristicTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCircumstancePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCircumstanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCircumstanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCombinationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCombinationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionCombinationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionElementPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightConditionElementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightInspectionTrajectoryPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightInspectionTrajectoryType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightInspectionTrajectoryTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionLevelPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionLevelType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionLevelTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionRoutePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionRouteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionRouteTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRestrictionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRoutingElementPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRoutingElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FlightRoutingElementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FloatingDockSiteExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FloatingDockSitePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FloatingDockSiteTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FloatingDockSiteTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FloatingDockSiteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FuelPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FuelType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FuelTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GBASType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GangwayExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GangwayPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GangwayTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GangwayTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GangwayType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GeoBorderExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GeoBorderPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GeoBorderTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GeoBorderTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GeoBorderType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GlidepathExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GlidepathPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GlidepathTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GlidepathTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GlidepathType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundLightingAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundLightingAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundLightingAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundTrafficControlServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundTrafficControlServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundTrafficControlServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundTrafficControlServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GroundTrafficControlServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineDirectionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineDirectionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineDirectionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLinePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.GuidanceLineType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingAssessmentExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingAssessmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingAssessmentTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingAssessmentTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingAssessmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDistancePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDistanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDistanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDurationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDurationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternDurationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingPatternType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingUsePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingUseType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.HoldingUseTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSliceTypeRestItem</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InstrumentApproachProcedureExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InstrumentApproachProcedurePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InstrumentApproachProcedureTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InstrumentApproachProcedureTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.InstrumentApproachProcedureType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.IntermediateLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.IntermediateLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.IntermediateLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.IntermediateLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.IntermediateLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LandingTakeoffAreaCollectionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LandingTakeoffAreaCollectionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LandingTakeoffAreaCollectionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightActivationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LightActivationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightActivationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementStatusTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightElementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightGroupPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LightGroupType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LightGroupTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LinguisticNotePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LinguisticNoteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LinguisticNoteTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LocalizerExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LocalizerPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LocalizerTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LocalizerTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.LocalizerType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaUsagePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaUsageType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ManoeuvringAreaUsageTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkerBeaconExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkerBeaconPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkerBeaconTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkerBeaconTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkerBeaconType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingBuoyExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingBuoyPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingBuoyTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingBuoyTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingBuoyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingElementPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingElementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimaPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimaTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaSectorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaSectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaSectorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MinimumAltitudeAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachGroupPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachGroupType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachGroupTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachLegTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachLegTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MissedApproachLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NDBExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NDBPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NDBTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NDBTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NDBType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidComponentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidComponentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidComponentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentDistancePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentDistanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentDistanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentMonitoringPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentMonitoringType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentMonitoringTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidEquipmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidOperationalStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidOperationalStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidOperationalStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavaidType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaRestrictionExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaRestrictionPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaRestrictionTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaRestrictionTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaRestrictionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaSectorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaSectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaSectorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NavigationSystemCheckpointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NitrogenPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NitrogenType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NitrogenTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NoNumberType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NoSequenceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NonMovementAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NonMovementAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NonMovementAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NonMovementAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NonMovementAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.NoteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NoteTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAssessmentSurfacePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAssessmentSurfaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstacleAssessmentSurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstaclePlacementPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstaclePlacementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstaclePlacementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstructionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstructionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ObstructionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OilPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OilType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OilTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OnlineContactPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OnlineContactType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OnlineContactTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityAssociationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityAssociationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityAssociationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OrganisationAuthorityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OxygenPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.OxygenType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.OxygenTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerLoadingBridgeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerLoadingBridgePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerLoadingBridgeTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerLoadingBridgeTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerLoadingBridgeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PassengerServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferencePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointUsagePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PointUsageType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointUsageTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PostalAddressPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PostalAddressType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PostalAddressTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrecisionApproachRadarExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrecisionApproachRadarPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrecisionApproachRadarTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PrecisionApproachRadarTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PrecisionApproachRadarType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrimarySurveillanceRadarExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrimarySurveillanceRadarPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PrimarySurveillanceRadarTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PrimarySurveillanceRadarTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PrimarySurveillanceRadarType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureDMEExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureDMEPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureDMETimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureDMETimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureDMEType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedurePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionLegPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionLegType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionLegTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ProcedureTransitionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PropertiesWithSchedulePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarComponentPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarComponentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarComponentTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarEquipmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadarSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationChannelExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationChannelPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationChannelTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationChannelTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationChannelType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationOperationalStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationOperationalStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioCommunicationOperationalStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RadioFrequencyTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ReflectorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ReflectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ReflectorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RidgePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RidgeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RidgeTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoadExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoadPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoadTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RoadTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RoadType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteDMEExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteDMEPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteDMETimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteDMETimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteDMEType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoutePortionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RoutePortionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoutePortionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RoutePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteSegmentExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteSegmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteSegmentTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteSegmentTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteSegmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RouteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RulesProceduresExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RulesProceduresPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RulesProceduresTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RulesProceduresTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RulesProceduresType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayBlastPadExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayBlastPadPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayBlastPadTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayBlastPadTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayBlastPadType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayCentrelinePointExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayCentrelinePointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayCentrelinePointTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayCentrelinePointTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayCentrelinePointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistancePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistanceValuePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistanceValueType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDeclaredDistanceValueTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayDirectionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayElementExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayElementPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayElementTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayElementTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayProtectAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwaySectionContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwaySectionContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwaySectionContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayVisualRangeEquipmentExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayVisualRangeEquipmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayVisualRangeEquipmentTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayVisualRangeEquipmentTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.RunwayVisualRangeEquipmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SDFExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SDFPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SDFTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SDFTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SDFType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteApproachOperationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteApproachOperationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteApproachOperationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceAreaPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceAreaTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SatelliteSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneLandingAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneLandingAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneLandingAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneLandingAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneLandingAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneRampSiteExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneRampSitePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneRampSiteTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneRampSiteTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SeaplaneRampSiteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SearchRescueServiceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SearchRescueServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SearchRescueServiceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SearchRescueServiceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SearchRescueServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SecondarySurveillanceRadarExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SecondarySurveillanceRadarPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SecondarySurveillanceRadarTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SecondarySurveillanceRadarTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SecondarySurveillanceRadarType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SectorDesignPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SectorDesignType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SectorDesignTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SegmentLegAltitudeConditionPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SegmentLegAltitudeConditionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SegmentLegAltitudeConditionTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SegmentLegPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SegmentPointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ServiceOperationalStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ServiceOperationalStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ServiceOperationalStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SignificantPointInAirspaceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SignificantPointInAirspacePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SignificantPointInAirspaceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SignificantPointInAirspaceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SignificantPointInAirspaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialDateExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialDatePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialDateTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialDateTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialDateType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationStationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SpecialNavigationSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentArrivalExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentArrivalPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentArrivalTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentArrivalTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentArrivalType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentDepartureExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentDeparturePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentDepartureTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentDepartureTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardInstrumentDepartureType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelColumnExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelColumnPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelColumnTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelColumnTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelColumnType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelSectorExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelSectorPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelSectorTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelSectorTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelSectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTableExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTablePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTableTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTableTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTableType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.StandardLevelTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceCharacteristicsPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceCharacteristicsType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceCharacteristicsTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfacePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceRadarPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveyControlPointExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveyControlPointPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveyControlPointTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveyControlPointTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveyControlPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TACANExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TACANPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TACANTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TACANTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TACANType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiHoldingPositionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayElementExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayElementPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayElementTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayElementTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TaxiwayType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TelephoneContactPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TelephoneContactType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TelephoneContactTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaSectorPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaSectorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaSectorTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalArrivalAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalSegmentPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalSegmentPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TerminalSegmentPointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextAddressType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextDecimalType</class>
@@ -1195,38 +1594,57 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextSIDSTARDesignatorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TimeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TimesheetPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TimesheetType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TimesheetTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffContaminationPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffContaminationType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffContaminationTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffLightSystemExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffLightSystemPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffLightSystemTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffLightSystemTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffLightSystemType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffMarkingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffMarkingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffMarkingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffMarkingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffMarkingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffSafeAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffSafeAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffSafeAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffSafeAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffSafeAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.TouchDownLiftOffType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TrafficSeparationServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitDependencyPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitDependencyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitDependencyTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnitType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnplannedHoldingExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnplannedHoldingPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UnplannedHoldingTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnplannedHoldingTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.UnplannedHoldingType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.UsageConditionPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VDBAntennaPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VDBAntennaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VDBAntennaTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VORExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VORPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VORTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VORTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VORType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ValAlarmLimitType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ValAngleType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ValBearingType</class>
@@ -1255,28 +1673,42 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ValWeightType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureLightingStatusPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureLightingStatusType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureLightingStatusTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructurePartPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructurePartType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructurePartTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructurePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VerticalStructureType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VisualGlideSlopeIndicatorExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VisualGlideSlopeIndicatorPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.VisualGlideSlopeIndicatorTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VisualGlideSlopeIndicatorTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.VisualGlideSlopeIndicatorType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WaterBodyExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WaterBodyPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WaterBodyTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WaterBodyTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WaterBodyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceAvailabilityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceAvailabilityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceAvailabilityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourcePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WeatherSourceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkAreaExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkAreaPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkAreaTimeSlicePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkAreaTimeSliceType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkareaActivityPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkareaActivityType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkareaActivityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.XHTMLType</class>
-        <class>com.aixm.delorean.core.schema.a5_2.aixm.XHTMLTypeAnyItem</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType</class>
     </persistence-unit>
 </persistence>

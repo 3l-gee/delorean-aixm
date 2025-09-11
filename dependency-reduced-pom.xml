@@ -45,7 +45,13 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <artifactSet>
+                <includes>
+                  <include>*:*</include>
+                </includes>
+              </artifactSet>
               <transformers>
+                <transformer />
                 <transformer>
                   <mainClass>com.aixm.delorean.Main</mainClass>
                 </transformer>
@@ -90,54 +96,21 @@
         </plugins>
       </build>
     </profile>
-    <profile>
-      <id>enable-jaxb</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.jvnet.jaxb</groupId>
-            <artifactId>jaxb-maven-plugin</artifactId>
-            <version>4.0.8</version>
-            <executions>
-              <execution>
-                <id>generate-aixm5_2</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-                <configuration>
-                  <schemaDirectory>${project.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
-                  <schemaIncludes>
-                    <include>AIXM_BasicMessage.xsd</include>
-                  </schemaIncludes>
-                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
-                  <bindingIncludes>
-                    <include>*.xjb</include>
-                  </bindingIncludes>
-                  <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                </configuration>
-              </execution>
-            </executions>
-            <configuration>
-              <extension>true</extension>
-              <args>
-                <arg>-Xannotate</arg>
-                <arg>-XremoveAnnotation</arg>
-              </args>
-              <plugins>
-                <plugin>
-                  <groupId>org.jvnet.jaxb</groupId>
-                  <artifactId>jaxb-plugin-annotate</artifactId>
-                  <version>4.0.8</version>
-                </plugin>
-              </plugins>
-              <verbose>true</verbose>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
   </profiles>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
   <properties>
     <postgis.version>2025.1.1</postgis.version>
     <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>

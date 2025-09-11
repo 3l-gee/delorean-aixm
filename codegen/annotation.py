@@ -709,12 +709,25 @@ class Annox:
     def field_add(annotation):
         return f'''<annox:annotate target="field">{annotation}</annox:annotate>'''
 
+    @staticmethod
     def field_remove(annotation):
         return f'''<annox:removeAnnotation target="field">{annotation}</annox:annotate>'''
     
     @staticmethod
-    def hj_table(annotation):
-        return f'''<hj:table {annotation} />'''
+    def orm_table(annotation):
+        return f'''<orm:table {annotation} />'''
+    
+    @staticmethod
+    def orm_inheritance(annotation):
+        return f'''<orm:inheritance {annotation} />'''
+    
+    @staticmethod
+    def hj_entity(annotation):
+        return f'''<hj:entity>{annotation}</hj:entity>'''
+    
+    @staticmethod
+    def hj_mapped(annotation):
+        return f'''<hj:mapped-superclass>{annotation}</hj:mapped-superclass>'''
 
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"
@@ -827,7 +840,7 @@ class Relation:
 
     @staticmethod
     def inhertiance():
-        return f'inheritance="TABLE_PER_CLASS"'
+        return f'<orm:inheritance inheritance="TABLE_PER_CLASS" />'
         
     @staticmethod
     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
@@ -901,9 +914,9 @@ class Jpa:
     def table(name, schema, prefix=None):
         if prefix is None:
             
-            return f'name = "{Util.snake_case(name)}" schema = "{schema}"'
+            return f'<orm:table name = "{Util.snake_case(name)}" schema = "{schema}" />'
         else:
-            return f'name = "{Util.snake_case([prefix,name])}" schema = "{schema}"'
+            return f'<orm:table name = "{Util.snake_case([prefix,name])}" schema = "{schema}" />'
 
     @staticmethod
     def enumerated(value="STRING"):

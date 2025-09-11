@@ -2581,45 +2581,45 @@ public enum DatabaseConfig {
     }
 
     // Method to get a pre-configured Hibernate Configuration object
-        public Configuration getHibernateConfiguration() {
-            Configuration configuration = new Configuration();
+    public Configuration getHibernateConfiguration() {
+        Configuration configuration = new Configuration();
 
-            // Set database connection properties
-            configuration.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
-            configuration.setProperty("hibernate.connection.provider_class", "com.zaxxer.hikari.hibernate.HikariConnectionProvider");
+        // Set database connection properties
+        configuration.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
+        configuration.setProperty("hibernate.connection.provider_class", "com.zaxxer.hikari.hibernate.HikariConnectionProvider");
 
-            configuration.setProperty("hibernate.hikari.minimumIdle", "8");
-            configuration.setProperty("hibernate.hikari.maximumPoolSize", "32");
-            configuration.setProperty("hibernate.hikari.idleTimeout", "300000");
-            configuration.setProperty("hibernate.hikari.connectionTimeout", "30000");
-            configuration.setProperty("hibernate.hikari.maxLifetime", "1800000");
-            configuration.setProperty("hibernate.hikari.keepaliveTime", "300000");
-            configuration.setProperty("hibernate.hikari.poolName", "MyHikariPool");
+        configuration.setProperty("hibernate.hikari.minimumIdle", "8");
+        configuration.setProperty("hibernate.hikari.maximumPoolSize", "32");
+        configuration.setProperty("hibernate.hikari.idleTimeout", "300000");
+        configuration.setProperty("hibernate.hikari.connectionTimeout", "30000");
+        configuration.setProperty("hibernate.hikari.maxLifetime", "1800000");
+        configuration.setProperty("hibernate.hikari.keepaliveTime", "300000");
+        configuration.setProperty("hibernate.hikari.poolName", "MyHikariPool");
 
-            // Set Hibernate settings
-            configuration.setProperty("hibernate.show_sql", "false");
-            configuration.setProperty("hibernate.format_sql", "false");  
-            configuration.setProperty("hibernate.generate_statistics", "false");  
-            configuration.setProperty("hibernate.use_sql_comments", "false");
+        // Set Hibernate settings
+        configuration.setProperty("hibernate.show_sql", "false");
+        configuration.setProperty("hibernate.format_sql", "false");  
+        configuration.setProperty("hibernate.generate_statistics", "false");  
+        configuration.setProperty("hibernate.use_sql_comments", "false");
 
-            // Set Hibernate batching
-            configuration.setProperty("hibernate.jdbc.batch_size", "50");           // the mean batch size was observerd to be around 36
-            configuration.setProperty("hibernate.jdbc.batch_fetch_size", "50");
-            configuration.setProperty("hibernate.jdbc.fetch_size", "100");
-            configuration.setProperty("hibernate.order_inserts", "true");
-            configuration.setProperty("hibernate.order_updates", "true");
-            configuration.setProperty("hibernate.jdbc.batch_versioned_data", "true");
+        // Set Hibernate batching
+        configuration.setProperty("hibernate.jdbc.batch_size", "50");           // the mean batch size was observerd to be around 36
+        configuration.setProperty("hibernate.jdbc.batch_fetch_size", "50");
+        configuration.setProperty("hibernate.jdbc.fetch_size", "100");
+        configuration.setProperty("hibernate.order_inserts", "true");
+        configuration.setProperty("hibernate.order_updates", "true");
+        configuration.setProperty("hibernate.jdbc.batch_versioned_data", "true");
 
-            //Set PostgreSQL dialect
-            configuration.setProperty("hibernate.dialect.PostgreSQLDialect", "org.hibernate.spatial.dialect.postgis.PostgisDialect");
+        //Set PostgreSQL dialect
+        configuration.setProperty("hibernate.dialect.", "org.hibernate.spatial.dialect.postgis.PostgisPG12Dialect");
 
-            // Add mapping classes
-            for (Class<?> mappingClass : this.mappingClasses) {
-                configuration.addAnnotatedClass(mappingClass);
-            }
-
-            return configuration;
+        // Add mapping classes
+        for (Class<?> mappingClass : this.mappingClasses) {
+            configuration.addAnnotatedClass(mappingClass);
         }
+
+        return configuration;
+    }
 
     public static DatabaseConfig fromString(String version) {
         for (DatabaseConfig Schema : DatabaseConfig.values()) {

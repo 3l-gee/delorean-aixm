@@ -10,38 +10,41 @@
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-  <jaxb:bindings schemaLocation="../aixm/AIXM_AbstractGML_ObjectTypes.xsd"
-                 node="/xs:schema">
+  <jaxb:bindings schemaLocation="../aixm/AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
     <jaxb:bindings node="manual">
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageBaseType']">
           <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-        <hj:entity inheritance="TABLE_PER_CLASS"/>
+        <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']">
-        <hj:entity inheritance="TABLE_PER_CLASS"/>
+        <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMObjectType']">
-        <hj:entity inheritance="TABLE_PER_CLASS"/>
+        <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMPropertyType']">
-        <hj:entity inheritance="TABLE_PER_CLASS"/>
+        <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']">
-        <hj:entity inheritance="TABLE_PER_CLASS"/>
+        <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
-        <hj:entity/>
+        <hj:entity>
+          <orm:table name="message_metadata_property" schema="public"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
-        <hj:entity/>
+        <hj:entity>
+          <orm:table name="feature_timeslice_metadata_property" schema="public"/>
+        </hj:entity>
       </jaxb:bindings>
     </jaxb:bindings>
   </jaxb:bindings>

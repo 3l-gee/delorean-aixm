@@ -82,8 +82,7 @@ class ComplexType:
         # Abstract types are entity and have a inheritance strategy
         if element.attrib.get("name") in Content.get_abstract().keys() :
             Content.append_entity(element.attrib["name"])
-            # node.append(Jpa.super)
-            node.append(Annox.hj_table(Jpa.relation.inhertiance()))
+            node.append(Annox.hj_entity(Jpa.relation.inhertiance()))
             return node
 
         # Types that are embeddable 
@@ -92,10 +91,5 @@ class ComplexType:
             return node
         
         Content.append_entity(element.attrib["name"])
-        node.append((Jpa.entity))
-        base = element.find(".//" + Tag.restriction) or element.find(".//" + Tag.extension) 
-        if base is not None:
-            node.append(Annox.hj_table(Jpa.table(element.attrib["name"],schema)))
-        else :  
-            node.append(Annox.hj_table(Jpa.table(element.attrib["name"],schema)))
+        node.append(Annox.hj_entity(Jpa.table(element.attrib["name"],schema)))
         return node

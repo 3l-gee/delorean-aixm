@@ -46,9 +46,6 @@
     </hj:persistence>
 
     </jaxb:bindings>
-    <jaxb:bindings node="//xs:group[@name='RulesProceduresPropertyGroup']//xs:element[@name='content']">
-      <annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
-    </jaxb:bindings>
 
   </jaxb:bindings>
 </jaxb:bindings>

@@ -109,6 +109,15 @@ View({
             "TaxiHoldingPosition",
             "Taxiway",
             "TaxiwayElement",
+            "WaterBody",
+            "WeatherSource",
+            "WeatherSourceAvailability",
+            "LightGroup",
+            "AirportSign",
+            "AirportSignStatus",
+            "RunwayVisualRangeEquipment",
+            "Gangway",
+            "GuidanceLineDirection"
         ],
     },
     "Airspace" : {
@@ -191,6 +200,19 @@ View({
             "SignificantPoint",
             "SignificantPointInAirspace",
             "AeronauticalGroundLight",
+            "AltimeterCheckpoint",
+            "Angle",
+            "Distance",
+            "PointUsage",
+            "FlightInspectionTrajectory",
+            "GBAS",
+            "GBASService",
+            "RadioFrequency",
+            "SatelliteApproachOperation",
+            "SatelliteSystem",
+            "SatelliteService",
+            "SatelliteServiceArea",
+            "VDBAntenna"
         ],
     },
     "Notes" : {
@@ -264,6 +286,14 @@ View({
             "ProcedureTransitionLeg",
             "SegmentLeg",
             "ProcedureAvailability",
+            "FinalApproachControlAltitude",
+            "FinalApproachControlPosition",
+            "FinalApproachProfile",
+            "FinalApproachSegmentData",
+            "SegmentLegAltitudeCondition",
+            "MinimumAltitudeArea",
+            "MinimumAltitudeAreaSector",
+            "CourseGroup",
         ],
     },
     "Routes" : {
@@ -288,6 +318,7 @@ View({
             "FlightRestrictionRoute",
             "FlightRoutingElement",
             "FlightRoutingElementChoice",
+            "AltitudeIndication"
         ],
     },
     "Rules Procedures" : {
@@ -321,6 +352,7 @@ View({
             "Service",
             "ServiceOperationalStatus",
             "TrafficSeparationService",
+            "AirTrafficFlowManagementService"
         ],
     },
     "Shared" : {
@@ -350,7 +382,10 @@ View({
             "HoldingAssessment",
             "ObstacleAssessmentArea",
             "ObstaclePlacement",
-            "Obstruction"
+            "Obstruction",
+            "AircraftNavigationEquipment",
+            "DesignStandard",
+            "ObstacleAssessmentSurface"
         ],
     },
     "Surveillance" : {
@@ -695,6 +730,7 @@ config = {
         "aixm:AbstractAIXMPropertyType",
         "aixm:AbstractAIXMObjectBaseType",
         "aixm:AbstractAIXMObjectType",
+        "aixm:AbstractSurveillanceRadarType"
     ],
     "embed": [
 
@@ -718,6 +754,7 @@ config = {
         "AbstractSegmentPointType",
         "AbstractDirectFlightType",
         "AbstractPropertiesWithScheduleType",
+        "AbstractSurveillanceRadarType"
     ],
     "output_path": "schema/aixm5_2/binding/aixm.xjb",
     "version" : "a5_2",

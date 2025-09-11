@@ -98,10 +98,10 @@ class FieldHandler:
         if str(parent.attrib.get("name","") + "." + attribute.attrib.get("name","")) in Content.get_ignore():
             return node
 
-        if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-            node.append(Annox.field_add(Jpa.transient))
-            node.append(Jaxb.end)
-            return node
+        # if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
+        #     node.append(Annox.field_add(Jpa.transient))
+        #     node.append(Jaxb.end)
+        #     return node
 
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name())
@@ -125,17 +125,17 @@ class FieldHandler:
             
         if element.attrib.get("ref") is not None and element.attrib.get("name") is None :
             node.append(Jaxb.element(element.attrib.get("ref"),parent=parent_xpath, xpath=Xpath.GLOBAL.value ,at="ref"))
-            if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
 
         elif element.attrib.get("name") is not None:
             node.append(Jaxb.element(element.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-            if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         #     if element.attrib.get("name") == "dbid":
         #         node.append(Annox.field_add(Jpa.id))
@@ -177,17 +177,17 @@ class FieldHandler:
         
         if attribute.attrib.get("ref") is not None and attribute.attrib.get("name") is None :
             node.append(Jaxb.attribute(attribute.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-            if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         elif attribute.attrib.get("name") is not None:
             node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-            if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name())
@@ -214,17 +214,17 @@ class FieldHandler:
     
         if element.attrib.get("ref") is not None and element.attrib.get("name") is None :
             node.append(Jaxb.element(element.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-            if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
 
         elif element.attrib.get("name") is not None:
             node.append(Jaxb.element(element.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-            if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         #     if element.attrib.get("name") == "dbid":
         #         node.append(Annox.field_add(Jpa.id))
@@ -288,17 +288,17 @@ class FieldHandler:
 
         if attribute.attrib.get("ref") is not None and attribute.attrib.get("name") is None :
             node.append(Jaxb.attribute(attribute.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-            if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         elif attribute.attrib.get("name") is not None:
             node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-            if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-                node.append(Annox.field_add(Jpa.transient))
-                node.append(Jaxb.end)
-                return node
+        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
+        #         node.append(Annox.field_add(Jpa.transient))
+        #         node.append(Jaxb.end)
+        #         return node
             
         if attribute.attrib.get("name") == "name":
             node.append(Jaxb.property.name())

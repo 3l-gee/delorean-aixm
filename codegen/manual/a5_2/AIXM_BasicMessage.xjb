@@ -10,21 +10,18 @@
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-  <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd"
-                 node="/xs:schema">
+  <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:bindings node="manual">
-          <jaxb:bindings node="xs:complexType[@name='AIXMBasicMessageType']">
+      <jaxb:bindings node="xs:complexType[@name='AIXMBasicMessageType']">
           <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
-          <hj:mapped-superclass/>
+          <hj:entity>
+            <orm:table name="aixm_basic_message" schema="public"/>
+          </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
-        <hj:mapped-superclass/>
-      </jaxb:bindings>
-      <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
-        <hj:mapped-superclass/>
-      </jaxb:bindings>
-      <jaxb:bindings node="xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="basic_message_member" schema="public"/>
+        </hj:entity>
       </jaxb:bindings>
     </jaxb:bindings>
   </jaxb:bindings>
