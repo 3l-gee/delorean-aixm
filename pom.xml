@@ -184,10 +184,30 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<mainClass>org.example.root_header.Main</mainClass>
+					<mainClass>com.aixm.delorean.Main</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.aixm.delorean.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
@@ -286,7 +306,7 @@
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                 </configuration>
                             </execution> -->
-                            <execution>
+                            <!-- <execution>
                                 <id>generate-aixm5_1</id>
                                 <phase>generate-sources</phase>
                                 <goals>
@@ -303,7 +323,7 @@
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                 </configuration>
-                            </execution>
+                            </execution> -->
                             <!-- <execution>
                                 <id>generate-aixm5_1e</id>
                                 <phase>generate-sources</phase>
@@ -322,7 +342,7 @@
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                 </configuration>
                             </execution> -->
-                            <execution>
+                            <!-- <execution>
                                 <id>generate-aixm5_1_1</id>
                                 <phase>generate-sources</phase>
                                 <goals>
@@ -339,9 +359,9 @@
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                 </configuration>
-                            </execution>
+                            </execution> -->
                             <!-- JAXB codegen -->
-                            <!-- <execution>
+                            <execution>
                                 <id>generate-aixm5_2</id>
                                 <phase>generate-sources</phase>
                                 <goals>
@@ -358,7 +378,7 @@
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                                 </configuration>
-                            </execution> -->
+                            </execution>
 
                             <!-- <execution>
                                 <id>generate-aixmTest</id>

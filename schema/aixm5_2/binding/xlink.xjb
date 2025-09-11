@@ -9,7 +9,7 @@
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-    <jaxb:bindings schemaLocation="../aixm/xlink/xlinks.xsd">
+    <jaxb:bindings schemaLocation="http://www.w3.org/1999/xlink.xsd">
         <jaxb:schemaBindings>
             <jaxb:package name="com.aixm.delorean.core.org.w3.xlink"/>
             <jaxb:nameXmlTransform>
@@ -17,5 +17,16 @@
             </jaxb:nameXmlTransform>
         </jaxb:schemaBindings>
         <hj:ignored-package name="com.aixm.delorean.core.org.w3.xlink"/>
-     </jaxb:bindings>
+
+        <!-- Explicitly rename the 'title' attribute -->
+        <jaxb:bindings node="//xs:attribute[@name='title']">
+            <jaxb:property name="titleAttribute"/>
+        </jaxb:bindings>
+
+        <!-- Explicitly rename the 'title' inside the simpleAttrs attribute group -->
+        <jaxb:bindings node="//xs:attributeGroup[@name='simpleAttrs']/xs:attribute[@ref='xlink:title']">
+            <jaxb:property name="simpleLinkTitle"/>
+        </jaxb:bindings>
+        
+    </jaxb:bindings>
 </jaxb:bindings>

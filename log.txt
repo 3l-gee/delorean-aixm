@@ -6,46 +6,208 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- clean:3.2.0:clean (default-clean) @ delorean ---
+[INFO] Deleting C:\Users\rapha\Documents\project\delorean\target
 [INFO] 
 [INFO] --- hisrc-hyperjaxb:2.2.1:generate (generate) @ delorean ---
-[INFO] Latest timestamp of the source resources is [2025-09-07 17:54:49.711], earliest timestamp of the target resources is [2025-02-24 22:59:04.166].
+[INFO] Latest timestamp of the source resources is [2025-09-11 00:33:47.484], earliest timestamp of the target resources is [2025-02-24 22:59:04.166].
 [INFO] Sources are not up-to-date, XJC will be executed.
-[ERROR] TODO Wildcard.
-[INFO] Episode file [C:\Users\rapha\Documents\project\delorean\src\main\java\META-INF\sun-jaxb.episode] was augmented with if-exists="true" attributes.
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ delorean ---
-[INFO] Copying 311 resources from src\main\resources to target\classes
-[INFO] Copying 1 resource from src\main\java to target\classes
-[INFO] Copying 1 resource from src\main\java to target\classes
-[INFO] 
-[INFO] --- compiler:3.13.0:compile (default-compile) @ delorean ---
-[INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 4325 source files with javac [debug release 21] to target\classes
-[INFO] Hibernate compile-time tooling 7.1.0.Final
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,79] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,87] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,108] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,117] illegal start of type
-[INFO] 4 errors 
-[INFO] -------------------------------------------------------------
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/gml.xsd]
+[WARNING] RESOLVE External systemId [http://www.w3.org/1999/xlink.xsd]
+[WARNING] RESOLVE External systemId [http://www.w3.org/2001/xml.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/gml.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/feature.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/measures.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/units.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/dictionary.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd]
+[WARNING] RESOLVE External systemId [http://www.w3.org/1999/xlink.xsd]
+[WARNING] RESOLVE External systemId [http://www.w3.org/2001/xml.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/temporal.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/direction.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/topology.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/coverage.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/grids.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/datums.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/observation.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd]
+[WARNING] RESOLVE External systemId [http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd]
+[ERROR] Error while parsing schema(s). Location [ file:/C:/Users/rapha/Documents/project/delorean/schema/aixm5_2/binding/aixm.xjb{2285,39} ].
+org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found starting with element '{"https://jakarta.ee/xml/ns/jaxb":generateElementProperty}'. One of '{"https://jakarta.ee/xml/ns/jaxb":javadoc, "https://jakarta.ee/xml/ns/jaxb":baseType}' is expected.
+    at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException (ErrorHandlerWrapper.java:204)
+    at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error (ErrorHandlerWrapper.java:135)
+    at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError (XMLErrorReporter.java:396)
+    at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError (XMLErrorReporter.java:327)
+    at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError (XMLErrorReporter.java:284)
+    at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError (XMLSchemaValidator.java:512)
+    at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError (XMLSchemaValidator.java:3596)
+    at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement (XMLSchemaValidator.java:1972)
+    at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement (XMLSchemaValidator.java:830)
+    at com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl.startElement (ValidatorHandlerImpl.java:571)
+    at org.xml.sax.helpers.XMLFilterImpl.startElement (XMLFilterImpl.java:539)
+    at com.sun.tools.xjc.reader.xmlschema.bindinfo.ForkingFilter.startElement (ForkingFilter.java:118)
+    at com.sun.tools.xjc.reader.xmlschema.bindinfo.AnnotationParserFactoryImpl$1$1.startElement (AnnotationParserFactoryImpl.java:85)
+    at com.sun.xml.xsom.impl.parser.state.NGCCRuntime.startElement (NGCCRuntime.java:228)
+    at org.xml.sax.helpers.XMLFilterImpl.startElement (XMLFilterImpl.java:539)
+    at com.sun.tools.xjc.util.SubtreeCutter.startElement (SubtreeCutter.java:85)
+    at com.sun.tools.xjc.reader.ExtensionBindingChecker.startElement (ExtensionBindingChecker.java:120)
+    at org.xml.sax.helpers.XMLFilterImpl.startElement (XMLFilterImpl.java:539)
+    at com.sun.tools.xjc.reader.xmlschema.parser.IncorrectNamespaceURIChecker.startElement (IncorrectNamespaceURIChecker.java:99)
+    at org.xml.sax.helpers.XMLFilterImpl.startElement (XMLFilterImpl.java:539)
+    at com.sun.tools.xjc.reader.xmlschema.parser.CustomizationContextChecker.startElement (CustomizationContextChecker.java:164)
+    at org.xml.sax.helpers.XMLFilterImpl.startElement (XMLFilterImpl.java:539)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner$LocationResolver.startElement (DOMForestScanner.java:117)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:224)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.scan (DOMScanner.java:102)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:62)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:70)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestParser.parse (DOMForestParser.java:75)
+    at com.sun.tools.xjc.ModelLoader$XMLSchemaParser.parse (ModelLoader.java:238)
+    at com.sun.xml.xsom.impl.parser.NGCCRuntimeEx.parseEntity (NGCCRuntimeEx.java:342)
+    at com.sun.xml.xsom.impl.parser.NGCCRuntimeEx.includeSchema (NGCCRuntimeEx.java:242)
+    at com.sun.xml.xsom.impl.parser.state.includeDecl.action0 (includeDecl.java:43)
+    at com.sun.xml.xsom.impl.parser.state.includeDecl.leaveElement (includeDecl.java:110)
+    at com.sun.xml.xsom.impl.parser.state.NGCCRuntime.endElement (NGCCRuntime.java:289)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.util.SubtreeCutter.endElement (SubtreeCutter.java:90)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.reader.xmlschema.parser.CustomizationContextChecker.endElement (CustomizationContextChecker.java:171)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner$LocationResolver.endElement (DOMForestScanner.java:110)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:235)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.scan (DOMScanner.java:102)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:62)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:70)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestParser.parse (DOMForestParser.java:75)
+    at com.sun.tools.xjc.ModelLoader$XMLSchemaParser.parse (ModelLoader.java:238)
+    at com.sun.xml.xsom.impl.parser.NGCCRuntimeEx.parseEntity (NGCCRuntimeEx.java:342)
+    at com.sun.xml.xsom.impl.parser.NGCCRuntimeEx.importSchema (NGCCRuntimeEx.java:253)
+    at com.sun.xml.xsom.impl.parser.state.importDecl.action0 (importDecl.java:46)
+    at com.sun.xml.xsom.impl.parser.state.importDecl.leaveElement (importDecl.java:157)
+    at com.sun.xml.xsom.impl.parser.state.NGCCRuntime.endElement (NGCCRuntime.java:289)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.util.SubtreeCutter.endElement (SubtreeCutter.java:90)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.reader.xmlschema.parser.CustomizationContextChecker.endElement (CustomizationContextChecker.java:171)
+    at org.xml.sax.helpers.XMLFilterImpl.endElement (XMLFilterImpl.java:558)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner$LocationResolver.endElement (DOMForestScanner.java:110)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:235)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:261)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.visit (DOMScanner.java:230)
+    at org.glassfish.jaxb.core.unmarshaller.DOMScanner.scan (DOMScanner.java:102)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:62)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestScanner.scan (DOMForestScanner.java:70)
+    at com.sun.tools.xjc.reader.internalizer.DOMForestParser.parse (DOMForestParser.java:75)
+    at com.sun.tools.xjc.ModelLoader$XMLSchemaParser.parse (ModelLoader.java:238)
+    at com.sun.xml.xsom.impl.parser.NGCCRuntimeEx.parseEntity (NGCCRuntimeEx.java:342)
+    at com.sun.xml.xsom.impl.parser.ParserContext.parse (ParserContext.java:98)
+    at com.sun.xml.xsom.parser.XSOMParser.parse (XSOMParser.java:129)
+    at com.sun.xml.xsom.parser.XSOMParser.parse (XSOMParser.java:118)
+    at com.sun.tools.xjc.ModelLoader.createXSOM (ModelLoader.java:509)
+    at com.sun.tools.xjc.ModelLoader.loadXMLSchema (ModelLoader.java:348)
+    at com.sun.tools.xjc.ModelLoader.load (ModelLoader.java:142)
+    at com.sun.tools.xjc.ModelLoader.load (ModelLoader.java:88)
+    at org.jvnet.higherjaxb.mojo.v40.Higherjaxb40Mojo.loadModel (Higherjaxb40Mojo.java:118)
+    at org.jvnet.higherjaxb.mojo.v40.Higherjaxb40Mojo.doExecute (Higherjaxb40Mojo.java:66)
+    at org.jvnet.higherjaxb.mojo.v40.Higherjaxb40Mojo.doExecute (Higherjaxb40Mojo.java:43)
+    at org.jvnet.higherjaxb.mojo.AbstractHigherjaxbBaseMojo.doExecute (AbstractHigherjaxbBaseMojo.java:531)
+    at org.jvnet.higherjaxb.mojo.AbstractHigherjaxbBaseMojo.execute (AbstractHigherjaxbBaseMojo.java:329)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:903)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:280)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:203)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:361)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:30 min
-[INFO] Finished at: 2025-09-07T17:56:25+02:00
+[INFO] Total time:  26.175 s
+[INFO] Finished at: 2025-09-11T00:34:21+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project delorean: Compilation failure: Compilation failure: 
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,79] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gco/v2007/BooleanPropertyType_.java:[41,87] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,108] <identifier> expected
-[ERROR] /C:/Users/rapha/Documents/project/delorean/target/generated-sources/annotations/com/aixm/delorean/core/org/gmd/v2007/AbstractMDIdentificationType_.java:[98,117] illegal start of type
-[ERROR] -> [Help 1]
+[ERROR] Failed to execute goal org.patrodyne.jvnet:hisrc-hyperjaxb-maven-plugin:2.2.1:generate (generate) on project delorean: Unable to parse input schema(s). Error messages should have been provided. -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -9,7 +9,7 @@
 	xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
 	jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/basicTypes.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
 			<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -19,7 +19,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/coordinateOperations.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="//xs:element[@name='coordinateOperationAccuracy']//xs:element[@ref='gmd:AbstractDQ_PositionalAccuracy']">
@@ -37,7 +37,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/coordinateReferenceSystems.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="//xs:element[@name='userDefinedCS']">
@@ -91,13 +91,13 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/coordinateSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/coverage.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coverage.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/datums.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/datums.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="//xs:element[@name='secondDefiningParameter']">
@@ -112,20 +112,20 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/deprecatedTypes.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='StringOrRefType']">
 			<annox:annotate target="class">@jakarta.persistence.Embeddable</annox:annotate>
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/dictionary.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/dictionary.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/direction.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/direction.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/dynamicFeature.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='DynamicFeatureType']">
 			<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -151,7 +151,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/feature.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/feature.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractFeatureType']">
 			<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -164,19 +164,19 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/geometryAggregates.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/geometryBasic0d1d.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/geometryBasic2d.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/geometryComplexes.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/geometryPrimitives.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="//xs:group[@name='PointGrid']/xs:sequence/xs:element[@name='rows']">
@@ -186,7 +186,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/gml.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"
 		node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.core.org.gml.v_3_2_2"/>
@@ -194,7 +194,7 @@
 		<hj:ignored-package name="com.aixm.delorean.core.org.gml.v_3_2_2"/>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/gmlBase.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd"
 		node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
 			<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -237,7 +237,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/grids.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/grids.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="xs:complexType[@name='GridType']/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element[@name='axisLabels']">
@@ -247,13 +247,13 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/measures.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/measures.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/observation.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/observation.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/referenceSystems.xsd"
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd"
 		node="/xs:schema">
 		<jaxb:bindings>
 			<jaxb:bindings node="//xs:element[@name='domainOfValidity']//xs:element[@ref='gmd:EX_Extent']">
@@ -262,21 +262,21 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/temporal.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporal.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/temporalReferenceSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/temporalTopology.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/topology.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/topology.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/units.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/units.xsd" node="/xs:schema">
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../aixm/ISO_19136_Schemas/valueObjects.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd" node="/xs:schema">
 	</jaxb:bindings>
 </jaxb:bindings>

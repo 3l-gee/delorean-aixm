@@ -606,12 +606,13 @@ class Property:
     def name(name="aixmName"):
         return f'<jaxb:property name="{name}"/>'
     
-    element = '<jaxb:property generateElementProperty="false"/>'
+    # element = '<jaxb:property generateElementProperty="false"/>'
+    element = ''
 
     @staticmethod
     def name_element(name="aixmName"):
-        return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
-        # return f'<jaxb:property name="{name}"/>'
+        # return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
+        return f'<jaxb:property name="{name}"/>'
     
     @staticmethod
     def nameClass(name="aixmName"):
@@ -710,6 +711,10 @@ class Annox:
 
     def field_remove(annotation):
         return f'''<annox:removeAnnotation target="field">{annotation}</annox:annotate>'''
+    
+    @staticmethod
+    def hj_table(annotation):
+        return f'''<hj:table {annotation} />'''
 
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"
@@ -821,9 +826,9 @@ class Constraint:
 class Relation:
 
     @staticmethod
-    def inhertiance(strategy="InheritanceType.TABLE_PER_CLASS"):
-        return f'@jakarta.persistence.Inheritance(strategy = {strategy})'
-        return
+    def inhertiance():
+        return f'inheritance="TABLE_PER_CLASS"'
+        
     @staticmethod
     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   
         return f'@jakarta.persistence.OneToOne(cascade={cascade}, fetch={fetch})'
@@ -896,9 +901,9 @@ class Jpa:
     def table(name, schema, prefix=None):
         if prefix is None:
             
-            return f'@jakarta.persistence.Table(name = "{Util.snake_case(name)}", schema = "{schema}")'
+            return f'name = "{Util.snake_case(name)}" schema = "{schema}"'
         else:
-            return f'@jakarta.persistence.Table(name = "{Util.snake_case([prefix,name])}", schema = "{schema}")'
+            return f'name = "{Util.snake_case([prefix,name])}" schema = "{schema}"'
 
     @staticmethod
     def enumerated(value="STRING"):

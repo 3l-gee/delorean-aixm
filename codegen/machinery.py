@@ -30,7 +30,7 @@ class Machinery:
         # for key, value in self.content.items() :
             # self.export_file("types.txt", value["simple_type"]["type"])
 
-        # self.print_entity_class(self.entity_feature)
+        self.print_entity_class(Content.get_entity())
         # Control.print_actions(True)
 
     def export_file(self, file_path, content):
@@ -152,4 +152,4 @@ class Machinery:
     def print_entity_class(self, list):
         sorted_entities = sorted(list, key=lambda x: (not x.startswith("Message"), not x.startswith("Abstract"), x))
         for entity in sorted_entities:
-            print(str("com.aixm.delorean.core.schema.a5_1_1.aixm." + str(entity) + ".class,"))
+            print(str("com.aixm.delorean.core.schema.XXXX.aixm." + str(entity) + ".class,"))

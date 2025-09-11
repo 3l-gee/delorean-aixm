@@ -45,6 +45,11 @@ public enum XMLConfig {
         "a5_1_1", 
         "message/AIXM_BasicMessage.xsd",
         "a5_1_1"
+    ),
+    AIXM_5_2(
+        "a5_2", 
+        "message/AIXM_BasicMessage.xsd",
+        "a5_2"
     );
 
 

@@ -17,37 +17,31 @@
           <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-        <hj:mapped-superclass/>
-      </jaxb:bindings>
-      <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-        <hj:mapped-superclass/>
+        <hj:entity inheritance="TABLE_PER_CLASS"/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']">
-        <hj:mapped-superclass/>
+        <hj:entity inheritance="TABLE_PER_CLASS"/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMObjectType']">
-        <hj:mapped-superclass/>
+        <hj:entity inheritance="TABLE_PER_CLASS"/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMPropertyType']">
-        <hj:mapped-superclass/>
+        <hj:entity inheritance="TABLE_PER_CLASS"/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']">
-        <hj:mapped-superclass/>
+        <hj:entity inheritance="TABLE_PER_CLASS"/>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
-        <hj:mapped-superclass/>
-      </jaxb:bindings>
-      <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
-        <hj:mapped-superclass/>
+        <hj:entity/>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
-        <hj:mapped-superclass/>
+        <hj:entity/>
       </jaxb:bindings>
     </jaxb:bindings>
   </jaxb:bindings>

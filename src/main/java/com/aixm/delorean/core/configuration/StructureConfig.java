@@ -18,6 +18,10 @@ public enum StructureConfig {
     AIXM_5_1_1(
         "a5_1_1", 
         "com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType"
+    ),
+    AIXM_5_2(
+        "a5_2", 
+        "com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType"
     );
 
     private final String version;

@@ -13,12 +13,31 @@
         <version>3.13.0</version>
         <configuration>
           <release>21</release>
-          <compilerArgument>-Xlint:deprecation</compilerArgument>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.hibernate.orm</groupId>
+              <artifactId>hibernate-processor</artifactId>
+              <version>${hibernate.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>4.0.0-M12</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>com.aixm.delorean.Main</mainClass>
+          <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
+        <version>3.5.0</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -26,11 +45,6 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <artifactSet>
-                <includes>
-                  <include>*:*</include>
-                </includes>
-              </artifactSet>
               <transformers>
                 <transformer>
                   <mainClass>com.aixm.delorean.Main</mainClass>
@@ -48,13 +62,12 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.jvnet.jaxb</groupId>
-            <artifactId>jaxb-maven-plugin</artifactId>
-            <version>4.0.8</version>
+            <groupId>org.patrodyne.jvnet</groupId>
+            <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
+            <version>${hisrc-hyperjaxb.version}</version>
             <executions>
               <execution>
-                <id>generate-aixm5_2</id>
-                <phase>generate-sources</phase>
+                <id>generate</id>
                 <goals>
                   <goal>generate</goal>
                 </goals>
@@ -73,27 +86,6 @@
                 </configuration>
               </execution>
             </executions>
-            <configuration>
-              <extension>true</extension>
-              <args>
-                <arg>-Xannotate</arg>
-                <arg>-XremoveAnnotation</arg>
-                <arg>-Xhyperjaxb-jpa</arg>
-              </args>
-              <plugins>
-                <plugin>
-                  <groupId>org.jvnet.jaxb</groupId>
-                  <artifactId>jaxb-plugin-annotate</artifactId>
-                  <version>4.0.8</version>
-                </plugin>
-                <plugin>
-                  <groupId>org.patrodyne.jvnet</groupId>
-                  <artifactId>hisrc-hyperjaxb-ejb-plugin</artifactId>
-                  <version>${hyperjaxb.version}</version>
-                </plugin>
-              </plugins>
-              <verbose>true</verbose>
-            </configuration>
           </plugin>
         </plugins>
       </build>
@@ -146,66 +138,24 @@
       </build>
     </profile>
   </profiles>
-  <repositories>
-    <repository>
-      <releases />
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>osgeo</id>
-      <name>OSGeo Release Repository</name>
-      <url>https://repo.osgeo.org/repository/release/</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>hisrc-maven-repository</id>
-      <name>Hi-s-rc Maven Repository</name>
-      <url>https://storage.googleapis.com/hisrc-maven-repository/releases</url>
-    </pluginRepository>
-  </pluginRepositories>
-  <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.10.3</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>opentest4j</artifactId>
-          <groupId>org.opentest4j</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>junit-platform-commons</artifactId>
-          <groupId>org.junit.platform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>apiguardian-api</artifactId>
-          <groupId>org.apiguardian</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>hamcrest-core</artifactId>
-          <groupId>org.hamcrest</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-  </dependencies>
   <properties>
-    <hibernate.version>6.6.1.Final</hibernate.version>
-    <maven.compiler.target>21</maven.compiler.target>
-    <maven.compiler.source>21</maven.compiler.source>
+    <postgis.version>2025.1.1</postgis.version>
+    <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
+    <slf4j.version>2.0.12</slf4j.version>
+    <jpa-api.version>3.2.0</jpa-api.version>
+    <freemarker.version>2.3.34</freemarker.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jpa.version>3.2.0</jpa.version>
-    <geotools.version>32.0</geotools.version>
-    <jaxb.version>4.0.2</jaxb.version>
-    <hyperjaxb.version>2.2.1</hyperjaxb.version>
+    <hikaricp.version>7.0.2</hikaricp.version>
+    <hibernate.version>7.1.0.Final</hibernate.version>
+    <annotation.version>2.1.1</annotation.version>
+    <h2database.version>2.2.224</h2database.version>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <eclipselink.version>4.0.2</eclipselink.version>
+    <maven-min.version>3.9.0</maven-min.version>
+    <hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+    <jts.version>1.20.0</jts.version>
+    <proj4.version>1.4.1</proj4.version>
+    <postgresql.version>42.7.3</postgresql.version>
+    <hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
   </properties>
 </project>

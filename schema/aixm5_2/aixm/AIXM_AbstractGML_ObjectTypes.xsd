@@ -38,11 +38,9 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 	<!--Schema Imports and Includes-->
 	<!--====================================================================-->
 	<!-- ==== IMPORT GML 3.2 (corrigendum 3.2.2 of version 3.2.1) ==== -->
-	<!-- <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/> -->
-	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./ISO_19136_Schemas/gml.xsd"/>
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
 	<!--==== IMPORT ISO19139 METADATA SCHEMA ====-->
-	<!-- <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/> -->
-	<import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="./ISO_19139_Schemas/gmd/gmd.xsd"/>
+	<import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
 	<!--====================================================================-->
 	<!--Base AIXM Feature/Object Constructs-->
 	<!--====================================================================-->
