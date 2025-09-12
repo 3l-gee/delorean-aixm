@@ -25,24 +25,66 @@
     </jaxb:globalBindings>
 
     <hj:persistence>
+        
+      <hj:default-entity>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:default-entity>
+        
+      <hj:default-generated-version
+          name="hjversion"
+          javaType="java.lang.Long"
+          attributeName="hjversion"
+          schemaType="xsd:long"
+          transient="true"
+          forced="true"
+          >
+          <orm:column name="hjversion"/>
+      </hj:default-generated-version>
+        
       <hj:default-generated-id>
         <orm:generated-value strategy="SEQUENCE" generator="delorean_seq_gen"/>
         <orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
       </hj:default-generated-id>
 
       <hj:default-one-to-one fetch="EAGER"/>
-      <hj:default-one-to-many fetch="EAGER"/>
-      <hj:default-many-to-many fetch="LAZY"/>
-
-      <hj:default-many-to-one merge="false" fetch="EAGER">
-        <orm:join-column/>
+      <hj:default-one-to-many fetch="EAGER">
+        <orm:join-table>
+          <orm:join-column name="source_id"/>
+          <orm:inverse-join-column name="target_id"/>
+        </orm:join-table>
         <orm:cascade>
           <orm:cascade-refresh/>
           <orm:cascade-persist/>
           <orm:cascade-merge/>
           <orm:cascade-detach/>
         </orm:cascade>
+      </hj:default-one-to-many>
+
+      <hj:default-many-to-one merge="false" fetch="EAGER">
+          <orm:join-table>
+            <orm:join-column name="source_id"/>
+            <orm:inverse-join-column name="target_id"/>
+          </orm:join-table>
+          <orm:cascade>
+            <orm:cascade-refresh/>
+            <orm:cascade-persist/>
+            <orm:cascade-merge/>
+            <orm:cascade-detach/>
+          </orm:cascade>
       </hj:default-many-to-one>
+        
+      <hj:default-many-to-many merge="false" fetch="EAGER">
+          <orm:join-table>
+            <orm:join-column name="source_id"/>
+            <orm:inverse-join-column name="target_id"/>
+          </orm:join-table>
+          <orm:cascade>
+            <orm:cascade-refresh/>
+            <orm:cascade-persist/>
+            <orm:cascade-merge/>
+            <orm:cascade-detach/>
+          </orm:cascade>
+      </hj:default-many-to-many>
     </hj:persistence>
 
     </jaxb:bindings>

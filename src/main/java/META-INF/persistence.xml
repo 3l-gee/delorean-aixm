@@ -1,301 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence version="3.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <persistence-unit name="com.aixm.delorean.core.org.gco.v2007:com.aixm.delorean.core.org.gmd.v2007:com.aixm.delorean.core.org.gml.v_3_2_2:com.aixm.delorean.core.org.gsr.v2007:com.aixm.delorean.core.org.gss.v2007:com.aixm.delorean.core.org.gts.v2007:com.aixm.delorean.core.schema.a5_2.aixm:com.aixm.delorean.core.schema.a5_2.aixm.message">
-        <class>com.aixm.delorean.core.org.gco.v2007.AbstractObjectType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.AnglePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.BinaryPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.BinaryType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.BooleanPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.CodeListValueType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.DatePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.DateTimePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.DecimalPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.DistancePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.GenericNamePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.IntegerPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.LengthPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.LocalNamePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MeasurePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MemberNamePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MemberNameType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MultiplicityPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MultiplicityRangePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MultiplicityRangeType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.MultiplicityType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.NumberPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.ObjectReferencePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.RealPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.RecordPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.RecordTypePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.RecordTypeType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.ScalePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.ScopedNamePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.TypeNamePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.TypeNameType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UnitOfMeasurePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UnlimitedIntegerPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UnlimitedIntegerType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomAnglePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomAreaPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomLengthPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomScalePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomTimePropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomVelocityPropertyType</class>
-        <class>com.aixm.delorean.core.org.gco.v2007.UomVolumePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQCompletenessType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQElementType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQLogicalConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQPositionalAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQResultType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQTemporalAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDQThematicAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractDSAggregateType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractEXGeographicExtentType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractMDContentInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractMDIdentificationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractMDSpatialRepresentationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.AbstractRSReferenceSystemType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIAddressPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIAddressType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CICitationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CICitationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIContactPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIContactType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIDatePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIDateType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIDateTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIOnLineFunctionCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIOnlineResourcePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIOnlineResourceType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIPresentationFormCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIResponsiblePartyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIResponsiblePartyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CIRoleCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CISeriesPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CISeriesType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CITelephonePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CITelephoneType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.CountryPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQAbsoluteExternalPositionalAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQAbsoluteExternalPositionalAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQAccuracyOfATimeMeasurementPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQAccuracyOfATimeMeasurementType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQCompletenessCommissionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQCompletenessCommissionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQCompletenessOmissionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQCompletenessOmissionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQCompletenessPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQConceptualConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQConceptualConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQConformanceResultPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQConformanceResultType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQDataQualityPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQDataQualityType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQDomainConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQDomainConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQElementPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQEvaluationMethodTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQFormatConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQFormatConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQGriddedDataPositionalAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQGriddedDataPositionalAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQLogicalConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQNonQuantitativeAttributeAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQNonQuantitativeAttributeAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQPositionalAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQQuantitativeAttributeAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQQuantitativeAttributeAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQQuantitativeResultPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQQuantitativeResultType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQRelativeInternalPositionalAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQRelativeInternalPositionalAccuracyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQResultPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQScopePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQScopeType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTemporalAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTemporalConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTemporalConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTemporalValidityPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTemporalValidityType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQThematicAccuracyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQThematicClassificationCorrectnessPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQThematicClassificationCorrectnessType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTopologicalConsistencyPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DQTopologicalConsistencyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSAggregatePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSAssociationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSAssociationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSAssociationTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSDataSetPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSDataSetType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSInitiativePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSInitiativeType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSInitiativeTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSOtherAggregatePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSOtherAggregateType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSPlatformPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSPlatformType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSProductionSeriesPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSProductionSeriesType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSSensorPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSSensorType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSSeriesPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSSeriesType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSStereoMatePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.DSStereoMateType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXBoundingPolygonPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXBoundingPolygonType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXExtentPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXExtentType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXGeographicBoundingBoxPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXGeographicBoundingBoxType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXGeographicDescriptionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXGeographicDescriptionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXGeographicExtentPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXSpatialTemporalExtentPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXSpatialTemporalExtentType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXTemporalExtentPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXTemporalExtentType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXVerticalExtentPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.EXVerticalExtentType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LILineagePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LILineageType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LIProcessStepPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LIProcessStepType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LISourcePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LISourceType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LanguageCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LocalisedCharacterStringPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.LocalisedCharacterStringType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDAggregateInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDAggregateInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDApplicationSchemaInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDApplicationSchemaInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDBandPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDBandType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDBrowseGraphicPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDBrowseGraphicType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDCellGeometryCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDCharacterSetCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDClassificationCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDConstraintsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDConstraintsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDContentInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDCoverageContentTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDCoverageDescriptionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDCoverageDescriptionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDataIdentificationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDataIdentificationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDatatypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDigitalTransferOptionsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDigitalTransferOptionsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDimensionNameTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDimensionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDimensionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDistributionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDistributionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDistributionUnitsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDistributorPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDDistributorType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDExtendedElementInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDExtendedElementInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDFeatureCatalogueDescriptionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDFeatureCatalogueDescriptionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDFormatPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDFormatType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeometricObjectTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeometricObjectsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeometricObjectsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeorectifiedPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeorectifiedType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeoreferenceablePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGeoreferenceableType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGridSpatialRepresentationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDGridSpatialRepresentationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDIdentificationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDIdentifierPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDIdentifierType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDImageDescriptionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDImageDescriptionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDImagingConditionCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDKeywordTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDKeywordsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDKeywordsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDLegalConstraintsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDLegalConstraintsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMaintenanceFrequencyCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMaintenanceInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMaintenanceInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMediumFormatCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMediumNameCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMediumPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMediumType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMetadataExtensionInformationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMetadataExtensionInformationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMetadataPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDMetadataType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDObligationCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDPixelOrientationCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDPortrayalCatalogueReferencePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDPortrayalCatalogueReferenceType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDProgressCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDRangeDimensionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDRangeDimensionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDReferenceSystemPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDReferenceSystemType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDRepresentativeFractionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDRepresentativeFractionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDResolutionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDResolutionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDRestrictionCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDScopeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDScopeDescriptionPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDScopeDescriptionType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDSecurityConstraintsPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDSecurityConstraintsType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDServiceIdentificationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDServiceIdentificationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDSpatialRepresentationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDSpatialRepresentationTypeCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDStandardOrderProcessPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDStandardOrderProcessType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDTopicCategoryCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDTopologyLevelCodePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDUsagePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDUsageType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDVectorSpatialRepresentationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.MDVectorSpatialRepresentationType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTFreeTextPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTFreeTextType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTLocaleContainerPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTLocaleContainerType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTLocalePropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.PTLocaleType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.RSIdentifierPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.RSIdentifierType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.RSReferenceSystemPropertyType</class>
-        <class>com.aixm.delorean.core.org.gmd.v2007.URLPropertyType</class>
+    <persistence-unit name="com.aixm.delorean.core.org.gml.v_3_2_2:com.aixm.delorean.core.schema.a5_2.aixm:com.aixm.delorean.core.schema.a5_2.aixm.message">
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractCurveSegmentType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractCurveType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractFeatureMemberType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractFeatureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractGMLType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractGeometricPrimitiveType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractGeometryType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractMetadataPropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractSurfacePatchType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractSurfaceType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.AbstractTimeSliceType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcByBulgeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcByCenterPointType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringByBulgeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringByBulgeTypePosOrPointPropertyOrPointRepItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringTypePosOrPointPropertyOrPointRepItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.BSplineType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.BSplineTypePosOrPointPropertyOrPointRepItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Boolean</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.BoundingShapeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.Category</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CircleByCenterPointType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CircleType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ClothoidType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CodeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CodeWithAuthorityType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.ControlPoint</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ControlPointGeometricPositionGroupItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.CoordinateOperationAccuracy</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CoordinatesType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Count</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CubicSplineType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CubicSplineTypePosOrPointPropertyOrPointRepItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CurveSegmentArrayPropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.CurveType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.DirectPositionType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.DomainOfValidity</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.DynamicFeatureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.EnvelopeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.EnvelopeWithTimePeriodType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.FormulaCitation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicStringType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicStringTypeGeometricPositionGroupItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.LineStringSegmentType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.LineStringSegmentTypePosOrPointPropertyOrPointRepItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.OffsetCurveType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.PointType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.PolygonPatchType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.RectangleType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.RefLocation</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.RowGeometricPositionGroupItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Rows</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameter</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameterPropertyElement</class>
-        <class>com.aixm.delorean.core.org.gsr.v2007.SCCRSPropertyType</class>
-        <class>com.aixm.delorean.core.org.gss.v2007.GMObjectPropertyType</class>
-        <class>com.aixm.delorean.core.org.gss.v2007.GMPointPropertyType</class>
-        <class>com.aixm.delorean.core.org.gts.v2007.TMPeriodDurationPropertyType</class>
-        <class>com.aixm.delorean.core.org.gts.v2007.TMPrimitivePropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.StringOrRefType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfacePatchArrayPropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfaceType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.TimePositionType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.TimePrimitivePropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.TriangleType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureBaseType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMMessageBaseType</class>
@@ -854,6 +624,7 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CurvePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CurveType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEPropertyType</class>
@@ -903,10 +674,13 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DistanceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DistanceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurvePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfacePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevationPropertyType</class>
@@ -922,6 +696,8 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.EquipmentUnavailableAdjustmentTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FeatureMetadataPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.FeatureTimeSliceMetadataPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FinalApproachControlAltitudeTypeExtension</class>
@@ -1116,6 +892,7 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingElementType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingElementTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MarkingPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.MessageMetadataPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.MeteorologyTypeExtension</class>
@@ -1238,6 +1015,7 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferencePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PointType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointUsagePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.PointUsageType</class>
@@ -1512,6 +1290,7 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfacePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationType</class>
@@ -1710,5 +1489,6 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.WorkareaActivityTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.XHTMLType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType</class>
     </persistence-unit>
 </persistence>

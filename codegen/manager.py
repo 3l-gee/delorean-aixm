@@ -134,7 +134,7 @@ View({
         ],
     },
     "Geometry" : {
-        "schema" : "geometry",
+        "schema" : "gml",
         "list" : [
             "PointPropertyType",
             "CurvePropertyType",
@@ -682,15 +682,7 @@ config = {
         "FeatureMetadataPropertyType",
         "FeatureTimeSliceMetadataPropertyType",
         "MessageMetadataPropertyType,",
-
-        # Gis
-        # "PointPropertyType",
-        # "CurvePropertyType",
-        # "SurfacePropertyType",
-        # "ElevatedPointPropertyType",
-        # "ElevatedCurvePropertyType",
-        # "ElevatedSurfacePropertyType",
-
+        
         # Core Abstract
         "AbstractAIXMMessageBaseType",
         "AbstractAIXMMessageType",
@@ -733,7 +725,12 @@ config = {
         "aixm:AbstractSurveillanceRadarType"
     ],
     "embed": [
-
+        "PointType",
+        "ElevatedPointType",
+        "CurveType",
+        "ElevatedCurveType",
+        "SurfaceType",
+        "ElevatedSurfaceType",
     ],
     "abstract": [
         "AbstractMarkingType",

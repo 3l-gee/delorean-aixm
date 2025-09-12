@@ -713,6 +713,7 @@ class Annox:
     def field_remove(annotation):
         return f'''<annox:removeAnnotation target="field">{annotation}</annox:annotate>'''
     
+class HyperJAXB:
     @staticmethod
     def orm_table(annotation):
         return f'''<orm:table {annotation} />'''
@@ -722,13 +723,34 @@ class Annox:
         return f'''<orm:inheritance {annotation} />'''
     
     @staticmethod
-    def hj_entity(annotation):
-        return f'''<hj:entity>{annotation}</hj:entity>'''
+    def hj_entity_start():
+        return f'''<hj:entity>'''
     
     @staticmethod
-    def hj_mapped(annotation):
-        return f'''<hj:mapped-superclass>{annotation}</hj:mapped-superclass>'''
-
+    def hj_entity_end():
+        return f'''</hj:entity>'''
+    
+    @staticmethod
+    def hj_mapped_start():
+        return f'''<hj:mapped-superclass>'''
+    
+    @staticmethod
+    def hj_mapped_end():
+        return f'''</hj:mapped-superclass>'''
+    
+    @staticmethod
+    def inhertiance(strategy="TABLE_PER_CLASS"):
+        return f'<orm:inheritance strategy="{strategy}" />'
+    
+    @staticmethod
+    def table(name, schema, prefix=None):
+        if prefix is None:
+            
+            return f'<orm:table name = "{Util.snake_case(name)}" schema = "{schema}" />'
+        else:
+            return f'<orm:table name = "{Util.snake_case([prefix,name])}" schema = "{schema}" />'
+        
+    
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"
     namespaces = {'xs': 'http://www.w3.org/2001/XMLSchema'}
@@ -840,7 +862,7 @@ class Relation:
 
     @staticmethod
     def inhertiance():
-        return f'<orm:inheritance inheritance="TABLE_PER_CLASS" />'
+        return f'<orm:inheritance strategy="TABLE_PER_CLASS" />'
         
     @staticmethod
     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   

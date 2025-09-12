@@ -30,7 +30,7 @@ class Machinery:
         # for key, value in self.content.items() :
             # self.export_file("types.txt", value["simple_type"]["type"])
 
-        self.print_entity_class(Content.get_entity())
+        self.save_entity_class(Content.get_entity(), "entities.txt")
         # Control.print_actions(True)
 
     def export_file(self, file_path, content):
@@ -149,7 +149,11 @@ class Machinery:
 
             tree.write(file_path, pretty_print=True, encoding='utf-8', xml_declaration=True)
 
-    def print_entity_class(self, list):
-        sorted_entities = sorted(list, key=lambda x: (not x.startswith("Message"), not x.startswith("Abstract"), x))
-        for entity in sorted_entities:
-            print(str("com.aixm.delorean.core.schema.XXXX.aixm." + str(entity) + ".class,"))
+    def save_entity_class(self, entities, filename="output.txt"):
+        sorted_entities = sorted(
+            entities,
+            key=lambda x: (not x.startswith("Message"), not x.startswith("Abstract"), x)
+        )
+        with open(filename, "w", encoding="utf-8") as f:
+            for entity in sorted_entities:
+                f.write(f"com.aixm.delorean.core.schema.XXXX.aixm.{entity}.class,\n")

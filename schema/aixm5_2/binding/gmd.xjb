@@ -15,7 +15,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gmd.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="om.aixm.delorean.core.org.gmd.v2007"/>
+        <hj:ignored-package name="com.aixm.delorean.core.org.gmd.v2007"/>
 
     </jaxb:bindings>
 
@@ -29,6 +29,13 @@
 
     </jaxb:bindings>
     
+    <jaxb:bindings schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd" node="/xs:schema">
+        
+        <jaxb:bindings node="//xs:complexType[@name='MD_Metadata_Type']">
+            <hj:ignored/>
+        </jaxb:bindings>
+        
+    </jaxb:bindings>  
 
     <jaxb:bindings schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd" node="/xs:schema">
 
@@ -36,7 +43,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gco.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="om.aixm.delorean.core.org.gco.v2007"/>
+        <hj:ignored-package name="com.aixm.delorean.core.org.gco.v2007"/>
         
     </jaxb:bindings>
 
@@ -54,7 +61,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gsr.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="om.aixm.delorean.core.org.gsr.v2007"/>
+        <hj:ignored-package name="com.aixm.delorean.core.org.gsr.v2007"/>
         
     </jaxb:bindings>
 
@@ -64,7 +71,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gss.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="om.aixm.delorean.core.org.gss.v2007"/>
+        <hj:ignored-package name="com.aixm.delorean.core.org.gss.v2007"/>
         
     </jaxb:bindings>
 
@@ -74,7 +81,7 @@
             <jaxb:package name="com.aixm.delorean.core.org.gts.v2007"/>
         </jaxb:schemaBindings>
         
-        <hj:ignored-package name="om.aixm.delorean.core.org.gts.v2007"/>
+        <hj:ignored-package name="com.aixm.delorean.core.org.gts.v2007"/>
         
     </jaxb:bindings>
  </jaxb:bindings>

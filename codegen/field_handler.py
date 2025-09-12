@@ -107,6 +107,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
         # name = parent.attrib.get("name") + "_" + attribute.attrib.get("name")
@@ -152,6 +153,7 @@ class FieldHandler:
             node.append(Jaxb.property.element)
 
         if element.attrib.get("name") == "extension":
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
 
@@ -193,6 +195,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
         # else : 
@@ -241,6 +244,7 @@ class FieldHandler:
             node.append(Jaxb.property.element)
 
         if element.attrib.get("name") == "extension":
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
         # else : 
         #     print(element.attrib)
@@ -304,6 +308,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
         # else : 

@@ -15,12 +15,12 @@
       <jaxb:bindings node="xs:complexType[@name='AIXMBasicMessageType']">
           <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
           <hj:entity>
-            <orm:table name="aixm_basic_message" schema="public"/>
+            <orm:table name="aixm_basic_message" schema="aixm"/>
           </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
         <hj:entity>
-          <orm:table name="basic_message_member" schema="public"/>
+          <orm:table name="basic_message_member" schema="aixm"/>
         </hj:entity>
       </jaxb:bindings>
     </jaxb:bindings>

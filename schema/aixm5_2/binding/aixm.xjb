@@ -2295,15 +2295,34 @@
       <jaxb:serializable uid="20250910"/>
     </jaxb:globalBindings>
     <hj:persistence>
+      <hj:default-entity>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:default-entity>
+      <hj:default-generated-version name="hjversion" javaType="java.lang.Long" attributeName="hjversion" schemaType="xsd:long" transient="true" forced="true">
+        <orm:column name="hjversion"/>
+      </hj:default-generated-version>
       <hj:default-generated-id>
         <orm:generated-value strategy="SEQUENCE" generator="delorean_seq_gen"/>
         <orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
       </hj:default-generated-id>
       <hj:default-one-to-one fetch="EAGER"/>
-      <hj:default-one-to-many fetch="EAGER"/>
-      <hj:default-many-to-many fetch="LAZY"/>
+      <hj:default-one-to-many fetch="EAGER">
+        <orm:join-table>
+          <orm:join-column name="source_id"/>
+          <orm:inverse-join-column name="target_id"/>
+        </orm:join-table>
+        <orm:cascade>
+          <orm:cascade-refresh/>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-detach/>
+        </orm:cascade>
+      </hj:default-one-to-many>
       <hj:default-many-to-one merge="false" fetch="EAGER">
-        <orm:join-column/>
+        <orm:join-table>
+          <orm:join-column name="source_id"/>
+          <orm:inverse-join-column name="target_id"/>
+        </orm:join-table>
         <orm:cascade>
           <orm:cascade-refresh/>
           <orm:cascade-persist/>
@@ -2311,6 +2330,18 @@
           <orm:cascade-detach/>
         </orm:cascade>
       </hj:default-many-to-one>
+      <hj:default-many-to-many merge="false" fetch="EAGER">
+        <orm:join-table>
+          <orm:join-column name="source_id"/>
+          <orm:inverse-join-column name="target_id"/>
+        </orm:join-table>
+        <orm:cascade>
+          <orm:cascade-refresh/>
+          <orm:cascade-persist/>
+          <orm:cascade-merge/>
+          <orm:cascade-detach/>
+        </orm:cascade>
+      </hj:default-many-to-many>
     </hj:persistence>
     <!-- section : auto -->
     <!-- part : default -->
@@ -2549,7 +2580,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAirportHeliportProtectionAreaType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractairportheliportprotectionarea" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -2807,7 +2839,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractUsageConditionType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractusagecondition" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -3443,7 +3476,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractGroundLightSystemType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractgroundlightsystem" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -3899,7 +3933,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractMarkingType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractmarking" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -4979,7 +5014,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractSurfaceContaminationType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractsurfacecontamination" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5462,9 +5498,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurveType']">
-      <hj:entity>
-        <orm:table name="curve" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurveType']//xs:element[@name='extension']/xs:complexType">
@@ -5476,7 +5510,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
       <hj:entity>
-        <orm:table name="curve_pt" schema="geometry"/>
+        <orm:table name="curve_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5484,9 +5518,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']">
-      <hj:entity>
-        <orm:table name="elevatedcurve" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='extension']/xs:complexType">
@@ -5498,7 +5530,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']">
       <hj:entity>
-        <orm:table name="elevatedcurve_pt" schema="geometry"/>
+        <orm:table name="elevatedcurve_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5506,9 +5538,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']">
-      <hj:entity>
-        <orm:table name="elevatedpoint" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='extension']/xs:complexType">
@@ -5520,7 +5550,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']">
       <hj:entity>
-        <orm:table name="elevatedpoint_pt" schema="geometry"/>
+        <orm:table name="elevatedpoint_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5528,9 +5558,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']">
-      <hj:entity>
-        <orm:table name="elevatedsurface" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='extension']/xs:complexType">
@@ -5542,7 +5570,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']">
       <hj:entity>
-        <orm:table name="elevatedsurface_pt" schema="geometry"/>
+        <orm:table name="elevatedsurface_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5550,9 +5578,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointType']">
-      <hj:entity>
-        <orm:table name="point" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@name='extension']/xs:complexType">
@@ -5564,7 +5590,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
       <hj:entity>
-        <orm:table name="point_pt" schema="geometry"/>
+        <orm:table name="point_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -5572,9 +5598,7 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
-      <hj:entity>
-        <orm:table name="surface" schema="geometry"/>
-      </hj:entity>
+      <hj:embeddable/>
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurfaceType']//xs:element[@name='extension']/xs:complexType">
@@ -5586,7 +5610,7 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
       <hj:entity>
-        <orm:table name="surface_pt" schema="geometry"/>
+        <orm:table name="surface_pt" schema="gml"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -6244,7 +6268,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractNavaidEquipmentType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractnavaidequipment" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -6306,7 +6331,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractNavigationSystemCheckpointType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractnavigationsystemcheckpoint" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -6684,7 +6710,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractSegmentPointType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractsegmentpoint" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -8042,7 +8069,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractApproachLegType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractapproachleg" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -8452,7 +8480,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractProcedureType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractprocedure" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -8545,7 +8574,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractSegmentLegType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractsegmentleg" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -8815,7 +8845,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractDirectFlightType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractdirectflight" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -9181,7 +9212,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAirportGroundServiceType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractairportgroundservice" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -9737,7 +9769,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractServiceType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractservice" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -9774,7 +9807,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractTrafficSeparationServiceType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstracttrafficseparationservice" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -10115,7 +10149,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractPropertiesWithScheduleType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractpropertieswithschedule" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -10558,7 +10593,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractRadarEquipmentType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractradarequipment" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -10694,7 +10730,8 @@
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractSurveillanceRadarType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractsurveillanceradar" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -16081,41 +16118,62 @@
       <hj:mapped-superclass/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-      <hj:mapped-superclass/>
+      <hj:entity>
+        <orm:table name="abstract_aixm_message" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureBaseType']">
       <hj:mapped-superclass/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']">
-      <hj:mapped-superclass/>
+      <hj:entity>
+        <orm:table name="abstract_aixm_feature" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMObjectType']">
-      <hj:mapped-superclass/>
+      <hj:entity>
+        <orm:table name="abstract_aixm_object" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMPropertyType']">
-      <hj:mapped-superclass/>
+      <hj:entity>
+        <orm:table name="abstract_aixm_property" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
       <hj:mapped-superclass/>
     </jaxb:bindings>
     <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']">
-      <hj:mapped-superclass/>
+      <hj:entity>
+        <orm:table name="abstract_aixm_timeslice" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
+      </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
       <hj:entity>
-        <orm:table name="message_metadata_property" schema="public"/>
+        <orm:table name="message_metadata_property" schema="aixm"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
+      <hj:entity>
+        <orm:table name="feature_metadata_property" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
       <hj:entity>
-        <orm:table name="feature_timeslice_metadata_property" schema="public"/>
+        <orm:table name="feature_timeslice_metadata_property" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
     <!-- section : auto -->
     <!-- part : default -->
     <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
       <hj:entity>
-        <orm:inheritance inheritance="TABLE_PER_CLASS"/>
+        <orm:table name="abstractextension" schema="public"/>
+        <orm:inheritance strategy="TABLE_PER_CLASS"/>
       </hj:entity>
       <jaxb:bindings/>
     </jaxb:bindings>
@@ -16129,12 +16187,12 @@
     <jaxb:bindings node="xs:complexType[@name='AIXMBasicMessageType']">
       <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
       <hj:entity>
-        <orm:table name="aixm_basic_message" schema="public"/>
+        <orm:table name="aixm_basic_message" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
       <hj:entity>
-        <orm:table name="basic_message_member" schema="public"/>
+        <orm:table name="basic_message_member" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
     <!-- section : auto -->

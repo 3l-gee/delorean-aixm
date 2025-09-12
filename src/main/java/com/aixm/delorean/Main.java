@@ -90,11 +90,11 @@ public class Main {
 
     private void testRun() {
         Scanner scanner = new Scanner(System.in);
-        ConsoleLogger.log(LogLevel.INFO, "new a5_1");
-        executeNewCommand("a5_1", scanner,  "", "");
+        ConsoleLogger.log(LogLevel.INFO, "new a5_2");
+        executeNewCommand("a5_2", scanner,  "", "");
 
-        ConsoleLogger.log(LogLevel.INFO, "xml_config - a5_1");
-        excuteXmlConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner, "a5_1", "");
+        // ConsoleLogger.log(LogLevel.INFO, "xml_config - a5_1");
+        // excuteXmlConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner, "a5_1", "");
 
         // ConsoleLogger.log(LogLevel.INFO, "xml - load src/test/xml/a5_1_1/gis/GMLpoint.xml");
         // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), "load", "src/test/xml/a5_1_1/gis/GMLpoint.xml");
@@ -108,20 +108,20 @@ public class Main {
         // ConsoleLogger.log(LogLevel.INFO, "xml - export src/main/resources/importExport.xml");
         // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"export", "src/main/resources/export.xml");
 
-        ConsoleLogger.log(LogLevel.INFO, "qgig_config - a5_1");
-        executeQgisConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_1", "");
+        // ConsoleLogger.log(LogLevel.INFO, "qgig_config - a5_1");
+        // executeQgisConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_1", "");
         
-        ConsoleLogger.log(LogLevel.INFO, "db_config - a5_1");
-        executeDbConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_1", "");
+        ConsoleLogger.log(LogLevel.INFO, "db_config - a5_2");
+        executeDbConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_2", "");
 
-        ConsoleLogger.log(LogLevel.INFO, "qgig_config - init");
-        executeQgisActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"init", "");
+        // ConsoleLogger.log(LogLevel.INFO, "qgig_config - init");
+        // executeQgisActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"init", "");
 
         ConsoleLogger.log(LogLevel.INFO, "db - startup");
         executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"startup", "");
 
-        ConsoleLogger.log(LogLevel.INFO, "db - load");
-        executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"load", "");
+        // ConsoleLogger.log(LogLevel.INFO, "db - load");
+        // executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"load", "");
 
         // ConsoleLogger.log(LogLevel.INFO, "new a5_1_1");
         // executeNewCommand("a5_1_1", scanner, "", "");

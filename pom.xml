@@ -108,6 +108,11 @@
             <artifactId>jakarta.el-api</artifactId>
             <version>6.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.expressly</groupId>
+            <artifactId>expressly</artifactId>
+            <version>6.0.0</version>
+        </dependency>
 
         <!-- SLF4J Implementation -->
 		<dependency>

@@ -16,34 +16,54 @@
           <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="abstract_aixm_message" schema="public"/>
+          <orm:inheritance strategy="TABLE_PER_CLASS"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="abstract_aixm_feature" schema="public"/>
+          <orm:inheritance strategy="TABLE_PER_CLASS"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMObjectType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="abstract_aixm_object" schema="public"/>
+          <orm:inheritance strategy="TABLE_PER_CLASS"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMPropertyType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="abstract_aixm_property" schema="public"/>
+          <orm:inheritance strategy="TABLE_PER_CLASS"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
         <hj:mapped-superclass/>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']">
-        <hj:mapped-superclass/>
+        <hj:entity>
+          <orm:table name="abstract_aixm_timeslice" schema="public"/>
+          <orm:inheritance strategy="TABLE_PER_CLASS"/>
+        </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
         <hj:entity>
-          <orm:table name="message_metadata_property" schema="public"/>
+          <orm:table name="message_metadata_property" schema="aixm"/>
+        </hj:entity>
+      </jaxb:bindings>
+      <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
+        <hj:entity>
+          <orm:table name="feature_metadata_property" schema="aixm"/>
         </hj:entity>
       </jaxb:bindings>
       <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
         <hj:entity>
-          <orm:table name="feature_timeslice_metadata_property" schema="public"/>
+          <orm:table name="feature_timeslice_metadata_property" schema="aixm"/>
         </hj:entity>
       </jaxb:bindings>
     </jaxb:bindings>

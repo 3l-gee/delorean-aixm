@@ -1,16 +1,16 @@
 <jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" xmlns:hj="http://jvnet.org/hyperjaxb/jpa" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" jaxb:extensionBindingPrefixes="xjc annox hj orm">
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CodeWithAuthorityType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='MeasureType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CoordinatesType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CodeListType']">
 			<hj:ignored/>
@@ -436,7 +436,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='StringOrRefType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='BagType']">
 			<hj:ignored/>
@@ -553,13 +553,20 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='BoundingShapeType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="bounding_shape" schema="gml"/>
+			</hj:entity>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='BoundingShapeType']//xs:element[@ref='gml:Null']">
+			<jaxb:property name="gmlNull"/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeWithTimePeriodType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="envelope_with_time_period" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractFeatureMemberType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<!-- <jaxb:bindings node="//xs:complexType[@name='AbstractFeatureType']">
 							<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -608,7 +615,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometryType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeometryPropertyType']">
 			<hj:ignored/>
@@ -617,34 +624,34 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionListType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VectorType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometricPrimitiveType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeometricPrimitivePropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointArrayPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCurveType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
 			<hj:ignored/>
@@ -658,7 +665,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractSurfaceType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
 			<hj:ignored/>
@@ -701,46 +708,69 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CurveType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='OrientableCurveType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCurveSegmentType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="abstract_curve_segment_type" schema="gml"/>
+				<orm:inheritance strategy="TABLE_PER_CLASS"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurveSegmentArrayPropertyType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="Line_string_segment" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="arc_string" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="arc" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CircleType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="circle" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringByBulgeType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="arc_string_by_bulge" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByBulgeType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="arc_by_bulge" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="arc_by_center_point" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CircleByCenterPointType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="circle_by_center_point" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CubicSplineType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="cubic_spline" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='BSplineType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="bs_spline" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='KnotType']">
 			<hj:ignored/>
@@ -752,40 +782,58 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='OffsetCurveType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="offset_curve" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AffinePlacementType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ClothoidType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="clothoid" schema="gml"/>
+			</hj:entity>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='ClothoidType']/xs:[@name='refLocation']">
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeodesicStringType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="geodesic_string" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeodesicType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='OrientableSurfaceType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractSurfacePatchType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="abstract_surface_patch" schema="gml"/>
+				<orm:inheritance strategy="TABLE_PER_CLASS"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePatchArrayPropertyType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PolygonPatchType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="polygon_patch" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TriangleType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="triangle" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RectangleType']">
-			<hj:ignored/>
+			<hj:entity>
+				<orm:table name="rectangle" schema="gml"/>
+			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RingType']">
 			<hj:ignored/>
@@ -840,7 +888,7 @@
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.core.org.gml.v_3_2_2"/>
-		</jaxb:schemaBindings>
+		</jaxb:schemaBindings>	
 		<!-- <hj:ignored-package name="com.aixm.delorean.core.org.gml.v_3_2_2"/> -->
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd" node="/xs:schema">
@@ -860,7 +908,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractMetadataPropertyType']">
-			<hj:ignored/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<!-- <jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
 							<annox:annotate target="class">@jakarta.persistence.MappedSuperclass</annox:annotate>
@@ -922,7 +970,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/measures.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='LengthType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ScaleType']">
 			<hj:ignored/>
@@ -943,7 +991,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AngleType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/observation.xsd" node="/xs:schema">
@@ -988,7 +1036,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimePrimitivePropertyType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RelatedTimeType']">
 			<hj:ignored/>
@@ -1012,7 +1060,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimePositionType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimeIntervalLengthType']">
 			<hj:ignored/>

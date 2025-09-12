@@ -1,6 +1,6 @@
 from validation import Validation
 from control import Control
-from annotation import Annox, Jpa, Tag, Jaxb, Xml
+from annotation import Annox, Jpa, Tag, Jaxb, Xml, HyperJAXB
 from view import View
 from content import Content
 from field_handler import FieldHandler
@@ -82,7 +82,10 @@ class ComplexType:
         # Abstract types are entity and have a inheritance strategy
         if element.attrib.get("name") in Content.get_abstract().keys() :
             Content.append_entity(element.attrib["name"])
-            node.append(Annox.hj_entity(Jpa.relation.inhertiance()))
+            node.append(HyperJAXB.hj_entity_start())
+            node.append(HyperJAXB.table(element.attrib["name"],schema))
+            node.append(HyperJAXB.inhertiance())
+            node.append(HyperJAXB.hj_entity_end())
             return node
 
         # Types that are embeddable 
@@ -91,5 +94,7 @@ class ComplexType:
             return node
         
         Content.append_entity(element.attrib["name"])
-        node.append(Annox.hj_entity(Jpa.table(element.attrib["name"],schema)))
+        node.append(HyperJAXB.hj_entity_start())
+        node.append(HyperJAXB.table(element.attrib["name"],schema))
+        node.append(HyperJAXB.hj_entity_end())
         return node
