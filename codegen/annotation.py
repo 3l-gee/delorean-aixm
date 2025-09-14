@@ -525,6 +525,9 @@ class Util:
 
     @staticmethod
     def snake_case(name, name_type=str):
+        if isinstance(name, list):
+            name = [x for x in name if x is not None]
+
         if type(name) is list : 
             names = [Util.snake_case(n, list) for n in name]
             return "_".join(names)
@@ -545,6 +548,9 @@ class Util:
 
     @staticmethod
     def snake_case_table(name, name_type=str):
+        if isinstance(name, list):
+            name = [x for x in name if x is not None]
+
         if type(name) is list : 
             names = [Util.snake_case_table(n, list) for n in name]
             return "_".join(names)
@@ -743,12 +749,8 @@ class HyperJAXB:
         return f'<orm:inheritance strategy="{strategy}" />'
     
     @staticmethod
-    def table(name, schema, prefix=None):
-        if prefix is None:
-            
-            return f'<orm:table name = "{Util.snake_case(name)}" schema = "{schema}" />'
-        else:
-            return f'<orm:table name = "{Util.snake_case([prefix,name])}" schema = "{schema}" />'
+    def table(name, schema, prefix=None, suffix=None):
+        return f'<orm:table name = "{Util.snake_case([prefix,name, suffix])}" schema = "{schema}" />'
         
     
 class Tag:

@@ -1,7 +1,11 @@
 package com.aixm.delorean.core.database;
 
 import org.hibernate.cfg.Configuration;
+import org.jvnet.basicjaxb.lang.Equals;
+import org.jvnet.basicjaxb.lang.HashCode;
+import org.jvnet.basicjaxb.lang.ToString;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 public enum DatabaseConfig {
@@ -1752,13 +1756,35 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.org.gml.v_3_2_2.BSplineType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.OffsetCurveType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.ClothoidType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AffinePlacementType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicStringType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.AbstractSurfacePatchType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.PolygonPatchType.class,
-            com.aixm.delorean.core.org.gml.v_3_2_2.TriangleType.class,
-            com.aixm.delorean.core.org.gml.v_3_2_2.RectangleType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.BoundingShapeType.class,
             com.aixm.delorean.core.org.gml.v_3_2_2.EnvelopeWithTimePeriodType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.TriangleType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.RectangleType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AbstractRingPropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.CodeType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AngleType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.CodeWithAuthorityType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.MeasureType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.DirectPositionType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.VectorType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.PointType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.PointPropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AbstractCurveType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.CurvePropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AbstractSurfaceType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.SurfacePropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AbstractRingType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.AbstractRingPropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.LinearRingType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.BezierType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.KnotType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.KnotPropertyType.class,
+            com.aixm.delorean.core.org.gml.v_3_2_2.SurfaceType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.XHTMLType.class,
 
             com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingAnchorPropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AerialRefuellingAnchorType.class,
@@ -1901,8 +1927,8 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.schema.a5_2.aixm.AltitudeIndicationType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AltitudeIndicationTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AnglePropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.AngleType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.AngleTypeExtension.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMAngleType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMAngleTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AngleUsePropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AngleUseType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AngleUseTypeExtension.class,
@@ -2022,8 +2048,8 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupPropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.CourseGroupTypeExtension.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.CurvePropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMCurvePropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMCurveType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.DMEExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.DMEPropertyType.class,
@@ -2068,14 +2094,14 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.schema.a5_2.aixm.DistancePropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.DistanceType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.DistanceTypeExtension.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurvePropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedCurvePropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedCurveType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveTypeExtension.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointPropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointPropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointTypeExtension.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfacePropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedSurfacePropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedSurfaceType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.ElevationExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.ElevationPropertyType.class,
@@ -2400,11 +2426,11 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingTimeSlicePropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingTimeSliceType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PilotControlledLightingType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.PointPropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMPointPropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointReferencePropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointReferenceTypeExtension.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.PointType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMPointType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointUsagePropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointUsageType.class,
@@ -2678,8 +2704,8 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationLayerTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.SurfaceContaminationPropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.SurfacePropertyType.class,
-            com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMSurfacePropertyType.class,
+            com.aixm.delorean.core.schema.a5_2.aixm.AIXMSurfaceType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationPropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.SurveillanceGroundStationType.class,
@@ -2878,7 +2904,7 @@ public enum DatabaseConfig {
 
         // Set database connection properties
         configuration.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
-        configuration.setProperty("hibernate.connection.provider_class", "com.zaxxer.hikari.hibernate.HikariConnectionProvider");
+        configuration.setProperty("hibernate.connection.provider_class", "org.hibernate.hikaricp.internal.HikariCPConnectionProvider");
 
         configuration.setProperty("hibernate.hikari.minimumIdle", "8");
         configuration.setProperty("hibernate.hikari.maximumPoolSize", "32");
@@ -2890,7 +2916,7 @@ public enum DatabaseConfig {
         configuration.setProperty("hibernate.hikari.autoCommit", "false");
 
         // Set Hibernate settings
-        configuration.setProperty("hibernate.show_sql", "false");
+        configuration.setProperty("hibernate.show_sql", "true");
         configuration.setProperty("hibernate.format_sql", "false");  
         configuration.setProperty("hibernate.generate_statistics", "false");  
         configuration.setProperty("hibernate.use_sql_comments", "false");

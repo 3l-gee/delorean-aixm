@@ -135,6 +135,7 @@ View({
     },
     "Geometry" : {
         "schema" : "gml",
+        "suffix" : "aixm",
         "list" : [
             "PointPropertyType",
             "CurvePropertyType",
@@ -148,6 +149,12 @@ View({
             "Point",
             "Curve",
             "Surface",
+            "PointType",
+            "ElevatedPointType",
+            "CurveType",
+            "ElevatedCurveType",
+            "SurfaceType",
+            "ElevatedSurfaceType",
         ],
     },
     "Holding" : {
@@ -672,7 +679,7 @@ message = {
 
 config = {
     "ignore": [
-        "XHTMLType"
+        "AngleType",
 
         # Core
         "AIXMBasicMessageType",
@@ -693,6 +700,20 @@ config = {
         "AbstractAIXMPropertyType",
         "AbstractAIXMObjectBaseType",
         "AbstractAIXMObjectType",
+
+        # Gis
+        "PointType",
+        "ElevatedPointType",
+        "CurveType",
+        "ElevatedCurveType",
+        "SurfaceType",
+        "ElevatedSurfaceType",
+        "PointPropertyType",
+        "CurvePropertyType",
+        "SurfacePropertyType",
+        "ElevatedPointPropertyType",
+        "ElevatedCurvePropertyType",
+        "ElevatedSurfacePropertyType",
     ],
     "transient" : [
         "aixm:XHTMLType",
@@ -725,12 +746,6 @@ config = {
         "aixm:AbstractSurveillanceRadarType"
     ],
     "embed": [
-        "PointType",
-        "ElevatedPointType",
-        "CurveType",
-        "ElevatedCurveType",
-        "SurfaceType",
-        "ElevatedSurfaceType",
     ],
     "abstract": [
         "AbstractMarkingType",

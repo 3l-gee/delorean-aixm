@@ -20,7 +20,7 @@ class View(metaclass=SingletonMeta):
     def __init__(self, schema):
         self.schema = schema
         self.feature_to_schema = {}
-        self.suffix = {
+        self.removable_suffix = {
             "TimeSlicePropertyType": "",
             "PropertyGroup": "",
             "PropertyType": "",
@@ -31,14 +31,17 @@ class View(metaclass=SingletonMeta):
         self.list = set()
         for key, value in schema.items():
             for item in value["list"]:
-                self.feature_to_schema[item] = value["schema"]
-
+                self.feature_to_schema[item] = {
+                    "prefix" : value.get("prefix"),
+                    "schema" : value.get("schema"),
+                    "suffix" : value.get("suffix")
+                }
 
     @staticmethod
     def get_schema(name_ori):
         instance = View() 
         name = name_ori
-        for key, value in instance.suffix.items():
+        for key, value in instance.removable_suffix.items():
             name = name.replace(key, value)
 
         if name not in instance.feature_to_schema:
@@ -55,5 +58,18 @@ class View(metaclass=SingletonMeta):
             why="schema found: " + name,
         )
         instance.list.add(f"{instance.feature_to_schema[name]}.{name}")
-        return instance.feature_to_schema[name]
+        return instance.feature_to_schema[name]["schema"]
+    
+    @staticmethod
+    def get_suffix(name_ori):
+        instance = View() 
+        name = name_ori
+        for key, value in instance.removable_suffix.items():
+            name = name.replace(key, value)
+
+        if name not in instance.feature_to_schema:
+            return None
+
+        return instance.feature_to_schema[name]["suffix"]
+
 

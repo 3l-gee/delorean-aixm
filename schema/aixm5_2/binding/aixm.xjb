@@ -2275,13 +2275,6 @@
     <jaxb:bindings node="//xs:complexType[@name='ValWeightType']//xs:attribute[@name='nilReason']">
       <jaxb:bindings/>
     </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='XHTMLType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='XHTMLType']//xs:element[@name='content']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/AIXM_Features.xsd" node="/xs:schema">
     <jaxb:schemaBindings>
@@ -2343,6 +2336,105 @@
         </orm:cascade>
       </hj:default-many-to-many>
     </hj:persistence>
+    <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
+      <jaxb:class name="AIXMPointPropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_point_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='PointType']">
+      <jaxb:class name="AIXMPointType"/>
+      <hj:entity>
+        <orm:table name="aixm_point" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="PointTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']">
+      <jaxb:class name="AIXMElevatedPointPropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedpoint_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']">
+      <jaxb:class name="AIXMElevatedPointType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedpoint" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="ElevatedPointTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
+      <jaxb:class name="AIXMCurvePropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_curve_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='CurveType']">
+      <jaxb:class name="AIXMCurveType"/>
+      <hj:entity>
+        <orm:table name="aixm_curve" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='CurveType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="CurveTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']">
+      <jaxb:class name="AIXMElevatedCurvePropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedcurve_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']">
+      <jaxb:class name="AIXMElevatedCurveType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedcurve" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="ElevatedCurveTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
+      <jaxb:class name="AIXMSurfacePropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_surface_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
+      <jaxb:class name="AIXMSurfaceType"/>
+      <hj:entity>
+        <orm:table name="aixm_surface" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='SurfaceType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="SurfaceTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']">
+      <jaxb:class name="AIXMElevatedSurfacePropertyType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedsurface_pt" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']">
+      <jaxb:class name="AIXMElevatedSurfaceType"/>
+      <hj:entity>
+        <orm:table name="aixm_elevatedsurface" schema="gml"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="ElevatedSurfaceTypeExtension"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='AngleType']">
+      <jaxb:class name="AIXMAngleType"/>
+      <hj:entity>
+        <orm:table name="angle" schema="navaids_points"/>
+      </hj:entity>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='AngleType']//xs:element[@name='extension']/xs:complexType">
+      <jaxb:class name="AIXMAngleTypeExtension"/>
+    </jaxb:bindings>
     <!-- section : auto -->
     <!-- part : default -->
     <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingPropertyType']">
@@ -5497,126 +5589,6 @@
     <jaxb:bindings node="//xs:complexType[@name='GeoBorderTimeSliceType']//xs:element[@ref='aixm:AbstractGeoBorderExtension']">
       <jaxb:bindings/>
     </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='CurveType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='CurveType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="CurveTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='CurveType']//xs:element[@ref='aixm:AbstractCurveExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
-      <hj:entity>
-        <orm:table name="curve_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@ref='aixm:Curve']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="ElevatedCurveTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@ref='aixm:AbstractElevatedCurveExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']">
-      <hj:entity>
-        <orm:table name="elevatedcurve_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']//xs:element[@ref='aixm:ElevatedCurve']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="ElevatedPointTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@ref='aixm:AbstractElevatedPointExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']">
-      <hj:entity>
-        <orm:table name="elevatedpoint_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']//xs:element[@ref='aixm:ElevatedPoint']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="ElevatedSurfaceTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@ref='aixm:AbstractElevatedSurfaceExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']">
-      <hj:entity>
-        <orm:table name="elevatedsurface_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']//xs:element[@ref='aixm:ElevatedSurface']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='PointType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="PointTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@ref='aixm:AbstractPointExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
-      <hj:entity>
-        <orm:table name="point_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@ref='aixm:Point']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
-      <hj:embeddable/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='SurfaceType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="SurfaceTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='SurfaceType']//xs:element[@ref='aixm:AbstractSurfaceExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
-      <hj:entity>
-        <orm:table name="surface_pt" schema="gml"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']//xs:element[@ref='aixm:Surface']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='HoldingPatternPropertyType']">
       <hj:entity>
         <orm:table name="holdingpattern_pt" schema="holding"/>
@@ -6593,19 +6565,6 @@
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='VORTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='AngleType']">
-      <hj:entity>
-        <orm:table name="angle" schema="navaids_points"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='AngleType']//xs:element[@name='extension']/xs:complexType">
-      <jaxb:class name="AngleTypeExtension"/>
-      <jaxb:bindings/>
-    </jaxb:bindings>
-    <jaxb:bindings node="//xs:complexType[@name='AngleType']//xs:element[@ref='aixm:AbstractAngleExtension']">
       <jaxb:bindings/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AnglePropertyType']">
@@ -16197,11 +16156,5 @@
     </jaxb:bindings>
     <!-- section : auto -->
     <!-- part : default -->
-    <jaxb:bindings node="//xs:complexType[@name='AIXMBasicMessageType']">
-      <hj:entity>
-        <orm:table name="aixmbasicmessage" schema="public"/>
-      </hj:entity>
-      <jaxb:bindings/>
-    </jaxb:bindings>
   </jaxb:bindings>
 </jaxb:bindings>

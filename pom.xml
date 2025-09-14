@@ -101,6 +101,12 @@
             <artifactId>hibernate-spatial</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-hikaricp</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
         
         <!-- Hibernate Validator dependencies -->
         <dependency>

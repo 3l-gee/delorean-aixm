@@ -14,13 +14,13 @@ export function MainPage() {
       <div className="space-y-6 flex-2">
         <div className=''> 
           <h1 className="text-4xl font-bold tracking-tight">AIXM, Made Simple</h1>
-          <h2 className="text-4xl font-bold tracking-tight">Collection, verification, dissemination and transformation of digital aeronautical information accessible to everyone.</h2>
+          <h2 className="text-4xl font-bold tracking-tight">A complete toolkit for managing AIXM aeronautical data.</h2>
         </div>
         <div className="p-[40px]"></div>
         <div className="grid grid-cols-2 items-center">
           <Button
             label="Download Delorean"
-            href="https://github.com/3l-gee/delorean/releases"
+            href="https://github.com/3l-gee/delorean-aixm/releases"
             className='main-page-button'
           />
           <span className="text-gray-500">

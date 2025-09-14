@@ -76,8 +76,8 @@ export function Navbar({ onNavigate , onCleanBackground}) {
         <DropDownButton
           label="Get involve"
           options={[
-            { label: "Ask a question", href: "https://github.com/3l-gee/delorean/discussions" },
-            { label: "Open a ticket", href: "https://github.com/3l-gee/delorean/issues" }
+            { label: "Ask a question", href: "https://github.com/3l-gee/delorean-aixm/discussions" },
+            { label: "Open a ticket", href: "https://github.com/3l-gee/delorean-aixm/issues" }
           ]}
         />
       </div>
@@ -85,7 +85,7 @@ export function Navbar({ onNavigate , onCleanBackground}) {
       {/* Right: Icons */}
       <div className="icons navbar-icons">
         <a
-          href="https://github.com/3l-gee/delorean"
+          href="https://github.com/3l-gee/delorean-aixm"
           target="_blank"
           rel="noopener noreferrer"
         >
