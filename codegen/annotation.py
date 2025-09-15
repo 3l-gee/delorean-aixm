@@ -745,12 +745,28 @@ class HyperJAXB:
         return f'''</hj:mapped-superclass>'''
     
     @staticmethod
+    def persistence_start():
+        return f'<hj:persistence>'
+    
+    @staticmethod
+    def persistence_end():
+        return f'</hj:persistence>'
+    
+    @staticmethod
     def inhertiance(strategy="TABLE_PER_CLASS"):
         return f'<orm:inheritance strategy="{strategy}" />'
     
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
         return f'<orm:table name = "{Util.snake_case([prefix,name, suffix])}" schema = "{schema}" />'
+
+    @staticmethod
+    def one_to_one():
+        return f'<hj:one-to-one><orm:join-column updatable="false" insertable="true" nullable="false"/></hj:one-to-one>'
+
+    @staticmethod
+    def one_to_many():
+        return f'<hj:one-to-many><orm:join-table><orm:join-column nullable="false"/><orm:inverse-join-column nullable="false"/></orm:join-table></hj:one-to-many>'
         
     
 class Tag:

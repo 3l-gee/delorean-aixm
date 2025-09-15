@@ -855,7 +855,6 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSlicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSliceType</class>
-        <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceTimeSliceTypeRestItem</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InformationServiceType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.InitialLegPropertyType</class>

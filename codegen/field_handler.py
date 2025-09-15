@@ -163,7 +163,7 @@ class FieldHandler:
         # annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
         # snowflake_text = annotation.text if annotation is not None and annotation.text else ""
             
-        # node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
         node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
@@ -201,7 +201,7 @@ class FieldHandler:
         # else : 
         #     print(attribute.attrib)
 
-        # node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
         node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
@@ -276,7 +276,7 @@ class FieldHandler:
         #     node.append(Jaxb.end)
         #     return node
 
-        # node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
+        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
         node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
@@ -314,7 +314,7 @@ class FieldHandler:
         # else : 
         #     print(attribute.attrib)
 
-        # node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
+        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
         node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 

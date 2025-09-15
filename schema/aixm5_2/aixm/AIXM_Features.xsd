@@ -12130,7 +12130,7 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
          <element minOccurs="0" name="voice" nillable="true" type="aixm:CodeYesNoType"/>
          <element minOccurs="0" name="dataLink" nillable="true" type="aixm:CodeYesNoType"/>
          <element minOccurs="0" name="recorded" nillable="true" type="aixm:CodeYesNoType"/>
-         <element maxOccurs="unbounded" minOccurs="0" name="navaidBroadcast" nillable="true"
+         <!-- <element maxOccurs="unbounded" minOccurs="0" name="navaidBroadcast" nillable="true"
             type="aixm:VORPropertyType"/>
          <element maxOccurs="unbounded" minOccurs="0" name="clientAirspace" nillable="true"
             type="aixm:AirspacePropertyType"/>
@@ -12147,7 +12147,7 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
          <element maxOccurs="unbounded" minOccurs="0" name="clientSegment" nillable="true"
             type="aixm:RouteSegmentPropertyType"/>
          <element maxOccurs="unbounded" minOccurs="0" name="dataSource" nillable="true"
-            type="aixm:WeatherSourcePropertyType"/>
+            type="aixm:WeatherSourcePropertyType"/> -->
       </sequence>
    </group>
    <element abstract="true" name="AbstractInformationServiceExtension"

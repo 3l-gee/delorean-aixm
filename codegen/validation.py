@@ -1,6 +1,6 @@
 
 from control import Control
-from annotation import Annox, Jpa, Tag, Relation
+from annotation import Annox, Jpa, Tag, Relation, HyperJAXB
 
 class Validation: 
 
@@ -121,38 +121,44 @@ class Validation:
         if snowflake_text != "":
             type = snowflake_text.replace("aixm:", "")
 
-        # if element.attrib.get("name") in self.config.transient or element.attrib.get("ref") in self.config.transient or element.attrib.get("type") in self.config.transient:
-        #     res.append(Annox.field_add(Jpa.transient))
-        #     return res
+        if ref : 
+            return res
 
         if maxOccurs == "unbounded":
-            if type in embed.keys():
-                res.append(Annox.field_add(Jpa.relation.collection_element()))
-                res.append(Annox.field_add(Jpa.relation.collection_table(type)))
+            # res.append(HyperJAXB.persistence_start())
+            res.append(HyperJAXB.one_to_many())
+            # res.append(HyperJAXB.persistence_end())
+            # if type in embed.keys():
+            #     res.append(Annox.field_add(Jpa.relation.collection_element()))
+            #     res.append(Annox.field_add(Jpa.relation.collection_table(type)))
 
-                temp = [Jpa.attribute_sub_override("href", Jpa.column_with_definition(name))]
-                temp.append(Jpa.attribute_sub_override("nilReason", element.attrib["name"]))
-                res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
-                return res 
+            #     temp = [Jpa.attribute_sub_override("href", Jpa.column_with_definition(name))]
+            #     temp.append(Jpa.attribute_sub_override("nilReason", element.attrib["name"]))
+            #     res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
+            #     return res 
 
-            res.append(Annox.field_add(Jpa.relation.one_to_many()))
+            # res.append(Annox.field_add(Jpa.relation.one_to_many()))
+
             # res.append(Annox.field_add(Relation.join_table(
             #     parent.attrib["name"], element.attrib["name"], parent.attrib["name"], element.attrib["type"])))
-            res.append(Annox.field_add(Relation.join_table("master", "join", "source", "target")))
-            join_column_name = element.attrib.get("name") if element.attrib.get("name") else element.attrib.get("ref")
+            # res.append(Annox.field_add(Relation.join_table("master", "join", "source", "target")))
+            # join_column_name = element.attrib.get("name") if element.attrib.get("name") else element.attrib.get("ref")
             return res
 
         if maxOccurs == 1:
-            if type in embed.keys():
-                res.append(Annox.field_add(Jpa.embedded))
-                temp = []
-                for key, value in embed[type].items():
-                    column_length = value.get("column_length") or 255
-                    column_definition = value.get("column_definition")
-                    if column_definition is not None:
-                        temp.append(Jpa.attribute_sub_override(key, Jpa.column_with_definition(str(name + "_" + key), column_definition, column_length)))
-                    else:
-                        temp.append(Jpa.attribute_sub_override(key, Jpa.column(str(name + "_" + key), column_length)))
+            # res.append(HyperJAXB.persistence_start())
+            res.append(HyperJAXB.one_to_one())
+            # res.append(HyperJAXB.persistence_end())
+            # if type in embed.keys():
+            #     res.append(Annox.field_add(Jpa.embedded))
+            #     temp = []
+            #     for key, value in embed[type].items():
+            #         column_length = value.get("column_length") or 255
+            #         column_definition = value.get("column_definition")
+            #         if column_definition is not None:
+            #             temp.append(Jpa.attribute_sub_override(key, Jpa.column_with_definition(str(name + "_" + key), column_definition, column_length)))
+            #         else:
+            #             temp.append(Jpa.attribute_sub_override(key, Jpa.column(str(name + "_" + key), column_length)))
 
                 # for attribute in embed[type].findall(".//"+ Tag.attribute) or []:
                 #     temp.append(Jpa.attribute_sub_override(attribute.attrib["name"], element.attrib["name"]))
@@ -165,17 +171,9 @@ class Validation:
                 # else: 
                 #     temp.append(Jpa.attribute_sub_override("value", element.attrib["name"]))
 
-                res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
+                # res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
 
-                return res
-            elif type in ["AlphanumericType", "AlphaType"] :
-                res.append(Annox.field_add(Jpa.column(element.attrib["name"])))
-            
-            else:
-                res.append(Annox.field_add(Jpa.relation.one_to_one()))
-                join_column_name = element.attrib.get("name") if element.attrib.get("name") else element.attrib.get("ref")
-                res.append(Annox.field_add(Relation.join_column(join_column_name)))
-                return res
+            return res
 
         if nillable:
             pass

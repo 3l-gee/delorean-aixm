@@ -46,24 +46,13 @@
           <orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
         </hj:default-generated-id>
 
-        <hj:default-one-to-one fetch="EAGER"/>
-        <hj:default-one-to-many fetch="EAGER">
-          <orm:join-table>
-            <orm:join-column name="source_id"/>
-            <orm:inverse-join-column name="target_id"/>
-          </orm:join-table>
-          <orm:cascade>
-            <orm:cascade-refresh/>
-            <orm:cascade-persist/>
-            <orm:cascade-merge/>
-            <orm:cascade-detach/>
-          </orm:cascade>
-        </hj:default-one-to-many>
+        <hj:default-one-to-one fetch="EAGER" join-table="false"/>
+        <hj:default-one-to-many fetch="EAGER" join-table="false"/>
 
         <hj:default-many-to-one merge="false" fetch="EAGER">
             <orm:join-table>
-              <orm:join-column name="source_id"/>
-              <orm:inverse-join-column name="target_id"/>
+              <orm:join-column/>
+              <orm:inverse-join-column/>
             </orm:join-table>
             <orm:cascade>
               <orm:cascade-refresh/>
@@ -75,8 +64,8 @@
           
         <hj:default-many-to-many merge="false" fetch="EAGER">
             <orm:join-table>
-              <orm:join-column name="source_id"/>
-              <orm:inverse-join-column name="target_id"/>
+              <orm:join-column/>
+              <orm:inverse-join-column/>
             </orm:join-table>
             <orm:cascade>
               <orm:cascade-refresh/>
