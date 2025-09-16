@@ -84,7 +84,7 @@
                   <schemaIncludes>
                     <include>AIXM_BasicMessage.xsd</include>
                   </schemaIncludes>
-                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
+                  <bindingDirectory>${project.basedir}/schema/aixm5_2/hyper</bindingDirectory>
                   <bindingIncludes>
                     <include>*.xjb</include>
                   </bindingIncludes>

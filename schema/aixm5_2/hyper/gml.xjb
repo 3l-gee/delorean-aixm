@@ -1,5 +1,5 @@
 <jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" xmlns:hj="http://jvnet.org/hyperjaxb/jpa" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" jaxb:extensionBindingPrefixes="xjc annox hj orm">
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/basicTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
 			<hj:entity>
 				<orm:table name="code" schema="gml"/>
@@ -34,7 +34,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/coordinateOperations.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCoordinateOperationType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -129,7 +129,7 @@
 			<xjc:dom/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/coordinateReferenceSystems.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='SingleCRSPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -233,7 +233,7 @@
 			<jaxb:factoryMethod name="ConversionPropertyElement"/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/coordinateSystems.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CoordinateSystemAxisType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -307,7 +307,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/coverage.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/coverage.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCoverageType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -342,7 +342,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/datums.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/datums.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractDatumType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -404,7 +404,7 @@
 			<jaxb:factoryMethod name="PrimeMeridianPropertyElement"/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/deprecatedTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='OperationPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -490,7 +490,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/dictionary.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/dictionary.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='DefinitionBaseType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -504,7 +504,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/direction.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/direction.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='DirectionPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -515,7 +515,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/dynamicFeature.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='DynamicFeatureType']">
 			<hj:mapped-superclass/>
 		</jaxb:bindings>
@@ -554,7 +554,7 @@
 							<annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
 							</jaxb:bindings> -->
 					</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/feature.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/feature.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractFeatureType']">
 			<hj:mapped-superclass/>
 		</jaxb:bindings>
@@ -587,7 +587,7 @@
 							<annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
 							</jaxb:bindings> -->
 					</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryAggregates.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometricAggregateType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -622,7 +622,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryBasic0d1d.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometryType']">
 			<hj:mapped-superclass/>
 		</jaxb:bindings>
@@ -690,7 +690,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryBasic2d.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractSurfaceType']">
 			<hj:entity>
 				<orm:table name="abstract_surface" schema="gml"/>
@@ -728,7 +728,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryComplexes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='GeometricComplexType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -745,7 +745,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryPrimitives.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CurveType']">
 			<orm:table name="curve" schema="gml"/>
 			<orm:inheritance strategy="TABLE_PER_CLASS"/>
@@ -954,13 +954,13 @@
 			<jaxb:property name="PointGridRows"/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/gml.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.core.org.gml.v_3_2_2"/>
 		</jaxb:schemaBindings>	
 		<!-- <hj:ignored-package name="com.aixm.delorean.core.org.gml.v_3_2_2"/> -->
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/gmlBase.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
 			<hj:mapped-superclass/>
 		</jaxb:bindings>
@@ -1019,7 +1019,7 @@
 							<annox:annotate target="field">@jakarta.persistence.Transient</annox:annotate>
 							</jaxb:bindings> -->
 					</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/grids.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/grids.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='GridType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1037,7 +1037,7 @@
 			<jaxb:property name="GridAxisLabels"/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/measures.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/measures.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='LengthType']">
 			<hj:embeddable/>
 		</jaxb:bindings>
@@ -1065,7 +1065,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/observation.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/observation.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='ObservationType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1085,7 +1085,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/referenceSystems.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='IdentifiedObjectType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1099,7 +1099,7 @@
 			<xjc:dom/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporal.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/temporal.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeObjectType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1137,7 +1137,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/temporalReferenceSystems.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='TimeReferenceSystemType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1172,7 +1172,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/temporalTopology.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeTopologyPrimitiveType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1198,7 +1198,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/topology.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/topology.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTopologyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1278,7 +1278,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/units.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/units.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='UnitOfMeasureType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -1304,7 +1304,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
-	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/valueObjects.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='ValuePropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
