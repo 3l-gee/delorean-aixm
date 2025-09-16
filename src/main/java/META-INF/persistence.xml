@@ -23,6 +23,7 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcStringTypePosOrPointPropertyOrPointRepItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.ArcType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.AreaType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.BSplineType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.BSplineTypePosOrPointPropertyOrPointRepItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.BezierType</class>
@@ -55,6 +56,7 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicStringType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicStringTypeGeometricPositionGroupItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.GeodesicType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.GridLengthType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.KnotPropertyType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.KnotType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.LengthType</class>
@@ -74,8 +76,10 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Row</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.RowGeometricPositionGroupItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.Rows</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.ScaleType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameter</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SecondDefiningParameterPropertyElement</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.SpeedType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.StringOrRefType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfacePatchArrayPropertyType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem</class>
@@ -83,8 +87,10 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.SurfaceType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.TimePositionType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.TimePrimitivePropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.TimeType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.TriangleType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2_2.VectorType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2_2.VolumeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMAngleType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMAngleTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMCurvePropertyType</class>

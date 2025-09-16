@@ -58,7 +58,7 @@ class ComplexType:
 
         # Types that are embeddable 
         if element.attrib.get("name") in Content.get_embed().keys():
-            node.append(Jpa.embeddable)
+            node.append(HyperJAXB.embeddable())
             return node
         
         Content.append_entity(element.attrib["name"])

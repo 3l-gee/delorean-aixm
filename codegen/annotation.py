@@ -729,6 +729,14 @@ class HyperJAXB:
         return f'''<orm:inheritance {annotation} />'''
     
     @staticmethod
+    def embedded():
+        return f'''<hj:embedded/>'''
+    
+    @staticmethod
+    def embeddable():
+        return f'''<hj:embeddable/>'''
+    
+    @staticmethod
     def hj_entity_start():
         return f'''<hj:entity>'''
     

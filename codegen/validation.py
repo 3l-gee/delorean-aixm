@@ -125,10 +125,12 @@ class Validation:
             return res
 
         if maxOccurs == "unbounded":
-            # res.append(HyperJAXB.persistence_start())
-            res.append(HyperJAXB.one_to_many())
-            # res.append(HyperJAXB.persistence_end())
-            # if type in embed.keys():
+            if type in embed.keys():
+                res.append(HyperJAXB.embedded())
+                return res
+            else : 
+                res.append(HyperJAXB.one_to_many())
+                return res
             #     res.append(Annox.field_add(Jpa.relation.collection_element()))
             #     res.append(Annox.field_add(Jpa.relation.collection_table(type)))
 
@@ -143,13 +145,15 @@ class Validation:
             #     parent.attrib["name"], element.attrib["name"], parent.attrib["name"], element.attrib["type"])))
             # res.append(Annox.field_add(Relation.join_table("master", "join", "source", "target")))
             # join_column_name = element.attrib.get("name") if element.attrib.get("name") else element.attrib.get("ref")
-            return res
+            
 
         if maxOccurs == 1:
-            # res.append(HyperJAXB.persistence_start())
-            res.append(HyperJAXB.one_to_one())
-            # res.append(HyperJAXB.persistence_end())
-            # if type in embed.keys():
+            if type in embed.keys():
+                res.append(HyperJAXB.embedded())
+                return res
+            else : 
+                res.append(HyperJAXB.one_to_one())
+                return res
             #     res.append(Annox.field_add(Jpa.embedded))
             #     temp = []
             #     for key, value in embed[type].items():
@@ -172,8 +176,6 @@ class Validation:
                 #     temp.append(Jpa.attribute_sub_override("value", element.attrib["name"]))
 
                 # res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
-
-            return res
 
         if nillable:
             pass

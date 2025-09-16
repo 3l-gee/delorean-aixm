@@ -1,22 +1,14 @@
 <jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" xmlns:hj="http://jvnet.org/hyperjaxb/jpa" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" jaxb:extensionBindingPrefixes="xjc annox hj orm">
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/basicTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
-			<hj:entity>
-				<orm:table name="code" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CodeWithAuthorityType']">
-			<hj:entity>
-				<orm:table name="code_with_authority" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
+
 		<jaxb:bindings node="//xs:complexType[@name='MeasureType']">
-			<hj:entity>
-				<orm:table name="measure" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CoordinatesType']">
 			<hj:embeddable/>
@@ -633,10 +625,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionType']">
-			<hj:entity>
-				<orm:table name="direct_position" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionListType']">
 			<hj:embeddable/>
@@ -652,6 +641,11 @@
 				<orm:table name="envelope" schema="gml"/>
 				<orm:inheritance strategy="TABLE_PER_CLASS"/>
 			</hj:entity>
+			<hj:attributes>
+				<hj:transient name="pos"/>
+			</hj:attributes>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']//xs:element[@ref='gml:pos']">
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometricPrimitiveType']">
 			<hj:mapped-superclass/>
@@ -963,6 +957,14 @@
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/gmlBase.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
 			<hj:mapped-superclass/>
+			  <hj:attributes>
+				<hj:element-collection name="name">
+				<orm:element-collection name="name" fetch="LAZY">
+					<orm:collection-table name="GML_NAMES"/>
+					<orm:column name="NAME_VALUE"/>
+				</orm:element-collection>
+				</hj:element-collection>
+			</hj:attributes>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AssociationRoleType']">
 			<hj:ignored/>
@@ -1042,27 +1044,25 @@
 			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ScaleType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimeType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GridLengthType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AreaType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VolumeType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SpeedType']">
-			<hj:ignored/>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AngleType']">
-			<hj:entity>
-				<orm:table name="angle" schema="gml"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/observation.xsd" node="/xs:schema">
@@ -1305,6 +1305,12 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/valueObjects.xsd" node="/xs:schema">
+		<jaxb:bindings node="//xs:element[@name='Quantity']/xs:complexType">
+			<hj:embeddable/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:element[@name='Category']/xs:complexType">
+			<hj:embeddable/>
+		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ValuePropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>

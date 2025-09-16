@@ -84,7 +84,7 @@
                   <schemaIncludes>
                     <include>AIXM_BasicMessage.xsd</include>
                   </schemaIncludes>
-                  <bindingDirectory>${project.basedir}/schema/aixm5_2/hyper</bindingDirectory>
+                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
                   <bindingIncludes>
                     <include>*.xjb</include>
                   </bindingIncludes>
@@ -92,6 +92,46 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>enable-hyper-jaxb-annox</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.patrodyne.jvnet</groupId>
+            <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
+            <version>${hisrc-hyperjaxb.version}</version>
+            <executions>
+              <execution>
+                <id>generate</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <configuration>
+                  <noFileHeader>true</noFileHeader>
+                  <extension>true</extension>
+                  <schemaDirectory>${project.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
+                  <schemaIncludes>
+                    <include>AIXM_BasicMessage.xsd</include>
+                  </schemaIncludes>
+                  <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
+                  <bindingIncludes>
+                    <include>*.xjb</include>
+                  </bindingIncludes>
+                  <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                </configuration>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>org.patrodyne.jvnet</groupId>
+                <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
+                <version>${hisrc-hyperjaxb.version}</version>
+              </dependency>
+            </dependencies>
           </plugin>
         </plugins>
       </build>
