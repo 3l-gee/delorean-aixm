@@ -6,7 +6,6 @@
 		<jaxb:bindings node="//xs:complexType[@name='CodeWithAuthorityType']">
 			<hj:embeddable/>
 		</jaxb:bindings>
-
 		<jaxb:bindings node="//xs:complexType[@name='MeasureType']">
 			<hj:embeddable/>
 		</jaxb:bindings>
@@ -631,10 +630,7 @@
 			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VectorType']">
-			<hj:entity>
-				<orm:table name="vector" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:embeddable/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']">
 			<hj:entity>
@@ -828,6 +824,14 @@
 			<hj:entity>
 				<orm:table name="affine_placement" schema="gml"/>
 			</hj:entity>
+			<hj:attributes>
+				<hj:element-collection name="refDirection">
+					<orm:element-collection name="name" fetch="LAZY">
+						<orm:collection-table name="affine_placement_ref_direction" schema="gml"/>
+						<orm:column name="NAME_VALUE"/>
+					</orm:element-collection>
+				</hj:element-collection>
+			</hj:attributes>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ClothoidType']">
 			<hj:entity>
@@ -957,12 +961,12 @@
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/gmlBase.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
 			<hj:mapped-superclass/>
-			  <hj:attributes>
+			<hj:attributes>
 				<hj:element-collection name="name">
-				<orm:element-collection name="name" fetch="LAZY">
-					<orm:collection-table name="GML_NAMES"/>
-					<orm:column name="NAME_VALUE"/>
-				</orm:element-collection>
+					<orm:element-collection name="name" fetch="LAZY">
+						<orm:collection-table name="GML_NAMES"/>
+						<orm:column name="NAME_VALUE"/>
+					</orm:element-collection>
 				</hj:element-collection>
 			</hj:attributes>
 		</jaxb:bindings>
