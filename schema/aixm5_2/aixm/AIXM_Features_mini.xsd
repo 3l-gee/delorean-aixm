@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:aixm="http://www.aixm.aero/schema/5.2"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aixm.aero/schema/5.2"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        version="5.2.0">
+
+    <!-- ========================= -->
+    <!-- Schema Setup              -->
+    <!-- ========================= -->
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./gml/3.2.1/gml.xsd"/>
+    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+    <include schemaLocation="./AIXM_DataTypes.xsd"/>
+    <include schemaLocation="./AIXM_AbstractGML_ObjectTypes.xsd"/>
+
+    <!-- ========================= -->
+    <!-- DME Module                -->
+    <!-- ========================= -->
+    <element name="DME" substitutionGroup="aixm:AbstractAIXMFeature" type="aixm:DMEType"/>
+
+    <complexType name="DMEType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMFeatureType">
+                <sequence>
+                    <element maxOccurs="unbounded" name="timeSlice" type="aixm:DMETimeSlicePropertyType"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="DMETimeSlicePropertyType">
+        <sequence>
+            <element ref="aixm:DMETimeSlice"/>
+        </sequence>
+        <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </complexType>
+
+    <element name="DMETimeSlice" substitutionGroup="gml:AbstractTimeSlice" type="aixm:DMETimeSliceType"/>
+
+    <complexType name="DMETimeSliceType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMTimeSliceType">
+                <sequence>
+                    <group ref="aixm:DMEPropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="aixm:AbstractDMEExtension"/>
+                                <element ref="aixm:AbstractNavaidEquipmentExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="DMEPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="designator" nillable="true" type="aixm:CodeNavaidDesignatorType"/>
+            <element minOccurs="0" name="name" nillable="true" type="aixm:TextNameType"/>
+            <element minOccurs="0" name="emissionClass" nillable="true" type="aixm:CodeRadioEmissionType"/>
+            <element minOccurs="0" name="mobile" nillable="true" type="aixm:CodeYesNoType"/>
+            <element minOccurs="0" name="magneticVariation" nillable="true" type="aixm:ValMagneticVariationType"/>
+            <element minOccurs="0" name="dateMagneticVariation" nillable="true" type="aixm:DateYearType"/>
+            <element minOccurs="0" name="flightChecked" nillable="true" type="aixm:CodeYesNoType"/>
+            <element maxOccurs="1" minOccurs="0" name="location" nillable="true" type="aixm:ElevatedPointPropertyType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+            <element minOccurs="0" name="type" nillable="true" type="aixm:CodeDMEType"/>
+            <element minOccurs="0" name="channel" nillable="true" type="aixm:CodeDMEChannelType"/>
+            <element minOccurs="0" name="displace" nillable="true" type="aixm:ValDistanceType"/>
+            <element minOccurs="0" name="tuningFrequencyVHF" nillable="true" type="aixm:ValFrequencyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractDMEExtension"
+             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <element abstract="true" name="AbstractNavaidEquipmentExtension"
+             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- ElevatedPoint Module      -->
+    <!-- ========================= -->
+    <complexType name="ElevatedPointPropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="aixm:ElevatedPoint"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="ElevatedPoint" substitutionGroup="gml:Point" type="aixm:ElevatedPointType"/>
+
+    <complexType name="ElevatedPointType">
+        <complexContent>
+            <extension base="gml:PointType">
+                <sequence>
+                    <group ref="aixm:ElevatedPointPropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="aixm:AbstractElevatedPointExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="ElevatedPointPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="elevation" nillable="true" type="aixm:ValDistanceVerticalType"/>
+            <element minOccurs="0" name="geoidUndulation" nillable="true" type="aixm:ValDistanceSignedType"/>
+            <element minOccurs="0" name="verticalDatum" nillable="true" type="aixm:TextNameType"/>
+            <element minOccurs="0" name="horizontalAccuracy" nillable="true" type="aixm:ValDistanceType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractElevatedPointExtension"
+             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- Note Module               -->
+    <!-- ========================= -->
+    <complexType name="NotePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="aixm:Note"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Note" type="aixm:NoteType"/>
+
+    <complexType name="NoteType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMObjectType">
+                <sequence>
+                    <group ref="aixm:NotePropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="aixm:AbstractNoteExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="NotePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="propertyName" nillable="true" type="aixm:TextPropertyNameType"/>
+            <element minOccurs="0" name="purpose" nillable="true" type="aixm:CodeNotePurposeType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="translatedNote" nillable="true" type="aixm:LinguisticNotePropertyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractNoteExtension"
+             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- LinguisticNote Module     -->
+    <!-- ========================= -->
+    <element name="LinguisticNote" type="aixm:LinguisticNoteType"/>
+
+    <complexType name="LinguisticNoteType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMObjectType">
+                <sequence>
+                    <group ref="aixm:LinguisticNotePropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="aixm:AbstractLinguisticNoteExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="LinguisticNotePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="note" nillable="true" type="aixm:TextNoteType"/>
+        </sequence>
+    </group>
+
+    <complexType name="LinguisticNotePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="aixm:LinguisticNote"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element abstract="true" name="AbstractLinguisticNoteExtension"
+             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+</schema>

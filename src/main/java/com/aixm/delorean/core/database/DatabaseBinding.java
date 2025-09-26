@@ -10,13 +10,13 @@ import org.hibernate.cfg.Configuration;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcStringType;
-import com.aixm.delorean.core.schema.a5_1.aixm.message.AIXMBasicMessageType;
-import com.aixm.delorean.core.schema.a5_1.aixm.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.core.schema.a5_1.aixm.AbstractAIXMFeatureType;
-import com.aixm.delorean.core.schema.a5_1.aixm.DesignatedPointType;
-import com.aixm.delorean.core.schema.a5_1.aixm.DesignatedPointTimeSlicePropertyType;
-import com.aixm.delorean.core.schema.a5_1.aixm.DesignatedPointTimeSliceType;
+// import com.aixm.delorean.core.org.gml.v_3_2.ArcStringType;
+import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
+import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType;
+import com.aixm.delorean.core.schema.a5_2.aixm.DMEType;
+import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSlicePropertyType;
+import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
 import org.hibernate.Transaction;
 
 import jakarta.persistence.Tuple;
@@ -277,14 +277,14 @@ public class DatabaseBinding<T> {
                 try (Session threadSession = this.sessionFactory.openSession()) {
                     threadSession.beginTransaction();
 
-                    AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeature();
+                    AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
                     String identifier = abstractFeature.getIdentifier().getValue();
                     MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
                         .filter(f -> f.getIdentifier().equals(identifier))
                         .findFirst()
                         .orElse(null);
 
-                    DatabaseFunctionHelper.A5_1HandelTimeSlice(bmm, existing, threadSession);
+                    DatabaseFunctionHelper.A5_2HandelTimeSlice(bmm, existing, threadSession);
 
                     threadSession.getTransaction().commit();
                 } catch (Exception e) {
@@ -329,84 +329,84 @@ public class DatabaseBinding<T> {
         }
     }
 
-    public Object export(Class<T> structure, Object id) {
-        ConsoleLogger.log(LogLevel.DEBUG, "Retrieving : " + structure + " with id: " + id, new Exception().getStackTrace()[0]);
-        if (this.sessionFactory == null) {
-            throw new IllegalArgumentException("sessionfactory is not initialized");
-        }
+    // public Object export(Class<T> structure, Object id) {
+    //     ConsoleLogger.log(LogLevel.DEBUG, "Retrieving : " + structure + " with id: " + id, new Exception().getStackTrace()[0]);
+    //     if (this.sessionFactory == null) {
+    //         throw new IllegalArgumentException("sessionfactory is not initialized");
+    //     }
 
-        Session session = this.sessionFactory.openSession();
-        Transaction transaction = null;
-        AIXMBasicMessageType object = null;
+    //     Session session = this.sessionFactory.openSession();
+    //     Transaction transaction = null;
+    //     AIXMBasicMessageType object = null;
 
-        try {
-            transaction = session.beginTransaction();
+    //     try {
+    //         transaction = session.beginTransaction();
 
-            // 1. Execute SQL to get the latest IDs per sequence_number
-            String sql = """
-            SELECT DISTINCT ON (identifier, sequence_number)
-            navaids_points.designatedpoint_tsp.id
-            FROM navaids_points.designatedpoint
-            LEFT JOIN master_join
-            ON navaids_points.designatedpoint.id = master_join.source_id
-            LEFT JOIN navaids_points.designatedpoint_tsp
-            ON master_join.target_id = navaids_points.designatedpoint_tsp.id
-            LEFT JOIN navaids_points.designatedpoint_ts
-            ON navaids_points.designatedpoint_tsp.designatedpointtimeslice_id = navaids_points.designatedpoint_ts.id
-            WHERE
-                navaids_points.designatedpoint.feature_status = 'APPROVED'
-                AND 
-                navaids_points.designatedpoint_ts.feature_status = 'APPROVED'
-            ORDER BY sequence_number, correction_number DESC;
-            """;
+    //         // 1. Execute SQL to get the latest IDs per sequence_number
+    //         String sql = """
+    //         SELECT DISTINCT ON (identifier, sequence_number)
+    //         navaids_points.designatedpoint_tsp.id
+    //         FROM navaids_points.designatedpoint
+    //         LEFT JOIN master_join
+    //         ON navaids_points.designatedpoint.id = master_join.source_id
+    //         LEFT JOIN navaids_points.designatedpoint_tsp
+    //         ON master_join.target_id = navaids_points.designatedpoint_tsp.id
+    //         LEFT JOIN navaids_points.designatedpoint_ts
+    //         ON navaids_points.designatedpoint_tsp.designatedpointtimeslice_id = navaids_points.designatedpoint_ts.id
+    //         WHERE
+    //             navaids_points.designatedpoint.feature_status = 'APPROVED'
+    //             AND 
+    //             navaids_points.designatedpoint_ts.feature_status = 'APPROVED'
+    //         ORDER BY sequence_number, correction_number DESC;
+    //         """;
 
-            List<Integer> validIds = session.createNativeQuery(sql, Integer.class).getResultList();
+    //         List<Integer> validIds = session.createNativeQuery(sql, Integer.class).getResultList();
 
-            if (validIds.isEmpty()) {
-                ConsoleLogger.log(LogLevel.INFO, "No valid DesignatedPointTimeSlice IDs found");
-                return null;
-            }
+    //         if (validIds.isEmpty()) {
+    //             ConsoleLogger.log(LogLevel.INFO, "No valid DesignatedPointTimeSlice IDs found");
+    //             return null;
+    //         }
 
-            // 2. Run the HQL using the result from SQL
-            String hql = """
-            SELECT dpt
-            FROM DesignatedPointType dpt
-            JOIN FETCH dpt.timeSlice tsp
-            JOIN FETCH  tsp.designatedPointTimeSlice ts
-            WHERE 
-                tsp.dbid IN :validIds
-                AND 
-                (:validDateTime <= ts.validTime.endPosition OR ts.validTime.endPosition IS NULL)
-            ORDER BY ts.sequenceNumber, ts.correctionNumber DESC
-            """;
+    //         // 2. Run the HQL using the result from SQL
+    //         String hql = """
+    //         SELECT dpt
+    //         FROM DesignatedPointType dpt
+    //         JOIN FETCH dpt.timeSlice tsp
+    //         JOIN FETCH  tsp.designatedPointTimeSlice ts
+    //         WHERE 
+    //             tsp.dbid IN :validIds
+    //             AND 
+    //             (:validDateTime <= ts.validTime.endPosition OR ts.validTime.endPosition IS NULL)
+    //         ORDER BY ts.sequenceNumber, ts.correctionNumber DESC
+    //         """;
 
-            List<DesignatedPointType> designatedPoints = session.createQuery(hql, DesignatedPointType.class)
-                .setParameterList("validIds", validIds)
-                .setParameter("validDateTime", Instant.parse("2011-01-01T00:00:00.000Z"))
-                .getResultList();
+    //         List<DesignatedPointType> designatedPoints = session.createQuery(hql, DesignatedPointType.class)
+    //             .setParameterList("validIds", validIds)
+    //             .setParameter("validDateTime", Instant.parse("2011-01-01T00:00:00.000Z"))
+    //             .getResultList();
 
 
-            // 3. Build the export message
-            object = new AIXMBasicMessageType();
-            for (DesignatedPointType dpt : designatedPoints) {
-                BasicMessageMemberAIXMPropertyType member = new BasicMessageMemberAIXMPropertyType();
-                member.setAbstractAIXMFeature(dpt);
-                object.getHasMember().add(member);
-            }
+    //         // 3. Build the export message
+    //         object = new AIXMBasicMessageType();
+    //         for (DesignatedPointType dpt : designatedPoints) {
+    //             BasicMessageMemberAIXMPropertyType member = new BasicMessageMemberAIXMPropertyType();
+    //             member.setAbstractAIXMFeature(dpt);
+    //             object.getHasMember().add(member);
+    //         }
 
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
+    //         transaction.commit();
+    //     } catch (Exception e) {
+    //         if (transaction != null) {
+    //             transaction.rollback();
+    //         }
+    //         e.printStackTrace();
+    //     } finally {
+    //         session.close();
+    //     }
 
-        ConsoleLogger.log(LogLevel.INFO, "AIXM Successfully exported");
-        return object;
-    }
+    //     ConsoleLogger.log(LogLevel.INFO, "AIXM Successfully exported");
+    //     return object;
+    // }
 
     public void computeDBView() {
         this.executeSQLScript(this.databaseConfig.getSqlDBViewFilePath());

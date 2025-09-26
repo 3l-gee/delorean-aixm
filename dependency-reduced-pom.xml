@@ -7,6 +7,19 @@
   <version>0.2.0</version>
   <url>https://github.com/3l-gee/delorean</url>
   <build>
+    <resources>
+      <resource>
+        <targetPath>META-INF</targetPath>
+        <directory>${project.basedir}/schema/aixm5_2/orm</directory>
+        <includes>
+          <include>*.orm</include>
+          <include>*.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -21,6 +34,10 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
       </plugin>
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
@@ -139,21 +156,58 @@
   </profiles>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.2</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
-          <artifactId>hamcrest-core</artifactId>
-          <groupId>org.hamcrest</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-params</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-engine</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.26.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>1.20.2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>jdbc</artifactId>
+          <groupId>org.testcontainers</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>1.20.2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>testcontainers</artifactId>
+          <groupId>org.testcontainers</groupId>
         </exclusion>
       </exclusions>
     </dependency>
   </dependencies>
   <properties>
     <postgis.version>2025.1.1</postgis.version>
-    <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
     <slf4j.version>2.0.12</slf4j.version>
     <jpa-api.version>3.2.0</jpa-api.version>
     <freemarker.version>2.3.34</freemarker.version>

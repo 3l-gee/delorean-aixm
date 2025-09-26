@@ -102,7 +102,7 @@ To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
 			<extension base="gml:IdentifiedObjectType">
 				<sequence>
 					<element ref="gml:semiMajorAxis"/>
-					<element ref="gml:secondDefiningParameter"/>
+					<element ref="gml:SecondDefiningParameterPropertyElement"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -112,7 +112,9 @@ To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
 			<documentation>gml:semiMajorAxis specifies the length of the semi-major axis of the ellipsoid, with its units. Uses the MeasureType with the restriction that the unit of measure referenced by uom must be suitable for a length, such as metres or feet.</documentation>
 		</annotation>
 	</element>
-	<element name="secondDefiningParameter">
+	<!-- Delorean hyper jaxb codgen limitation -->
+	<!-- <element name="secondDefiningParameter"> -->
+		<element name="SecondDefiningParameterPropertyElement">
 		<annotation>
 			<documentation>gml:secondDefiningParameter is a property containing the definition of the second parameter that defines the shape of an ellipsoid. An ellipsoid requires two defining parameters: semi-major axis and inverse flattening or semi-major axis and semi-minor axis. When the reference body is a sphere rather than an ellipsoid, only a single defining parameter is required, namely the radius of the sphere; in that case, the semi-major axis "degenerates" into the radius of the sphere.
 The inverseFlattening element contains the inverse flattening value of the ellipsoid. This value is a scale factor (or ratio). It uses gml:LengthType with the restriction that the unit of measure referenced by the uom attribute must be suitable for a scale factor, such as percent, permil, or parts-per-million.

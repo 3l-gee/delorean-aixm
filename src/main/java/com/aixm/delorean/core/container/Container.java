@@ -127,7 +127,7 @@ public class Container<T> {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }   
-        this.record = (T) this.databaseBinding.export(structure, id);
+        // this.record = (T) this.databaseBinding.export(structure, id);
     }
 
     //TODO this should be cleaned up in untility function or deleted

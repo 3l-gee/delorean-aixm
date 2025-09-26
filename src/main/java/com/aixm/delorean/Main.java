@@ -25,11 +25,6 @@ public class Main {
         ConsoleLogger.setGlobalLogLevel(LogLevel.INFO);
         for (String arg : args) {
             switch (arg) {
-                case "--test":
-                case "-t":
-                    mainInstance.testOption = true;
-                    ConsoleLogger.log(LogLevel.WARN, "Test mode enabled");
-                    break;
                 case "--verbose":
                 case "-v":
                     ConsoleLogger.setGlobalLogLevel(LogLevel.DEBUG);
