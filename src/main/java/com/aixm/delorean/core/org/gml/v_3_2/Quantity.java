@@ -10,7 +10,6 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -45,7 +44,6 @@ public class Quantity
 
     private static final long serialVersionUID = 20250910L;
     @XmlAttribute(name = "nilReason")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
 
     /**
@@ -57,7 +55,7 @@ public class Quantity
      *     
      */
     @Basic
-    @Column(name = "NIL_REASON")
+    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }

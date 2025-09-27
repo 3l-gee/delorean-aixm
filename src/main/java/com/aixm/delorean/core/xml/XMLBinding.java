@@ -43,6 +43,14 @@ public class XMLBinding<T> {
             e.printStackTrace();
         }
     }
+
+    public Unmarshaller getUnMarshaller() {
+        return this.unmarshaller;
+    }
+
+    public Marshaller getMarshaller() {
+        return this.marshaller;
+    }
     
     public void setValidationRule() {
         try {

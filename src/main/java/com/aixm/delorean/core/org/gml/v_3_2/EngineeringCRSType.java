@@ -391,19 +391,6 @@ public class EngineeringCRSType
         }
         final EngineeringCRSType that = ((EngineeringCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPolarCS();
-            boolean rhsFieldIsSet = that.isSetPolarCS();
-            PolarCSPropertyType lhsField;
-            lhsField = this.getPolarCS();
-            PolarCSPropertyType rhsField;
-            rhsField = that.getPolarCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCoordinateSystem();
             boolean rhsFieldIsSet = that.isSetCoordinateSystem();
             JAXBElement<CoordinateSystemPropertyType> lhsField;
@@ -412,6 +399,19 @@ public class EngineeringCRSType
             rhsField = that.getCoordinateSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPolarCS();
+            boolean rhsFieldIsSet = that.isSetPolarCS();
+            PolarCSPropertyType lhsField;
+            lhsField = this.getPolarCS();
+            PolarCSPropertyType rhsField;
+            rhsField = that.getPolarCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polarCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polarCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -443,6 +443,19 @@ public class EngineeringCRSType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAffineCS();
+            boolean rhsFieldIsSet = that.isSetAffineCS();
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCartesianCS();
             boolean rhsFieldIsSet = that.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> lhsField;
@@ -464,19 +477,6 @@ public class EngineeringCRSType
             rhsField = that.getCylindricalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cylindricalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cylindricalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAffineCS();
-            boolean rhsFieldIsSet = that.isSetAffineCS();
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

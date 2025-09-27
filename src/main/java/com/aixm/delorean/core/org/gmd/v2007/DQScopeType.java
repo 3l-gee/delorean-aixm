@@ -181,19 +181,6 @@ public class DQScopeType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            EXExtentPropertyType lhsField;
-            lhsField = this.getExtent();
-            EXExtentPropertyType rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLevelDescription();
             boolean rhsFieldIsSet = that.isSetLevelDescription();
             List<MDScopeDescriptionPropertyType> lhsField;
@@ -202,6 +189,19 @@ public class DQScopeType
             rhsField = (that.isSetLevelDescription()?that.getLevelDescription():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            EXExtentPropertyType lhsField;
+            lhsField = this.getExtent();
+            EXExtentPropertyType rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -55,7 +55,7 @@ public class Main {
         System.out.println(" ██████╔╝███████╗███████╗╚██████╔╝██║  ██║███████╗██║  ██║██║ ╚████║        ██║  ██║██║██╔╝ ██╗██║ ╚═╝ ██║ ");
         System.out.println(" ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝        ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ v1.0.0");
         System.out.println("");
-        System.out.println("       version : 0.2.0");
+        System.out.println("       version : 1.0.0");
         System.out.println("       license : GPL v3");
         System.out.println("        author : Raphaël Gerth");
         System.out.println("          repo : https://github.com/3l-gee/delorean-aixm");
@@ -181,10 +181,10 @@ public class Main {
             System.out.println("""
                -={ Delorean Shell Commands }=-
     help                                                              : Display this help message
-    new         [a5_1, a5_1_1]                                        : Create a new container with the specified argument       
-    xml_config  <container id, - >      [a5_1, a5_1_1]                : Configures the xml schema to use for the specified container
-    db_config   <container id, - >      [a5_1, a5_1_1]                : Configures the db connection for the specified container
-    qgis_config <container id, - >      [a5_1, a5_1_1]                : Configures the qgis project for the specified container
+    new         [a5.1, a5.1.1]                                        : Create a new container with the specified argument       
+    xml-config  <container id, - >      [a5.1, a5.1.1]                : Configures the xml schema to use for the specified container
+    db-config   <container id, - >      [a5.1, a5.1.1]                : Configures the db connection for the specified container
+    qgis-config <container id, - >      [a5.1, a5.1.1]                : Configures the qgis project for the specified container
     xml         <container id, - >      load             <path>       : load the xml data from the specified path
     xml         <container id, - >      export           <path>       : export the xml data to the specified path
     db          <container id, - >      startup                       : start the database
@@ -201,7 +201,7 @@ public class Main {
             executeNewCommand(argument, scanner, parameter, option);
             break;
 
-            case "xml_config":
+            case "xml-config":
             excuteXmlConfigurationCommand(argument,scanner, parameter, option);
             break;
 
@@ -209,7 +209,7 @@ public class Main {
             executeXmlActionCommand(argument,scanner, parameter, option);
             break;
 
-            case "db_config":
+            case "db-config":
             executeDbConfigurationCommand(argument, scanner, parameter, option);
             break;
 
@@ -217,7 +217,7 @@ public class Main {
             executeDbActionCommand(argument, scanner, parameter, option);
             break;
 
-            case "qgis_config" :
+            case "qgis-config" :
             executeQgisConfigurationCommand(argument, scanner, parameter, option);
             break;
 

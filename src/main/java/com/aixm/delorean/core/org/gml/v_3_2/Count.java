@@ -8,7 +8,6 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -51,7 +50,6 @@ public class Count implements Serializable, Equals, HashCode, ToString
     @XmlValue
     protected BigInteger value;
     @XmlAttribute(name = "nilReason")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
 
     /**

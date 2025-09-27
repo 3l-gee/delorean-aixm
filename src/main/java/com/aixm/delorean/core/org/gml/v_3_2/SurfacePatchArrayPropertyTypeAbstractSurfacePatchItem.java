@@ -153,9 +153,9 @@ public class SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem
 
     @ManyToOne(targetEntity = AbstractSurfacePatchType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ITEM_VALUE_SURFACE_PATCH_ARR_0", nullable = true)
     public AbstractSurfacePatchType getItemValue() {

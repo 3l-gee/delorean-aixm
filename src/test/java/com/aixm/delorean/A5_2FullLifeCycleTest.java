@@ -5,6 +5,9 @@ import org.junit.jupiter.api.*;
 import com.aixm.delorean.core.configuration.StructureConfig;
 import com.aixm.delorean.core.database.DatabaseBinding;
 import com.aixm.delorean.core.database.DatabaseConfig;
+import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
+import com.aixm.delorean.core.xml.XMLBinding;
+import com.aixm.delorean.core.xml.XMLConfig;
 import com.aixm.delorean.core.container.ContainerFactory;
 
 import static org.assertj.core.api.Assertions.*;
@@ -25,7 +28,7 @@ public class A5_2FullLifeCycleTest {
     }
 
     @Test
-    @Order(1)
+    @Order(10)
     void Container() {
 
         // given
@@ -45,11 +48,42 @@ public class A5_2FullLifeCycleTest {
         assertThat(app.containerWarehouse.getIds()).contains(containerID);
 
         // the container is of the right structure
-        assertThat(app.containerWarehouse.getContainer(containerID).getStructure()).isEqualTo("com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageTyp");
+        assertThat(app.containerWarehouse.getContainer(containerID).getStructure()).isEqualTo(AIXMBasicMessageType.class);
     }
 
     @Test
-    @Order(2)
+    @Order(20)
+    void XmlBinding() {
+
+        // given
+        XMLConfig xmlConfig = XMLConfig.AIXM_5_2;
+        StructureConfig strctConfig = StructureConfig.AIXM_5_2;
+
+        // do
+        XMLBinding<?> binding = new XMLBinding<>(xmlConfig, app.containerWarehouse.getContainer(containerID).getStructure());
+        app.containerWarehouse.getContainer(containerID).setXmlBinding(binding);
+
+        // check that
+        // the generated jaxb marshaller is of the right structure
+        assertThat(app.containerWarehouse.getContainer(containerID).xmlBinding.getMarshaller().getSchema()).isEqualTo(xmlConfig.getSchema());
+
+        // the generated jaxb unmarshaller is of the right structure
+        assertThat(app.containerWarehouse.getContainer(containerID).xmlBinding.getMarshaller().getSchema()).isEqualTo(xmlConfig.getSchema());
+    }
+
+    @Test
+    @Order(30)
+    void loadXml() {
+
+        // given
+        String xmlPath = "src/test/xml/a5_2/full.xml";
+
+        // do
+        app.containerWarehouse.getContainer(containerID).unmarshal(xmlPath);
+    }
+
+    @Test
+    @Order(40)
     //TODO change to psql testcontainers
     void DatabaseBinding() {
 
@@ -71,12 +105,23 @@ public class A5_2FullLifeCycleTest {
     }
 
     @Test
-    @Order(3)
+    @Order(50)
     //TODO change to psql testcontainers
     void DatabaseStartup() {
 
         // do
         app.containerWarehouse.getContainer(containerID).databaseBinding.startup();
+
+        // check that 
+    }
+
+    @Test
+    @Order(60)
+    //TODO change to psql testcontainers
+    void DatabaseLoad() {
+
+        // do
+        app.containerWarehouse.getContainer(containerID).loadDB();
 
         // check that 
     }

@@ -8,6 +8,7 @@ import java.time.Instant;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
+import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
@@ -841,23 +842,7 @@ public class DatabaseFunctionHelper {
             session.persist(tsp);
             existing.setAction(TimeSliceAction.CHANGE);
             existing.setTimeSliceProperty(tsp);
-            AbstractTimePrimitiveType atp = ts.getValidTime().getAbstractTimePrimitiveValue();
-
-            if (atp instanceof TimePeriodType tpe) {
-                TimePositionType tpo = tpe.getBeginPosition();
-
-                if (tpo != null && !tpo.getValue().isEmpty()) {
-                    String timeString = tpo.getValue().get(0);
-                    try {
-                        Instant instant = Instant.parse(timeString);
-                        // Now you can use `instant`
-                        existing.setNewTimeSliceStart(instant);
-                    } catch (DateTimeParseException e) {
-                        throw new IllegalArgumentException("Invalid time format: " + timeString, e);
-                    }
-                }
-            }
-            
+            existing.setNewTimeSliceStart(ts.getValidTime().getBeginPosition());
             return existing;
 
         

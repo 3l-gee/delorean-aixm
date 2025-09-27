@@ -30,7 +30,9 @@ and
 A particular community may choose to assign more detailed semantics to the standard values provided. Alternatively, the URI method enables a specific or more complete explanation for the absence of a value to be provided elsewhere and indicated by-reference in an instance document.
 gml:NilReasonType is used as a member of a union in a number of simple content types where it is necessary to permit a value from the NilReasonType union as an alternative to the primary type.</documentation>
 		</annotation>
-		<union memberTypes="gml:NilReasonEnumeration anyURI"/>
+		<!-- delorean hyper jaxb codgen limitation -->
+		<!-- <union memberTypes="gml:NilReasonEnumeration anyURI"/> -->
+		<restriction base="string"/>
 	</simpleType>
 	<simpleType name="NilReasonEnumeration">
 		<union>

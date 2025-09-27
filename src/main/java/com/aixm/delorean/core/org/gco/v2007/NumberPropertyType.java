@@ -4,13 +4,11 @@ package com.aixm.delorean.core.org.gco.v2007;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import com.aixm.delorean.core.org.gml.v_3_2.Adapter1;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -64,7 +62,6 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
     @XmlElement(name = "Integer")
     protected BigInteger integer;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
 
     /**
@@ -201,14 +198,14 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
         }
         final NumberPropertyType that = ((NumberPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            boolean lhsFieldIsSet = this.isSetInteger();
+            boolean rhsFieldIsSet = that.isSetInteger();
+            BigInteger lhsField;
+            lhsField = this.getInteger();
+            BigInteger rhsField;
+            rhsField = that.getInteger();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -227,6 +224,19 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDecimal();
             boolean rhsFieldIsSet = that.isSetDecimal();
             BigDecimal lhsField;
@@ -235,19 +245,6 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getDecimal();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInteger();
-            boolean rhsFieldIsSet = that.isSetInteger();
-            BigInteger lhsField;
-            lhsField = this.getInteger();
-            BigInteger rhsField;
-            rhsField = that.getInteger();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

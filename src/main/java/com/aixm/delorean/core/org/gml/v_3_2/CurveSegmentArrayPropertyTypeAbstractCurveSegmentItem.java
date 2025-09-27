@@ -167,9 +167,9 @@ public class CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem
 
     @ManyToOne(targetEntity = AbstractCurveSegmentType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ITEM_VALUE_CURVE_SEGMENT_ARR_0", nullable = true)
     public AbstractCurveSegmentType getItemValue() {

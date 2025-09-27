@@ -189,9 +189,9 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
 
     @ManyToOne(targetEntity = AbstractRingType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_RING_VALUE_ABSTRACT_0", nullable = true)
     public AbstractRingType getAbstractRingValue() {

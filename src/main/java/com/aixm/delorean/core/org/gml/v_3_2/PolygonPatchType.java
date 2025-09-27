@@ -76,9 +76,9 @@ public class PolygonPatchType
      */
     @ManyToOne(targetEntity = AbstractRingPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTERIOR_POLYGON_PATCH_TYPE__0", nullable = true)
     public AbstractRingPropertyType getExterior() {

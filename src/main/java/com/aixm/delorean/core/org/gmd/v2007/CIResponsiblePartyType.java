@@ -214,14 +214,14 @@ public class CIResponsiblePartyType
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrganisationName();
-            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            boolean lhsFieldIsSet = this.isSetPositionName();
+            boolean rhsFieldIsSet = that.isSetPositionName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getOrganisationName();
+            lhsField = this.getPositionName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getOrganisationName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
+            rhsField = that.getPositionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,14 +240,27 @@ public class CIResponsiblePartyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPositionName();
-            boolean rhsFieldIsSet = that.isSetPositionName();
+            boolean lhsFieldIsSet = this.isSetIndividualName();
+            boolean rhsFieldIsSet = that.isSetIndividualName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getPositionName();
+            lhsField = this.getIndividualName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getPositionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
+            rhsField = that.getIndividualName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "individualName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "individualName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrganisationName();
+            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrganisationName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrganisationName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -261,19 +274,6 @@ public class CIResponsiblePartyType
             rhsField = that.getContactInfo();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIndividualName();
-            boolean rhsFieldIsSet = that.isSetIndividualName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getIndividualName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getIndividualName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "individualName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "individualName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

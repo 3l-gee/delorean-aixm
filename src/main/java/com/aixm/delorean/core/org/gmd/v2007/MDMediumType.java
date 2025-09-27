@@ -333,19 +333,6 @@ public class MDMediumType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMediumNote();
-            boolean rhsFieldIsSet = that.isSetMediumNote();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMediumNote();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMediumNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             MDMediumNameCodePropertyType lhsField;
@@ -354,6 +341,19 @@ public class MDMediumType
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMediumNote();
+            boolean rhsFieldIsSet = that.isSetMediumNote();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMediumNote();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMediumNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

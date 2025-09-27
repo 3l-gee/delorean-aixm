@@ -168,6 +168,19 @@ public class DQDataQualityType
         }
         final DQDataQualityType that = ((DQDataQualityType) object);
         {
+            boolean lhsFieldIsSet = this.isSetReport();
+            boolean rhsFieldIsSet = that.isSetReport();
+            List<DQElementPropertyType> lhsField;
+            lhsField = (this.isSetReport()?this.getReport():null);
+            List<DQElementPropertyType> rhsField;
+            rhsField = (that.isSetReport()?that.getReport():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetScope();
             boolean rhsFieldIsSet = that.isSetScope();
             DQScopePropertyType lhsField;
@@ -189,19 +202,6 @@ public class DQDataQualityType
             rhsField = that.getLineage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReport();
-            boolean rhsFieldIsSet = that.isSetReport();
-            List<DQElementPropertyType> lhsField;
-            lhsField = (this.isSetReport()?this.getReport():null);
-            List<DQElementPropertyType> rhsField;
-            rhsField = (that.isSetReport()?that.getReport():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

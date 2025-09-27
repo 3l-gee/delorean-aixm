@@ -149,6 +149,19 @@ public class TimeEdgeType
         }
         final TimeEdgeType that = ((TimeEdgeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            TimePeriodPropertyType lhsField;
+            lhsField = this.getExtent();
+            TimePeriodPropertyType rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEnd();
             boolean rhsFieldIsSet = that.isSetEnd();
             TimeNodePropertyType lhsField;
@@ -170,19 +183,6 @@ public class TimeEdgeType
             rhsField = that.getStart();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            TimePeriodPropertyType lhsField;
-            lhsField = this.getExtent();
-            TimePeriodPropertyType rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

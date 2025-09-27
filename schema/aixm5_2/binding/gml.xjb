@@ -1,10 +1,10 @@
 <jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" xmlns:hj="http://jvnet.org/hyperjaxb/jpa" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" jaxb:extensionBindingPrefixes="xjc annox hj orm">
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/basicTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:simpleType[@name='NilReasonType']">
-			<jaxb:javaType name="java.lang.String"/>
+			<!-- <jaxb:javaType name="java.lang.String"/> -->
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:simpleType[@name='doubleList']">
-			<jaxb:javaType name="java.lang.String"/>
+			<!-- <jaxb:javaType name="java.lang.String"/> -->
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
 			<hj:embeddable/>
@@ -546,6 +546,15 @@
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeSliceType']">
 			<hj:mapped-superclass/>
 		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeSliceType']//xs:element[@ref='gml:aixmValidTime']">
+			<annox:annotate target="field">
+				@jakarta.xml.bind.annotation.XmlElement(name = "validTime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)
+			</annox:annotate>
+			<annox:annotate target="field">
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)
+			</annox:annotate>
+			<jaxb:property name="validTime"/>
+		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='HistoryPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -667,7 +676,7 @@
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionListType']//xs:extension[@base='gml:doubleList']">
 			<!-- <annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.type.string.ListDoubleAdapter.class)
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.string.ListDoubleAdapter.class)
 			</annox:annotate> -->
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VectorType']">
@@ -1029,7 +1038,7 @@
 		</jaxb:bindings>
 		<jaxb:bindings node="xs:attributeGroup[@name='AssociationAttributeGroup']//xs:attribute[@name='nilReason']">
 			<annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.type.string.ListStringAdapter.class)
+				<!-- @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.string.ListStringAdapter.class) -->
 			</annox:annotate>
 		</jaxb:bindings>
 		<!-- <jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">
@@ -1154,8 +1163,8 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/temporal.xsd" node="/xs:schema">
-		<jaxb:bindings node="//xs:simpleType[@name='TimePositionUnion']">
-			<jaxb:javaType name="java.lang.String"/>
+		<jaxb:bindings node="xs:element[@name='aixmValidTime']">
+			<jaxb:javaType name="com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType"/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeObjectType']">
 			<hj:ignored/>

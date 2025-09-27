@@ -2,12 +2,13 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -49,43 +50,54 @@ public class MeasureListType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20250910L;
-    /**
-     * A type for a list of values of the respective simple type.
-     * 
-     */
     @XmlValue
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    protected String value;
+    protected List<Double> value;
     @XmlAttribute(name = "uom", required = true)
     protected String uom;
 
     /**
-     * A type for a list of values of the respective simple type.
+     * A type for a list of values of the respective simple type.Gets the value of the value property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the value property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getValue().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Double }
+     * 
+     * 
      */
-    public String getValue() {
-        return value;
+    public List<Double> getValue() {
+        if (value == null) {
+            value = new ArrayList<>();
+        }
+        return this.value;
     }
 
     /**
-     * Sets the value of the value property.
+     * A type for a list of values of the respective simple type.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     * @see #getValue()
      */
-    public void setValue(String value) {
+    public void setValue(List<Double> value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return (this.value!= null);
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
     }
 
     /**
@@ -138,6 +150,19 @@ public class MeasureListType implements Serializable, Equals, HashCode, ToString
         }
         final MeasureListType that = ((MeasureListType) object);
         {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<Double> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<Double> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUom();
             boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
@@ -146,19 +171,6 @@ public class MeasureListType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            String lhsField;
-            lhsField = this.getValue();
-            String rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -181,8 +193,8 @@ public class MeasureListType implements Serializable, Equals, HashCode, ToString
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetValue();
-            String theField;
-            theField = this.getValue();
+            List<Double> theField;
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -220,8 +232,8 @@ public class MeasureListType implements Serializable, Equals, HashCode, ToString
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetValue();
-            String theField;
-            theField = this.getValue();
+            List<Double> theField;
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {

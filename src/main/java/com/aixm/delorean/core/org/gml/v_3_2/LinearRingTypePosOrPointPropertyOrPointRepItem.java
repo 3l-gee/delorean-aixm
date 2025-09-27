@@ -3,6 +3,7 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
 import javax.xml.namespace.QName;
+import jakarta.persistence.AssociationOverride;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -14,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -133,10 +135,12 @@ public class LinearRingTypePosOrPointPropertyOrPointRepItem
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "ITEM_POS_VALUE")),
         @AttributeOverride(name = "srsName", column = @Column(name = "ITEM_POS_SRS_NAME")),
         @AttributeOverride(name = "srsDimension", column = @Column(name = "ITEM_POS_SRS_DIMENSION", precision = 20, scale = 0))
     })
+    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_TYPE_ITEM_PO_0", joinColumns = {
+        @JoinColumn(name = "ITEM_POS_HJID")
+    }))
     public DirectPositionType getItemPos() {
         if (XmlAdapterUtils.isJAXBElement(DirectPositionType.class, new QName("http://www.opengis.net/gml/3.2", "pos"), JAXBElement.GlobalScope.class, this.getItem())) {
             return XmlAdapterUtils.unmarshallSource(DirectPositionType.class, this.getItem());
@@ -153,9 +157,9 @@ public class LinearRingTypePosOrPointPropertyOrPointRepItem
 
     @ManyToOne(targetEntity = PointPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ITEM_POINT_PROPERTY_LINEAR_R_0", nullable = true)
     public PointPropertyType getItemPointProperty() {
@@ -174,9 +178,9 @@ public class LinearRingTypePosOrPointPropertyOrPointRepItem
 
     @ManyToOne(targetEntity = PointPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ITEM_POINT_REP_LINEAR_RING_T_0", nullable = true)
     public PointPropertyType getItemPointRep() {

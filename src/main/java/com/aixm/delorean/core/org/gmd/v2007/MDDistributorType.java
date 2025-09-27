@@ -235,27 +235,14 @@ public class MDDistributorType
         }
         final MDDistributorType that = ((MDDistributorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistributorTransferOptions();
-            boolean rhsFieldIsSet = that.isSetDistributorTransferOptions();
-            List<MDDigitalTransferOptionsPropertyType> lhsField;
-            lhsField = (this.isSetDistributorTransferOptions()?this.getDistributorTransferOptions():null);
-            List<MDDigitalTransferOptionsPropertyType> rhsField;
-            rhsField = (that.isSetDistributorTransferOptions()?that.getDistributorTransferOptions():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorTransferOptions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorTransferOptions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistributorFormat();
-            boolean rhsFieldIsSet = that.isSetDistributorFormat();
-            List<MDFormatPropertyType> lhsField;
-            lhsField = (this.isSetDistributorFormat()?this.getDistributorFormat():null);
-            List<MDFormatPropertyType> rhsField;
-            rhsField = (that.isSetDistributorFormat()?that.getDistributorFormat():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorFormat", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistributorContact();
+            boolean rhsFieldIsSet = that.isSetDistributorContact();
+            CIResponsiblePartyPropertyType lhsField;
+            lhsField = this.getDistributorContact();
+            CIResponsiblePartyPropertyType rhsField;
+            rhsField = that.getDistributorContact();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,14 +261,27 @@ public class MDDistributorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistributorContact();
-            boolean rhsFieldIsSet = that.isSetDistributorContact();
-            CIResponsiblePartyPropertyType lhsField;
-            lhsField = this.getDistributorContact();
-            CIResponsiblePartyPropertyType rhsField;
-            rhsField = that.getDistributorContact();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistributorFormat();
+            boolean rhsFieldIsSet = that.isSetDistributorFormat();
+            List<MDFormatPropertyType> lhsField;
+            lhsField = (this.isSetDistributorFormat()?this.getDistributorFormat():null);
+            List<MDFormatPropertyType> rhsField;
+            rhsField = (that.isSetDistributorFormat()?that.getDistributorFormat():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistributorTransferOptions();
+            boolean rhsFieldIsSet = that.isSetDistributorTransferOptions();
+            List<MDDigitalTransferOptionsPropertyType> lhsField;
+            lhsField = (this.isSetDistributorTransferOptions()?this.getDistributorTransferOptions():null);
+            List<MDDigitalTransferOptionsPropertyType> rhsField;
+            rhsField = (that.isSetDistributorTransferOptions()?that.getDistributorTransferOptions():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorTransferOptions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorTransferOptions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

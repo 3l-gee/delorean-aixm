@@ -2,14 +2,20 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Basic;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OrderColumn;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -21,7 +27,6 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -73,15 +78,8 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
 {
 
     private static final long serialVersionUID = 20250910L;
-    /**
-     * The simple type gml:TimePositionUnion is a union of XML Schema simple types which instantiate the subtypes for temporal position described in ISO 19108.
-     *  An ordinal era may be referenced via URI.  A decimal value may be used to indicate the distance from the scale origin .  time is used for a position that recurs daily (see ISO 19108:2002 5.4.4.2).
-     *  Finally, calendar and clock forms that support the representation of time in systems based on years, months, days, hours, minutes and seconds, in a notation following ISO 8601, are assembled by gml:CalDate
-     * 
-     */
     @XmlValue
-    @XmlJavaTypeAdapter(Adapter3 .class)
-    protected String value;
+    protected List<String> value;
     @XmlAttribute(name = "frame")
     @XmlSchemaType(name = "anyURI")
     protected String frame;
@@ -97,35 +95,57 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
     /**
      * The simple type gml:TimePositionUnion is a union of XML Schema simple types which instantiate the subtypes for temporal position described in ISO 19108.
      *  An ordinal era may be referenced via URI.  A decimal value may be used to indicate the distance from the scale origin .  time is used for a position that recurs daily (see ISO 19108:2002 5.4.4.2).
-     *  Finally, calendar and clock forms that support the representation of time in systems based on years, months, days, hours, minutes and seconds, in a notation following ISO 8601, are assembled by gml:CalDate
+     *  Finally, calendar and clock forms that support the representation of time in systems based on years, months, days, hours, minutes and seconds, in a notation following ISO 8601, are assembled by gml:CalDate Gets the value of the value property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the value property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getValue().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
-    @Basic
-    @Column(name = "VALUE_")
-    public String getValue() {
-        return value;
+    @ElementCollection
+    @OrderColumn(name = "HJINDEX")
+    @Column(name = "HJVALUE")
+    @CollectionTable(name = "TIME_POSITION_TYPE_VALUE_", joinColumns = {
+        @JoinColumn(name = "HJID")
+    })
+    public List<String> getValue() {
+        if (value == null) {
+            value = new ArrayList<>();
+        }
+        return this.value;
     }
 
     /**
-     * Sets the value of the value property.
+     * The simple type gml:TimePositionUnion is a union of XML Schema simple types which instantiate the subtypes for temporal position described in ISO 19108.
+     *  An ordinal era may be referenced via URI.  A decimal value may be used to indicate the distance from the scale origin .  time is used for a position that recurs daily (see ISO 19108:2002 5.4.4.2).
+     *  Finally, calendar and clock forms that support the representation of time in systems based on years, months, days, hours, minutes and seconds, in a notation following ISO 8601, are assembled by gml:CalDate
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     * @see #getValue()
      */
-    public void setValue(String value) {
+    public void setValue(List<String> value) {
         this.value = value;
     }
 
     @Transient
     public boolean isSetValue() {
-        return (this.value!= null);
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
     }
 
     /**
@@ -302,32 +322,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         }
         final TimePositionType that = ((TimePositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCalendarEraName();
-            boolean rhsFieldIsSet = that.isSetCalendarEraName();
-            String lhsField;
-            lhsField = this.getCalendarEraName();
-            String rhsField;
-            rhsField = that.getCalendarEraName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            String lhsField;
-            lhsField = this.getValue();
-            String rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetIndeterminatePosition();
             boolean rhsFieldIsSet = that.isSetIndeterminatePosition();
             TimeIndeterminateValueType lhsField;
@@ -341,6 +335,19 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCalendarEraName();
+            boolean rhsFieldIsSet = that.isSetCalendarEraName();
+            String lhsField;
+            lhsField = this.getCalendarEraName();
+            String rhsField;
+            rhsField = that.getCalendarEraName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFrame();
             boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
@@ -349,6 +356,19 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
             rhsField = that.getFrame();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<String> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -371,8 +391,8 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetValue();
-            String theField;
-            theField = this.getValue();
+            List<String> theField;
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -424,8 +444,8 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetValue();
-            String theField;
-            theField = this.getValue();
+            List<String> theField;
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {

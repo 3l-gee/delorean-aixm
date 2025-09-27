@@ -105,9 +105,9 @@ public abstract class AbstractAIXMMessageBaseType
      */
     @ManyToOne(targetEntity = MessageMetadataPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "MESSAGE_METADATA_ABSTRACT_AI_0", nullable = true)
     public MessageMetadataPropertyType getMessageMetadata() {
@@ -144,19 +144,6 @@ public abstract class AbstractAIXMMessageBaseType
         }
         final AbstractAIXMMessageBaseType that = ((AbstractAIXMMessageBaseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMessageMetadata();
-            boolean rhsFieldIsSet = that.isSetMessageMetadata();
-            MessageMetadataPropertyType lhsField;
-            lhsField = this.getMessageMetadata();
-            MessageMetadataPropertyType rhsField;
-            rhsField = that.getMessageMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "messageMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "messageMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSequenceNumber();
             boolean rhsFieldIsSet = that.isSetSequenceNumber();
             Long lhsField;
@@ -165,6 +152,19 @@ public abstract class AbstractAIXMMessageBaseType
             rhsField = that.getSequenceNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMessageMetadata();
+            boolean rhsFieldIsSet = that.isSetMessageMetadata();
+            MessageMetadataPropertyType lhsField;
+            lhsField = this.getMessageMetadata();
+            MessageMetadataPropertyType rhsField;
+            rhsField = that.getMessageMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "messageMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "messageMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

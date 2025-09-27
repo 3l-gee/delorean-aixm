@@ -76,9 +76,9 @@ public class EnvelopeWithTimePeriodType
      */
     @ManyToOne(targetEntity = TimePositionType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "BEGIN_POSITION_ENVELOPE_WITH_0", nullable = true)
     public TimePositionType getBeginPosition() {
@@ -112,9 +112,9 @@ public class EnvelopeWithTimePeriodType
      */
     @ManyToOne(targetEntity = TimePositionType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "END_POSITION_ENVELOPE_WITH_T_0", nullable = true)
     public TimePositionType getEndPosition() {
@@ -199,19 +199,6 @@ public class EnvelopeWithTimePeriodType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBeginPosition();
-            boolean rhsFieldIsSet = that.isSetBeginPosition();
-            TimePositionType lhsField;
-            lhsField = this.getBeginPosition();
-            TimePositionType rhsField;
-            rhsField = that.getBeginPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFrame();
             boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
@@ -220,6 +207,19 @@ public class EnvelopeWithTimePeriodType
             rhsField = that.getFrame();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBeginPosition();
+            boolean rhsFieldIsSet = that.isSetBeginPosition();
+            TimePositionType lhsField;
+            lhsField = this.getBeginPosition();
+            TimePositionType rhsField;
+            rhsField = that.getBeginPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

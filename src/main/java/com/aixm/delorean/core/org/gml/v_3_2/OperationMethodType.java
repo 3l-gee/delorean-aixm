@@ -275,6 +275,19 @@ public class OperationMethodType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTargetDimensions();
+            boolean rhsFieldIsSet = that.isSetTargetDimensions();
+            BigInteger lhsField;
+            lhsField = this.getTargetDimensions();
+            BigInteger rhsField;
+            rhsField = that.getTargetDimensions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "targetDimensions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "targetDimensions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSourceDimensions();
             boolean rhsFieldIsSet = that.isSetSourceDimensions();
             BigInteger lhsField;
@@ -296,19 +309,6 @@ public class OperationMethodType
             rhsField = that.getFormula();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTargetDimensions();
-            boolean rhsFieldIsSet = that.isSetTargetDimensions();
-            BigInteger lhsField;
-            lhsField = this.getTargetDimensions();
-            BigInteger rhsField;
-            rhsField = that.getTargetDimensions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "targetDimensions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "targetDimensions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

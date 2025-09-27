@@ -277,14 +277,14 @@ public class CoordinateSystemAxisType
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMinimumValue();
-            boolean rhsFieldIsSet = that.isSetMinimumValue();
-            Double lhsField;
-            lhsField = this.getMinimumValue();
-            Double rhsField;
-            rhsField = that.getMinimumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetRangeMeaning();
+            boolean rhsFieldIsSet = that.isSetRangeMeaning();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getRangeMeaning();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getRangeMeaning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -298,19 +298,6 @@ public class CoordinateSystemAxisType
             rhsField = that.getAxisAbbrev();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisAbbrev", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisAbbrev", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRangeMeaning();
-            boolean rhsFieldIsSet = that.isSetRangeMeaning();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getRangeMeaning();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getRangeMeaning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -350,6 +337,19 @@ public class CoordinateSystemAxisType
             rhsField = that.getAxisDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
+            Double lhsField;
+            lhsField = this.getMinimumValue();
+            Double rhsField;
+            rhsField = that.getMinimumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

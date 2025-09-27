@@ -54,6 +54,8 @@ To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
 			<documentation>gml:validTime is a convenience property element.</documentation>
 		</annotation>
 	</element>
+	<!-- delorean hyper jaxb codgen limitation -->
+	<element name="aixmValidTime" type="string"></element>
 	<complexType name="RelatedTimeType">
 		<annotation>
 			<documentation>gml:RelatedTimeType provides a content model for indicating the relative position of an arbitrary member of the substitution group whose head is gml:AbstractTimePrimitive. It extends the generic gml:TimePrimitivePropertyType with an XML attribute relativePosition, whose value is selected from the set of 13 temporal relationships identified by Allen (1983)</documentation>

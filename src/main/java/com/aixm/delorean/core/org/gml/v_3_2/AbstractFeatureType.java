@@ -85,9 +85,9 @@ public abstract class AbstractFeatureType
      */
     @ManyToOne(targetEntity = BoundingShapeType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "BOUNDED_BY_ABSTRACT_FEATURE__0", nullable = true)
     public BoundingShapeType getBoundedBy() {
@@ -157,19 +157,6 @@ public abstract class AbstractFeatureType
         }
         final AbstractFeatureType that = ((AbstractFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBoundedBy();
-            boolean rhsFieldIsSet = that.isSetBoundedBy();
-            BoundingShapeType lhsField;
-            lhsField = this.getBoundedBy();
-            BoundingShapeType rhsField;
-            rhsField = that.getBoundedBy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "boundedBy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "boundedBy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<? extends LocationPropertyType> lhsField;
@@ -178,6 +165,19 @@ public abstract class AbstractFeatureType
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBoundedBy();
+            boolean rhsFieldIsSet = that.isSetBoundedBy();
+            BoundingShapeType lhsField;
+            lhsField = this.getBoundedBy();
+            BoundingShapeType rhsField;
+            rhsField = that.getBoundedBy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "boundedBy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "boundedBy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

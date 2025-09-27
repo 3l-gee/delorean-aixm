@@ -1878,6 +1878,13 @@
 				<orm:inheritance strategy="TABLE_PER_CLASS"/>
 			</hj:entity>
 		</jaxb:bindings>
+		
+		<jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
+			<jaxb:javaType name="com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType"/>
+			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+			<jaxb:property name="featureLifetime"/>
+		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
 			<hj:entity>
 				<orm:table name="message_metadata_property" schema="aixm"/>

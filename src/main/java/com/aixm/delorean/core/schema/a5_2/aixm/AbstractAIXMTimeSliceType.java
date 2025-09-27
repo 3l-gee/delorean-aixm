@@ -2,7 +2,10 @@
 package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter;
+import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Basic;
@@ -29,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -52,7 +56,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *         <element ref="{http://www.aixm.aero/schema/5.2}sequenceNumber" minOccurs="0"/>
  *         <element ref="{http://www.aixm.aero/schema/5.2}correctionNumber" minOccurs="0"/>
  *         <element name="timeSliceMetadata" type="{http://www.aixm.aero/schema/5.2}FeatureTimeSliceMetadataPropertyType" minOccurs="0"/>
- *         <element ref="{http://www.aixm.aero/schema/5.2}featureLifetime" minOccurs="0"/>
+ *         <element name="featureLifetime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -98,11 +102,9 @@ public abstract class AbstractAIXMTimeSliceType
      */
     protected Long correctionNumber;
     protected FeatureTimeSliceMetadataPropertyType timeSliceMetadata;
-    /**
-     * The start and end of life of the feature. See the AIXM Temporality model for details.
-     * 
-     */
-    protected TimePrimitivePropertyType featureLifetime;
+    @XmlElement(type = TimePrimitivePropertyType.class, name = "featureLifetime", required = true)
+    @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
+    protected AixmTimeSliceType featureLifetime;
     @XmlAttribute(name = "Hjid")
     protected Long hjid;
     @XmlTransient
@@ -214,9 +216,9 @@ public abstract class AbstractAIXMTimeSliceType
      */
     @ManyToOne(targetEntity = FeatureTimeSliceMetadataPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "TIME_SLICE_METADATA_ABSTRACT_0", nullable = true)
     public FeatureTimeSliceMetadataPropertyType getTimeSliceMetadata() {
@@ -241,26 +243,19 @@ public abstract class AbstractAIXMTimeSliceType
     }
 
     /**
-     * The start and end of life of the feature. See the AIXM Temporality model for details.
+     * Gets the value of the featureLifetime property.
      * 
      * @return
      *     possible object is
-     *     {@link TimePrimitivePropertyType }
+     *     {@link String }
      *     
      */
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "nilReason", column = @Column(name = "FEATURE_LIFETIME_NIL_REASON")),
-        @AttributeOverride(name = "href", column = @Column(name = "FEATURE_LIFETIME_HREF")),
-        @AttributeOverride(name = "role", column = @Column(name = "FEATURE_LIFETIME_ROLE")),
-        @AttributeOverride(name = "arcrole", column = @Column(name = "FEATURE_LIFETIME_ARCROLE")),
-        @AttributeOverride(name = "simpleLinkTitle", column = @Column(name = "FEATURE_LIFETIME_SIMPLE_LINK_0", length = 255)),
-        @AttributeOverride(name = "show", column = @Column(name = "FEATURE_LIFETIME_SHOW", length = 255)),
-        @AttributeOverride(name = "actuate", column = @Column(name = "FEATURE_LIFETIME_ACTUATE", length = 255)),
-        @AttributeOverride(name = "owns", column = @Column(name = "FEATURE_LIFETIME_OWNS")),
-        @AttributeOverride(name = "abstractTimePrimitiveName", column = @Column(name = "FEATURE_LIFETIME_ABSTRACT_TI_0"))
+        @AttributeOverride(name = "beginPosition", column = @Column(name = "feature_lifetime_begin")),
+        @AttributeOverride(name = "endPosition", column = @Column(name = "feature_lifetime_end"))
     })
-    public TimePrimitivePropertyType getFeatureLifetime() {
+    public AixmTimeSliceType getFeatureLifetime() {
         return featureLifetime;
     }
 
@@ -269,11 +264,10 @@ public abstract class AbstractAIXMTimeSliceType
      * 
      * @param value
      *     allowed object is
-     *     {@link TimePrimitivePropertyType }
+     *     {@link String }
      *     
-     * @see #getFeatureLifetime()
      */
-    public void setFeatureLifetime(TimePrimitivePropertyType value) {
+    public void setFeatureLifetime(AixmTimeSliceType value) {
         this.featureLifetime = value;
     }
 
@@ -349,32 +343,6 @@ public abstract class AbstractAIXMTimeSliceType
         }
         final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCorrectionNumber();
-            boolean rhsFieldIsSet = that.isSetCorrectionNumber();
-            Long lhsField;
-            lhsField = this.getCorrectionNumber();
-            Long rhsField;
-            rhsField = that.getCorrectionNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
-            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
-            TimePrimitivePropertyType lhsField;
-            lhsField = this.getFeatureLifetime();
-            TimePrimitivePropertyType rhsField;
-            rhsField = that.getFeatureLifetime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInterpretation();
             boolean rhsFieldIsSet = that.isSetInterpretation();
             String lhsField;
@@ -383,6 +351,32 @@ public abstract class AbstractAIXMTimeSliceType
             rhsField = that.getInterpretation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
+            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType lhsField;
+            lhsField = this.getTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType rhsField;
+            rhsField = that.getTimeSliceMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
+            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
+            AixmTimeSliceType lhsField;
+            lhsField = this.getFeatureLifetime();
+            AixmTimeSliceType rhsField;
+            rhsField = that.getFeatureLifetime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -401,14 +395,14 @@ public abstract class AbstractAIXMTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
-            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType lhsField;
-            lhsField = this.getTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType rhsField;
-            rhsField = that.getTimeSliceMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
+            boolean lhsFieldIsSet = this.isSetCorrectionNumber();
+            boolean rhsFieldIsSet = that.isSetCorrectionNumber();
+            Long lhsField;
+            lhsField = this.getCorrectionNumber();
+            Long rhsField;
+            rhsField = that.getCorrectionNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,7 +443,7 @@ public abstract class AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetFeatureLifetime();
-            TimePrimitivePropertyType theField;
+            AixmTimeSliceType theField;
             theField = this.getFeatureLifetime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureLifetime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -486,7 +480,7 @@ public abstract class AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetFeatureLifetime();
-            TimePrimitivePropertyType theField;
+            AixmTimeSliceType theField;
             theField = this.getFeatureLifetime();
             strategy.appendField(locator, this, "featureLifetime", buffer, theField, theFieldIsSet);
         }

@@ -165,19 +165,6 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString
         }
         final TitleEltType that = ((TitleEltType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            List<Object> lhsField;
-            lhsField = (this.isSetContent()?this.getContent():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetContent()?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLang();
             boolean rhsFieldIsSet = that.isSetLang();
             String lhsField;
@@ -186,6 +173,19 @@ public class TitleEltType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getLang();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lang", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lang", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent()?this.getContent():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent()?that.getContent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

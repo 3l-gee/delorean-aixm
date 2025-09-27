@@ -7,6 +7,7 @@ import java.util.List;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
@@ -142,6 +143,7 @@ public class ObjectFactory {
     private static final QName _AbstractTimeObject_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeObject");
     private static final QName _AbstractTimePrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimePrimitive");
     private static final QName _ValidTime_QNAME = new QName("http://www.opengis.net/gml/3.2", "validTime");
+    private static final QName _AixmValidTime_QNAME = new QName("http://www.opengis.net/gml/3.2", "aixmValidTime");
     private static final QName _AbstractTimeComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeComplex");
     private static final QName _AbstractTimeGeometricPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeGeometricPrimitive");
     private static final QName _TimeInstant_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeInstant");
@@ -7805,7 +7807,6 @@ public class ObjectFactory {
      *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Null")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     public JAXBElement<String> createNull(String value) {
         return new JAXBElement<>(_Null_QNAME, String.class, null, value);
     }

@@ -29,7 +29,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  *         <sequence>
  *         </sequence>
  *         <sequence>
- *           <element ref="{http://www.opengis.net/gml/3.2}validTime"/>
+ *           <element ref="{http://www.opengis.net/gml/3.2}aixmValidTime"/>
  *         </sequence>
  *       </sequence>
  *       <attribute ref="{http://www.opengis.net/gml/3.2}id use="required""/>

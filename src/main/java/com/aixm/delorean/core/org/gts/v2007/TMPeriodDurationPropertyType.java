@@ -3,13 +3,11 @@ package com.aixm.delorean.core.org.gts.v2007;
 
 import java.io.Serializable;
 import javax.xml.datatype.Duration;
-import com.aixm.delorean.core.org.gml.v_3_2.Adapter1;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -55,7 +53,6 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
     @XmlElement(name = "TM_PeriodDuration")
     protected Duration tmPeriodDuration;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
 
     /**
@@ -136,19 +133,6 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
         }
         final TMPeriodDurationPropertyType that = ((TMPeriodDurationPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTMPeriodDuration();
-            boolean rhsFieldIsSet = that.isSetTMPeriodDuration();
-            Duration lhsField;
-            lhsField = this.getTMPeriodDuration();
-            Duration rhsField;
-            rhsField = that.getTMPeriodDuration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tmPeriodDuration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tmPeriodDuration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -157,6 +141,19 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTMPeriodDuration();
+            boolean rhsFieldIsSet = that.isSetTMPeriodDuration();
+            Duration lhsField;
+            lhsField = this.getTMPeriodDuration();
+            Duration rhsField;
+            rhsField = that.getTMPeriodDuration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tmPeriodDuration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tmPeriodDuration", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

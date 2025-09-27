@@ -195,19 +195,6 @@ public class TimeIntervalLengthType implements Serializable, Equals, HashCode, T
         }
         final TimeIntervalLengthType that = ((TimeIntervalLengthType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            BigDecimal lhsField;
-            lhsField = this.getValue();
-            BigDecimal rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRadix();
             boolean rhsFieldIsSet = that.isSetRadix();
             BigInteger lhsField;
@@ -221,19 +208,6 @@ public class TimeIntervalLengthType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUnit();
-            boolean rhsFieldIsSet = that.isSetUnit();
-            String lhsField;
-            lhsField = this.getUnit();
-            String rhsField;
-            rhsField = that.getUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFactor();
             boolean rhsFieldIsSet = that.isSetFactor();
             BigInteger lhsField;
@@ -242,6 +216,32 @@ public class TimeIntervalLengthType implements Serializable, Equals, HashCode, T
             rhsField = that.getFactor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            BigDecimal lhsField;
+            lhsField = this.getValue();
+            BigDecimal rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnit();
+            boolean rhsFieldIsSet = that.isSetUnit();
+            String lhsField;
+            lhsField = this.getUnit();
+            String rhsField;
+            rhsField = that.getUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -11,7 +11,7 @@ import java.util.List;
 public enum DatabaseConfig {
 
     A5_1(
-        "a5_1",
+        "a5.1",
         "a5_1/postgres/schema.sql",
         "a5_1/postgres/post_init.sql",
         "a5_1/postgres/view.sql",
@@ -915,7 +915,7 @@ public enum DatabaseConfig {
         )
     ),    
     AIXM_5_1_1(
-        "a5_1_1",
+        "a5.1.1",
         "a5_1_1/postgres/schema.sql",
         "a5_1_1/postgres/post_init.sql",
         "",
@@ -1712,7 +1712,7 @@ public enum DatabaseConfig {
         )
     ),
     A5_2(
-        "a5_2",
+        "a5.2",
         "a5_2/postgres/schema.sql",
         "a5_2/postgres/post_init.sql",
         "a5_2/postgres/view.sql",
@@ -1748,7 +1748,6 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.org.gml.v_3_2.CodeType.class,
             com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType.class,
             com.aixm.delorean.core.org.gml.v_3_2.ControlPoint.class,
-            com.aixm.delorean.core.org.gml.v_3_2.ControlPointGeometricPositionGroupItem.class,
             com.aixm.delorean.core.org.gml.v_3_2.CoordinateOperationAccuracy.class,
             com.aixm.delorean.core.org.gml.v_3_2.CoordinatesType.class,
             com.aixm.delorean.core.org.gml.v_3_2.Count.class,
@@ -1783,7 +1782,6 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.org.gml.v_3_2.RefLocation.class,
             com.aixm.delorean.core.org.gml.v_3_2.RingType.class,
             com.aixm.delorean.core.org.gml.v_3_2.Row.class,
-            com.aixm.delorean.core.org.gml.v_3_2.RowGeometricPositionGroupItem.class,
             com.aixm.delorean.core.org.gml.v_3_2.Rows.class,
             com.aixm.delorean.core.org.gml.v_3_2.SecondDefiningParameter.class,
             com.aixm.delorean.core.org.gml.v_3_2.SecondDefiningParameterPropertyElement.class,

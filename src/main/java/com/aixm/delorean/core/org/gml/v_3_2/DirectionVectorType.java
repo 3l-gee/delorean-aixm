@@ -177,19 +177,6 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
-            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
-            AngleType lhsField;
-            lhsField = this.getHorizontalAngle();
-            AngleType rhsField;
-            rhsField = that.getHorizontalAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalAngle();
             boolean rhsFieldIsSet = that.isSetVerticalAngle();
             AngleType lhsField;
@@ -198,6 +185,19 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getVerticalAngle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalAngle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
+            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
+            AngleType lhsField;
+            lhsField = this.getHorizontalAngle();
+            AngleType rhsField;
+            rhsField = that.getHorizontalAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

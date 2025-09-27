@@ -24,7 +24,6 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -82,10 +81,8 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
     @XmlElementRef(name = "Envelope", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends EnvelopeType> envelope;
     @XmlElement(name = "Null")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String gmlNull;
     @XmlAttribute(name = "nilReason")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
     @XmlAttribute(name = "Hjid")
     protected Long hjid;
@@ -135,7 +132,7 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
      *     
      */
     @Basic
-    @Column(name = "GML_NULL")
+    @Column(name = "GML_NULL", length = 255)
     public String getGmlNull() {
         return gmlNull;
     }
@@ -166,7 +163,7 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
      *     
      */
     @Basic
-    @Column(name = "NIL_REASON")
+    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }
@@ -260,9 +257,9 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
 
     @ManyToOne(targetEntity = EnvelopeType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.PERSIST,
         CascadeType.REFRESH,
-        CascadeType.DETACH,
-        CascadeType.PERSIST
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ENVELOPE_VALUE_BOUNDING_SHAP_0", nullable = true)
     public EnvelopeType getEnvelopeValue() {
@@ -301,14 +298,14 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         }
         final BoundingShapeType that = ((BoundingShapeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetGmlNull();
+            boolean rhsFieldIsSet = that.isSetGmlNull();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getGmlNull();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getGmlNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -327,14 +324,14 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGmlNull();
-            boolean rhsFieldIsSet = that.isSetGmlNull();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getGmlNull();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getGmlNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

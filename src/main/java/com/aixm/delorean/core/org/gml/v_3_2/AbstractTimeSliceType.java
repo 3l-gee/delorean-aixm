@@ -2,6 +2,8 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter;
+import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMTimeSliceBaseType;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -14,6 +16,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,7 +34,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGMLType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}validTime"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}aixmValidTime"/>
  *         <element ref="{http://www.opengis.net/gml/3.2}dataSource" minOccurs="0"/>
  *       </sequence>
  *     </extension>
@@ -57,12 +60,9 @@ public abstract class AbstractTimeSliceType
 {
 
     private static final long serialVersionUID = 20250910L;
-    /**
-     * gml:validTime is a convenience property element.
-     * 
-     */
-    @XmlElement(required = true)
-    protected TimePrimitivePropertyType validTime;
+    @XmlElement(name = "validTime", required = true, type = TimePrimitivePropertyType.class)
+    @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
+    protected AixmTimeSliceType validTime;
     /**
      * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference property that indicates the source of the temporal data. The remote link attributes of the gml:dataSource element have been deprecated along with its current type.
      * 
@@ -70,26 +70,19 @@ public abstract class AbstractTimeSliceType
     protected StringOrRefType dataSource;
 
     /**
-     * gml:validTime is a convenience property element.
+     * Gets the value of the validTime property.
      * 
      * @return
      *     possible object is
-     *     {@link TimePrimitivePropertyType }
+     *     {@link String }
      *     
      */
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "nilReason", column = @Column(name = "VALID_TIME_NIL_REASON")),
-        @AttributeOverride(name = "href", column = @Column(name = "VALID_TIME_HREF")),
-        @AttributeOverride(name = "role", column = @Column(name = "VALID_TIME_ROLE")),
-        @AttributeOverride(name = "arcrole", column = @Column(name = "VALID_TIME_ARCROLE")),
-        @AttributeOverride(name = "simpleLinkTitle", column = @Column(name = "VALID_TIME_SIMPLE_LINK_TITLE", length = 255)),
-        @AttributeOverride(name = "show", column = @Column(name = "VALID_TIME_SHOW", length = 255)),
-        @AttributeOverride(name = "actuate", column = @Column(name = "VALID_TIME_ACTUATE", length = 255)),
-        @AttributeOverride(name = "owns", column = @Column(name = "VALID_TIME_OWNS")),
-        @AttributeOverride(name = "abstractTimePrimitiveName", column = @Column(name = "VALID_TIME_ABSTRACT_TIME_PRI_0"))
+        @AttributeOverride(name = "beginPosition", column = @Column(name = "valid_time_begin")),
+        @AttributeOverride(name = "endPosition", column = @Column(name = "valid_time_end"))
     })
-    public TimePrimitivePropertyType getValidTime() {
+    public AixmTimeSliceType getValidTime() {
         return validTime;
     }
 
@@ -98,11 +91,10 @@ public abstract class AbstractTimeSliceType
      * 
      * @param value
      *     allowed object is
-     *     {@link TimePrimitivePropertyType }
+     *     {@link String }
      *     
-     * @see #getValidTime()
      */
-    public void setValidTime(TimePrimitivePropertyType value) {
+    public void setValidTime(AixmTimeSliceType value) {
         this.validTime = value;
     }
 
@@ -122,7 +114,7 @@ public abstract class AbstractTimeSliceType
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "value", column = @Column(name = "DATA_SOURCE_VALUE", length = 255)),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "DATA_SOURCE_NIL_REASON")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "DATA_SOURCE_NIL_REASON", length = 255)),
         @AttributeOverride(name = "href", column = @Column(name = "DATA_SOURCE_HREF")),
         @AttributeOverride(name = "role", column = @Column(name = "DATA_SOURCE_ROLE")),
         @AttributeOverride(name = "arcrole", column = @Column(name = "DATA_SOURCE_ARCROLE")),
@@ -180,9 +172,9 @@ public abstract class AbstractTimeSliceType
         {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
-            TimePrimitivePropertyType lhsField;
+            AixmTimeSliceType lhsField;
             lhsField = this.getValidTime();
-            TimePrimitivePropertyType rhsField;
+            AixmTimeSliceType rhsField;
             rhsField = that.getValidTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
@@ -198,7 +190,7 @@ public abstract class AbstractTimeSliceType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetValidTime();
-            TimePrimitivePropertyType theField;
+            AixmTimeSliceType theField;
             theField = this.getValidTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "validTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -218,7 +210,7 @@ public abstract class AbstractTimeSliceType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetValidTime();
-            TimePrimitivePropertyType theField;
+            AixmTimeSliceType theField;
             theField = this.getValidTime();
             strategy.appendField(locator, this, "validTime", buffer, theField, theFieldIsSet);
         }

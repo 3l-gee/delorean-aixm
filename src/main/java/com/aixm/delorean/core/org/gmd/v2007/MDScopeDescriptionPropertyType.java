@@ -2,13 +2,11 @@
 package com.aixm.delorean.core.org.gmd.v2007;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.org.gml.v_3_2.Adapter1;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -54,7 +52,6 @@ public class MDScopeDescriptionPropertyType implements Serializable, Equals, Has
     @XmlElement(name = "MD_ScopeDescription")
     protected MDScopeDescriptionType mdScopeDescription;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
-    @XmlJavaTypeAdapter(Adapter1 .class)
     protected String nilReason;
 
     /**
@@ -135,19 +132,6 @@ public class MDScopeDescriptionPropertyType implements Serializable, Equals, Has
         }
         final MDScopeDescriptionPropertyType that = ((MDScopeDescriptionPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDScopeDescription();
-            boolean rhsFieldIsSet = that.isSetMDScopeDescription();
-            MDScopeDescriptionType lhsField;
-            lhsField = this.getMDScopeDescription();
-            MDScopeDescriptionType rhsField;
-            rhsField = that.getMDScopeDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdScopeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdScopeDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -156,6 +140,19 @@ public class MDScopeDescriptionPropertyType implements Serializable, Equals, Has
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDScopeDescription();
+            boolean rhsFieldIsSet = that.isSetMDScopeDescription();
+            MDScopeDescriptionType lhsField;
+            lhsField = this.getMDScopeDescription();
+            MDScopeDescriptionType rhsField;
+            rhsField = that.getMDScopeDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdScopeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdScopeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

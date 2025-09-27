@@ -127,19 +127,6 @@ public class OrientableCurveType
         }
         final OrientableCurveType that = ((OrientableCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrientation();
-            boolean rhsFieldIsSet = that.isSetOrientation();
-            SignType lhsField;
-            lhsField = this.getOrientation();
-            SignType rhsField;
-            rhsField = that.getOrientation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetBaseCurve();
             boolean rhsFieldIsSet = that.isSetBaseCurve();
             CurvePropertyType lhsField;
@@ -148,6 +135,19 @@ public class OrientableCurveType
             rhsField = that.getBaseCurve();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCurve", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCurve", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrientation();
+            boolean rhsFieldIsSet = that.isSetOrientation();
+            SignType lhsField;
+            lhsField = this.getOrientation();
+            SignType rhsField;
+            rhsField = that.getOrientation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
