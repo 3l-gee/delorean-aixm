@@ -184,19 +184,6 @@ public class LinguisticNoteType
         }
         final LinguisticNoteType that = ((LinguisticNoteType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNote();
-            boolean rhsFieldIsSet = that.isSetNote();
-            JAXBElement<TextNoteType> lhsField;
-            lhsField = this.getNote();
-            JAXBElement<TextNoteType> rhsField;
-            rhsField = that.getNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "note", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "note", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<LinguisticNoteTypeExtension> lhsField;
@@ -205,6 +192,19 @@ public class LinguisticNoteType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNote();
+            boolean rhsFieldIsSet = that.isSetNote();
+            JAXBElement<TextNoteType> lhsField;
+            lhsField = this.getNote();
+            JAXBElement<TextNoteType> rhsField;
+            rhsField = that.getNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "note", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "note", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

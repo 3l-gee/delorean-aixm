@@ -133,19 +133,6 @@ public class MDMediumNameCodePropertyType implements Serializable, Equals, HashC
         }
         final MDMediumNameCodePropertyType that = ((MDMediumNameCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMDMediumNameCode();
             boolean rhsFieldIsSet = that.isSetMDMediumNameCode();
             CodeListValueType lhsField;
@@ -154,6 +141,19 @@ public class MDMediumNameCodePropertyType implements Serializable, Equals, HashC
             rhsField = that.getMDMediumNameCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMediumNameCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMediumNameCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

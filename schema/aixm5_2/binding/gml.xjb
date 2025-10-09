@@ -551,7 +551,7 @@
 				@jakarta.xml.bind.annotation.XmlElement(name = "validTime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)
 			</annox:annotate>
 			<annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter.class)
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)
 			</annox:annotate>
 			<jaxb:property name="validTime"/>
 		</jaxb:bindings>
@@ -592,17 +592,13 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='BoundingShapeType']">
-			<hj:entity>
-				<orm:table name="bounding_shape" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='BoundingShapeType']//xs:element[@ref='gml:Null']">
 			<jaxb:property name="gmlNull"/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeWithTimePeriodType']">
-			<hj:entity>
-				<orm:table name="envelope_with_time_period" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractFeatureMemberType']">
 			<hj:mapped-superclass/>
@@ -669,24 +665,16 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='DirectPositionListType']">
-			<hj:embeddable/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='DirectPositionListType']//xs:extension[@base='gml:doubleList']">
-			<!-- <annox:annotate target="field">
-				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.adapter.string.ListDoubleAdapter.class)
-			</annox:annotate> -->
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VectorType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']">
-			<hj:entity>
-				<orm:table name="envelope" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']//xs:element[@ref='gml:pos']">
 			<hj:ignored/>
@@ -695,37 +683,28 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometricPrimitiveType']">
-			<hj:mapped-superclass/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeometricPrimitivePropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointType']">
-			<hj:entity>
-				<orm:table name="point" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@ref='gml:coordinates']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
-			<hj:entity>
-				<orm:table name="point_property" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointArrayPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCurveType']">
-			<hj:entity>
-				<orm:table name="abstract_curve" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
-			<hj:entity>
-				<orm:table name="curve_property" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurveArrayPropertyType']">
 			<hj:ignored/>
@@ -736,15 +715,10 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryBasic2d.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractSurfaceType']">
-			<hj:entity>
-				<orm:table name="abstract_surface" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
-			<hj:entity>
-				<orm:table name="surface_property" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfaceArrayPropertyType']">
 			<hj:ignored/>
@@ -753,20 +727,13 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractRingType']">
-			<hj:entity>
-				<orm:table name="abstract_ring" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractRingPropertyType']">
-			<hj:entity>
-				<orm:table name="abstract_ring_property" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LinearRingType']">
-			<hj:entity>
-				<orm:table name="linear_ring" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LinearRingPropertyType']">
 			<hj:ignored/>
@@ -780,9 +747,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CompositeCurveType']">
-			<hj:entity>
-				<orm:table name="composite_curve" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CompositeSurfaceType']">
 			<hj:ignored/>
@@ -793,29 +758,19 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/geometryPrimitives.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CurveType']">
-			<hj:entity>
-				<orm:table name="curve" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='OrientableCurveType']">
-			<hj:entity>
-				<orm:table name="orientable_curve" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractCurveSegmentType']">
-			<hj:entity>
-				<orm:table name="abstract_curve_segment_type" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurveSegmentArrayPropertyType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']">
-			<hj:entity>
-				<orm:table name="Line_string_segment" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']//xs:element[@ref='gml:pointRep']">
 			<hj:ignored/>
@@ -824,9 +779,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']">
-			<hj:entity>
-				<orm:table name="arc_string" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']//xs:element[@ref='gml:pointRep']">
 			<hj:ignored/>
@@ -835,14 +788,10 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcType']">
-			<hj:entity>
-				<orm:table name="arc" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CircleType']">
-			<hj:entity>
-				<orm:table name="circle" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringByBulgeType']">
 			<hj:ignored/>
@@ -851,9 +800,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']">
-			<hj:entity>
-				<orm:table name="arc_by_center_point" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']//xs:element[@ref='gml:pointRep']">
 			<hj:ignored/>
@@ -862,14 +809,10 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']//xs:element[@ref='gml:pointProperty']">
-			<hj:many-to-one>
-				<orm:join-column nullable="false" updatable="false" insertable="true"/>
-			</hj:many-to-one>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CircleByCenterPointType']">
-			<hj:entity>
-				<orm:table name="circle_by_center_point" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CubicSplineType']">
 			<hj:ignored/>
@@ -899,36 +842,25 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeodesicStringType']">
-			<hj:entity>
-				<orm:table name="geodesic_string" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeodesicType']">
-			<hj:entity>
-				<orm:table name="geodesic" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
-			<hj:entity>
-				<orm:table name="surface" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='OrientableSurfaceType']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractSurfacePatchType']">
-			<hj:entity>
-				<orm:table name="abstract_surface_patch" schema="gml"/>
-				<orm:inheritance strategy="TABLE_PER_CLASS"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePatchArrayPropertyType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PolygonPatchType']">
-			<hj:entity>
-				<orm:table name="polygon_patch" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TriangleType']">
 			<hj:ignored/>
@@ -937,9 +869,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RingType']">
-			<hj:entity>
-				<orm:table name="ring" schema="gml"/>
-			</hj:entity>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RingPropertyType']">
 			<hj:ignored/>
@@ -1101,28 +1031,28 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/measures.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='LengthType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ScaleType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimeType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GridLengthType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AreaType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='VolumeType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SpeedType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AngleType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/observation.xsd" node="/xs:schema">
@@ -1164,7 +1094,7 @@
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/temporal.xsd" node="/xs:schema">
 		<jaxb:bindings node="xs:element[@name='aixmValidTime']">
-			<jaxb:javaType name="com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractTimeObjectType']">
 			<hj:ignored/>
@@ -1173,7 +1103,7 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='TimePrimitivePropertyType']">
-			<hj:embeddable/>
+			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='RelatedTimeType']">
 			<hj:ignored/>

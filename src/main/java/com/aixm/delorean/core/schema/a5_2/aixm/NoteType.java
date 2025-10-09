@@ -283,32 +283,6 @@ public class NoteType
         }
         final NoteType that = ((NoteType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTranslatedNote();
-            boolean rhsFieldIsSet = that.isSetTranslatedNote();
-            List<LinguisticNotePropertyType> lhsField;
-            lhsField = (this.isSetTranslatedNote()?this.getTranslatedNote():null);
-            List<LinguisticNotePropertyType> rhsField;
-            rhsField = (that.isSetTranslatedNote()?that.getTranslatedNote():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NoteTypeExtension> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NoteTypeExtension> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPurpose();
             boolean rhsFieldIsSet = that.isSetPurpose();
             JAXBElement<CodeNotePurposeType> lhsField;
@@ -330,6 +304,32 @@ public class NoteType
             rhsField = that.getPropertyName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTranslatedNote();
+            boolean rhsFieldIsSet = that.isSetTranslatedNote();
+            List<LinguisticNotePropertyType> lhsField;
+            lhsField = (this.isSetTranslatedNote()?this.getTranslatedNote():null);
+            List<LinguisticNotePropertyType> rhsField;
+            rhsField = (that.isSetTranslatedNote()?that.getTranslatedNote():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NoteTypeExtension> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NoteTypeExtension> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

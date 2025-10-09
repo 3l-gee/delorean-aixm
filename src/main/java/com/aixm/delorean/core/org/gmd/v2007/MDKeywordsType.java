@@ -171,19 +171,6 @@ public class MDKeywordsType
         }
         final MDKeywordsType that = ((MDKeywordsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetKeyword();
-            boolean rhsFieldIsSet = that.isSetKeyword();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetKeyword()?this.getKeyword():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetKeyword()?that.getKeyword():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetThesaurusName();
             boolean rhsFieldIsSet = that.isSetThesaurusName();
             CICitationPropertyType lhsField;
@@ -205,6 +192,19 @@ public class MDKeywordsType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetKeyword();
+            boolean rhsFieldIsSet = that.isSetKeyword();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetKeyword()?this.getKeyword():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetKeyword()?that.getKeyword():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

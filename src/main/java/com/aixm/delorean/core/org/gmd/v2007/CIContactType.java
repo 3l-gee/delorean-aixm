@@ -212,14 +212,14 @@ public class CIContactType
         }
         final CIContactType that = ((CIContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOnlineResource();
-            boolean rhsFieldIsSet = that.isSetOnlineResource();
-            CIOnlineResourcePropertyType lhsField;
-            lhsField = this.getOnlineResource();
-            CIOnlineResourcePropertyType rhsField;
-            rhsField = that.getOnlineResource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
+            boolean lhsFieldIsSet = this.isSetAddress();
+            boolean rhsFieldIsSet = that.isSetAddress();
+            CIAddressPropertyType lhsField;
+            lhsField = this.getAddress();
+            CIAddressPropertyType rhsField;
+            rhsField = that.getAddress();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -238,19 +238,6 @@ public class CIContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHoursOfService();
-            boolean rhsFieldIsSet = that.isSetHoursOfService();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getHoursOfService();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getHoursOfService();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hoursOfService", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hoursOfService", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPhone();
             boolean rhsFieldIsSet = that.isSetPhone();
             CITelephonePropertyType lhsField;
@@ -264,14 +251,27 @@ public class CIContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAddress();
-            boolean rhsFieldIsSet = that.isSetAddress();
-            CIAddressPropertyType lhsField;
-            lhsField = this.getAddress();
-            CIAddressPropertyType rhsField;
-            rhsField = that.getAddress();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
+            boolean lhsFieldIsSet = this.isSetOnlineResource();
+            boolean rhsFieldIsSet = that.isSetOnlineResource();
+            CIOnlineResourcePropertyType lhsField;
+            lhsField = this.getOnlineResource();
+            CIOnlineResourcePropertyType rhsField;
+            rhsField = that.getOnlineResource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoursOfService();
+            boolean rhsFieldIsSet = that.isSetHoursOfService();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getHoursOfService();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getHoursOfService();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hoursOfService", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hoursOfService", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

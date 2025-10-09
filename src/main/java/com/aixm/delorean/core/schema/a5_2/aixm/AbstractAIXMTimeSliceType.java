@@ -2,9 +2,9 @@
 package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter;
-import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
+import com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter;
+import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -104,7 +104,7 @@ public abstract class AbstractAIXMTimeSliceType
     protected FeatureTimeSliceMetadataPropertyType timeSliceMetadata;
     @XmlElement(type = TimePrimitivePropertyType.class, name = "featureLifetime", required = true)
     @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
-    protected AixmTimeSliceType featureLifetime;
+    protected DeloreanTimeSliceType featureLifetime;
     @XmlAttribute(name = "Hjid")
     protected Long hjid;
     @XmlTransient
@@ -216,9 +216,9 @@ public abstract class AbstractAIXMTimeSliceType
      */
     @ManyToOne(targetEntity = FeatureTimeSliceMetadataPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.DETACH,
         CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
+        CascadeType.REFRESH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "TIME_SLICE_METADATA_ABSTRACT_0", nullable = true)
     public FeatureTimeSliceMetadataPropertyType getTimeSliceMetadata() {
@@ -255,7 +255,7 @@ public abstract class AbstractAIXMTimeSliceType
         @AttributeOverride(name = "beginPosition", column = @Column(name = "feature_lifetime_begin")),
         @AttributeOverride(name = "endPosition", column = @Column(name = "feature_lifetime_end"))
     })
-    public AixmTimeSliceType getFeatureLifetime() {
+    public DeloreanTimeSliceType getFeatureLifetime() {
         return featureLifetime;
     }
 
@@ -267,7 +267,7 @@ public abstract class AbstractAIXMTimeSliceType
      *     {@link String }
      *     
      */
-    public void setFeatureLifetime(AixmTimeSliceType value) {
+    public void setFeatureLifetime(DeloreanTimeSliceType value) {
         this.featureLifetime = value;
     }
 
@@ -356,32 +356,6 @@ public abstract class AbstractAIXMTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
-            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType lhsField;
-            lhsField = this.getTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType rhsField;
-            rhsField = that.getTimeSliceMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
-            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
-            AixmTimeSliceType lhsField;
-            lhsField = this.getFeatureLifetime();
-            AixmTimeSliceType rhsField;
-            rhsField = that.getFeatureLifetime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSequenceNumber();
             boolean rhsFieldIsSet = that.isSetSequenceNumber();
             Long lhsField;
@@ -395,6 +369,19 @@ public abstract class AbstractAIXMTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
+            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType lhsField;
+            lhsField = this.getTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType rhsField;
+            rhsField = that.getTimeSliceMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCorrectionNumber();
             boolean rhsFieldIsSet = that.isSetCorrectionNumber();
             Long lhsField;
@@ -403,6 +390,19 @@ public abstract class AbstractAIXMTimeSliceType
             rhsField = that.getCorrectionNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
+            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
+            DeloreanTimeSliceType lhsField;
+            lhsField = this.getFeatureLifetime();
+            DeloreanTimeSliceType rhsField;
+            rhsField = that.getFeatureLifetime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -443,7 +443,7 @@ public abstract class AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetFeatureLifetime();
-            AixmTimeSliceType theField;
+            DeloreanTimeSliceType theField;
             theField = this.getFeatureLifetime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureLifetime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -480,7 +480,7 @@ public abstract class AbstractAIXMTimeSliceType
         }
         {
             boolean theFieldIsSet = this.isSetFeatureLifetime();
-            AixmTimeSliceType theField;
+            DeloreanTimeSliceType theField;
             theField = this.getFeatureLifetime();
             strategy.appendField(locator, this, "featureLifetime", buffer, theField, theFieldIsSet);
         }

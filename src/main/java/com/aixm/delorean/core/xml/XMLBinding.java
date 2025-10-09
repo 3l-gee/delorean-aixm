@@ -16,6 +16,7 @@ import com.aixm.delorean.core.log.LogLevel;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.ValidationEvent;
@@ -39,6 +40,7 @@ public class XMLBinding<T> {
             this.marshaller = this.context.createMarshaller();
             this.marshaller.setSchema(this.schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            ValidationHandler();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,26 +53,37 @@ public class XMLBinding<T> {
     public Marshaller getMarshaller() {
         return this.marshaller;
     }
-    
-    public void setValidationRule() {
+
+    private void ValidationHandler() {
         try {
             this.unmarshaller.setSchema(this.schema);
             this.unmarshaller.setEventHandler(new ValidationEventHandler() {
+                @Override
                 public boolean handleEvent(ValidationEvent event) {
-                    System.out.println("\nEVENT");
-                    System.out.println("SEVERITY:  " + event.getSeverity());
-                    System.out.println("MESSAGE:  " + event.getMessage());
-                    System.out.println("LINKED EXCEPTION:  " + event.getLinkedException());
-                    System.out.println("LOCATOR");
-                    System.out.println("    LINE NUMBER:  " + event.getLocator().getLineNumber());
-                    System.out.println("    COLUMN NUMBER:  " + event.getLocator().getColumnNumber());
-                    System.out.println("    OFFSET:  " + event.getLocator().getOffset());
-                    System.out.println("    OBJECT:  " + event.getLocator().getObject());
-                    System.out.println("    NODE:  " + event.getLocator().getNode());
-                    System.out.println("    URL:  " + event.getLocator().getURL());
+                    System.err.println("═══════════════════════════════════════════");
+                    System.err.println("[JAXB VALIDATION EVENT]");
+                    System.err.println("Severity: " + event.getSeverity());
+                    System.err.println("Message : " + event.getMessage());
+                    if (event.getLinkedException() != null) {
+                        System.err.println("Linked exception:");
+                        event.getLinkedException().printStackTrace(System.err);
+                    }
+                    if (event.getLocator() != null) {
+                        System.err.println("Location:");
+                        System.err.println("  Line:   " + event.getLocator().getLineNumber());
+                        System.err.println("  Column: " + event.getLocator().getColumnNumber());
+                        System.err.println("  Node:   " + event.getLocator().getNode());
+                        System.err.println("  URL:    " + event.getLocator().getURL());
+                    }
+                    System.err.println("═══════════════════════════════════════════");
                     return true;
                 }
             });
+
+            System.setProperty("jaxb.debug", "true");
+            System.setProperty("eclipselink.logging.level", "FINEST");
+            System.setProperty("eclipselink.logging.level.jaxb", "FINEST");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,9 +92,8 @@ public class XMLBinding<T> {
     public T unmarshal(String path) {
         try (InputStream xmlStream = new FileInputStream(path)) {
             Object unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
-    
-            if (unmarshalledObject instanceof JAXBElement<?>) {
 
+            if (unmarshalledObject instanceof JAXBElement<?>) {
                 JAXBElement<T> rootElement = (JAXBElement<T>) unmarshalledObject;
                 ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled");
                 return rootElement.getValue();
@@ -89,23 +101,22 @@ public class XMLBinding<T> {
                 ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled");
                 return (T) unmarshalledObject;
             }
+        } catch (JAXBException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled");
+            System.err.println("JAXBException while unmarshalling");
+            e.printStackTrace();
+            if (e.getLinkedException() != null) {
+                System.err.println("Linked Exception:");
+                e.getLinkedException().printStackTrace(System.err);
+            }
         } catch (Exception e) {
+            System.err.println("General exception during unmarshalling");
             e.printStackTrace();
         }
 
         return null;
     }
     
-    
-    public T unmarshalPojo(String path) {
-        try (InputStream xmlStream = new FileInputStream(path)) {
-            return (T) this.unmarshaller.unmarshal(xmlStream);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 
     public void marshal(T record, String path, Class<T> clazz) {
         try (FileOutputStream outputStream = new FileOutputStream(new File(path))) {

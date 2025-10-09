@@ -7,19 +7,6 @@
   <version>0.2.0</version>
   <url>https://github.com/3l-gee/delorean</url>
   <build>
-    <resources>
-      <resource>
-        <targetPath>META-INF</targetPath>
-        <directory>${project.basedir}/schema/aixm5_2/orm</directory>
-        <includes>
-          <include>*.orm</include>
-          <include>*.xml</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

@@ -2,8 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -43,8 +41,6 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CircleByCenterPointType")
-@Entity(name = "CircleByCenterPointType")
-@Table(name = "circle_by_center_point", schema = "gml")
 public class CircleByCenterPointType
     extends ArcByCenterPointType
     implements Serializable

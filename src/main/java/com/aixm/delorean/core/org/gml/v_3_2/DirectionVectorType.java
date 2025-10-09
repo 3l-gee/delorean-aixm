@@ -164,14 +164,14 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
         }
         final DirectionVectorType that = ((DirectionVectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVector();
-            boolean rhsFieldIsSet = that.isSetVector();
-            VectorType lhsField;
-            lhsField = this.getVector();
-            VectorType rhsField;
-            rhsField = that.getVector();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
+            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
+            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
+            AngleType lhsField;
+            lhsField = this.getHorizontalAngle();
+            AngleType rhsField;
+            rhsField = that.getHorizontalAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -190,14 +190,14 @@ public class DirectionVectorType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAngle();
-            boolean rhsFieldIsSet = that.isSetHorizontalAngle();
-            AngleType lhsField;
-            lhsField = this.getHorizontalAngle();
-            AngleType rhsField;
-            rhsField = that.getHorizontalAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetVector();
+            boolean rhsFieldIsSet = that.isSetVector();
+            VectorType lhsField;
+            lhsField = this.getVector();
+            VectorType rhsField;
+            rhsField = that.getVector();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

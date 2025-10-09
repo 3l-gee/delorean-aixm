@@ -2,9 +2,9 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.adapter.time.TimePrimitivePropertyTypeAdapter;
-import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMTimeSliceBaseType;
+import com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter;
+import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
@@ -62,7 +62,7 @@ public abstract class AbstractTimeSliceType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "validTime", required = true, type = TimePrimitivePropertyType.class)
     @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
-    protected AixmTimeSliceType validTime;
+    protected DeloreanTimeSliceType validTime;
     /**
      * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference property that indicates the source of the temporal data. The remote link attributes of the gml:dataSource element have been deprecated along with its current type.
      * 
@@ -82,7 +82,7 @@ public abstract class AbstractTimeSliceType
         @AttributeOverride(name = "beginPosition", column = @Column(name = "valid_time_begin")),
         @AttributeOverride(name = "endPosition", column = @Column(name = "valid_time_end"))
     })
-    public AixmTimeSliceType getValidTime() {
+    public DeloreanTimeSliceType getValidTime() {
         return validTime;
     }
 
@@ -94,7 +94,7 @@ public abstract class AbstractTimeSliceType
      *     {@link String }
      *     
      */
-    public void setValidTime(AixmTimeSliceType value) {
+    public void setValidTime(DeloreanTimeSliceType value) {
         this.validTime = value;
     }
 
@@ -172,9 +172,9 @@ public abstract class AbstractTimeSliceType
         {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
-            AixmTimeSliceType lhsField;
+            DeloreanTimeSliceType lhsField;
             lhsField = this.getValidTime();
-            AixmTimeSliceType rhsField;
+            DeloreanTimeSliceType rhsField;
             rhsField = that.getValidTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
@@ -190,7 +190,7 @@ public abstract class AbstractTimeSliceType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetValidTime();
-            AixmTimeSliceType theField;
+            DeloreanTimeSliceType theField;
             theField = this.getValidTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "validTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -210,7 +210,7 @@ public abstract class AbstractTimeSliceType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetValidTime();
-            AixmTimeSliceType theField;
+            DeloreanTimeSliceType theField;
             theField = this.getValidTime();
             strategy.appendField(locator, this, "validTime", buffer, theField, theFieldIsSet);
         }

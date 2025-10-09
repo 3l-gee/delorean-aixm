@@ -387,19 +387,6 @@ public class MDImageDescriptionPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetShow();
             boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
@@ -408,6 +395,19 @@ public class MDImageDescriptionPropertyType implements Serializable, Equals, Has
             rhsField = that.getShow();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDImageDescription();
+            boolean rhsFieldIsSet = that.isSetMDImageDescription();
+            MDImageDescriptionType lhsField;
+            lhsField = this.getMDImageDescription();
+            MDImageDescriptionType rhsField;
+            rhsField = that.getMDImageDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdImageDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdImageDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +439,14 @@ public class MDImageDescriptionPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMDImageDescription();
-            boolean rhsFieldIsSet = that.isSetMDImageDescription();
-            MDImageDescriptionType lhsField;
-            lhsField = this.getMDImageDescription();
-            MDImageDescriptionType rhsField;
-            rhsField = that.getMDImageDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdImageDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdImageDescription", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

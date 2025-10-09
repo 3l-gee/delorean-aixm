@@ -2,26 +2,10 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -35,7 +19,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -63,8 +46,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 @XmlType(name = "AbstractRingPropertyType", propOrder = {
     "abstractRing"
 })
-@Entity(name = "AbstractRingPropertyType")
-@Table(name = "abstract_ring_property", schema = "gml")
 public class AbstractRingPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -76,10 +57,6 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
      */
     @XmlElementRef(name = "AbstractRing", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<? extends AbstractRingType> abstractRing;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * An abstraction of a ring to support surface boundaries of different complexity.
@@ -92,7 +69,6 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
      *     {@link JAXBElement }{@code <}{@link RingType }{@code >}
      *     
      */
-    @Transient
     public JAXBElement<? extends AbstractRingType> getAbstractRing() {
         return abstractRing;
     }
@@ -112,100 +88,8 @@ public class AbstractRingPropertyType implements Serializable, Equals, HashCode,
         this.abstractRing = value;
     }
 
-    @Transient
     public boolean isSetAbstractRing() {
         return (this.abstractRing!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
-    @Basic
-    @Column(name = "ABSTRACT_RING_NAME")
-    public String getAbstractRingName() {
-        if (this.getAbstractRing() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(AbstractRingType.class, this.getAbstractRing());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractRingName(String target) {
-        if (target!= null) {
-            setAbstractRing(JAXBElementUtils.wrap(this.getAbstractRing(), target, AbstractRingType.class));
-        }
-    }
-
-    @ManyToOne(targetEntity = AbstractRingType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ABSTRACT_RING_VALUE_ABSTRACT_0", nullable = true)
-    public AbstractRingType getAbstractRingValue() {
-        if (this.getAbstractRing() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(AbstractRingType.class, this.getAbstractRing());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractRingValue(AbstractRingType target) {
-        if (target!= null) {
-            setAbstractRing(JAXBElementUtils.wrap(this.getAbstractRing(), target));
-        }
     }
 
     @Override

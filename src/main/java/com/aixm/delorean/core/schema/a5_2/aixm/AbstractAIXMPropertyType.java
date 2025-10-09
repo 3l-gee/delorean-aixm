@@ -56,7 +56,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractAIXMPropertyType")
 @XmlSeeAlso({
+    AIXMPointPropertyType.class,
     AIXMElevatedPointPropertyType.class,
+    AIXMCurvePropertyType.class,
+    AIXMElevatedCurvePropertyType.class,
+    AIXMSurfacePropertyType.class,
+    AIXMElevatedSurfacePropertyType.class,
     NotePropertyType.class,
     LinguisticNotePropertyType.class
 })

@@ -381,14 +381,27 @@ public class MDContentInformationPropertyType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -407,14 +420,14 @@ public class MDContentInformationPropertyType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -433,19 +446,6 @@ public class MDContentInformationPropertyType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHref();
             boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
@@ -459,14 +459,14 @@ public class MDContentInformationPropertyType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

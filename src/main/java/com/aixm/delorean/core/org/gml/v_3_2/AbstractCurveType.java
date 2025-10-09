@@ -34,9 +34,9 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlType(name = "AbstractCurveType")
 @XmlSeeAlso({
     LineStringType.class,
-    CurveType.class,
     OrientableCurveType.class,
-    CompositeCurveType.class
+    CompositeCurveType.class,
+    CurveType.class
 })
 public abstract class AbstractCurveType
     extends AbstractGeometricPrimitiveType

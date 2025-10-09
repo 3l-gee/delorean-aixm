@@ -37,8 +37,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}Node"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *       <attribute name="orientation" type="{http://www.opengis.net/gml/3.2}SignType" default="+" />
  *     </restriction>
  *   </complexContent>
@@ -66,6 +66,8 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
     protected NodeType node;
     @XmlAttribute(name = "orientation")
     protected SignType orientation;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -85,8 +87,6 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
 
     /**
      * gml:Node represents the 0-dimensional primitive.
@@ -150,6 +150,42 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
 
     public boolean isSetOrientation() {
         return (this.orientation!= null);
+    }
+
+    /**
+     * Gets the value of the owns property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public void setOwns(boolean value) {
+        this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     /**
@@ -376,42 +412,6 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
         return (this.actuate!= null);
     }
 
-    /**
-     * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public void setOwns(boolean value) {
-        this.owns = value;
-    }
-
-    public boolean isSetOwns() {
-        return (this.owns!= null);
-    }
-
-    public void unsetOwns() {
-        this.owns = null;
-    }
-
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -434,6 +434,19 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
         }
         final DirectedNodePropertyType that = ((DirectedNodePropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetHref();
             boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
@@ -442,19 +455,6 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             rhsField = that.getHref();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -473,40 +473,14 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,14 +512,27 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -572,6 +559,19 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -604,6 +604,13 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             SignType theField;
             theField = this.getOrientation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientation", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -662,13 +669,6 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
         return currentHashCode;
     }
 
@@ -705,6 +705,12 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             SignType theField;
             theField = this.getOrientation();
             strategy.appendField(locator, this, "orientation", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -753,12 +759,6 @@ public class DirectedNodePropertyType implements Serializable, Equals, HashCode,
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

@@ -2,27 +2,12 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -36,7 +21,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -67,8 +51,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
     "envelope",
     "gmlNull"
 })
-@Entity(name = "BoundingShapeType")
-@Table(name = "bounding_shape", schema = "gml")
 public class BoundingShapeType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -84,10 +66,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
     protected String gmlNull;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * Envelope defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct position is the "lower corner" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within the envelope), the second one the "upper corner" (a coordinate position consisting of all the maximal ordinates for each dimension for all points within the envelope).
@@ -99,7 +77,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
      *     {@link JAXBElement }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
      *     
      */
-    @Transient
     public JAXBElement<? extends EnvelopeType> getEnvelope() {
         return envelope;
     }
@@ -118,7 +95,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         this.envelope = value;
     }
 
-    @Transient
     public boolean isSetEnvelope() {
         return (this.envelope!= null);
     }
@@ -131,8 +107,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "GML_NULL", length = 255)
     public String getGmlNull() {
         return gmlNull;
     }
@@ -149,7 +123,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         this.gmlNull = value;
     }
 
-    @Transient
     public boolean isSetGmlNull() {
         return (this.gmlNull!= null);
     }
@@ -162,8 +135,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }
@@ -180,100 +151,8 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
-    @Transient
     public boolean isSetNilReason() {
         return (this.nilReason!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
-    @Basic
-    @Column(name = "ENVELOPE_NAME")
-    public String getEnvelopeName() {
-        if (this.getEnvelope() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(EnvelopeType.class, this.getEnvelope());
-        } else {
-            return null;
-        }
-    }
-
-    public void setEnvelopeName(String target) {
-        if (target!= null) {
-            setEnvelope(JAXBElementUtils.wrap(this.getEnvelope(), target, EnvelopeType.class));
-        }
-    }
-
-    @ManyToOne(targetEntity = EnvelopeType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ENVELOPE_VALUE_BOUNDING_SHAP_0", nullable = true)
-    public EnvelopeType getEnvelopeValue() {
-        if (this.getEnvelope() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(EnvelopeType.class, this.getEnvelope());
-        } else {
-            return null;
-        }
-    }
-
-    public void setEnvelopeValue(EnvelopeType target) {
-        if (target!= null) {
-            setEnvelope(JAXBElementUtils.wrap(this.getEnvelope(), target));
-        }
     }
 
     @Override
@@ -311,19 +190,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEnvelope();
-            boolean rhsFieldIsSet = that.isSetEnvelope();
-            JAXBElement<? extends EnvelopeType> lhsField;
-            lhsField = this.getEnvelope();
-            JAXBElement<? extends EnvelopeType> rhsField;
-            rhsField = that.getEnvelope();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "envelope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "envelope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -332,6 +198,19 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnvelope();
+            boolean rhsFieldIsSet = that.isSetEnvelope();
+            JAXBElement<? extends EnvelopeType> lhsField;
+            lhsField = this.getEnvelope();
+            JAXBElement<? extends EnvelopeType> rhsField;
+            rhsField = that.getEnvelope();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "envelope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "envelope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

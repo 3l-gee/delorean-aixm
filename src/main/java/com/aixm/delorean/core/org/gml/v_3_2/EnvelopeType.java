@@ -5,30 +5,11 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -79,9 +60,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     EnvelopeWithTimePeriodType.class
 })
-@Entity(name = "EnvelopeType")
-@Table(name = "envelope", schema = "gml")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -100,10 +78,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
     protected List<String> axisLabels;
     @XmlAttribute
     protected List<String> uomLabels;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * Gets the value of the lowerCorner property.
@@ -113,14 +87,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      *     {@link DirectPositionType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "srsName", column = @Column(name = "LOWER_CORNER_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "LOWER_CORNER_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_TYPE_LOWER_C_0", joinColumns = {
-        @JoinColumn(name = "LOWER_CORNER_HJID")
-    }))
     public DirectPositionType getLowerCorner() {
         return lowerCorner;
     }
@@ -137,7 +103,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.lowerCorner = value;
     }
 
-    @Transient
     public boolean isSetLowerCorner() {
         return (this.lowerCorner!= null);
     }
@@ -150,14 +115,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      *     {@link DirectPositionType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "srsName", column = @Column(name = "UPPER_CORNER_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "UPPER_CORNER_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_TYPE_UPPER_C_0", joinColumns = {
-        @JoinColumn(name = "UPPER_CORNER_HJID")
-    }))
     public DirectPositionType getUpperCorner() {
         return upperCorner;
     }
@@ -174,7 +131,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.upperCorner = value;
     }
 
-    @Transient
     public boolean isSetUpperCorner() {
         return (this.upperCorner!= null);
     }
@@ -201,7 +157,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      * 
      * 
      */
-    @Transient
     public List<DirectPositionType> getPos() {
         if (pos == null) {
             pos = new ArrayList<>();
@@ -217,7 +172,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.pos = pos;
     }
 
-    @Transient
     public boolean isSetPos() {
         return ((this.pos!= null)&&(!this.pos.isEmpty()));
     }
@@ -234,7 +188,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      *     {@link CoordinatesType }
      *     
      */
-    @Transient
     public CoordinatesType getCoordinates() {
         return coordinates;
     }
@@ -251,7 +204,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.coordinates = value;
     }
 
-    @Transient
     public boolean isSetCoordinates() {
         return (this.coordinates!= null);
     }
@@ -264,8 +216,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "SRS_NAME")
     public String getSrsName() {
         return srsName;
     }
@@ -282,7 +232,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.srsName = value;
     }
 
-    @Transient
     public boolean isSetSrsName() {
         return (this.srsName!= null);
     }
@@ -295,8 +244,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "SRS_DIMENSION", precision = 20, scale = 0)
     public BigInteger getSrsDimension() {
         return srsDimension;
     }
@@ -313,7 +260,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.srsDimension = value;
     }
 
-    @Transient
     public boolean isSetSrsDimension() {
         return (this.srsDimension!= null);
     }
@@ -340,7 +286,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      * 
      * 
      */
-    @Transient
     public List<String> getAxisLabels() {
         if (axisLabels == null) {
             axisLabels = new ArrayList<>();
@@ -356,7 +301,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.axisLabels = axisLabels;
     }
 
-    @Transient
     public boolean isSetAxisLabels() {
         return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
     }
@@ -387,7 +331,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
      * 
      * 
      */
-    @Transient
     public List<String> getUomLabels() {
         if (uomLabels == null) {
             uomLabels = new ArrayList<>();
@@ -403,67 +346,12 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         this.uomLabels = uomLabels;
     }
 
-    @Transient
     public boolean isSetUomLabels() {
         return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
     }
 
     public void unsetUomLabels() {
         this.uomLabels = null;
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
     }
 
     @Override
@@ -488,19 +376,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         }
         final EnvelopeType that = ((EnvelopeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxisLabels();
-            boolean rhsFieldIsSet = that.isSetAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSrsName();
             boolean rhsFieldIsSet = that.isSetSrsName();
             String lhsField;
@@ -509,19 +384,6 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getSrsName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCoordinates();
-            boolean rhsFieldIsSet = that.isSetCoordinates();
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -553,6 +415,32 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrsDimension();
+            boolean rhsFieldIsSet = that.isSetSrsDimension();
+            BigInteger lhsField;
+            lhsField = this.getSrsDimension();
+            BigInteger rhsField;
+            rhsField = that.getSrsDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUpperCorner();
             boolean rhsFieldIsSet = that.isSetUpperCorner();
             DirectPositionType lhsField;
@@ -579,14 +467,14 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSrsDimension();
-            boolean rhsFieldIsSet = that.isSetSrsDimension();
-            BigInteger lhsField;
-            lhsField = this.getSrsDimension();
-            BigInteger rhsField;
-            rhsField = that.getSrsDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

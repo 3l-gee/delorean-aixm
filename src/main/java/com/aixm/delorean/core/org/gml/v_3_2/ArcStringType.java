@@ -3,20 +3,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -69,8 +55,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     ArcType.class
 })
-@Entity(name = "ArcStringType")
-@Table(name = "arc_string", schema = "gml")
 public class ArcStringType
     extends AbstractCurveSegmentType
     implements Serializable
@@ -99,14 +83,6 @@ public class ArcStringType
      *     {@link DirectPositionType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_TYPE_POS_VAL_0", joinColumns = {
-        @JoinColumn(name = "POS_HJID")
-    }))
     public DirectPositionType getPos() {
         return pos;
     }
@@ -123,7 +99,6 @@ public class ArcStringType
         this.pos = value;
     }
 
-    @Transient
     public boolean isSetPos() {
         return (this.pos!= null);
     }
@@ -136,13 +111,6 @@ public class ArcStringType
      *     {@link PointPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = PointPropertyType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "POINT_PROPERTY_ARC_STRING_TY_0", nullable = true)
     public PointPropertyType getPointProperty() {
         return pointProperty;
     }
@@ -160,7 +128,6 @@ public class ArcStringType
         this.pointProperty = value;
     }
 
-    @Transient
     public boolean isSetPointProperty() {
         return (this.pointProperty!= null);
     }
@@ -173,7 +140,6 @@ public class ArcStringType
      *     {@link PointPropertyType }
      *     
      */
-    @Transient
     public PointPropertyType getPointRep() {
         return pointRep;
     }
@@ -190,7 +156,6 @@ public class ArcStringType
         this.pointRep = value;
     }
 
-    @Transient
     public boolean isSetPointRep() {
         return (this.pointRep!= null);
     }
@@ -203,15 +168,6 @@ public class ArcStringType
      *     {@link DirectPositionListType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "count", column = @Column(name = "POS_LIST_COUNT", precision = 20, scale = 0)),
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_LIST_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_LIST_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_LIST_TYPE_PO_0", joinColumns = {
-        @JoinColumn(name = "POS_LIST_HJID")
-    }))
     public DirectPositionListType getPosList() {
         return posList;
     }
@@ -228,7 +184,6 @@ public class ArcStringType
         this.posList = value;
     }
 
-    @Transient
     public boolean isSetPosList() {
         return (this.posList!= null);
     }
@@ -241,7 +196,6 @@ public class ArcStringType
      *     {@link CoordinatesType }
      *     
      */
-    @Transient
     public CoordinatesType getCoordinates() {
         return coordinates;
     }
@@ -258,7 +212,6 @@ public class ArcStringType
         this.coordinates = value;
     }
 
-    @Transient
     public boolean isSetCoordinates() {
         return (this.coordinates!= null);
     }
@@ -271,8 +224,6 @@ public class ArcStringType
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "NUM_ARC", precision = 20, scale = 0)
     public BigInteger getNumArc() {
         return numArc;
     }
@@ -289,7 +240,6 @@ public class ArcStringType
         this.numArc = value;
     }
 
-    @Transient
     public boolean isSetNumArc() {
         return (this.numArc!= null);
     }
@@ -307,14 +257,14 @@ public class ArcStringType
         }
         final ArcStringType that = ((ArcStringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNumArc();
-            boolean rhsFieldIsSet = that.isSetNumArc();
-            BigInteger lhsField;
-            lhsField = this.getNumArc();
-            BigInteger rhsField;
-            rhsField = that.getNumArc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            boolean lhsFieldIsSet = this.isSetPos();
+            boolean rhsFieldIsSet = that.isSetPos();
+            DirectPositionType lhsField;
+            lhsField = this.getPos();
+            DirectPositionType rhsField;
+            rhsField = that.getPos();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -333,6 +283,19 @@ public class ArcStringType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetNumArc();
+            boolean rhsFieldIsSet = that.isSetNumArc();
+            BigInteger lhsField;
+            lhsField = this.getNumArc();
+            BigInteger rhsField;
+            rhsField = that.getNumArc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -341,19 +304,6 @@ public class ArcStringType
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPos();
-            boolean rhsFieldIsSet = that.isSetPos();
-            DirectPositionType lhsField;
-            lhsField = this.getPos();
-            DirectPositionType rhsField;
-            rhsField = that.getPos();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

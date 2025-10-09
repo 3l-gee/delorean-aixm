@@ -70,6 +70,11 @@
             <element minOccurs="0" name="dateMagneticVariation" nillable="true" type="aixm:DateYearType"/>
             <element minOccurs="0" name="flightChecked" nillable="true" type="aixm:CodeYesNoType"/>
             <element maxOccurs="1" minOccurs="0" name="location" nillable="true" type="aixm:ElevatedPointPropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="direction" nillable="true" type="aixm:ElevatedCurvePropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="area" nillable="true" type="aixm:ElevatedSurfacePropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="place" nillable="true" type="aixm:PointPropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="orientation" nillable="true" type="aixm:CurvePropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="surface" nillable="true" type="aixm:SurfacePropertyType"/>
             <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
             <element minOccurs="0" name="type" nillable="true" type="aixm:CodeDMEType"/>
             <element minOccurs="0" name="channel" nillable="true" type="aixm:CodeDMEChannelType"/>
@@ -81,8 +86,54 @@
     <element abstract="true" name="AbstractDMEExtension"
              substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
 
-    <element abstract="true" name="AbstractNavaidEquipmentExtension"
-             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element abstract="true" name="AbstractNavaidEquipmentExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- Point Module              -->
+    <!-- ========================= -->
+
+    <complexType name="PointPropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+            <sequence>
+                <!-- delorean hyper jaxb codgen limitation -->
+                <!-- <element ref="aixm:Point"/> -->
+                <element name="Point" type="string" />
+            </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Point" substitutionGroup="gml:Point" type="aixm:PointType"/>
+
+    <complexType name="PointType">
+        <complexContent>
+            <extension base="gml:PointType">
+            <sequence>
+                <group ref="aixm:PointPropertyGroup"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <complexType>
+                        <choice>
+                        <element ref="aixm:AbstractPointExtension"/>
+                        </choice>
+                        <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                    </complexType>
+                </element>
+            </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="PointPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="horizontalAccuracy" nillable="true"
+            type="aixm:ValDistanceType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true"
+            type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractPointExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
 
     <!-- ========================= -->
     <!-- ElevatedPoint Module      -->
@@ -91,7 +142,9 @@
         <complexContent>
             <extension base="aixm:AbstractAIXMPropertyType">
                 <sequence>
-                    <element ref="aixm:ElevatedPoint"/>
+                    <!-- delorean hyper jaxb codgen limitation -->
+                    <!-- <element ref="aixm:ElevatedPoint"/> -->
+                    <element name="ElevatedPoint" type="string" />
                 </sequence>
             </extension>
         </complexContent>
@@ -127,8 +180,192 @@
         </sequence>
     </group>
 
-    <element abstract="true" name="AbstractElevatedPointExtension"
-             substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element abstract="true" name="AbstractElevatedPointExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- Curve Module              -->
+    <!-- ========================= -->
+
+    <complexType name="CurvePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+            <sequence>
+                <!-- delorean hyper jaxb codgen limitation -->
+                <!-- <element ref="aixm:Curve"/> -->
+                <element name="Curve" type="string" />
+            </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Curve" substitutionGroup="gml:Curve" type="aixm:CurveType"/>
+
+    <complexType name="CurveType">
+        <complexContent>
+            <extension base="gml:CurveType">
+            <sequence>
+                <group ref="aixm:CurvePropertyGroup"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <complexType>
+                        <choice>
+                        <element ref="aixm:AbstractCurveExtension"/>
+                        </choice>
+                        <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                    </complexType>
+                </element>
+            </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="CurvePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="horizontalAccuracy" nillable="true" type="aixm:ValDistanceType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+
+   <element abstract="true" name="AbstractCurveExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- ElevatedCurve Module      -->
+    <!-- ========================= -->
+
+    <complexType name="ElevatedCurvePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <!-- delorean hyper jaxb codgen limitation -->
+                    <!-- <element ref="aixm:ElevatedCurve"/> -->
+                    <element name="ElevatedCurve" type="string" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="ElevatedCurve" substitutionGroup="gml:Curve" type="aixm:ElevatedCurveType"/>
+
+    <complexType name="ElevatedCurveType">
+        <complexContent>
+            <extension base="gml:CurveType">
+            <sequence>
+                <group ref="aixm:ElevatedCurvePropertyGroup"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <complexType>
+                        <choice>
+                        <element ref="aixm:AbstractElevatedCurveExtension"/>
+                        </choice>
+                        <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                    </complexType>
+                </element>
+            </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <group name="ElevatedCurvePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="elevation" nillable="true" type="aixm:ValDistanceVerticalType"/>
+            <element minOccurs="0" name="geoidUndulation" nillable="true" type="aixm:ValDistanceSignedType"/>
+            <element minOccurs="0" name="verticalDatum" nillable="true" type="aixm:TextNameType"/>
+            <element minOccurs="0" name="horizontalAccuracy" nillable="true" type="aixm:ValDistanceType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractElevatedCurveExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- Surface Module            -->
+    <!-- ========================= -->
+
+    <complexType name="SurfacePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <!-- delorean hyper jaxb codgen limitation -->
+                    <!-- <element ref="aixm:Surface"/> -->
+                    <element name="Surface" type="string" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Surface" substitutionGroup="gml:Surface" type="aixm:SurfaceType"/>
+
+   <complexType name="SurfaceType">
+      <complexContent>
+         <extension base="gml:SurfaceType">
+            <sequence>
+               <group ref="aixm:SurfacePropertyGroup"/>
+               <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                  <complexType>
+                     <choice>
+                        <element ref="aixm:AbstractSurfaceExtension"/>
+                     </choice>
+                     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                  </complexType>
+               </element>
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+
+   <group name="SurfacePropertyGroup">
+      <sequence>
+         <element minOccurs="0" name="horizontalAccuracy" nillable="true" type="aixm:ValDistanceType"/>
+         <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+      </sequence>
+   </group>
+
+   <element abstract="true" name="AbstractSurfaceExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+
+    <!-- ========================= -->
+    <!-- ElevatedSurface Module    -->
+    <!-- ========================= -->
+    <complexType name="ElevatedSurfacePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <!-- delorean hyper jaxb codgen limitation -->
+                    <!-- <element ref="aixm:ElevatedSurface"/> -->
+                    <element name="ElevatedSurface" type="string" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="ElevatedSurface" substitutionGroup="gml:Surface" type="aixm:ElevatedSurfaceType"/>
+
+    <complexType name="ElevatedSurfaceType">
+        <complexContent>
+            <extension base="gml:SurfaceType">
+                <sequence>
+                <group ref="aixm:ElevatedSurfacePropertyGroup"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <complexType>
+                        <choice>
+                            <element ref="aixm:AbstractElevatedSurfaceExtension"/>
+                        </choice>
+                        <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                    </complexType>
+                </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType> 
+
+    <group name="ElevatedSurfacePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="elevation" nillable="true" type="aixm:ValDistanceVerticalType"/>
+            <element minOccurs="0" name="geoidUndulation" nillable="true" type="aixm:ValDistanceSignedType"/>
+            <element minOccurs="0" name="verticalDatum" nillable="true" type="aixm:TextNameType"/>
+            <element minOccurs="0" name="horizontalAccuracy" nillable="true" type="aixm:ValDistanceType"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+
+    <element abstract="true" name="AbstractElevatedSurfaceExtension" substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
 
     <!-- ========================= -->
     <!-- Note Module               -->

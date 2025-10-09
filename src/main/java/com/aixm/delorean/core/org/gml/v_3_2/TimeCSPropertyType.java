@@ -356,14 +356,14 @@ public class TimeCSPropertyType implements Serializable, Equals, HashCode, ToStr
         }
         final TimeCSPropertyType that = ((TimeCSPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeCS();
-            boolean rhsFieldIsSet = that.isSetTimeCS();
-            TimeCSType lhsField;
-            lhsField = this.getTimeCS();
-            TimeCSType rhsField;
-            rhsField = that.getTimeCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -382,6 +382,19 @@ public class TimeCSPropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetShow();
             boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
@@ -390,6 +403,45 @@ public class TimeCSPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getShow();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeCS();
+            boolean rhsFieldIsSet = that.isSetTimeCS();
+            TimeCSType lhsField;
+            lhsField = this.getTimeCS();
+            TimeCSType rhsField;
+            rhsField = that.getTimeCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -416,58 +468,6 @@ public class TimeCSPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getHref();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

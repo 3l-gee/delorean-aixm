@@ -4,19 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +15,6 @@ import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.item.ItemUtils;
 
 
 /**
@@ -64,8 +50,6 @@ import org.jvnet.hyperjaxb.item.ItemUtils;
     "posList",
     "coordinates"
 })
-@Entity(name = "LinearRingType")
-@Table(name = "linear_ring", schema = "gml")
 public class LinearRingType
     extends AbstractRingType
     implements Serializable
@@ -80,7 +64,6 @@ public class LinearRingType
     protected List<JAXBElement<?>> posOrPointPropertyOrPointRep;
     protected DirectPositionListType posList;
     protected CoordinatesType coordinates;
-    protected transient List<LinearRingTypePosOrPointPropertyOrPointRepItem> posOrPointPropertyOrPointRepItems;
 
     /**
      * Gets the value of the posOrPointPropertyOrPointRep property.
@@ -106,7 +89,6 @@ public class LinearRingType
      * 
      * 
      */
-    @Transient
     public List<JAXBElement<?>> getPosOrPointPropertyOrPointRep() {
         if (posOrPointPropertyOrPointRep == null) {
             posOrPointPropertyOrPointRep = new ArrayList<>();
@@ -122,7 +104,6 @@ public class LinearRingType
         this.posOrPointPropertyOrPointRep = posOrPointPropertyOrPointRep;
     }
 
-    @Transient
     public boolean isSetPosOrPointPropertyOrPointRep() {
         return ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
     }
@@ -139,15 +120,6 @@ public class LinearRingType
      *     {@link DirectPositionListType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "count", column = @Column(name = "POS_LIST_COUNT", precision = 20, scale = 0)),
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_LIST_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_LIST_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_LIST_TYPE_PO_0", joinColumns = {
-        @JoinColumn(name = "POS_LIST_HJID")
-    }))
     public DirectPositionListType getPosList() {
         return posList;
     }
@@ -164,7 +136,6 @@ public class LinearRingType
         this.posList = value;
     }
 
-    @Transient
     public boolean isSetPosList() {
         return (this.posList!= null);
     }
@@ -177,13 +148,6 @@ public class LinearRingType
      *     {@link CoordinatesType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "COORDINATES_VALUE", length = 255)),
-        @AttributeOverride(name = "decimal", column = @Column(name = "COORDINATES_DECIMAL", length = 255)),
-        @AttributeOverride(name = "cs", column = @Column(name = "COORDINATES_CS", length = 255)),
-        @AttributeOverride(name = "ts", column = @Column(name = "COORDINATES_TS", length = 255))
-    })
     public CoordinatesType getCoordinates() {
         return coordinates;
     }
@@ -200,35 +164,8 @@ public class LinearRingType
         this.coordinates = value;
     }
 
-    @Transient
     public boolean isSetCoordinates() {
         return (this.coordinates!= null);
-    }
-
-    @OneToMany(targetEntity = LinearRingTypePosOrPointPropertyOrPointRepItem.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "POS_OR_POINT_PROPERTY_OR_POI_1")
-    public List<LinearRingTypePosOrPointPropertyOrPointRepItem> getPosOrPointPropertyOrPointRepItems() {
-        if (this.posOrPointPropertyOrPointRepItems == null) {
-            this.posOrPointPropertyOrPointRepItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.posOrPointPropertyOrPointRep)) {
-            this.posOrPointPropertyOrPointRep = ItemUtils.wrap(this.posOrPointPropertyOrPointRep, this.posOrPointPropertyOrPointRepItems, LinearRingTypePosOrPointPropertyOrPointRepItem.class);
-        }
-        return this.posOrPointPropertyOrPointRepItems;
-    }
-
-    public void setPosOrPointPropertyOrPointRepItems(List<LinearRingTypePosOrPointPropertyOrPointRepItem> value) {
-        this.posOrPointPropertyOrPointRep = null;
-        this.posOrPointPropertyOrPointRepItems = null;
-        this.posOrPointPropertyOrPointRepItems = value;
-        if (this.posOrPointPropertyOrPointRepItems == null) {
-            this.posOrPointPropertyOrPointRepItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.posOrPointPropertyOrPointRep)) {
-            this.posOrPointPropertyOrPointRep = ItemUtils.wrap(this.posOrPointPropertyOrPointRep, this.posOrPointPropertyOrPointRepItems, LinearRingTypePosOrPointPropertyOrPointRepItem.class);
-        }
     }
 
     @Override
@@ -243,6 +180,19 @@ public class LinearRingType
             return false;
         }
         final LinearRingType that = ((LinearRingType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
+            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetPosOrPointPropertyOrPointRep()?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetCoordinates();
             boolean rhsFieldIsSet = that.isSetCoordinates();
@@ -265,19 +215,6 @@ public class LinearRingType
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
-            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
-            List<JAXBElement<?>> lhsField;
-            lhsField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (that.isSetPosOrPointPropertyOrPointRep()?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -4,19 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -29,7 +16,6 @@ import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.item.ItemUtils;
 
 
 /**
@@ -61,8 +47,6 @@ import org.jvnet.hyperjaxb.item.ItemUtils;
 @XmlSeeAlso({
     GeodesicType.class
 })
-@Entity(name = "GeodesicStringType")
-@Table(name = "geodesic_string", schema = "gml")
 public class GeodesicStringType
     extends AbstractCurveSegmentType
     implements Serializable
@@ -77,7 +61,6 @@ public class GeodesicStringType
     protected List<Object> geometricPositionGroup;
     @XmlAttribute(name = "interpolation")
     public static final CurveInterpolationType INTERPOLATION = CurveInterpolationType.GEODESIC;
-    protected transient List<GeodesicStringTypeGeometricPositionGroupItem> geometricPositionGroupItems;
 
     /**
      * Gets the value of the posList property.
@@ -87,15 +70,6 @@ public class GeodesicStringType
      *     {@link DirectPositionListType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "count", column = @Column(name = "POS_LIST_COUNT", precision = 20, scale = 0)),
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_LIST_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_LIST_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_LIST_TYPE_PO_0", joinColumns = {
-        @JoinColumn(name = "POS_LIST_HJID")
-    }))
     public DirectPositionListType getPosList() {
         return posList;
     }
@@ -112,7 +86,6 @@ public class GeodesicStringType
         this.posList = value;
     }
 
-    @Transient
     public boolean isSetPosList() {
         return (this.posList!= null);
     }
@@ -142,7 +115,6 @@ public class GeodesicStringType
      * 
      * 
      */
-    @Transient
     public List<Object> getGeometricPositionGroup() {
         if (geometricPositionGroup == null) {
             geometricPositionGroup = new ArrayList<>();
@@ -160,39 +132,12 @@ public class GeodesicStringType
         this.geometricPositionGroup = geometricPositionGroup;
     }
 
-    @Transient
     public boolean isSetGeometricPositionGroup() {
         return ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
     }
 
     public void unsetGeometricPositionGroup() {
         this.geometricPositionGroup = null;
-    }
-
-    @OneToMany(targetEntity = GeodesicStringTypeGeometricPositionGroupItem.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "GEOMETRIC_POSITION_GROUP_ITE_1")
-    public List<GeodesicStringTypeGeometricPositionGroupItem> getGeometricPositionGroupItems() {
-        if (this.geometricPositionGroupItems == null) {
-            this.geometricPositionGroupItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.geometricPositionGroup)) {
-            this.geometricPositionGroup = ItemUtils.wrap(this.geometricPositionGroup, this.geometricPositionGroupItems, GeodesicStringTypeGeometricPositionGroupItem.class);
-        }
-        return this.geometricPositionGroupItems;
-    }
-
-    public void setGeometricPositionGroupItems(List<GeodesicStringTypeGeometricPositionGroupItem> value) {
-        this.geometricPositionGroup = null;
-        this.geometricPositionGroupItems = null;
-        this.geometricPositionGroupItems = value;
-        if (this.geometricPositionGroupItems == null) {
-            this.geometricPositionGroupItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.geometricPositionGroup)) {
-            this.geometricPositionGroup = ItemUtils.wrap(this.geometricPositionGroup, this.geometricPositionGroupItems, GeodesicStringTypeGeometricPositionGroupItem.class);
-        }
     }
 
     @Override
@@ -208,19 +153,6 @@ public class GeodesicStringType
         }
         final GeodesicStringType that = ((GeodesicStringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
-            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
-            List<Object> lhsField;
-            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -229,6 +161,19 @@ public class GeodesicStringType
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
+            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
+            List<Object> lhsField;
+            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

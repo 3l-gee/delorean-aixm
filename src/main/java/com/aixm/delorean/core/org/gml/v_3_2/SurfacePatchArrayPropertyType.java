@@ -4,12 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -27,7 +21,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.item.ItemUtils;
 
 
 /**
@@ -55,14 +48,12 @@ import org.jvnet.hyperjaxb.item.ItemUtils;
 @XmlType(name = "SurfacePatchArrayPropertyType", propOrder = {
     "abstractSurfacePatch"
 })
-@Embeddable
 public class SurfacePatchArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20250910L;
     @XmlElementRef(name = "AbstractSurfacePatch", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractSurfacePatchType>> abstractSurfacePatch;
-    protected transient List<SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem> abstractSurfacePatchItems;
 
     /**
      * Gets the value of the abstractSurfacePatch property.
@@ -94,7 +85,6 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
      * 
      * 
      */
-    @Transient
     public List<JAXBElement<? extends AbstractSurfacePatchType>> getAbstractSurfacePatch() {
         if (abstractSurfacePatch == null) {
             abstractSurfacePatch = new ArrayList<>();
@@ -110,39 +100,12 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
         this.abstractSurfacePatch = abstractSurfacePatch;
     }
 
-    @Transient
     public boolean isSetAbstractSurfacePatch() {
         return ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
     }
 
     public void unsetAbstractSurfacePatch() {
         this.abstractSurfacePatch = null;
-    }
-
-    @OneToMany(targetEntity = SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn
-    public List<SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem> getAbstractSurfacePatchItems() {
-        if (this.abstractSurfacePatchItems == null) {
-            this.abstractSurfacePatchItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.abstractSurfacePatch)) {
-            this.abstractSurfacePatch = ItemUtils.wrap(this.abstractSurfacePatch, this.abstractSurfacePatchItems, SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem.class);
-        }
-        return this.abstractSurfacePatchItems;
-    }
-
-    public void setAbstractSurfacePatchItems(List<SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem> value) {
-        this.abstractSurfacePatch = null;
-        this.abstractSurfacePatchItems = null;
-        this.abstractSurfacePatchItems = value;
-        if (this.abstractSurfacePatchItems == null) {
-            this.abstractSurfacePatchItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.abstractSurfacePatch)) {
-            this.abstractSurfacePatch = ItemUtils.wrap(this.abstractSurfacePatch, this.abstractSurfacePatchItems, SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem.class);
-        }
     }
 
     @Override

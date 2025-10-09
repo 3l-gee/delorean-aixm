@@ -1,60 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence version="3.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <persistence-unit name="com.aixm.delorean.core.org.gml.v_3_2:com.aixm.delorean.core.schema.a5_2.aixm:com.aixm.delorean.core.schema.a5_2.aixm.message">
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractCurveSegmentType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureMemberType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractRingPropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractRingType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractSurfacePatchType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeSliceType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AngleType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.ArcByCenterPointType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.ArcStringType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.ArcType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AreaType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.BoundingShapeType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Category</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.CircleByCenterPointType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.CircleType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CoordinatesType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.DynamicFeatureType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.EnvelopeType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.EnvelopeWithTimePeriodType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.GeodesicStringType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.GeodesicStringTypeGeometricPositionGroupItem</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.GeodesicType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.GridLengthType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.LengthType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.LinearRingType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.LinearRingTypePosOrPointPropertyOrPointRepItem</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.MeasureType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.PolygonPatchType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Quantity</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.RingType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.ScaleType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.SpeedType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.SurfacePatchArrayPropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.SurfacePatchArrayPropertyTypeAbstractSurfacePatchItem</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.SurfacePropertyType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.TimePositionType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.TimeType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.VectorType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.VolumeType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMCurvePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedCurvePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedSurfacePropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMPointPropertyType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMSurfacePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureBaseType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMMessageBaseType</class>
@@ -332,6 +298,7 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeWeekDayType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeWorkAreaType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.CodeYesNoType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMEExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSlicePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType</class>
@@ -340,7 +307,9 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateTimeType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.DateYearType</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FeatureMetadataPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.FeatureTimeSliceMetadataPropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.LinguisticNotePropertyType</class>
@@ -352,6 +321,8 @@
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NoteType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.NoteTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.PointTypeExtension</class>
+        <class>com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextAddressType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextDecimalType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.TextDesignatorLongType</class>

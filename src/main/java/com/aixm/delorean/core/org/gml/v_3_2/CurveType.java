@@ -2,9 +2,11 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
@@ -35,6 +37,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CurveType", propOrder = {
     "segments"
+})
+@XmlSeeAlso({
+    com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class,
+    ElevatedCurveType.class
 })
 public class CurveType
     extends AbstractCurveType

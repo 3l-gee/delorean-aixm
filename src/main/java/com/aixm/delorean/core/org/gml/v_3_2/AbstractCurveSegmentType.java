@@ -3,23 +3,10 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -67,9 +54,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     ClothoidType.class,
     GeodesicStringType.class
 })
-@Entity(name = "AbstractCurveSegmentType")
-@Table(name = "abstract_curve_segment_type", schema = "gml")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class AbstractCurveSegmentType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -80,10 +64,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
     protected BigInteger numDerivativesAtEnd;
     @XmlAttribute(name = "numDerivativeInterior")
     protected BigInteger numDerivativeInterior;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * Gets the value of the numDerivativesAtStart property.
@@ -93,8 +73,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "NUM_DERIVATIVES_AT_START", precision = 20, scale = 0)
     public BigInteger getNumDerivativesAtStart() {
         if (numDerivativesAtStart == null) {
             return new BigInteger("0");
@@ -115,7 +93,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
         this.numDerivativesAtStart = value;
     }
 
-    @Transient
     public boolean isSetNumDerivativesAtStart() {
         return (this.numDerivativesAtStart!= null);
     }
@@ -128,8 +105,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "NUM_DERIVATIVES_AT_END", precision = 20, scale = 0)
     public BigInteger getNumDerivativesAtEnd() {
         if (numDerivativesAtEnd == null) {
             return new BigInteger("0");
@@ -150,7 +125,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
         this.numDerivativesAtEnd = value;
     }
 
-    @Transient
     public boolean isSetNumDerivativesAtEnd() {
         return (this.numDerivativesAtEnd!= null);
     }
@@ -163,8 +137,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "NUM_DERIVATIVE_INTERIOR", precision = 20, scale = 0)
     public BigInteger getNumDerivativeInterior() {
         if (numDerivativeInterior == null) {
             return new BigInteger("0");
@@ -185,63 +157,8 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
         this.numDerivativeInterior = value;
     }
 
-    @Transient
     public boolean isSetNumDerivativeInterior() {
         return (this.numDerivativeInterior!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
     }
 
     @Override
@@ -266,14 +183,14 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
         }
         final AbstractCurveSegmentType that = ((AbstractCurveSegmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNumDerivativesAtEnd();
-            boolean rhsFieldIsSet = that.isSetNumDerivativesAtEnd();
+            boolean lhsFieldIsSet = this.isSetNumDerivativeInterior();
+            boolean rhsFieldIsSet = that.isSetNumDerivativeInterior();
             BigInteger lhsField;
-            lhsField = this.getNumDerivativesAtEnd();
+            lhsField = this.getNumDerivativeInterior();
             BigInteger rhsField;
-            rhsField = that.getNumDerivativesAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
+            rhsField = that.getNumDerivativeInterior();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativeInterior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativeInterior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -292,14 +209,14 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNumDerivativeInterior();
-            boolean rhsFieldIsSet = that.isSetNumDerivativeInterior();
+            boolean lhsFieldIsSet = this.isSetNumDerivativesAtEnd();
+            boolean rhsFieldIsSet = that.isSetNumDerivativesAtEnd();
             BigInteger lhsField;
-            lhsField = this.getNumDerivativeInterior();
+            lhsField = this.getNumDerivativesAtEnd();
             BigInteger rhsField;
-            rhsField = that.getNumDerivativeInterior();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativeInterior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativeInterior", rhsField);
+            rhsField = that.getNumDerivativesAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

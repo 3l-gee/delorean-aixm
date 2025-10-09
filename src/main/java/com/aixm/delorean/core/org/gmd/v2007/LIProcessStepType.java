@@ -249,14 +249,14 @@ public class LIProcessStepType
         }
         final LIProcessStepType that = ((LIProcessStepType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSource();
-            boolean rhsFieldIsSet = that.isSetSource();
-            List<LISourcePropertyType> lhsField;
-            lhsField = (this.isSetSource()?this.getSource():null);
-            List<LISourcePropertyType> rhsField;
-            rhsField = (that.isSetSource()?that.getSource():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -275,32 +275,6 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateTime();
-            boolean rhsFieldIsSet = that.isSetDateTime();
-            DateTimePropertyType lhsField;
-            lhsField = this.getDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetProcessor();
             boolean rhsFieldIsSet = that.isSetProcessor();
             List<CIResponsiblePartyPropertyType> lhsField;
@@ -309,6 +283,32 @@ public class LIProcessStepType
             rhsField = (that.isSetProcessor()?that.getProcessor():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSource();
+            boolean rhsFieldIsSet = that.isSetSource();
+            List<LISourcePropertyType> lhsField;
+            lhsField = (this.isSetSource()?this.getSource():null);
+            List<LISourcePropertyType> rhsField;
+            rhsField = (that.isSetSource()?that.getSource():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

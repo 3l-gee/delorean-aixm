@@ -4,7 +4,9 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -98,18 +100,23 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link QuantityExtentType }{@code >}
      * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
      * {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.CurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.CurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
@@ -223,19 +230,6 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
         }
         final ValueArrayPropertyType that = ((ValueArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
             boolean rhsFieldIsSet = that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
             List<JAXBElement<?>> lhsField;
@@ -244,6 +238,19 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()?that.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

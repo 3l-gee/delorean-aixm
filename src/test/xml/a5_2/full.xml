@@ -33,23 +33,22 @@
               <gml:endPosition indeterminatePosition="unknown"/>
             </gml:TimePeriod>
           </aixm:featureLifetime>
-          <aixm:type>NARROW</aixm:type>
-          <aixm:channel>1Y</aixm:channel>
-          <aixm:displace uom="M" accuracy="0.1">10.0</aixm:displace>   
           <aixm:designator>DLRN</aixm:designator>
           <aixm:name>Delorean AIXM Test DME</aixm:name>
-          <aixm:mobile>YES</aixm:mobile>       
+          <aixm:mobile>YES</aixm:mobile>
           <aixm:flightChecked>YES</aixm:flightChecked>
           <aixm:location>
             <aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="ID_EP_7692166e-60e6-467d-b5f0-c728aeae85d6">
               <gml:pos>52.36833333333333 -32.375222</gml:pos>
-              <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
               <aixm:elevation uom="M">60</aixm:elevation>
               <aixm:geoidUndulation uom="M">11.5</aixm:geoidUndulation>
               <aixm:verticalDatum>EGM_96</aixm:verticalDatum>
-              <aixm:verticalAccuracy uom="M">1</aixm:verticalAccuracy>
+              <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
             </aixm:ElevatedPoint>
           </aixm:location>
+          <aixm:type>NARROW</aixm:type>
+          <aixm:channel>1Y</aixm:channel>
+          <aixm:displace uom="M" accuracy="0.1">10.0</aixm:displace>
         </aixm:DMETimeSlice>
       </aixm:timeSlice>
     </aixm:DME>

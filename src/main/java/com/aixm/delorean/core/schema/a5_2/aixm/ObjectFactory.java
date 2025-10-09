@@ -34,8 +34,18 @@ public class ObjectFactory {
     private static final QName _DMETimeSlice_QNAME = new QName("http://www.aixm.aero/schema/5.2", "DMETimeSlice");
     private static final QName _AbstractDMEExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractDMEExtension");
     private static final QName _AbstractNavaidEquipmentExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractNavaidEquipmentExtension");
+    private static final QName _Point_QNAME = new QName("http://www.aixm.aero/schema/5.2", "Point");
+    private static final QName _AbstractPointExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractPointExtension");
     private static final QName _ElevatedPoint_QNAME = new QName("http://www.aixm.aero/schema/5.2", "ElevatedPoint");
     private static final QName _AbstractElevatedPointExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractElevatedPointExtension");
+    private static final QName _Curve_QNAME = new QName("http://www.aixm.aero/schema/5.2", "Curve");
+    private static final QName _AbstractCurveExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractCurveExtension");
+    private static final QName _ElevatedCurve_QNAME = new QName("http://www.aixm.aero/schema/5.2", "ElevatedCurve");
+    private static final QName _AbstractElevatedCurveExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractElevatedCurveExtension");
+    private static final QName _Surface_QNAME = new QName("http://www.aixm.aero/schema/5.2", "Surface");
+    private static final QName _AbstractSurfaceExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractSurfaceExtension");
+    private static final QName _ElevatedSurface_QNAME = new QName("http://www.aixm.aero/schema/5.2", "ElevatedSurface");
+    private static final QName _AbstractElevatedSurfaceExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractElevatedSurfaceExtension");
     private static final QName _Note_QNAME = new QName("http://www.aixm.aero/schema/5.2", "Note");
     private static final QName _AbstractNoteExtension_QNAME = new QName("http://www.aixm.aero/schema/5.2", "AbstractNoteExtension");
     private static final QName _LinguisticNote_QNAME = new QName("http://www.aixm.aero/schema/5.2", "LinguisticNote");
@@ -43,10 +53,10 @@ public class ObjectFactory {
     private static final QName _LinguisticNoteTypeNote_QNAME = new QName("http://www.aixm.aero/schema/5.2", "note");
     private static final QName _NoteTypePropertyName_QNAME = new QName("http://www.aixm.aero/schema/5.2", "propertyName");
     private static final QName _NoteTypePurpose_QNAME = new QName("http://www.aixm.aero/schema/5.2", "purpose");
-    private static final QName _AIXMElevatedPointTypeElevation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "elevation");
-    private static final QName _AIXMElevatedPointTypeGeoidUndulation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "geoidUndulation");
-    private static final QName _AIXMElevatedPointTypeVerticalDatum_QNAME = new QName("http://www.aixm.aero/schema/5.2", "verticalDatum");
-    private static final QName _AIXMElevatedPointTypeHorizontalAccuracy_QNAME = new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy");
+    private static final QName _ElevatedSurfaceTypeElevation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "elevation");
+    private static final QName _ElevatedSurfaceTypeGeoidUndulation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "geoidUndulation");
+    private static final QName _ElevatedSurfaceTypeVerticalDatum_QNAME = new QName("http://www.aixm.aero/schema/5.2", "verticalDatum");
+    private static final QName _ElevatedSurfaceTypeHorizontalAccuracy_QNAME = new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy");
     private static final QName _DMETimeSliceTypeDesignator_QNAME = new QName("http://www.aixm.aero/schema/5.2", "designator");
     private static final QName _DMETimeSliceTypeName_QNAME = new QName("http://www.aixm.aero/schema/5.2", "name");
     private static final QName _DMETimeSliceTypeEmissionClass_QNAME = new QName("http://www.aixm.aero/schema/5.2", "emissionClass");
@@ -55,6 +65,11 @@ public class ObjectFactory {
     private static final QName _DMETimeSliceTypeDateMagneticVariation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "dateMagneticVariation");
     private static final QName _DMETimeSliceTypeFlightChecked_QNAME = new QName("http://www.aixm.aero/schema/5.2", "flightChecked");
     private static final QName _DMETimeSliceTypeLocation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "location");
+    private static final QName _DMETimeSliceTypeDirection_QNAME = new QName("http://www.aixm.aero/schema/5.2", "direction");
+    private static final QName _DMETimeSliceTypeArea_QNAME = new QName("http://www.aixm.aero/schema/5.2", "area");
+    private static final QName _DMETimeSliceTypePlace_QNAME = new QName("http://www.aixm.aero/schema/5.2", "place");
+    private static final QName _DMETimeSliceTypeOrientation_QNAME = new QName("http://www.aixm.aero/schema/5.2", "orientation");
+    private static final QName _DMETimeSliceTypeSurface_QNAME = new QName("http://www.aixm.aero/schema/5.2", "surface");
     private static final QName _DMETimeSliceTypeType_QNAME = new QName("http://www.aixm.aero/schema/5.2", "type");
     private static final QName _DMETimeSliceTypeChannel_QNAME = new QName("http://www.aixm.aero/schema/5.2", "channel");
     private static final QName _DMETimeSliceTypeDisplace_QNAME = new QName("http://www.aixm.aero/schema/5.2", "displace");
@@ -88,13 +103,63 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AIXMElevatedPointType }
+     * Create an instance of {@link PointType }
      * 
      * @return
-     *     the new instance of {@link AIXMElevatedPointType }
+     *     the new instance of {@link PointType }
      */
-    public AIXMElevatedPointType createAIXMElevatedPointType() {
-        return new AIXMElevatedPointType();
+    public PointType createPointType() {
+        return new PointType();
+    }
+
+    /**
+     * Create an instance of {@link ElevatedPointType }
+     * 
+     * @return
+     *     the new instance of {@link ElevatedPointType }
+     */
+    public ElevatedPointType createElevatedPointType() {
+        return new ElevatedPointType();
+    }
+
+    /**
+     * Create an instance of {@link CurveType }
+     * 
+     * @return
+     *     the new instance of {@link CurveType }
+     */
+    public CurveType createCurveType() {
+        return new CurveType();
+    }
+
+    /**
+     * Create an instance of {@link ElevatedCurveType }
+     * 
+     * @return
+     *     the new instance of {@link ElevatedCurveType }
+     */
+    public ElevatedCurveType createElevatedCurveType() {
+        return new ElevatedCurveType();
+    }
+
+    /**
+     * Create an instance of {@link SurfaceType }
+     * 
+     * @return
+     *     the new instance of {@link SurfaceType }
+     */
+    public SurfaceType createSurfaceType() {
+        return new SurfaceType();
+    }
+
+    /**
+     * Create an instance of {@link ElevatedSurfaceType }
+     * 
+     * @return
+     *     the new instance of {@link ElevatedSurfaceType }
+     */
+    public ElevatedSurfaceType createElevatedSurfaceType() {
+        return new ElevatedSurfaceType();
     }
 
     /**
@@ -3308,6 +3373,16 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AIXMPointPropertyType }
+     * 
+     * @return
+     *     the new instance of {@link AIXMPointPropertyType }
+     */
+    public AIXMPointPropertyType createAIXMPointPropertyType() {
+        return new AIXMPointPropertyType();
+    }
+
+    /**
      * Create an instance of {@link AIXMElevatedPointPropertyType }
      * 
      * @return
@@ -3315,6 +3390,46 @@ public class ObjectFactory {
      */
     public AIXMElevatedPointPropertyType createAIXMElevatedPointPropertyType() {
         return new AIXMElevatedPointPropertyType();
+    }
+
+    /**
+     * Create an instance of {@link AIXMCurvePropertyType }
+     * 
+     * @return
+     *     the new instance of {@link AIXMCurvePropertyType }
+     */
+    public AIXMCurvePropertyType createAIXMCurvePropertyType() {
+        return new AIXMCurvePropertyType();
+    }
+
+    /**
+     * Create an instance of {@link AIXMElevatedCurvePropertyType }
+     * 
+     * @return
+     *     the new instance of {@link AIXMElevatedCurvePropertyType }
+     */
+    public AIXMElevatedCurvePropertyType createAIXMElevatedCurvePropertyType() {
+        return new AIXMElevatedCurvePropertyType();
+    }
+
+    /**
+     * Create an instance of {@link AIXMSurfacePropertyType }
+     * 
+     * @return
+     *     the new instance of {@link AIXMSurfacePropertyType }
+     */
+    public AIXMSurfacePropertyType createAIXMSurfacePropertyType() {
+        return new AIXMSurfacePropertyType();
+    }
+
+    /**
+     * Create an instance of {@link AIXMElevatedSurfacePropertyType }
+     * 
+     * @return
+     *     the new instance of {@link AIXMElevatedSurfacePropertyType }
+     */
+    public AIXMElevatedSurfacePropertyType createAIXMElevatedSurfacePropertyType() {
+        return new AIXMElevatedSurfacePropertyType();
     }
 
     /**
@@ -3358,6 +3473,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ElevatedSurfaceTypeExtension }
+     * 
+     * @return
+     *     the new instance of {@link ElevatedSurfaceTypeExtension }
+     */
+    public ElevatedSurfaceTypeExtension createElevatedSurfaceTypeExtension() {
+        return new ElevatedSurfaceTypeExtension();
+    }
+
+    /**
+     * Create an instance of {@link SurfaceTypeExtension }
+     * 
+     * @return
+     *     the new instance of {@link SurfaceTypeExtension }
+     */
+    public SurfaceTypeExtension createSurfaceTypeExtension() {
+        return new SurfaceTypeExtension();
+    }
+
+    /**
+     * Create an instance of {@link ElevatedCurveTypeExtension }
+     * 
+     * @return
+     *     the new instance of {@link ElevatedCurveTypeExtension }
+     */
+    public ElevatedCurveTypeExtension createElevatedCurveTypeExtension() {
+        return new ElevatedCurveTypeExtension();
+    }
+
+    /**
+     * Create an instance of {@link CurveTypeExtension }
+     * 
+     * @return
+     *     the new instance of {@link CurveTypeExtension }
+     */
+    public CurveTypeExtension createCurveTypeExtension() {
+        return new CurveTypeExtension();
+    }
+
+    /**
      * Create an instance of {@link ElevatedPointTypeExtension }
      * 
      * @return
@@ -3365,6 +3520,16 @@ public class ObjectFactory {
      */
     public ElevatedPointTypeExtension createElevatedPointTypeExtension() {
         return new ElevatedPointTypeExtension();
+    }
+
+    /**
+     * Create an instance of {@link PointTypeExtension }
+     * 
+     * @return
+     *     the new instance of {@link PointTypeExtension }
+     */
+    public PointTypeExtension createPointTypeExtension() {
+        return new PointTypeExtension();
     }
 
     /**
@@ -3508,16 +3673,42 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointType }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "Point", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Point")
+    public JAXBElement<PointType> createPoint(PointType value) {
+        return new JAXBElement<>(_Point_QNAME, PointType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractPointExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
+    public JAXBElement<AbstractExtensionType> createAbstractPointExtension(AbstractExtensionType value) {
+        return new JAXBElement<>(_AbstractPointExtension_QNAME, AbstractExtensionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "ElevatedPoint", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Point")
-    public JAXBElement<AIXMElevatedPointType> createElevatedPoint(AIXMElevatedPointType value) {
-        return new JAXBElement<>(_ElevatedPoint_QNAME, AIXMElevatedPointType.class, null, value);
+    public JAXBElement<ElevatedPointType> createElevatedPoint(ElevatedPointType value) {
+        return new JAXBElement<>(_ElevatedPoint_QNAME, ElevatedPointType.class, null, value);
     }
 
     /**
@@ -3531,6 +3722,110 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractElevatedPointExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
     public JAXBElement<AbstractExtensionType> createAbstractElevatedPointExtension(AbstractExtensionType value) {
         return new JAXBElement<>(_AbstractElevatedPointExtension_QNAME, AbstractExtensionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "Curve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Curve")
+    public JAXBElement<CurveType> createCurve(CurveType value) {
+        return new JAXBElement<>(_Curve_QNAME, CurveType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractCurveExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
+    public JAXBElement<AbstractExtensionType> createAbstractCurveExtension(AbstractExtensionType value) {
+        return new JAXBElement<>(_AbstractCurveExtension_QNAME, AbstractExtensionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "ElevatedCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Curve")
+    public JAXBElement<ElevatedCurveType> createElevatedCurve(ElevatedCurveType value) {
+        return new JAXBElement<>(_ElevatedCurve_QNAME, ElevatedCurveType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractElevatedCurveExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
+    public JAXBElement<AbstractExtensionType> createAbstractElevatedCurveExtension(AbstractExtensionType value) {
+        return new JAXBElement<>(_AbstractElevatedCurveExtension_QNAME, AbstractExtensionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "Surface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Surface")
+    public JAXBElement<SurfaceType> createSurface(SurfaceType value) {
+        return new JAXBElement<>(_Surface_QNAME, SurfaceType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractSurfaceExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
+    public JAXBElement<AbstractExtensionType> createAbstractSurfaceExtension(AbstractExtensionType value) {
+        return new JAXBElement<>(_AbstractSurfaceExtension_QNAME, AbstractExtensionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "ElevatedSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Surface")
+    public JAXBElement<ElevatedSurfaceType> createElevatedSurface(ElevatedSurfaceType value) {
+        return new JAXBElement<>(_ElevatedSurface_QNAME, ElevatedSurfaceType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractExtensionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "AbstractElevatedSurfaceExtension", substitutionHeadNamespace = "http://www.aixm.aero/schema/5.2", substitutionHeadName = "AbstractExtension")
+    public JAXBElement<AbstractExtensionType> createAbstractElevatedSurfaceExtension(AbstractExtensionType value) {
+        return new JAXBElement<>(_AbstractElevatedSurfaceExtension_QNAME, AbstractExtensionType.class, null, value);
     }
 
     /**
@@ -3632,9 +3927,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "elevation", scope = AIXMElevatedPointType.class)
-    public JAXBElement<ValDistanceVerticalType> createAIXMElevatedPointTypeElevation(ValDistanceVerticalType value) {
-        return new JAXBElement<>(_AIXMElevatedPointTypeElevation_QNAME, ValDistanceVerticalType.class, AIXMElevatedPointType.class, value);
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "elevation", scope = ElevatedSurfaceType.class)
+    public JAXBElement<ValDistanceVerticalType> createElevatedSurfaceTypeElevation(ValDistanceVerticalType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeElevation_QNAME, ValDistanceVerticalType.class, ElevatedSurfaceType.class, value);
     }
 
     /**
@@ -3645,9 +3940,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "geoidUndulation", scope = AIXMElevatedPointType.class)
-    public JAXBElement<ValDistanceSignedType> createAIXMElevatedPointTypeGeoidUndulation(ValDistanceSignedType value) {
-        return new JAXBElement<>(_AIXMElevatedPointTypeGeoidUndulation_QNAME, ValDistanceSignedType.class, AIXMElevatedPointType.class, value);
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "geoidUndulation", scope = ElevatedSurfaceType.class)
+    public JAXBElement<ValDistanceSignedType> createElevatedSurfaceTypeGeoidUndulation(ValDistanceSignedType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeGeoidUndulation_QNAME, ValDistanceSignedType.class, ElevatedSurfaceType.class, value);
     }
 
     /**
@@ -3658,9 +3953,9 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "verticalDatum", scope = AIXMElevatedPointType.class)
-    public JAXBElement<TextNameType> createAIXMElevatedPointTypeVerticalDatum(TextNameType value) {
-        return new JAXBElement<>(_AIXMElevatedPointTypeVerticalDatum_QNAME, TextNameType.class, AIXMElevatedPointType.class, value);
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "verticalDatum", scope = ElevatedSurfaceType.class)
+    public JAXBElement<TextNameType> createElevatedSurfaceTypeVerticalDatum(TextNameType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeVerticalDatum_QNAME, TextNameType.class, ElevatedSurfaceType.class, value);
     }
 
     /**
@@ -3671,9 +3966,152 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = AIXMElevatedPointType.class)
-    public JAXBElement<ValDistanceType> createAIXMElevatedPointTypeHorizontalAccuracy(ValDistanceType value) {
-        return new JAXBElement<>(_AIXMElevatedPointTypeHorizontalAccuracy_QNAME, ValDistanceType.class, AIXMElevatedPointType.class, value);
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = ElevatedSurfaceType.class)
+    public JAXBElement<ValDistanceType> createElevatedSurfaceTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, ElevatedSurfaceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = SurfaceType.class)
+    public JAXBElement<ValDistanceType> createSurfaceTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, SurfaceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "elevation", scope = ElevatedCurveType.class)
+    public JAXBElement<ValDistanceVerticalType> createElevatedCurveTypeElevation(ValDistanceVerticalType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeElevation_QNAME, ValDistanceVerticalType.class, ElevatedCurveType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "geoidUndulation", scope = ElevatedCurveType.class)
+    public JAXBElement<ValDistanceSignedType> createElevatedCurveTypeGeoidUndulation(ValDistanceSignedType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeGeoidUndulation_QNAME, ValDistanceSignedType.class, ElevatedCurveType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "verticalDatum", scope = ElevatedCurveType.class)
+    public JAXBElement<TextNameType> createElevatedCurveTypeVerticalDatum(TextNameType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeVerticalDatum_QNAME, TextNameType.class, ElevatedCurveType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = ElevatedCurveType.class)
+    public JAXBElement<ValDistanceType> createElevatedCurveTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, ElevatedCurveType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = CurveType.class)
+    public JAXBElement<ValDistanceType> createCurveTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, CurveType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceVerticalType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "elevation", scope = ElevatedPointType.class)
+    public JAXBElement<ValDistanceVerticalType> createElevatedPointTypeElevation(ValDistanceVerticalType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeElevation_QNAME, ValDistanceVerticalType.class, ElevatedPointType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceSignedType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "geoidUndulation", scope = ElevatedPointType.class)
+    public JAXBElement<ValDistanceSignedType> createElevatedPointTypeGeoidUndulation(ValDistanceSignedType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeGeoidUndulation_QNAME, ValDistanceSignedType.class, ElevatedPointType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "verticalDatum", scope = ElevatedPointType.class)
+    public JAXBElement<TextNameType> createElevatedPointTypeVerticalDatum(TextNameType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeVerticalDatum_QNAME, TextNameType.class, ElevatedPointType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = ElevatedPointType.class)
+    public JAXBElement<ValDistanceType> createElevatedPointTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, ElevatedPointType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "horizontalAccuracy", scope = PointType.class)
+    public JAXBElement<ValDistanceType> createPointTypeHorizontalAccuracy(ValDistanceType value) {
+        return new JAXBElement<>(_ElevatedSurfaceTypeHorizontalAccuracy_QNAME, ValDistanceType.class, PointType.class, value);
     }
 
     /**
@@ -3778,6 +4216,71 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "location", scope = DMETimeSliceType.class)
     public JAXBElement<AIXMElevatedPointPropertyType> createDMETimeSliceTypeLocation(AIXMElevatedPointPropertyType value) {
         return new JAXBElement<>(_DMETimeSliceTypeLocation_QNAME, AIXMElevatedPointPropertyType.class, DMETimeSliceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "direction", scope = DMETimeSliceType.class)
+    public JAXBElement<AIXMElevatedCurvePropertyType> createDMETimeSliceTypeDirection(AIXMElevatedCurvePropertyType value) {
+        return new JAXBElement<>(_DMETimeSliceTypeDirection_QNAME, AIXMElevatedCurvePropertyType.class, DMETimeSliceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "area", scope = DMETimeSliceType.class)
+    public JAXBElement<AIXMElevatedSurfacePropertyType> createDMETimeSliceTypeArea(AIXMElevatedSurfacePropertyType value) {
+        return new JAXBElement<>(_DMETimeSliceTypeArea_QNAME, AIXMElevatedSurfacePropertyType.class, DMETimeSliceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "place", scope = DMETimeSliceType.class)
+    public JAXBElement<AIXMPointPropertyType> createDMETimeSliceTypePlace(AIXMPointPropertyType value) {
+        return new JAXBElement<>(_DMETimeSliceTypePlace_QNAME, AIXMPointPropertyType.class, DMETimeSliceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "orientation", scope = DMETimeSliceType.class)
+    public JAXBElement<AIXMCurvePropertyType> createDMETimeSliceTypeOrientation(AIXMCurvePropertyType value) {
+        return new JAXBElement<>(_DMETimeSliceTypeOrientation_QNAME, AIXMCurvePropertyType.class, DMETimeSliceType.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.aixm.aero/schema/5.2", name = "surface", scope = DMETimeSliceType.class)
+    public JAXBElement<AIXMSurfacePropertyType> createDMETimeSliceTypeSurface(AIXMSurfacePropertyType value) {
+        return new JAXBElement<>(_DMETimeSliceTypeSurface_QNAME, AIXMSurfacePropertyType.class, DMETimeSliceType.class, value);
     }
 
     /**

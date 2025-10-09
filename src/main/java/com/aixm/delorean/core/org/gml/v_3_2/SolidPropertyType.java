@@ -400,40 +400,27 @@ public class SolidPropertyType implements Serializable, Equals, HashCode, ToStri
         }
         final SolidPropertyType that = ((SolidPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSolid();
+            boolean rhsFieldIsSet = that.isSetAbstractSolid();
+            JAXBElement<? extends AbstractSolidType> lhsField;
+            lhsField = this.getAbstractSolid();
+            JAXBElement<? extends AbstractSolidType> rhsField;
+            rhsField = that.getAbstractSolid();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSolid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -447,19 +434,6 @@ public class SolidPropertyType implements Serializable, Equals, HashCode, ToStri
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -491,19 +465,6 @@ public class SolidPropertyType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -517,14 +478,53 @@ public class SolidPropertyType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSolid();
-            boolean rhsFieldIsSet = that.isSetAbstractSolid();
-            JAXBElement<? extends AbstractSolidType> lhsField;
-            lhsField = this.getAbstractSolid();
-            JAXBElement<? extends AbstractSolidType> rhsField;
-            rhsField = that.getAbstractSolid();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSolid", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

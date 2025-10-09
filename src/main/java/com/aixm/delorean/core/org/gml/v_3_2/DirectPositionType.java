@@ -5,14 +5,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OrderColumn;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -61,7 +53,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     VectorType.class
 })
-@Embeddable
 public class DirectPositionType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -101,12 +92,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
      * 
      * 
      */
-    @ElementCollection
-    @OrderColumn(name = "HJINDEX")
-    @Column(name = "HJVALUE")
-    @CollectionTable(name = "DIRECT_POSITION_TYPE_VALUE_", joinColumns = {
-        @JoinColumn
-    })
     public List<Double> getValue() {
         if (value == null) {
             value = new ArrayList<>();
@@ -122,7 +107,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         this.value = value;
     }
 
-    @Transient
     public boolean isSetValue() {
         return ((this.value!= null)&&(!this.value.isEmpty()));
     }
@@ -139,8 +123,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "SRS_NAME")
     public String getSrsName() {
         return srsName;
     }
@@ -157,7 +139,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         this.srsName = value;
     }
 
-    @Transient
     public boolean isSetSrsName() {
         return (this.srsName!= null);
     }
@@ -170,8 +151,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
      *     {@link BigInteger }
      *     
      */
-    @Basic
-    @Column(name = "SRS_DIMENSION", precision = 20, scale = 0)
     public BigInteger getSrsDimension() {
         return srsDimension;
     }
@@ -188,7 +167,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         this.srsDimension = value;
     }
 
-    @Transient
     public boolean isSetSrsDimension() {
         return (this.srsDimension!= null);
     }
@@ -215,7 +193,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
      * 
      * 
      */
-    @Transient
     public List<String> getAxisLabels() {
         if (axisLabels == null) {
             axisLabels = new ArrayList<>();
@@ -231,7 +208,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         this.axisLabels = axisLabels;
     }
 
-    @Transient
     public boolean isSetAxisLabels() {
         return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
     }
@@ -262,7 +238,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
      * 
      * 
      */
-    @Transient
     public List<String> getUomLabels() {
         if (uomLabels == null) {
             uomLabels = new ArrayList<>();
@@ -278,7 +253,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         this.uomLabels = uomLabels;
     }
 
-    @Transient
     public boolean isSetUomLabels() {
         return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
     }
@@ -322,32 +296,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSrsName();
-            boolean rhsFieldIsSet = that.isSetSrsName();
-            String lhsField;
-            lhsField = this.getSrsName();
-            String rhsField;
-            rhsField = that.getSrsName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSrsDimension();
             boolean rhsFieldIsSet = that.isSetSrsDimension();
             BigInteger lhsField;
@@ -361,6 +309,19 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAxisLabels();
             boolean rhsFieldIsSet = that.isSetAxisLabels();
             List<String> lhsField;
@@ -369,6 +330,19 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrsName();
+            boolean rhsFieldIsSet = that.isSetSrsName();
+            String lhsField;
+            lhsField = this.getSrsName();
+            String rhsField;
+            rhsField = that.getSrsName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

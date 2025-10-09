@@ -2,7 +2,7 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -42,7 +42,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "coordinates"
 })
 @XmlSeeAlso({
-    AIXMElevatedPointType.class
+    com.aixm.delorean.core.schema.a5_2.aixm.PointType.class,
+    ElevatedPointType.class
 })
 public class PointType
     extends AbstractGeometricPrimitiveType

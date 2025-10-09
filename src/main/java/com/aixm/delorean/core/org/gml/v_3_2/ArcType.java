@@ -2,8 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -47,8 +45,6 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlSeeAlso({
     CircleType.class
 })
-@Entity(name = "ArcType")
-@Table(name = "arc", schema = "gml")
 public class ArcType
     extends ArcStringType
     implements Serializable

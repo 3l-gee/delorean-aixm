@@ -139,19 +139,6 @@ public class MultiGeometryType
         }
         final MultiGeometryType that = ((MultiGeometryType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometryMember();
-            boolean rhsFieldIsSet = that.isSetGeometryMember();
-            List<GeometryPropertyType> lhsField;
-            lhsField = (this.isSetGeometryMember()?this.getGeometryMember():null);
-            List<GeometryPropertyType> rhsField;
-            rhsField = (that.isSetGeometryMember()?that.getGeometryMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGeometryMembers();
             boolean rhsFieldIsSet = that.isSetGeometryMembers();
             GeometryArrayPropertyType lhsField;
@@ -160,6 +147,19 @@ public class MultiGeometryType
             rhsField = that.getGeometryMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMembers", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMembers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometryMember();
+            boolean rhsFieldIsSet = that.isSetGeometryMember();
+            List<GeometryPropertyType> lhsField;
+            lhsField = (this.isSetGeometryMember()?this.getGeometryMember():null);
+            List<GeometryPropertyType> rhsField;
+            rhsField = (that.isSetGeometryMember()?that.getGeometryMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

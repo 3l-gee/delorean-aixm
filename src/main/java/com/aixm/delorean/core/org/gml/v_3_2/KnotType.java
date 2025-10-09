@@ -149,19 +149,6 @@ public class KnotType implements Serializable, Equals, HashCode, ToString
         }
         final KnotType that = ((KnotType) object);
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getWeight();
-            double rhsField;
-            rhsField = that.getWeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMultiplicity();
             boolean rhsFieldIsSet = that.isSetMultiplicity();
             BigInteger lhsField;
@@ -170,6 +157,19 @@ public class KnotType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getMultiplicity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "multiplicity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "multiplicity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getWeight();
+            double rhsField;
+            rhsField = that.getWeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

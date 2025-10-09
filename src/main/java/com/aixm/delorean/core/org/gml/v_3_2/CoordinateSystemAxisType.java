@@ -277,19 +277,6 @@ public class CoordinateSystemAxisType
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRangeMeaning();
-            boolean rhsFieldIsSet = that.isSetRangeMeaning();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getRangeMeaning();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getRangeMeaning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAxisAbbrev();
             boolean rhsFieldIsSet = that.isSetAxisAbbrev();
             CodeType lhsField;
@@ -316,14 +303,27 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUom();
-            boolean rhsFieldIsSet = that.isSetUom();
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            boolean lhsFieldIsSet = this.isSetRangeMeaning();
+            boolean rhsFieldIsSet = that.isSetRangeMeaning();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getRangeMeaning();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getRangeMeaning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
+            Double lhsField;
+            lhsField = this.getMinimumValue();
+            Double rhsField;
+            rhsField = that.getMinimumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -342,14 +342,14 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumValue();
-            boolean rhsFieldIsSet = that.isSetMinimumValue();
-            Double lhsField;
-            lhsField = this.getMinimumValue();
-            Double rhsField;
-            rhsField = that.getMinimumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

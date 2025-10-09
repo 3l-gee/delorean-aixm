@@ -133,19 +133,6 @@ public class MDDistributionUnitsPropertyType implements Serializable, Equals, Ha
         }
         final MDDistributionUnitsPropertyType that = ((MDDistributionUnitsPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDDistributionUnits();
-            boolean rhsFieldIsSet = that.isSetMDDistributionUnits();
-            CodeListValueType lhsField;
-            lhsField = this.getMDDistributionUnits();
-            CodeListValueType rhsField;
-            rhsField = that.getMDDistributionUnits();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdDistributionUnits", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdDistributionUnits", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class MDDistributionUnitsPropertyType implements Serializable, Equals, Ha
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDDistributionUnits();
+            boolean rhsFieldIsSet = that.isSetMDDistributionUnits();
+            CodeListValueType lhsField;
+            lhsField = this.getMDDistributionUnits();
+            CodeListValueType rhsField;
+            rhsField = that.getMDDistributionUnits();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdDistributionUnits", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdDistributionUnits", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

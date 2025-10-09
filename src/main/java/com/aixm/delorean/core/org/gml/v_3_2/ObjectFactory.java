@@ -7,7 +7,7 @@ import java.util.List;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
-import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
+import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;

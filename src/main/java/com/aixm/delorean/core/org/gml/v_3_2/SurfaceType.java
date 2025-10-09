@@ -2,6 +2,7 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -39,7 +40,9 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "patches"
 })
 @XmlSeeAlso({
-    TinType.class
+    TinType.class,
+    com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType.class,
+    ElevatedSurfaceType.class
 })
 public class SurfaceType
     extends AbstractSurfaceType

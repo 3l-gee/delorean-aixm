@@ -8,7 +8,6 @@ import java.time.Instant;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-import com.aixm.delorean.core.adapter.type.time.AixmTimeSliceType;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
@@ -18,6 +17,7 @@ import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
 // import com.aixm.delorean.core.schema.a5_1.aixm.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.core.schema.a5_2.aixm.*;
 import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 
 public class DatabaseFunctionHelper {
 

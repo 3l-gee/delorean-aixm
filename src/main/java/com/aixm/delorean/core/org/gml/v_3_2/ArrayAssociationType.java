@@ -4,11 +4,13 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
 import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType;
 import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMObjectType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMEType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -162,18 +164,23 @@ public class ArrayAssociationType implements Serializable, Equals, HashCode, ToS
      * {@link JAXBElement }{@code <}{@link DictionaryType }{@code >}
      * {@link JAXBElement }{@code <}{@link DefinitionProxyType }{@code >}
      * {@link JAXBElement }{@code <}{@link DefinitionType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
      * {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.CurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.CurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
      * {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
@@ -350,19 +357,6 @@ public class ArrayAssociationType implements Serializable, Equals, HashCode, ToS
         }
         final ArrayAssociationType that = ((ArrayAssociationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractObject();
             boolean rhsFieldIsSet = that.isSetAbstractObject();
             List<JAXBElement<?>> lhsField;
@@ -371,6 +365,19 @@ public class ArrayAssociationType implements Serializable, Equals, HashCode, ToS
             rhsField = (that.isSetAbstractObject()?that.getAbstractObject():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObject", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObject", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

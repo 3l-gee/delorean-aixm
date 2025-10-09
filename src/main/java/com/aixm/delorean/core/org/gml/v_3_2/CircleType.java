@@ -2,8 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -31,8 +29,6 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CircleType")
-@Entity(name = "CircleType")
-@Table(name = "circle", schema = "gml")
 public class CircleType
     extends ArcType
     implements Serializable

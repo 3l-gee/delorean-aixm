@@ -221,19 +221,6 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCodeListValue();
-            boolean rhsFieldIsSet = that.isSetCodeListValue();
-            String lhsField;
-            lhsField = this.getCodeListValue();
-            String rhsField;
-            rhsField = that.getCodeListValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCodeSpace();
             boolean rhsFieldIsSet = that.isSetCodeSpace();
             String lhsField;
@@ -242,6 +229,19 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getCodeSpace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCodeListValue();
+            boolean rhsFieldIsSet = that.isSetCodeListValue();
+            String lhsField;
+            lhsField = this.getCodeListValue();
+            String rhsField;
+            rhsField = that.getCodeListValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

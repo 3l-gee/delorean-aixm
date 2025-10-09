@@ -70,13 +70,6 @@ public class Container<T> {
         return this.editorPRJ;
     }
 
-    public void setValidationRule() {
-        if (this.xmlBinding == null) {
-            throw new RuntimeException("XMLBinding is not set");
-        }
-        this.xmlBinding.setValidationRule();
-    }
-
     public void unmarshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");

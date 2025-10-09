@@ -348,32 +348,6 @@ public class DQCompletenessCommissionPropertyType implements Serializable, Equal
         }
         final DQCompletenessCommissionPropertyType that = ((DQCompletenessCommissionPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHref();
             boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
@@ -413,27 +387,14 @@ public class DQCompletenessCommissionPropertyType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            boolean lhsFieldIsSet = this.isSetDQCompletenessCommission();
+            boolean rhsFieldIsSet = that.isSetDQCompletenessCommission();
+            DQCompletenessCommissionType lhsField;
+            lhsField = this.getDQCompletenessCommission();
+            DQCompletenessCommissionType rhsField;
+            rhsField = that.getDQCompletenessCommission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqCompletenessCommission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqCompletenessCommission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -452,14 +413,53 @@ public class DQCompletenessCommissionPropertyType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDQCompletenessCommission();
-            boolean rhsFieldIsSet = that.isSetDQCompletenessCommission();
-            DQCompletenessCommissionType lhsField;
-            lhsField = this.getDQCompletenessCommission();
-            DQCompletenessCommissionType rhsField;
-            rhsField = that.getDQCompletenessCommission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqCompletenessCommission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqCompletenessCommission", rhsField);
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

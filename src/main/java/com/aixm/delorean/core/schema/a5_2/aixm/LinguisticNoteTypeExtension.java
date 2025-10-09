@@ -223,19 +223,6 @@ public class LinguisticNoteTypeExtension implements Serializable, Equals, HashCo
         }
         final LinguisticNoteTypeExtension that = ((LinguisticNoteTypeExtension) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractLinguisticNoteExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractLinguisticNoteExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractLinguisticNoteExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractLinguisticNoteExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLinguisticNoteExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLinguisticNoteExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class LinguisticNoteTypeExtension implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractLinguisticNoteExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractLinguisticNoteExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractLinguisticNoteExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractLinguisticNoteExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLinguisticNoteExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLinguisticNoteExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

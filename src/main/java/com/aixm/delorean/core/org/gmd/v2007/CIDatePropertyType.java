@@ -348,19 +348,6 @@ public class CIDatePropertyType implements Serializable, Equals, HashCode, ToStr
         }
         final CIDatePropertyType that = ((CIDatePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCIDate();
-            boolean rhsFieldIsSet = that.isSetCIDate();
-            CIDateType lhsField;
-            lhsField = this.getCIDate();
-            CIDateType rhsField;
-            rhsField = that.getCIDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -374,53 +361,14 @@ public class CIDatePropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            boolean lhsFieldIsSet = this.isSetCIDate();
+            boolean rhsFieldIsSet = that.isSetCIDate();
+            CIDateType lhsField;
+            lhsField = this.getCIDate();
+            CIDateType rhsField;
+            rhsField = that.getCIDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +387,27 @@ public class CIDatePropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,6 +421,45 @@ public class CIDatePropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -5,12 +5,6 @@ import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -31,7 +25,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -48,8 +41,8 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}AbstractTimePrimitive"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -64,7 +57,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 @XmlSeeAlso({
     RelatedTimeType.class
 })
-@Embeddable
 public class TimePrimitivePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -75,8 +67,6 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
      */
     @XmlElementRef(name = "AbstractTimePrimitive", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractTimePrimitiveType> abstractTimePrimitive;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -96,6 +86,8 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
 
     /**
      * gml:AbstractTimePrimitive acts as the head of a substitution group for geometric and topological temporal primitives.
@@ -111,7 +103,6 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
      *     {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
      *     
      */
-    @Transient
     public JAXBElement<? extends AbstractTimePrimitiveType> getAbstractTimePrimitive() {
         return abstractTimePrimitive;
     }
@@ -135,9 +126,232 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
         this.abstractTimePrimitive = value;
     }
 
-    @Transient
     public boolean isSetAbstractTimePrimitive() {
         return (this.abstractTimePrimitive!= null);
+    }
+
+    /**
+     * Gets the value of the nilReason property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNilReason() {
+        return nilReason;
+    }
+
+    /**
+     * Sets the value of the nilReason property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNilReason(String value) {
+        this.nilReason = value;
+    }
+
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
+    /**
+     * Gets the value of the remoteSchema property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRemoteSchema() {
+        return remoteSchema;
+    }
+
+    /**
+     * Sets the value of the remoteSchema property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRemoteSchema(String value) {
+        this.remoteSchema = value;
+    }
+
+    public boolean isSetRemoteSchema() {
+        return (this.remoteSchema!= null);
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    public boolean isSetHref() {
+        return (this.href!= null);
+    }
+
+    /**
+     * Gets the value of the role property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the value of the role property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    public boolean isSetArcrole() {
+        return (this.arcrole!= null);
+    }
+
+    /**
+     * Gets the value of the simpleLinkTitle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSimpleLinkTitle() {
+        return simpleLinkTitle;
+    }
+
+    /**
+     * Sets the value of the simpleLinkTitle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSimpleLinkTitle(String value) {
+        this.simpleLinkTitle = value;
+    }
+
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ShowType }
+     *     
+     */
+    public ShowType getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ShowType }
+     *     
+     */
+    public void setShow(ShowType value) {
+        this.show = value;
+    }
+
+    public boolean isSetShow() {
+        return (this.show!= null);
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ActuateType }
+     *     
+     */
+    public ActuateType getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ActuateType }
+     *     
+     */
+    public void setActuate(ActuateType value) {
+        this.actuate = value;
+    }
+
+    public boolean isSetActuate() {
+        return (this.actuate!= null);
     }
 
     /**
@@ -148,8 +362,6 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
      *     {@link java.lang.Boolean }
      *     
      */
-    @Basic
-    @Column(name = "OWNS")
     public boolean getOwns() {
         if (owns == null) {
             return false;
@@ -170,293 +382,12 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
         this.owns = value;
     }
 
-    @Transient
     public boolean isSetOwns() {
         return (this.owns!= null);
     }
 
     public void unsetOwns() {
         this.owns = null;
-    }
-
-    /**
-     * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Basic
-    @Column(name = "NIL_REASON", length = 255)
-    public String getNilReason() {
-        return nilReason;
-    }
-
-    /**
-     * Sets the value of the nilReason property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNilReason(String value) {
-        this.nilReason = value;
-    }
-
-    @Transient
-    public boolean isSetNilReason() {
-        return (this.nilReason!= null);
-    }
-
-    /**
-     * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Transient
-    public String getRemoteSchema() {
-        return remoteSchema;
-    }
-
-    /**
-     * Sets the value of the remoteSchema property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRemoteSchema(String value) {
-        this.remoteSchema = value;
-    }
-
-    @Transient
-    public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
-    }
-
-    /**
-     * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Basic
-    @Column(name = "HREF")
-    public String getHref() {
-        return href;
-    }
-
-    /**
-     * Sets the value of the href property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setHref(String value) {
-        this.href = value;
-    }
-
-    @Transient
-    public boolean isSetHref() {
-        return (this.href!= null);
-    }
-
-    /**
-     * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Basic
-    @Column(name = "ROLE_")
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets the value of the role property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRole(String value) {
-        this.role = value;
-    }
-
-    @Transient
-    public boolean isSetRole() {
-        return (this.role!= null);
-    }
-
-    /**
-     * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Basic
-    @Column(name = "ARCROLE")
-    public String getArcrole() {
-        return arcrole;
-    }
-
-    /**
-     * Sets the value of the arcrole property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setArcrole(String value) {
-        this.arcrole = value;
-    }
-
-    @Transient
-    public boolean isSetArcrole() {
-        return (this.arcrole!= null);
-    }
-
-    /**
-     * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
-    public String getSimpleLinkTitle() {
-        return simpleLinkTitle;
-    }
-
-    /**
-     * Sets the value of the simpleLinkTitle property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSimpleLinkTitle(String value) {
-        this.simpleLinkTitle = value;
-    }
-
-    @Transient
-    public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
-    }
-
-    /**
-     * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
-     */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
-    public ShowType getShow() {
-        return show;
-    }
-
-    /**
-     * Sets the value of the show property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
-     */
-    public void setShow(ShowType value) {
-        this.show = value;
-    }
-
-    @Transient
-    public boolean isSetShow() {
-        return (this.show!= null);
-    }
-
-    /**
-     * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
-     */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
-    public ActuateType getActuate() {
-        return actuate;
-    }
-
-    /**
-     * Sets the value of the actuate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
-     */
-    public void setActuate(ActuateType value) {
-        this.actuate = value;
-    }
-
-    @Transient
-    public boolean isSetActuate() {
-        return (this.actuate!= null);
-    }
-
-    @Basic
-    @Column(name = "ABSTRACT_TIME_PRIMITIVE_NAME")
-    public String getAbstractTimePrimitiveName() {
-        if (this.getAbstractTimePrimitive() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(AbstractTimePrimitiveType.class, this.getAbstractTimePrimitive());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractTimePrimitiveName(String target) {
-        if (target!= null) {
-            setAbstractTimePrimitive(JAXBElementUtils.wrap(this.getAbstractTimePrimitive(), target, AbstractTimePrimitiveType.class));
-        }
-    }
-
-    @Transient
-    public AbstractTimePrimitiveType getAbstractTimePrimitiveValue() {
-        if (this.getAbstractTimePrimitive() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(AbstractTimePrimitiveType.class, this.getAbstractTimePrimitive());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractTimePrimitiveValue(AbstractTimePrimitiveType target) {
-        if (target!= null) {
-            setAbstractTimePrimitive(JAXBElementUtils.wrap(this.getAbstractTimePrimitive(), target));
-        }
     }
 
     @Override
@@ -480,6 +411,71 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             return true;
         }
         final TimePrimitivePropertyType that = ((TimePrimitivePropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTimePrimitive();
+            boolean rhsFieldIsSet = that.isSetAbstractTimePrimitive();
+            JAXBElement<? extends AbstractTimePrimitiveType> lhsField;
+            lhsField = this.getAbstractTimePrimitive();
+            JAXBElement<? extends AbstractTimePrimitiveType> rhsField;
+            rhsField = that.getAbstractTimePrimitive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimePrimitive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimePrimitive", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
             boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
@@ -507,40 +503,14 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -559,53 +529,14 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTimePrimitive();
-            boolean rhsFieldIsSet = that.isSetAbstractTimePrimitive();
-            JAXBElement<? extends AbstractTimePrimitiveType> lhsField;
-            lhsField = this.getAbstractTimePrimitive();
-            JAXBElement<? extends AbstractTimePrimitiveType> rhsField;
-            rhsField = that.getAbstractTimePrimitive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimePrimitive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimePrimitive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -631,13 +562,6 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             JAXBElement<? extends AbstractTimePrimitiveType> theField;
             theField = this.getAbstractTimePrimitive();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTimePrimitive", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -696,6 +620,13 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -726,12 +657,6 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             JAXBElement<? extends AbstractTimePrimitiveType> theField;
             theField = this.getAbstractTimePrimitive();
             strategy.appendField(locator, this, "abstractTimePrimitive", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -780,6 +705,12 @@ public class TimePrimitivePropertyType implements Serializable, Equals, HashCode
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

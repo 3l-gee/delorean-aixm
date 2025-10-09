@@ -4,14 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -49,8 +41,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "exterior",
     "interior"
 })
-@Entity(name = "PolygonPatchType")
-@Table(name = "polygon_patch", schema = "gml")
 public class PolygonPatchType
     extends AbstractSurfacePatchType
     implements Serializable
@@ -74,13 +64,6 @@ public class PolygonPatchType
      *     {@link AbstractRingPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractRingPropertyType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTERIOR_POLYGON_PATCH_TYPE__0", nullable = true)
     public AbstractRingPropertyType getExterior() {
         return exterior;
     }
@@ -98,7 +81,6 @@ public class PolygonPatchType
         this.exterior = value;
     }
 
-    @Transient
     public boolean isSetExterior() {
         return (this.exterior!= null);
     }
@@ -125,10 +107,6 @@ public class PolygonPatchType
      * 
      * 
      */
-    @OneToMany(targetEntity = AbstractRingPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "INTERIOR_POLYGON_PATCH_TYPE__0")
     public List<AbstractRingPropertyType> getInterior() {
         if (interior == null) {
             interior = new ArrayList<>();
@@ -144,7 +122,6 @@ public class PolygonPatchType
         this.interior = interior;
     }
 
-    @Transient
     public boolean isSetInterior() {
         return ((this.interior!= null)&&(!this.interior.isEmpty()));
     }

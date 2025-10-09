@@ -246,19 +246,6 @@
                 </executions>
             </plugin>
 		</plugins>
-        <resources>
-            <resource>
-            <directory>${project.basedir}/schema/aixm5_2/orm</directory>
-            <includes>
-                <include>*.orm</include>
-                <include>*.xml</include>
-            </includes>
-            <targetPath>META-INF</targetPath>
-            </resource>
-            <resource>
-            <directory>src/main/resources</directory>
-            </resource>
-        </resources>
 	</build>
 
     <profiles>

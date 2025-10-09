@@ -2,19 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -62,8 +49,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "posList",
     "coordinates"
 })
-@Entity(name = "LineStringSegmentType")
-@Table(name = "Line_string_segment", schema = "gml")
 public class LineStringSegmentType
     extends AbstractCurveSegmentType
     implements Serializable
@@ -90,14 +75,6 @@ public class LineStringSegmentType
      *     {@link DirectPositionType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_TYPE_POS_VAL_0", joinColumns = {
-        @JoinColumn(name = "POS_HJID")
-    }))
     public DirectPositionType getPos() {
         return pos;
     }
@@ -114,7 +91,6 @@ public class LineStringSegmentType
         this.pos = value;
     }
 
-    @Transient
     public boolean isSetPos() {
         return (this.pos!= null);
     }
@@ -127,13 +103,6 @@ public class LineStringSegmentType
      *     {@link PointPropertyType }
      *     
      */
-    @ManyToOne(targetEntity = PointPropertyType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "POINT_PROPERTY_LINE_STRING_S_0", nullable = true)
     public PointPropertyType getPointProperty() {
         return pointProperty;
     }
@@ -151,7 +120,6 @@ public class LineStringSegmentType
         this.pointProperty = value;
     }
 
-    @Transient
     public boolean isSetPointProperty() {
         return (this.pointProperty!= null);
     }
@@ -164,7 +132,6 @@ public class LineStringSegmentType
      *     {@link PointPropertyType }
      *     
      */
-    @Transient
     public PointPropertyType getPointRep() {
         return pointRep;
     }
@@ -181,7 +148,6 @@ public class LineStringSegmentType
         this.pointRep = value;
     }
 
-    @Transient
     public boolean isSetPointRep() {
         return (this.pointRep!= null);
     }
@@ -194,15 +160,6 @@ public class LineStringSegmentType
      *     {@link DirectPositionListType }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "count", column = @Column(name = "POS_LIST_COUNT", precision = 20, scale = 0)),
-        @AttributeOverride(name = "srsName", column = @Column(name = "POS_LIST_SRS_NAME")),
-        @AttributeOverride(name = "srsDimension", column = @Column(name = "POS_LIST_SRS_DIMENSION", precision = 20, scale = 0))
-    })
-    @AssociationOverride(name = "value", joinTable = @JoinTable(name = "DIRECT_POSITION_LIST_TYPE_PO_0", joinColumns = {
-        @JoinColumn(name = "POS_LIST_HJID")
-    }))
     public DirectPositionListType getPosList() {
         return posList;
     }
@@ -219,7 +176,6 @@ public class LineStringSegmentType
         this.posList = value;
     }
 
-    @Transient
     public boolean isSetPosList() {
         return (this.posList!= null);
     }
@@ -232,7 +188,6 @@ public class LineStringSegmentType
      *     {@link CoordinatesType }
      *     
      */
-    @Transient
     public CoordinatesType getCoordinates() {
         return coordinates;
     }
@@ -249,7 +204,6 @@ public class LineStringSegmentType
         this.coordinates = value;
     }
 
-    @Transient
     public boolean isSetCoordinates() {
         return (this.coordinates!= null);
     }
@@ -266,6 +220,45 @@ public class LineStringSegmentType
             return false;
         }
         final LineStringSegmentType that = ((LineStringSegmentType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetPos();
+            boolean rhsFieldIsSet = that.isSetPos();
+            DirectPositionType lhsField;
+            lhsField = this.getPos();
+            DirectPositionType rhsField;
+            rhsField = that.getPos();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointRep();
+            boolean rhsFieldIsSet = that.isSetPointRep();
+            PointPropertyType lhsField;
+            lhsField = this.getPointRep();
+            PointPropertyType rhsField;
+            rhsField = that.getPointRep();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
+            PointPropertyType lhsField;
+            lhsField = this.getPointProperty();
+            PointPropertyType rhsField;
+            rhsField = that.getPointProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
@@ -288,45 +281,6 @@ public class LineStringSegmentType
             rhsField = that.getCoordinates();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointRep();
-            boolean rhsFieldIsSet = that.isSetPointRep();
-            PointPropertyType lhsField;
-            lhsField = this.getPointRep();
-            PointPropertyType rhsField;
-            rhsField = that.getPointRep();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPos();
-            boolean rhsFieldIsSet = that.isSetPos();
-            DirectPositionType lhsField;
-            lhsField = this.getPos();
-            DirectPositionType rhsField;
-            rhsField = that.getPos();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointProperty();
-            boolean rhsFieldIsSet = that.isSetPointProperty();
-            PointPropertyType lhsField;
-            lhsField = this.getPointProperty();
-            PointPropertyType rhsField;
-            rhsField = that.getPointProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -265,14 +265,27 @@ public class TopoSolidType
         }
         final TopoSolidType that = ((TopoSolidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUniversal();
-            boolean rhsFieldIsSet = that.isSetUniversal();
-            boolean lhsField;
-            lhsField = (this.isSetUniversal()?this.getUniversal():false);
-            boolean rhsField;
-            rhsField = (that.isSetUniversal()?that.getUniversal():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
+            List<DirectedFacePropertyType> lhsField;
+            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
+            List<DirectedFacePropertyType> rhsField;
+            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -291,14 +304,14 @@ public class TopoSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetUniversal();
+            boolean rhsFieldIsSet = that.isSetUniversal();
+            boolean lhsField;
+            lhsField = (this.isSetUniversal()?this.getUniversal():false);
+            boolean rhsField;
+            rhsField = (that.isSetUniversal()?that.getUniversal():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -312,19 +325,6 @@ public class TopoSolidType
             rhsField = (that.isSetIsolated()?that.getIsolated():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDirectedFace();
-            boolean rhsFieldIsSet = that.isSetDirectedFace();
-            List<DirectedFacePropertyType> lhsField;
-            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
-            List<DirectedFacePropertyType> rhsField;
-            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

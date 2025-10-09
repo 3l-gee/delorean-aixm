@@ -5,26 +5,13 @@ import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -38,7 +25,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -68,8 +54,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 @XmlType(name = "PointPropertyType", propOrder = {
     "point"
 })
-@Entity(name = "PointPropertyType")
-@Table(name = "point_property", schema = "gml")
 public class PointPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -79,7 +63,7 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      * 
      */
     @XmlElementRef(name = "Point", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
-    protected JAXBElement<? extends PointType> point;
+    protected JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> point;
     @XmlAttribute(name = "owns")
     protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
@@ -101,22 +85,18 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * A Point is defined by a single coordinate tuple. The direct position of a point is specified by the pos element which is of type DirectPositionType.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
      *     
      */
-    @Transient
-    public JAXBElement<? extends PointType> getPoint() {
+    public JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> getPoint() {
         return point;
     }
 
@@ -125,16 +105,16 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
      *     
      * @see #getPoint()
      */
-    public void setPoint(JAXBElement<? extends PointType> value) {
+    public void setPoint(JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> value) {
         this.point = value;
     }
 
-    @Transient
     public boolean isSetPoint() {
         return (this.point!= null);
     }
@@ -147,8 +127,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link java.lang.Boolean }
      *     
      */
-    @Basic
-    @Column(name = "OWNS")
     public boolean getOwns() {
         if (owns == null) {
             return false;
@@ -169,7 +147,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.owns = value;
     }
 
-    @Transient
     public boolean isSetOwns() {
         return (this.owns!= null);
     }
@@ -186,8 +163,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }
@@ -204,7 +179,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
-    @Transient
     public boolean isSetNilReason() {
         return (this.nilReason!= null);
     }
@@ -217,7 +191,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Transient
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -234,7 +207,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.remoteSchema = value;
     }
 
-    @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
     }
@@ -247,8 +219,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "HREF")
     public String getHref() {
         return href;
     }
@@ -265,7 +235,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.href = value;
     }
 
-    @Transient
     public boolean isSetHref() {
         return (this.href!= null);
     }
@@ -278,8 +247,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ROLE_")
     public String getRole() {
         return role;
     }
@@ -296,7 +263,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.role = value;
     }
 
-    @Transient
     public boolean isSetRole() {
         return (this.role!= null);
     }
@@ -309,8 +275,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ARCROLE")
     public String getArcrole() {
         return arcrole;
     }
@@ -327,7 +291,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.arcrole = value;
     }
 
-    @Transient
     public boolean isSetArcrole() {
         return (this.arcrole!= null);
     }
@@ -340,8 +303,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
     }
@@ -358,7 +319,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.simpleLinkTitle = value;
     }
 
-    @Transient
     public boolean isSetSimpleLinkTitle() {
         return (this.simpleLinkTitle!= null);
     }
@@ -371,9 +331,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link ShowType }
      *     
      */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
     public ShowType getShow() {
         return show;
     }
@@ -390,7 +347,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.show = value;
     }
 
-    @Transient
     public boolean isSetShow() {
         return (this.show!= null);
     }
@@ -403,9 +359,6 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link ActuateType }
      *     
      */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -422,94 +375,8 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         this.actuate = value;
     }
 
-    @Transient
     public boolean isSetActuate() {
         return (this.actuate!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
-    @Basic
-    @Column(name = "POINT_NAME")
-    public String getPointName() {
-        if (this.getPoint() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(PointType.class, this.getPoint());
-        } else {
-            return null;
-        }
-    }
-
-    public void setPointName(String target) {
-        if (target!= null) {
-            setPoint(JAXBElementUtils.wrap(this.getPoint(), target, PointType.class));
-        }
-    }
-
-    @Transient
-    public PointType getPointValue() {
-        if (this.getPoint() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(PointType.class, this.getPoint());
-        } else {
-            return null;
-        }
-    }
-
-    public void setPointValue(PointType target) {
-        if (target!= null) {
-            setPoint(JAXBElementUtils.wrap(this.getPoint(), target));
-        }
     }
 
     @Override
@@ -534,27 +401,27 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         }
         final PointPropertyType that = ((PointPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            JAXBElement<? extends PointType> lhsField;
-            lhsField = this.getPoint();
-            JAXBElement<? extends PointType> rhsField;
-            rhsField = that.getPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -568,6 +435,32 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getActuate();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -599,6 +492,19 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> lhsField;
+            lhsField = this.getPoint();
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> rhsField;
+            rhsField = that.getPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -612,53 +518,14 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -681,7 +548,7 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetPoint();
-            JAXBElement<? extends PointType> theField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> theField;
             theField = this.getPoint();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -776,7 +643,7 @@ public class PointPropertyType implements Serializable, Equals, HashCode, ToStri
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetPoint();
-            JAXBElement<? extends PointType> theField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> theField;
             theField = this.getPoint();
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }

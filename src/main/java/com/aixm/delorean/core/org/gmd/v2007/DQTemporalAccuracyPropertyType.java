@@ -355,14 +355,14 @@ public class DQTemporalAccuracyPropertyType implements Serializable, Equals, Has
         }
         final DQTemporalAccuracyPropertyType that = ((DQTemporalAccuracyPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractDQTemporalAccuracy();
+            boolean rhsFieldIsSet = that.isSetAbstractDQTemporalAccuracy();
+            JAXBElement<? extends AbstractDQTemporalAccuracyType> lhsField;
+            lhsField = this.getAbstractDQTemporalAccuracy();
+            JAXBElement<? extends AbstractDQTemporalAccuracyType> rhsField;
+            rhsField = that.getAbstractDQTemporalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDQTemporalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDQTemporalAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -381,32 +381,6 @@ public class DQTemporalAccuracyPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDQTemporalAccuracy();
-            boolean rhsFieldIsSet = that.isSetAbstractDQTemporalAccuracy();
-            JAXBElement<? extends AbstractDQTemporalAccuracyType> lhsField;
-            lhsField = this.getAbstractDQTemporalAccuracy();
-            JAXBElement<? extends AbstractDQTemporalAccuracyType> rhsField;
-            rhsField = that.getAbstractDQTemporalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDQTemporalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDQTemporalAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -415,6 +389,19 @@ public class DQTemporalAccuracyPropertyType implements Serializable, Equals, Has
             rhsField = that.getActuate();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -446,6 +433,19 @@ public class DQTemporalAccuracyPropertyType implements Serializable, Equals, Has
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -459,14 +459,14 @@ public class DQTemporalAccuracyPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -40,8 +40,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}AbstractTimeTopologyPrimitive"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -65,8 +65,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
      */
     @XmlElementRef(name = "AbstractTimeTopologyPrimitive", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractTimeTopologyPrimitiveType> abstractTimeTopologyPrimitive;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -86,6 +84,8 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
 
     /**
      * gml:TimeTopologyPrimitive acts as the head of a substitution group for topological temporal primitives.
@@ -120,42 +120,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
 
     public boolean isSetAbstractTimeTopologyPrimitive() {
         return (this.abstractTimeTopologyPrimitive!= null);
-    }
-
-    /**
-     * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public void setOwns(boolean value) {
-        this.owns = value;
-    }
-
-    public boolean isSetOwns() {
-        return (this.owns!= null);
-    }
-
-    public void unsetOwns() {
-        this.owns = null;
     }
 
     /**
@@ -382,6 +346,42 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
         return (this.actuate!= null);
     }
 
+    /**
+     * Gets the value of the owns property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public void setOwns(boolean value) {
+        this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -404,19 +404,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
         }
         final TimeTopologyPrimitivePropertyType that = ((TimeTopologyPrimitivePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -425,6 +412,19 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -443,19 +443,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetShow();
             boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
@@ -469,19 +456,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTimeTopologyPrimitive();
-            boolean rhsFieldIsSet = that.isSetAbstractTimeTopologyPrimitive();
-            JAXBElement<? extends AbstractTimeTopologyPrimitiveType> lhsField;
-            lhsField = this.getAbstractTimeTopologyPrimitive();
-            JAXBElement<? extends AbstractTimeTopologyPrimitiveType> rhsField;
-            rhsField = that.getAbstractTimeTopologyPrimitive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeTopologyPrimitive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeTopologyPrimitive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -490,6 +464,45 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTimeTopologyPrimitive();
+            boolean rhsFieldIsSet = that.isSetAbstractTimeTopologyPrimitive();
+            JAXBElement<? extends AbstractTimeTopologyPrimitiveType> lhsField;
+            lhsField = this.getAbstractTimeTopologyPrimitive();
+            JAXBElement<? extends AbstractTimeTopologyPrimitiveType> rhsField;
+            rhsField = that.getAbstractTimeTopologyPrimitive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeTopologyPrimitive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeTopologyPrimitive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -520,19 +533,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -554,13 +554,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             JAXBElement<? extends AbstractTimeTopologyPrimitiveType> theField;
             theField = this.getAbstractTimeTopologyPrimitive();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTimeTopologyPrimitive", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -619,6 +612,13 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -649,12 +649,6 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             JAXBElement<? extends AbstractTimeTopologyPrimitiveType> theField;
             theField = this.getAbstractTimeTopologyPrimitive();
             strategy.appendField(locator, this, "abstractTimeTopologyPrimitive", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetNilReason();
@@ -703,6 +697,12 @@ public class TimeTopologyPrimitivePropertyType implements Serializable, Equals, 
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

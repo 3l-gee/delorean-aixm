@@ -5,25 +5,13 @@ import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -37,7 +25,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -67,8 +54,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 @XmlType(name = "SurfacePropertyType", propOrder = {
     "abstractSurface"
 })
-@Entity(name = "SurfacePropertyType")
-@Table(name = "surface_property", schema = "gml")
 public class SurfacePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -100,10 +85,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * The AbstractSurface element is the abstract head of the substitution group for all (continuous) surface elements.
@@ -114,13 +95,14 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType }{@code >}
      *     
      */
-    @Transient
     public JAXBElement<? extends AbstractSurfaceType> getAbstractSurface() {
         return abstractSurface;
     }
@@ -134,10 +116,12 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.SurfaceType }{@code >}
      *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedSurfaceType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType }{@code >}
      *     
      * @see #getAbstractSurface()
      */
@@ -145,7 +129,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.abstractSurface = value;
     }
 
-    @Transient
     public boolean isSetAbstractSurface() {
         return (this.abstractSurface!= null);
     }
@@ -158,8 +141,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link java.lang.Boolean }
      *     
      */
-    @Basic
-    @Column(name = "OWNS")
     public boolean getOwns() {
         if (owns == null) {
             return false;
@@ -180,7 +161,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.owns = value;
     }
 
-    @Transient
     public boolean isSetOwns() {
         return (this.owns!= null);
     }
@@ -197,8 +177,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }
@@ -215,7 +193,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.nilReason = value;
     }
 
-    @Transient
     public boolean isSetNilReason() {
         return (this.nilReason!= null);
     }
@@ -228,7 +205,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Transient
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -245,7 +221,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.remoteSchema = value;
     }
 
-    @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
     }
@@ -258,8 +233,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "HREF")
     public String getHref() {
         return href;
     }
@@ -276,7 +249,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.href = value;
     }
 
-    @Transient
     public boolean isSetHref() {
         return (this.href!= null);
     }
@@ -289,8 +261,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ROLE_")
     public String getRole() {
         return role;
     }
@@ -307,7 +277,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.role = value;
     }
 
-    @Transient
     public boolean isSetRole() {
         return (this.role!= null);
     }
@@ -320,8 +289,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ARCROLE")
     public String getArcrole() {
         return arcrole;
     }
@@ -338,7 +305,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.arcrole = value;
     }
 
-    @Transient
     public boolean isSetArcrole() {
         return (this.arcrole!= null);
     }
@@ -351,8 +317,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
     }
@@ -369,7 +333,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.simpleLinkTitle = value;
     }
 
-    @Transient
     public boolean isSetSimpleLinkTitle() {
         return (this.simpleLinkTitle!= null);
     }
@@ -382,9 +345,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link ShowType }
      *     
      */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
     public ShowType getShow() {
         return show;
     }
@@ -401,7 +361,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.show = value;
     }
 
-    @Transient
     public boolean isSetShow() {
         return (this.show!= null);
     }
@@ -414,9 +373,6 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
      *     {@link ActuateType }
      *     
      */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -433,94 +389,8 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         this.actuate = value;
     }
 
-    @Transient
     public boolean isSetActuate() {
         return (this.actuate!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
-    @Basic
-    @Column(name = "ABSTRACT_SURFACE_NAME")
-    public String getAbstractSurfaceName() {
-        if (this.getAbstractSurface() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(AbstractSurfaceType.class, this.getAbstractSurface());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractSurfaceName(String target) {
-        if (target!= null) {
-            setAbstractSurface(JAXBElementUtils.wrap(this.getAbstractSurface(), target, AbstractSurfaceType.class));
-        }
-    }
-
-    @Transient
-    public AbstractSurfaceType getAbstractSurfaceValue() {
-        if (this.getAbstractSurface() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(AbstractSurfaceType.class, this.getAbstractSurface());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractSurfaceValue(AbstractSurfaceType target) {
-        if (target!= null) {
-            setAbstractSurface(JAXBElementUtils.wrap(this.getAbstractSurface(), target));
-        }
     }
 
     @Override
@@ -545,6 +415,19 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
         }
         final SurfacePropertyType that = ((SurfacePropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractSurface();
             boolean rhsFieldIsSet = that.isSetAbstractSurface();
             JAXBElement<? extends AbstractSurfaceType> lhsField;
@@ -553,6 +436,45 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getAbstractSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -584,27 +506,14 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -623,53 +532,14 @@ public class SurfacePropertyType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

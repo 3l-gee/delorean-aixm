@@ -2,7 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Embeddable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -30,7 +29,6 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VolumeType")
-@Embeddable
 public class VolumeType
     extends MeasureType
     implements Serializable

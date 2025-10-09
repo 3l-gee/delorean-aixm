@@ -181,14 +181,14 @@ public class PassThroughOperationType
         }
         final PassThroughOperationType that = ((PassThroughOperationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCoordOperation();
-            boolean rhsFieldIsSet = that.isSetCoordOperation();
-            JAXBElement<CoordinateOperationPropertyType> lhsField;
-            lhsField = this.getCoordOperation();
-            JAXBElement<CoordinateOperationPropertyType> rhsField;
-            rhsField = that.getCoordOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -207,14 +207,14 @@ public class PassThroughOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordOperation();
+            boolean rhsFieldIsSet = that.isSetCoordOperation();
+            JAXBElement<CoordinateOperationPropertyType> lhsField;
+            lhsField = this.getCoordOperation();
+            JAXBElement<CoordinateOperationPropertyType> rhsField;
+            rhsField = that.getCoordOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

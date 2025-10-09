@@ -105,9 +105,9 @@ public abstract class AbstractAIXMMessageBaseType
      */
     @ManyToOne(targetEntity = MessageMetadataPropertyType.class, cascade = {
         CascadeType.MERGE,
+        CascadeType.DETACH,
         CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
+        CascadeType.REFRESH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "MESSAGE_METADATA_ABSTRACT_AI_0", nullable = true)
     public MessageMetadataPropertyType getMessageMetadata() {

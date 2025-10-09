@@ -29,15 +29,13 @@ public class A5_2FullLifeCycleTest {
 
     @Test
     @Order(10)
-    void Container() {
+    void container() {
 
         // given
         StructureConfig strctConfig = StructureConfig.AIXM_5_2;
 
         // do
         app.containerWarehouse.addContainer(ContainerFactory.createContainer(strctConfig));
-
-        // when
         containerID = app.containerWarehouse.getLastContainerId();
 
         // check that 
@@ -53,7 +51,7 @@ public class A5_2FullLifeCycleTest {
 
     @Test
     @Order(20)
-    void XmlBinding() {
+    void xmlBinding() {
 
         // given
         XMLConfig xmlConfig = XMLConfig.AIXM_5_2;
@@ -84,8 +82,19 @@ public class A5_2FullLifeCycleTest {
 
     @Test
     @Order(40)
+    void extractXml() {
+
+        // given
+        String xmlPath = "src/test/xml/a5_2/xml-out.xml";
+
+        // do
+        app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
+    }
+
+    @Test
+    @Order(50)
     //TODO change to psql testcontainers
-    void DatabaseBinding() {
+    void databaseBinding() {
 
         // given
         DatabaseConfig dbConfig = DatabaseConfig.A5_2;
@@ -105,9 +114,9 @@ public class A5_2FullLifeCycleTest {
     }
 
     @Test
-    @Order(50)
+    @Order(60)
     //TODO change to psql testcontainers
-    void DatabaseStartup() {
+    void databaseStartup() {
 
         // do
         app.containerWarehouse.getContainer(containerID).databaseBinding.startup();
@@ -116,7 +125,7 @@ public class A5_2FullLifeCycleTest {
     }
 
     @Test
-    @Order(60)
+    @Order(70)
     //TODO change to psql testcontainers
     void DatabaseLoad() {
 

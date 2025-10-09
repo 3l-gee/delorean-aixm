@@ -2,13 +2,20 @@
 package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedPointTypeAdapter;
+import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedPointType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.persistence.CascadeType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -26,7 +33,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.2}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.2}ElevatedPoint"/>
+ *         <element name="ElevatedPoint" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -47,19 +54,21 @@ public class AIXMElevatedPointPropertyType
 {
 
     private static final long serialVersionUID = 20250910L;
-    @XmlElement(name = "ElevatedPoint", required = true)
-    protected AIXMElevatedPointType elevatedPoint;
+    @XmlElement(name = "ElevatedPoint", required = true, type = ElevatedPointType.class)
+    @XmlJavaTypeAdapter(ElevatedPointTypeAdapter.class)
+    protected DeloreanElevatedPointType elevatedPoint;
 
     /**
      * Gets the value of the elevatedPoint property.
      * 
      * @return
      *     possible object is
-     *     {@link AIXMElevatedPointType }
+     *     {@link String }
      *     
      */
-    @Transient
-    public AIXMElevatedPointType getElevatedPoint() {
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "delorean_elevated_point_fk")
+    public DeloreanElevatedPointType getElevatedPoint() {
         return elevatedPoint;
     }
 
@@ -68,10 +77,10 @@ public class AIXMElevatedPointPropertyType
      * 
      * @param value
      *     allowed object is
-     *     {@link AIXMElevatedPointType }
+     *     {@link String }
      *     
      */
-    public void setElevatedPoint(AIXMElevatedPointType value) {
+    public void setElevatedPoint(DeloreanElevatedPointType value) {
         this.elevatedPoint = value;
     }
 
@@ -95,9 +104,9 @@ public class AIXMElevatedPointPropertyType
         {
             boolean lhsFieldIsSet = this.isSetElevatedPoint();
             boolean rhsFieldIsSet = that.isSetElevatedPoint();
-            AIXMElevatedPointType lhsField;
+            DeloreanElevatedPointType lhsField;
             lhsField = this.getElevatedPoint();
-            AIXMElevatedPointType rhsField;
+            DeloreanElevatedPointType rhsField;
             rhsField = that.getElevatedPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevatedPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevatedPoint", rhsField);
@@ -113,7 +122,7 @@ public class AIXMElevatedPointPropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedPoint();
-            AIXMElevatedPointType theField;
+            DeloreanElevatedPointType theField;
             theField = this.getElevatedPoint();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "elevatedPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -126,7 +135,7 @@ public class AIXMElevatedPointPropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedPoint();
-            AIXMElevatedPointType theField;
+            DeloreanElevatedPointType theField;
             theField = this.getElevatedPoint();
             strategy.appendField(locator, this, "elevatedPoint", buffer, theField, theFieldIsSet);
         }

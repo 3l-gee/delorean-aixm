@@ -313,14 +313,27 @@ public class FaceType
         }
         final FaceType that = ((FaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirectedEdge();
-            boolean rhsFieldIsSet = that.isSetDirectedEdge();
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (that.isSetDirectedEdge()?that.getDirectedEdge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            boolean lhsFieldIsSet = this.isSetSurfaceProperty();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperty();
+            SurfacePropertyType lhsField;
+            lhsField = this.getSurfaceProperty();
+            SurfacePropertyType rhsField;
+            rhsField = that.getSurfaceProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUniversal();
+            boolean rhsFieldIsSet = that.isSetUniversal();
+            boolean lhsField;
+            lhsField = (this.isSetUniversal()?this.getUniversal():false);
+            boolean rhsField;
+            rhsField = (that.isSetUniversal()?that.getUniversal():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -339,14 +352,14 @@ public class FaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperty();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperty();
-            SurfacePropertyType lhsField;
-            lhsField = this.getSurfaceProperty();
-            SurfacePropertyType rhsField;
-            rhsField = that.getSurfaceProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperty", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge()?that.getDirectedEdge():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -373,19 +386,6 @@ public class FaceType
             rhsField = (that.isSetDirectedTopoSolid()?that.getDirectedTopoSolid():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUniversal();
-            boolean rhsFieldIsSet = that.isSetUniversal();
-            boolean lhsField;
-            lhsField = (this.isSetUniversal()?this.getUniversal():false);
-            boolean rhsField;
-            rhsField = (that.isSetUniversal()?that.getUniversal():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

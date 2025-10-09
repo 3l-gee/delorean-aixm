@@ -348,6 +348,19 @@ public class MDDimensionPropertyType implements Serializable, Equals, HashCode, 
         }
         final MDDimensionPropertyType that = ((MDDimensionPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
             boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
@@ -374,6 +387,19 @@ public class MDDimensionPropertyType implements Serializable, Equals, HashCode, 
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMDDimension();
             boolean rhsFieldIsSet = that.isSetMDDimension();
             MDDimensionType lhsField;
@@ -382,32 +408,6 @@ public class MDDimensionPropertyType implements Serializable, Equals, HashCode, 
             rhsField = that.getMDDimension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdDimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdDimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,27 +439,27 @@ public class MDDimensionPropertyType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
             String lhsField;
-            lhsField = this.getRole();
+            lhsField = this.getUuidref();
             String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

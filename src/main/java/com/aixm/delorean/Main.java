@@ -19,6 +19,7 @@ public class Main {
     ContainerWarehouse containerWarehouse = new ContainerWarehouse();
     private boolean unsafe = false;
     private boolean testOption = false;
+    private boolean verboseOption = false;
 
     public static void main(String[] args) {
         Main mainInstance = new Main();  // Create an instance of Main
@@ -29,11 +30,11 @@ public class Main {
                 case "-v":
                     ConsoleLogger.setGlobalLogLevel(LogLevel.DEBUG);
                     ConsoleLogger.log(LogLevel.WARN, "Verbose mode enabled");
+                    mainInstance.verboseOption = true;
                     break;
                 case "--unsafe":
                 case "-u":
                     mainInstance.unsafe = true;
-
                     break;
             }
         }
@@ -42,6 +43,14 @@ public class Main {
             mainInstance.testRun();
         }             
         mainInstance.run();
+    }
+
+    public boolean getUnsafe() {
+        return this.unsafe;
+    }
+
+    public boolean getVerbose() {
+        return this.verboseOption;
     }
 
     private void run() {
@@ -442,18 +451,6 @@ public class Main {
                     ConsoleLogger.log(LogLevel.ERROR, "Parameter " + parameter + " does not exist");
                     break;
             }
-        } else {
-            ConsoleLogger.log(LogLevel.ERROR, "Container " + argument + " does not exist");
-        }
-    }
-
-    private void executeValidationCommand(String argument) {
-        if (argument == null) {
-            throw new IllegalArgumentException("Argument is null");
-        }
-
-        if (this.containerWarehouse.getIds().contains(argument)) {
-            this.containerWarehouse.getContainer(argument).setValidationRule();
         } else {
             ConsoleLogger.log(LogLevel.ERROR, "Container " + argument + " does not exist");
         }

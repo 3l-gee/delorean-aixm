@@ -4,7 +4,7 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -56,7 +56,7 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
 
     private static final long serialVersionUID = 20250910L;
     @XmlElementRef(name = "Point", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
-    protected List<JAXBElement<? extends PointType>> point;
+    protected List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> point;
     @XmlAttribute(name = "owns")
     protected java.lang.Boolean owns;
 
@@ -78,12 +78,13 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
      * 
      * 
      */
-    public List<JAXBElement<? extends PointType>> getPoint() {
+    public List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> getPoint() {
         if (point == null) {
             point = new ArrayList<>();
         }
@@ -94,7 +95,7 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
      * 
      * 
      */
-    public void setPoint(List<JAXBElement<? extends PointType>> point) {
+    public void setPoint(List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> point) {
         this.point = point;
     }
 
@@ -166,9 +167,9 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
         {
             boolean lhsFieldIsSet = this.isSetPoint();
             boolean rhsFieldIsSet = that.isSetPoint();
-            List<JAXBElement<? extends PointType>> lhsField;
+            List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> lhsField;
             lhsField = (this.isSetPoint()?this.getPoint():null);
-            List<JAXBElement<? extends PointType>> rhsField;
+            List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> rhsField;
             rhsField = (that.isSetPoint()?that.getPoint():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
@@ -207,7 +208,7 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetPoint();
-            List<JAXBElement<? extends PointType>> theField;
+            List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> theField;
             theField = (this.isSetPoint()?this.getPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -246,7 +247,7 @@ public class PointArrayPropertyType implements Serializable, Equals, HashCode, T
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetPoint();
-            List<JAXBElement<? extends PointType>> theField;
+            List<JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType>> theField;
             theField = (this.isSetPoint()?this.getPoint():null);
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }

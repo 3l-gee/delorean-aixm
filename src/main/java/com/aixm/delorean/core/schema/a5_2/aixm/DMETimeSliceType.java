@@ -13,6 +13,7 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -73,6 +74,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
     "dateMagneticVariation",
     "flightChecked",
     "location",
+    "direction",
+    "area",
+    "place",
+    "orientation",
+    "surface",
     "annotation",
     "type",
     "channel",
@@ -104,6 +110,16 @@ public class DMETimeSliceType
     protected JAXBElement<CodeYesNoType> flightChecked;
     @XmlElementRef(name = "location", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
     protected JAXBElement<AIXMElevatedPointPropertyType> location;
+    @XmlElementRef(name = "direction", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMElevatedCurvePropertyType> direction;
+    @XmlElementRef(name = "area", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMElevatedSurfacePropertyType> area;
+    @XmlElementRef(name = "place", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMPointPropertyType> place;
+    @XmlElementRef(name = "orientation", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMCurvePropertyType> orientation;
+    @XmlElementRef(name = "surface", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
+    protected JAXBElement<AIXMSurfacePropertyType> surface;
     @XmlElement(nillable = true)
     protected List<NotePropertyType> annotation;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.2", type = JAXBElement.class, required = false)
@@ -354,6 +370,156 @@ public class DMETimeSliceType
     @Transient
     public boolean isSetLocation() {
         return (this.location!= null);
+    }
+
+    /**
+     * Gets the value of the direction property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMElevatedCurvePropertyType> getDirection() {
+        return direction;
+    }
+
+    /**
+     * Sets the value of the direction property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedCurvePropertyType }{@code >}
+     *     
+     */
+    public void setDirection(JAXBElement<AIXMElevatedCurvePropertyType> value) {
+        this.direction = value;
+    }
+
+    @Transient
+    public boolean isSetDirection() {
+        return (this.direction!= null);
+    }
+
+    /**
+     * Gets the value of the area property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMElevatedSurfacePropertyType> getArea() {
+        return area;
+    }
+
+    /**
+     * Sets the value of the area property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMElevatedSurfacePropertyType }{@code >}
+     *     
+     */
+    public void setArea(JAXBElement<AIXMElevatedSurfacePropertyType> value) {
+        this.area = value;
+    }
+
+    @Transient
+    public boolean isSetArea() {
+        return (this.area!= null);
+    }
+
+    /**
+     * Gets the value of the place property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMPointPropertyType> getPlace() {
+        return place;
+    }
+
+    /**
+     * Sets the value of the place property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMPointPropertyType }{@code >}
+     *     
+     */
+    public void setPlace(JAXBElement<AIXMPointPropertyType> value) {
+        this.place = value;
+    }
+
+    @Transient
+    public boolean isSetPlace() {
+        return (this.place!= null);
+    }
+
+    /**
+     * Gets the value of the orientation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMCurvePropertyType> getOrientation() {
+        return orientation;
+    }
+
+    /**
+     * Sets the value of the orientation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMCurvePropertyType }{@code >}
+     *     
+     */
+    public void setOrientation(JAXBElement<AIXMCurvePropertyType> value) {
+        this.orientation = value;
+    }
+
+    @Transient
+    public boolean isSetOrientation() {
+        return (this.orientation!= null);
+    }
+
+    /**
+     * Gets the value of the surface property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
+     */
+    @Transient
+    public JAXBElement<AIXMSurfacePropertyType> getSurface() {
+        return surface;
+    }
+
+    /**
+     * Sets the value of the surface property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *     
+     */
+    public void setSurface(JAXBElement<AIXMSurfacePropertyType> value) {
+        this.surface = value;
+    }
+
+    @Transient
+    public boolean isSetSurface() {
+        return (this.surface!= null);
     }
 
     /**
@@ -680,6 +846,81 @@ public class DMETimeSliceType
         setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "location"), DMETimeSliceType.class, target));
     }
 
+    @ManyToOne(targetEntity = AIXMElevatedCurvePropertyType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.DETACH,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "DIRECTION_ITEM_DMETIME_SLICE_0", nullable = true)
+    public AIXMElevatedCurvePropertyType getDirectionItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMElevatedCurvePropertyType.class, this.getDirection());
+    }
+
+    public void setDirectionItem(AIXMElevatedCurvePropertyType target) {
+        setDirection(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "direction"), DMETimeSliceType.class, target));
+    }
+
+    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.DETACH,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "AREA_ITEM_DMETIME_SLICE_TYPE_0", nullable = true)
+    public AIXMElevatedSurfacePropertyType getAreaItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMElevatedSurfacePropertyType.class, this.getArea());
+    }
+
+    public void setAreaItem(AIXMElevatedSurfacePropertyType target) {
+        setArea(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "area"), DMETimeSliceType.class, target));
+    }
+
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.DETACH,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "PLACE_ITEM_DMETIME_SLICE_TYP_0", nullable = true)
+    public AIXMPointPropertyType getPlaceItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMPointPropertyType.class, this.getPlace());
+    }
+
+    public void setPlaceItem(AIXMPointPropertyType target) {
+        setPlace(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "place"), DMETimeSliceType.class, target));
+    }
+
+    @ManyToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.DETACH,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORIENTATION_ITEM_DMETIME_SLI_0", nullable = true)
+    public AIXMCurvePropertyType getOrientationItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMCurvePropertyType.class, this.getOrientation());
+    }
+
+    public void setOrientationItem(AIXMCurvePropertyType target) {
+        setOrientation(XmlAdapterUtils.marshallJAXBElement(AIXMCurvePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "orientation"), DMETimeSliceType.class, target));
+    }
+
+    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.DETACH,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "SURFACE_ITEM_DMETIME_SLICE_T_0", nullable = true)
+    public AIXMSurfacePropertyType getSurfaceItem() {
+        return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getSurface());
+    }
+
+    public void setSurfaceItem(AIXMSurfacePropertyType target) {
+        setSurface(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.2", "surface"), DMETimeSliceType.class, target));
+    }
+
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "value", column = @Column(name = "TYPE_ITEM_VALUE")),
@@ -748,6 +989,45 @@ public class DMETimeSliceType
         }
         final DMETimeSliceType that = ((DMETimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetArea();
+            boolean rhsFieldIsSet = that.isSetArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "area", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "area", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getDirection();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetMagneticVariation();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getMagneticVariation();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
             boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
             JAXBElement<DateYearType> lhsField;
@@ -756,45 +1036,6 @@ public class DMETimeSliceType
             rhsField = that.getDateMagneticVariation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeDMEType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeDMEType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeNavaidDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeNavaidDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -813,40 +1054,27 @@ public class DMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEmissionClass();
-            boolean rhsFieldIsSet = that.isSetEmissionClass();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmissionClass();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmissionClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DMEExtension> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<DMEExtension> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -878,19 +1106,6 @@ public class DMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetMagneticVariation();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getMagneticVariation();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDisplace();
             boolean rhsFieldIsSet = that.isSetDisplace();
             JAXBElement<ValDistanceType> lhsField;
@@ -904,14 +1119,40 @@ public class DMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DMEExtension> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<DMEExtension> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeDMEType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeDMEType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrientation();
+            boolean rhsFieldIsSet = that.isSetOrientation();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getOrientation();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getOrientation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEmissionClass();
+            boolean rhsFieldIsSet = that.isSetEmissionClass();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmissionClass();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmissionClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -925,6 +1166,71 @@ public class DMETimeSliceType
             rhsField = that.getMobile();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mobile", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mobile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPlace();
+            boolean rhsFieldIsSet = that.isSetPlace();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getPlace();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getPlace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "place", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "place", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeNavaidDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeNavaidDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurface();
+            boolean rhsFieldIsSet = that.isSetSurface();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getSurface();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -989,6 +1295,41 @@ public class DMETimeSliceType
             JAXBElement<AIXMElevatedPointPropertyType> theField;
             theField = this.getLocation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "location", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetDirection();
+            JAXBElement<AIXMElevatedCurvePropertyType> theField;
+            theField = this.getDirection();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "direction", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> theField;
+            theField = this.getArea();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "area", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetPlace();
+            JAXBElement<AIXMPointPropertyType> theField;
+            theField = this.getPlace();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "place", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOrientation();
+            JAXBElement<AIXMCurvePropertyType> theField;
+            theField = this.getOrientation();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientation", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSurface();
+            JAXBElement<AIXMSurfacePropertyType> theField;
+            theField = this.getSurface();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "surface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1086,6 +1427,36 @@ public class DMETimeSliceType
             JAXBElement<AIXMElevatedPointPropertyType> theField;
             theField = this.getLocation();
             strategy.appendField(locator, this, "location", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetDirection();
+            JAXBElement<AIXMElevatedCurvePropertyType> theField;
+            theField = this.getDirection();
+            strategy.appendField(locator, this, "direction", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetArea();
+            JAXBElement<AIXMElevatedSurfacePropertyType> theField;
+            theField = this.getArea();
+            strategy.appendField(locator, this, "area", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetPlace();
+            JAXBElement<AIXMPointPropertyType> theField;
+            theField = this.getPlace();
+            strategy.appendField(locator, this, "place", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOrientation();
+            JAXBElement<AIXMCurvePropertyType> theField;
+            theField = this.getOrientation();
+            strategy.appendField(locator, this, "orientation", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetSurface();
+            JAXBElement<AIXMSurfacePropertyType> theField;
+            theField = this.getSurface();
+            strategy.appendField(locator, this, "surface", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();

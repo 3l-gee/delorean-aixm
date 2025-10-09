@@ -4,12 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -27,7 +21,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.item.ItemUtils;
 
 
 /**
@@ -55,14 +48,12 @@ import org.jvnet.hyperjaxb.item.ItemUtils;
 @XmlType(name = "CurveSegmentArrayPropertyType", propOrder = {
     "abstractCurveSegment"
 })
-@Embeddable
 public class CurveSegmentArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20250910L;
     @XmlElementRef(name = "AbstractCurveSegment", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractCurveSegmentType>> abstractCurveSegment;
-    protected transient List<CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem> abstractCurveSegmentItems;
 
     /**
      * Gets the value of the abstractCurveSegment property.
@@ -101,7 +92,6 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
      * 
      * 
      */
-    @Transient
     public List<JAXBElement<? extends AbstractCurveSegmentType>> getAbstractCurveSegment() {
         if (abstractCurveSegment == null) {
             abstractCurveSegment = new ArrayList<>();
@@ -117,39 +107,12 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
         this.abstractCurveSegment = abstractCurveSegment;
     }
 
-    @Transient
     public boolean isSetAbstractCurveSegment() {
         return ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
     }
 
     public void unsetAbstractCurveSegment() {
         this.abstractCurveSegment = null;
-    }
-
-    @OneToMany(targetEntity = CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn
-    public List<CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem> getAbstractCurveSegmentItems() {
-        if (this.abstractCurveSegmentItems == null) {
-            this.abstractCurveSegmentItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.abstractCurveSegment)) {
-            this.abstractCurveSegment = ItemUtils.wrap(this.abstractCurveSegment, this.abstractCurveSegmentItems, CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem.class);
-        }
-        return this.abstractCurveSegmentItems;
-    }
-
-    public void setAbstractCurveSegmentItems(List<CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem> value) {
-        this.abstractCurveSegment = null;
-        this.abstractCurveSegmentItems = null;
-        this.abstractCurveSegmentItems = value;
-        if (this.abstractCurveSegmentItems == null) {
-            this.abstractCurveSegmentItems = new ArrayList<>();
-        }
-        if (ItemUtils.shouldBeWrapped(this.abstractCurveSegment)) {
-            this.abstractCurveSegment = ItemUtils.wrap(this.abstractCurveSegment, this.abstractCurveSegmentItems, CurveSegmentArrayPropertyTypeAbstractCurveSegmentItem.class);
-        }
     }
 
     @Override

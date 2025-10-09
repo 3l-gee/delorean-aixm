@@ -368,19 +368,6 @@ public class EXGeographicExtentPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetShow();
             boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
@@ -389,6 +376,19 @@ public class EXGeographicExtentPropertyType implements Serializable, Equals, Has
             rhsField = that.getShow();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -407,14 +407,27 @@ public class EXGeographicExtentPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEXGeographicExtent();
-            boolean rhsFieldIsSet = that.isSetAbstractEXGeographicExtent();
-            JAXBElement<? extends AbstractEXGeographicExtentType> lhsField;
-            lhsField = this.getAbstractEXGeographicExtent();
-            JAXBElement<? extends AbstractEXGeographicExtentType> rhsField;
-            rhsField = that.getAbstractEXGeographicExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEXGeographicExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEXGeographicExtent", rhsField);
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -446,27 +459,14 @@ public class EXGeographicExtentPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractEXGeographicExtent();
+            boolean rhsFieldIsSet = that.isSetAbstractEXGeographicExtent();
+            JAXBElement<? extends AbstractEXGeographicExtentType> lhsField;
+            lhsField = this.getAbstractEXGeographicExtent();
+            JAXBElement<? extends AbstractEXGeographicExtentType> rhsField;
+            rhsField = that.getAbstractEXGeographicExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEXGeographicExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEXGeographicExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

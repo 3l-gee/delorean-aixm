@@ -169,19 +169,6 @@ public class DerivedCRSType
         }
         final DerivedCRSType that = ((DerivedCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDerivedCRSType();
-            boolean rhsFieldIsSet = that.isSetDerivedCRSType();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getDerivedCRSType();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getDerivedCRSType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivedCRSType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivedCRSType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetBaseCRS();
             boolean rhsFieldIsSet = that.isSetBaseCRS();
             SingleCRSPropertyType lhsField;
@@ -203,6 +190,19 @@ public class DerivedCRSType
             rhsField = that.getCoordinateSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDerivedCRSType();
+            boolean rhsFieldIsSet = that.isSetDerivedCRSType();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getDerivedCRSType();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getDerivedCRSType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivedCRSType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivedCRSType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

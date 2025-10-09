@@ -35,8 +35,8 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlSeeAlso({
     PolygonType.class,
     OrientableSurfaceType.class,
-    SurfaceType.class,
-    CompositeSurfaceType.class
+    CompositeSurfaceType.class,
+    SurfaceType.class
 })
 public abstract class AbstractSurfaceType
     extends AbstractGeometricPrimitiveType

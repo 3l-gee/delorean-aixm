@@ -2,15 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -50,8 +41,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "beginPosition",
     "endPosition"
 })
-@Entity(name = "EnvelopeWithTimePeriodType")
-@Table(name = "envelope_with_time_period", schema = "gml")
 public class EnvelopeWithTimePeriodType
     extends EnvelopeType
     implements Serializable
@@ -74,13 +63,6 @@ public class EnvelopeWithTimePeriodType
      *     {@link TimePositionType }
      *     
      */
-    @ManyToOne(targetEntity = TimePositionType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "BEGIN_POSITION_ENVELOPE_WITH_0", nullable = true)
     public TimePositionType getBeginPosition() {
         return beginPosition;
     }
@@ -97,7 +79,6 @@ public class EnvelopeWithTimePeriodType
         this.beginPosition = value;
     }
 
-    @Transient
     public boolean isSetBeginPosition() {
         return (this.beginPosition!= null);
     }
@@ -110,13 +91,6 @@ public class EnvelopeWithTimePeriodType
      *     {@link TimePositionType }
      *     
      */
-    @ManyToOne(targetEntity = TimePositionType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "END_POSITION_ENVELOPE_WITH_T_0", nullable = true)
     public TimePositionType getEndPosition() {
         return endPosition;
     }
@@ -133,7 +107,6 @@ public class EnvelopeWithTimePeriodType
         this.endPosition = value;
     }
 
-    @Transient
     public boolean isSetEndPosition() {
         return (this.endPosition!= null);
     }
@@ -146,8 +119,6 @@ public class EnvelopeWithTimePeriodType
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "FRAME")
     public String getFrame() {
         if (frame == null) {
             return "#ISO-8601";
@@ -168,7 +139,6 @@ public class EnvelopeWithTimePeriodType
         this.frame = value;
     }
 
-    @Transient
     public boolean isSetFrame() {
         return (this.frame!= null);
     }

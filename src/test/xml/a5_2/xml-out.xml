@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AIXMBasicMessage xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns3="http://www.aixm.aero/schema/5.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns="http://www.aixm.aero/schema/5.1/message" ns1:id="Delorean-AIXM-test-0001">
+    <ns1:boundedBy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    <ns7:hasMember ns2:type="simple">
+        <ns3:DME ns1:id="uuid.8979e959-492b-4b30-83d2-060f362cf5c4">
+            <ns1:identifier codeSpace="urn:uuid:">8979e959-492b-4b30-83d2-060f362cf5c4</ns1:identifier>
+            <ns1:boundedBy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            <ns3:timeSlice>
+                <ns3:DMETimeSlice ns1:id="DME-TEST-001-TS">
+                    <ns1:validTime ns2:type="simple">
+                        <ns9:TimePeriod xmlns:ns9="http://www.example.com/schema">
+                            <ns1:beginPosition>2025-01-01T00:00:00Z</ns1:beginPosition>
+                            <ns1:endPosition indeterminatePosition="unknown"/>
+                        </ns9:TimePeriod>
+                    </ns1:validTime>
+                    <ns3:interpretation>BASELINE</ns3:interpretation>
+                    <ns3:sequenceNumber>1</ns3:sequenceNumber>
+                    <ns3:correctionNumber>0</ns3:correctionNumber>
+                    <ns3:featureLifetime ns2:type="simple">
+                        <ns9:TimePeriod xmlns:ns9="http://www.example.com/schema">
+                            <ns1:beginPosition>2009-01-01T00:00:00Z</ns1:beginPosition>
+                            <ns1:endPosition indeterminatePosition="unknown"/>
+                        </ns9:TimePeriod>
+                    </ns3:featureLifetime>
+                    <ns3:designator>DLRN</ns3:designator>
+                    <ns3:name>Delorean AIXM Test DME</ns3:name>
+                    <ns3:mobile>YES</ns3:mobile>
+                    <ns3:flightChecked>YES</ns3:flightChecked>
+                    <ns3:location>
+                        <ns3:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="ID_EP_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                            <ns1:pos>52.36833333333333 -32.375222</ns1:pos>
+                            <ns3:elevation uom="M">60</ns3:elevation>
+                            <ns3:geoidUndulation uom="M">11.5</ns3:geoidUndulation>
+                            <ns3:verticalDatum>EGM_96</ns3:verticalDatum>
+                            <ns3:horizontalAccuracy uom="M">1</ns3:horizontalAccuracy>
+                        </ns3:ElevatedPoint>
+                    </ns3:location>
+                    <ns3:type>NARROW</ns3:type>
+                    <ns3:channel>1Y</ns3:channel>
+                    <ns3:displace uom="M" accuracy="0.1">10.0</ns3:displace>
+                </ns3:DMETimeSlice>
+            </ns3:timeSlice>
+        </ns3:DME>
+    </ns7:hasMember>
+</AIXMBasicMessage>

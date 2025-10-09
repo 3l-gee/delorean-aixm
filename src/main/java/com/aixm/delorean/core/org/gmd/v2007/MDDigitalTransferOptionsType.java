@@ -201,14 +201,14 @@ public class MDDigitalTransferOptionsType
         }
         final MDDigitalTransferOptionsType that = ((MDDigitalTransferOptionsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOffLine();
-            boolean rhsFieldIsSet = that.isSetOffLine();
-            MDMediumPropertyType lhsField;
-            lhsField = this.getOffLine();
-            MDMediumPropertyType rhsField;
-            rhsField = that.getOffLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
+            boolean lhsFieldIsSet = this.isSetTransferSize();
+            boolean rhsFieldIsSet = that.isSetTransferSize();
+            RealPropertyType lhsField;
+            lhsField = this.getTransferSize();
+            RealPropertyType rhsField;
+            rhsField = that.getTransferSize();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferSize", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferSize", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -227,19 +227,6 @@ public class MDDigitalTransferOptionsType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTransferSize();
-            boolean rhsFieldIsSet = that.isSetTransferSize();
-            RealPropertyType lhsField;
-            lhsField = this.getTransferSize();
-            RealPropertyType rhsField;
-            rhsField = that.getTransferSize();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferSize", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferSize", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
             boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
             CharacterStringPropertyType lhsField;
@@ -248,6 +235,19 @@ public class MDDigitalTransferOptionsType
             rhsField = that.getUnitsOfDistribution();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitsOfDistribution", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitsOfDistribution", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOffLine();
+            boolean rhsFieldIsSet = that.isSetOffLine();
+            MDMediumPropertyType lhsField;
+            lhsField = this.getOffLine();
+            MDMediumPropertyType rhsField;
+            rhsField = that.getOffLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

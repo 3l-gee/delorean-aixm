@@ -2,11 +2,10 @@
 package com.aixm.delorean.core.org.gss.v2007;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
-import com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -61,7 +60,7 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
      * 
      */
     @XmlElementRef(name = "Point", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
-    protected JAXBElement<? extends PointType> point;
+    protected JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> point;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
     protected String nilReason;
     @XmlAttribute(name = "uuidref")
@@ -86,11 +85,12 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
      *     
      */
-    public JAXBElement<? extends PointType> getPoint() {
+    public JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> getPoint() {
         return point;
     }
 
@@ -99,12 +99,13 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.PointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedPointType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.PointType }{@code >}
      *     
      * @see #getPoint()
      */
-    public void setPoint(JAXBElement<? extends PointType> value) {
+    public void setPoint(JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> value) {
         this.point = value;
     }
 
@@ -358,14 +359,14 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
         }
         final GMPointPropertyType that = ((GMPointPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -384,19 +385,6 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUuidref();
             boolean rhsFieldIsSet = that.isSetUuidref();
             String lhsField;
@@ -405,19 +393,6 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getUuidref();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -464,12 +439,38 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
         {
             boolean lhsFieldIsSet = this.isSetPoint();
             boolean rhsFieldIsSet = that.isSetPoint();
-            JAXBElement<? extends PointType> lhsField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> lhsField;
             lhsField = this.getPoint();
-            JAXBElement<? extends PointType> rhsField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> rhsField;
             rhsField = that.getPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -492,7 +493,7 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetPoint();
-            JAXBElement<? extends PointType> theField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> theField;
             theField = this.getPoint();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -580,7 +581,7 @@ public class GMPointPropertyType implements Serializable, Equals, HashCode, ToSt
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetPoint();
-            JAXBElement<? extends PointType> theField;
+            JAXBElement<? extends com.aixm.delorean.core.org.gml.v_3_2.PointType> theField;
             theField = this.getPoint();
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }

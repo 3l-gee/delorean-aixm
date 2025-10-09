@@ -169,19 +169,6 @@ public abstract class AbstractGriddedSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointGridRows();
-            boolean rhsFieldIsSet = that.isSetPointGridRows();
-            Rows lhsField;
-            lhsField = this.getPointGridRows();
-            Rows rhsField;
-            rhsField = that.getPointGridRows();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRows();
             boolean rhsFieldIsSet = that.isSetRows();
             BigInteger lhsField;
@@ -190,6 +177,19 @@ public abstract class AbstractGriddedSurfaceType
             rhsField = that.getRows();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointGridRows();
+            boolean rhsFieldIsSet = that.isSetPointGridRows();
+            Rows lhsField;
+            lhsField = this.getPointGridRows();
+            Rows rhsField;
+            rhsField = that.getPointGridRows();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

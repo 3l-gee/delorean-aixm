@@ -133,19 +133,6 @@ public class MDImagingConditionCodePropertyType implements Serializable, Equals,
         }
         final MDImagingConditionCodePropertyType that = ((MDImagingConditionCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDImagingConditionCode();
-            boolean rhsFieldIsSet = that.isSetMDImagingConditionCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDImagingConditionCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDImagingConditionCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdImagingConditionCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdImagingConditionCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class MDImagingConditionCodePropertyType implements Serializable, Equals,
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDImagingConditionCode();
+            boolean rhsFieldIsSet = that.isSetMDImagingConditionCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDImagingConditionCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDImagingConditionCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdImagingConditionCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdImagingConditionCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

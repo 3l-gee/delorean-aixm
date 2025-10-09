@@ -5,25 +5,13 @@ import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -37,7 +25,6 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 
 
 /**
@@ -67,8 +54,6 @@ import org.jvnet.hyperjaxb.xml.bind.JAXBElementUtils;
 @XmlType(name = "CurvePropertyType", propOrder = {
     "abstractCurve"
 })
-@Entity(name = "CurvePropertyType")
-@Table(name = "curve_property", schema = "gml")
 public class CurvePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
@@ -100,10 +85,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * The AbstractCurve element is the abstract head of the substitution group for all (continuous) curve elements.
@@ -112,12 +93,13 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     possible object is
      *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
      *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.CurveType }{@code >}
      *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
      *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
      *     
      */
-    @Transient
     public JAXBElement<? extends AbstractCurveType> getAbstractCurve() {
         return abstractCurve;
     }
@@ -129,9 +111,11 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     allowed object is
      *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
      *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.CurveType }{@code >}
      *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
      *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.schema.a5_2.aixm.CurveType }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ElevatedCurveType }{@code >}
      *     
      * @see #getAbstractCurve()
      */
@@ -139,7 +123,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.abstractCurve = value;
     }
 
-    @Transient
     public boolean isSetAbstractCurve() {
         return (this.abstractCurve!= null);
     }
@@ -152,8 +135,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link java.lang.Boolean }
      *     
      */
-    @Basic
-    @Column(name = "OWNS")
     public boolean getOwns() {
         if (owns == null) {
             return false;
@@ -174,7 +155,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.owns = value;
     }
 
-    @Transient
     public boolean isSetOwns() {
         return (this.owns!= null);
     }
@@ -191,8 +171,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "NIL_REASON", length = 255)
     public String getNilReason() {
         return nilReason;
     }
@@ -209,7 +187,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
-    @Transient
     public boolean isSetNilReason() {
         return (this.nilReason!= null);
     }
@@ -222,7 +199,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Transient
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -239,7 +215,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.remoteSchema = value;
     }
 
-    @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
     }
@@ -252,8 +227,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "HREF")
     public String getHref() {
         return href;
     }
@@ -270,7 +243,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.href = value;
     }
 
-    @Transient
     public boolean isSetHref() {
         return (this.href!= null);
     }
@@ -283,8 +255,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ROLE_")
     public String getRole() {
         return role;
     }
@@ -301,7 +271,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.role = value;
     }
 
-    @Transient
     public boolean isSetRole() {
         return (this.role!= null);
     }
@@ -314,8 +283,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "ARCROLE")
     public String getArcrole() {
         return arcrole;
     }
@@ -332,7 +299,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.arcrole = value;
     }
 
-    @Transient
     public boolean isSetArcrole() {
         return (this.arcrole!= null);
     }
@@ -345,8 +311,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
     }
@@ -363,7 +327,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.simpleLinkTitle = value;
     }
 
-    @Transient
     public boolean isSetSimpleLinkTitle() {
         return (this.simpleLinkTitle!= null);
     }
@@ -376,9 +339,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link ShowType }
      *     
      */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
     public ShowType getShow() {
         return show;
     }
@@ -395,7 +355,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.show = value;
     }
 
-    @Transient
     public boolean isSetShow() {
         return (this.show!= null);
     }
@@ -408,9 +367,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
      *     {@link ActuateType }
      *     
      */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -427,94 +383,8 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
         this.actuate = value;
     }
 
-    @Transient
     public boolean isSetActuate() {
         return (this.actuate!= null);
-    }
-
-    /**
-     * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    /**
-     * Sets the value of the hjid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
-    @Basic
-    @Column(name = "ABSTRACT_CURVE_NAME")
-    public String getAbstractCurveName() {
-        if (this.getAbstractCurve() instanceof JAXBElement) {
-            return JAXBElementUtils.getName(AbstractCurveType.class, this.getAbstractCurve());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractCurveName(String target) {
-        if (target!= null) {
-            setAbstractCurve(JAXBElementUtils.wrap(this.getAbstractCurve(), target, AbstractCurveType.class));
-        }
-    }
-
-    @Transient
-    public AbstractCurveType getAbstractCurveValue() {
-        if (this.getAbstractCurve() instanceof JAXBElement) {
-            return JAXBElementUtils.getValue(AbstractCurveType.class, this.getAbstractCurve());
-        } else {
-            return null;
-        }
-    }
-
-    public void setAbstractCurveValue(AbstractCurveType target) {
-        if (target!= null) {
-            setAbstractCurve(JAXBElementUtils.wrap(this.getAbstractCurve(), target));
-        }
     }
 
     @Override
@@ -538,6 +408,97 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
             return true;
         }
         final CurvePropertyType that = ((CurvePropertyType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCurve();
+            boolean rhsFieldIsSet = that.isSetAbstractCurve();
+            JAXBElement<? extends AbstractCurveType> lhsField;
+            lhsField = this.getAbstractCurve();
+            JAXBElement<? extends AbstractCurveType> rhsField;
+            rhsField = that.getAbstractCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurve", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
@@ -573,97 +534,6 @@ public class CurvePropertyType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getShow();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractCurve();
-            boolean rhsFieldIsSet = that.isSetAbstractCurve();
-            JAXBElement<? extends AbstractCurveType> lhsField;
-            lhsField = this.getAbstractCurve();
-            JAXBElement<? extends AbstractCurveType> rhsField;
-            rhsField = that.getAbstractCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

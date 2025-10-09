@@ -33,10 +33,10 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractGeometricPrimitiveType")
 @XmlSeeAlso({
-    AbstractCurveType.class,
-    AbstractSurfaceType.class,
     AbstractSolidType.class,
-    PointType.class
+    PointType.class,
+    AbstractCurveType.class,
+    AbstractSurfaceType.class
 })
 public abstract class AbstractGeometricPrimitiveType
     extends AbstractGeometryType

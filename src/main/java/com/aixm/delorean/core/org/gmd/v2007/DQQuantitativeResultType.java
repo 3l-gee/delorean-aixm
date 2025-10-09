@@ -205,6 +205,19 @@ public class DQQuantitativeResultType
         }
         final DQQuantitativeResultType that = ((DQQuantitativeResultType) object);
         {
+            boolean lhsFieldIsSet = this.isSetErrorStatistic();
+            boolean rhsFieldIsSet = that.isSetErrorStatistic();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getErrorStatistic();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getErrorStatistic();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             List<RecordPropertyType> lhsField;
@@ -239,19 +252,6 @@ public class DQQuantitativeResultType
             rhsField = that.getValueUnit();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetErrorStatistic();
-            boolean rhsFieldIsSet = that.isSetErrorStatistic();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getErrorStatistic();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getErrorStatistic();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "errorStatistic", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "errorStatistic", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -4,17 +4,6 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -51,8 +40,6 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RingType", propOrder = {
     "curveMember"
 })
-@Entity(name = "RingType")
-@Table(name = "ring", schema = "gml")
 public class RingType
     extends AbstractRingType
     implements Serializable
@@ -86,10 +73,6 @@ public class RingType
      * 
      * 
      */
-    @OneToMany(targetEntity = CurvePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CURVE_MEMBER_RING_TYPE_HJID")
     public List<CurvePropertyType> getCurveMember() {
         if (curveMember == null) {
             curveMember = new ArrayList<>();
@@ -105,7 +88,6 @@ public class RingType
         this.curveMember = curveMember;
     }
 
-    @Transient
     public boolean isSetCurveMember() {
         return ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
     }
@@ -122,9 +104,6 @@ public class RingType
      *     {@link AggregationType }
      *     
      */
-    @Basic
-    @Column(name = "AGGREGATION_TYPE", length = 255)
-    @Enumerated(EnumType.STRING)
     public AggregationType getAggregationType() {
         return aggregationType;
     }
@@ -141,7 +120,6 @@ public class RingType
         this.aggregationType = value;
     }
 
-    @Transient
     public boolean isSetAggregationType() {
         return (this.aggregationType!= null);
     }
@@ -159,19 +137,6 @@ public class RingType
         }
         final RingType that = ((RingType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCurveMember();
             boolean rhsFieldIsSet = that.isSetCurveMember();
             List<CurvePropertyType> lhsField;
@@ -180,6 +145,19 @@ public class RingType
             rhsField = (that.isSetCurveMember()?that.getCurveMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -2,10 +2,6 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -83,13 +79,7 @@ public abstract class AbstractFeatureType
      *     {@link BoundingShapeType }
      *     
      */
-    @ManyToOne(targetEntity = BoundingShapeType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH,
-        CascadeType.DETACH
-    }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "BOUNDED_BY_ABSTRACT_FEATURE__0", nullable = true)
+    @Transient
     public BoundingShapeType getBoundedBy() {
         return boundedBy;
     }
