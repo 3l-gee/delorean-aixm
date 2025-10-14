@@ -1,13 +1,13 @@
 package com.aixm.delorean.core.gis.type;
 
+import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
-
 @MappedSuperclass
-public class DeloreanCurveType extends AbstractGMLType {
-    
+public class Surface extends AbstractGMLType {
+
     @Column(name = "srs_name", length = 128)
     protected String srsName;
 

@@ -6,8 +6,8 @@ import jakarta.persistence.MappedSuperclass;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
 @MappedSuperclass
-public class DeloreanPointType extends AbstractGMLType {
-
+public class Curve extends AbstractGMLType {
+    
     @Column(name = "srs_name", length = 128)
     protected String srsName;
 

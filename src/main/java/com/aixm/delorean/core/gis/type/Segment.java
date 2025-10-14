@@ -12,6 +12,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.Table;
 
@@ -32,6 +33,10 @@ public class Segment {
 
     @Column(name = "title")
     protected String title;
+
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "segment_type", length = 10, nullable = false)
+    protected SegmentType segmentType;
 
     @Id
     @Column(name = "HJID")
@@ -69,6 +74,14 @@ public class Segment {
 
     public void setTitle(String value) {
         this.title = value;
+    }
+
+    public SegmentType getSegmentType() {
+        return segmentType;
+    }
+
+    public void setSegmentType(SegmentType segmentType) {
+        this.segmentType = segmentType;
     }
     
 }

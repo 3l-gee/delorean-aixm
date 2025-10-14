@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
 @Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanSurfaceType")
 @Table(name = "surface", schema = "gml")
-public class DeloreanSurfaceType extends com.aixm.delorean.core.gis.type.DeloreanSurfaceType {
+public class DeloreanSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
 
     private static final long serialVersionUID = 20250910L;
     @XmlAttribute(name = "Hjid")

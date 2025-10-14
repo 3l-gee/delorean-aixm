@@ -41,7 +41,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
 @Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanElevatedPointType")
 @Table(name = "elevated_point", schema = "gml")
-public class DeloreanElevatedPointType extends com.aixm.delorean.core.gis.type.DeloreanPointType {
+public class DeloreanElevatedPointType extends com.aixm.delorean.core.gis.type.Point {
 
     private static final long serialVersionUID = 20250910L;
     @XmlAttribute(name = "Hjid")

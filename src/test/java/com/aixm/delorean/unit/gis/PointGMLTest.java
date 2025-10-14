@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.DeloreanPointType;
+import com.aixm.delorean.core.gis.type.Point;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 
 import jakarta.xml.bind.JAXBContext;
@@ -117,10 +117,10 @@ public class PointGMLTest {
     void parseValidGMLPoint(String xml, String expectedSrs, String expectedWkt) throws Exception {
 
         // given
-        PointType point = loadFromXml(xml, PointType.class);
+        Point point = loadFromXml(xml, Point.class);
 
         // do
-        DeloreanPointType parsed = PointGmlHelper.parseGMLPoint(point, DeloreanPointType.class);
+        Point parsed = PointGmlHelper.parseGMLPoint(point, Point.class);
 
         // check
         assertThat(parsed).isNotNull();
@@ -131,7 +131,7 @@ public class PointGMLTest {
     static Stream<Arguments> PrintValidPoints() {
     return Stream.of(
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P1");
                 setSrsName("4326");
                 setGeomWkt("POINT(20.0 10.0)");
@@ -143,7 +143,7 @@ public class PointGMLTest {
             </ns1:Point>"""
         ),
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P2");
                 setSrsName("4326");
                 setGeomWkt("POINT(-10.0 20.0)");
@@ -160,13 +160,13 @@ public class PointGMLTest {
     @ParameterizedTest()
     @MethodSource("PrintValidPoints")
     @DisplayName("Print valid GML Points correctly")
-    void validMarshallingGMLPoints(DeloreanPointType value, String expectedXml) throws Exception {
+    void validMarshallingGMLPoints(Point value, String expectedXml) throws Exception {
 
         // given
-        PointType printed = PointGmlHelper.printGMLPoint(value, PointType.class);
+        Point printed = PointGmlHelper.printGMLPoint(value, Point.class);
 
         //do
-        String xml = saveToXml(printed, PointType.class);
+        String xml = saveToXml(printed, Point.class);
 
         //check
         assertThat(xml).isEqualTo(expectedXml);
@@ -221,10 +221,10 @@ public class PointGMLTest {
     void parseInvalidGMLPoint(String xml) throws Exception {
 
         // given
-        PointType point = loadFromXml(xml, PointType.class);
+        Point point = loadFromXml(xml, Point.class);
 
         // do + check
-        assertThatThrownBy(() -> PointGmlHelper.parseGMLPoint(point, DeloreanPointType.class))
+        assertThatThrownBy(() -> PointGmlHelper.parseGMLPoint(point, Point.class))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -232,16 +232,16 @@ public class PointGMLTest {
     static Stream<Arguments> PrintInvalidPoints() {
     return Stream.of(
         Arguments.of(
-            (DeloreanPointType) null
+            (Point) null
         ), // null  DeloreanPointType
 
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
             }}
         ), // Empty DeloreanPointType
 
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P1");
                 setSrsName("4326");
                 setGeomWkt("");
@@ -249,7 +249,7 @@ public class PointGMLTest {
         ), // missing wkt
 
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P1");
                 setSrsName("4326");
                 setGeomWkt("POINT(-10.0 20.0");
@@ -257,7 +257,7 @@ public class PointGMLTest {
         ), // malformed wkt
 
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P2");
                 setSrsName("");
                 setGeomWkt("POINT(-10.0 20.0)");
@@ -265,7 +265,7 @@ public class PointGMLTest {
         ), // missing srs
 
         Arguments.of(
-            new DeloreanPointType() {{
+            new Point() {{
                 setId("P2");
                 setSrsName("2026");
                 setGeomWkt("POINT(-10.0 20.0)");
@@ -277,10 +277,10 @@ public class PointGMLTest {
     @ParameterizedTest()
     @MethodSource("PrintInvalidPoints")
     @DisplayName("Print valid GML Points correctly")
-    void invalidMarshallingGMLPoints(DeloreanPointType value) throws Exception {
+    void invalidMarshallingGMLPoints(Point value) throws Exception {
 
         // given + do + check
-        assertThatThrownBy(() -> PointGmlHelper.printGMLPoint(value, PointType.class))
+        assertThatThrownBy(() -> PointGmlHelper.printGMLPoint(value, Point.class))
             .isInstanceOf(IllegalArgumentException.class);
     }
 

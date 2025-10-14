@@ -6,11 +6,12 @@ import java.math.BigInteger;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
-import com.aixm.delorean.core.gis.type.DeloreanPointType;
+import com.aixm.delorean.core.gis.type.Point;
+import com.aixm.delorean.core.gis.type.Pos;
 
 public class PointGmlHelper {
 
-    public static <T extends DeloreanPointType> T parseGMLPoint (PointType point, Class<T> targetType) {
+    public static <T extends Point> T parseGMLPoint (PointType point, Class<T> targetType) {
         T result;
         try {
             result = targetType.getDeclaredConstructor().newInstance();
@@ -36,24 +37,46 @@ public class PointGmlHelper {
         }
 
         // A. SRS consistency
-        String effectiveSrsName = point.getPos().getSrsName() != null ? point.getPos().getSrsName() : point.getSrsName();
+        String geometrySrsName = point.getSrsName();
+        String posSrsName = point.getPos() != null ? point.getPos().getSrsName() : null;
+
+        String effectiveSrsName;
+        if (geometrySrsName != null && posSrsName != null) {
+            if (!geometrySrsName.equals(posSrsName)) {
+                throw new IllegalArgumentException(String.format(
+                    "<gml:PointType> and <gml:pos> must specify the same srsName."));
+            }
+            // both set, same CRS
+            effectiveSrsName = geometrySrsName;
+        } else if (geometrySrsName != null) {
+            effectiveSrsName = geometrySrsName;
+        } else if (posSrsName != null) {
+            effectiveSrsName = posSrsName;
+        } else {
+            throw new IllegalArgumentException("<gml:PointType> or <gml:pos> must specify an srsName.");
+        }
+
         String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
         Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
 
         // B. coordinates parsing
         String geomWkt = DirectPositionHelper.parseDirectPosition(point.getPos(), inverse);
+        Pos resultPos = new Pos();
+        resultPos.setValue(geomWkt);
+        resultPos.setSrsName(srsName);
+
  
         // C. carry the AbstractGMLType attributes futrher
         result.setId(point.getId());
         result.setDescription(point.getDescription());
         result.setIdentifier(point.getIdentifier());
-        result.setSrsName(srsName);
-        result.setGeomWkt(geomWkt);
+        result.setPos(resultPos);
+
 
         return result;
     }
 
-    public static <T extends PointType> T printGMLPoint(DeloreanPointType point, Class<T> targetType) {
+    public static <T extends PointType> T printGMLPoint(Point point, Class<T> targetType) {
         T result;
         try {
             result = targetType.getDeclaredConstructor().newInstance();
@@ -67,8 +90,8 @@ public class PointGmlHelper {
 
 
         // A. Coordinates printing
-        String geomWkt = point.getGeomWkt();
-        String srsName = point.getSrsName();
+        String geomWkt = point.getPos().getValue();
+        String srsName = point.getPos().getSrsName();
 
         DirectPositionType pos = DirectPositionHelper.printDirectPosition(geomWkt, srsName);
         String epsgCode = SRSValidationHelper.printSrsName(srsName);

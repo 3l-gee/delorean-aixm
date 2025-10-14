@@ -42,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlTransient;
 @Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanElevatedCurveType")
 @Table(name = "elevated_curve", schema = "gml")
-public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.DeloreanSurfaceType {
+public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.Surface {
         
     private static final long serialVersionUID = 20250910L;
     @XmlAttribute(name = "Hjid")
