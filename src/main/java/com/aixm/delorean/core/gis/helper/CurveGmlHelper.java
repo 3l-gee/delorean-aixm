@@ -94,7 +94,7 @@ public class CurveGmlHelper {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC6 : OffsetCurveType is not supported");
 
             } else {
-                throw new IllegalArgumentException("Unsupported type " + element.getValue().getClass().getName());
+                throw new IllegalArgumentException("Unsupported type " + segment.getValue().getClass().getName());
             }
         }
 
@@ -104,12 +104,12 @@ public class CurveGmlHelper {
 
     }
 
-    public static DeloreanArcType parseArcByCenterPoint(ArcByCenterPointType value, String srsName, long counter) {
+    public static ArcType parseArcByCenterPoint(ArcByCenterPointType value, String srsName, long counter) {
 
     }
 
 
-    public static DeloreanGeodesicType parseGeodesic(GeodesicStringType value, String srsName, long counter) {
+    public static GeodesicType parseGeodesic(GeodesicStringType value, String srsName, long counter) {
 
     }
 

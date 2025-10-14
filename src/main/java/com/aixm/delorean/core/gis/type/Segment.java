@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -14,15 +16,22 @@ import jakarta.persistence.AccessType;
 import jakarta.persistence.Table;
 
 @Access(AccessType.PROPERTY)
-@Entity(name = "DeloreanSegment")
-@Table(name = "curve", schema = "gml")
-public class DeloreanSegment {
+@Entity(name = "Segment")
+@Table(name = "segment", schema = "gml")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Segment {
 
     private static final long serialVersionUID = 20250910L;
     @XmlAttribute(name = "Hjid")
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
+
+    @Column(name = "href")
+    protected String href;
+
+    @Column(name = "title")
+    protected String title;
 
     @Id
     @Column(name = "HJID")
@@ -44,6 +53,22 @@ public class DeloreanSegment {
 
     public void sethjversion(Long value) {
         this.hjversion = value;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String value) {
+        this.href = value;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String value) {
+        this.title = value;
     }
     
 }
