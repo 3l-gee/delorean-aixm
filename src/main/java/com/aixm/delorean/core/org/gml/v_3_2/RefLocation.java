@@ -2,9 +2,20 @@
 package com.aixm.delorean.core.org.gml.v_3_2;
 
 import java.io.Serializable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -43,6 +54,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "", propOrder = {
     "affinePlacement"
 })
+@Entity(name = "RefLocation")
+@Table(name = "REF_LOCATION")
 public class RefLocation implements Serializable, Equals, HashCode, ToString
 {
 
@@ -53,6 +66,10 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString
      */
     @XmlElement(name = "AffinePlacement", required = true)
     protected AffinePlacementType affinePlacement;
+    @XmlAttribute(name = "Hjid")
+    protected Long hjid;
+    @XmlTransient
+    protected Long hjversion;
 
     /**
      * location, refDirection, inDimension and outDimension have the same meaning as specified in ISO 19107:2003, 6.4.21.
@@ -62,6 +79,7 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString
      *     {@link AffinePlacementType }
      *     
      */
+    @Transient
     public AffinePlacementType getAffinePlacement() {
         return affinePlacement;
     }
@@ -79,8 +97,63 @@ public class RefLocation implements Serializable, Equals, HashCode, ToString
         this.affinePlacement = value;
     }
 
+    @Transient
     public boolean isSetAffinePlacement() {
         return (this.affinePlacement!= null);
+    }
+
+    /**
+     * Gets the value of the hjid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Id
+    @Column(name = "HJID")
+    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
+    public Long getHjid() {
+        return hjid;
+    }
+
+    /**
+     * Sets the value of the hjid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setHjid(Long value) {
+        this.hjid = value;
+    }
+
+    /**
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Version
+    @Column(name = "hjversion")
+    public Long gethjversion() {
+        return hjversion;
+    }
+
+    /**
+     * 
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void sethjversion(Long value) {
+        this.hjversion = value;
     }
 
     @Override

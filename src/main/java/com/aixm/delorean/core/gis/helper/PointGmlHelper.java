@@ -85,9 +85,21 @@ public class PointGmlHelper {
         }
 
         // Sanity Check
-        if (point == null)
+        if (point == null) {
             throw new IllegalArgumentException("<DeloreanPointType> cannot be null.");
+        }
 
+        if (point.getPos() == null) {
+            throw new IllegalArgumentException("<DeloreanPointType> Content <pos> can not be null.");
+        }
+
+        if (point.getPos().getValue() == null) {
+            throw new IllegalArgumentException("<DeloreanPointType> Content <pos> must have a value.");
+        }
+
+        if (point.getPos().getSrsName() == null) {
+            throw new IllegalArgumentException("<DeloreanPointType> Content <pos> must specify an srsName.");
+        }
 
         // A. Coordinates printing
         String geomWkt = point.getPos().getValue();

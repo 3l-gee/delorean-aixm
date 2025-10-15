@@ -84,10 +84,10 @@ public class CurveTypeExtension implements Serializable, Equals, HashCode, ToStr
      *     
      */
     @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.REFRESH,
         CascadeType.MERGE,
-        CascadeType.DETACH,
         CascadeType.PERSIST,
-        CascadeType.REFRESH
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_CURVE_EXTENSION_CUR_0", nullable = true)
     public AbstractExtensionType getAbstractCurveExtension() {

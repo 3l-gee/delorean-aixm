@@ -640,45 +640,6 @@ public abstract class AbstractMDIdentificationType
         }
         final AbstractMDIdentificationType that = ((AbstractMDIdentificationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPurpose();
-            boolean rhsFieldIsSet = that.isSetPurpose();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getPurpose();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getPurpose();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAggregationInfo();
-            boolean rhsFieldIsSet = that.isSetAggregationInfo();
-            List<MDAggregateInformationPropertyType> lhsField;
-            lhsField = (this.isSetAggregationInfo()?this.getAggregationInfo():null);
-            List<MDAggregateInformationPropertyType> rhsField;
-            rhsField = (that.isSetAggregationInfo()?that.getAggregationInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointOfContact();
-            boolean rhsFieldIsSet = that.isSetPointOfContact();
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetPointOfContact()?this.getPointOfContact():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetPointOfContact()?that.getPointOfContact():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointOfContact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointOfContact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetResourceMaintenance();
             boolean rhsFieldIsSet = that.isSetResourceMaintenance();
             List<MDMaintenanceInformationPropertyType> lhsField;
@@ -692,14 +653,14 @@ public abstract class AbstractMDIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetResourceSpecificUsage();
-            boolean rhsFieldIsSet = that.isSetResourceSpecificUsage();
-            List<MDUsagePropertyType> lhsField;
-            lhsField = (this.isSetResourceSpecificUsage()?this.getResourceSpecificUsage():null);
-            List<MDUsagePropertyType> rhsField;
-            rhsField = (that.isSetResourceSpecificUsage()?that.getResourceSpecificUsage():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resourceSpecificUsage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resourceSpecificUsage", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescriptiveKeywords();
+            boolean rhsFieldIsSet = that.isSetDescriptiveKeywords();
+            List<MDKeywordsPropertyType> lhsField;
+            lhsField = (this.isSetDescriptiveKeywords()?this.getDescriptiveKeywords():null);
+            List<MDKeywordsPropertyType> rhsField;
+            rhsField = (that.isSetDescriptiveKeywords()?that.getDescriptiveKeywords():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "descriptiveKeywords", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "descriptiveKeywords", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -718,40 +679,14 @@ public abstract class AbstractMDIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetResourceFormat();
-            boolean rhsFieldIsSet = that.isSetResourceFormat();
-            List<MDFormatPropertyType> lhsField;
-            lhsField = (this.isSetResourceFormat()?this.getResourceFormat():null);
-            List<MDFormatPropertyType> rhsField;
-            rhsField = (that.isSetResourceFormat()?that.getResourceFormat():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resourceFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resourceFormat", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCredit();
-            boolean rhsFieldIsSet = that.isSetCredit();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetCredit()?this.getCredit():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetCredit()?that.getCredit():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "credit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "credit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            List<MDProgressCodePropertyType> lhsField;
-            lhsField = (this.isSetStatus()?this.getStatus():null);
-            List<MDProgressCodePropertyType> rhsField;
-            rhsField = (that.isSetStatus()?that.getStatus():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            boolean lhsFieldIsSet = this.isSetResourceSpecificUsage();
+            boolean rhsFieldIsSet = that.isSetResourceSpecificUsage();
+            List<MDUsagePropertyType> lhsField;
+            lhsField = (this.isSetResourceSpecificUsage()?this.getResourceSpecificUsage():null);
+            List<MDUsagePropertyType> rhsField;
+            rhsField = (that.isSetResourceSpecificUsage()?that.getResourceSpecificUsage():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resourceSpecificUsage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resourceSpecificUsage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -770,14 +705,14 @@ public abstract class AbstractMDIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractValue();
-            boolean rhsFieldIsSet = that.isSetAbstractValue();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getAbstractValue();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getAbstractValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValue", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationInfo();
+            boolean rhsFieldIsSet = that.isSetAggregationInfo();
+            List<MDAggregateInformationPropertyType> lhsField;
+            lhsField = (this.isSetAggregationInfo()?this.getAggregationInfo():null);
+            List<MDAggregateInformationPropertyType> rhsField;
+            rhsField = (that.isSetAggregationInfo()?that.getAggregationInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -796,14 +731,79 @@ public abstract class AbstractMDIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDescriptiveKeywords();
-            boolean rhsFieldIsSet = that.isSetDescriptiveKeywords();
-            List<MDKeywordsPropertyType> lhsField;
-            lhsField = (this.isSetDescriptiveKeywords()?this.getDescriptiveKeywords():null);
-            List<MDKeywordsPropertyType> rhsField;
-            rhsField = (that.isSetDescriptiveKeywords()?that.getDescriptiveKeywords():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "descriptiveKeywords", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "descriptiveKeywords", rhsField);
+            boolean lhsFieldIsSet = this.isSetPurpose();
+            boolean rhsFieldIsSet = that.isSetPurpose();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getPurpose();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getPurpose();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "purpose", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "purpose", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            List<MDProgressCodePropertyType> lhsField;
+            lhsField = (this.isSetStatus()?this.getStatus():null);
+            List<MDProgressCodePropertyType> rhsField;
+            rhsField = (that.isSetStatus()?that.getStatus():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetResourceFormat();
+            boolean rhsFieldIsSet = that.isSetResourceFormat();
+            List<MDFormatPropertyType> lhsField;
+            lhsField = (this.isSetResourceFormat()?this.getResourceFormat():null);
+            List<MDFormatPropertyType> rhsField;
+            rhsField = (that.isSetResourceFormat()?that.getResourceFormat():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resourceFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resourceFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointOfContact();
+            boolean rhsFieldIsSet = that.isSetPointOfContact();
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (this.isSetPointOfContact()?this.getPointOfContact():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (that.isSetPointOfContact()?that.getPointOfContact():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointOfContact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointOfContact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractValue();
+            boolean rhsFieldIsSet = that.isSetAbstractValue();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getAbstractValue();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getAbstractValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCredit();
+            boolean rhsFieldIsSet = that.isSetCredit();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetCredit()?this.getCredit():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetCredit()?that.getCredit():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "credit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "credit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -172,19 +172,6 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
         }
         final GridEnvelopeType that = ((GridEnvelopeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHigh();
-            boolean rhsFieldIsSet = that.isSetHigh();
-            List<BigInteger> lhsField;
-            lhsField = (this.isSetHigh()?this.getHigh():null);
-            List<BigInteger> rhsField;
-            rhsField = (that.isSetHigh()?that.getHigh():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLow();
             boolean rhsFieldIsSet = that.isSetLow();
             List<BigInteger> lhsField;
@@ -193,6 +180,19 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
             rhsField = (that.isSetLow()?that.getLow():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "low", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "low", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHigh();
+            boolean rhsFieldIsSet = that.isSetHigh();
+            List<BigInteger> lhsField;
+            lhsField = (this.isSetHigh()?this.getHigh():null);
+            List<BigInteger> rhsField;
+            rhsField = (that.isSetHigh()?that.getHigh():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

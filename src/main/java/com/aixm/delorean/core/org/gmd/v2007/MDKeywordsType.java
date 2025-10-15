@@ -171,19 +171,6 @@ public class MDKeywordsType
         }
         final MDKeywordsType that = ((MDKeywordsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetThesaurusName();
-            boolean rhsFieldIsSet = that.isSetThesaurusName();
-            CICitationPropertyType lhsField;
-            lhsField = this.getThesaurusName();
-            CICitationPropertyType rhsField;
-            rhsField = that.getThesaurusName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             MDKeywordTypeCodePropertyType lhsField;
@@ -205,6 +192,19 @@ public class MDKeywordsType
             rhsField = (that.isSetKeyword()?that.getKeyword():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetThesaurusName();
+            boolean rhsFieldIsSet = that.isSetThesaurusName();
+            CICitationPropertyType lhsField;
+            lhsField = this.getThesaurusName();
+            CICitationPropertyType rhsField;
+            rhsField = that.getThesaurusName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

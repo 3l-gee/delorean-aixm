@@ -245,19 +245,6 @@ public class CIOnlineResourceType
         }
         final CIOnlineResourceType that = ((CIOnlineResourceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            URLPropertyType lhsField;
-            lhsField = this.getLinkage();
-            URLPropertyType rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
@@ -266,19 +253,6 @@ public class CIOnlineResourceType
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicationProfile();
-            boolean rhsFieldIsSet = that.isSetApplicationProfile();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getApplicationProfile();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getApplicationProfile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicationProfile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicationProfile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -297,14 +271,14 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFunction();
-            boolean rhsFieldIsSet = that.isSetFunction();
-            CIOnLineFunctionCodePropertyType lhsField;
-            lhsField = this.getFunction();
-            CIOnLineFunctionCodePropertyType rhsField;
-            rhsField = that.getFunction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
+            boolean lhsFieldIsSet = this.isSetApplicationProfile();
+            boolean rhsFieldIsSet = that.isSetApplicationProfile();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getApplicationProfile();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getApplicationProfile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicationProfile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicationProfile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -318,6 +292,32 @@ public class CIOnlineResourceType
             rhsField = that.getProtocol();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFunction();
+            boolean rhsFieldIsSet = that.isSetFunction();
+            CIOnLineFunctionCodePropertyType lhsField;
+            lhsField = this.getFunction();
+            CIOnLineFunctionCodePropertyType rhsField;
+            rhsField = that.getFunction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
+            URLPropertyType lhsField;
+            lhsField = this.getLinkage();
+            URLPropertyType rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

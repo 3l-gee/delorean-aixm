@@ -133,19 +133,6 @@ public class VerticalCRSType
         }
         final VerticalCRSType that = ((VerticalCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalDatum();
-            boolean rhsFieldIsSet = that.isSetVerticalDatum();
-            JAXBElement<VerticalDatumPropertyType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<VerticalDatumPropertyType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVerticalCS();
             boolean rhsFieldIsSet = that.isSetVerticalCS();
             JAXBElement<VerticalCSPropertyType> lhsField;
@@ -154,6 +141,19 @@ public class VerticalCRSType
             rhsField = that.getVerticalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<VerticalDatumPropertyType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<VerticalDatumPropertyType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

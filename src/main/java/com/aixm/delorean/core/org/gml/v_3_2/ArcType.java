@@ -23,7 +23,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
  *     <restriction base="{http://www.opengis.net/gml/3.2}ArcStringType">
  *       <sequence>
  *         <choice>
- *           <choice>
+ *           <choice maxOccurs="3" minOccurs="3">
  *             <element ref="{http://www.opengis.net/gml/3.2}pos"/>
  *             <element ref="{http://www.opengis.net/gml/3.2}pointProperty"/>
  *             <element ref="{http://www.opengis.net/gml/3.2}pointRep"/>

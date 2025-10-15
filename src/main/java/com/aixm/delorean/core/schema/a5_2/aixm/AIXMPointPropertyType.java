@@ -5,12 +5,8 @@ import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.PointTypeAdapter;
 import com.aixm.delorean.core.gis.type.a5_2.DeloreanPointType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.persistence.CascadeType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -56,8 +52,6 @@ public class AIXMPointPropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "Point", required = true, type = PointType.class)
     @XmlJavaTypeAdapter(PointTypeAdapter.class)
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "delorean_point_fk")
     protected DeloreanPointType point;
 
     /**
@@ -68,7 +62,7 @@ public class AIXMPointPropertyType
      *     {@link String }
      *     
      */
-
+    @Transient
     public DeloreanPointType getPoint() {
         return point;
     }

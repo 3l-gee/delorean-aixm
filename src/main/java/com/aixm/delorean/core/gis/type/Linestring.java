@@ -17,35 +17,16 @@ import jakarta.persistence.Entity;
 @Table(name = "linestring", schema = "gml")
 public class LineString extends Segment {
 
+    protected PosList posList;
+    protected List<Pos> pos;
+    protected List<PointProperty> pointProperty;
+    protected ContentType contentType;
+
     @Embedded
     @AttributeOverrides({
         @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_list_srs_name", length = 128)),
         @jakarta.persistence.AttributeOverride(name = "posList", column = @Column(name = "pos_list", length = 2048))
     })
-    protected PosList posList;
-
-    @ElementCollection
-    @CollectionTable(name = "geodesic_pos", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
-    @AttributeOverrides({  
-        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
-        @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
-    })
-    @OrderColumn(name = "sequence_index")
-    protected List<Pos> pos;
-
-    @ElementCollection
-    @CollectionTable(name = "geodesic_point_property", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
-    @AttributeOverrides({  
-        @jakarta.persistence.AttributeOverride(name = "href", column = @Column(name = "href", length = 256)),
-        @jakarta.persistence.AttributeOverride(name = "title", column = @Column(name = "title", length = 256))
-    })  
-    @OrderColumn(name = "sequence_index")
-    protected List<PointProperty> pointProperty;
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "content_type", length = 20, nullable = false)
-    protected ContentType contentType;
-
     public PosList getPosList() {
         return posList;
     }
@@ -54,6 +35,13 @@ public class LineString extends Segment {
         this.posList = value;
     }
 
+    @ElementCollection
+    @CollectionTable(name = "geodesic_pos", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
+    @AttributeOverrides({  
+        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
+        @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
+    })
+    @OrderColumn(name = "sequence_index")
     public List<Pos> getPos() {
         return pos;
     }
@@ -62,6 +50,13 @@ public class LineString extends Segment {
         this.pos = value;
     }
 
+    @ElementCollection
+    @CollectionTable(name = "geodesic_point_property", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
+    @AttributeOverrides({  
+        @jakarta.persistence.AttributeOverride(name = "href", column = @Column(name = "href", length = 256)),
+        @jakarta.persistence.AttributeOverride(name = "title", column = @Column(name = "title", length = 256))
+    })  
+    @OrderColumn(name = "sequence_index")
     public List<PointProperty> getPointProperty() {
         return pointProperty;
     }
@@ -70,6 +65,8 @@ public class LineString extends Segment {
         this.pointProperty = value;
     }
 
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "content_type", length = 20, nullable = false)
     public ContentType getContentType() {
         return contentType;
     }

@@ -12,7 +12,7 @@ import jakarta.xml.bind.Unmarshaller;
 
 import javax.xml.namespace.QName;
 
-public class PointAdapterTest {
+public class PointAdapterIT {
     
     @SuppressWarnings("unchecked")
     private static <T> T loadFromXml(String xml, Class<T> type) throws Exception {

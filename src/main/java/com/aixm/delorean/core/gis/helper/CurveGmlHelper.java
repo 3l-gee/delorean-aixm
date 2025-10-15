@@ -129,7 +129,9 @@ public class CurveGmlHelper {
 
 
         // C. carry the AbstractGMLType attributes futrher
-
+        result.setId(curve.getId());
+        result.setDescription(curve.getDescription());
+        result.setIdentifier(curve.getIdentifier());
 
         return result;
 
@@ -253,7 +255,7 @@ public class CurveGmlHelper {
             throw new IllegalArgumentException("<gml:LineStringSegmentType> cannot be null.");
         }
 
-        if (value.getPosList() == null || value.getPosOrPointPropertyOrPointRep() == null || value.getPosOrPointPropertyOrPointRep().isEmpty()) {
+        if (value.getPosList() == null && value.getPosOrPointPropertyOrPointRep() == null && value.getPosOrPointPropertyOrPointRep().isEmpty()) {
             throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:posList> or <gml:pos> or <gml:pointProperty> can not be both null or empty.");
         }
 

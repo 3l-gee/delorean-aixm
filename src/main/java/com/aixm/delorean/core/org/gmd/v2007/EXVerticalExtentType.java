@@ -168,19 +168,6 @@ public class EXVerticalExtentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVerticalCRS();
-            boolean rhsFieldIsSet = that.isSetVerticalCRS();
-            SCCRSPropertyType lhsField;
-            lhsField = this.getVerticalCRS();
-            SCCRSPropertyType rhsField;
-            rhsField = that.getVerticalCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMaximumValue();
             boolean rhsFieldIsSet = that.isSetMaximumValue();
             RealPropertyType lhsField;
@@ -189,6 +176,19 @@ public class EXVerticalExtentType
             rhsField = that.getMaximumValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalCRS();
+            boolean rhsFieldIsSet = that.isSetVerticalCRS();
+            SCCRSPropertyType lhsField;
+            lhsField = this.getVerticalCRS();
+            SCCRSPropertyType rhsField;
+            rhsField = that.getVerticalCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

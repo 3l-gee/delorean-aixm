@@ -133,19 +133,6 @@ public class CIDateTypeCodePropertyType implements Serializable, Equals, HashCod
         }
         final CIDateTypeCodePropertyType that = ((CIDateTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCIDateTypeCode();
-            boolean rhsFieldIsSet = that.isSetCIDateTypeCode();
-            CodeListValueType lhsField;
-            lhsField = this.getCIDateTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getCIDateTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciDateTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciDateTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class CIDateTypeCodePropertyType implements Serializable, Equals, HashCod
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCIDateTypeCode();
+            boolean rhsFieldIsSet = that.isSetCIDateTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getCIDateTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getCIDateTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciDateTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciDateTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

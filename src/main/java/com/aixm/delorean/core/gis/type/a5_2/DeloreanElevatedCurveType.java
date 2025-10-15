@@ -45,38 +45,12 @@ import jakarta.xml.bind.annotation.XmlTransient;
 public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.Surface {
         
     private static final long serialVersionUID = 20250910L;
-    @XmlAttribute(name = "Hjid")
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
     protected JAXBElement<ValDistanceVerticalType> elevation;
     protected JAXBElement<ValDistanceSignedType> geoidUndulation;
     protected JAXBElement<TextNameType> verticalDatum;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
     protected List<ElevatedCurveTypeExtension> extension;
-
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
-
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
 
     @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {

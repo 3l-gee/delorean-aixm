@@ -5,13 +5,9 @@ import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
 import com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -215,10 +211,10 @@ public abstract class AbstractAIXMTimeSliceType
      *     
      */
     @ManyToOne(targetEntity = FeatureTimeSliceMetadataPropertyType.class, cascade = {
+        CascadeType.REFRESH,
         CascadeType.MERGE,
-        CascadeType.DETACH,
         CascadeType.PERSIST,
-        CascadeType.REFRESH
+        CascadeType.DETACH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "TIME_SLICE_METADATA_ABSTRACT_0", nullable = true)
     public FeatureTimeSliceMetadataPropertyType getTimeSliceMetadata() {
@@ -250,11 +246,7 @@ public abstract class AbstractAIXMTimeSliceType
      *     {@link String }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "beginPosition", column = @Column(name = "feature_lifetime_begin")),
-        @AttributeOverride(name = "endPosition", column = @Column(name = "feature_lifetime_end"))
-    })
+    @Transient
     public DeloreanTimeSliceType getFeatureLifetime() {
         return featureLifetime;
     }
@@ -343,6 +335,19 @@ public abstract class AbstractAIXMTimeSliceType
         }
         final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
+            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType lhsField;
+            lhsField = this.getTimeSliceMetadata();
+            FeatureTimeSliceMetadataPropertyType rhsField;
+            rhsField = that.getTimeSliceMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetInterpretation();
             boolean rhsFieldIsSet = that.isSetInterpretation();
             String lhsField;
@@ -364,19 +369,6 @@ public abstract class AbstractAIXMTimeSliceType
             rhsField = that.getSequenceNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeSliceMetadata();
-            boolean rhsFieldIsSet = that.isSetTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType lhsField;
-            lhsField = this.getTimeSliceMetadata();
-            FeatureTimeSliceMetadataPropertyType rhsField;
-            rhsField = that.getTimeSliceMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSliceMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSliceMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -4,10 +4,21 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -48,6 +59,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "posList",
     "geometricPositionGroup"
 })
+@Entity(name = "ControlPoint")
+@Table(name = "CONTROL_POINT")
 public class ControlPoint implements Serializable, Equals, HashCode, ToString
 {
 
@@ -58,6 +71,10 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
         @XmlElement(name = "pointProperty", type = PointPropertyType.class)
     })
     protected List<Object> geometricPositionGroup;
+    @XmlAttribute(name = "Hjid")
+    protected Long hjid;
+    @XmlTransient
+    protected Long hjversion;
 
     /**
      * Gets the value of the posList property.
@@ -67,6 +84,7 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
      *     {@link DirectPositionListType }
      *     
      */
+    @Transient
     public DirectPositionListType getPosList() {
         return posList;
     }
@@ -83,6 +101,7 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
         this.posList = value;
     }
 
+    @Transient
     public boolean isSetPosList() {
         return (this.posList!= null);
     }
@@ -112,6 +131,7 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
      * 
      * 
      */
+    @Transient
     public List<Object> getGeometricPositionGroup() {
         if (geometricPositionGroup == null) {
             geometricPositionGroup = new ArrayList<>();
@@ -129,12 +149,67 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
         this.geometricPositionGroup = geometricPositionGroup;
     }
 
+    @Transient
     public boolean isSetGeometricPositionGroup() {
         return ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
     }
 
     public void unsetGeometricPositionGroup() {
         this.geometricPositionGroup = null;
+    }
+
+    /**
+     * Gets the value of the hjid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Id
+    @Column(name = "HJID")
+    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
+    public Long getHjid() {
+        return hjid;
+    }
+
+    /**
+     * Sets the value of the hjid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setHjid(Long value) {
+        this.hjid = value;
+    }
+
+    /**
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Version
+    @Column(name = "hjversion")
+    public Long gethjversion() {
+        return hjversion;
+    }
+
+    /**
+     * 
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void sethjversion(Long value) {
+        this.hjversion = value;
     }
 
     @Override
@@ -159,19 +234,6 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
         }
         final ControlPoint that = ((ControlPoint) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
-            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
-            List<Object> lhsField;
-            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -180,6 +242,19 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
+            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
+            List<Object> lhsField;
+            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

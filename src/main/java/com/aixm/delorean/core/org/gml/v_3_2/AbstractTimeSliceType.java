@@ -77,11 +77,7 @@ public abstract class AbstractTimeSliceType
      *     {@link String }
      *     
      */
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "beginPosition", column = @Column(name = "valid_time_begin")),
-        @AttributeOverride(name = "endPosition", column = @Column(name = "valid_time_end"))
-    })
+    @Transient
     public DeloreanTimeSliceType getValidTime() {
         return validTime;
     }

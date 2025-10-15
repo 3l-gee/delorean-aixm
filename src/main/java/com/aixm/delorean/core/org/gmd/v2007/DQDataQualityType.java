@@ -168,14 +168,14 @@ public class DQDataQualityType
         }
         final DQDataQualityType that = ((DQDataQualityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetReport();
-            boolean rhsFieldIsSet = that.isSetReport();
-            List<DQElementPropertyType> lhsField;
-            lhsField = (this.isSetReport()?this.getReport():null);
-            List<DQElementPropertyType> rhsField;
-            rhsField = (that.isSetReport()?that.getReport():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
+            boolean lhsFieldIsSet = this.isSetLineage();
+            boolean rhsFieldIsSet = that.isSetLineage();
+            LILineagePropertyType lhsField;
+            lhsField = this.getLineage();
+            LILineagePropertyType rhsField;
+            rhsField = that.getLineage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -194,14 +194,14 @@ public class DQDataQualityType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLineage();
-            boolean rhsFieldIsSet = that.isSetLineage();
-            LILineagePropertyType lhsField;
-            lhsField = this.getLineage();
-            LILineagePropertyType rhsField;
-            rhsField = that.getLineage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
+            boolean lhsFieldIsSet = this.isSetReport();
+            boolean rhsFieldIsSet = that.isSetReport();
+            List<DQElementPropertyType> lhsField;
+            lhsField = (this.isSetReport()?this.getReport():null);
+            List<DQElementPropertyType> rhsField;
+            rhsField = (that.isSetReport()?that.getReport():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

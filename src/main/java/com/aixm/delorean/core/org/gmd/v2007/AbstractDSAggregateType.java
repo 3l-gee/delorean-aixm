@@ -259,14 +259,14 @@ public abstract class AbstractDSAggregateType
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
-            boolean lhsFieldIsSet = this.isSetComposedOf();
-            boolean rhsFieldIsSet = that.isSetComposedOf();
-            List<DSDataSetPropertyType> lhsField;
-            lhsField = (this.isSetComposedOf()?this.getComposedOf():null);
-            List<DSDataSetPropertyType> rhsField;
-            rhsField = (that.isSetComposedOf()?that.getComposedOf():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
+            boolean lhsFieldIsSet = this.isSetSuperset();
+            boolean rhsFieldIsSet = that.isSetSuperset();
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (this.isSetSuperset()?this.getSuperset():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (that.isSetSuperset()?that.getSuperset():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -285,19 +285,6 @@ public abstract class AbstractDSAggregateType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSuperset();
-            boolean rhsFieldIsSet = that.isSetSuperset();
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (this.isSetSuperset()?this.getSuperset():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (that.isSetSuperset()?that.getSuperset():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSubset();
             boolean rhsFieldIsSet = that.isSetSubset();
             List<DSAggregatePropertyType> lhsField;
@@ -306,6 +293,19 @@ public abstract class AbstractDSAggregateType
             rhsField = (that.isSetSubset()?that.getSubset():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComposedOf();
+            boolean rhsFieldIsSet = that.isSetComposedOf();
+            List<DSDataSetPropertyType> lhsField;
+            lhsField = (this.isSetComposedOf()?this.getComposedOf():null);
+            List<DSDataSetPropertyType> rhsField;
+            rhsField = (that.isSetComposedOf()?that.getComposedOf():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

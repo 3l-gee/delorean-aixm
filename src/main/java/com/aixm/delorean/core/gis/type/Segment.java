@@ -23,15 +23,9 @@ import jakarta.persistence.Table;
 public class Segment {
 
     private static final long serialVersionUID = 20250910L;
-    @XmlAttribute(name = "Hjid")
     protected Long hjid;
-    @XmlTransient
     protected Long hjversion;
-
-    @Column(name = "href")
     protected String href;
-
-    @Column(name = "title")
     protected String title;
 
     @Enumerated(jakarta.persistence.EnumType.STRING)
@@ -60,6 +54,7 @@ public class Segment {
         this.hjversion = value;
     }
 
+    @Column(name = "href")
     public String getHref() {
         return href;
     }
@@ -67,7 +62,8 @@ public class Segment {
     public void setHref(String value) {
         this.href = value;
     }
-    
+
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }

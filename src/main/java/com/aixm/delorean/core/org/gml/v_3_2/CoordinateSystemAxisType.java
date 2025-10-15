@@ -277,14 +277,14 @@ public class CoordinateSystemAxisType
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxisAbbrev();
-            boolean rhsFieldIsSet = that.isSetAxisAbbrev();
-            CodeType lhsField;
-            lhsField = this.getAxisAbbrev();
-            CodeType rhsField;
-            rhsField = that.getAxisAbbrev();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisAbbrev", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisAbbrev", rhsField);
+            boolean lhsFieldIsSet = this.isSetRangeMeaning();
+            boolean rhsFieldIsSet = that.isSetRangeMeaning();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getRangeMeaning();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getRangeMeaning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -303,14 +303,14 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRangeMeaning();
-            boolean rhsFieldIsSet = that.isSetRangeMeaning();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getRangeMeaning();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getRangeMeaning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
+            boolean lhsFieldIsSet = this.isSetAxisAbbrev();
+            boolean rhsFieldIsSet = that.isSetAxisAbbrev();
+            CodeType lhsField;
+            lhsField = this.getAxisAbbrev();
+            CodeType rhsField;
+            rhsField = that.getAxisAbbrev();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisAbbrev", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisAbbrev", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -329,19 +329,6 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAxisDirection();
-            boolean rhsFieldIsSet = that.isSetAxisDirection();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getAxisDirection();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getAxisDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUom();
             boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
@@ -350,6 +337,19 @@ public class CoordinateSystemAxisType
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisDirection();
+            boolean rhsFieldIsSet = that.isSetAxisDirection();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getAxisDirection();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getAxisDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

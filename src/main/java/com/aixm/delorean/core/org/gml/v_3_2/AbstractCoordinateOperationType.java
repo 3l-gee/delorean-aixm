@@ -304,6 +304,19 @@ public abstract class AbstractCoordinateOperationType
         }
         final AbstractCoordinateOperationType that = ((AbstractCoordinateOperationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetScope();
+            boolean rhsFieldIsSet = that.isSetScope();
+            List<String> lhsField;
+            lhsField = (this.isSetScope()?this.getScope():null);
+            List<String> rhsField;
+            rhsField = (that.isSetScope()?that.getScope():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOperationVersion();
             boolean rhsFieldIsSet = that.isSetOperationVersion();
             String lhsField;
@@ -330,27 +343,14 @@ public abstract class AbstractCoordinateOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetScope();
-            boolean rhsFieldIsSet = that.isSetScope();
-            List<String> lhsField;
-            lhsField = (this.isSetScope()?this.getScope():null);
-            List<String> rhsField;
-            rhsField = (that.isSetScope()?that.getScope():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCoordinateOperationAccuracy();
-            boolean rhsFieldIsSet = that.isSetCoordinateOperationAccuracy();
-            List<CoordinateOperationAccuracy> lhsField;
-            lhsField = (this.isSetCoordinateOperationAccuracy()?this.getCoordinateOperationAccuracy():null);
-            List<CoordinateOperationAccuracy> rhsField;
-            rhsField = (that.isSetCoordinateOperationAccuracy()?that.getCoordinateOperationAccuracy():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
+            boolean lhsFieldIsSet = this.isSetSourceCRS();
+            boolean rhsFieldIsSet = that.isSetSourceCRS();
+            CRSPropertyType lhsField;
+            lhsField = this.getSourceCRS();
+            CRSPropertyType rhsField;
+            rhsField = that.getSourceCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -369,14 +369,14 @@ public abstract class AbstractCoordinateOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSourceCRS();
-            boolean rhsFieldIsSet = that.isSetSourceCRS();
-            CRSPropertyType lhsField;
-            lhsField = this.getSourceCRS();
-            CRSPropertyType rhsField;
-            rhsField = that.getSourceCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCRS", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordinateOperationAccuracy();
+            boolean rhsFieldIsSet = that.isSetCoordinateOperationAccuracy();
+            List<CoordinateOperationAccuracy> lhsField;
+            lhsField = (this.isSetCoordinateOperationAccuracy()?this.getCoordinateOperationAccuracy():null);
+            List<CoordinateOperationAccuracy> rhsField;
+            rhsField = (that.isSetCoordinateOperationAccuracy()?that.getCoordinateOperationAccuracy():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -196,14 +196,14 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetJulianReference();
-            boolean rhsFieldIsSet = that.isSetJulianReference();
-            BigDecimal lhsField;
-            lhsField = this.getJulianReference();
-            BigDecimal rhsField;
-            rhsField = that.getJulianReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceDate();
+            boolean rhsFieldIsSet = that.isSetReferenceDate();
+            String lhsField;
+            lhsField = this.getReferenceDate();
+            String rhsField;
+            rhsField = that.getReferenceDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -222,14 +222,14 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceDate();
-            boolean rhsFieldIsSet = that.isSetReferenceDate();
-            String lhsField;
-            lhsField = this.getReferenceDate();
-            String rhsField;
-            rhsField = that.getReferenceDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
+            boolean lhsFieldIsSet = this.isSetJulianReference();
+            boolean rhsFieldIsSet = that.isSetJulianReference();
+            BigDecimal lhsField;
+            lhsField = this.getJulianReference();
+            BigDecimal rhsField;
+            rhsField = that.getJulianReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

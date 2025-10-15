@@ -9,10 +9,14 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2.Category</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.ControlPoint</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CoordinatesType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.DynamicFeatureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.MeasureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Quantity</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.RefLocation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Rows</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.TimePositionType</class>
         <class>com.aixm.delorean.core.schema.a5_2.aixm.AIXMCurvePropertyType</class>

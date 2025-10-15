@@ -275,19 +275,6 @@ public class TimeOrdinalEraType
         }
         final TimeOrdinalEraType that = ((TimeOrdinalEraType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            TimePeriodPropertyType lhsField;
-            lhsField = this.getExtent();
-            TimePeriodPropertyType rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGroup();
             boolean rhsFieldIsSet = that.isSetGroup();
             ReferenceType lhsField;
@@ -301,27 +288,14 @@ public class TimeOrdinalEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMember();
-            boolean rhsFieldIsSet = that.isSetMember();
-            List<TimeOrdinalEraPropertyType> lhsField;
-            lhsField = (this.isSetMember()?this.getMember():null);
-            List<TimeOrdinalEraPropertyType> rhsField;
-            rhsField = (that.isSetMember()?that.getMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStart();
-            boolean rhsFieldIsSet = that.isSetStart();
+            boolean lhsFieldIsSet = this.isSetEnd();
+            boolean rhsFieldIsSet = that.isSetEnd();
             TimeNodePropertyType lhsField;
-            lhsField = this.getStart();
+            lhsField = this.getEnd();
             TimeNodePropertyType rhsField;
-            rhsField = that.getStart();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
+            rhsField = that.getEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -340,14 +314,40 @@ public class TimeOrdinalEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEnd();
-            boolean rhsFieldIsSet = that.isSetEnd();
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
             TimeNodePropertyType lhsField;
-            lhsField = this.getEnd();
+            lhsField = this.getStart();
             TimeNodePropertyType rhsField;
-            rhsField = that.getEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
+            rhsField = that.getStart();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            TimePeriodPropertyType lhsField;
+            lhsField = this.getExtent();
+            TimePeriodPropertyType rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMember();
+            boolean rhsFieldIsSet = that.isSetMember();
+            List<TimeOrdinalEraPropertyType> lhsField;
+            lhsField = (this.isSetMember()?this.getMember():null);
+            List<TimeOrdinalEraPropertyType> rhsField;
+            rhsField = (that.isSetMember()?that.getMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

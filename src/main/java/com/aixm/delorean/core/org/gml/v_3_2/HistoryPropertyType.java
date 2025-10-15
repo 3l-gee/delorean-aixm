@@ -169,19 +169,6 @@ public class HistoryPropertyType implements Serializable, Equals, HashCode, ToSt
         }
         final HistoryPropertyType that = ((HistoryPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAbstractTimeSlice();
-            List<JAXBElement<? extends AbstractTimeSliceType>> lhsField;
-            lhsField = (this.isSetAbstractTimeSlice()?this.getAbstractTimeSlice():null);
-            List<JAXBElement<? extends AbstractTimeSliceType>> rhsField;
-            rhsField = (that.isSetAbstractTimeSlice()?that.getAbstractTimeSlice():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -190,6 +177,19 @@ public class HistoryPropertyType implements Serializable, Equals, HashCode, ToSt
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAbstractTimeSlice();
+            List<JAXBElement<? extends AbstractTimeSliceType>> lhsField;
+            lhsField = (this.isSetAbstractTimeSlice()?this.getAbstractTimeSlice():null);
+            List<JAXBElement<? extends AbstractTimeSliceType>> rhsField;
+            rhsField = (that.isSetAbstractTimeSlice()?that.getAbstractTimeSlice():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

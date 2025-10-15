@@ -40,8 +40,8 @@ public class DirectPositionHelper {
         DirectPositionType pos = new DirectPositionType();
         // pos.setSrsName(srsName);
         List<Double> values = new ArrayList<>();
-        values.add(y); // lat
         values.add(x); // lon
+        values.add(y); // lat
         pos.setValue(values);
 
         return pos;
@@ -66,8 +66,8 @@ public class DirectPositionHelper {
             double x = Double.parseDouble(coords[0]);
             double y = Double.parseDouble(coords[1]);
 
-            values.add(y); // lat
             values.add(x); // lon
+            values.add(y); // lat   
         }
 
         DirectPositionListType posList = new DirectPositionListType();
@@ -96,10 +96,10 @@ public class DirectPositionHelper {
 
             if (inverse) {
                 // CRS84 (lon, lat)
-                wktBuilder.append(first).append(" ").append(second);
+                wktBuilder.append(second).append(" ").append(first);
             } else {
                 // EPSG:4326 etc. (lat, lon)
-                wktBuilder.append(second).append(" ").append(first);
+                wktBuilder.append(first).append(" ").append(second);
             }
 
             if (i + 2 < coordinates.size()) {
@@ -127,10 +127,10 @@ public class DirectPositionHelper {
 
         if (inverse) {
             // CRS84 (lon, lat)
-            wkt = coords.get(0) + " " + coords.get(1);
+            wkt = coords.get(1) + " " + coords.get(0);
         } else {
             // EPSG:4326 etc. (lat, lon)
-            wkt = coords.get(1) + " " + coords.get(0);
+            wkt = coords.get(0) + " " + coords.get(1);
         };
 
         return wkt;

@@ -312,19 +312,6 @@ public class MDGeorectifiedType
         }
         final MDGeorectifiedType that = ((MDGeorectifiedType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCheckPointDescription();
-            boolean rhsFieldIsSet = that.isSetCheckPointDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCheckPointDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCheckPointDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCenterPoint();
             boolean rhsFieldIsSet = that.isSetCenterPoint();
             GMPointPropertyType lhsField;
@@ -333,19 +320,6 @@ public class MDGeorectifiedType
             rhsField = that.getCenterPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centerPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centerPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCornerPoints();
-            boolean rhsFieldIsSet = that.isSetCornerPoints();
-            List<GMPointPropertyType> lhsField;
-            lhsField = (this.isSetCornerPoints()?this.getCornerPoints():null);
-            List<GMPointPropertyType> rhsField;
-            rhsField = (that.isSetCornerPoints()?that.getCornerPoints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cornerPoints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cornerPoints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -372,6 +346,32 @@ public class MDGeorectifiedType
             rhsField = that.getTransformationDimensionDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCornerPoints();
+            boolean rhsFieldIsSet = that.isSetCornerPoints();
+            List<GMPointPropertyType> lhsField;
+            lhsField = (this.isSetCornerPoints()?this.getCornerPoints():null);
+            List<GMPointPropertyType> rhsField;
+            rhsField = (that.isSetCornerPoints()?that.getCornerPoints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cornerPoints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cornerPoints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCheckPointDescription();
+            boolean rhsFieldIsSet = that.isSetCheckPointDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getCheckPointDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getCheckPointDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

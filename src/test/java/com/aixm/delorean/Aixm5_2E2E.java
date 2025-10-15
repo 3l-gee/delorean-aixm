@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class A5_2FullLifeCycleTest {
+public class Aixm5_2E2E {
 
     private Main app;
     private Scanner scanner;

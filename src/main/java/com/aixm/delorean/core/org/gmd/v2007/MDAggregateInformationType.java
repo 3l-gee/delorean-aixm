@@ -182,19 +182,6 @@ public class MDAggregateInformationType
         }
         final MDAggregateInformationType that = ((MDAggregateInformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInitiativeType();
-            boolean rhsFieldIsSet = that.isSetInitiativeType();
-            DSInitiativeTypeCodePropertyType lhsField;
-            lhsField = this.getInitiativeType();
-            DSInitiativeTypeCodePropertyType rhsField;
-            rhsField = that.getInitiativeType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "initiativeType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "initiativeType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregateDataSetName();
             boolean rhsFieldIsSet = that.isSetAggregateDataSetName();
             CICitationPropertyType lhsField;
@@ -208,14 +195,14 @@ public class MDAggregateInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAggregateDataSetIdentifier();
-            boolean rhsFieldIsSet = that.isSetAggregateDataSetIdentifier();
-            MDIdentifierPropertyType lhsField;
-            lhsField = this.getAggregateDataSetIdentifier();
-            MDIdentifierPropertyType rhsField;
-            rhsField = that.getAggregateDataSetIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
+            boolean lhsFieldIsSet = this.isSetInitiativeType();
+            boolean rhsFieldIsSet = that.isSetInitiativeType();
+            DSInitiativeTypeCodePropertyType lhsField;
+            lhsField = this.getInitiativeType();
+            DSInitiativeTypeCodePropertyType rhsField;
+            rhsField = that.getInitiativeType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "initiativeType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "initiativeType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -229,6 +216,19 @@ public class MDAggregateInformationType
             rhsField = that.getAssociationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregateDataSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetAggregateDataSetIdentifier();
+            MDIdentifierPropertyType lhsField;
+            lhsField = this.getAggregateDataSetIdentifier();
+            MDIdentifierPropertyType rhsField;
+            rhsField = that.getAggregateDataSetIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

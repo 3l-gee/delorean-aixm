@@ -15,34 +15,19 @@ import com.aixm.delorean.core.util.DistanceUom;
 @Table(name = "arc", schema = "gml")
 public class Arc extends Segment {
 
+    protected Pos pos;
+    protected Double radius;
+    protected DistanceUom radiusUom;
+    protected Double startAngle;
+    protected AngleUom startAngleUom;
+    protected Double endAngle;
+    protected AngleUom endAngleUom;
+    
     @Embedded
     @AttributeOverrides({
         @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
         @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
     })
-    protected Pos pos;
-
-    @Column(name = "radius")
-    protected Double radius;
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "radius_uom", length = 10, nullable = false)
-    protected DistanceUom radiusUom;
-
-    @Column(name = "start_angle")
-    protected Double startAngle;
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "start_angle_uom",length = 10)
-    protected AngleUom startAngleUom;
-
-    @Column(name = "end_angle")
-    protected Double endAngle;
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "end_angle_uom", length = 10)
-    protected AngleUom endAngleUom;
-    
     public Pos getPos() {
         return pos;
     }
@@ -51,6 +36,7 @@ public class Arc extends Segment {
         this.pos = pos;
     }
 
+    @Column(name = "radius")
     public Double getRadius() {
         return radius;
     }
@@ -59,6 +45,8 @@ public class Arc extends Segment {
         this.radius = radius;
     }
 
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "radius_uom", length = 10, nullable = false)
     public DistanceUom getRadiusUom() {
         return radiusUom;
     }
@@ -67,6 +55,7 @@ public class Arc extends Segment {
         this.radiusUom = radiusUom;
     }
 
+    @Column(name = "start_angle")
     public Double getStartAngle() {
         return startAngle;
     }
@@ -75,6 +64,8 @@ public class Arc extends Segment {
         this.startAngle = startAngle;
     }
 
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "start_angle_uom",length = 10)
     public AngleUom getStartAngleUom() {
         return startAngleUom;
     }
@@ -83,6 +74,7 @@ public class Arc extends Segment {
         this.startAngleUom = startAngleUom;
     }
 
+    @Column(name = "end_angle")
     public Double getEndAngle() {
         return endAngle;
     }
@@ -91,6 +83,8 @@ public class Arc extends Segment {
         this.endAngle = endAngle;
     }
 
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "end_angle_uom", length = 10)
     public AngleUom getEndAngleUom() {
         return endAngleUom;
     }

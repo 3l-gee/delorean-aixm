@@ -133,19 +133,6 @@ public class CIRoleCodePropertyType implements Serializable, Equals, HashCode, T
         }
         final CIRoleCodePropertyType that = ((CIRoleCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCIRoleCode();
-            boolean rhsFieldIsSet = that.isSetCIRoleCode();
-            CodeListValueType lhsField;
-            lhsField = this.getCIRoleCode();
-            CodeListValueType rhsField;
-            rhsField = that.getCIRoleCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciRoleCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciRoleCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class CIRoleCodePropertyType implements Serializable, Equals, HashCode, T
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCIRoleCode();
+            boolean rhsFieldIsSet = that.isSetCIRoleCode();
+            CodeListValueType lhsField;
+            lhsField = this.getCIRoleCode();
+            CodeListValueType rhsField;
+            rhsField = that.getCIRoleCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciRoleCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciRoleCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

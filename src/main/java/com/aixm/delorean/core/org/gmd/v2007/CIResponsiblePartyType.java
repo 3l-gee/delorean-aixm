@@ -214,14 +214,14 @@ public class CIResponsiblePartyType
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContactInfo();
-            boolean rhsFieldIsSet = that.isSetContactInfo();
-            CIContactPropertyType lhsField;
-            lhsField = this.getContactInfo();
-            CIContactPropertyType rhsField;
-            rhsField = that.getContactInfo();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
+            boolean lhsFieldIsSet = this.isSetIndividualName();
+            boolean rhsFieldIsSet = that.isSetIndividualName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getIndividualName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getIndividualName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "individualName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "individualName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,32 +240,6 @@ public class CIResponsiblePartyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPositionName();
-            boolean rhsFieldIsSet = that.isSetPositionName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getPositionName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getPositionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIndividualName();
-            boolean rhsFieldIsSet = that.isSetIndividualName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getIndividualName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getIndividualName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "individualName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "individualName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             CIRoleCodePropertyType lhsField;
@@ -274,6 +248,32 @@ public class CIResponsiblePartyType
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContactInfo();
+            boolean rhsFieldIsSet = that.isSetContactInfo();
+            CIContactPropertyType lhsField;
+            lhsField = this.getContactInfo();
+            CIContactPropertyType rhsField;
+            rhsField = that.getContactInfo();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPositionName();
+            boolean rhsFieldIsSet = that.isSetPositionName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getPositionName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getPositionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "positionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "positionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
