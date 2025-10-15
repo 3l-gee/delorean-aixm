@@ -1,32 +1,32 @@
 package com.aixm.delorean.core.gis.type;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderColumn;
+
+import java.util.List;
 
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
 @MappedSuperclass
 public class Curve extends AbstractGMLType {
-    
-    @Column(name = "srs_name", length = 128)
-    protected String srsName;
 
-    @Column(name = "geom_wkt", length = 2048)
-    protected String geomWkt;
+    @OneToMany(targetEntity = Segment.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "curve_id")
+    @OrderColumn(name = "segment_order")
+    List<Segment> segments;
 
-    public String getSrsName() {
-        return srsName;
+    public List<Segment> getSegments() {
+        return segments;
     }
 
-    public void setSrsName(String value) {
-        this.srsName = value;
-    }
-
-    public String getGeomWkt() {
-        return geomWkt;
-    }
-
-    public void setGeomWkt(String value) {
-        this.geomWkt = value;
+    public void setSegments(List<Segment> segments) {
+        this.segments = segments;
     }
 }

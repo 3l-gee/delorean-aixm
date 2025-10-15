@@ -19,7 +19,7 @@ public class PointGmlHelper {
             throw new RuntimeException("Failed to instantiate " + targetType, e);
         }
 
-        // Sanity Check
+        // A. Sanity Check
         if (point == null) {
             throw new IllegalArgumentException("<gml:PointType> cannot be null.");
         }
@@ -36,7 +36,7 @@ public class PointGmlHelper {
             throw new IllegalArgumentException("<gml:PointType> or <gml:pos> must specify an srsName.");
         }
 
-        // A. SRS consistency
+        // B. SRS consistency
         String geometrySrsName = point.getSrsName();
         String posSrsName = point.getPos() != null ? point.getPos().getSrsName() : null;
 
@@ -59,14 +59,14 @@ public class PointGmlHelper {
         String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
         Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
 
-        // B. coordinates parsing
+        // C. coordinates parsing
         String geomWkt = DirectPositionHelper.parseDirectPosition(point.getPos(), inverse);
         Pos resultPos = new Pos();
         resultPos.setValue(geomWkt);
         resultPos.setSrsName(srsName);
 
  
-        // C. carry the AbstractGMLType attributes futrher
+        // D. carry the AbstractGMLType attributes futrher
         result.setId(point.getId());
         result.setDescription(point.getDescription());
         result.setIdentifier(point.getIdentifier());

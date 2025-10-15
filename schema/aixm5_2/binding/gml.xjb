@@ -652,12 +652,6 @@
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometryType']">
 			<hj:ignored/>
 		</jaxb:bindings>
-		<jaxb:bindings node="//xs:attributeGroup[@name='SRSInformationGroup']/xs:attribute[@name='axisLabels']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:attributeGroup[@name='SRSInformationGroup']/xs:attribute[@name='uomLabels']">
-			<hj:ignored/>
-		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeometryPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -676,12 +670,6 @@
 		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']">
 			<hj:ignored/>
 		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']//xs:element[@ref='gml:pos']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='EnvelopeType']//xs:element[@ref='gml:coordinates']">
-			<hj:ignored/>
-		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGeometricPrimitiveType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -689,9 +677,6 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointType']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='PointType']//xs:element[@ref='gml:coordinates']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
@@ -772,19 +757,7 @@
 		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']">
 			<hj:ignored/>
 		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']//xs:element[@ref='gml:pointRep']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentType']//xs:element[@ref='gml:coordinates']">
-			<hj:ignored/>
-		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']//xs:element[@ref='gml:pointRep']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ArcStringType']//xs:element[@ref='gml:coordinates']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcType']">
@@ -800,15 +773,6 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']//xs:element[@ref='gml:pointRep']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']//xs:element[@ref='gml:coordinates']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ArcByCenterPointType']//xs:element[@ref='gml:pointProperty']">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CircleByCenterPointType']">
@@ -836,9 +800,6 @@
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ClothoidType']">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='ClothoidType']//xs:element[@name='refLocation']/xs:complexType">
 			<hj:ignored/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='GeodesicStringType']">
@@ -892,9 +853,6 @@
 		<jaxb:bindings node="//xs:complexType[@name='TinType']">
 			<hj:ignored/>
 		</jaxb:bindings>
-		<jaxb:bindings node="//xs:complexType[@name='TinType']//xs:element[@name='controlPoint']/xs:complexType">
-			<hj:ignored/>
-		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='LineStringSegmentArrayPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -919,12 +877,6 @@
 		<jaxb:bindings node="//xs:group[@name='PointGrid']//xs:element[@name='rows']">
 			<!-- ** Backwards incompatible -->
 			<jaxb:property name="PointGridRows"/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:group[@name='PointGrid']//xs:element[@name='rows']/xs:complexType">
-			<hj:ignored/>
-		</jaxb:bindings>
-		<jaxb:bindings node="//xs:group[@name='PointGrid']//xs:element[@name='Row']/xs:complexType">
-			<hj:ignored/>
 		</jaxb:bindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../aixm/gml/3.2.1/gml.xsd" node="/xs:schema">

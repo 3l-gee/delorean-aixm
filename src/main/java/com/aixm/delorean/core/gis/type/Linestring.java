@@ -13,9 +13,9 @@ import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
-@Entity(name = "Linestring")
+@Entity(name = "LineString")
 @Table(name = "linestring", schema = "gml")
-public class Linestring extends Segment {
+public class LineString extends Segment {
 
     @Embedded
     @AttributeOverrides({

@@ -98,9 +98,7 @@ All curve segments shall have an attribute interpolation with type gml:CurveInte
 			<extension base="gml:AbstractCurveSegmentType">
 				<sequence>
 					<choice>
-						<!-- delorean hyper jaxb codgen limitation -->
-						<!-- <choice minOccurs="2" maxOccurs="unbounded"> -->
-						<choice>
+						<choice minOccurs="2" maxOccurs="unbounded">
 							<element ref="gml:pos"/>
 							<element ref="gml:pointProperty"/>
 							<element ref="gml:pointRep"/>
@@ -124,9 +122,7 @@ The content model follows the general pattern for the encoding of curve segments
 			<extension base="gml:AbstractCurveSegmentType">
 				<sequence>
 					<choice>
-						<!-- delorean hyper jaxb codgen limitation -->
-						<!-- <choice minOccurs="3" maxOccurs="unbounded"> -->
-						<choice>
+						<choice minOccurs="3" maxOccurs="unbounded">
 							<element ref="gml:pos"/>
 							<element ref="gml:pointProperty"/>
 							<element ref="gml:pointRep"/>
@@ -151,9 +147,7 @@ The content model follows the general pattern for the encoding of curve segments
 			<restriction base="gml:ArcStringType">
 				<sequence>
 					<choice>
-						<!-- delorean hyper jaxb codgen limitation -->
-						<!-- <choice minOccurs="3" maxOccurs="3"> -->
-						<choice>
+						<choice minOccurs="3" maxOccurs="3">
 							<element ref="gml:pos"/>
 							<element ref="gml:pointProperty"/>
 							<element ref="gml:pointRep"/>
