@@ -10,6 +10,9 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlTransient;
+
+import com.aixm.delorean.core.gis.type.components.SegmentType;
+
 import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -24,7 +27,7 @@ public class Segment {
 
     private static final long serialVersionUID = 20250910L;
     protected Long hjid;
-    protected Long hjversion;
+    protected Long index;
     protected String href;
     protected String title;
 
@@ -44,14 +47,13 @@ public class Segment {
         this.hjid = value;
     }
 
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
+    @Column(name ="index")
+    public Long getIndex() {
+        return index;
     }
 
-    public void sethjversion(Long value) {
-        this.hjversion = value;
+    public void setIndex(Long index) {
+        this.index = index;
     }
 
     @Column(name = "href")

@@ -51,7 +51,6 @@ public class Curve extends AbstractGMLType {
     CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "curve_id")
-    @OrderColumn(name = "segment_order")
     public List<Segment> getSegments() {
         if (segments == null) {
             segments = new ArrayList<>();

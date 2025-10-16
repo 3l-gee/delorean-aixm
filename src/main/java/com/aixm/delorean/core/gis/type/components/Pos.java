@@ -1,14 +1,20 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.core.gis.type.components;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class PosList {
+public class Pos{
+    protected Long index;
     protected String srsName;
     protected String value;
+
+    public Long getIndex() {
+        return index;
+    }
+
+    public void setIndex(Long index) {
+        this.index = index;
+    }
 
     public String getSrsName() {
         return srsName;

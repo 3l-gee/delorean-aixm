@@ -21,8 +21,6 @@ import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
 import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
-import com.aixm.delorean.core.org.gml.v_3_2.PointType;
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.util.DistanceUom;
 
@@ -30,20 +28,17 @@ import jakarta.xml.bind.JAXBElement;
 
 import java.util.List;
 
-import com.aixm.delorean.core.gis.exception.MalformedGeometryException;
 import com.aixm.delorean.core.gis.type.Curve;
-import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.Pos;
-import com.aixm.delorean.core.gis.type.PosList;
-import com.aixm.delorean.core.gis.type.SegmentType;
-import com.aixm.delorean.core.gis.type.LinestringSegment;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.core.gis.type.components.ContentType;
+import com.aixm.delorean.core.gis.type.components.DistanceType;
+import com.aixm.delorean.core.gis.type.components.PointProperty;
+import com.aixm.delorean.core.gis.type.components.Pos;
+import com.aixm.delorean.core.gis.type.components.PosList;
+import com.aixm.delorean.core.gis.type.components.SegmentType;
 import com.aixm.delorean.core.gis.type.Arc;
-import com.aixm.delorean.core.gis.type.ContentType;
 import com.aixm.delorean.core.gis.type.Geodesic;
 import com.aixm.delorean.core.gis.type.LineString;
-import com.aixm.delorean.core.gis.type.PointProperty;
+import com.aixm.delorean.core.util.HrefHelper;
 
 public class CurveGmlHelper {
     
@@ -71,8 +66,8 @@ public class CurveGmlHelper {
         // B. SRS consistency
         String geometrySrsName = curve.getSrsName() != null ? curve.getSrsName() : null;
 
-        // B. Segments parsing
-
+        // C. Segments parsing
+        Long segmentIndex = 0L;
         for (JAXBElement<? extends AbstractCurveSegmentType> segment : curve.getSegments().getAbstractCurveSegment()) {
             if (segment.getValue() == null) {
 
@@ -82,6 +77,7 @@ public class CurveGmlHelper {
             } else if (segment.getValue() instanceof ArcByCenterPointType || segment.getValue() instanceof CircleByCenterPointType) {
                 ArcByCenterPointType arcByCenterPoint = (ArcByCenterPointType) segment.getValue();
                 Arc arc = parseArcByCenterPoint(arcByCenterPoint, geometrySrsName);
+                arc.setIndex(segmentIndex);
                 result.getSegments().add(arc);
 
             } else if (segment.getValue() instanceof ArcStringByBulgeType) {
@@ -111,11 +107,13 @@ public class CurveGmlHelper {
             } else if (segment.getValue() instanceof GeodesicStringType || segment.getValue() instanceof GeodesicType) {
                 GeodesicStringType geodesicString = (GeodesicStringType) segment.getValue();
                 Geodesic geodesic = parseGeodesic(geodesicString, geometrySrsName);
+                geodesic.setIndex(segmentIndex);
                 result.getSegments().add(geodesic);
 
             } else if (segment.getValue() instanceof LineStringSegmentType) {
                 LineStringSegmentType lineStringSegment = (LineStringSegmentType) segment.getValue();
                 LineString lineString = parseLineString(lineStringSegment, geometrySrsName);
+                lineString.setIndex(segmentIndex);
                 result.getSegments().add(lineString);
 
             } else if (segment.getValue() instanceof OffsetCurveType) {
@@ -124,11 +122,10 @@ public class CurveGmlHelper {
             } else {
                 throw new IllegalArgumentException("Unsupported type " + segment.getValue().getClass().getName());
             }
+            segmentIndex++;
         }
 
-
-
-        // C. carry the AbstractGMLType attributes futrher
+        // D. carry the AbstractGMLType attributes futrher
         result.setId(curve.getId());
         result.setDescription(curve.getDescription());
         result.setIdentifier(curve.getIdentifier());
@@ -210,7 +207,6 @@ public class CurveGmlHelper {
         result.setPos(resultPos);
 
         // D. Attributes parsing
-
         if (value instanceof CircleByCenterPointType){
             result.setSegmentType(SegmentType.CIRCLE);
 
@@ -220,26 +216,22 @@ public class CurveGmlHelper {
             result.setSegmentType(SegmentType.ARC);
 
             LengthType radius = value.getRadius();
-            Double radiusValue = radius.getValue();
-            String radiusUom = radius.getUom();
-
-            result.setRadius(radiusValue);
-            result.setRadiusUom(DistanceUom.fromSymbol(radiusUom));
+            DistanceType distanceType = new DistanceType();
+            distanceType.setValue(radius.getValue()); 
+            distanceType.setUom(DistanceUom.fromSymbol(radius.getUom()));
+            result.setRadius(distanceType);
 
             AngleType startAngle = value.getStartAngle();
-            Double startAngleValue = startAngle.getValue();
-            String startAngleUom = startAngle.getUom();
-
-            result.setStartAngle(startAngleValue);
-            result.setStartAngleUom(AngleUom.fromSymbol(startAngleUom));
-
+            com.aixm.delorean.core.gis.type.components.AngleType angleType = new com.aixm.delorean.core.gis.type.components.AngleType();
+            angleType.setValue(startAngle.getValue());
+            angleType.setUom(AngleUom.fromSymbol(startAngle.getUom()));
+            result.setStartAngle(angleType);
 
             AngleType endAngle = value.getEndAngle();
-            Double endAngleValue = endAngle.getValue();
-            String endAngleUom = endAngle.getUom();
-            
-            result.setEndAngle(endAngleValue);
-            result.setEndAngleUom(AngleUom.fromSymbol(endAngleUom));
+            com.aixm.delorean.core.gis.type.components.AngleType endAngleType = new com.aixm.delorean.core.gis.type.components.AngleType();
+            endAngleType.setValue(endAngle.getValue());
+            endAngleType.setUom(AngleUom.fromSymbol(endAngle.getUom()));
+            result.setEndAngle(endAngleType);
 
             return result;
 
@@ -304,6 +296,7 @@ public class CurveGmlHelper {
             List<JAXBElement<?>> geometricPositionGroup = value.getPosOrPointPropertyOrPointRep();
             result.setContentType(ContentType.POINTPROPERTY);
 
+            Long index = 0L;
             for (JAXBElement<?> obj : geometricPositionGroup) {
                 if (obj.getValue() instanceof DirectPositionType) {
                     DirectPositionType directPosition = (DirectPositionType) obj.getValue();
@@ -332,6 +325,7 @@ public class CurveGmlHelper {
                     // C. coordinates parsing
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
                     Pos resultPos = new Pos();
+                    resultPos.setIndex(index);
                     resultPos.setValue(geomWkt);
                     resultPos.setSrsName(srsName);
                     result.getPos().add(resultPos);
@@ -349,14 +343,14 @@ public class CurveGmlHelper {
                     }
 
                     // C. Attributes parsing
-                    PointProperty pointProperty = new PointProperty();
-                    pointProperty.setHref(point.getHref());
-                    pointProperty.setTitle(point.getSimpleLinkTitle());
+                    PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
+                    pointProperty.setIndex(index);
                     result.getPointProperty().add(pointProperty);
 
                 } else {
                     throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
                 }
+                index++;
             }
 
             return result;
@@ -421,6 +415,7 @@ public class CurveGmlHelper {
             List<Object> geometricPositionGroup = value.getGeometricPositionGroup();
             result.setContentType(ContentType.POINTPROPERTY);
 
+            Long index = 0L;
             for (Object obj : geometricPositionGroup) {
                 if (obj instanceof DirectPositionType) {
                     DirectPositionType directPosition = (DirectPositionType) obj;
@@ -449,6 +444,7 @@ public class CurveGmlHelper {
                     // C. coordinates parsing
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
                     Pos resultPos = new Pos();
+                    resultPos.setIndex(index);
                     resultPos.setValue(geomWkt);
                     resultPos.setSrsName(srsName);
                     result.getPos().add(resultPos);
@@ -466,14 +462,14 @@ public class CurveGmlHelper {
                     }
 
                     // C. Attributes parsing
-                    PointProperty pointProperty = new PointProperty();
-                    pointProperty.setHref(point.getHref());
-                    pointProperty.setTitle(point.getSimpleLinkTitle());
+                    PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
+                    pointProperty.setIndex(index);
                     result.getPointProperty().add(pointProperty);
 
                 } else {
                     throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
                 }
+                index++;
             }
 
             return result;

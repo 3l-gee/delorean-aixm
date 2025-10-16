@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.Pos;
+import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 
 import jakarta.xml.bind.JAXBContext;
@@ -194,30 +194,26 @@ public class PointGMLTest {
             """), // missing srsName
 
             Arguments.of("""
-                <gml:Point srsName="urn:ogc:def:crs:EPSG::9999"
-                    xmlns:gml="http://www.opengis.net/gml/3.2">
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::9999" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:pos>52.3 -32.3</gml:pos>
                 </gml:Point>
             """), // unsupported EPSG
 
             Arguments.of("""
-                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326"
-                    xmlns:gml="http://www.opengis.net/gml/3.2">
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:pos>52.3 -32.3</gml:pos>
                     <gml:coordinates>52.3,-32.3</gml:coordinates>
                 </gml:Point>
             """), // both pos & coordinates
 
             Arguments.of("""
-                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326"
-                    xmlns:gml="http://www.opengis.net/gml/3.2">
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:coordinates>52.3,-32.3</gml:coordinates>
                 </gml:Point>
             """), // deprecated ues of coordinates
 
             Arguments.of("""
-                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326"
-                    xmlns:gml="http://www.opengis.net/gml/3.2">
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                 </gml:Point>
             """) // missing pos/coordinates entirely
         );

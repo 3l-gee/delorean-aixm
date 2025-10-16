@@ -1,9 +1,9 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.core.gis.type.components;
 
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class Pos{
+public class PosList {
     protected String srsName;
     protected String value;
 

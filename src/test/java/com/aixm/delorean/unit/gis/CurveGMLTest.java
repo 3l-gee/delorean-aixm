@@ -12,13 +12,22 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.ContentType;
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.LineString;
 import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.PosList;
 import com.aixm.delorean.core.gis.type.Segment;
-import com.aixm.delorean.core.gis.type.SegmentType;
+import com.aixm.delorean.core.gis.type.Arc;
+import com.aixm.delorean.core.gis.type.components.DistanceType;
+import com.aixm.delorean.core.gis.type.components.AngleType;
+import com.aixm.delorean.core.gis.type.components.ContentType;
+import com.aixm.delorean.core.gis.type.components.HrefType;
+import com.aixm.delorean.core.gis.type.components.PointProperty;
+import com.aixm.delorean.core.gis.type.components.Pos;
+import com.aixm.delorean.core.gis.type.components.PosList;
+import com.aixm.delorean.core.gis.type.components.SegmentType;
+import com.aixm.delorean.core.gis.type.components.AngleType;
+import com.aixm.delorean.core.util.DistanceUom;
+import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 
@@ -82,17 +91,216 @@ public class CurveGMLTest {
                 """,
                 new Curve() {{
                     setId("c1");
-                    setSegments(List.of(new LineString() {{
-                        setPosList(new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
+                    setSegments(List.of(
+                        new LineString() {{
+                            setIndex(0L);
                             setSegmentType(SegmentType.LINE);
                             setContentType(ContentType.POSLIST);
-                        }});
+                            setPosList(
+                                new PosList() {{
+                                    setSrsName("4326");
+                                    setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
+                            }});
                     }}));
                 }} 
-            ) // Standard urn case, EPSG:4326, LineStringSegment lat lon order
-    );
+            ), // urn EPSG:4326 LineStringSegment posList case, lat lon order
+            Arguments.of("""
+                    <gml:Curve srsName="http://www.opengis.net/def/crs/EPSG/0/4326" gml:id="c2" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                """,
+                new Curve() {{
+                    setId("c2");
+                    setSegments(List.of(
+                        new LineString() {{
+                            setIndex(0L);
+                            setSegmentType(SegmentType.LINE);
+                            setContentType(ContentType.POSLIST);
+                            setPosList(
+                                new PosList() {{
+                                    setSrsName("4326");
+                                    setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
+
+                            }});
+                    }}));
+                }} 
+            ), // url EPSG:4326 LineStringSegment posList case, lat lon order
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos>38.89763528280979 -77.03654820204511</gml:pos>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                """,
+                new Curve() {{
+                    setId("c3");
+                    setSegments(List.of(
+                        new LineString() {{
+                            setIndex(0L);
+                            setSegmentType(SegmentType.LINE);
+                            setContentType(ContentType.POINTPROPERTY);
+                            setPos(List.of(
+                                new Pos() {{
+                                    setIndex(0L);
+                                    setSrsName("4326");
+                                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                                }},
+                                new Pos() {{
+                                    setIndex(1L);
+                                    setSrsName("4326");
+                                    setValue("POINT(38.89763528280979 -77.03654820204511)");
+                                }}
+                            ));
+                    }}));
+                }} 
+            ), // urn EPSG:4326, LineStringSegment list of pos, lat lon order
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c4" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external curve"/>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                """,
+                new Curve() {{
+                    setId("c4");
+                    setSegments(List.of(
+                        new LineString() {{     
+                            setIndex(0L);
+                            setSegmentType(SegmentType.LINE);
+                            setContentType(ContentType.POINTPROPERTY);
+                            setPos(List.of(
+                                new Pos() {{
+                                    setIndex(0L);
+                                    setSrsName("4326");
+                                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                                }}
+                            ));
+                            setPointProperty(List.of(
+                                new PointProperty() {{
+                                    setIndex(1L);
+                                    setHref("d163a00d-609f-4b15-9584-165f12599442");
+                                    setTitle("external curve");
+                                    setHrefType(HrefType.URN);
+                                }}
+                            ));
+                    }}));
+                }} 
+            ), // urn EPSG:4326, LineStringSegment list of pos and pointProperty, lat lon order
+            Arguments.of("""
+                    <gml:Curve gml:id="c5" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                            </gml:LineStringSegment>
+                            <gml:LineStringSegment>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:LineStringSegment>
+                            <gml:LineStringSegment>
+                                <gml:posList>-24.589287528217096 -70.1916580926402 -33.85704607534651 151.21496554537183</gml:posList>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                    """,
+                    new Curve() {{
+                        setId("c5");    
+                        setSegments(List.of(
+                            new LineString() {{
+                                setIndex(0L);
+                                setSegmentType(SegmentType.LINE);
+                                setContentType(ContentType.POSLIST);
+                                setPosList(
+                                    new PosList() {{
+                                        setSrsName("4326");
+                                        setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
+                                    }}
+                                );
+                        }},
+                            new LineString() {{
+                                setIndex(1L);
+                                setSegmentType(SegmentType.LINE);
+                                setContentType(ContentType.POINTPROPERTY);
+                                setPos(List.of(
+                                    new Pos() {{
+                                        setIndex(0L);
+                                        setSrsName("4326");
+                                        setValue("POINT(38.89763528280979 -77.03654820204511)");
+                                    }},
+                                    new Pos() {{
+                                        setIndex(1L);
+                                        setSrsName("4326");
+                                        setValue("POINT(-24.589287528217096 -70.1916580926402)");
+                                    }}
+                                ));
+                        }},
+                            new LineString() {{
+                                setIndex(2L);
+                                setSegmentType(SegmentType.LINE);
+                                setContentType(ContentType.POSLIST);
+                                setPosList(
+                                    new PosList() {{
+                                        setSrsName("4326");
+                                        setValue("LINESTRING(-24.589287528217096 -70.1916580926402, -33.85704607534651 151.21496554537183)");
+                                }});
+                        }}
+                        ));
+                    }}
+            ), // urn EPSG:4326, LineStringSegment posList and pos, lat lon order
+            Arguments.of("""
+                    <gml:Curve gml:id="C6" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                                <gml:ArcByCenterPoint numArc="1">
+									<gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+									<gml:radius uom="NM">20</gml:radius>
+									<gml:startAngle uom="deg">0.00000</gml:startAngle>
+									<gml:endAngle uom="deg">90.00000</gml:endAngle>
+								</gml:ArcByCenterPoint>
+                        </gml:segments>
+                    </gml:Curve>
+                    """,
+                    new Curve() {{
+                        setId("c6");
+                        setSegments(List.of(
+                            new Arc() {{
+                                setIndex(0L);
+                                setSegmentType(SegmentType.ARC);
+                                setRadius(
+                                    new DistanceType() {{
+                                        setValue(20.0);
+                                        setUom(DistanceUom.NM);
+                                }});
+                                setStartAngle(
+                                    new AngleType() {{
+                                        setValue(0.0);
+                                        setUom(AngleUom.DEG);
+                                }});
+                                setEndAngle(
+                                    new AngleType() {{
+                                        setValue(90.0);
+                                        setUom(AngleUom.DEG);
+                                }});
+                                setPos(
+                                    new Pos() {{
+                                        setIndex(0L);
+                                        setSrsName("4326");
+                                        setValue("POINT(52.51630693440871 13.377717264214601)");
+                                    }}
+                                );
+                            }}
+                        ));
+                    }}
+            ) // urn EPSG:4326, ArcByCenterPoint case
+    );      
     }
 
 
@@ -148,8 +356,54 @@ public class CurveGMLTest {
     // NEGATIVE TESTS
     // -------------------------------------------------------------------------
 
-    void parseErroneousGMLCurve() {
-        // TODO
+    static Stream<Arguments> PrintErroneousGMLCurve() {
+        return Stream.of(
+            Arguments.of("""
+                    <gml:Curve gml:id="c1" xmlns:gml="http://www.opengis.net/gml/3.2">  
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:pos srsName="urn:ogc:def:crs:EPSG::4258">52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos srsName="urn:ogc:def:crs:EPSG::4326">38.89763528280979 -77.03654820204511</gml:pos>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                    """
+            ), // missing geometry srsName
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::9999" gml:id="c2" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+                    """
+            ), // unsupported srsName
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:LineStringSegment>
+                                <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:LineStringSegment>
+                        </gml:segments>
+                    </gml:Curve>
+            """) // use of posList and pos
+        );
+    }
+
+    @ParameterizedTest()
+    @MethodSource("PrintErroneousGMLCurve")
+    @DisplayName("Reject erroneous GML Curves")
+    void parseErroneousGMLCurve(String xml) throws Exception {
+
+        // given
+        CurveType curve = loadFromXml(xml, CurveType.class);
+
+        // do + check
+        assertThatThrownBy(() -> CurveGmlHelper.parseGMLCurve(curve, Curve.class))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     void marshallErroneousGMLCurve() {

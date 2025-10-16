@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
-import com.aixm.delorean.core.gis.type.Pos;
+import com.aixm.delorean.core.gis.type.components.AngleType;
+import com.aixm.delorean.core.gis.type.components.DistanceType;
+import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.util.DistanceUom;
 
@@ -16,12 +18,9 @@ import com.aixm.delorean.core.util.DistanceUom;
 public class Arc extends Segment {
 
     protected Pos pos;
-    protected Double radius;
-    protected DistanceUom radiusUom;
-    protected Double startAngle;
-    protected AngleUom startAngleUom;
-    protected Double endAngle;
-    protected AngleUom endAngleUom;
+    protected DistanceType radius;
+    protected AngleType startAngle;
+    protected AngleType endAngle;
     
     @Embedded
     @AttributeOverrides({
@@ -36,60 +35,43 @@ public class Arc extends Segment {
         this.pos = pos;
     }
 
-    @Column(name = "radius")
-    public Double getRadius() {
+    @Embedded
+    @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "radius_value")),
+        @jakarta.persistence.AttributeOverride(name = "uom", column = @Column(name = "radius_uom", length = 10))
+    })
+    public DistanceType getRadius() {
         return radius;
     }
 
-    public void setRadius(Double radius) {
+    public void setRadius(DistanceType radius) {
         this.radius = radius;
     }
 
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "radius_uom", length = 10, nullable = false)
-    public DistanceUom getRadiusUom() {
-        return radiusUom;
-    }
 
-    public void setRadiusUom(DistanceUom radiusUom) {
-        this.radiusUom = radiusUom;
-    }
-
-    @Column(name = "start_angle")
-    public Double getStartAngle() {
+    @Embedded
+    @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "start_angle_value")),
+        @jakarta.persistence.AttributeOverride(name = "uom", column = @Column(name = "start_angle_uom", length = 10))
+    })
+    public AngleType getStartAngle() {
         return startAngle;
     }
 
-    public void setStartAngle(Double startAngle) {
+    public void setStartAngle(AngleType startAngle) {
         this.startAngle = startAngle;
     }
 
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "start_angle_uom",length = 10)
-    public AngleUom getStartAngleUom() {
-        return startAngleUom;
-    }
-
-    public void setStartAngleUom(AngleUom startAngleUom) {
-        this.startAngleUom = startAngleUom;
-    }
-
-    @Column(name = "end_angle")
-    public Double getEndAngle() {
+    @Embedded
+    @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "end_angle_value")),
+        @jakarta.persistence.AttributeOverride(name = "uom", column = @Column(name = "end_angle_uom", length = 10))
+    })
+    public AngleType getEndAngle() {
         return endAngle;
     }
 
-    public void setEndAngle(Double endAngle) {
+    public void setEndAngle(AngleType endAngle) {
         this.endAngle = endAngle;
-    }
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "end_angle_uom", length = 10)
-    public AngleUom getEndAngleUom() {
-        return endAngleUom;
-    }
-
-    public void setEndAngleUom(AngleUom endAngleUom) {
-        this.endAngleUom = endAngleUom;
     }
 }
