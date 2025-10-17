@@ -141,16 +141,16 @@ public class CurveGmlHelper {
             throw new IllegalArgumentException("<gml:ArcByCenterPointType> cannot be null.");
         }
 
-        if (value.getPos() == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> can not be null.");
+        if (value.getPos() == null && value.getPointProperty() == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> or <gml:pointProperty> can not be null.");
+        }
+
+        if (value.getPos() != null && value.getPointProperty() != null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> and <gml:pointProperty> can not be both set.");
         }
 
         if (value.getRadius() == null) {
             throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:radius> can not be null.");
-        }
-
-        if (geometrySrsName != null && value.getPos().getSrsName() == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> or <gml:pos> must specify an srsName.");
         }
 
         if (value instanceof CircleByCenterPointType){
@@ -179,36 +179,36 @@ public class CurveGmlHelper {
         Arc result = new Arc();
 
         // B. SRS consistency
-        String posSrsName = value.getPos() != null ? value.getPos().getSrsName() : null;
-        String effectiveSrsName;
-        if (geometrySrsName != null && posSrsName != null) {
-            if (!geometrySrsName.equals(posSrsName)) {
-                throw new IllegalArgumentException(String.format(
-                    "<gml:PointType> and <gml:pos> must specify the same srsName."));
-            }
-            // both set, same CRS
-            effectiveSrsName = geometrySrsName;
-        } else if (geometrySrsName != null) {
-            effectiveSrsName = geometrySrsName;
-        } else if (posSrsName != null) {
-            effectiveSrsName = posSrsName;
-        } else {
-            throw new IllegalArgumentException("<gml:PointType> or <gml:pos> must specify an srsName.");
-        }
-
-        String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
+        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
         // C. coordinates parsing
-        String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
-        Pos resultPos = new Pos();
-        resultPos.setValue(geomWkt);
-        resultPos.setSrsName(srsName);
-        result.setPos(resultPos);
+        if (value.getPos() != null) {
+            String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
+            Pos resultPos = new Pos();
+            resultPos.setValue(geomWkt);
+            resultPos.setSrsName(srsName);
+            resultPos.setIndex(0L);
+            result.setPos(resultPos);
+
+        } else if (value.getPointProperty() != null) {
+            PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+            pointProperty.setIndex(0L);
+            result.setPointProperty(pointProperty);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported type " + value.getClass().getName());
+        }
 
         // D. Attributes parsing
         if (value instanceof CircleByCenterPointType){
             result.setSegmentType(SegmentType.CIRCLE);
+
+            LengthType radius = value.getRadius();
+            DistanceType distanceType = new DistanceType();
+            distanceType.setValue(radius.getValue()); 
+            distanceType.setUom(DistanceUom.fromSymbol(radius.getUom()));
+            result.setRadius(distanceType);
 
             return result;
 
@@ -261,26 +261,8 @@ public class CurveGmlHelper {
     
         if (value.getPosList() != null) {
             // B. SRS consistency
-            String posSrsName = value.getPosList().getSrsName() != null ? value.getPosList().getSrsName() : null;
-
-            String effectiveSrsName;
-            if (geometrySrsName != null && posSrsName != null) {
-                if (!geometrySrsName.equals(posSrsName)) {
-                    throw new IllegalArgumentException(String.format(
-                        "<gml:PointType> and <gml:pos> must specify the same srsName."));
-                }
-                // both set, same CRS
-                effectiveSrsName = geometrySrsName;
-            } else if (geometrySrsName != null) {
-                effectiveSrsName = geometrySrsName;
-            } else if (posSrsName != null) {
-                effectiveSrsName = posSrsName;
-            } else {
-                throw new IllegalArgumentException("<gml:PointType> or <gml:pos> must specify an srsName.");
-            }
-
-            String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
-            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
+            String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
             // C. coordinates parsing
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
@@ -302,25 +284,8 @@ public class CurveGmlHelper {
                     DirectPositionType directPosition = (DirectPositionType) obj.getValue();
 
                     // B. SRS consistency
-                    String posSrsName = directPosition.getSrsName() != null ? directPosition.getSrsName() : null;
-                    String effectiveSrsName;
-                    if (geometrySrsName != null && posSrsName != null) {
-                        if (!geometrySrsName.equals(posSrsName)) {
-                            throw new IllegalArgumentException(String.format(
-                                "<gml:CurveType> and <gml:pos> must specify the same srsName."));
-                        }
-                        // both set, same CRS
-                        effectiveSrsName = geometrySrsName;
-                    } else if (geometrySrsName != null) {
-                        effectiveSrsName = geometrySrsName;
-                    } else if (posSrsName != null) {
-                        effectiveSrsName = posSrsName;
-                    } else {
-                        throw new IllegalArgumentException("<gml:CurveType> or <gml:pos> must specify an srsName.");
-                    }
-
-                    String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
-                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
+                    String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
                     // C. coordinates parsing
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
@@ -380,26 +345,8 @@ public class CurveGmlHelper {
     
         if (value.getPosList() != null) {
             // B. SRS consistency
-            String posSrsName = value.getPosList().getSrsName() != null ? value.getPosList().getSrsName() : null;
-
-            String effectiveSrsName;
-            if (geometrySrsName != null && posSrsName != null) {
-                if (!geometrySrsName.equals(posSrsName)) {
-                    throw new IllegalArgumentException(String.format(
-                        "<gml:CurveType> and <gml:pos> must specify the same srsName."));
-                }
-                // both set, same CRS
-                effectiveSrsName = geometrySrsName;
-            } else if (geometrySrsName != null) {
-                effectiveSrsName = geometrySrsName;
-            } else if (posSrsName != null) {
-                effectiveSrsName = posSrsName;
-            } else {
-                throw new IllegalArgumentException("<gml:CurveType> or <gml:pos> must specify an srsName.");
-            }
-
-            String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
-            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
+            String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
             // C. coordinates parsing
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
@@ -421,25 +368,8 @@ public class CurveGmlHelper {
                     DirectPositionType directPosition = (DirectPositionType) obj;
 
                     // B. SRS consistency
-                    String posSrsName = directPosition.getSrsName() != null ? directPosition.getSrsName() : null;
-                    String effectiveSrsName;
-                    if (geometrySrsName != null && posSrsName != null) {
-                        if (!geometrySrsName.equals(posSrsName)) {
-                            throw new IllegalArgumentException(String.format(
-                                "<gml:CurveType> and <gml:pos> must specify the same srsName."));
-                        }
-                        // both set, same CRS
-                        effectiveSrsName = geometrySrsName;
-                    } else if (geometrySrsName != null) {
-                        effectiveSrsName = geometrySrsName;
-                    } else if (posSrsName != null) {
-                        effectiveSrsName = posSrsName;
-                    } else {
-                        throw new IllegalArgumentException("<gml:CurveType> or <gml:pos> must specify an srsName.");
-                    }
-
-                    String srsName = SRSValidationHelper.parseSrsName(effectiveSrsName);
-                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(effectiveSrsName);
+                    String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
                     // C. coordinates parsing
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);

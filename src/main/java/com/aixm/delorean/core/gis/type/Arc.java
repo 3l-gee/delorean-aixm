@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.Pos;
+import com.aixm.delorean.core.gis.type.components.PointProperty;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.util.DistanceUom;
 
@@ -18,12 +19,14 @@ import com.aixm.delorean.core.util.DistanceUom;
 public class Arc extends Segment {
 
     protected Pos pos;
+    protected PointProperty pointProperty;
     protected DistanceType radius;
     protected AngleType startAngle;
     protected AngleType endAngle;
     
     @Embedded
     @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "id", column = @Column(name = "pos_id")), 
         @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
         @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
     })
@@ -33,6 +36,21 @@ public class Arc extends Segment {
 
     public void setPos(Pos pos) {
         this.pos = pos;
+    }
+
+    @Embedded
+    @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "id", column = @Column(name = "pos_id")),
+        @jakarta.persistence.AttributeOverride(name = "href", column = @Column(name = "href", length = 256)),
+        @jakarta.persistence.AttributeOverride(name = "title", column = @Column(name = "title", length = 256)),
+        @jakarta.persistence.AttributeOverride(name = "hrefType", column = @Column(name = "href_type", length = 20))
+    })
+    public PointProperty getPointProperty() {
+        return pointProperty;
+    }
+
+    public void setPointProperty(PointProperty pointProperty) {
+        this.pointProperty = pointProperty;
     }
 
     @Embedded

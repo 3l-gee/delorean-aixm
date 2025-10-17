@@ -19,10 +19,6 @@ public class HrefHelper {
             href = href.substring(href.lastIndexOf(':') + 1);
         } else if (href.startsWith("http://") || href.startsWith("https://")) {
             type = HrefType.URL;
-            int idx = href.lastIndexOf('/');
-            if (idx != -1 && idx < href.length() - 1) {
-                href = href.substring(idx + 1);
-            }
         } else if (href.startsWith("#")) {
             type = HrefType.XML;
             href = href.substring(1);
