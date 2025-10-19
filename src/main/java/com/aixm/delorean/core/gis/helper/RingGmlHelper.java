@@ -6,7 +6,7 @@ import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
 
-public class RingGMLHelper {
+public class RingGmlHelper {
     
     public static Ring parseRing (RingType ring, String parentSrsName) {
         Ring result = new Ring();

@@ -76,7 +76,7 @@ public class SurfaceGmlHelper {
         Long exteriorRingIndex = 0L;
         if (polygonPatch.getExterior().getAbstractRing().getValue() instanceof RingType) {
             exteriorRing = (RingType) polygonPatch.getExterior().getAbstractRing().getValue();
-            Ring parsed = RingGMLHelper.parseRing(exteriorRing, geometrySrsName);
+            Ring parsed = RingGmlHelper.parseRing(exteriorRing, geometrySrsName);
             parsed.setIndex(exteriorRingIndex);
             result.setExterior(parsed);
 
@@ -93,7 +93,7 @@ public class SurfaceGmlHelper {
         for (AbstractRingPropertyType ringElement : polygonPatch.getInterior()) {
             if (ringElement.getAbstractRing().getValue() instanceof RingType) {
                 interiorRing = (RingType) ringElement.getAbstractRing().getValue();
-                Ring parsed = RingGMLHelper.parseRing(interiorRing, geometrySrsName);
+                Ring parsed = RingGmlHelper.parseRing(interiorRing, geometrySrsName);
                 parsed.setIndex(interiorRingIndex);
                 result.getInterior().add(parsed);
 

@@ -24,8 +24,6 @@ public class Segment {
 
     protected Long hjid;
     protected Long index;
-    protected String href;
-    protected String title;
 
     @Enumerated(jakarta.persistence.EnumType.STRING)
     @Column(name = "segment_type", length = 10, nullable = false)
@@ -50,24 +48,6 @@ public class Segment {
 
     public void setIndex(Long index) {
         this.index = index;
-    }
-
-    @Column(name = "href")
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String value) {
-        this.href = value;
-    }
-
-    @Column(name = "title")
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String value) {
-        this.title = value;
     }
 
     public SegmentType getSegmentType() {

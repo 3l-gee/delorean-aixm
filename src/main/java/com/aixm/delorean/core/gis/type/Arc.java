@@ -4,9 +4,11 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 import com.aixm.delorean.core.gis.type.components.AngleType;
+import com.aixm.delorean.core.gis.type.components.ContentType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PointProperty;
@@ -20,6 +22,7 @@ public class Arc extends Segment {
     protected DistanceType radius;
     protected AngleType startAngle;
     protected AngleType endAngle;
+    protected ContentType contentType;
     
     @Embedded
     @AttributeOverrides({
@@ -88,5 +91,15 @@ public class Arc extends Segment {
 
     public void setEndAngle(AngleType endAngle) {
         this.endAngle = endAngle;
+    }
+
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(name = "content_type", length = 20, nullable = false)
+    public ContentType getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(ContentType contentType) {
+        this.contentType = contentType;
     }
 }

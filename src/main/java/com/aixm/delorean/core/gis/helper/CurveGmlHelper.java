@@ -194,11 +194,13 @@ public class CurveGmlHelper {
             resultPos.setSrsName(srsName);
             resultPos.setIndex(0L);
             result.setPos(resultPos);
+            result.setContentType(ContentType.OBJECT);
 
         } else if (value.getPointProperty() != null) {
             PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
             pointProperty.setIndex(0L);
             result.setPointProperty(pointProperty);
+            result.setContentType(ContentType.REFERENCE);
 
         } else {
             throw new IllegalArgumentException("Unsupported type " + value.getClass().getName());
