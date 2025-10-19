@@ -1,19 +1,23 @@
 package com.aixm.delorean.core.gis.type;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 
 @Entity(name = "Surface")
 @Table(name = "abstract_surface", schema = "gml")
@@ -21,8 +25,9 @@ import jakarta.persistence.InheritanceType;
 public class Surface extends AbstractGMLType {
 
     protected Long hjid;
-    protected String srsName;
-    protected String geomWkt;
+    protected Ring exterior;
+    protected List<Ring> interior;
+
 
     @Id
     @Column(name = "HJID")
@@ -36,21 +41,31 @@ public class Surface extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @Column(name = "srs_name")
-    public String getSrsName() {
-        return srsName;
+    @OneToMany(targetEntity = Segment.class, cascade = {
+    CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "exterior_id")
+    public Ring getExterior() {
+        return exterior;
     }
 
-    public void setSrsName(String value) {
-        this.srsName = value;
+    public void setExterior(Ring value) {
+        this.exterior = value;
     }
 
-    @Column(name = "geom_wkt", length = 2048)
-    public String getGeomWkt() {
-        return geomWkt;
+    @OneToMany(targetEntity = Segment.class, cascade = {
+    CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "interior_id")
+    public List<Ring> getInterior() {
+        if (interior == null) {
+            interior = new ArrayList<>();
+        }
+        return interior;
     }
 
-    public void setGeomWkt(String value) {
-        this.geomWkt = value;
+    public void setInterior(List<Ring> value) {
+        this.interior = value;
     }
+
 }

@@ -10,8 +10,6 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 import com.aixm.delorean.core.schema.a5_2.aixm.CurveType;
 import com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension;
 import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
-import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType;
-import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension;
 import com.aixm.delorean.core.schema.a5_2.aixm.ValDistanceType;
 
 import jakarta.persistence.AttributeOverride;
@@ -20,21 +18,14 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlTransient;
 
 @Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanCurveType")

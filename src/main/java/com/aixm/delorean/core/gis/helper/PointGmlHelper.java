@@ -33,7 +33,7 @@ public class PointGmlHelper {
         }
 
         if (point.getSrsName() == null && point.getPos().getSrsName() == null) {
-            throw new IllegalArgumentException("<gml:PointType> or <gml:pos> must specify an srsName.");
+            throw new IllegalArgumentException("<gml:PointType> or <gml:pos> srsName cannot be null.");
         }
 
         // B. SRS consistency
@@ -44,7 +44,7 @@ public class PointGmlHelper {
         if (geometrySrsName != null && posSrsName != null) {
             if (!geometrySrsName.equals(posSrsName)) {
                 throw new IllegalArgumentException(String.format(
-                    "<gml:PointType> and <gml:pos> must specify the same srsName."));
+                    "<gml:PointType> and <gml:pos> srsName cannot be null."));
             }
             // both set, same CRS
             effectiveSrsName = geometrySrsName;

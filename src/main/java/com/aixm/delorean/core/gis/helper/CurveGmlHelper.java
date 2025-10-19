@@ -41,8 +41,12 @@ import com.aixm.delorean.core.gis.type.LineString;
 import com.aixm.delorean.core.util.HrefHelper;
 
 public class CurveGmlHelper {
-    
+
     public static <T extends Curve> T parseGMLCurve(CurveType curve, Class<T> targetType) {
+        return parseGMLCurve(curve, targetType, null);
+    }
+
+    public static <T extends Curve> T parseGMLCurve(CurveType curve, Class<T> targetType, String parentSrsName) {
         T result;
         try {
             result = targetType.getDeclaredConstructor().newInstance();
@@ -59,12 +63,12 @@ public class CurveGmlHelper {
             throw new IllegalArgumentException("<gml:CurveType> Content <gml:segments> can not be null.");
         }
 
-        if (curve.getSrsName() == null) {
-            throw new IllegalArgumentException("<gml:CurveType> must specify an srsName");
+        if (curve.getSrsName() == null && parentSrsName == null) {
+            throw new IllegalArgumentException("<gml:CurveType> or parent srsName cannot be null.");
         }
 
         // B. SRS consistency
-        String geometrySrsName = curve.getSrsName() != null ? curve.getSrsName() : null;
+        String geometrySrsName = curve.getSrsName() != null ? curve.getSrsName() : parentSrsName;
 
         // C. Segments parsing
         Long segmentIndex = 0L;
@@ -120,7 +124,7 @@ public class CurveGmlHelper {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC6 : OffsetCurveType is not supported");
 
             } else {
-                throw new IllegalArgumentException("Unsupported type " + segment.getValue().getClass().getName());
+                throw new IllegalArgumentException("<gml:CurveSegmentType> Unsupported type : " + segment.getValue().getClass().getName());
             }
             segmentIndex++;
         }
@@ -270,13 +274,13 @@ public class CurveGmlHelper {
             resultPosList.setValue(geomWkt);
             resultPosList.setSrsName(srsName);
             result.setPosList(resultPosList);
-            result.setContentType(ContentType.POSLIST);
+            result.setContentType(ContentType.OBJECT);
 
             return result;
 
         } else if (value.getPosOrPointPropertyOrPointRep() != null && !value.getPosOrPointPropertyOrPointRep().isEmpty()) {
             List<JAXBElement<?>> geometricPositionGroup = value.getPosOrPointPropertyOrPointRep();
-            result.setContentType(ContentType.POINTPROPERTY);
+            result.setContentType(ContentType.REFERENCE);
 
             Long index = 0L;
             for (JAXBElement<?> obj : geometricPositionGroup) {
@@ -354,13 +358,13 @@ public class CurveGmlHelper {
             resultPosList.setValue(geomWkt);
             resultPosList.setSrsName(srsName);
             result.setPosList(resultPosList);
-            result.setContentType(ContentType.POSLIST);
+            result.setContentType(ContentType.OBJECT);
 
             return result;
 
         } else if (value.getGeometricPositionGroup() != null && !value.getGeometricPositionGroup().isEmpty()) {
             List<Object> geometricPositionGroup = value.getGeometricPositionGroup();
-            result.setContentType(ContentType.POINTPROPERTY);
+            result.setContentType(ContentType.REFERENCE);
 
             Long index = 0L;
             for (Object obj : geometricPositionGroup) {

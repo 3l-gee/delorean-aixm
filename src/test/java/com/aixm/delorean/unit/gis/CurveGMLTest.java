@@ -74,7 +74,6 @@ public class CurveGMLTest {
         return writer.toString().trim();
     }
 
-    
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
     // -------------------------------------------------------------------------
@@ -96,7 +95,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -120,7 +119,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -146,7 +145,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POINTPROPERTY);
+                            setContentType(ContentType.REFERENCE);
                             setPos(List.of(
                                 new Pos() {{
                                     setIndex(0L);
@@ -178,7 +177,7 @@ public class CurveGMLTest {
                         new LineString() {{     
                             setIndex(0L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POINTPROPERTY);
+                            setContentType(ContentType.REFERENCE);
                             setPos(List.of(
                                 new Pos() {{
                                     setIndex(0L);
@@ -219,7 +218,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -230,7 +229,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(1L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POINTPROPERTY);
+                            setContentType(ContentType.REFERENCE);
                             setPos(List.of(
                                 new Pos() {{
                                     setIndex(0L);
@@ -247,7 +246,7 @@ public class CurveGMLTest {
                         new LineString() {{
                             setIndex(2L);
                             setSegmentType(SegmentType.LINE);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -516,7 +515,7 @@ public class CurveGMLTest {
                         new Geodesic() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.GEODESIC);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -542,7 +541,7 @@ public class CurveGMLTest {
                         new Geodesic() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.GEODESIC);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");
@@ -557,7 +556,7 @@ public class CurveGMLTest {
                 <gml:Curve gml:id="c14" srsName="urn:ogc:def:crs:OGC:1.3:CRS84" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
                         <gml:Geodesic>
-                            <gml:posList>38.89763528280979 -77.03654820204511 52.51630693440871 13.377717264214601 </gml:posList>
+                            <gml:posList>13.377717264214601 52.51630693440871 -77.03654820204511 38.89763528280979</gml:posList>
                         </gml:Geodesic>
                     </gml:segments>
                 </gml:Curve>
@@ -568,7 +567,7 @@ public class CurveGMLTest {
                         new Geodesic() {{
                             setIndex(0L);
                             setSegmentType(SegmentType.GEODESIC);
-                            setContentType(ContentType.POSLIST);
+                            setContentType(ContentType.OBJECT);
                             setPosList(
                                 new PosList() {{
                                     setSrsName("4326");

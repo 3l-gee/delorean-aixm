@@ -4,15 +4,12 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PointProperty;
-import com.aixm.delorean.core.util.AngleUom;
-import com.aixm.delorean.core.util.DistanceUom;
 
 @Entity(name = "Arc")
 @Table(name = "arc", schema = "gml")

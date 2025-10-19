@@ -7,9 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Version;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlTransient;
 
 import com.aixm.delorean.core.gis.type.components.SegmentType;
 
@@ -25,7 +22,6 @@ import jakarta.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Segment {
 
-    private static final long serialVersionUID = 20250910L;
     protected Long hjid;
     protected Long index;
     protected String href;
