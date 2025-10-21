@@ -1730,6 +1730,7 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.gis.type.Arc.class,
             com.aixm.delorean.core.gis.type.LineString.class,
             com.aixm.delorean.core.gis.type.Ring.class,
+            com.aixm.delorean.core.gis.type.Circle.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AIXMPointPropertyType.class,
             com.aixm.delorean.core.schema.a5_2.aixm.PointTypeExtension.class,
             com.aixm.delorean.core.schema.a5_2.aixm.AIXMElevatedPointPropertyType.class,

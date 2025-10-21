@@ -65,49 +65,73 @@ public class PointGMLTest {
         return Stream.of(
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="p1" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>52.3 -32.4</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            "p1",
-            "4326",
-            "POINT(52.3 -32.4)"), // Standard urn case, EPSG:4326, lat lon order
+            GisUtil.point(
+                "p1",
+                new Pos() {{
+                    setSrsName("4326");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
+            ), // Standard urn case, EPSG:4326, lat lon order
 
             Arguments.of("""
                 <gml:Point srsName="https://www.opengis.net/def/crs/EPSG/0/4326" gml:id="p2" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>52.3 -32.4</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            "p2",
-            "4326",
-            "POINT(52.3 -32.4)"), // Standard https case, EPSG:4326, lat lon order
+            GisUtil.point(
+                "p2",
+                new Pos() {{
+                    setSrsName("4326");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
+            ), // Standard https case, EPSG:4326, lat lon order
 
             Arguments.of("""
                 <gml:Point srsName="http://www.opengis.net/def/crs/EPSG/0/4326" gml:id="p3" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>52.3 -32.4</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            "p3",
-            "4326",
-            "POINT(52.3 -32.4)"), // Standard http case, EPSG:4326, lat lon order
+            GisUtil.point(
+                "p3",
+                new Pos() {{
+                    setSrsName("4326");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
+            ), // Standard http case, EPSG:4326, lat lon order
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4258" gml:id="p4" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>10.0 20.0</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            "p4",
-            "4258",
-            "POINT(10.0 20.0)"), // Standard case, EPSG:4258, lat lon order
+            GisUtil.point(
+                "p4",
+                new Pos() {{
+                    setSrsName("4258");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
+            ), // Standard case, EPSG:4258, lat lon order
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:OGC:1.3:CRS84" gml:id="p5" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>10.0 20.0</gml:pos>
+                    <gml:pos>13.377717264214601 52.51630693440871</gml:pos>
                 </gml:Point>
             """,
-            "p5",
-            "4326",
-            "POINT(20.0 10.0)") // Special case, OGC:1.3:CRS84, lon lat order$
-
+            GisUtil.point(
+                "p5",
+                new Pos() {{
+                    setSrsName("4326");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
+            ) // Special case, OGC:1.3:CRS84, lon lat order
         );
     }
     
@@ -115,7 +139,7 @@ public class PointGMLTest {
     @ParameterizedTest()
     @MethodSource("ParseValidGMLPoints")
     @DisplayName("Parse valid GML Points correctly")
-    void parseValidGMLPoint(String xml, String expectedId, String expectedSrs, String expectedWkt) throws Exception {
+    void parseValidGMLPoint(String xml, Point expectedPoint) throws Exception {
 
         // given
         PointType point = loadFromXml(xml, PointType.class);
@@ -125,41 +149,37 @@ public class PointGMLTest {
 
         // check
         assertThat(parsed).isNotNull();
-        assertThat(parsed.getId()).isEqualTo(expectedId);
-        assertThat(parsed.getPos().getSrsName()).isEqualTo(expectedSrs);
-        assertThat(parsed.getPos().getValue()).isEqualTo(expectedWkt);
+        assertThat(parsed).usingRecursiveComparison().isEqualTo(expectedPoint);
     }
 
     static Stream<Arguments> PrintValidGMLPoints() {
     return Stream.of(
         Arguments.of(
-            new Point() {{
-                setHjid(Long.valueOf(1));
-                setId("P1");
-                setPos(new Pos() {{
+            GisUtil.point(
+                "p1",
+                new Pos() {{
                     setSrsName("4326");
-                    setValue("POINT(10.0 20.0)");
-                }});
-            }},
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="P1" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                <ns1:pos>10.0 20.0</ns1:pos>
+            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="p1" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
             </ns1:Point>"""
         ),
         Arguments.of(
-            new Point() {{
-                setHjid(Long.valueOf(2));
-                setId("P2");
-                setPos(new Pos() {{
+            GisUtil.point(
+                "p2",
+                new Pos() {{
                     setSrsName("4326");
-                    setValue("POINT(-10.0 20.0)");
-                }});
-            }},
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="P2" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                <ns1:pos>-10.0 20.0</ns1:pos>
+            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="p2" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
             </ns1:Point>"""
         )
     );
@@ -189,28 +209,28 @@ public class PointGMLTest {
         return Stream.of(
             Arguments.of("""
                 <gml:Point xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>52.3 -32.3</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """), // missing srsName
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::9999" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:pos>52.3 -32.3</gml:pos>
+                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """), // unsupported EPSG
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:pos>52.3 -32.3</gml:pos>
-                    <gml:coordinates>52.3,-32.3</gml:coordinates>
+                    <gml:coordinates>52.51630693440871 13.377717264214601</gml:coordinates>
                 </gml:Point>
             """), // both pos & coordinates
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
-                    <gml:coordinates>52.3,-32.3</gml:coordinates>
+                    <gml:coordinates>52.51630693440871 13.377717264214601</gml:coordinates>
                 </gml:Point>
-            """), // deprecated ues of coordinates
+            """), // deprecated use of coordinates
 
             Arguments.of("""
                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
@@ -240,48 +260,50 @@ public class PointGMLTest {
         ), // null  DeloreanPointType
 
         Arguments.of(
-            new Point() {{
-            }}
+            GisUtil.point(
+                "p1",
+                null
+            )
         ), // Empty DeloreanPointType
 
         Arguments.of(
-            new Point() {{
-                setId("P1");
-                setPos(new Pos() {{
+            GisUtil.point(
+                "p2",
+                new Pos() {{
                     setSrsName("4326");
-                    setValue("");
-                }});
-            }}
+                    setValue(null);
+                }}
+            )
         ), // missing wkt
 
         Arguments.of(
-            new Point() {{
-                setId("P1");
-                setPos(new Pos() {{
+            GisUtil.point(
+                "p2",
+                new Pos() {{
                     setSrsName("4326");
-                    setValue("POINT(-10.0 20.0");
-                }});
-            }}
+                    setValue("POINT(52.51630693440871 13.377717264214601");
+                }}
+            )
         ), // malformed wkt
 
         Arguments.of(
-            new Point() {{
-                setId("P2");
-                setPos(new Pos() {{
-                    setSrsName("");
-                    setValue("POINT(-10.0 20.0");
-                }});
-            }} 
+             GisUtil.point(
+                "p2",
+                new Pos() {{
+                    setSrsName(null);
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
         ), // missing srs
 
         Arguments.of(
-            new Point() {{
-                setId("P2");
-                setPos(new Pos() {{
-                    setSrsName("2026");
-                    setValue("POINT(-10.0 20.0");
-                }});
-            }} 
+            GisUtil.point(
+                "p2",
+                new Pos() {{
+                    setSrsName("2056");
+                    setValue("POINT(52.51630693440871 13.377717264214601)");
+                }}
+            )
         ) // wrong srs
     );
     };

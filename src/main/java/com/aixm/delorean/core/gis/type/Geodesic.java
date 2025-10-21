@@ -43,8 +43,8 @@ public class Geodesic extends Segment {
     @ElementCollection
     @CollectionTable(name = "geodesic_pos", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
     @AttributeOverrides({
-        @jakarta.persistence.AttributeOverride(name = "id", column = @Column(name = "pos_id")),
-        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
+        @jakarta.persistence.AttributeOverride(name = "index", column = @Column(name = "index")),
+        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "srs_name", length = 128)),
         @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
     })
     @OrderColumn(name = "sequence_index")
@@ -58,8 +58,8 @@ public class Geodesic extends Segment {
 
     @ElementCollection
     @CollectionTable(name = "geodesic_point_property", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
-    @AttributeOverrides({  
-        @jakarta.persistence.AttributeOverride(name = "id", column = @Column(name = "pos_id")),
+    @AttributeOverrides({
+        @jakarta.persistence.AttributeOverride(name = "index", column = @Column(name = "index")),
         @jakarta.persistence.AttributeOverride(name = "href", column = @Column(name = "href", length = 256)),
         @jakarta.persistence.AttributeOverride(name = "title", column = @Column(name = "title", length = 256)),
         @jakarta.persistence.AttributeOverride(name = "hrefType", column = @Column(name = "href_type", length = 20))

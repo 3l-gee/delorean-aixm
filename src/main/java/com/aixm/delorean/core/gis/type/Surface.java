@@ -7,6 +7,7 @@ import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -41,7 +42,7 @@ public class Surface extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToMany(targetEntity = Segment.class, cascade = {
+    @OneToOne(targetEntity = Segment.class, cascade = {
     CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "exterior_id")

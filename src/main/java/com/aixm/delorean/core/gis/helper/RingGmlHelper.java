@@ -2,6 +2,8 @@ package com.aixm.delorean.core.gis.helper;
 
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.Ring;
+import com.aixm.delorean.core.gis.type.components.ContentType;
+import com.aixm.delorean.core.gis.type.components.CurveProperty;
 import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
@@ -21,6 +23,7 @@ public class RingGmlHelper {
         }
 
         // B. curveMember parsing
+        Long curveIndex = 0L;
         for (com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType curve : ring.getCurveMember()) {
             if (curve.getAbstractCurve() == null && curve.getHref() == null) {
                 throw new IllegalArgumentException("<gml:CurvePropertyType> Either href or AbstractCurve must be set.");
@@ -34,6 +37,8 @@ public class RingGmlHelper {
             } else if (curve.getAbstractCurve().getValue() instanceof com.aixm.delorean.core.org.gml.v_3_2.CurveType) {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 Curve parsed = CurveGmlHelper.parseGMLCurve(curveType, Curve.class, parentSrsName);
+                parsed.setContentType(ContentType.OBJECT);
+                parsed.setIndex(curveIndex);
                 result.getCurves().add(parsed);
 
             } else if (curve.getAbstractCurve().getValue() instanceof CompositeCurveType) {
@@ -45,6 +50,7 @@ public class RingGmlHelper {
             } else {
                 throw new IllegalArgumentException("<gml:RingType> Unsupported type : " + curve.getAbstractCurve().getClass().getName());
             }
+            curveIndex++;
         }
 
         return result;

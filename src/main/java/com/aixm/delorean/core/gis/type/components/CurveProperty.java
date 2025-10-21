@@ -1,18 +1,9 @@
 package com.aixm.delorean.core.gis.type.components;
 
 public class CurveProperty {
-    protected Long index;
     protected String href;
     protected String title;
     protected HrefType hrefType;
-
-    public Long getIndex() {
-        return index;
-    }
-
-    public void setIndex(Long index) {
-        this.index = index;
-    }
     
     public String getHref() {
         return href;
