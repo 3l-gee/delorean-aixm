@@ -1,8 +1,5 @@
 package com.aixm.delorean.unit.gis;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,48 +11,13 @@ import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
+import com.aixm.delorean.util.GisUtil;
+import com.aixm.delorean.util.JaxbUtil;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import java.util.stream.Stream;
-
-import javax.xml.namespace.QName;
 
 public class PointGMLTest {
     
-    @SuppressWarnings("unchecked")
-    private static <T> T loadFromXml(String xml, Class<T> type) throws Exception {
-        JAXBContext ctx = JAXBContext.newInstance(type);
-        Unmarshaller unmarshaller = ctx.createUnmarshaller();
-        Object result = unmarshaller.unmarshal(new StringReader(xml));
-        if (result instanceof JAXBElement<?>) {
-            return (T) ((JAXBElement<?>) result).getValue();
-        }
-        return type.cast(result);
-    }
-
-    private static <T> String saveToXml(T object, Class<T> type) throws Exception {
-        JAXBContext ctx = JAXBContext.newInstance(type);
-        Marshaller marshaller = ctx.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-        StringWriter writer = new StringWriter();
-
-        if (!type.isAnnotationPresent(jakarta.xml.bind.annotation.XmlRootElement.class)) {
-            String localName = type.getSimpleName().replace("Type", "");
-            QName qName = new QName("http://www.opengis.net/gml/3.2", localName);   
-            JAXBElement<T> root = new JAXBElement<>(qName, type, object);
-            marshaller.marshal(root, writer);
-        } else {
-            marshaller.marshal(object, writer);
-        }
-
-        return writer.toString().trim();
-    }
-
-
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
     // -------------------------------------------------------------------------
@@ -142,7 +104,7 @@ public class PointGMLTest {
     void parseValidGMLPoint(String xml, Point expectedPoint) throws Exception {
 
         // given
-        PointType point = loadFromXml(xml, PointType.class);
+        PointType point = JaxbUtil.loadFromXml(xml, PointType.class);
 
         // do
         Point parsed = PointGmlHelper.parseGMLPoint(point, Point.class);
@@ -194,7 +156,7 @@ public class PointGMLTest {
         PointType printed = PointGmlHelper.printGMLPoint(value, PointType.class);
 
         //do
-        String xml = saveToXml(printed, PointType.class);
+        String xml = JaxbUtil.saveToXml(printed, PointType.class);
 
         //check
         assertThat(xml).isEqualTo(expectedXml);
@@ -245,7 +207,7 @@ public class PointGMLTest {
     void parseErroneousGMLPoint(String xml) throws Exception {
 
         // given
-        PointType point = loadFromXml(xml, PointType.class);
+        PointType point = JaxbUtil.loadFromXml(xml, PointType.class);
 
         // do + check
         assertThatThrownBy(() -> PointGmlHelper.parseGMLPoint(point, Point.class))

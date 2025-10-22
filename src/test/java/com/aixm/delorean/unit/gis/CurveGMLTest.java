@@ -1,8 +1,5 @@
 package com.aixm.delorean.unit.gis;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,50 +18,17 @@ import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.components.ContentType;
 
 import com.aixm.delorean.core.util.DistanceUom;
+import com.aixm.delorean.util.GisUtil;
+import com.aixm.delorean.util.JaxbUtil;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import java.util.stream.Stream;
 
-import javax.xml.namespace.QName;
 import java.util.List;
 
 
 public class CurveGMLTest {
-    
-    @SuppressWarnings("unchecked")
-    private static <T> T loadFromXml(String xml, Class<T> type) throws Exception {
-        JAXBContext ctx = JAXBContext.newInstance(type);
-        Unmarshaller unmarshaller = ctx.createUnmarshaller();
-        Object result = unmarshaller.unmarshal(new StringReader(xml));
-        if (result instanceof JAXBElement<?>) {
-            return (T) ((JAXBElement<?>) result).getValue();
-        }
-        return type.cast(result);
-    }
-
-    private static <T> String saveToXml(T object, Class<T> type) throws Exception {
-        JAXBContext ctx = JAXBContext.newInstance(type);
-        Marshaller marshaller = ctx.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-        StringWriter writer = new StringWriter();
-
-        if (!type.isAnnotationPresent(jakarta.xml.bind.annotation.XmlRootElement.class)) {
-            String localName = type.getSimpleName().replace("Type", "");
-            QName qName = new QName("http://www.opengis.net/gml/3.2", localName);   
-            JAXBElement<T> root = new JAXBElement<>(qName, type, object);
-            marshaller.marshal(root, writer);
-        } else {
-            marshaller.marshal(object, writer);
-        }
-
-        return writer.toString().trim();
-    }
 
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
@@ -507,7 +471,7 @@ public class CurveGMLTest {
     void parseValidGMLCurve(String xml, Curve expectedCurve) throws Exception {
 
         // given
-        CurveType curve = loadFromXml(xml, CurveType.class);
+        CurveType curve = JaxbUtil.loadFromXml(xml, CurveType.class);
 
         // do
         Curve parsed = CurveGmlHelper.parseGMLCurve(curve, Curve.class);
@@ -596,7 +560,7 @@ public class CurveGMLTest {
     void parseErroneousGMLCurve(String xml) throws Exception {
 
         // given
-        CurveType curve = loadFromXml(xml, CurveType.class);
+        CurveType curve = JaxbUtil.loadFromXml(xml, CurveType.class);
 
         // do + check
         assertThatThrownBy(() -> CurveGmlHelper.parseGMLCurve(curve, Curve.class))
