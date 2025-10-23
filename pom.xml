@@ -156,6 +156,13 @@
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
         </dependency>
+
+        <!-- Mapping Dependencies -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.6.3</version>
+        </dependency>
         
         <!-- Test Dependencies -->
         <dependency>
@@ -189,18 +196,24 @@
 		<plugins>
             <!-- Java compilation -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <release>21</release>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.hibernate.orm</groupId>
-							<artifactId>hibernate-processor</artifactId>
-							<version>${hibernate.version}</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.hibernate.orm</groupId>
+                            <artifactId>hibernate-processor</artifactId>
+                            <version>${hibernate.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.6.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
 
             <!-- Unit Tests -->
@@ -252,6 +265,7 @@
 				<version>4.0.0-M12</version>
 			</plugin>
 
+            <!-- Exec Maven Plugin -->
             <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -262,6 +276,7 @@
 				</configuration>
 			</plugin>
             
+            <!-- Maven Shade Plugin to create a fat JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
