@@ -34,17 +34,17 @@ public class RingGmlHelper {
             } else if (curve.getAbstractCurve() == null && curve.getHref() != null) {
                 
         
-            } else if (curve.getAbstractCurve().getValue() instanceof com.aixm.delorean.core.org.gml.v_3_2.CurveType) {
+            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.CurveType.class) {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 Curve parsed = CurveGmlHelper.parseGMLCurve(curveType, Curve.class, parentSrsName);
                 parsed.setContentType(ContentType.OBJECT);
                 parsed.setIndex(curveIndex);
                 result.getCurves().add(parsed);
 
-            } else if (curve.getAbstractCurve().getValue() instanceof CompositeCurveType) {
+            } else if (curve.getAbstractCurve().getValue().getClass() == CompositeCurveType.class) {
                 throw new IllegalArgumentException("Delorean does not (yet) support CompositeCurveType.");
 
-            } else if (curve.getAbstractCurve().getValue() instanceof OrientableCurveType) {
+            } else if (curve.getAbstractCurve().getValue().getClass() == OrientableCurveType.class) {
                 throw new IllegalArgumentException("Delorean does not (yet) support OrientableCurveType.");
 
             } else {

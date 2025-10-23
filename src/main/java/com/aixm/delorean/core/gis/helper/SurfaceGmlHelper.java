@@ -49,21 +49,21 @@ public class SurfaceGmlHelper {
         // C. patches parsing
         PolygonPatchType polygonPatch = null;
         for (JAXBElement<? extends AbstractSurfacePatchType> patchElement : surface.getPatches().getValue().getAbstractSurfacePatch()) {
-            if (patchElement.getValue() instanceof PolygonPatchType) {
+            if (patchElement.getValue().getClass() == PolygonPatchType.class) {
                 polygonPatch = (PolygonPatchType) patchElement.getValue();
-            } else if (patchElement.getValue() instanceof RectangleType) {
+            } else if (patchElement.getValue().getClass() == RectangleType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED7 : RectangleType is not supported");
 
-            } else if (patchElement.getValue() instanceof TriangleType) {
+            } else if (patchElement.getValue().getClass() == TriangleType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED8 : TriangleType is not supported");
 
-            } else if (patchElement.getValue() instanceof ConeType) {
+            } else if (patchElement.getValue().getClass() == ConeType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED9 : ConeType is not supported");
 
-            } else if (patchElement.getValue() instanceof CylinderType) {
+            } else if (patchElement.getValue().getClass() == CylinderType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EDA : CylinderType is not supported");
 
-            } else if (patchElement.getValue() instanceof SphereType) {
+            } else if (patchElement.getValue().getClass() == SphereType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EDB : SphereType is not supported");
 
             } else {
@@ -74,13 +74,13 @@ public class SurfaceGmlHelper {
         // D. Exterior ring parsing
         RingType exteriorRing;
         Long exteriorRingIndex = 0L;
-        if (polygonPatch.getExterior().getAbstractRing().getValue() instanceof RingType) {
+        if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == RingType.class) {
             exteriorRing = (RingType) polygonPatch.getExterior().getAbstractRing().getValue();
             Ring parsed = RingGmlHelper.parseRing(exteriorRing, geometrySrsName);
             parsed.setIndex(exteriorRingIndex);
             result.setExterior(parsed);
 
-        } else if (polygonPatch.getExterior().getAbstractRing().getValue() instanceof LinearRingType) {
+        } else if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == LinearRingType.class) {
             throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED6 : LinearRingType is not supported");
 
         } else {
@@ -91,13 +91,13 @@ public class SurfaceGmlHelper {
         RingType interiorRing;
         Long interiorRingIndex = 0L;
         for (AbstractRingPropertyType ringElement : polygonPatch.getInterior()) {
-            if (ringElement.getAbstractRing().getValue() instanceof RingType) {
+            if (ringElement.getAbstractRing().getValue().getClass() == RingType.class) {
                 interiorRing = (RingType) ringElement.getAbstractRing().getValue();
                 Ring parsed = RingGmlHelper.parseRing(interiorRing, geometrySrsName);
                 parsed.setIndex(interiorRingIndex);
                 result.getInterior().add(parsed);
 
-            } else if (ringElement.getAbstractRing().getValue() instanceof LinearRingType) {
+            } else if (ringElement.getAbstractRing().getValue().getClass() == LinearRingType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3ED4 : LinearRingType is not supported");
 
             } else {

@@ -94,43 +94,43 @@ public class CurveGmlHelper {
                 arc.setIndex(segmentIndex);
                 result.getSegments().add(arc);
 
-            } else if (segment.getValue() instanceof ArcStringByBulgeType) {
+            } else if (segment.getValue().getClass() ==  ArcStringByBulgeType.class) {
                 throw new IllegalArgumentException("AIXM-RULE-1A3EC1 : ArcStringByBulgeType is not supported");
 
-            } else if (segment.getValue() instanceof ArcStringType) {
+            } else if (segment.getValue().getClass() == ArcStringType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC3 : ArcStringType is not supported");
 
-            } else if (segment.getValue() instanceof ArcType) {
+            } else if (segment.getValue().getClass() == ArcType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC3 : ArcType (extension of ArcStringType) is not supported");
 
-            } else if (segment.getValue() instanceof BSplineType) {
+            } else if (segment.getValue().getClass() == BSplineType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC4 : BSplineType is not supported");
 
-            } else if (segment.getValue() instanceof BezierType) {
+            } else if (segment.getValue().getClass() == BezierType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC5 : BezierType is not supported");
 
-            } else if (segment.getValue() instanceof CircleType) {
+            } else if (segment.getValue().getClass() == CircleType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC3 : CircleType (extension of ArcType) is not supported");
 
-            } else if (segment.getValue() instanceof ClothoidType) {
+            } else if (segment.getValue().getClass() == ClothoidType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC7 : ClothoidType is not supported");
 
-            } else if (segment.getValue() instanceof CubicSplineType) {
+            } else if (segment.getValue().getClass() == CubicSplineType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC9 : CubicSplineType is not supported");
 
-            } else if (segment.getValue() instanceof GeodesicStringType || segment.getValue() instanceof GeodesicType) {
+            } else if (segment.getValue().getClass() == GeodesicStringType.class || segment.getValue().getClass() == GeodesicType.class) {
                 GeodesicStringType geodesicString = (GeodesicStringType) segment.getValue();
                 Geodesic geodesic = parseGeodesic(geodesicString, geometrySrsName);
                 geodesic.setIndex(segmentIndex);
                 result.getSegments().add(geodesic);
 
-            } else if (segment.getValue() instanceof LineStringSegmentType) {
+            } else if (segment.getValue().getClass() == LineStringSegmentType.class) {
                 LineStringSegmentType lineStringSegment = (LineStringSegmentType) segment.getValue();
                 LineString lineString = parseLineString(lineStringSegment, geometrySrsName);
                 lineString.setIndex(segmentIndex);
                 result.getSegments().add(lineString);
 
-            } else if (segment.getValue() instanceof OffsetCurveType) {
+            } else if (segment.getValue().getClass() == OffsetCurveType.class) {
                 throw new IllegalArgumentException("AIXM-5.1_RULE-1A3EC6 : OffsetCurveType is not supported");
 
             } else {
@@ -139,7 +139,7 @@ public class CurveGmlHelper {
             segmentIndex++;
         }
 
-        // D. carry the AbstractGMLType attributes futrher
+        // D. carry the AbstractGMLType attributes further
         result.setId(curve.getId());
         result.setIndex(0L);
         result.setContentType(ContentType.OBJECT);
@@ -336,7 +336,7 @@ public class CurveGmlHelper {
 
             Long index = 0L;
             for (JAXBElement<?> obj : geometricPositionGroup) {
-                if (obj.getValue() instanceof DirectPositionType) {
+                if (obj.getValue().getClass() == DirectPositionType.class) {
                     DirectPositionType directPosition = (DirectPositionType) obj.getValue();
 
                     // B. SRS consistency
@@ -351,7 +351,7 @@ public class CurveGmlHelper {
                     resultPos.setSrsName(srsName);
                     result.getPos().add(resultPos);
 
-                } else if (obj.getValue() instanceof PointPropertyType) {
+                } else if (obj.getValue().getClass() == PointPropertyType.class) {
                     PointPropertyType point = (PointPropertyType) obj.getValue();
 
                     // B. Sanity Check
@@ -508,15 +508,15 @@ public class CurveGmlHelper {
     public static CurveSegmentArrayPropertyType printGMLCurveSegments(List<Segment> segments) {
         CurveSegmentArrayPropertyType result = new CurveSegmentArrayPropertyType();
         for (Segment segment : segments) {
-            if (segment instanceof Arc) {
+            if (segment.getClass() == Arc.class) {
                 Arc arc = (Arc) segment;
 
 
-            } else if (segment instanceof LineString) {
+            } else if (segment.getClass() == LineString.class) {
                 LineString lineString = (LineString) segment;
 
 
-            } else if (segment instanceof Geodesic) {
+            } else if (segment.getClass() == Geodesic.class) {
                 Geodesic geodesic = (Geodesic) segment;
 
 
