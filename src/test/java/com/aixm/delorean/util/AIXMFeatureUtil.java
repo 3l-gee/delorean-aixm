@@ -5,9 +5,11 @@ import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.CodeNavaidDesignatorType;
 import com.aixm.delorean.core.schema.a5_2.aixm.TextNameType;
+import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
 
+import java.util.List;
 import jakarta.xml.bind.JAXBElement;
-import javax.xml.namespace.QName;
+
 
 public class AIXMFeatureUtil {
 
@@ -19,9 +21,10 @@ public class AIXMFeatureUtil {
         Long sequenceNumber,
         Long correctionNumber,
         DeloreanTimeSliceType featureLifetime,
-        CodeNavaidDesignatorType designator,
-        TextNameType text
-        ) {
+        JAXBElement<CodeNavaidDesignatorType> designator,
+        JAXBElement<TextNameType> text,
+        List<NotePropertyType> annotation
+    ) {
         DMETimeSliceType p = new DMETimeSliceType();
         p.setId(id);
         p.setIdentifier(identifier);
@@ -30,16 +33,9 @@ public class AIXMFeatureUtil {
         p.setSequenceNumber(sequenceNumber);
         p.setCorrectionNumber(correctionNumber);
         p.setFeatureLifetime(featureLifetime);
-        p.setDesignator(new JAXBElement<>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, designator));
-        p.setAixmName(new JAXBElement<>(new QName("http://www.aixm.aero/schema/5.2", "name"), TextNameType.class, DMETimeSliceType.class, text)); 
-        
-        if (designator == null) {
-            p.getDesignator().setNil(true);
-        }
-
-        if (text == null) {
-            p.getAixmName().setNil(true);
-        }
+        p.setDesignator(designator);
+        p.setAixmName(text);
+        p.getAnnotation().addAll(annotation);
         
         return p;
     }
