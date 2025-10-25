@@ -22,6 +22,8 @@ import com.aixm.delorean.core.time.helper.TemporalityHelper;
 
 import java.util.stream.Stream;
 import java.util.List;
+import java.util.ArrayList;
+
 
 import javax.xml.namespace.QName;
 
@@ -40,46 +42,27 @@ public class TemporalityTest {
         setNilReason("inapplicable");
     }};
 
+    static CodeNavaidDesignatorType unknown = new CodeNavaidDesignatorType() {{
+        setValue("");
+        setNilReason("unknown");
+    }};
+
     static JAXBElement<CodeNavaidDesignatorType> designatorSteve = new JAXBElement<CodeNavaidDesignatorType>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, steve);
     static JAXBElement<CodeNavaidDesignatorType> designatorBob = new JAXBElement<CodeNavaidDesignatorType>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, bob);
-    static JAXBElement<CodeNavaidDesignatorType> designatorInaplicableNil = new JAXBElement<CodeNavaidDesignatorType>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, inaplicable);
-    {
-        designatorInaplicableNil.setNil(true);
-    }
     static JAXBElement<CodeNavaidDesignatorType> designatorInaplicable = new JAXBElement<CodeNavaidDesignatorType>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, inaplicable);
-    {
-        designatorInaplicable.setNil(false);
+    static {
+        designatorInaplicable.setNil(true);
     }
 
-    static TextNameType sion = new TextNameType() {{
-        setValue("SION");
-    }};
-    static TextNameType bern = new TextNameType() {{
-        setValue("BERN");
-    }};
-
-    static TextNameType inaplicableText = new TextNameType() {{
-        setValue("");
-        setNilReason("inapplicable");
-    }};
-
-    static JAXBElement<TextNameType> nameSion = new JAXBElement<TextNameType>(new QName("http://www.aixm.aero/schema/5.2", "name"), TextNameType.class, DMETimeSliceType.class, sion);
-    static JAXBElement<TextNameType> nameBern = new JAXBElement<TextNameType>(new QName("http://www.aixm.aero/schema/5.2", "name"), TextNameType.class, DMETimeSliceType.class, bern);
-    static JAXBElement<TextNameType> nameInaplicableNil = new JAXBElement<TextNameType>(new QName("http://www.aixm.aero/schema/5.2", "name"), TextNameType.class, DMETimeSliceType.class, inaplicableText);
-    {
-        nameInaplicable.setNil(true);
+    static JAXBElement<CodeNavaidDesignatorType> designatorUnknown = new JAXBElement<CodeNavaidDesignatorType>(new QName("http://www.aixm.aero/schema/5.2", "designator"), CodeNavaidDesignatorType.class, DMETimeSliceType.class, unknown);
+    static {
+        designatorUnknown.setNil(true);
     }
 
-        static JAXBElement<TextNameType> nameInaplicable = new JAXBElement<TextNameType>(new QName("http://www.aixm.aero/schema/5.2", "name"), TextNameType.class, DMETimeSliceType.class, inaplicableText);
-    {
-        nameInaplicable.setNil(false);
-    }
-
-
-    static NoteType firstNote;
-    {
+    static NoteType note;
+    static {
         try {
-            firstNote = JaxbUtil.loadFromXml(
+            note = JaxbUtil.loadFromXml(
                 """
                 <aixm:Note gml:id="N1"
                     xmlns:aixm="http://www.aixm.aero/schema/5.2"
@@ -110,51 +93,17 @@ public class TemporalityTest {
         }
     }
 
-    static NotePropertyType firstNoteProperty;
-    {
-        firstNoteProperty = new NotePropertyType();
-        firstNoteProperty.setNote(firstNote);
+    static NotePropertyType noteProperty;
+    static {
+        noteProperty = new NotePropertyType();
+        noteProperty.setNote(note);
+    }
+    static List<NotePropertyType> listNoteProperty = new ArrayList<>();
+    static {
+        listNoteProperty.add(noteProperty);
     }
 
-    static NoteType secondNote;
-    {
-        try {
-            secondNote = JaxbUtil.loadFromXml(
-                """
-                <aixm:Note gml:id="N2"
-                    xmlns:aixm="http://www.aixm.aero/schema/5.2"
-                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
-                    xmlns:gts="http://www.isotc211.org/2005/gts" 
-                    xmlns:gco="http://www.isotc211.org/2005/gco" 
-                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-                    xmlns:gml="http://www.opengis.net/gml/3.2" 
-                    xmlns:gss="http://www.isotc211.org/2005/gss" 
-                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
-                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
-                    xmlns:xlink="http://www.w3.org/1999/xlink" 
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd"
-                    >
-                    <aixm:purpose>REMARK</aixm:purpose>
-                    <aixm:translatedNote>
-                        <aixm:LinguisticNote gml:id="L2">
-                            <aixm:note lang="en">second Note</aixm:note>
-                        </aixm:LinguisticNote>
-                    </aixm:translatedNote>
-                </aixm:Note>
-                """,
-                NoteType.class
-            );
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to load NoteType from XML", e);
-        }
-    }
-
-    static NotePropertyType secondNoteProperty;
-    {
-        secondNoteProperty = new NotePropertyType();
-        secondNoteProperty.setNote(secondNote);
-    }
+    static List<NotePropertyType> emptyListNoteProperty = new ArrayList<>();
 
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
@@ -164,7 +113,7 @@ public class TemporalityTest {
         return Stream.of(
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="MT1"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -193,31 +142,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>OTHER:SG_PARTIDX</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="MT2"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -241,9 +169,9 @@ public class TemporalityTest {
                     <aixm:correctionNumber>0</aixm:correctionNumber>
                     <aixm:designator>STEVE</aixm:designator>
                 </aixm:DMETimeSlice>
-                """,
+                """, // PERMDELTA with only designator changed from BOB to STEVE
                 AIXMFeatureUtil.dme(
-                    "DME-TEST-002-TS",
+                    "MT2",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -257,13 +185,13 @@ public class TemporalityTest {
                         setEndPosition(null);
                     }},
                     designatorSteve,
-                    nameInaplicableNil,
-                    List.of(firstNoteProperty, secondNoteProperty)
+                    null,
+                    null
                 )
             ),
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="MT3"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -292,11 +220,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="MT4"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -318,32 +245,11 @@ public class TemporalityTest {
                     <aixm:interpretation>PERMDELTA</aixm:interpretation>
                     <aixm:sequenceNumber>2</aixm:sequenceNumber>
                     <aixm:correctionNumber>0</aixm:correctionNumber>
-                    <aixm:designator>STEVE</aixm:designator>
-                    <aixm:name>SION</aixm:name>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
+                    <aixm:designator xsi:nil="true" nilReason="inapplicable"/>
                 </aixm:DMETimeSlice>
-                """,
+                """, // PERMDELTA with only designator changed from BOB to nil (inapplicable)
                 AIXMFeatureUtil.dme(
-                   "DME-TEST-002-TS",
+                    "MT4",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -356,14 +262,14 @@ public class TemporalityTest {
                         setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
                         setEndPosition(null);
                     }},
-                    designatorSteve,
-                    nameSion,
-                    List.of(firstNoteProperty, secondNoteProperty)
+                    designatorInaplicable,
+                    null,
+                    null
                 )
             ),
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="MT5"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -392,31 +298,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name>SION</aixm:name>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="MT6"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -438,13 +323,10 @@ public class TemporalityTest {
                     <aixm:interpretation>PERMDELTA</aixm:interpretation>
                     <aixm:sequenceNumber>2</aixm:sequenceNumber>
                     <aixm:correctionNumber>0</aixm:correctionNumber>
-                    <aixm:designator>STEVE</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation/>
                 </aixm:DMETimeSlice>
-                """,
+                """, // PERMDELTA without any changed property
                 AIXMFeatureUtil.dme(
-                   "DME-TEST-002-TS",
+                    "MT6",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -457,9 +339,366 @@ public class TemporalityTest {
                         setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
                         setEndPosition(null);
                     }},
-                    designatorSteve,
-                    nameInaplicable,
-                    List.of()
+                    designatorBob,
+                    null,
+                    null
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="MT7"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:designator xsi:nil="true" nilReason="inapplicable"/>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="MT8"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>PERMDELTA</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator xsi:nil="true" nilReason="unknown"/>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA without any changed property
+                AIXMFeatureUtil.dme(
+                    "MT8",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "BASELINE",
+                    2L,
+                    0L,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    designatorUnknown,
+                    null,
+                    null
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="MT9"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotations xsi:nil="true"/>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="MT10"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>PERMDELTA</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">first Note</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA annotation added
+                AIXMFeatureUtil.dme(
+                    "MT10",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "BASELINE",
+                    2L,
+                    0L,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    null,
+                    null,
+                    listNoteProperty
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="MT11"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">mistake</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="MT12"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>PERMDELTA</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">first Note</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA annotation changed
+                AIXMFeatureUtil.dme(
+                    "MT12",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "BASELINE",
+                    2L,
+                    0L,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    null,
+                    null,
+                    listNoteProperty
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="MT13"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">mistake</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="MT14"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>PERMDELTA</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">first Note</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA annotation changed
+                AIXMFeatureUtil.dme(
+                    "MT14",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "BASELINE",
+                    2L,
+                    0L,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2009-01-01T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    null,
+                    null,
+                    listNoteProperty
                 )
             )
         );
@@ -475,7 +714,7 @@ public class TemporalityTest {
         DMETimeSliceType newTimeSlice = JaxbUtil.loadFromXml(newTS, DMETimeSliceType.class);
 
         // do
-        DMETimeSliceType mergedTimeSlice = TemporalityHelper.merge(oldTimeSlice, newTimeSlice);
+        DMETimeSliceType mergedTimeSlice = TemporalityHelper.merge(DMETimeSliceType.class, oldTimeSlice, newTimeSlice);
 
         // check
         assertThat(mergedTimeSlice).isNotNull();
@@ -486,7 +725,7 @@ public class TemporalityTest {
         return Stream.of(
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="DT1"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -515,31 +754,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="DT2"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -568,31 +786,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>STEVE</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
                 </aixm:DMETimeSlice>
-                """,
+                """, // BASELINE with only designator changed from BOB to STEVE
                 AIXMFeatureUtil.dme(
-                    "DME-TEST-002-TS",
+                    "DT2",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -604,12 +801,12 @@ public class TemporalityTest {
                     null,
                     designatorSteve,
                     null,
-                    List.of()
+                    null
                 )
             ),
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="DT3"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -638,31 +835,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="DT4"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -690,13 +866,11 @@ public class TemporalityTest {
                         <gml:endPosition indeterminatePosition="unknown"/>
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
-                    <aixm:designator>BOB</aixm:designator>
-                    <aixm:name>SION</aixm:name>
-                    </aixm:annotation/>
+                    <aixm:designator xsi:nil="true" nilReason="inapplicable"/>
                 </aixm:DMETimeSlice>
-                """,
+                """, // BASELINE with only designator changed from BOB to STEVE
                 AIXMFeatureUtil.dme(
-                    "DME-TEST-002-TS",
+                    "DT4",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -706,14 +880,14 @@ public class TemporalityTest {
                     2L,
                     0L,
                     null,
+                    designatorInaplicable,
                     null,
-                    nameSion,
-                    List.of()
+                    null
                 )
             ),
             Arguments.of(
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-001-TS"
+                <aixm:DMETimeSlice gml:id="DT5"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -742,12 +916,10 @@ public class TemporalityTest {
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
                     <aixm:designator>BOB</aixm:designator>
-                    <aixm:name>SION</aixm:name>
-                    <aixm:annotation/>
                 </aixm:DMETimeSlice>
                 """,
                 """
-                <aixm:DMETimeSlice gml:id="DME-TEST-002-TS"
+                <aixm:DMETimeSlice gml:id="DT6"
                     xmlns:message="http://www.aixm.aero/schema/5.2/message" 
                     xmlns:gts="http://www.isotc211.org/2005/gts" 
                     xmlns:gco="http://www.isotc211.org/2005/gco" 
@@ -775,32 +947,11 @@ public class TemporalityTest {
                         <gml:endPosition indeterminatePosition="unknown"/>
                         </gml:TimePeriod>
                     </aixm:featureLifetime>
-                    <aixm:designator>STEVE</aixm:designator>
-                    <aixm:name xsi:nil="true" nilReason="inapplicable"/>
-                    <aixm:annotation>
-						<aixm:Note gml:id="N1">
-							<aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L1">
-                                    <aixm:note lang="en">first Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                    </aixm:annotation>
-                    <aixm:annotation>
-                        <aixm:Note gml:id="N2">
-                            <aixm:purpose>REMARK</aixm:purpose>
-                            <aixm:translatedNote>
-                                <aixm:LinguisticNote gml:id="L2">
-                                        <aixm:note lang="en">second Note</aixm:note>
-                                </aixm:LinguisticNote>
-                            </aixm:translatedNote>
-                        </aixm:Note>
-                     </aixm:annotation>
+                    <aixm:designator>BOB</aixm:designator>
                 </aixm:DMETimeSlice>
-                """,
+                """, // PERMDELTA without any changed property
                 AIXMFeatureUtil.dme(
-                    "DME-TEST-002-TS",
+                    "DT6",
                     null,
                     new DeloreanTimeSliceType() {{
                         setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
@@ -810,13 +961,283 @@ public class TemporalityTest {
                     2L,
                     0L,
                     null,
-                    designatorSteve,
-                    nameInaplicable,
-                    List.of(firstNoteProperty, secondNoteProperty)
+                    null,
+                    null,
+                    null
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="DT7"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:designator xsi:nil="true" nilReason="inapplicable"/>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="DT8"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:designator xsi:nil="true" nilReason="unknown"/>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA without any changed property
+                AIXMFeatureUtil.dme(
+                    "DT8",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "PERMDELTA",
+                    2L,
+                    0L,
+                    null,
+                    designatorUnknown,
+                    null,
+                    null
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="DT9"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotations xsi:nil="true"/>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="DT10"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">first Note</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA with added annotation
+                AIXMFeatureUtil.dme(
+                    "DT10",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "PERMDELTA",
+                    2L,
+                    0L,
+                    null,
+                    null,
+                    null,
+                    listNoteProperty
+                )
+            ),
+            Arguments.of(
+                """
+                <aixm:DMETimeSlice gml:id="DT11"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP1">
+                        <gml:beginPosition>2025-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">mistake</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """,
+                """
+                <aixm:DMETimeSlice gml:id="DT12"
+                    xmlns:message="http://www.aixm.aero/schema/5.2/message" 
+                    xmlns:gts="http://www.isotc211.org/2005/gts" 
+                    xmlns:gco="http://www.isotc211.org/2005/gco" 
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    xmlns:gml="http://www.opengis.net/gml/3.2" 
+                    xmlns:gss="http://www.isotc211.org/2005/gss" 
+                    xmlns:aixm="http://www.aixm.aero/schema/5.2" 
+                    xmlns:gsr="http://www.isotc211.org/2005/gsr" 
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.aixm.aero/schema/5.2/message http://www.aixm.aero/schema/5.2/message/AIXM_BasicMessage.xsd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="TP2">
+                        <gml:beginPosition>2025-01-20T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:featureLifetime>
+                        <gml:TimePeriod gml:id="ID_FL_7692166e-60e6-467d-b5f0-c728aeae85d6">
+                        <gml:beginPosition>2009-01-01T00:00:00Z</gml:beginPosition>
+                        <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </aixm:featureLifetime>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="N1">
+                            <aixm:purpose>REMARK</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="L1">
+                                    <aixm:note lang="en">first Note</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:DMETimeSlice>
+                """, // PERMDELTA annotation updated
+                AIXMFeatureUtil.dme(
+                    "DT12",
+                    null,
+                    new DeloreanTimeSliceType() {{
+                        setBeginPosition(java.time.Instant.parse("2025-01-20T00:00:00Z"));
+                        setEndPosition(null);
+                    }},
+                    "PERMDELTA",
+                    2L,
+                    0L,
+                    null,
+                    null,
+                    null,
+                    listNoteProperty
                 )
             )
         );
-    }
+    } 
 
     @ParameterizedTest()
     @MethodSource("DeltaValidTimeSlices")
@@ -828,7 +1249,7 @@ public class TemporalityTest {
         DMETimeSliceType newTimeSlice = JaxbUtil.loadFromXml(newTS, DMETimeSliceType.class);
 
         // do
-        DMETimeSliceType deltaTimeSlice = TemporalityHelper.delta(oldTimeSlice, newTimeSlice);
+        DMETimeSliceType deltaTimeSlice = TemporalityHelper.delta(DMETimeSliceType.class, oldTimeSlice, newTimeSlice);
 
         // check
         assertThat(deltaTimeSlice).isNotNull();

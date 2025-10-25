@@ -156,7 +156,7 @@ public class PointGMLTest {
         PointType printed = PointGmlHelper.printGMLPoint(value, PointType.class);
 
         //do
-        String xml = JaxbUtil.saveToXml(printed, PointType.class);
+        String xml = JaxbUtil.printToXml(printed, PointType.class);
 
         //check
         assertThat(xml).isEqualTo(expectedXml);

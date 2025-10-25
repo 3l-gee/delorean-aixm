@@ -23,7 +23,7 @@ public class JaxbUtil {
         return type.cast(result);
     }
 
-    public static <T> String saveToXml(T object, Class<T> type) throws Exception {
+    public static <T> String printToXml(T object, Class<T> type) throws Exception {
         JAXBContext ctx = JAXBContext.newInstance(type);
         Marshaller marshaller = ctx.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

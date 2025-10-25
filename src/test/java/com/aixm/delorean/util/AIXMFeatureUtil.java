@@ -35,7 +35,7 @@ public class AIXMFeatureUtil {
         p.setFeatureLifetime(featureLifetime);
         p.setDesignator(designator);
         p.setAixmName(text);
-        p.getAnnotation().addAll(annotation);
+        p.setAnnotation(annotation);
         
         return p;
     }
