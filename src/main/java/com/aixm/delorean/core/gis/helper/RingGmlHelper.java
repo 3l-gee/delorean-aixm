@@ -47,7 +47,10 @@ public class RingGmlHelper {
             } else if (curve.getAbstractCurve().getValue().getClass() == OrientableCurveType.class) {
                 throw new IllegalArgumentException("Delorean does not (yet) support OrientableCurveType.");
 
-            } else {
+            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 CurveType.");
+
+            }else {
                 throw new IllegalArgumentException("<gml:RingType> Unsupported type : " + curve.getAbstractCurve().getClass().getName());
             }
             curveIndex++;

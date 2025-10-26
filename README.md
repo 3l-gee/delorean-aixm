@@ -45,7 +45,7 @@ Delorean support all features types found in aixm for the following aixm version
 
 ## License
 
-Delorean is licensed under the MIT License.
+Delorean is licensed under the GPLV3
 
 ## Using
 
@@ -53,12 +53,25 @@ Consult the Wiki : [Usage](https://github.com/3l-gee/delorean/wiki) / [Exemple](
 
 ## Building
 
-The build process for delorean is complicated as it relies on the aixm xsd to build the entire aixm specific code base. 
-✨ Deloreans Rube goldberg build machine ✨
-1) ```mvn clean install -P enable-hyper-jaxb```
-5) ```mvn install package```
+The build process for Delorean can be divided into two categories: schema compilation and incremental builds.
 
-Additionally, the ressources produced for QGIS and postgresql rely on codegeneration like toolkits custum made for the purpose of Delorean.
+### Building
+
+For most changes, such as bug fixes or feature updates, you can directly build the project using:
+```bash
+mvn package
+```
+
+This is the fastest and most common build process, as it does not involve regenerating the AIXM-specific codebase.
+
+#### Schema Generation
+Schema generation is required when there are changes to the AIXM XSD schema. This process is more resource-intensive and generates the entire AIXM-specific codebase. To perform schema generation, run the following commands:
+```bash
+mvn clean install -P enable-hyper-jaxb
+mvn install package
+```
+
+This step involves manual modifications to the generated classes due to limitations in the JAXB tool suite. After schema generation, inspect the generated code and apply necessary adjustments to ensure compatibility with the AIXM schema and project requirements. Document any changes for future reference.
 
 ## Documentation
 Please refer to the [wiki](https://github.com/3l-gee/delorean/wiki) for the full documentation.

@@ -114,58 +114,100 @@ public class TemporalityHelper {
                 Object oldVal = field.get(oldObj);
                 Object newVal = field.get(newObj);
 
-                if (isDifferent(oldVal, newVal)) {
+                if (field.getName().equals("serialVersionUID")) {
+                    continue;
+
+                } else if (oldVal == null && newVal == null) {
+                    continue;
+
+                } else if (oldVal == null && newVal != null) {
                     field.set(result, newVal);
-                } else {
+
+                } else if (oldVal != null && newVal == null) {
                     field.set(result, oldVal);
+
+                } else if (oldVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
+                    if (isDifferent(oldVal, newVal)) {
+                        field.set(result, newVal);
+                    } else {
+                        field.set(result, oldVal);
+                    }
+                    
+                } else if (oldVal instanceof List<?> || newVal instanceof List<?>) {
+                    if (isDifferent(oldVal, newVal)) {
+                        field.set(result, newVal);
+                    } else {
+                        field.set(result, oldVal);
+                    }
+
+                } else {
+                    throw new RuntimeException("AXIM feature should only contain JAXBElement or List fields, got : " + field.getName() + " / " + oldVal.getClass());
                 }
 
             } catch (IllegalAccessException e) {
-                // Allow serialVersionUID to be skipped silently, but all other fields must throw
-                if (!field.getName().equals("serialVersionUID")) {
-                    throw new RuntimeException("Failed to access field " + field.getName(), e);
-                }
+                throw new RuntimeException("Failed to access field " + field.getName(), e);
+
             }
         }
 
         return result;
     }
 
-    // public static <T extends AbstractAIXMTimeSliceType> T delta(Class<T> type, T oldObj, T newObj) {
-    //     T result;
-    //     try {
-    //         result = type.getDeclaredConstructor().newInstance();
-    //     } catch (Exception e) {
-    //         throw new RuntimeException("Failed to instantiate " + type, e);
-    //     }
+    public static <T extends AbstractAIXMTimeSliceType> T delta(Class<T> type, T oldObj, T newObj) {
+        T result;
+        try {
+            result = type.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate " + type, e);
+        }
 
-    //     result.setId(newObj.getId());
-    //     result.setInterpretation("PERMDELTA");
-    //     result.setSequenceNumber(newObj.getSequenceNumber());
-    //     result.setCorrectionNumber(newObj.getCorrectionNumber());
-    //     result.setTimeSliceMetadata(newObj.getTimeSliceMetadata());
-    //     result.setValidTime(newObj.getValidTime());
+        result.setId(newObj.getId());
+        result.setInterpretation("PERMDELTA");
+        result.setSequenceNumber(newObj.getSequenceNumber());
+        result.setCorrectionNumber(newObj.getCorrectionNumber());
+        result.setTimeSliceMetadata(newObj.getTimeSliceMetadata());
+        result.setValidTime(newObj.getValidTime());
 
-    //     for (Field field : type.getDeclaredFields()) {
-    //         try {
-    //             field.setAccessible(true);
-    //             Object oldVal = field.get(oldObj);
-    //             Object newVal = field.get(newObj);
+        for (Field field : type.getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+                Object oldVal = field.get(oldObj);
+                Object newVal = field.get(newObj);
 
-    //             if (isDifferent(oldVal, newVal)) {
-    //                 field.set(result, newVal);
-    //             }
+                if (field.getName().equals("serialVersionUID")) {
+                    continue;
 
-    //         } catch (IllegalAccessException e) {
-    //             // Allow serialVersionUID to be skipped silently, but all other fields must throw
-    //             if (!field.getName().equals("serialVersionUID")) {
-    //                 throw new RuntimeException("Failed to access field " + field.getName(), e);
-    //             }
-    //         }
-    //     }
+                } else if (oldVal == null && newVal == null) {
+                    continue;
 
-    //     return result;
-    // }
+                } else if (oldVal == null && newVal != null) {
+                    field.set(result, newVal);
+
+                } else if (oldVal != null && newVal == null) {
+                    field.set(result, oldVal);
+
+                } else if (oldVal instanceof JAXBElement<?> || newVal instanceof JAXBElement<?>) {
+                    if (isDifferent(oldVal, newVal)) {
+                        field.set(result, newVal);
+                    }
+                    
+                } else if (oldVal instanceof List<?> || newVal instanceof List<?>) {
+                    if (isDifferent(oldVal, newVal)) {
+                        field.set(result, newVal);
+                    }
+
+                } else {
+                    throw new RuntimeException("AXIM feature should only contain JAXBElement or List fields, got : " + field.getName() + " / " + oldVal.getClass());
+                }
+
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException("Failed to access field " + field.getName(), e);
+
+            }
+        }
+
+        return result;
+    }
 
     public static DMETimeSliceType delta(Class<DMETimeSliceType> type, DMETimeSliceType oldObj, DMETimeSliceType newObj) {
         DMETimeSliceType result = new DMETimeSliceType();

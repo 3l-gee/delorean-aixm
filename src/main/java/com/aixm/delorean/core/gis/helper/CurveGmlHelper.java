@@ -21,6 +21,7 @@ import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
 import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.util.DistanceUom;
@@ -28,6 +29,7 @@ import com.aixm.delorean.core.util.DistanceUom;
 import jakarta.xml.bind.JAXBElement;
 
 import java.util.List;
+import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.components.ContentType;
@@ -190,10 +192,24 @@ public class CurveGmlHelper {
             result.setContentType(ContentType.OBJECT);
 
         } else if (value.getPointProperty() != null) {
-            PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
-            pointProperty.setIndex(0L);
-            result.setPointProperty(pointProperty);
-            result.setContentType(ContentType.REFERENCE);
+            if (value.getPointProperty().getPoint() == null) {
+                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+                pointProperty.setIndex(0L);
+                result.setPointProperty(pointProperty);
+                result.setContentType(ContentType.REFERENCE);
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:ArcByCenterPointType>.");
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:ArcByCenterPointType>.");
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:ArcByCenterPointType>.");
+
+            } else {
+                throw new IllegalArgumentException("Unsupported type " + value.getPointProperty().getPoint().getValue().getClass().getName());
+            }
 
         } else {
             throw new IllegalArgumentException("Unsupported type " + value.getClass().getName());
@@ -264,10 +280,26 @@ public class CurveGmlHelper {
             result.setContentType(ContentType.OBJECT);
 
         } else if (value.getPointProperty() != null) {
-            PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
-            pointProperty.setIndex(0L);
-            result.setPointProperty(pointProperty);
-            result.setContentType(ContentType.REFERENCE);
+
+            if (value.getPointProperty().getPoint() == null) {
+                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+                pointProperty.setIndex(0L);
+                result.setPointProperty(pointProperty);
+                result.setContentType(ContentType.REFERENCE);
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:ArcByCenterPointType>.");
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:ArcByCenterPointType>.");
+
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:ArcByCenterPointType>.");
+
+            } else {
+                throw new IllegalArgumentException("Unsupported type " + value.getPointProperty().getPoint().getValue().getClass().getName());
+
+            }
 
         } else {
             throw new IllegalArgumentException("Unsupported type " + value.getClass().getName());
@@ -354,20 +386,25 @@ public class CurveGmlHelper {
                 } else if (obj.getValue().getClass() == PointPropertyType.class) {
                     PointPropertyType point = (PointPropertyType) obj.getValue();
 
-                    // B. Sanity Check
-                    if (point.getPoint() != null) {
-                        throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> with embedded <gml:Point> is not supported.");
-                    }
+                    if (point.getPoint() == null) {
+                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
+                        pointProperty.setIndex(index);
+                        result.getPointProperty().add(pointProperty);
+                        result.setContentType(ContentType.REFERENCE);
 
-                    if (point.getHref() == null) {
-                        throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> must specify an href to a remote <gml:Point>.");
-                    }
+                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:LineStringSegmentType>.");
 
-                    // C. Attributes parsing
-                    PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
-                    pointProperty.setIndex(index);
-                    result.getPointProperty().add(pointProperty);
-                    result.setContentType(ContentType.REFERENCE);
+                    } else if (point.getPoint().getValue().getClass() == ElevatedPointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:LineStringSegmentType>.");
+
+                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:LineStringSegmentType>.");
+
+                    } else {
+                        throw new IllegalArgumentException("Unsupported type " + point.getPoint().getValue().getClass().getName());
+
+                    }
 
                 } else {
                     throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
@@ -426,7 +463,7 @@ public class CurveGmlHelper {
 
             Long index = 0L;
             for (Object obj : geometricPositionGroup) {
-                if (obj instanceof DirectPositionType) {
+                if (obj.getClass() == DirectPositionType.class) {
                     DirectPositionType directPosition = (DirectPositionType) obj;
 
                     // B. SRS consistency
@@ -441,23 +478,28 @@ public class CurveGmlHelper {
                     resultPos.setSrsName(srsName);
                     result.getPos().add(resultPos);
 
-                } else if (obj instanceof PointPropertyType) {
+                } else if (obj.getClass() == PointPropertyType.class) {
                     PointPropertyType point = (PointPropertyType) obj;
 
-                    // B. Sanity Check
-                    if (point.getPoint() != null) {
-                        throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> with embedded <gml:Point> is not supported.");
-                    }
+                    if (point.getPoint() == null) {
+                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
+                        pointProperty.setIndex(index);
+                        result.getPointProperty().add(pointProperty);
+                        result.setContentType(ContentType.REFERENCE);
 
-                    if (point.getHref() == null) {
-                        throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> must specify an href to a remote <gml:Point>.");
-                    }
+                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:LineStringSegmentType>.");
 
-                    // C. Attributes parsing
-                    PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
-                    pointProperty.setIndex(index);
-                    result.getPointProperty().add(pointProperty);
-                    result.setContentType(ContentType.REFERENCE);
+                    } else if (point.getPoint().getValue().getClass() == ElevatedPointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:LineStringSegmentType>.");
+
+                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:LineStringSegmentType>.");
+
+                    } else {
+                        throw new IllegalArgumentException("Unsupported type " + point.getPoint().getValue().getClass().getName());
+
+                    }
 
                 } else {
                     throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
@@ -489,9 +531,9 @@ public class CurveGmlHelper {
 
         // A. Coordinates printing
         if (curve.getContentType() == ContentType.REFERENCE) {
-            throw new IllegalArgumentException(""); // TODO
 
         } else if (curve.getContentType() == ContentType.OBJECT) {
+
 
 
         } else {
@@ -500,6 +542,9 @@ public class CurveGmlHelper {
 
 
         // B. carry the AbstractGMLType attributes futrher
+        result.setId(curve.getId());
+        result.setDescription(curve.getDescription());
+        result.setIdentifier(curve.getIdentifier());
 
         return result;
 
@@ -511,10 +556,11 @@ public class CurveGmlHelper {
             if (segment.getClass() == Arc.class) {
                 Arc arc = (Arc) segment;
 
-
+            } else if (segment.getClass() == Circle.class) {
+                Circle circle = (Circle) segment;
+            
             } else if (segment.getClass() == LineString.class) {
                 LineString lineString = (LineString) segment;
-
 
             } else if (segment.getClass() == Geodesic.class) {
                 Geodesic geodesic = (Geodesic) segment;
@@ -529,32 +575,32 @@ public class CurveGmlHelper {
         return result;
     }
 
-    public static CircleByCenterPointType printGMLCircleByCenterPoint(Circle circle) {
+    public static JAXBElement<CircleByCenterPointType> printGMLCircleByCenterPoint(Circle circle) {
         CircleByCenterPointType result = new CircleByCenterPointType();
 
         // A. Sanity Check
-        return result;
+        return new JAXBElement<CircleByCenterPointType>(new QName("http://www.opengis.net/gml/3.2", "CircleByCenterPoint"), CircleByCenterPointType.class, result);
     }
 
-    public static ArcByCenterPointType printGMLArcByCenterPoint(Arc arc) {
+    public static JAXBElement<ArcByCenterPointType> printGMLArcByCenterPoint(Arc arc) {
         ArcByCenterPointType result = new ArcByCenterPointType();
 
         // A. Sanity Check
-        return result;
+        return new JAXBElement<ArcByCenterPointType>(new QName("http://www.opengis.net/gml/3.2", "ArcByCenterPoint"), ArcByCenterPointType.class, result);
     }
 
-    public static LineStringSegmentType printGMLLineString(LineString lineString) {
+    public static JAXBElement<LineStringSegmentType> printGMLLineString(LineString lineString) {
         LineStringSegmentType result = new LineStringSegmentType();
 
         // A. Sanity Check
-        return result;
+        return new JAXBElement<LineStringSegmentType>(new QName("http://www.opengis.net/gml/3.2", "LineStringSegment"), LineStringSegmentType.class, result);
     }
 
-    public static GeodesicStringType printGMLGeodesic(Geodesic geodesic) {
+    public static JAXBElement<GeodesicStringType>  printGMLGeodesic(Geodesic geodesic) {
         GeodesicStringType result = new GeodesicStringType();
 
         // A. Sanity Check
-        return result;
+        return new JAXBElement<GeodesicStringType>(new QName("http://www.opengis.net/gml/3.2", "GeodesicString"), GeodesicStringType.class, result);
     }
 
 
