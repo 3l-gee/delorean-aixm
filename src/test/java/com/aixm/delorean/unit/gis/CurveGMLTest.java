@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
+import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.AngleType;
@@ -22,6 +23,7 @@ import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
+import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 
 import java.util.stream.Stream;
 
@@ -486,7 +488,7 @@ public class CurveGMLTest {
         return Stream.of(
             Arguments.of(
                 GisUtil.curveObj(
-                    "c1",
+                    "m1",
                     0L,
                     GisUtil.linePosList(0L,
                         new PosList() {{
@@ -496,22 +498,33 @@ public class CurveGMLTest {
                     )
                 ),
                 """
-                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c1">
-                        <gml:segments>
-                            <gml:LineStringSegment>
-                                <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
-                            </gml:LineStringSegment>
-                        </gml:segments>
-                    </gml:Curve>
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m1" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                    <ns1:segments>
+                        <ns1:LineStringSegment interpolation="linear">
+                            <ns1:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</ns1:posList>
+                        </ns1:LineStringSegment>
+                    </ns1:segments>
+                </ns1:Curve>
                 """ 
             ) // Standard urn case, EPSG:4326, LineStringSegment lat lon order
     );
     }
 
-    void marshallValidGMLCurve(Curve value, String expectedXml) {
-        // TODO
-    }
+    @ParameterizedTest()
+    @MethodSource("MarshallValidGMLCurve")
+    @DisplayName("Marshall valid GML Curves correctly")
+    void marshallValidGMLCurve(Curve value, String expectedXml) throws Exception {
 
+        // given
+        CurveType printed = CurveGmlHelper.printGMLCurve(value, CurveType.class);
+
+        // do
+        String xml = JaxbUtil.printToXml(printed, CurveType.class);
+
+        //check
+        assertThat(xml).isEqualTo(expectedXml);
+    }
     
     // -------------------------------------------------------------------------
     // NEGATIVE TESTS

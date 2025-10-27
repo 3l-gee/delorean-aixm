@@ -740,17 +740,17 @@ public class CurveGmlHelper {
         }
 
         if (lineString.getContentType() == ContentType.OBJECT) {
-            if (lineString.getPosList() == null && (lineString.getPos() == null || lineString.getPos().isEmpty())) {
+            if (lineString.getPosList() == null && lineString.getPos().isEmpty()) {
                 throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:posList> or <gml:pos> can not be both null or empty when ContentType is OBJECT.");
             }
 
-            if (lineString.getPointProperty() != null || !lineString.getPointProperty().isEmpty()) {
-                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> must be null or empty when ContentType is OBJECT.");
+            if (!lineString.getPointProperty().isEmpty()) {
+                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> must be empty when ContentType is OBJECT.");
             }
         }
 
         if (lineString.getContentType() == ContentType.REFERENCE) {
-            if (lineString.getPointProperty() == null || lineString.getPointProperty().isEmpty()) {
+            if (lineString.getPointProperty().isEmpty()) {
                 throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> can not be null or empty when ContentType is REFERENCE.");
             }
 
@@ -818,17 +818,17 @@ public class CurveGmlHelper {
         }
 
         if (geodesic.getContentType() == ContentType.OBJECT) {
-            if (geodesic.getPosList() == null && (geodesic.getPos() == null || geodesic.getPos().isEmpty())) {
+            if (geodesic.getPosList() == null && geodesic.getPos().isEmpty()) {
                 throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:posList> or <gml:pos> can not be both null or empty when ContentType is OBJECT.");
             }
 
-            if (geodesic.getPointProperty() != null || !geodesic.getPointProperty().isEmpty()) {
+            if (!geodesic.getPointProperty().isEmpty()) {
                 throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> must be null or empty when ContentType is OBJECT.");
             }
         }
 
         if (geodesic.getContentType() == ContentType.REFERENCE) {
-            if (geodesic.getPointProperty() == null || geodesic.getPointProperty().isEmpty()) {
+            if (geodesic.getPointProperty().isEmpty()) {
                 throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> can not be null or empty when ContentType is REFERENCE.");
             }
 
