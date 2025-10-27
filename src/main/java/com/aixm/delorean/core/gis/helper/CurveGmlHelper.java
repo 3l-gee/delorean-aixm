@@ -21,6 +21,8 @@ import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
 import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
+import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
+
 import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType;
 import com.aixm.delorean.core.util.AngleUom;
@@ -29,6 +31,7 @@ import com.aixm.delorean.core.util.DistanceUom;
 import jakarta.xml.bind.JAXBElement;
 
 import java.util.List;
+import java.util.ArrayList;
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.gis.type.Curve;
@@ -193,8 +196,7 @@ public class CurveGmlHelper {
 
         } else if (value.getPointProperty() != null) {
             if (value.getPointProperty().getPoint() == null) {
-                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
-                pointProperty.setIndex(0L);
+                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle(), 0L);
                 result.setPointProperty(pointProperty);
                 result.setContentType(ContentType.REFERENCE);
 
@@ -282,7 +284,7 @@ public class CurveGmlHelper {
         } else if (value.getPointProperty() != null) {
 
             if (value.getPointProperty().getPoint() == null) {
-                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+                PointProperty pointProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle(), 0L);
                 pointProperty.setIndex(0L);
                 result.setPointProperty(pointProperty);
                 result.setContentType(ContentType.REFERENCE);
@@ -387,8 +389,7 @@ public class CurveGmlHelper {
                     PointPropertyType point = (PointPropertyType) obj.getValue();
 
                     if (point.getPoint() == null) {
-                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
-                        pointProperty.setIndex(index);
+                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle(), index);
                         result.getPointProperty().add(pointProperty);
                         result.setContentType(ContentType.REFERENCE);
 
@@ -482,8 +483,7 @@ public class CurveGmlHelper {
                     PointPropertyType point = (PointPropertyType) obj;
 
                     if (point.getPoint() == null) {
-                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle());
-                        pointProperty.setIndex(index);
+                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle(), index);
                         result.getPointProperty().add(pointProperty);
                         result.setContentType(ContentType.REFERENCE);
 
@@ -527,24 +527,49 @@ public class CurveGmlHelper {
             throw new RuntimeException("Failed to instantiate " + targetType, e);
         }
         // A. Sanity Check
+        if (curve == null) {
+            throw new IllegalArgumentException("<gml:CurveType> cannot be null.");
+        }
+
+        if (curve.getSegments() == null || curve.getSegments().isEmpty()) {
+            throw new IllegalArgumentException("<gml:CurveType> Content <gml:segments> can not be null or empty.");
+        }
+
+        // B. Collect all SRS names
+        List<String> srsNames = new ArrayList<>();
+        for (Segment segment : curve.getSegments()) {
+            srsNames.addAll(segment.getSrsName());
+        }
+
+        if (!srsNames.isEmpty()) {
+            String firstSrsName = srsNames.get(0);
+            for (String srsName : srsNames) {
+                if (!srsName.equals(firstSrsName)) {
+                    throw new IllegalArgumentException("All segments must have the same SRS name. Found differing SRS names.");
+                }
+            }
+        }
+
+        String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
 
 
         // A. Coordinates printing
         if (curve.getContentType() == ContentType.REFERENCE) {
 
         } else if (curve.getContentType() == ContentType.OBJECT) {
-
+            CurveSegmentArrayPropertyType segments = printGMLCurveSegments(curve.getSegments());
+            result.setSegments(segments);
 
 
         } else {
             throw new IllegalArgumentException("Unsupported ContentType " + curve.getContentType());
         }
 
-
         // B. carry the AbstractGMLType attributes futrher
         result.setId(curve.getId());
         result.setDescription(curve.getDescription());
         result.setIdentifier(curve.getIdentifier());
+        result.setSrsName(epsgCode);
 
         return result;
 
@@ -552,18 +577,33 @@ public class CurveGmlHelper {
 
     public static CurveSegmentArrayPropertyType printGMLCurveSegments(List<Segment> segments) {
         CurveSegmentArrayPropertyType result = new CurveSegmentArrayPropertyType();
+        
+        // A. Sanity Check
+        if (segments == null || segments.isEmpty()) {
+            throw new IllegalArgumentException("<gml:CurveSegmentArrayPropertyType> segments cannot be null or empty.");
+        }
+
+        // Check that all DirectPosition lists have the same EPSG code
         for (Segment segment : segments) {
             if (segment.getClass() == Arc.class) {
                 Arc arc = (Arc) segment;
+                JAXBElement<ArcByCenterPointType> arcByCenterPoint = printGMLArcByCenterPoint(arc);
+                result.getAbstractCurveSegment().add(arcByCenterPoint);
 
             } else if (segment.getClass() == Circle.class) {
                 Circle circle = (Circle) segment;
-            
+                JAXBElement<CircleByCenterPointType> circleByCenterPoint = printGMLCircleByCenterPoint(circle);
+                result.getAbstractCurveSegment().add(circleByCenterPoint);
+
             } else if (segment.getClass() == LineString.class) {
                 LineString lineString = (LineString) segment;
+                JAXBElement<LineStringSegmentType> lineStringSegment = printGMLLineStringSegment(lineString);
+                result.getAbstractCurveSegment().add(lineStringSegment);
 
             } else if (segment.getClass() == Geodesic.class) {
                 Geodesic geodesic = (Geodesic) segment;
+                JAXBElement<GeodesicStringType> geodesicString = printGMLGeodesicString(geodesic);
+                result.getAbstractCurveSegment().add(geodesicString);
 
 
             } else {
@@ -579,6 +619,49 @@ public class CurveGmlHelper {
         CircleByCenterPointType result = new CircleByCenterPointType();
 
         // A. Sanity Check
+        if (circle == null) {
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> cannot be null.");
+        }
+
+        if (circle.getRadius() == null) {
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:radius> can not be null.");
+        }
+
+        if (circle.getContentType() == ContentType.OBJECT) {
+            if (circle.getPos() == null) {
+                throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:pos> can not be null when ContentType is OBJECT.");
+            }
+        }
+
+        if (circle.getContentType() == ContentType.REFERENCE) {
+            if (circle.getPointProperty() == null) {
+                throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:pointProperty> can not be null when ContentType is REFERENCE.");
+            }
+        }
+
+        // B. Coordinates printing
+        if (circle.getContentType() == ContentType.REFERENCE) {
+            PointPropertyType pointProperty = new PointPropertyType();
+            pointProperty.setHref(HrefHelper.printHref(circle.getPointProperty()));
+            pointProperty.setSimpleLinkTitle(circle.getPointProperty().getTitle());
+            result.setPointProperty(pointProperty);
+        
+
+        } else if (circle.getContentType() == ContentType.OBJECT) {
+            DirectPositionType pos = DirectPositionHelper.printDirectPosition(circle.getPos().getValue());
+            result.setPos(pos);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported ContentType " + circle.getContentType());
+        }
+
+        // C . Attributes printing
+        LengthType radius = new LengthType();
+        radius.setValue(circle.getRadius().getValue());
+        radius.setUom(circle.getRadius().getUom().getSymbol());
+        result.setRadius(radius);
+
+
         return new JAXBElement<CircleByCenterPointType>(new QName("http://www.opengis.net/gml/3.2", "CircleByCenterPoint"), CircleByCenterPointType.class, result);
     }
 
@@ -586,20 +669,220 @@ public class CurveGmlHelper {
         ArcByCenterPointType result = new ArcByCenterPointType();
 
         // A. Sanity Check
+        if (arc == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> cannot be null.");
+        }
+
+        if (arc.getRadius() == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:radius> can not be null.");
+        }
+
+        if (arc.getStartAngle() == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:startAngle> can not be null.");
+        }
+
+        if (arc.getEndAngle() == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:endAngle> can not be null.");
+        }
+
+        if (arc.getContentType() == ContentType.OBJECT) {
+            if (arc.getPos() == null) {
+                throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> can not be null when ContentType is OBJECT.");
+            }
+        }
+
+        if (arc.getContentType() == ContentType.REFERENCE) {
+            if (arc.getPointProperty() == null) {
+                throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pointProperty> can not be null when ContentType is REFERENCE.");
+            }
+        }
+
+        // B. Coordinates printing
+        if (arc.getContentType() == ContentType.REFERENCE) {
+            PointPropertyType pointProperty = new PointPropertyType();
+            pointProperty.setHref(HrefHelper.printHref(arc.getPointProperty()));
+            pointProperty.setSimpleLinkTitle(arc.getPointProperty().getTitle());
+            result.setPointProperty(pointProperty);
+
+        } else if (arc.getContentType() == ContentType.OBJECT) {
+            DirectPositionType pos = DirectPositionHelper.printDirectPosition(arc.getPos().getValue());
+            result.setPos(pos);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported ContentType " + arc.getContentType());
+        }
+
+        // C . Attributes printing
+        LengthType radius = new LengthType();
+        radius.setValue(arc.getRadius().getValue());
+        radius.setUom(arc.getRadius().getUom().getSymbol());
+        result.setRadius(radius);
+
+        AngleType startAngle = new AngleType();
+        startAngle.setValue(arc.getStartAngle().getValue());
+        startAngle.setUom(arc.getStartAngle().getUom().getSymbol());
+        result.setStartAngle(startAngle);
+
+        AngleType endAngle = new AngleType();
+        endAngle.setValue(arc.getEndAngle().getValue());
+        endAngle.setUom(arc.getEndAngle().getUom().getSymbol());
+        result.setEndAngle(endAngle);
+
         return new JAXBElement<ArcByCenterPointType>(new QName("http://www.opengis.net/gml/3.2", "ArcByCenterPoint"), ArcByCenterPointType.class, result);
     }
 
-    public static JAXBElement<LineStringSegmentType> printGMLLineString(LineString lineString) {
+    public static JAXBElement<LineStringSegmentType> printGMLLineStringSegment(LineString lineString) {
         LineStringSegmentType result = new LineStringSegmentType();
 
         // A. Sanity Check
+        if (lineString == null) {
+            throw new IllegalArgumentException("<gml:LineStringSegmentType> cannot be null.");
+        }
+
+        if (lineString.getContentType() == ContentType.OBJECT) {
+            if (lineString.getPosList() == null && (lineString.getPos() == null || lineString.getPos().isEmpty())) {
+                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:posList> or <gml:pos> can not be both null or empty when ContentType is OBJECT.");
+            }
+
+            if (lineString.getPointProperty() != null || !lineString.getPointProperty().isEmpty()) {
+                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> must be null or empty when ContentType is OBJECT.");
+            }
+        }
+
+        if (lineString.getContentType() == ContentType.REFERENCE) {
+            if (lineString.getPointProperty() == null || lineString.getPointProperty().isEmpty()) {
+                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:pointProperty> can not be null or empty when ContentType is REFERENCE.");
+            }
+
+            if (lineString.getPosList() != null) {
+                throw new IllegalArgumentException("<gml:LineStringSegmentType> Content <gml:posList> must be null or empty when ContentType is REFERENCE.");
+            }
+
+        }
+
+        // B. Coordinates printing
+        if (lineString.getPosList() != null) {
+            DirectPositionListType posList = DirectPositionHelper.printDirectPositionList(lineString.getPosList().getValue());
+            result.setPosList(posList);
+
+
+        } else if ((lineString.getPos() != null && !lineString.getPos().isEmpty()) || (lineString.getPointProperty() != null && !lineString.getPointProperty().isEmpty())) {
+            List<JAXBElement<?>> geometricPositionGroup = new ArrayList<>();
+
+            List<Object> listItem = new ArrayList<>(lineString.getPos());
+            listItem.addAll(lineString.getPointProperty());
+
+            listItem.sort((o1, o2) -> {
+                Long index1 = (o1 instanceof Pos) ? ((Pos) o1).getIndex() : ((PointProperty) o1).getIndex();
+                Long index2 = (o2 instanceof Pos) ? ((Pos) o2).getIndex() : ((PointProperty) o2).getIndex();
+                return index1.compareTo(index2);
+            });
+
+            for (Object obj : listItem) {
+                if (obj.getClass() == Pos.class) {
+                    Pos pos = (Pos) obj;
+                    DirectPositionType directPosition = DirectPositionHelper.printDirectPosition(pos.getValue());
+                    JAXBElement<DirectPositionType> directPositionElement = new JAXBElement<DirectPositionType>(new QName("http://www.opengis.net/gml/3.2", "pos"), DirectPositionType.class, directPosition);
+                    geometricPositionGroup.add(directPositionElement);
+
+                } else if (obj.getClass() == PointProperty.class) {
+                    PointProperty pointProperty = (PointProperty) obj;
+                    PointPropertyType pointPropertyType = new PointPropertyType();
+                    pointPropertyType.setHref(HrefHelper.printHref(pointProperty));
+                    pointPropertyType.setSimpleLinkTitle(pointProperty.getTitle());
+                    JAXBElement<PointPropertyType> pointPropertyElement = new JAXBElement<PointPropertyType>(new QName("http://www.opengis.net/gml/3.2", "pointProperty"), PointPropertyType.class, pointPropertyType);
+                    geometricPositionGroup.add(pointPropertyElement);
+
+                } else {
+                    throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
+                }
+            }
+
+            result.getPosOrPointPropertyOrPointRep().addAll(geometricPositionGroup);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported LineString content.");
+
+        }
+
+
         return new JAXBElement<LineStringSegmentType>(new QName("http://www.opengis.net/gml/3.2", "LineStringSegment"), LineStringSegmentType.class, result);
     }
 
-    public static JAXBElement<GeodesicStringType>  printGMLGeodesic(Geodesic geodesic) {
+    public static JAXBElement<GeodesicStringType> printGMLGeodesicString(Geodesic geodesic) {
         GeodesicStringType result = new GeodesicStringType();
 
         // A. Sanity Check
+        if (geodesic == null) {
+            throw new IllegalArgumentException("<gml:GeodesicStringType> cannot be null.");
+        }
+
+        if (geodesic.getContentType() == ContentType.OBJECT) {
+            if (geodesic.getPosList() == null && (geodesic.getPos() == null || geodesic.getPos().isEmpty())) {
+                throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:posList> or <gml:pos> can not be both null or empty when ContentType is OBJECT.");
+            }
+
+            if (geodesic.getPointProperty() != null || !geodesic.getPointProperty().isEmpty()) {
+                throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> must be null or empty when ContentType is OBJECT.");
+            }
+        }
+
+        if (geodesic.getContentType() == ContentType.REFERENCE) {
+            if (geodesic.getPointProperty() == null || geodesic.getPointProperty().isEmpty()) {
+                throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:pointProperty> can not be null or empty when ContentType is REFERENCE.");
+            }
+
+            if (geodesic.getPosList() != null) {
+                throw new IllegalArgumentException("<gml:GeodesicStringType> Content <gml:posList> must be null or empty when ContentType is REFERENCE.");
+            }
+
+        }
+
+        // B. Coordinates printing
+        if (geodesic.getPosList() != null) {
+            DirectPositionListType posList = DirectPositionHelper.printDirectPositionList(geodesic.getPosList().getValue());
+            result.setPosList(posList);
+
+
+        } else if ((geodesic.getPos() != null && !geodesic.getPos().isEmpty()) || (geodesic.getPointProperty() != null && !geodesic.getPointProperty().isEmpty())) {
+            List<JAXBElement<?>> geometricPositionGroup = new ArrayList<>();
+
+            List<Object> listItem = new ArrayList<>(geodesic.getPos());
+            listItem.addAll(geodesic.getPointProperty());
+
+            listItem.sort((o1, o2) -> {
+                Long index1 = (o1 instanceof Pos) ? ((Pos) o1).getIndex() : ((PointProperty) o1).getIndex();
+                Long index2 = (o2 instanceof Pos) ? ((Pos) o2).getIndex() : ((PointProperty) o2).getIndex();
+                return index1.compareTo(index2);
+            });
+
+            for (Object obj : listItem) {
+                if (obj.getClass() == Pos.class) {
+                    Pos pos = (Pos) obj;
+                    DirectPositionType directPosition = DirectPositionHelper.printDirectPosition(pos.getValue());
+                    JAXBElement<DirectPositionType> directPositionElement = new JAXBElement<DirectPositionType>(new QName("http://www.opengis.net/gml/3.2", "pos"), DirectPositionType.class, directPosition);
+                    geometricPositionGroup.add(directPositionElement);
+
+                } else if (obj.getClass() == PointProperty.class) {
+                    PointProperty pointProperty = (PointProperty) obj;
+                    PointPropertyType pointPropertyType = new PointPropertyType();
+                    pointPropertyType.setHref(HrefHelper.printHref(pointProperty));
+                    pointPropertyType.setSimpleLinkTitle(pointProperty.getTitle());
+                    JAXBElement<PointPropertyType> pointPropertyElement = new JAXBElement<PointPropertyType>(new QName("http://www.opengis.net/gml/3.2", "pointProperty"), PointPropertyType.class, pointPropertyType);
+                    geometricPositionGroup.add(pointPropertyElement);
+
+                } else {
+                    throw new IllegalArgumentException("Unsupported type " + obj.getClass().getName());
+                }
+            }
+
+            result.getGeometricPositionGroup().addAll(geometricPositionGroup);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported Geodesic content.");
+
+        }
+
         return new JAXBElement<GeodesicStringType>(new QName("http://www.opengis.net/gml/3.2", "GeodesicString"), GeodesicStringType.class, result);
     }
 

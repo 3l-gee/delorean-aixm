@@ -105,7 +105,7 @@ public class PointGmlHelper {
         String geomWkt = point.getPos().getValue();
         String srsName = point.getPos().getSrsName();
 
-        DirectPositionType pos = DirectPositionHelper.printDirectPosition(geomWkt, srsName);
+        DirectPositionType pos = DirectPositionHelper.printDirectPosition(geomWkt);
         String epsgCode = SRSValidationHelper.printSrsName(srsName);
 
         // B. carry the AbstractGMLType attributes futrher

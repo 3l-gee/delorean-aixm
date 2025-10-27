@@ -22,7 +22,7 @@ public class DirectPositionHelper {
         return wkt.toString();
     }
 
-    public static DirectPositionType printDirectPosition(String wkt, String srsName) {
+    public static DirectPositionType printDirectPosition(String wkt) {
         if (wkt == null || !wkt.startsWith("POINT(") || !wkt.endsWith(")")) {
             throw new IllegalArgumentException("Invalid WKT format for POINT.");
         }
@@ -47,7 +47,7 @@ public class DirectPositionHelper {
         return pos;
     }
 
-    public static DirectPositionListType printDirectPositionList(String wkt, String srsName) {
+    public static DirectPositionListType printDirectPositionList(String wkt) {
         if (wkt == null || !wkt.startsWith("LINESTRING(") || !wkt.endsWith(")")) {
             throw new IllegalArgumentException("Invalid WKT format for LINESTRING.");
         }
@@ -72,7 +72,6 @@ public class DirectPositionHelper {
 
         DirectPositionListType posList = new DirectPositionListType();
         posList.setValue(values);
-        posList.setSrsName(srsName);
 
         return posList;
     }

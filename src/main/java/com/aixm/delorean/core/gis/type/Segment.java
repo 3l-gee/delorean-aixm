@@ -10,6 +10,8 @@ import jakarta.persistence.SequenceGenerator;
 
 import com.aixm.delorean.core.gis.type.components.SegmentType;
 
+import java.util.List;
+
 import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -56,6 +58,10 @@ public class Segment {
 
     public void setSegmentType(SegmentType segmentType) {
         this.segmentType = segmentType;
+    }
+
+    public List<String> getSrsName() {
+        return null;
     }
     
 }

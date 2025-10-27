@@ -89,4 +89,23 @@ public class LineString extends Segment {
     public void setContentType(ContentType value) {
         this.contentType = value;
     }
+
+    @Override
+    public List<String> getSrsName() {
+        List<String> srsNames = new ArrayList<>();
+
+        if (posList != null && posList.getSrsName() != null) {
+            srsNames.add(posList.getSrsName());
+        }
+
+        if (pos != null) {
+            for (Pos p : pos) {
+                if (p.getSrsName() != null) {
+                    srsNames.add(p.getSrsName());
+                }
+            }
+        }
+
+        return srsNames;
+    }
 }

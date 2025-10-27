@@ -5,6 +5,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Enumerated;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.ContentType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
@@ -69,5 +72,16 @@ public class Circle extends Segment {
 
     public void setContentType(ContentType contentType) {
         this.contentType = contentType;
+    }
+    
+    @Override
+    public List<String> getSrsName() {
+        List<String> srsNames = new ArrayList<>();
+
+        if (pos != null && pos.getSrsName() != null) {
+            srsNames.add(pos.getSrsName());
+        }
+
+        return srsNames;
     }
 }

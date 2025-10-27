@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Embedded;
 import java.util.List;
+import java.util.ArrayList;
 
 import com.aixm.delorean.core.gis.type.components.ContentType;
 import com.aixm.delorean.core.gis.type.components.PointProperty;
@@ -81,5 +82,24 @@ public class Geodesic extends Segment {
 
     public void setContentType(ContentType value) {
         this.contentType = value;
+    }
+
+    @Override
+    public List<String> getSrsName() {
+        List<String> srsNames = new ArrayList<>();
+
+        if (posList != null && posList.getSrsName() != null) {
+            srsNames.add(posList.getSrsName());
+        }
+
+        if (pos != null) {
+            for (Pos p : pos) {
+                if (p.getSrsName() != null) {
+                    srsNames.add(p.getSrsName());
+                }
+            }
+        }
+
+        return srsNames;
     }
 }
