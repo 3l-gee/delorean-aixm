@@ -21,6 +21,7 @@ import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.ValidationEvent;
 import jakarta.xml.bind.ValidationEventHandler;
+import jakarta.xml.bind.ValidationEventLocator;
 
 public class XMLBinding<T> {
     private JAXBContext context;
@@ -60,34 +61,61 @@ public class XMLBinding<T> {
             this.unmarshaller.setEventHandler(new ValidationEventHandler() {
                 @Override
                 public boolean handleEvent(ValidationEvent event) {
+                    String severity;
+                    switch (event.getSeverity()) {
+                        case ValidationEvent.WARNING:
+                            severity = "WARNING";
+                            break;
+                        case ValidationEvent.ERROR:
+                            severity = "ERROR";
+                            break;
+                        case ValidationEvent.FATAL_ERROR:
+                            severity = "FATAL";
+                            break;
+                        default:
+                            severity = "UNKNOWN";
+                    }
+
                     System.err.println("═══════════════════════════════════════════");
                     System.err.println("[JAXB VALIDATION EVENT]");
-                    System.err.println("Severity: " + event.getSeverity());
+                    System.err.println("Severity: " + severity);
                     System.err.println("Message : " + event.getMessage());
-                    if (event.getLinkedException() != null) {
-                        System.err.println("Linked exception:");
-                        event.getLinkedException().printStackTrace(System.err);
-                    }
-                    if (event.getLocator() != null) {
+
+                    ValidationEventLocator locator = event.getLocator();
+                    if (locator != null) {
                         System.err.println("Location:");
-                        System.err.println("  Line:   " + event.getLocator().getLineNumber());
-                        System.err.println("  Column: " + event.getLocator().getColumnNumber());
-                        System.err.println("  Node:   " + event.getLocator().getNode());
-                        System.err.println("  URL:    " + event.getLocator().getURL());
+                        if (locator.getLineNumber() != -1)
+                            System.err.println("  Line:   " + locator.getLineNumber());
+                        if (locator.getColumnNumber() != -1)
+                            System.err.println("  Column: " + locator.getColumnNumber());
+                        if (locator.getURL() != null)
+                            System.err.println("  URL:    " + locator.getURL());
                     }
+
+                    // OPTIONAL: print a short cause summary instead of full stack
+                    if (event.getLinkedException() != null) {
+                        Throwable cause = event.getLinkedException();
+                        System.err.println("Cause  : " + cause.getClass().getSimpleName() + 
+                                        " - " + cause.getMessage());
+                    }
+
                     System.err.println("═══════════════════════════════════════════");
+
+                    // return true to continue after validation errors
                     return true;
                 }
             });
 
-            System.setProperty("jaxb.debug", "true");
-            System.setProperty("eclipselink.logging.level", "FINEST");
-            System.setProperty("eclipselink.logging.level.jaxb", "FINEST");
+            // Optional: remove excessive debug output
+            System.clearProperty("jaxb.debug");
+            System.clearProperty("eclipselink.logging.level");
+            System.clearProperty("eclipselink.logging.level.jaxb");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     public T unmarshal(String path) {
         try (InputStream xmlStream = new FileInputStream(path)) {

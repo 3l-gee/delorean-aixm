@@ -538,7 +538,7 @@ public class CurveGmlHelper {
         // B. Collect all SRS names
         List<String> srsNames = new ArrayList<>();
         for (Segment segment : curve.getSegments()) {
-            srsNames.addAll(segment.getSrsName());
+            srsNames.addAll(segment.aggregateSrsNames());
         }
 
         if (!srsNames.isEmpty()) {
