@@ -74,7 +74,7 @@ public class Aixm5_2E2E {
     void loadXml() {
 
         // given
-        String xmlPath = "src/test/xml/a5_2/full.xml";
+        String xmlPath = "src/test/xml/a5_2/xml-in.xml";
 
         // do
         app.containerWarehouse.getContainer(containerID).unmarshal(xmlPath);

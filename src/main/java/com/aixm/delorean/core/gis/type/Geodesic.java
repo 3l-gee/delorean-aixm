@@ -88,7 +88,7 @@ public class Geodesic extends Segment {
     }
 
     @Override
-    public List<String> getSrsName() {
+    public List<String> aggregateSrsNames() {
         List<String> srsNames = new ArrayList<>();
 
         if (posList != null && posList.getSrsName() != null) {

@@ -107,7 +107,7 @@ public class Arc extends Segment {
     }
 
     @Override
-    public List<String> getSrsName() {
+    public List<String> aggregateSrsNames() {
         List<String> srsNames = new ArrayList<>();
 
         if (pos != null && pos.getSrsName() != null) {
