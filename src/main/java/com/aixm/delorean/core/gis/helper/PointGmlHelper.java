@@ -1,10 +1,8 @@
 package com.aixm.delorean.core.gis.helper;
 
 import java.lang.IllegalArgumentException;
-import java.math.BigInteger;
 
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
 import com.aixm.delorean.core.gis.type.Point;
 import com.aixm.delorean.core.gis.type.components.Pos;

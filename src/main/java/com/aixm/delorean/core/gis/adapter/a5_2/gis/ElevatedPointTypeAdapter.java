@@ -20,7 +20,7 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Delo
             
             // Parse GML geometry and CRS
             DeloreanElevatedPointType result = PointGmlHelper.parseGMLPoint(value, DeloreanElevatedPointType.class);
-
+            
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
             result.setElevation(value.getElevation());

@@ -1,8 +1,7 @@
 package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 
+import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
 import com.aixm.delorean.core.gis.type.a5_2.DeloreanSurfaceType;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
@@ -11,35 +10,59 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, DeloreanSurfaceT
 
     @Override
     public DeloreanSurfaceType unmarshal(SurfaceType value) throws Exception {
+        String featureType = value.getClass().toString();
+        String featureId = "<unknown>";
+
         try {
-            // ParsedPoint attributes = PointGmlHelper.parseGMLPoint(value);
-            // GML attributes
-            // DeloreanElevatedPointType result = (DeloreanElevatedPointType)attributes.gml;
-            DeloreanSurfaceType result = new DeloreanSurfaceType();
+            if (value != null && value.getId() != null) {
+                featureId = value.getId();
+            }
 
-            // Geometry attributes
-            // result.setGeomWkt(attributes.geomWkt);
-            // result.setSrsName(attributes.srsName);
-
-            // AIXM attributes
+            // Parse GML geometry and CRS
+            DeloreanSurfaceType result = SurfaceGmlHelper.parseGMLSurface(value, DeloreanSurfaceType.class);
+            
+            // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
             result.setAnnotation(value.getAnnotation());
             result.setExtension(value.getExtension());
-
-            ConsoleLogger.log(LogLevel.INFO, "unmarshalled SurfaceType :" + value.getId() + " : " + result.getId());
+            
             return result;
-
         } catch (Exception e) {
-            throw new Exception("Error unmarshalling ElevatedPointType at :" + value.getId(), e);
+            throw new RuntimeException(
+                "Error during unmarshalling of : " + featureType + " with id : " + featureId + " : " + e.getMessage(),
+                e
+            );
         }
     }
 
     @Override
     public SurfaceType marshal(DeloreanSurfaceType value) throws Exception {
+        String featureType = value.getClass().toString();
+        String table = "surface";
+        String schema = "gml";
+        Long featureId = null;
+
         try {
-            return new SurfaceType();
+            if (value != null && value.getHjid() != null) {
+                featureId = value.getHjid();
+            }
+
+            // Print GML geometry and CRS
+            // ElevatedSurfaceType result = SurfaceGmlHelper.printGMLSurface(value, ElevatedSurfaceType.class);
+            SurfaceType result = new SurfaceType();
+            
+            // --- Copy AIXM-specific attributes ---
+            result.setHorizontalAccuracy(value.getHorizontalAccuracy());
+            result.setAnnotation(value.getAnnotation());
+            result.setExtension(value.getExtension());
+
+            return result;
+
         } catch (Exception e) {
-            throw e;
+            throw new RuntimeException(
+                "Error during marshalling of : " + featureType + " stored at : " + table + " / " + schema + " with id : " + featureId + " : " + e.getMessage(),
+                e
+            );
         }
     }
 }

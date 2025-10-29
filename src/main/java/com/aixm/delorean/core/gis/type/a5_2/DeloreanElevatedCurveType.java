@@ -33,7 +33,7 @@ import jakarta.xml.bind.JAXBElement;
 @Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanElevatedCurveType")
 @Table(name = "elevated_curve", schema = "gml")
-public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.Surface {
+public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve {
         
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;

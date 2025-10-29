@@ -1,2 +1,8 @@
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.w3.org/1999/xlink", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(
+    namespace = "http://www.w3.org/1999/xlink", 
+    xmlns = {
+        @jakarta.xml.bind.annotation.XmlNs(prefix = "xlink", namespaceURI = "http://www.w3.org/1999/xlink"),
+    },
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+    )
 package com.aixm.delorean.core.org.w3.xlink;

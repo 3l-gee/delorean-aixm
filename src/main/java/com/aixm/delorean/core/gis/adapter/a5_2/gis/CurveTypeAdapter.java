@@ -1,11 +1,9 @@
 package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 
-import com.aixm.delorean.core.gis.helper.PointGmlHelper;
+import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
 import com.aixm.delorean.core.gis.type.a5_2.DeloreanCurveType;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedPointType;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.schema.a5_2.aixm.CurveType;
+
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
@@ -22,7 +20,8 @@ public class CurveTypeAdapter extends XmlAdapter<CurveType, DeloreanCurveType> {
             }
             
             // Parse GML geometry and CRS
-            DeloreanCurveType result = new DeloreanCurveType();
+            DeloreanCurveType result = CurveGmlHelper.parseGMLCurve(value, DeloreanCurveType.class);
+            
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
             result.setAnnotation(value.getAnnotation());
@@ -51,7 +50,7 @@ public class CurveTypeAdapter extends XmlAdapter<CurveType, DeloreanCurveType> {
             }
 
             // Print GML geometry and CRS
-            CurveType result = new CurveType();
+            CurveType result = CurveGmlHelper.printGMLCurve(value, CurveType.class);
 
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());

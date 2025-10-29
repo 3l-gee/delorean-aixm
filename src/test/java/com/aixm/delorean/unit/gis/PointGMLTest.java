@@ -128,9 +128,9 @@ public class PointGMLTest {
             ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="p1" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
-            </ns1:Point>"""
+            <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="p1" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+            </gml:Point>"""
         ),
         Arguments.of(
             GisUtil.point(
@@ -142,9 +142,9 @@ public class PointGMLTest {
             ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-            <ns1:Point srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="p2" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
-            </ns1:Point>"""
+            <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="p2" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+            </gml:Point>"""
         )
     );
     };

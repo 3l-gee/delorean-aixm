@@ -38,9 +38,11 @@ public class XMLBinding<T> {
             this.context = JAXBContext.newInstance(structure);
             this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             this.unmarshaller = this.context.createUnmarshaller();
+            // this.unmarshaller.setSchema(schema);
+            
             this.marshaller = this.context.createMarshaller();
             this.marshaller.setSchema(this.schema);
-            this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             ValidationHandler();
         } catch (Exception e) {
             e.printStackTrace();

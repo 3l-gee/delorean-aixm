@@ -1,2 +1,8 @@
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.opengis.net/gml/3.2", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(
+    namespace = "http://www.opengis.net/gml/3.2", 
+    xmlns = {
+        @jakarta.xml.bind.annotation.XmlNs(prefix = "gml", namespaceURI = "http://www.opengis.net/gml/3.2"),
+    },
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+)
 package com.aixm.delorean.core.org.gml.v_3_2;

@@ -299,70 +299,76 @@
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
-            
-            <!-- Maven Shade Plugin to create a fat JAR -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>true</createDependencyReducedPom>
-                            <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <shadedClassifierName>fat</shadedClassifierName>
-
-                            <!-- Only include runtime deps -->
-                            <artifactSet>
-                                <excludes>
-                                    <exclude>junit:*</exclude>
-                                    <exclude>org.junit.jupiter:*</exclude>
-                                    <exclude>org.assertj:*</exclude>
-                                    <exclude>org.testcontainers:*</exclude>
-                                    <exclude>org.hamcrest:*</exclude>
-                                </excludes>
-                            </artifactSet>
-
-                            <!-- Strip signatures, licenses, docs -->
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                    <exclude>META-INF/*.SF</exclude>
-                                    <exclude>META-INF/*.DSA</exclude>
-                                    <exclude>META-INF/*.RSA</exclude>
-                                    <exclude>META-INF/LICENSE*</exclude>
-                                    <exclude>META-INF/NOTICE*</exclude>
-                                    <exclude>**/*.html</exclude>
-                                    <exclude>**/*.txt</exclude>
-                                    <exclude>**/*.md</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                            
-                            <artifactSet>
-                                <includes>
-                                    <include>*:*</include>
-                                </includes>
-                            </artifactSet>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.aixm.delorean.Main</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 		</plugins>
 	</build>
-
+    
     <profiles>
+        <profile>
+            <id>fat-jar</id>
+            <build>
+                <plugins>
+                    <!-- Maven Shade Plugin to create a fat JAR -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <configuration>
+                                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                                    <shadedArtifactAttached>true</shadedArtifactAttached>
+                                    <shadedClassifierName>fat</shadedClassifierName>
+                                    
+                                    <!-- Only include runtime deps -->
+                                    <artifactSet>
+                                        <excludes>
+                                            <exclude>junit:*</exclude>
+                                            <exclude>org.junit.jupiter:*</exclude>
+                                            <exclude>org.assertj:*</exclude>
+                                            <exclude>org.testcontainers:*</exclude>
+                                            <exclude>org.hamcrest:*</exclude>
+                                        </excludes>
+                                    </artifactSet>
+                                    
+                                    <!-- Strip signatures, licenses, docs -->
+                                    <filters>
+                                        <filter>
+                                            <artifact>*:*</artifact>
+                                            <excludes>
+                                                <exclude>META-INF/*.SF</exclude>
+                                                <exclude>META-INF/*.DSA</exclude>
+                                                <exclude>META-INF/*.RSA</exclude>
+                                                <exclude>META-INF/LICENSE*</exclude>
+                                                <exclude>META-INF/NOTICE*</exclude>
+                                                <exclude>**/*.html</exclude>
+                                                <exclude>**/*.txt</exclude>
+                                                <exclude>**/*.md</exclude>
+                                            </excludes>
+                                        </filter>
+                                    </filters>
+                                    
+                                    <artifactSet>
+                                        <includes>
+                                            <include>*:*</include>
+                                        </includes>
+                                    </artifactSet>
+                                    <transformers>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                            <mainClass>com.aixm.delorean.Main</mainClass>
+                                        </transformer>
+                                    </transformers>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>enable-hyper-jaxb-annox</id>
             <build>

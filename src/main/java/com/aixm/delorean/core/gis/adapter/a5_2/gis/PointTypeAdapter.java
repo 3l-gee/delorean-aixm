@@ -2,13 +2,9 @@ package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import com.aixm.delorean.core.schema.a5_2.aixm.PointType;
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedPointType;
 import com.aixm.delorean.core.gis.type.a5_2.DeloreanPointType;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
 
 public class PointTypeAdapter extends XmlAdapter<PointType, DeloreanPointType> {
     @Override
@@ -23,7 +19,7 @@ public class PointTypeAdapter extends XmlAdapter<PointType, DeloreanPointType> {
 
         // Parse GML geometry and CRS
         DeloreanPointType result = PointGmlHelper.parseGMLPoint(value, DeloreanPointType.class);
-
+        
         // --- Copy AIXM-specific attributes ---
         result.setHorizontalAccuracy(value.getHorizontalAccuracy());
         result.setAnnotation(value.getAnnotation());

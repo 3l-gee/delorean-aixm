@@ -501,13 +501,13 @@ public class CurveGMLTest {
                 ),
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m1" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                    <ns1:segments>
-                        <ns1:LineStringSegment interpolation="linear">
-                            <ns1:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</ns1:posList>
-                        </ns1:LineStringSegment>
-                    </ns1:segments>
-                </ns1:Curve>""" 
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m1" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:LineStringSegment interpolation="linear">
+                            <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, LineStringSegment lat lon order
             Arguments.of(
                 GisUtil.curveObj(
@@ -523,13 +523,13 @@ public class CurveGMLTest {
                 ),
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m2" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                    <ns1:segments>
-                        <ns1:GeodesicString interpolation="geodesic">
-                            <ns1:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</ns1:posList>
-                        </ns1:GeodesicString>
-                    </ns1:segments>
-                </ns1:Curve>""" 
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m2" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:GeodesicString interpolation="geodesic">
+                            <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+                        </gml:GeodesicString>
+                    </gml:segments>
+                </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, GeodesicString lat lon order
             Arguments.of(
                 GisUtil.curveObj(
@@ -543,21 +543,21 @@ public class CurveGMLTest {
                             setValue("POINT(52.51630693440871 13.377717264214601)");
                         }},
                         new DistanceType() {{
-                            setValue(new BigDecimal(5.0));
+                            setValue(new BigDecimal("5.0"));
                             setUom(DistanceUom.KM);
                         }}
                     )
                 ),
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m3" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                    <ns1:segments>
-                        <ns1:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                            <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
-                            <ns1:radius uom="KM">5.0</ns1:radius>
-                        </ns1:CircleByCenterPoint>
-                    </ns1:segments>
-                </ns1:Curve>""" 
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m3" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, CircleByCenterPoint lat lon order
             Arguments.of(
                 GisUtil.curveObj(
@@ -571,7 +571,7 @@ public class CurveGMLTest {
                             setValue("POINT(52.51630693440871 13.377717264214601)");
                         }},
                         new DistanceType() {{
-                            setValue(new BigDecimal(5));
+                            setValue(new BigDecimal("20.0"));
                             setUom(DistanceUom.NM);
                         }},
                         new AngleType() {{
@@ -586,16 +586,16 @@ public class CurveGMLTest {
                 ),
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m3" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
-                    <ns1:segments>
-                        <ns1:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
-                                <ns1:radius uom="NM">20</ns1:radius>
-                                <ns1:startAngle uom="deg">0.00000</ns1:startAngle>
-                                <ns1:endAngle uom="deg">90.00000</ns1:endAngle>
-                            </ns1:ArcByCenterPoint>
-                    </ns1:segments>
-                </ns1:Curve>""" 
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m3" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:radius uom="NM">20.0</gml:radius>
+                                <gml:startAngle uom="deg">0.0</gml:startAngle>
+                                <gml:endAngle uom="deg">90.0</gml:endAngle>
+                            </gml:ArcByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""" 
             )
     );
     }
