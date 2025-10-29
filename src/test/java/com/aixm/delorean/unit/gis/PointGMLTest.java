@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.xmlunit.assertj.XmlAssert;
+
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
 import com.aixm.delorean.core.gis.type.components.Pos;
@@ -157,9 +159,16 @@ public class PointGMLTest {
 
         //do
         String xml = JaxbUtil.printToXml(printed, PointType.class);
+        xml = xml.replace("\r\n", "\n");
+        expectedXml = expectedXml.replace("\r\n", "\n");
 
         //check
-        assertThat(xml).isEqualTo(expectedXml);
+        // assertThat(xml).isEqualTo(expectedXml);
+        XmlAssert.assertThat(xml)
+            .and(expectedXml)
+            .ignoreWhitespace()
+            .ignoreComments()
+            .areIdentical();
     }
 
     

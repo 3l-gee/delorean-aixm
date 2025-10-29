@@ -67,6 +67,9 @@ public class Geodesic extends Segment {
     })  
     @OrderColumn(name = "sequence_index")
     public List<PointProperty> getPointProperty() {
+        if (pointProperty == null) {
+            pointProperty = new ArrayList<>();
+        }
         return pointProperty;
     }
 

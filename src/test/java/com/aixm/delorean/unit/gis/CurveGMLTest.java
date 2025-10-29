@@ -7,8 +7,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.xmlunit.assertj.XmlAssert;
+
 import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
-import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.AngleType;
@@ -18,12 +19,12 @@ import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.components.ContentType;
 
+import java.math.BigDecimal;
 import com.aixm.delorean.core.util.DistanceUom;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
 import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
-import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 
 import java.util.stream.Stream;
 
@@ -217,15 +218,15 @@ public class CurveGMLTest {
                             setValue("POINT(52.51630693440871 13.377717264214601)");
                         }},
                         new DistanceType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
                         }},
                         new AngleType() {{
-                            setValue(0.0);
+                            setValue(new BigDecimal(0.0));
                             setUom(AngleUom.DEG);
                         }},
                         new AngleType() {{
-                            setValue(90.0);
+                            setValue(new BigDecimal(90.0));
                             setUom(AngleUom.DEG);
                         }}
                     )
@@ -255,15 +256,15 @@ public class CurveGMLTest {
                             setHrefType(HrefType.URN);
                         }},
                         new DistanceType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
                         }},
                         new AngleType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(AngleUom.DEG);
                         }},
                         new AngleType() {{
-                            setValue(2.0);
+                            setValue(new BigDecimal(2.0));
                             setUom(AngleUom.RAD);
                         }}
                     )
@@ -293,15 +294,15 @@ public class CurveGMLTest {
                             setHrefType(HrefType.XML);
                         }},
                         new DistanceType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
                         }},
                         new AngleType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(AngleUom.DEG);
                         }},
                         new AngleType() {{
-                            setValue(2.0);
+                            setValue(new BigDecimal(2.0));
                             setUom(AngleUom.RAD);
                         }}
                     )
@@ -331,15 +332,15 @@ public class CurveGMLTest {
                             setHrefType(HrefType.URL);
                         }},
                         new DistanceType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
                         }},
                         new AngleType() {{
-                            setValue(20.0);
+                            setValue(new BigDecimal(20.0));
                             setUom(AngleUom.DEG);
                         }},
                         new AngleType() {{
-                            setValue(2.0);
+                            setValue(new BigDecimal(2.0));
                             setUom(AngleUom.RAD);
                         }}
                     )
@@ -366,7 +367,7 @@ public class CurveGMLTest {
                             setValue("POINT(48.8566 2.3522)");
                         }},
                         new DistanceType() {{
-                            setValue(5.0);
+                            setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
                         }}
                     )
@@ -394,7 +395,7 @@ public class CurveGMLTest {
                             setHrefType(HrefType.URN);
                         }},
                         new DistanceType() {{
-                            setValue(5.0);
+                            setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
                         }}
                     )
@@ -490,7 +491,8 @@ public class CurveGMLTest {
                 GisUtil.curveObj(
                     "m1",
                     0L,
-                    GisUtil.linePosList(0L,
+                    GisUtil.linePosList(
+                        0L,
                         new PosList() {{
                             setSrsName("4326");
                             setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
@@ -505,9 +507,96 @@ public class CurveGMLTest {
                             <ns1:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</ns1:posList>
                         </ns1:LineStringSegment>
                     </ns1:segments>
-                </ns1:Curve>
-                """ 
-            ) // Standard urn case, EPSG:4326, LineStringSegment lat lon order
+                </ns1:Curve>""" 
+            ), // Standard urn case, EPSG:4326, LineStringSegment lat lon order
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m2",
+                    0L,
+                    GisUtil.geodesicPosList(
+                        0L,
+                        new PosList() {{
+                            setSrsName("4326");
+                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
+                        }}
+                    )
+                ),
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m2" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                    <ns1:segments>
+                        <ns1:GeodesicString interpolation="geodesic">
+                            <ns1:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</ns1:posList>
+                        </ns1:GeodesicString>
+                    </ns1:segments>
+                </ns1:Curve>""" 
+            ), // Standard urn case, EPSG:4326, GeodesicString lat lon order
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m3",
+                    0L,
+                    GisUtil.circleObj(
+                        0L,
+                        new Pos() {{
+                            setIndex(0L);
+                            setSrsName("4326");
+                            setValue("POINT(52.51630693440871 13.377717264214601)");
+                        }},
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5.0));
+                            setUom(DistanceUom.KM);
+                        }}
+                    )
+                ),
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m3" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                    <ns1:segments>
+                        <ns1:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
+                            <ns1:radius uom="KM">5.0</ns1:radius>
+                        </ns1:CircleByCenterPoint>
+                    </ns1:segments>
+                </ns1:Curve>""" 
+            ), // Standard urn case, EPSG:4326, CircleByCenterPoint lat lon order
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m3",
+                    0L,
+                    GisUtil.arcObj(
+                        0L,
+                        new Pos() {{
+                            setIndex(0L);
+                            setSrsName("4326");
+                            setValue("POINT(52.51630693440871 13.377717264214601)");
+                        }},
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5));
+                            setUom(DistanceUom.NM);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(0.0));
+                            setUom(AngleUom.DEG);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(90.0));
+                            setUom(AngleUom.DEG);
+                        }}
+                    )
+                ),
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <ns1:Curve srsName="urn:ogc:def:crs:EPSG::4326" ns1:id="m3" xmlns:ns6="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.isotc211.org/2005/gmd" xmlns:ns7="http://www.aixm.aero/schema/5.2/message" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns:ns1="http://www.opengis.net/gml/3.2" xmlns:ns4="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.aixm.aero/schema/5.2">
+                    <ns1:segments>
+                        <ns1:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                                <ns1:pos>52.51630693440871 13.377717264214601</ns1:pos>
+                                <ns1:radius uom="NM">20</ns1:radius>
+                                <ns1:startAngle uom="deg">0.00000</ns1:startAngle>
+                                <ns1:endAngle uom="deg">90.00000</ns1:endAngle>
+                            </ns1:ArcByCenterPoint>
+                    </ns1:segments>
+                </ns1:Curve>""" 
+            )
     );
     }
 
@@ -521,9 +610,14 @@ public class CurveGMLTest {
 
         // do
         String xml = JaxbUtil.printToXml(printed, CurveType.class);
-
+        xml = xml.replace("\r\n", "\n");
+        expectedXml = expectedXml.replace("\r\n", "\n");
         //check
-        assertThat(xml).isEqualTo(expectedXml);
+        XmlAssert.assertThat(xml)
+            .and(expectedXml)
+            .ignoreWhitespace()
+            .ignoreComments()
+            .areIdentical();
     }
     
     // -------------------------------------------------------------------------

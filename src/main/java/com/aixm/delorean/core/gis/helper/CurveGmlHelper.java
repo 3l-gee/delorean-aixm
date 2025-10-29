@@ -31,6 +31,7 @@ import com.aixm.delorean.core.util.DistanceUom;
 import jakarta.xml.bind.JAXBElement;
 
 import java.util.List;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.xml.namespace.QName;
 
@@ -222,7 +223,7 @@ public class CurveGmlHelper {
 
         LengthType radius = value.getRadius();
         DistanceType distanceType = new DistanceType();
-        distanceType.setValue(radius.getValue()); 
+        distanceType.setValue(new BigDecimal(radius.getValue()));
         distanceType.setUom(DistanceUom.fromSymbol(radius.getUom()));
         result.setRadius(distanceType);
 
@@ -312,19 +313,19 @@ public class CurveGmlHelper {
 
         LengthType radius = value.getRadius();
         DistanceType distanceType = new DistanceType();
-        distanceType.setValue(radius.getValue()); 
+        distanceType.setValue(new BigDecimal(radius.getValue()));
         distanceType.setUom(DistanceUom.fromSymbol(radius.getUom()));
         result.setRadius(distanceType);
 
         AngleType startAngle = value.getStartAngle();
         com.aixm.delorean.core.gis.type.components.AngleType angleType = new com.aixm.delorean.core.gis.type.components.AngleType();
-        angleType.setValue(startAngle.getValue());
+        angleType.setValue(new BigDecimal(startAngle.getValue()));
         angleType.setUom(AngleUom.fromSymbol(startAngle.getUom()));
         result.setStartAngle(angleType);
 
         AngleType endAngle = value.getEndAngle();
         com.aixm.delorean.core.gis.type.components.AngleType endAngleType = new com.aixm.delorean.core.gis.type.components.AngleType();
-        endAngleType.setValue(endAngle.getValue());
+        endAngleType.setValue(new BigDecimal(endAngle.getValue()));
         endAngleType.setUom(AngleUom.fromSymbol(endAngle.getUom()));
         result.setEndAngle(endAngleType);
 
@@ -657,7 +658,7 @@ public class CurveGmlHelper {
 
         // C . Attributes printing
         LengthType radius = new LengthType();
-        radius.setValue(circle.getRadius().getValue());
+        radius.setValue(circle.getRadius().getValue().doubleValue());
         radius.setUom(circle.getRadius().getUom().getSymbol());
         result.setRadius(radius);
 
@@ -714,17 +715,17 @@ public class CurveGmlHelper {
 
         // C . Attributes printing
         LengthType radius = new LengthType();
-        radius.setValue(arc.getRadius().getValue());
+        radius.setValue(arc.getRadius().getValue().doubleValue());
         radius.setUom(arc.getRadius().getUom().getSymbol());
         result.setRadius(radius);
 
         AngleType startAngle = new AngleType();
-        startAngle.setValue(arc.getStartAngle().getValue());
+        startAngle.setValue(arc.getStartAngle().getValue().doubleValue());
         startAngle.setUom(arc.getStartAngle().getUom().getSymbol());
         result.setStartAngle(startAngle);
 
         AngleType endAngle = new AngleType();
-        endAngle.setValue(arc.getEndAngle().getValue());
+        endAngle.setValue(arc.getEndAngle().getValue().doubleValue());
         endAngle.setUom(arc.getEndAngle().getUom().getSymbol());
         result.setEndAngle(endAngle);
 
