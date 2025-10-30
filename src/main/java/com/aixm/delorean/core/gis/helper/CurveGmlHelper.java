@@ -22,6 +22,7 @@ import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
 import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
+import com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType;
 
 import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType;
@@ -42,6 +43,8 @@ import com.aixm.delorean.core.gis.type.components.PointProperty;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.components.SegmentType;
+import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.gis.type.Arc;
 import com.aixm.delorean.core.gis.type.Circle;
 import com.aixm.delorean.core.gis.type.Geodesic;
@@ -183,7 +186,7 @@ public class CurveGmlHelper {
 
         // B. SRS consistency
         String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
         // C. coordinates parsing
         if (value.getPos() != null) {
@@ -202,13 +205,58 @@ public class CurveGmlHelper {
                 result.setContentType(ContentType.REFERENCE);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <gml:PointType> in <gml:ArcByCenterPointType>. <gml:PointType> will be converted to <gml:DirectPositionType>.");
+                
+                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+               
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:DirectPositionType>.");
+                
+                ElevatedPointType point = (ElevatedPointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <<aixm:PointType> will be converted to <gml:DirectPositionType>.");
+                
+                com.aixm.delorean.core.schema.a5_2.aixm.PointType point = (com.aixm.delorean.core.schema.a5_2.aixm.PointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+               
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else {
                 throw new IllegalArgumentException("Unsupported type " + value.getPointProperty().getPoint().getValue().getClass().getName());
@@ -270,7 +318,7 @@ public class CurveGmlHelper {
 
         // B. SRS consistency
         String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
         // C. coordinates parsing
         if (value.getPos() != null) {
@@ -291,13 +339,58 @@ public class CurveGmlHelper {
                 result.setContentType(ContentType.REFERENCE);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <gml:PointType> in <gml:ArcByCenterPointType>. <gml:PointType> will be converted to <gml:DirectPositionType>.");
+                
+                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+               
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:DirectPositionType>.");
+                
+                ElevatedPointType point = (ElevatedPointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
-                throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:ArcByCenterPointType>.");
+                ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <<aixm:PointType> will be converted to <gml:DirectPositionType>.");
+                
+                com.aixm.delorean.core.schema.a5_2.aixm.PointType point = (com.aixm.delorean.core.schema.a5_2.aixm.PointType) value.getPointProperty().getPoint().getValue();
+                
+                srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : srsName;
+                inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+               
+                DirectPositionType pointPos = point.getPos();
+                String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                
+                Pos resultPos = new Pos();
+                resultPos.setValue(geomWkt);
+                resultPos.setSrsName(srsName);
+                resultPos.setIndex(0L);
+                result.setPos(resultPos);
+                result.setContentType(ContentType.OBJECT);
 
             } else {
                 throw new IllegalArgumentException("Unsupported type " + value.getPointProperty().getPoint().getValue().getClass().getName());
@@ -354,7 +447,7 @@ public class CurveGmlHelper {
         if (value.getPosList() != null) {
             // B. SRS consistency
             String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
+            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
             // C. coordinates parsing
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
@@ -376,7 +469,7 @@ public class CurveGmlHelper {
 
                     // B. SRS consistency
                     String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
+                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
                     // C. coordinates parsing
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
@@ -387,24 +480,66 @@ public class CurveGmlHelper {
                     result.getPos().add(resultPos);
 
                 } else if (obj.getValue().getClass() == PointPropertyType.class) {
-                    PointPropertyType point = (PointPropertyType) obj.getValue();
+                    PointPropertyType pointPropertyObj = (PointPropertyType) obj.getValue();
 
-                    if (point.getPoint() == null) {
-                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle(), index);
+                    if (pointPropertyObj.getPoint() == null) {
+                        PointProperty pointProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle(), index);
                         result.getPointProperty().add(pointProperty);
                         result.setContentType(ContentType.REFERENCE);
 
-                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:LineStringSegmentType>.");
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <gml:PointType> in <gml:ArcByCenterPointType>. <gml:PointType> will be converted to <gml:DirectPositionType>.");
+            
+                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
 
-                    } else if (point.getPoint().getValue().getClass() == ElevatedPointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:LineStringSegmentType>.");
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
 
-                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:LineStringSegmentType>.");
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == ElevatedPointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:DirectPositionType>.");
+            
+                        ElevatedPointType point = (ElevatedPointType) pointPropertyObj.getPoint().getValue();
+
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
+
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:DirectPositionType>.");
+
+                        com.aixm.delorean.core.schema.a5_2.aixm.PointType point = (com.aixm.delorean.core.schema.a5_2.aixm.PointType) pointPropertyObj.getPoint().getValue();
+
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
 
                     } else {
-                        throw new IllegalArgumentException("Unsupported type " + point.getPoint().getValue().getClass().getName());
+                        throw new IllegalArgumentException("Unsupported type " + pointPropertyObj.getPoint().getValue().getClass().getName());
 
                     }
 
@@ -481,24 +616,66 @@ public class CurveGmlHelper {
                     result.getPos().add(resultPos);
 
                 } else if (obj.getClass() == PointPropertyType.class) {
-                    PointPropertyType point = (PointPropertyType) obj;
+                    PointPropertyType pointPropertyObj = (PointPropertyType) obj;
 
-                    if (point.getPoint() == null) {
-                        PointProperty pointProperty = HrefHelper.parseHref(point.getHref(), point.getSimpleLinkTitle(), index);
+                    if (pointPropertyObj.getPoint() == null) {
+                        PointProperty pointProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle(), index);
                         result.getPointProperty().add(pointProperty);
                         result.setContentType(ContentType.REFERENCE);
 
-                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support gml PointType in <gml:LineStringSegmentType>.");
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <gml:PointType> in <gml:ArcByCenterPointType>. <gml:PointType> will be converted to <gml:DirectPositionType>.");
+            
+                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
 
-                    } else if (point.getPoint().getValue().getClass() == ElevatedPointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 ElevatedPointType in <gml:LineStringSegmentType>.");
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
 
-                    } else if (point.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
-                        throw new IllegalArgumentException("Delorean does not (yet) support aixm 5.2 PointType in <gml:LineStringSegmentType>.");
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == ElevatedPointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:DirectPositionType>.");
+            
+                        ElevatedPointType point = (ElevatedPointType) pointPropertyObj.getPoint().getValue();
+
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
+
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
+                        ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:DirectPositionType>.");
+
+                        com.aixm.delorean.core.schema.a5_2.aixm.PointType point = (com.aixm.delorean.core.schema.a5_2.aixm.PointType) pointPropertyObj.getPoint().getValue();
+
+                        String srsName = point.getSrsName() != null ? SRSValidationHelper.parseSrsName(point.getSrsName()) : SRSValidationHelper.parseSrsName(geometrySrsName);
+                        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+                        
+                        DirectPositionType pointPos = point.getPos();
+                        String geomWkt = DirectPositionHelper.parseDirectPosition(pointPos, inverse);
+                    
+                        Pos resultPos = new Pos();
+                        resultPos.setValue(geomWkt);
+                        resultPos.setSrsName(srsName);
+                        resultPos.setIndex(0L);
+                        result.getPos().add(resultPos);
 
                     } else {
-                        throw new IllegalArgumentException("Unsupported type " + point.getPoint().getValue().getClass().getName());
+                        throw new IllegalArgumentException("Unsupported type " + pointPropertyObj.getPoint().getValue().getClass().getName());
 
                     }
 
@@ -519,6 +696,31 @@ public class CurveGmlHelper {
         }
     }
 
+    public static CurvePropertyType printCurvePropertyType(Curve curve) {
+        CurvePropertyType result = new CurvePropertyType();
+
+        // A. Sanity Check
+        if (curve == null) {
+            throw new IllegalArgumentException("<gml:CurveType> cannot be null.");
+        } 
+
+        if (curve.getContentType() == ContentType.REFERENCE) {
+            String href = HrefHelper.printHref(curve.getCurveProperty());
+            result.setHref(href);
+            result.setSimpleLinkTitle(curve.getCurveProperty().getTitle());
+
+        } else if (curve.getContentType() == ContentType.OBJECT) {
+            CurveType segments = printGMLCurve(curve, CurveType.class);
+            JAXBElement<CurveType> curveElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Curve"), CurveType.class, segments);
+            result.setAbstractCurve(curveElement);
+
+        } else {
+            throw new IllegalArgumentException("Unsupported ContentType " + curve.getContentType());
+        }
+
+        return result;
+    }
+
 
     public static <T extends CurveType> T printGMLCurve(Curve curve, Class<T> targetType) {
         T result;
@@ -527,6 +729,7 @@ public class CurveGmlHelper {
         } catch (Exception e) {
             throw new RuntimeException("Failed to instantiate " + targetType, e);
         }
+
         // A. Sanity Check
         if (curve == null) {
             throw new IllegalArgumentException("<gml:CurveType> cannot be null.");
@@ -534,6 +737,10 @@ public class CurveGmlHelper {
 
         if (curve.getSegments() == null || curve.getSegments().isEmpty()) {
             throw new IllegalArgumentException("<gml:CurveType> Content <gml:segments> can not be null or empty.");
+        }
+
+        if (curve.getContentType() != ContentType.OBJECT) {
+            throw new IllegalArgumentException("<gml:CurveType> Content <gml:segments> must be of type OBJECT.");
         }
 
         // B. Collect all SRS names
@@ -554,19 +761,11 @@ public class CurveGmlHelper {
         String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
 
 
-        // A. Coordinates printing
-        if (curve.getContentType() == ContentType.REFERENCE) {
+        // C. Coordinates printing
+        CurveSegmentArrayPropertyType segments = printGMLCurveSegments(curve.getSegments());
+        result.setSegments(segments);
 
-        } else if (curve.getContentType() == ContentType.OBJECT) {
-            CurveSegmentArrayPropertyType segments = printGMLCurveSegments(curve.getSegments());
-            result.setSegments(segments);
-
-
-        } else {
-            throw new IllegalArgumentException("Unsupported ContentType " + curve.getContentType());
-        }
-
-        // B. carry the AbstractGMLType attributes futrher
+        // D. carry the AbstractGMLType attributes further
         result.setId(curve.getId());
         result.setDescription(curve.getDescription());
         result.setIdentifier(curve.getIdentifier());

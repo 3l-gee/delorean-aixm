@@ -48,8 +48,7 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, DeloreanSurfaceT
             }
 
             // Print GML geometry and CRS
-            // ElevatedSurfaceType result = SurfaceGmlHelper.printGMLSurface(value, ElevatedSurfaceType.class);
-            SurfaceType result = new SurfaceType();
+            SurfaceType result = SurfaceGmlHelper.printGMLSurface(value, SurfaceType.class);
             
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());

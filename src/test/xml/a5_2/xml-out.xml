@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AIXMBasicMessage xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:ns9="http://www.w3.org/1999/xlink" xmlns="http://www.aixm.aero/schema/5.1/message" gml:id="id_Delorean-AIXM-test-0001">
+<AIXMBasicMessage xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:ns9="http://www.w3.org/1999/xlink" xmlns="http://www.aixm.aero/schema/5.1/message" gml:id="id_Delorean-AIXM-test-0001">
     <gml:boundedBy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
     <message:hasMember ns9:type="simple">
         <aixm:DME gml:id="uuid.8979e959-492b-4b30-83d2-060f362cf5c4">
@@ -39,10 +39,42 @@
                         </aixm:ElevatedPoint>
                     </aixm:location>
                     <aixm:direction>
-                        <aixm:ElevatedCurve/>
+                        <aixm:ElevatedCurve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="id_fcabddf3">
+                            <gml:segments>
+<gml:LineStringSegment interpolation="linear">
+    <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511</gml:posList>
+</gml:LineStringSegment>
+                            </gml:segments>
+                            <aixm:elevation uom="M">60</aixm:elevation>
+                            <aixm:geoidUndulation uom="M">11.5</aixm:geoidUndulation>
+                            <aixm:verticalDatum>EGM_96</aixm:verticalDatum>
+                            <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
+                        </aixm:ElevatedCurve>
                     </aixm:direction>
                     <aixm:area>
-                        <aixm:ElevatedSurface/>
+                        <aixm:ElevatedSurface gml:id="id_2c0f086d">
+                            <gml:patches>
+<gml:AbstractSurfacePatch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="gml:PolygonPatchType" interpolation="planar">
+    <gml:exterior>
+        <gml:Ring>
+            <gml:curveMember ns9:type="simple">
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="id_c123e811">
+                    <gml:segments>
+                        <gml:LineStringSegment interpolation="linear">
+                            <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511 -24.589287528217096 -70.1916580926402 -33.9034433595103 18.411155413722216 52.51630693440871 13.377717264214601</gml:posList>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            </gml:curveMember>
+        </gml:Ring>
+    </gml:exterior>
+</gml:AbstractSurfacePatch>
+                            </gml:patches>
+                            <aixm:elevation uom="M">60</aixm:elevation>
+                            <aixm:geoidUndulation uom="M">11.5</aixm:geoidUndulation>
+                            <aixm:verticalDatum>EGM_96</aixm:verticalDatum>
+                            <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
+                        </aixm:ElevatedSurface>
                     </aixm:area>
                     <aixm:place>
                         <aixm:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="id_9ec71416">
@@ -61,7 +93,26 @@
                         </aixm:Curve>
                     </aixm:orientation>
                     <aixm:surface>
-                        <aixm:Surface/>
+                        <aixm:Surface gml:id="id_7f70790a">
+                            <gml:patches>
+<gml:AbstractSurfacePatch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="gml:PolygonPatchType" interpolation="planar">
+    <gml:exterior>
+        <gml:Ring>
+            <gml:curveMember ns9:type="simple">
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="id_d8c79559">
+                    <gml:segments>
+                        <gml:LineStringSegment interpolation="linear">
+                            <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511 -24.589287528217096 -70.1916580926402 -33.9034433595103 18.411155413722216 52.51630693440871 13.377717264214601</gml:posList>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            </gml:curveMember>
+        </gml:Ring>
+    </gml:exterior>
+</gml:AbstractSurfacePatch>
+                            </gml:patches>
+                            <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
+                        </aixm:Surface>
                     </aixm:surface>
                     <aixm:type>NARROW</aixm:type>
                     <aixm:channel>1Y</aixm:channel>

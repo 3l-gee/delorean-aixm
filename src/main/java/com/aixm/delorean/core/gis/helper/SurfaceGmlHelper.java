@@ -11,10 +11,15 @@ import com.aixm.delorean.core.org.gml.v_3_2.PolygonPatchType;
 import com.aixm.delorean.core.org.gml.v_3_2.RectangleType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
 import com.aixm.delorean.core.org.gml.v_3_2.SphereType;
+import com.aixm.delorean.core.org.gml.v_3_2.SurfacePatchArrayPropertyType;
 import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
 import com.aixm.delorean.core.org.gml.v_3_2.TriangleType;
 
 import jakarta.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SurfaceGmlHelper {
 
@@ -114,7 +119,59 @@ public class SurfaceGmlHelper {
         return result;
     }
 
-    // public static <T extends SurfaceType> T printGMLSurface(Surface surface, Class<T> targetType) {
+    public static <T extends SurfaceType> T printGMLSurface(Surface surface, Class<T> targetType) {
+        T result;
+        try {
+            result = targetType.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate " + targetType, e);
+        }
 
-    // }
+        // A. Sanity Check
+        if (surface == null) {
+            throw new IllegalArgumentException("Surface cannot be null.");
+        }
+
+        if (surface.getExterior() == null) {
+            throw new IllegalArgumentException("Surface exterior ring cannot be null.");
+        }
+
+        // C. Coordinates printing exterior
+
+        // C.1 build Exterior Ring
+        RingType exteriorRing = RingGmlHelper.printRing(surface.getExterior());
+        AbstractRingPropertyType exteriorRingProperty = new AbstractRingPropertyType();
+        exteriorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, exteriorRing)); 
+
+        // C.2 build Interior Rings
+        List<AbstractRingPropertyType> interiorRingsProperties = new ArrayList<>();
+        for (Ring interiorRing : surface.getInterior()) {
+            RingType interiorRingGml = RingGmlHelper.printRing(interiorRing);
+            AbstractRingPropertyType interiorRingProperty = new AbstractRingPropertyType();
+            interiorRingProperty.setAbstractRing(new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Ring"), RingType.class, interiorRingGml)); 
+            interiorRingsProperties.add(interiorRingProperty);
+        }
+
+        // C.3 build Polygon Patch
+        PolygonPatchType polygonPatch = new PolygonPatchType();
+        polygonPatch.setExterior(exteriorRingProperty);
+        polygonPatch.getInterior().addAll(interiorRingsProperties);
+        JAXBElement<PolygonPatchType> polygonPatchElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "AbstractSurfacePatch"), PolygonPatchType.class, polygonPatch);
+
+        // C.4 build SurfacePatchArrayPropertyType
+        SurfacePatchArrayPropertyType surfacePatchArray = new SurfacePatchArrayPropertyType();
+        surfacePatchArray.getAbstractSurfacePatch().add(polygonPatchElement);
+        JAXBElement<SurfacePatchArrayPropertyType> surfacePatchArrayElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "patches"), SurfacePatchArrayPropertyType.class, surfacePatchArray);
+
+        // C.5 build SurfaceType
+        result.setPatches(surfacePatchArrayElement);
+
+        // D. carry the AbstractGMLType attributes further
+        result.setId(surface.getId());
+        result.setDescription(surface.getDescription());
+        result.setIdentifier(surface.getIdentifier());
+
+        return result;
+
+    }
 }

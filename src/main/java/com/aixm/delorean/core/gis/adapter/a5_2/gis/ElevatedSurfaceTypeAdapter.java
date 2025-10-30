@@ -52,11 +52,13 @@ public class ElevatedSurfaceTypeAdapter extends XmlAdapter<ElevatedSurfaceType, 
             }
 
             // Print GML geometry and CRS
-            // ElevatedSurfaceType result = SurfaceGmlHelper.printGMLSurface(value, ElevatedSurfaceType.class);
-            ElevatedSurfaceType result = new ElevatedSurfaceType();
+            ElevatedSurfaceType result = SurfaceGmlHelper.printGMLSurface(value, ElevatedSurfaceType.class);
             
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
+            result.setElevation(value.getElevation());
+            result.setGeoidUndulation(value.getGeoidUndulation());
+            result.setVerticalDatum(value.getVerticalDatum());
             result.setAnnotation(value.getAnnotation());
             result.setExtension(value.getExtension());
 

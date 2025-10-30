@@ -3,7 +3,6 @@ package com.aixm.delorean.core.gis.helper;
 import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.components.ContentType;
-import com.aixm.delorean.core.gis.type.components.CurveProperty;
 import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
@@ -60,8 +59,19 @@ public class RingGmlHelper {
     }
 
     public static RingType printRing (Ring ring) {
+        RingType result = new RingType();
 
-        return new RingType();
+        // A. Sanity Check
+        if (ring == null) {
+            throw new IllegalArgumentException("Ring cannot be null.");
+        }
+
+        // C. Coordinates printing
+        for (var curve : ring.getCurves()) {
+            result.getCurveMember().add(CurveGmlHelper.printCurvePropertyType(curve));
+        }
+
+        return result;
     }
 
 }

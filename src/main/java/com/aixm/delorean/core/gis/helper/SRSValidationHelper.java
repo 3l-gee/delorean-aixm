@@ -54,6 +54,11 @@ public class SRSValidationHelper {
             return ACCEPTED_SRS.get(srsName).inverseAxisOrder;
         }
 
+        // Try with EPSG:: prefix
+        if (ACCEPTED_SRS.containsKey("EPSG::" +  srsName)) {
+            return ACCEPTED_SRS.get("EPSG::" +  srsName).inverseAxisOrder;
+        }
+
         // Try to normalize using patterns
         Matcher urnMatcher = SRS_URN_PATTERN.matcher(srsName);
         Matcher httpMatcher = SRS_HTTP_PATTERN.matcher(srsName);

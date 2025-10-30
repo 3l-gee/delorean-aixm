@@ -463,8 +463,106 @@ public class CurveGMLTest {
                         }}
                     )
                 )
-            ) // urn CRS:84, Geodesic, posList case, lat lon order
-    );      
+            ),// urn CRS:84, Geodesic, posList case, lat lon order
+            Arguments.of(
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:pointProperty>
+                                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15">
+                                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                </gml:Point>
+                            </gml:pointProperty>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""",
+                GisUtil.curveObj(
+                    "c15",
+                    0L,
+                    GisUtil.circleObj(
+                        0L,
+                        new Pos() {{
+                            setIndex(0L);
+                            setSrsName("4326");
+                            setValue("POINT(52.51630693440871 13.377717264214601)");
+                        }},
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5.0));
+                            setUom(DistanceUom.KM);
+                        }}
+                    )
+                )
+            ), // Standard urn case, EPSG:4326, CircleByCenterPoint with pointProperty convertion in pos lat lon order
+            Arguments.of(
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:pointProperty>
+                                <aixm:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15">
+                                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                    <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
+                                </aixm:Point>
+                            </gml:pointProperty>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""",
+                GisUtil.curveObj(
+                    "c15",
+                    0L,
+                    GisUtil.circleObj(
+                        0L,
+                        new Pos() {{
+                            setIndex(0L);
+                            setSrsName("4326");
+                            setValue("POINT(52.51630693440871 13.377717264214601)");
+                        }},
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5.0));
+                            setUom(DistanceUom.KM);
+                        }}
+                    )
+                )
+            ), // Standard urn case, EPSG:4326, CircleByCenterPoint with pointProperty convertion in pos lat lon order
+            Arguments.of(
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:pointProperty>
+                                <aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15">
+                                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                    <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
+                                </aixm:ElevatedPoint>
+                            </gml:pointProperty>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""",
+                GisUtil.curveObj(
+                    "c15",
+                    0L,
+                    GisUtil.circleObj(
+                        0L,
+                        new Pos() {{
+                            setIndex(0L);
+                            setSrsName("4326");
+                            setValue("POINT(52.51630693440871 13.377717264214601)");
+                        }},
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5.0));
+                            setUom(DistanceUom.KM);
+                        }}
+                    )
+                )
+            )
+        );  
     }
 
 
@@ -657,7 +755,99 @@ public class CurveGMLTest {
                             </gml:LineStringSegment>
                         </gml:segments>
                     </gml:Curve>
-            """) // use of posList and pos
+            """), // use of posList and pos
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:ArcStringByBulge>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:ArcStringByBulge>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of ArcStringByBulge
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:ArcString>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:ArcString>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of ArcString
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:Arc>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:Arc>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of Arc
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:BSpline>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:degree>2</gml:degree>
+                                <gml:knot>0</gml:knot>
+                            </gml:BSpline>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of BSpline
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:Bezier>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:degree>2</gml:degree>
+                                <gml:knot>0</gml:knot>
+                            </gml:Bezier>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of Bezier
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:Circle>
+                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                <gml:pos> 38.89763528280979 -77.03654820204511</gml:pos>
+                                <gml:pos> -24.589287528217096 -70.1916580926402</gml:pos>
+                            </gml:Circle>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of Circle
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:Clothoid>
+                            </gml:Clothoid>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of Clothoid
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:CubicSpline>
+                            </gml:CubicSpline>
+                        </gml:segments>
+                    </gml:Curve>
+            """), // use of CubicSpline
+            Arguments.of("""
+                    <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c3" xmlns:gml="http://www.opengis.net/gml/3.2">
+                        <gml:segments>
+                            <gml:OffsetCurve>
+                            </gml:OffsetCurve>
+                        </gml:segments>
+                    </gml:Curve>
+            """) // use of OffsetCurve
         );
     }
 
