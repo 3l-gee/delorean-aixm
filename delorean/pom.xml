@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.aixm.delorean</groupId>
+        <artifactId>delorean-parent</artifactId>
+        <version>0.2.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+
+	<groupId>com.aixm.delorean</groupId>
+	<artifactId>delorean</artifactId>
+	<version>0.2.0</version>
+	<name>delorean</name>
+	<url>https://github.com/3l-gee/delorean</url>
+    
+    <properties>
+		<maven-min.version>3.9.0</maven-min.version>
+		<annotation.version>2.1.1</annotation.version>
+		<eclipselink.version>4.0.2</eclipselink.version>
+		<hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
+		<hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+		<h2database.version>2.2.224</h2database.version>
+		<postgresql.version>42.7.3</postgresql.version>
+        <postgis.version>2025.1.1</postgis.version>
+        <hikaricp.version>7.0.2</hikaricp.version>
+        <hibernate.version>7.1.0.Final</hibernate.version>
+		<jpa-api.version>3.2.0</jpa-api.version>
+		<slf4j.version>2.0.12</slf4j.version>
+        <jts.version>1.20.0</jts.version>
+        <proj4.version>1.4.1</proj4.version>
+        <freemarker.version>2.3.34</freemarker.version>
+	</properties>
+
+	<dependencies>
+
+        <!-- JPA Dependencies -->
+		<dependency>
+			<groupId>jakarta.annotation</groupId>
+			<artifactId>jakarta.annotation-api</artifactId>
+			<version>${annotation.version}</version>
+            <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>${jpa-api.version}</version>
+            <scope>provided</scope>
+		</dependency>
+
+        <!-- HiSrc Runtime Dependencies -->
+		<dependency>
+			<groupId>org.patrodyne.jvnet</groupId>
+			<artifactId>hisrc-basicjaxb-runtime</artifactId>
+			<version>${hisrc-basicjaxb.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.patrodyne.jvnet</groupId>
+			<artifactId>hisrc-hyperjaxb-ejb-runtime</artifactId>
+			<version>${hisrc-hyperjaxb.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.patrodyne.jvnet</groupId>
+            <artifactId>hisrc-hyperjaxb-opt-hibernate</artifactId>
+            <version>${hisrc-hyperjaxb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.patrodyne.jvnet</groupId>
+            <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
+            <version>${hisrc-hyperjaxb.version}</version>
+        </dependency>
+
+        <!-- Database Dependencies -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2database.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>net.postgis</groupId>
+            <artifactId>postgis-jdbc</artifactId>
+            <version>${postgis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikaricp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>9.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-spatial</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-hikaricp</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        
+        <!-- Hibernate Validator dependencies -->
+        <dependency>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <version>6.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.expressly</groupId>
+            <artifactId>expressly</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+
+        <!-- SLF4J Implementation -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+        <!-- GIS Dependencies -->
+        <dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
+            <version>${jts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.jts.io</groupId>
+            <artifactId>jts-io-common</artifactId>
+            <version>${jts.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.proj4j</groupId>
+            <artifactId>proj4j</artifactId>
+            <version>${proj4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.proj4j</groupId>
+            <artifactId>proj4j-epsg</artifactId>
+            <version>${proj4.version}</version>
+        </dependency>
+
+        <!-- XML templates Dependencies -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+
+        <!-- Mapping Dependencies -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.26.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.20.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>1.20.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
+            <version>2.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-assertj</artifactId>
+            <version>2.11.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Post-JAXB Codegen Fix Utility -->
+        <dependency>
+            <groupId>com.util</groupId>
+            <artifactId>post-jaxb-fix</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+            <!-- Java compilation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>21</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.hibernate.orm</groupId>
+                            <artifactId>hibernate-processor</artifactId>
+                            <version>${hibernate.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.6.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!-- Unit Tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.tags.include=${junit.jupiter.tags.include}
+                        </configurationParameters>
+                    </properties>
+                </configuration>
+            </plugin>
+
+            <!-- Integration / End-to-End Tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.2.5</version>
+                <executions>
+                    <execution>
+                        <id>integration-tests</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                        <include>**/*E2E.java</include>
+                    </includes>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.tags.include=${junit.jupiter.tags.include}
+                        </configurationParameters>
+                    </properties>
+                </configuration>
+            </plugin>
+
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>4.0.0-M12</version>
+			</plugin>
+
+            <!-- Exec Maven Plugin -->
+            <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<mainClass>com.aixm.delorean.Main</mainClass>
+					<cleanupDaemonThreads>false</cleanupDaemonThreads>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+    
+    <profiles>
+        <profile>
+            <id>fat-jar</id>
+            <build>
+                <plugins>
+                    <!-- Maven Shade Plugin to create a fat JAR -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <configuration>
+                                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                                    <shadedArtifactAttached>true</shadedArtifactAttached>
+                                    <shadedClassifierName>fat</shadedClassifierName>
+                                    
+                                    <!-- Only include runtime deps -->
+                                    <artifactSet>
+                                        <excludes>
+                                            <exclude>junit:*</exclude>
+                                            <exclude>org.junit.jupiter:*</exclude>
+                                            <exclude>org.assertj:*</exclude>
+                                            <exclude>org.testcontainers:*</exclude>
+                                            <exclude>org.hamcrest:*</exclude>
+                                        </excludes>
+                                    </artifactSet>
+                                    
+                                    <!-- Strip signatures, licenses, docs -->
+                                    <filters>
+                                        <filter>
+                                            <artifact>*:*</artifact>
+                                            <excludes>
+                                                <exclude>META-INF/*.SF</exclude>
+                                                <exclude>META-INF/*.DSA</exclude>
+                                                <exclude>META-INF/*.RSA</exclude>
+                                                <exclude>META-INF/LICENSE*</exclude>
+                                                <exclude>META-INF/NOTICE*</exclude>
+                                                <exclude>**/*.html</exclude>
+                                                <exclude>**/*.txt</exclude>
+                                                <exclude>**/*.md</exclude>
+                                            </excludes>
+                                        </filter>
+                                    </filters>
+                                    
+                                    <artifactSet>
+                                        <includes>
+                                            <include>*:*</include>
+                                        </includes>
+                                    </artifactSet>
+                                    <transformers>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                            <mainClass>com.aixm.delorean.Main</mainClass>
+                                        </transformer>
+                                    </transformers>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>hyper-jaxb</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.patrodyne.jvnet</groupId>
+                        <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
+                        <version>${hisrc-hyperjaxb.version}</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.patrodyne.jvnet</groupId>
+                                <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
+                                <version>${hisrc-hyperjaxb.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>generate</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <noFileHeader>true</noFileHeader>
+                                    <extension>true</extension>
+                                    <schemaDirectory>${project.parent.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
+                                    <schemaIncludes>
+                                        <include>AIXM_BasicMessage.xsd</include>
+                                    </schemaIncludes>
+                                    <bindingDirectory>${project.parent.basedir}/schema/aixm5_2/binding</bindingDirectory>
+                                    <bindingIncludes>
+                                        <include>*.xjb</include>
+                                    </bindingIncludes>
+                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>post-jaxb-fix</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>com.util.postjaxb.PostJAXBCodegenFix</mainClass>
+                                    <systemProperties>
+                                        <systemProperty>
+                                            <key>project.root</key>
+                                            <value>${project.parent.basedir}</value>
+                                        </systemProperty>
+                                    </systemProperties>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <version>2.43.0</version>
+                        <executions>
+                            <execution>
+                                <id>format-generated-sources</id>
+                                <goals>
+                                    <goal>apply</goal> 
+                                </goals>
+                                <phase>process-sources</phase> 
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <java>
+                                <includes>
+                                    <include>${project.basedir}/src/main/java/com/aixm/delorean/core/schema/**/*.java</include>
+                                </includes>
+                                <googleJavaFormat>
+                                    <version>1.17.0</version>
+                                </googleJavaFormat>
+                                <indent>
+                                    <spaces>true</spaces>
+                                    <spacesPerTab>4</spacesPerTab> 
+                                </indent>
+                                <endWithNewline/>
+                                <trimTrailingWhitespace/>
+                                <removeUnusedImports/>
+                                <importOrder/>
+                            </java>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

@@ -1,0 +1,74 @@
+change:
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractTimeSliceType.java
+      method: getValidTime 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Embedded',
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end"))})'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AbstractAIXMTimeSliceType.java
+      method: getFeatureLifetime 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Embedded',
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end"))})'
+        ]
+        
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMPointPropertyType.java
+      method: getPoint 
+    updates:
+      - old: Transient
+        new: 
+          - '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)'
+          - '@jakarta.persistence.JoinColumn(name = "point_id")'
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedPointPropertyType.java
+      method: getElevatedPoint
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_point_id")'
+        ]
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMCurvePropertyType.java
+      method: getCurve 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "curve_id")'
+        ]
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedCurvePropertyType.java
+      method: getElevatedCurve 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_curve_id")'
+        ]
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMSurfacePropertyType.java
+      method: getSurface 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "surface_id")'
+        ]   
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedSurfacePropertyType.java
+      method: getElevatedSurface 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_surface_id")'
+        ]

@@ -1,0 +1,10 @@
+
+delete:
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter1.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter2.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter3.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter4.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter5.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter6.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\Adapter7.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
