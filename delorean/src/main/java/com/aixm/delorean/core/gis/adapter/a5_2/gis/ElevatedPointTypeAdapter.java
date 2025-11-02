@@ -3,13 +3,13 @@ package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedPointType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedPointType;
 import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 
-public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, DeloreanElevatedPointType> {
+public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, AixmElevatedPointType> {
     
     @Override
-    public DeloreanElevatedPointType unmarshal(ElevatedPointType value) throws Exception {
+    public AixmElevatedPointType unmarshal(ElevatedPointType value) throws Exception {
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -19,7 +19,7 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Delo
             }
             
             // Parse GML geometry and CRS
-            DeloreanElevatedPointType result = PointGmlHelper.parseGMLPoint(value, DeloreanElevatedPointType.class);
+            AixmElevatedPointType result = PointGmlHelper.parseGMLPoint(value, AixmElevatedPointType.class);
             
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
@@ -40,7 +40,7 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Delo
     }
 
     @Override
-    public ElevatedPointType marshal(DeloreanElevatedPointType value) throws Exception {
+    public ElevatedPointType marshal(AixmElevatedPointType value) throws Exception {
         String featureType = value.getClass().toString();
         String table = "elevated_point";
         String schema = "gml";

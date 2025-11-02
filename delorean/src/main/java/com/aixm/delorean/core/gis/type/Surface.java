@@ -3,6 +3,7 @@ package com.aixm.delorean.core.gis.type;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
 import jakarta.persistence.Column;
@@ -67,6 +68,18 @@ public class Surface extends AbstractGMLType {
 
     public void setInterior(List<Ring> value) {
         this.interior = value;
+    }
+
+    public List<String> aggregateSrsNames() {
+        List<String> srsNames = new ArrayList<>();
+
+        srsNames.addAll(exterior.aggregateSrsNames());
+
+        for (Ring ring : getInterior()) {
+            srsNames.addAll(ring.aggregateSrsNames());
+        }
+
+        return srsNames;
     }
 
 }

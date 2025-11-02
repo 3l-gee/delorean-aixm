@@ -28,9 +28,9 @@ import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
 @Access(AccessType.PROPERTY)
-@Entity(name = "DeloreanPointType")
-@Table(name = "point", schema = "gml")
-public class DeloreanPointType extends com.aixm.delorean.core.gis.type.Point {
+@Entity(name = "AixmPointType")
+@Table(name = "aixm_point", schema = "gml")
+public class AixmPointType extends com.aixm.delorean.core.gis.type.Point {
 
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;

@@ -14,10 +14,8 @@ import com.aixm.delorean.core.gis.type.Curve;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.HrefType;
-import com.aixm.delorean.core.gis.type.components.PointProperty;
-import com.aixm.delorean.core.gis.type.components.Pos;
-import com.aixm.delorean.core.gis.type.components.PosList;
-import com.aixm.delorean.core.gis.type.components.ContentType;
+import com.aixm.delorean.core.gis.type.components.GeometricType;
+import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
 
 import java.math.BigDecimal;
 import com.aixm.delorean.core.util.DistanceUom;
@@ -50,12 +48,15 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c1",
-                    0L,
-                    GisUtil.linePosList(0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        GisUtil.posList(
+                            "4326", 
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 )
             ), // urn EPSG:4326 LineStringSegment posList case, lat lon order
@@ -70,13 +71,16 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c2",
-                    0L,
-                        GisUtil.linePosList(0L,
-                            new PosList() {{
-                                setSrsName("4326");
-                                setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                            }}
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
                         )
+                    )
                 )
             ), // url EPSG:4326 LineStringSegment posList case, lat lon order
             Arguments.of("""
@@ -91,25 +95,34 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c3",
-                    0L,
-                    GisUtil.linePosProp(
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
                         0L,
-                        List.of(
-                            new Pos() {{
-                                setIndex(0L);
-                                setSrsName("4326");
-                                setValue("POINT(52.51630693440871 13.377717264214601)");
-                            }},
-                            new Pos() {{
-                                setIndex(1L);
-                                setSrsName("4326");
-                                setValue("POINT(38.89763528280979 -77.03654820204511)");
-                            }}
-                        ),
-                        List.of(),
-                        ContentType.OBJECT
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ), 
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(38.89763528280979 -77.03654820204511)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        )
                     )
-                )            
+                )
             ), // urn EPSG:4326, LineStringSegment list of pos, lat lon order
             Arguments.of("""
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c4" xmlns:gml="http://www.opengis.net/gml/3.2">
@@ -123,25 +136,33 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c4",
-                    0L,
-                    GisUtil.linePosProp(
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
                         0L,
-                        List.of(
-                            new Pos() {{
-                                setIndex(0L);
-                                setSrsName("4326");
-                                setValue("POINT(52.51630693440871 13.377717264214601)");
-                            }}
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
                         ),
-                        List.of(
-                            new PointProperty() {{
-                                setIndex(1L);
-                                setHref("d163a00d-609f-4b15-9584-165f12599442");
-                                setTitle("external curve");
-                                setHrefType(HrefType.URN);
-                            }}
-                        ),
-                        ContentType.REFERENCE
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "d163a00d-609f-4b15-9584-165f12599442",
+                                "external curve",
+                                HrefType.URN
+                            )
+                        )
                     )
                 )
             ), // urn EPSG:4326, LineStringSegment list of pos and pointProperty, lat lon order
@@ -163,36 +184,47 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c5", 
-                    0L,
-                    GisUtil.linePosList(0, 
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L, 
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     ),
-                    GisUtil.linePosProp(1, 
-                        List.of(
-                            new Pos() {{
-                                setIndex(0L);
-                                setSrsName("4326");
-                                setValue("POINT(38.89763528280979 -77.03654820204511)");
-                            }},
-                            new Pos() {{
-                                setIndex(1L);
-                                setSrsName("4326");
-                                setValue("POINT(-24.589287528217096 -70.1916580926402)");
-                            }}
+                    GisUtil.line(
+                        1L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(38.89763528280979 -77.03654820204511)"
+                            ),
+                            GeometricType.POS,
+                            null
                         ),
-                        List.of(),
-                        ContentType.OBJECT
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(-24.589287528217096 -70.1916580926402)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        )
                     ),
-                    GisUtil.linePosList(2, 
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(-24.589287528217096 -70.1916580926402, -33.85704607534651 151.21496554537183)");
-                        }}
+                    GisUtil.line(
+                        2L,
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(-24.589287528217096 -70.1916580926402, -33.85704607534651 151.21496554537183)"
+                        )
                     )
-
                 )
             ), // urn EPSG:4326, list of LineStringSegment posList and pos, lat lon order
             Arguments.of("""
@@ -209,14 +241,21 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c6", 
-                    0, 
-                    GisUtil.arcObj(
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
@@ -246,15 +285,23 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c7", 
-                    0, 
-                    GisUtil.arcRef(
+                    null, 
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
                         0L,
-                        new PointProperty() {{
-                            setIndex(0L);
-                            setHref("d163a00d-609f-4b15-9584-165f12599442");
-                            setTitle("external point");
-                            setHrefType(HrefType.URN);
-                        }},
+                        GisUtil.pointObj(
+                            null, 
+                            null, 
+                            null,
+                            GeometricType.REF, 
+                            GisUtil.geometricProperty(
+                                "d163a00d-609f-4b15-9584-165f12599442",
+                                "external point",
+                                HrefType.URN
+                            )
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
@@ -284,15 +331,23 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c8",
-                    0,
-                    GisUtil.arcRef(
+                    null,
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
                         0L,
-                        new PointProperty() {{
-                            setIndex(0L);
-                            setHref("c6");
-                            setTitle("external point");
-                            setHrefType(HrefType.XML);
-                        }},
+                        GisUtil.pointObj(
+                            null, 
+                            null, 
+                            null,
+                            GeometricType.REF, 
+                            GisUtil.geometricProperty(
+                                "#c6",
+                                "external point",
+                                HrefType.XML
+                            )
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
@@ -322,15 +377,23 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c9",
-                    0,
-                    GisUtil.arcRef(
+                    null,
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
                         0L,
-                        new PointProperty() {{
-                            setIndex(0L);
-                            setHref("https://example.com/points/c6");
-                            setTitle("external point");
-                            setHrefType(HrefType.URL);
-                        }},
+                        GisUtil.pointObj(
+                            null, 
+                            null, 
+                            null,
+                            GeometricType.REF, 
+                            GisUtil.geometricProperty(
+                                "https://example.com/points/c6",
+                                "external point",
+                                HrefType.URL
+                            )
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(20.0));
                             setUom(DistanceUom.NM);
@@ -358,14 +421,22 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c10", 
-                    0, 
-                    GisUtil.circleObj(
+                    null,
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(48.8566 2.3522)");
-                        }},
+                        GisUtil.pointObj(
+                            null,
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(48.8566 2.3522)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
@@ -385,15 +456,22 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c11", 
-                    0, 
-                    GisUtil.circleRef(
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new PointProperty() {{
-                            setIndex(0L);
-                            setHref("d163a00d-609f-4b15-9584-165f12599442");
-                            setTitle("external point");
-                            setHrefType(HrefType.URN);
-                        }},
+                        GisUtil.pointObj(
+                            null,
+                            null,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "d163a00d-609f-4b15-9584-165f12599442",
+                                "external point",
+                                HrefType.URN
+                            )
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
@@ -412,13 +490,15 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c12",
-                    0L,
-                    GisUtil.geodesicPosList(
+                    null,
+                    null,
+                    null,
+                    GisUtil.geodesic(
                         0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 )
             ), // urn EPSG:4326, GeodesicString, posList case, lat lon order
@@ -433,13 +513,15 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c13",
-                    0L,
-                    GisUtil.geodesicPosList(
+                    null,
+                    null,
+                    null,
+                    GisUtil.geodesic(
                         0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 )
             ), // urn EPSG:4326, Geodesic, posList case, lat lon order
@@ -454,13 +536,15 @@ public class CurveGMLTest {
                 """,
                 GisUtil.curveObj(
                     "c14",
-                    0L,
-                    GisUtil.geodesicPosList(
+                    null,
+                    null,
+                    null,
+                    GisUtil.geodesic(
                         0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 )
             ),// urn CRS:84, Geodesic, posList case, lat lon order
@@ -481,14 +565,21 @@ public class CurveGMLTest {
                 </gml:Curve>""",
                 GisUtil.curveObj(
                     "c15",
-                    0L,
-                    GisUtil.circleObj(
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            "c15",
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.GML,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
@@ -499,11 +590,11 @@ public class CurveGMLTest {
             Arguments.of(
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c16" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
                             <gml:pointProperty>
-                                <aixm:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15">
+                                <aixm:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c16">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                                     <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
                                 </aixm:Point>
@@ -513,15 +604,22 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>""",
                 GisUtil.curveObj(
-                    "c15",
-                    0L,
-                    GisUtil.circleObj(
+                    "c16",
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            "c16",
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.GML,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
@@ -532,11 +630,11 @@ public class CurveGMLTest {
             Arguments.of(
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c17" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
                             <gml:pointProperty>
-                                <aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c15">
+                                <aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c17">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                                     <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
                                 </aixm:ElevatedPoint>
@@ -546,15 +644,23 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>""",
                 GisUtil.curveObj(
-                    "c15",
+                    "c17",
                     0L,
-                    GisUtil.circleObj(
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            "c17",
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.GML,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal(5.0));
                             setUom(DistanceUom.KM);
@@ -575,7 +681,7 @@ public class CurveGMLTest {
         CurveType curve = JaxbUtil.loadFromXml(xml, CurveType.class);
 
         // do
-        Curve parsed = CurveGmlHelper.parseGMLCurve(curve, Curve.class);
+        GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curve, GmlCurveType.class);
 
         // check
         assertThat(parsed).isNotNull();
@@ -588,13 +694,15 @@ public class CurveGMLTest {
             Arguments.of(
                 GisUtil.curveObj(
                     "m1",
-                    0L,
-                    GisUtil.linePosList(
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
                         0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 ),
                 """
@@ -610,13 +718,15 @@ public class CurveGMLTest {
             Arguments.of(
                 GisUtil.curveObj(
                     "m2",
-                    0L,
-                    GisUtil.geodesicPosList(
+                    null,
+                    null,
+                    null,
+                    GisUtil.geodesic(
                         0L,
-                        new PosList() {{
-                            setSrsName("4326");
-                            setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)");
-                        }}
+                        GisUtil.posList(
+                            "4326",
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
                     )
                 ),
                 """
@@ -632,14 +742,21 @@ public class CurveGMLTest {
             Arguments.of(
                 GisUtil.curveObj(
                     "m3",
-                    0L,
-                    GisUtil.circleObj(
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            null,
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal("5.0"));
                             setUom(DistanceUom.KM);
@@ -659,15 +776,22 @@ public class CurveGMLTest {
             ), // Standard urn case, EPSG:4326, CircleByCenterPoint lat lon order
             Arguments.of(
                 GisUtil.curveObj(
-                    "m3",
-                    0L,
-                    GisUtil.arcObj(
+                    "m4",
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
                         0L,
-                        new Pos() {{
-                            setIndex(0L);
-                            setSrsName("4326");
-                            setValue("POINT(52.51630693440871 13.377717264214601)");
-                        }},
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
                         new DistanceType() {{
                             setValue(new BigDecimal("20.0"));
                             setUom(DistanceUom.NM);
@@ -684,14 +808,63 @@ public class CurveGMLTest {
                 ),
                 """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m3" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m4" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                                <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
-                                <gml:radius uom="NM">20.0</gml:radius>
-                                <gml:startAngle uom="deg">0.0</gml:startAngle>
-                                <gml:endAngle uom="deg">90.0</gml:endAngle>
-                            </gml:ArcByCenterPoint>
+                            <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                            <gml:radius uom="NM">20.0</gml:radius>
+                            <gml:startAngle uom="deg">0.0</gml:startAngle>
+                            <gml:endAngle uom="deg">90.0</gml:endAngle>
+                        </gml:ArcByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""" 
+            ),
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m5",
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
+                        0L,
+                        GisUtil.pointObj(
+                            "m5",
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.GML,
+                            null
+                        ),
+                        new DistanceType() {{
+                            setValue(new BigDecimal("20.0"));
+                            setUom(DistanceUom.NM);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(0.0));
+                            setUom(AngleUom.DEG);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(90.0));
+                            setUom(AngleUom.DEG);
+                        }}
+                    )
+                ),
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m5" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:pointProperty>
+                                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m5">
+                                    <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                                </gml:Point>
+                            </gml:pointProperty>
+                            <gml:radius uom="NM">20.0</gml:radius>
+                            <gml:startAngle uom="deg">0.0</gml:startAngle>
+                            <gml:endAngle uom="deg">90.0</gml:endAngle>
+                        </gml:ArcByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""" 
             )

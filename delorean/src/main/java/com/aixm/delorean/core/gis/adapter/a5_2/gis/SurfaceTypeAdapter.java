@@ -1,15 +1,15 @@
 package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 
 import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanSurfaceType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmSurfaceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, DeloreanSurfaceType> {
+public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, AixmSurfaceType> {
 
     @Override
-    public DeloreanSurfaceType unmarshal(SurfaceType value) throws Exception {
+    public AixmSurfaceType unmarshal(SurfaceType value) throws Exception {
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -19,7 +19,7 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, DeloreanSurfaceT
             }
 
             // Parse GML geometry and CRS
-            DeloreanSurfaceType result = SurfaceGmlHelper.parseGMLSurface(value, DeloreanSurfaceType.class);
+            AixmSurfaceType result = SurfaceGmlHelper.parseGMLSurface(value, AixmSurfaceType.class);
             
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
@@ -36,7 +36,7 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, DeloreanSurfaceT
     }
 
     @Override
-    public SurfaceType marshal(DeloreanSurfaceType value) throws Exception {
+    public SurfaceType marshal(AixmSurfaceType value) throws Exception {
         String featureType = value.getClass().toString();
         String table = "surface";
         String schema = "gml";

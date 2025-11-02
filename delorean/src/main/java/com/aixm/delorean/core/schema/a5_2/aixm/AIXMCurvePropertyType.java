@@ -3,7 +3,7 @@ package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.CurveTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanCurveType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmCurveType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -52,7 +52,7 @@ public class AIXMCurvePropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "Curve", required = true, type = CurveType.class)
     @XmlJavaTypeAdapter(CurveTypeAdapter.class)
-    protected DeloreanCurveType curve;
+    protected AixmCurveType curve;
 
     /**
      * Gets the value of the curve property.
@@ -64,7 +64,7 @@ public class AIXMCurvePropertyType
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
 @jakarta.persistence.JoinColumn(name = "curve_id")
-    public DeloreanCurveType getCurve() {
+    public AixmCurveType getCurve() {
         return curve;
     }
 
@@ -76,7 +76,7 @@ public class AIXMCurvePropertyType
      *     {@link String }
      *     
      */
-    public void setCurve(DeloreanCurveType value) {
+    public void setCurve(AixmCurveType value) {
         this.curve = value;
     }
 
@@ -100,9 +100,9 @@ public class AIXMCurvePropertyType
         {
             boolean lhsFieldIsSet = this.isSetCurve();
             boolean rhsFieldIsSet = that.isSetCurve();
-            DeloreanCurveType lhsField;
+            AixmCurveType lhsField;
             lhsField = this.getCurve();
-            DeloreanCurveType rhsField;
+            AixmCurveType rhsField;
             rhsField = that.getCurve();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curve", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curve", rhsField);
@@ -118,7 +118,7 @@ public class AIXMCurvePropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetCurve();
-            DeloreanCurveType theField;
+            AixmCurveType theField;
             theField = this.getCurve();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curve", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -131,7 +131,7 @@ public class AIXMCurvePropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetCurve();
-            DeloreanCurveType theField;
+            AixmCurveType theField;
             theField = this.getCurve();
             strategy.appendField(locator, this, "curve", buffer, theField, theFieldIsSet);
         }

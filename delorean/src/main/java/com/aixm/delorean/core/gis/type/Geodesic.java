@@ -1,31 +1,26 @@
 package com.aixm.delorean.core.gis.type;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OrderColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.aixm.delorean.core.gis.type.components.ContentType;
-import com.aixm.delorean.core.gis.type.components.PointProperty;
-import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.gis.type.components.PosList;
+import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
 @Entity(name = "Geodesic")
 @Table(name = "geodesic", schema = "gml")
 public class Geodesic extends Segment {
 
     protected PosList posList;
-    protected List<Pos> pos;
-    protected List<PointProperty> pointProperty;
-    protected ContentType contentType;
+    protected List<GmlPointType> gmlPoint;
 
     @Embedded
     @AttributeOverrides({
@@ -41,67 +36,33 @@ public class Geodesic extends Segment {
         this.posList = value;
     }
 
-    @ElementCollection
-    @CollectionTable(name = "geodesic_pos", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
-    @AttributeOverrides({
-        @jakarta.persistence.AttributeOverride(name = "index", column = @Column(name = "index")),
-        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "srs_name", length = 128)),
-        @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
-    })
-    @OrderColumn(name = "sequence_index")
-    public List<Pos> getPos() {
-        return pos;
-    }
-
-    public void setPos(List<Pos> value) {
-        this.pos = value;
-    }
-
-    @ElementCollection
-    @CollectionTable(name = "geodesic_point_property", schema = "gml", joinColumns = @JoinColumn(name = "geodesic_id"))
-    @AttributeOverrides({
-        @jakarta.persistence.AttributeOverride(name = "index", column = @Column(name = "index")),
-        @jakarta.persistence.AttributeOverride(name = "href", column = @Column(name = "href", length = 256)),
-        @jakarta.persistence.AttributeOverride(name = "title", column = @Column(name = "title", length = 256)),
-        @jakarta.persistence.AttributeOverride(name = "hrefType", column = @Column(name = "href_type", length = 20))
-    })  
-    @OrderColumn(name = "sequence_index")
-    public List<PointProperty> getPointProperty() {
-        if (pointProperty == null) {
-            pointProperty = new ArrayList<>();
+    @OneToMany(targetEntity = GmlPointType.class, cascade = {
+        CascadeType.MERGE,
+        CascadeType.PERSIST,
+        CascadeType.DETACH,
+        CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "gml_point_id", nullable = true)
+    public List<GmlPointType> getGmlPoint() {
+        if (gmlPoint == null) {
+            gmlPoint = new ArrayList<>();
         }
-        return pointProperty;
+        return gmlPoint;
     }
 
-    public void setPointProperty(List<PointProperty> value) {
-        this.pointProperty = value;
-    }
-
-    @Enumerated(jakarta.persistence.EnumType.STRING)
-    @Column(name = "content_type", length = 20, nullable = false)
-    public ContentType getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(ContentType value) {
-        this.contentType = value;
+    public void setGmlPoint(List<GmlPointType> gmlPoint) {
+        this.gmlPoint = gmlPoint;
     }
 
     @Override
     public List<String> aggregateSrsNames() {
         List<String> srsNames = new ArrayList<>();
 
-        if (posList != null && posList.getSrsName() != null) {
-            srsNames.add(posList.getSrsName());
+        for (GmlPointType point : getGmlPoint()) {
+            srsNames.addAll(point.aggregateSrsNames());
         }
 
-        if (pos != null) {
-            for (Pos p : pos) {
-                if (p.getSrsName() != null) {
-                    srsNames.add(p.getSrsName());
-                }
-            }
-        }
+        srsNames.add(posList.getSrsName());
 
         return srsNames;
     }

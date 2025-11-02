@@ -1,6 +1,9 @@
 package com.aixm.delorean.core.gis.type.components;
 
-public class CurveProperty {
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class GeometricProperty{
     protected String href;
     protected String title;
     protected HrefType hrefType;

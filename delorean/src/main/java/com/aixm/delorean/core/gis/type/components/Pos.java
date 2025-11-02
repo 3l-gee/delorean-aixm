@@ -4,17 +4,8 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Pos{
-    protected Long index;
     protected String srsName;
     protected String value;
-
-    public Long getIndex() {
-        return index;
-    }
-
-    public void setIndex(Long index) {
-        this.index = index;
-    }
 
     public String getSrsName() {
         return srsName;

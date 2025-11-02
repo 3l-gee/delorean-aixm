@@ -3,7 +3,7 @@ package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.SurfaceTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanSurfaceType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmSurfaceType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -52,7 +52,7 @@ public class AIXMSurfacePropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "Surface", required = true, type = SurfaceType.class)
     @XmlJavaTypeAdapter(SurfaceTypeAdapter.class)
-    protected DeloreanSurfaceType surface;
+    protected AixmSurfaceType surface;
 
     /**
      * Gets the value of the surface property.
@@ -64,7 +64,7 @@ public class AIXMSurfacePropertyType
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
 @jakarta.persistence.JoinColumn(name = "surface_id")
-    public DeloreanSurfaceType getSurface() {
+    public AixmSurfaceType getSurface() {
         return surface;
     }
 
@@ -76,7 +76,7 @@ public class AIXMSurfacePropertyType
      *     {@link String }
      *     
      */
-    public void setSurface(DeloreanSurfaceType value) {
+    public void setSurface(AixmSurfaceType value) {
         this.surface = value;
     }
 
@@ -100,9 +100,9 @@ public class AIXMSurfacePropertyType
         {
             boolean lhsFieldIsSet = this.isSetSurface();
             boolean rhsFieldIsSet = that.isSetSurface();
-            DeloreanSurfaceType lhsField;
+            AixmSurfaceType lhsField;
             lhsField = this.getSurface();
-            DeloreanSurfaceType rhsField;
+            AixmSurfaceType rhsField;
             rhsField = that.getSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surface", rhsField);
@@ -118,7 +118,7 @@ public class AIXMSurfacePropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetSurface();
-            DeloreanSurfaceType theField;
+            AixmSurfaceType theField;
             theField = this.getSurface();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "surface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -131,7 +131,7 @@ public class AIXMSurfacePropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetSurface();
-            DeloreanSurfaceType theField;
+            AixmSurfaceType theField;
             theField = this.getSurface();
             strategy.appendField(locator, this, "surface", buffer, theField, theFieldIsSet);
         }

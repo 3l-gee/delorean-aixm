@@ -3,7 +3,7 @@ package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedCurveTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedCurveType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedCurveType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -52,7 +52,7 @@ public class AIXMElevatedCurvePropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "ElevatedCurve", required = true, type = ElevatedCurveType.class)
     @XmlJavaTypeAdapter(ElevatedCurveTypeAdapter.class)
-    protected DeloreanElevatedCurveType elevatedCurve;
+    protected AixmElevatedCurveType elevatedCurve;
 
     /**
      * Gets the value of the elevatedCurve property.
@@ -64,7 +64,7 @@ public class AIXMElevatedCurvePropertyType
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
 @jakarta.persistence.JoinColumn(name = "elevated_curve_id")
-    public DeloreanElevatedCurveType getElevatedCurve() {
+    public AixmElevatedCurveType getElevatedCurve() {
         return elevatedCurve;
     }
 
@@ -76,7 +76,7 @@ public class AIXMElevatedCurvePropertyType
      *     {@link String }
      *     
      */
-    public void setElevatedCurve(DeloreanElevatedCurveType value) {
+    public void setElevatedCurve(AixmElevatedCurveType value) {
         this.elevatedCurve = value;
     }
 
@@ -100,9 +100,9 @@ public class AIXMElevatedCurvePropertyType
         {
             boolean lhsFieldIsSet = this.isSetElevatedCurve();
             boolean rhsFieldIsSet = that.isSetElevatedCurve();
-            DeloreanElevatedCurveType lhsField;
+            AixmElevatedCurveType lhsField;
             lhsField = this.getElevatedCurve();
-            DeloreanElevatedCurveType rhsField;
+            AixmElevatedCurveType rhsField;
             rhsField = that.getElevatedCurve();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevatedCurve", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevatedCurve", rhsField);
@@ -118,7 +118,7 @@ public class AIXMElevatedCurvePropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedCurve();
-            DeloreanElevatedCurveType theField;
+            AixmElevatedCurveType theField;
             theField = this.getElevatedCurve();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "elevatedCurve", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -131,7 +131,7 @@ public class AIXMElevatedCurvePropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedCurve();
-            DeloreanElevatedCurveType theField;
+            AixmElevatedCurveType theField;
             theField = this.getElevatedCurve();
             strategy.appendField(locator, this, "elevatedCurve", buffer, theField, theFieldIsSet);
         }

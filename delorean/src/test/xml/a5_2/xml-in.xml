@@ -49,6 +49,7 @@
               <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
             </aixm:ElevatedPoint>
           </aixm:location>
+          <!--
           <aixm:direction>
             <aixm:ElevatedCurve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="id_fcabddf3">
               <gml:segments>
@@ -125,6 +126,7 @@
               <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
             </aixm:Surface>
           </aixm:surface>
+          -->
           <aixm:type>NARROW</aixm:type>
           <aixm:channel>1Y</aixm:channel>
           <aixm:displace uom="M" accuracy="0.1">10.0</aixm:displace>

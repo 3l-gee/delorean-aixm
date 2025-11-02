@@ -136,6 +136,20 @@ public class SurfaceGmlHelper {
             throw new IllegalArgumentException("Surface exterior ring cannot be null.");
         }
 
+        // B. Collect all SRS names
+        List<String> srsNames = surface.aggregateSrsNames();
+        
+        if (!srsNames.isEmpty()) {
+            String firstSrsName = srsNames.get(0);
+            for (String srsName : srsNames) {
+                if (!srsName.equals(firstSrsName)) {
+                    throw new IllegalArgumentException("All segments must have the same SRS name. Found differing SRS names.");
+                }
+            }
+        }
+
+        String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
+
         // C. Coordinates printing exterior
 
         // C.1 build Exterior Ring
@@ -170,6 +184,7 @@ public class SurfaceGmlHelper {
         result.setId(surface.getId());
         result.setDescription(surface.getDescription());
         result.setIdentifier(surface.getIdentifier());
+        result.setSrsName(epsgCode);
 
         return result;
 

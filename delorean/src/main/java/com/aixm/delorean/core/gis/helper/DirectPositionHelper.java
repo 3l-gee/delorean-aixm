@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
+import com.aixm.delorean.core.gis.type.components.GeometricType;
+import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
 
 public class DirectPositionHelper {
@@ -21,6 +23,20 @@ public class DirectPositionHelper {
         wkt.append(")");
         return wkt.toString();
     }
+
+    public static DirectPositionType printDirectPosition(GmlPointType point) {
+        if (point == null) {
+            throw new IllegalArgumentException("<GmlPointType> cannot be null.");
+        }
+
+        if (point.getGeometricType() != GeometricType.POS) {
+            throw new IllegalArgumentException("<GmlPointType> Content <geometricType> must be 'POS' to build a DirectPositionType.");
+        }
+
+        String wkt = point.getPos().getValue();
+        return printDirectPosition(wkt);
+    }
+
 
     public static DirectPositionType printDirectPosition(String wkt) {
         if (wkt == null || !wkt.startsWith("POINT(") || !wkt.endsWith(")")) {

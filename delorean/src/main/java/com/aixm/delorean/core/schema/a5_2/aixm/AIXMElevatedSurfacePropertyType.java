@@ -3,7 +3,7 @@ package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedSurfaceTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedSurfaceType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedSurfaceType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -52,7 +52,7 @@ public class AIXMElevatedSurfacePropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "ElevatedSurface", required = true, type = ElevatedSurfaceType.class)
     @XmlJavaTypeAdapter(ElevatedSurfaceTypeAdapter.class)
-    protected DeloreanElevatedSurfaceType elevatedSurface;
+    protected AixmElevatedSurfaceType elevatedSurface;
 
     /**
      * Gets the value of the elevatedSurface property.
@@ -64,7 +64,7 @@ public class AIXMElevatedSurfacePropertyType
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
 @jakarta.persistence.JoinColumn(name = "elevated_surface_id")
-    public DeloreanElevatedSurfaceType getElevatedSurface() {
+    public AixmElevatedSurfaceType getElevatedSurface() {
         return elevatedSurface;
     }
 
@@ -76,7 +76,7 @@ public class AIXMElevatedSurfacePropertyType
      *     {@link String }
      *     
      */
-    public void setElevatedSurface(DeloreanElevatedSurfaceType value) {
+    public void setElevatedSurface(AixmElevatedSurfaceType value) {
         this.elevatedSurface = value;
     }
 
@@ -100,9 +100,9 @@ public class AIXMElevatedSurfacePropertyType
         {
             boolean lhsFieldIsSet = this.isSetElevatedSurface();
             boolean rhsFieldIsSet = that.isSetElevatedSurface();
-            DeloreanElevatedSurfaceType lhsField;
+            AixmElevatedSurfaceType lhsField;
             lhsField = this.getElevatedSurface();
-            DeloreanElevatedSurfaceType rhsField;
+            AixmElevatedSurfaceType rhsField;
             rhsField = that.getElevatedSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevatedSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevatedSurface", rhsField);
@@ -118,7 +118,7 @@ public class AIXMElevatedSurfacePropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedSurface();
-            DeloreanElevatedSurfaceType theField;
+            AixmElevatedSurfaceType theField;
             theField = this.getElevatedSurface();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "elevatedSurface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -131,7 +131,7 @@ public class AIXMElevatedSurfacePropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetElevatedSurface();
-            DeloreanElevatedSurfaceType theField;
+            AixmElevatedSurfaceType theField;
             theField = this.getElevatedSurface();
             strategy.appendField(locator, this, "elevatedSurface", buffer, theField, theFieldIsSet);
         }

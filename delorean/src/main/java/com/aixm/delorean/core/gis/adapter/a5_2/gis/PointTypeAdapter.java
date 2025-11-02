@@ -4,11 +4,11 @@ import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 import com.aixm.delorean.core.schema.a5_2.aixm.PointType;
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanPointType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmPointType;
 
-public class PointTypeAdapter extends XmlAdapter<PointType, DeloreanPointType> {
+public class PointTypeAdapter extends XmlAdapter<PointType, AixmPointType> {
     @Override
-    public DeloreanPointType unmarshal(PointType value) throws Exception {
+    public AixmPointType unmarshal(PointType value) throws Exception {
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -18,7 +18,7 @@ public class PointTypeAdapter extends XmlAdapter<PointType, DeloreanPointType> {
             }
 
         // Parse GML geometry and CRS
-        DeloreanPointType result = PointGmlHelper.parseGMLPoint(value, DeloreanPointType.class);
+        AixmPointType result = PointGmlHelper.parseGMLPoint(value, AixmPointType.class);
         
         // --- Copy AIXM-specific attributes ---
         result.setHorizontalAccuracy(value.getHorizontalAccuracy());
@@ -36,7 +36,7 @@ public class PointTypeAdapter extends XmlAdapter<PointType, DeloreanPointType> {
     
 
     @Override
-    public PointType marshal(DeloreanPointType value) throws Exception {
+    public PointType marshal(AixmPointType value) throws Exception {
         String featureType = value.getClass().toString();
         String table = "point";
         String schema = "gml";

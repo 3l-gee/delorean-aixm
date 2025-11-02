@@ -11,7 +11,8 @@ import org.xmlunit.assertj.XmlAssert;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.components.Pos;
+import com.aixm.delorean.core.gis.type.components.GeometricType;
+import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
@@ -32,12 +33,15 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p1",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601)"   
+                ),
+                GeometricType.GML,
+                null
             )
             ), // Standard urn case, EPSG:4326, lat lon order
 
@@ -46,12 +50,15 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p2",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601)"   
+                ),
+                GeometricType.GML,
+                null
             )
             ), // Standard https case, EPSG:4326, lat lon order
 
@@ -60,12 +67,15 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p3",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             )
             ), // Standard http case, EPSG:4326, lat lon order
 
@@ -74,12 +84,15 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p4",
-                new Pos() {{
-                    setSrsName("4258");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4258",
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             )
             ), // Standard case, EPSG:4258, lat lon order
 
@@ -88,12 +101,15 @@ public class PointGMLTest {
                     <gml:pos>13.377717264214601 52.51630693440871</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p5",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(13.377717264214601 52.51630693440871)"
+                ),
+                GeometricType.GML,
+                null
             )
             ) // Special case, OGC:1.3:CRS84, lon lat order
         );
@@ -109,7 +125,7 @@ public class PointGMLTest {
         PointType point = JaxbUtil.loadFromXml(xml, PointType.class);
 
         // do
-        Point parsed = PointGmlHelper.parseGMLPoint(point, Point.class);
+        GmlPointType parsed = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
 
         // check
         assertThat(parsed).isNotNull();
@@ -119,12 +135,15 @@ public class PointGMLTest {
     static Stream<Arguments> PrintValidGMLPoints() {
     return Stream.of(
         Arguments.of(
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p1",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -133,12 +152,15 @@ public class PointGMLTest {
             </gml:Point>"""
         ),
         Arguments.of(
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p2",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             ),
             """
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -231,49 +253,64 @@ public class PointGMLTest {
         ), // null  DeloreanPointType
 
         Arguments.of(
-            GisUtil.point(
+            GisUtil.pointObj(
                 "p1",
+                null,
+                null,
+                null,
                 null
             )
         ), // Empty DeloreanPointType
 
         Arguments.of(
-            GisUtil.point(
-                "p2",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue(null);
-                }}
+            GisUtil.pointObj(
+                "p3",
+                null,
+                GisUtil.pos(
+                    "4326",
+                    null
+                ),
+                GeometricType.GML,
+                null
             )
         ), // missing wkt
 
         Arguments.of(
-            GisUtil.point(
-                "p2",
-                new Pos() {{
-                    setSrsName("4326");
-                    setValue("POINT(52.51630693440871 13.377717264214601");
-                }}
+            GisUtil.pointObj(
+                "p4",
+                null,
+                GisUtil.pos(
+                    "4326",
+                    "POINT(52.51630693440871 13.377717264214601"
+                ),
+                GeometricType.GML,
+                null
             )
         ), // malformed wkt
 
         Arguments.of(
-             GisUtil.point(
-                "p2",
-                new Pos() {{
-                    setSrsName(null);
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+             GisUtil.pointObj(
+                "p5",
+                null,
+                GisUtil.pos(
+                    null,
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             )
         ), // missing srs
 
         Arguments.of(
-            GisUtil.point(
-                "p2",
-                new Pos() {{
-                    setSrsName("2056");
-                    setValue("POINT(52.51630693440871 13.377717264214601)");
-                }}
+            GisUtil.pointObj(
+                "p6",
+                null,
+                GisUtil.pos(
+                    "2056",
+                    "POINT(52.51630693440871 13.377717264214601)"
+                ),
+                GeometricType.GML,
+                null
             )
         ) // wrong srs
     );

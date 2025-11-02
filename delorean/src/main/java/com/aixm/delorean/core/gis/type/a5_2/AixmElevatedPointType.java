@@ -7,13 +7,13 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
-import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveTypeExtension;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointTypeExtension;
 import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
 import com.aixm.delorean.core.schema.a5_2.aixm.TextNameType;
 import com.aixm.delorean.core.schema.a5_2.aixm.ValDistanceSignedType;
 import com.aixm.delorean.core.schema.a5_2.aixm.ValDistanceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.ValDistanceVerticalType;
+import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -24,32 +24,36 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
 @Access(AccessType.PROPERTY)
-@Entity(name = "DeloreanElevatedCurveType")
-@Table(name = "elevated_curve", schema = "gml")
-public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve {
-        
+@Entity(name = "AixmElevatedPointType")
+@Table(name = "aixm_elevated_point", schema = "gml")
+public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point {
+
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;
     protected JAXBElement<ValDistanceSignedType> geoidUndulation;
     protected JAXBElement<TextNameType> verticalDatum;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
-    protected List<ElevatedCurveTypeExtension> extension;
+    protected List<ElevatedPointTypeExtension> extension;
 
-    @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {
         return elevation;
     }
 
     public void setElevation(JAXBElement<ValDistanceVerticalType> value) {
         this.elevation = value;
+    }
+
+    @Transient
+    public boolean isSetElevation() {
+        return (this.elevation!= null);
     }
 
     @Embedded
@@ -64,15 +68,9 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
     }
 
     public void setElevationItem(ValDistanceVerticalType target) {
-        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "elevation"), ElevatedCurveType.class, target));
+        setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "elevation"), ElevatedPointType.class, target));
     }
 
-    @Transient
-    public boolean isSetElevation() {
-        return (this.elevation!= null);
-    }
-
-    @Transient
     public JAXBElement<ValDistanceSignedType> getGeoidUndulation() {
         return geoidUndulation;
     }
@@ -98,10 +96,9 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
     }
 
     public void setGeoidUndulationItem(ValDistanceSignedType target) {
-        setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.2", "geoidUndulation"), ElevatedCurveType.class, target));
+        setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.2", "geoidUndulation"), ElevatedPointType.class, target));
     }
 
-    @Transient
     public JAXBElement<TextNameType> getVerticalDatum() {
         return verticalDatum;
     }
@@ -125,10 +122,10 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
     }
 
     public void setVerticalDatumItem(TextNameType target) {
-        setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "verticalDatum"), ElevatedCurveType.class, target));
+        setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "verticalDatum"), ElevatedPointType.class, target));
     }
 
-        public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
+    public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }
 
@@ -140,7 +137,7 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
     public boolean isSetHorizontalAccuracy() {
         return (this.horizontalAccuracy!= null);
     }
-
+    
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY_VAL", precision = 20, scale = 10)),
@@ -153,7 +150,7 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy"), ElevatedCurveType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy"), ElevatedPointType.class, target));
     }
 
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
@@ -180,18 +177,18 @@ public class DeloreanElevatedCurveType extends com.aixm.delorean.core.gis.type.C
         this.annotation = null;
     }
 
-    @OneToMany(targetEntity = ElevatedCurveTypeExtension.class, cascade = {
+    @OneToMany(targetEntity = ElevatedPointTypeExtension.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_AIXMPOINT_TYPE_HJID")
-    public List<ElevatedCurveTypeExtension> getExtension() {
+    public List<ElevatedPointTypeExtension> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
         return this.extension;
     }
 
-    public void setExtension(List<ElevatedCurveTypeExtension> extension) {
+    public void setExtension(List<ElevatedPointTypeExtension> extension) {
         this.extension = extension;
     }
 

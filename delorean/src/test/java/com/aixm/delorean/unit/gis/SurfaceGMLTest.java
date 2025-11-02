@@ -11,7 +11,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
 import com.aixm.delorean.core.gis.type.Surface;
-import com.aixm.delorean.core.gis.type.components.PosList;
+import com.aixm.delorean.core.gis.type.components.GeometricType;
+import com.aixm.delorean.core.gis.type.gml.GmlSurfaceType;
 import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
@@ -46,15 +47,15 @@ public class SurfaceGMLTest {
                     </gml:patches>
                 </gml:Surface>
                 """,
-                GisUtil.surface(
+                GisUtil.surfaceObj(
                     "s1",
+                    null,
+                    GeometricType.GML,
+                    null,
                     GisUtil.ring(0L,
-                        GisUtil.curveObj("c1", 0L,
-                            GisUtil.linePosList(0L,
-                                new PosList() {{
-                                    setSrsName("4326");
-                                    setValue("LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)");
-                                }}
+                        GisUtil.curveObj("c1", 0L, GeometricType.GML, null,
+                            GisUtil.line(0L,
+                                GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
                         )
                     )
@@ -72,7 +73,7 @@ public class SurfaceGMLTest {
         SurfaceType surface = JaxbUtil.loadFromXml(xml, SurfaceType.class);
 
         // do
-        Surface parsed = SurfaceGmlHelper.parseGMLSurface(surface, Surface.class);
+        GmlSurfaceType parsed = SurfaceGmlHelper.parseGMLSurface(surface, GmlSurfaceType.class);
 
         // check
         assertThat(parsed).isNotNull();

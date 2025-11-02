@@ -12,6 +12,9 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
@@ -46,5 +49,9 @@ public class Point extends AbstractGMLType {
 
     public void setPos(Pos value) {
         this.pos = value;
+    }
+
+    public List<String> aggregateSrsNames() {
+        return new ArrayList<>(pos.getSrsName() != null ? List.of(pos.getSrsName()) : List.of());
     }
 }

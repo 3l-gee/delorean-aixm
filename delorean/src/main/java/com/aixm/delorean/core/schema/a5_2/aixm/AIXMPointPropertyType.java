@@ -3,7 +3,7 @@ package com.aixm.delorean.core.schema.a5_2.aixm;
 
 import java.io.Serializable;
 import com.aixm.delorean.core.gis.adapter.a5_2.gis.PointTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanPointType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmPointType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -52,7 +52,7 @@ public class AIXMPointPropertyType
     private static final long serialVersionUID = 20250910L;
     @XmlElement(name = "Point", required = true, type = PointType.class)
     @XmlJavaTypeAdapter(PointTypeAdapter.class)
-    protected DeloreanPointType point;
+    protected AixmPointType point;
 
     /**
      * Gets the value of the point property.
@@ -64,7 +64,7 @@ public class AIXMPointPropertyType
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
 @jakarta.persistence.JoinColumn(name = "point_id")
-    public DeloreanPointType getPoint() {
+    public AixmPointType getPoint() {
         return point;
     }
 
@@ -76,7 +76,7 @@ public class AIXMPointPropertyType
      *     {@link String }
      *     
      */
-    public void setPoint(DeloreanPointType value) {
+    public void setPoint(AixmPointType value) {
         this.point = value;
     }
 
@@ -100,9 +100,9 @@ public class AIXMPointPropertyType
         {
             boolean lhsFieldIsSet = this.isSetPoint();
             boolean rhsFieldIsSet = that.isSetPoint();
-            DeloreanPointType lhsField;
+            AixmPointType lhsField;
             lhsField = this.getPoint();
-            DeloreanPointType rhsField;
+            AixmPointType rhsField;
             rhsField = that.getPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
@@ -118,7 +118,7 @@ public class AIXMPointPropertyType
         int currentHashCode = super.hashCode(locator, strategy);
         {
             boolean theFieldIsSet = this.isSetPoint();
-            DeloreanPointType theField;
+            AixmPointType theField;
             theField = this.getPoint();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -131,7 +131,7 @@ public class AIXMPointPropertyType
         super.appendFields(locator, buffer, strategy);
         {
             boolean theFieldIsSet = this.isSetPoint();
-            DeloreanPointType theField;
+            AixmPointType theField;
             theField = this.getPoint();
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }

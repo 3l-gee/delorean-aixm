@@ -7,9 +7,9 @@ import javax.xml.namespace.QName;
 
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-import com.aixm.delorean.core.schema.a5_2.aixm.CurveType;
-import com.aixm.delorean.core.schema.a5_2.aixm.CurveTypeExtension;
 import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
+import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType;
+import com.aixm.delorean.core.schema.a5_2.aixm.SurfaceTypeExtension;
 import com.aixm.delorean.core.schema.a5_2.aixm.ValDistanceType;
 
 import jakarta.persistence.AttributeOverride;
@@ -28,16 +28,14 @@ import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
 @Access(AccessType.PROPERTY)
-@Entity(name = "DeloreanCurveType")
-@Table(name = "curve", schema = "gml")
-public class DeloreanCurveType extends com.aixm.delorean.core.gis.type.Curve {
-    
+@Entity(name = "AixmSurfaceType")
+@Table(name = "aixm_surface", schema = "gml")
+public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
+
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
-    protected List<CurveTypeExtension> extension;
-
-
+    protected List<SurfaceTypeExtension> extension;
 
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
@@ -64,7 +62,7 @@ public class DeloreanCurveType extends com.aixm.delorean.core.gis.type.Curve {
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy"), CurveType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.2", "horizontalAccuracy"), SurfaceType.class, target));
     }
 
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
@@ -91,18 +89,18 @@ public class DeloreanCurveType extends com.aixm.delorean.core.gis.type.Curve {
         this.annotation = null;
     }
 
-    @OneToMany(targetEntity = CurveTypeExtension.class, cascade = {
+    @OneToMany(targetEntity = SurfaceTypeExtension.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_AIXMPOINT_TYPE_HJID")
-    public List<CurveTypeExtension> getExtension() {
+    public List<SurfaceTypeExtension> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
         }
         return this.extension;
     }
 
-    public void setExtension(List<CurveTypeExtension> extension) {
+    public void setExtension(List<SurfaceTypeExtension> extension) {
         this.extension = extension;
     }
 

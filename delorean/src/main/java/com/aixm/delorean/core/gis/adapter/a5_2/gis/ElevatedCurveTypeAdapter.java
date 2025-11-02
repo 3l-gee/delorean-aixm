@@ -1,15 +1,15 @@
 package com.aixm.delorean.core.gis.adapter.a5_2.gis;
 
 import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
-import com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedCurveType;
+import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedCurveType;
 import com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, DeloreanElevatedCurveType> {
+public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, AixmElevatedCurveType> {
     
     @Override
-    public DeloreanElevatedCurveType unmarshal(ElevatedCurveType value) throws Exception {
+    public AixmElevatedCurveType unmarshal(ElevatedCurveType value) throws Exception {
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -19,7 +19,7 @@ public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, Delo
             }
             
             // Parse GML geometry and CRS
-            DeloreanElevatedCurveType result = CurveGmlHelper.parseGMLCurve(value, DeloreanElevatedCurveType.class);
+            AixmElevatedCurveType result = CurveGmlHelper.parseGMLCurve(value, AixmElevatedCurveType.class);
             
             // --- Copy AIXM-specific attributes ---
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
@@ -40,7 +40,7 @@ public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, Delo
     }
 
     @Override
-    public ElevatedCurveType marshal(DeloreanElevatedCurveType value) throws Exception {
+    public ElevatedCurveType marshal(AixmElevatedCurveType value) throws Exception {
         String featureType = value.getClass().toString();
         String table = "elevated_curve";
         String schema = "gml";
