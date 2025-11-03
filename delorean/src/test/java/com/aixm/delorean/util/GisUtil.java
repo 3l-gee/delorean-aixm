@@ -162,9 +162,10 @@ public class GisUtil {
         return p;
     }
 
-    public static GeometricProperty geometricProperty(String href, String title, HrefType hrefType) {
+    public static GeometricProperty geometricProperty(String href, String title, HrefType hrefType, String srsName) {
         GeometricProperty gp = new GeometricProperty();
         gp.setHref(href);
+        gp.setSrsName(srsName);
         gp.setTitle(title);
         gp.setHrefType(hrefType);
         return gp;

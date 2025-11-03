@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class GeometricProperty{
     protected String href;
+    protected String srsName;
     protected String title;
     protected HrefType hrefType;
     
@@ -14,6 +15,14 @@ public class GeometricProperty{
 
     public void setHref(String href) {
         this.href = href;
+    }
+
+    public String getSrsName() {
+        return srsName;
+    }
+
+    public void setSrsName(String srsName) {
+        this.srsName = srsName;
     }
 
     public String getTitle() {

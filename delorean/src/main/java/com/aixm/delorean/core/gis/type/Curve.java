@@ -9,23 +9,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Access;
-import jakarta.persistence.AccessType;
+import jakarta.persistence.MappedSuperclass;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
-@Access(AccessType.PROPERTY)
-@Entity(name = "Curve")
-@Table(name = "abstract_curve", schema = "gml")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public class Curve extends AbstractGMLType {
 
     protected Long hjid;

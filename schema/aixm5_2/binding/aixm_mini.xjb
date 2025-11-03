@@ -1753,7 +1753,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@name='Point']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanPointType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmPointType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.PointType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.PointTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>
@@ -1774,7 +1774,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']//xs:element[@name='ElevatedPoint']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedPointType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmElevatedPointType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.ElevatedPointType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedPointTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>
@@ -1804,7 +1804,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@name='Curve']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanCurveType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmCurveType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.CurveTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>
@@ -1825,7 +1825,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']//xs:element[@name='ElevatedCurve']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedCurveType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmElevatedCurveType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedCurveTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>
@@ -1851,11 +1851,11 @@
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
 			<jaxb:class name="AIXMSurfacePropertyType"/>
 			<hj:entity>
-				<orm:table name="aixm_esurface_pt" schema="gml"/>
+				<orm:table name="aixm_surface_pt" schema="gml"/>
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']//xs:element[@name='Surface']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanSurfaceType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmSurfaceType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.SurfaceType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.SurfaceTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>
@@ -1876,7 +1876,7 @@
 			</hj:entity>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']//xs:element[@name='ElevatedSurface']">
-			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.DeloreanElevatedSurfaceType"/>
+			<jaxb:javaType name="com.aixm.delorean.core.gis.type.a5_2.AixmElevatedSurfaceType"/>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.aixm.delorean.core.schema.a5_2.aixm.ElevatedSurfaceType.class)</annox:annotate>
 			<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.gis.adapter.a5_2.gis.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
 		</jaxb:bindings>

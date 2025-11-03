@@ -1,5 +1,8 @@
 package com.aixm.delorean.core.gis.type.gml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import jakarta.persistence.AttributeOverrides;

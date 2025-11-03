@@ -183,6 +183,7 @@ public class CurveGmlHelper {
         }
 
         Circle result = new Circle();
+        result.setSegmentType(SegmentType.CIRCLE);
 
         // B. SRS consistency
         String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
@@ -236,8 +237,6 @@ public class CurveGmlHelper {
         }
 
         // D. Attributes parsing
-        result.setSegmentType(SegmentType.CIRCLE);
-
         LengthType radius = value.getRadius();
         DistanceType distanceType = new DistanceType();
         distanceType.setValue(new BigDecimal(radius.getValue()));
@@ -282,8 +281,8 @@ public class CurveGmlHelper {
             throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:endAngle> must specify a uom.");
         }
 
-
         Arc result = new Arc();
+        result.setSegmentType(SegmentType.ARC);
 
         // B. SRS consistency
         String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
@@ -306,7 +305,9 @@ public class CurveGmlHelper {
                 GmlPointType resultPoint = new GmlPointType();
                 resultPoint.setGeometricType(GeometricType.REF);
                 GeometricProperty geometricProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+                geometricProperty.setSrsName(srsName);
                 resultPoint.setGeometricProperty(geometricProperty);
+
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
@@ -339,8 +340,6 @@ public class CurveGmlHelper {
         }
 
         // D. Attributes parsing
-        result.setSegmentType(SegmentType.ARC);
-
         LengthType radius = value.getRadius();
         DistanceType distanceType = new DistanceType();
         distanceType.setValue(new BigDecimal(radius.getValue()));
@@ -380,11 +379,12 @@ public class CurveGmlHelper {
         LineString result = new LineString();
         result.setSegmentType(SegmentType.LINE);
 
+        // B. SRS consistency
+        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+
     
         if (value.getPosList() != null) {
-            // B. SRS consistency
-            String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
             // C. coordinates parsing
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
@@ -401,10 +401,6 @@ public class CurveGmlHelper {
             for (JAXBElement<?> obj : geometricPositionGroup) {
                 if (obj.getValue().getClass() == DirectPositionType.class) {
                     DirectPositionType directPosition = (DirectPositionType) obj.getValue();
-
-                    // B. SRS consistency
-                    String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
                     // C. coordinates parsing
                     GmlPointType resultPoint = new GmlPointType();
@@ -424,6 +420,7 @@ public class CurveGmlHelper {
                         GmlPointType resultPoint = new GmlPointType();
                         resultPoint.setGeometricType(GeometricType.REF);
                         GeometricProperty geometricProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle());
+                        geometricProperty.setSrsName(srsName);
                         resultPoint.setGeometricProperty(geometricProperty);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -487,11 +484,12 @@ public class CurveGmlHelper {
 
         Geodesic result = new Geodesic();
         result.setSegmentType(SegmentType.GEODESIC);
+
+        // B. SRS consistency
+        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
     
         if (value.getPosList() != null) {
-            // B. SRS consistency
-            String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-            Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
             // C. coordinates parsing
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
@@ -509,10 +507,6 @@ public class CurveGmlHelper {
             for (Object obj : geometricPositionGroup) {
                 if (obj.getClass() == DirectPositionType.class) {
                     DirectPositionType directPosition = (DirectPositionType) obj;
-
-                    // B. SRS consistency
-                    String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-                    Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
 
                     // C. coordinates parsing
                     GmlPointType resultPoint = new GmlPointType();
@@ -532,6 +526,7 @@ public class CurveGmlHelper {
                         GmlPointType resultPoint = new GmlPointType();
                         resultPoint.setGeometricType(GeometricType.REF);
                         GeometricProperty geometricProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle());
+                        geometricProperty.setSrsName(srsName);
                         resultPoint.setGeometricProperty(geometricProperty);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);

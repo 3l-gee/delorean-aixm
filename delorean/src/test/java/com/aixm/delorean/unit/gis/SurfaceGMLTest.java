@@ -50,7 +50,7 @@ public class SurfaceGMLTest {
                 GisUtil.surfaceObj(
                     "s1",
                     null,
-                    GeometricType.GML,
+                    null,
                     null,
                     GisUtil.ring(0L,
                         GisUtil.curveObj("c1", 0L, GeometricType.GML, null,

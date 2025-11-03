@@ -11,6 +11,7 @@ import org.xmlunit.assertj.XmlAssert;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
+import com.aixm.delorean.core.gis.type.a5_2.AixmPointType;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
@@ -40,7 +41,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(52.51630693440871 13.377717264214601)"   
                 ),
-                GeometricType.GML,
+                null,
                 null
             )
             ), // Standard urn case, EPSG:4326, lat lon order
@@ -57,7 +58,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(52.51630693440871 13.377717264214601)"   
                 ),
-                GeometricType.GML,
+                null,
                 null
             )
             ), // Standard https case, EPSG:4326, lat lon order
@@ -74,7 +75,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(52.51630693440871 13.377717264214601)"
                 ),
-                GeometricType.GML,
+                null,
                 null
             )
             ), // Standard http case, EPSG:4326, lat lon order
@@ -91,7 +92,7 @@ public class PointGMLTest {
                     "4258",
                     "POINT(52.51630693440871 13.377717264214601)"
                 ),
-                GeometricType.GML,
+                null,
                 null
             )
             ), // Standard case, EPSG:4258, lat lon order
@@ -108,7 +109,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(13.377717264214601 52.51630693440871)"
                 ),
-                GeometricType.GML,
+                null,
                 null
             )
             ) // Special case, OGC:1.3:CRS84, lon lat order
@@ -119,7 +120,7 @@ public class PointGMLTest {
     @ParameterizedTest()
     @MethodSource("ParseValidGMLPoints")
     @DisplayName("Parse valid GML Points correctly")
-    void parseValidGMLPoint(String xml, Point expectedPoint) throws Exception {
+    void parseValidGMLPoint(String xml, GmlPointType expectedPoint) throws Exception {
 
         // given
         PointType point = JaxbUtil.loadFromXml(xml, PointType.class);
@@ -142,7 +143,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(52.51630693440871 13.377717264214601)"
                 ),
-                GeometricType.GML,
+                null,
                 null
             ),
             """
@@ -159,7 +160,7 @@ public class PointGMLTest {
                     "4326",
                     "POINT(52.51630693440871 13.377717264214601)"
                 ),
-                GeometricType.GML,
+                null,
                 null
             ),
             """

@@ -1,7 +1,11 @@
 package com.aixm.delorean.core.gis.type.gml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
+import com.aixm.delorean.core.gis.type.Segment;
 
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
@@ -54,5 +58,20 @@ public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve {
 
     public void setGeometricType(GeometricType geometricType) {
         this.geometricType = geometricType;
+    }
+
+    @Override
+    public List<String> aggregateSrsNames() {
+        List<String> srsNames = new ArrayList<>();
+
+        for (Segment segment : getSegments()) {
+            srsNames.addAll(segment.aggregateSrsNames());
+        }
+
+        if (geometricProperty != null && geometricProperty.getSrsName() != null){
+            srsNames.add(geometricProperty.getSrsName());
+        }
+
+        return srsNames;
     }
 }

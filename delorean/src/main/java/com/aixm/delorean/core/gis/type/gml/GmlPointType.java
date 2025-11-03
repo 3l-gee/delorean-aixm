@@ -59,4 +59,19 @@ public class GmlPointType extends com.aixm.delorean.core.gis.type.Point {
     public void setGeometricProperty(GeometricProperty geometricProperty) {
         this.geometricProperty = geometricProperty;
     }
+
+    @Override
+    public List<String> aggregateSrsNames() {
+        ArrayList<String> srsNames = new ArrayList<>();
+        if (pos != null && pos.getSrsName() != null){
+            srsNames.add(pos.getSrsName());
+        }
+
+        if (geometricProperty != null && geometricProperty.getSrsName() != null){
+            srsNames.add(geometricProperty.getSrsName());
+        }
+
+
+        return srsNames;
+    }
 }

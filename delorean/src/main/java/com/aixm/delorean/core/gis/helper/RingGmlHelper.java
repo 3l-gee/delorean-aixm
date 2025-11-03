@@ -25,7 +25,10 @@ public class RingGmlHelper {
             throw new IllegalArgumentException("Parent srsName cannot be null.");
         }
 
-        // B. curveMember parsing
+        // B. SRS consistency
+        String srsName = SRSValidationHelper.parseSrsName(parentSrsName);
+
+        // C. curveMember parsing
         Long curveIndex = 0L;
         for (com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType curve : ring.getCurveMember()) {
             if (curve.getAbstractCurve() == null && curve.getHref() == null) {
@@ -39,6 +42,7 @@ public class RingGmlHelper {
                 resultCurve.setGeometricType(GeometricType.REF);
                 GeometricProperty geometricProperty = HrefHelper.parseHref(curve.getHref(), curve.getSimpleLinkTitle());
                 resultCurve.setGeometricProperty(geometricProperty);
+                geometricProperty.setSrsName(srsName);
                 resultCurve.setIndex(curveIndex);
                 result.getGmlCurve().add(resultCurve);
 
@@ -46,6 +50,7 @@ public class RingGmlHelper {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
+                parsed.setGeometricType(GeometricType.GML);
                 result.getGmlCurve().add(parsed);
 
             } else if (curve.getAbstractCurve().getValue().getClass() == CompositeCurveType.class) {
@@ -59,6 +64,7 @@ public class RingGmlHelper {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
+                parsed.setGeometricType(GeometricType.GML);
                 result.getGmlCurve().add(parsed);
 
             } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType.class) {
@@ -66,6 +72,7 @@ public class RingGmlHelper {
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
+                parsed.setGeometricType(GeometricType.GML);
                 result.getGmlCurve().add(parsed);
 
             }else {
