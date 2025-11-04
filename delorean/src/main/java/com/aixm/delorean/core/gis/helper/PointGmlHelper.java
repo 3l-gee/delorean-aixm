@@ -51,14 +51,14 @@ public class PointGmlHelper {
 
         // B. SRS consistency
         String geometrySrsName = point.getSrsName() != null ? point.getSrsName() : parentSrsName;
-        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
         // C. coordinates parsing
         String geomWkt = DirectPositionHelper.parseDirectPosition(point.getPos(), inverse);
         Pos resultPos = new Pos();
         resultPos.setValue(geomWkt);
-        resultPos.setSrsName(srsName);
+        resultPos.setSrsName(epsgCode);
 
  
         // D. carry the AbstractGMLType attributes futrher
@@ -131,26 +131,28 @@ public class PointGmlHelper {
         // A. Coordinates printing
         String geomWkt = point.getPos().getValue();
 
-        List<String> srsNames = point.aggregateSrsNames();
+        List<String> epsgCodes = point.aggregateEpsgCode();
         
-        if (!srsNames.isEmpty()) {
-            String firstSrsName = srsNames.get(0);
-            for (String srsName : srsNames) {
+        if (!epsgCodes.isEmpty()) {
+            String firstSrsName = epsgCodes.get(0);
+            for (String srsName : epsgCodes) {
                 if (!srsName.equals(firstSrsName)) {
-                    throw new IllegalArgumentException("All segments must have the same SRS name. Found differing SRS names.");
+                    throw new IllegalArgumentException("<T extends PointType> geometry has inconsistent EPSG codes defined.");
                 }
             }
+        } else {
+            throw new IllegalArgumentException("<T extends PointType> geometry must have at least one EPSG code defined.");
         }
 
         DirectPositionType pos = DirectPositionHelper.printDirectPosition(geomWkt);
-        String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
+        String srsName = SRSValidationHelper.printSrsName(epsgCodes.get(0));
 
         // B. carry the AbstractGMLType attributes futrher
         result.setId(point.getId());
         result.setDescription(point.getDescription());
         result.setIdentifier(point.getIdentifier());
         result.setPos(pos);
-        result.setSrsName(epsgCode);
+        result.setSrsName(srsName);
 
         return result;
     }

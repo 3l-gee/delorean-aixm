@@ -61,17 +61,20 @@ public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve {
     }
 
     @Override
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
-
-        for (Segment segment : getSegments()) {
-            srsNames.addAll(segment.aggregateSrsNames());
-        }
-
+    public List<String> aggregateEpsgCode() {
         if (geometricProperty != null && geometricProperty.getSrsName() != null){
-            srsNames.add(geometricProperty.getSrsName());
+            return List.of(geometricProperty.getSrsName());
         }
 
-        return srsNames;
+        List<String> epsgCodes = new ArrayList<>();
+        for (Segment segment : getSegments()) {
+            epsgCodes.addAll(segment.aggregateEpsgCode());
+        }
+
+        if (epsgCodes.isEmpty()) {
+            throw new IllegalArgumentException("GmlCurveType geometry must have at least one EPSG code defined.");
+        }
+
+        return epsgCodes;
     }
 }

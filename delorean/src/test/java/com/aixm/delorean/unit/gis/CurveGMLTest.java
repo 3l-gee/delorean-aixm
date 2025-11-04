@@ -1,5 +1,6 @@
 package com.aixm.delorean.unit.gis;
 
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -25,12 +26,16 @@ import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 
 import java.util.stream.Stream;
-
 import java.util.List;
 
 
 public class CurveGMLTest {
 
+    @BeforeAll
+    public static void configureAssertJ() {
+        org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
+    }
+    
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
     // -------------------------------------------------------------------------
@@ -276,7 +281,7 @@ public class CurveGMLTest {
                 <gml:Curve gml:id="c7" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
                             <gml:ArcByCenterPoint numArc="1">
-                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
+                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
                                 <gml:radius uom="NM">20</gml:radius>
                                 <gml:startAngle uom="deg">20.00000</gml:startAngle>
                                 <gml:endAngle uom="rad">2</gml:endAngle>
@@ -322,7 +327,7 @@ public class CurveGMLTest {
                 <gml:Curve gml:id="c8" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
                             <gml:ArcByCenterPoint numArc="1">
-                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#c6" xlink:title="external point"/>
+                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#c6" xlink:title="external point"/>
                                 <gml:radius uom="NM">20</gml:radius>
                                 <gml:startAngle uom="deg">20.00000</gml:startAngle>
                                 <gml:endAngle uom="rad">2</gml:endAngle>
@@ -368,7 +373,7 @@ public class CurveGMLTest {
                 <gml:Curve gml:id="c9" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
                             <gml:ArcByCenterPoint numArc="1">
-                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://example.com/points/c6" xlink:title="external point"/>
+                                <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://example.com/points/c6" xlink:title="external point"/>
                                 <gml:radius uom="NM">20</gml:radius>
                                 <gml:startAngle uom="deg">20.00000</gml:startAngle>
                                 <gml:endAngle uom="rad">2</gml:endAngle>
@@ -448,7 +453,7 @@ public class CurveGMLTest {
                 <gml:Curve gml:id="c11" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
                         <gml:CircleByCenterPoint numArc="1">
-                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink"  xlink:type="simple" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
                             <gml:radius uom="KM">5</gml:radius>
                         </gml:CircleByCenterPoint>
                     </gml:segments>
@@ -671,7 +676,6 @@ public class CurveGMLTest {
         );  
     }
 
-
     @ParameterizedTest()
     @MethodSource("ParseValidGMLCurve")
     @DisplayName("Parse valid GML Curves correctly")
@@ -856,7 +860,7 @@ public class CurveGMLTest {
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m5" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                            <gml:pointProperty xlink:type="simple">
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
                                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m5">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                                 </gml:Point>
@@ -907,7 +911,7 @@ public class CurveGMLTest {
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m6" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="urn:uuid:d163a00d-609f-4b15-9584-165f12599442" xlink:title="external point"/>
                             <gml:radius uom="NM">20.0</gml:radius>
                             <gml:startAngle uom="deg">0.0</gml:startAngle>
                             <gml:endAngle uom="deg">90.0</gml:endAngle>
@@ -954,7 +958,7 @@ public class CurveGMLTest {
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m7" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
                     <gml:segments>
                         <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
-                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#c6" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#c6" xlink:title="external point"/>
                             <gml:radius uom="NM">20.0</gml:radius>
                             <gml:startAngle uom="deg">0.0</gml:startAngle>
                             <gml:endAngle uom="deg">90.0</gml:endAngle>
@@ -981,7 +985,7 @@ public class CurveGMLTest {
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m8" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
-                        <gml:LineStringSegment>
+                        <gml:LineStringSegment interpolation="linear">
                             <gml:posList>52.51630693440871 13.377717264214601 38.89763528280979 -77.03654820204511 14.54568750430526 28.52536136261256</gml:posList>
                         </gml:LineStringSegment>
                     </gml:segments>
@@ -1033,7 +1037,7 @@ public class CurveGMLTest {
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m9" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
-                        <gml:LineStringSegment>
+                        <gml:LineStringSegment interpolation="linear">
                             <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                             <gml:pos>38.89763528280979 -77.03654820204511</gml:pos>
                             <gml:pos>14.54568750430526 28.52536136261256</gml:pos>
@@ -1041,7 +1045,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>"""
             ),
-                        Arguments.of(
+            Arguments.of(
                 GisUtil.curveObj(
                     "m10",
                     null,
@@ -1087,18 +1091,18 @@ public class CurveGMLTest {
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m10" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
-                        <gml:LineStringSegment>
-                            <gml:pointProperty xlink:type="simple">
+                        <gml:LineStringSegment interpolation="linear">
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
                                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m10">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                                 </gml:Point>
                             </gml:pointProperty>
-                            <gml:pointProperty xlink:type="simple">
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
                                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m10">
                                     <gml:pos>38.89763528280979 -77.03654820204511</gml:pos>
                                 </gml:Point>
                             </gml:pointProperty>
-                            <gml:pointProperty xlink:type="simple">
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
                                 <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="m10">
                                     <gml:pos>14.54568750430526 28.52536136261256</gml:pos>
                                 </gml:Point>
@@ -1113,7 +1117,7 @@ public class CurveGMLTest {
     @ParameterizedTest()
     @MethodSource("MarshallValidGMLCurve")
     @DisplayName("Marshall valid GML Curves correctly")
-    void marshallValidGMLCurve(Curve value, String expectedXml) throws Exception {
+    void marshallValidGMLCurve(GmlCurveType value, String expectedXml) throws Exception {
 
 
         // given
@@ -1136,7 +1140,7 @@ public class CurveGMLTest {
     // NEGATIVE TESTS
     // -------------------------------------------------------------------------
 
-    static Stream<Arguments> PrintErroneousGMLCurve() {
+    static Stream<Arguments> ParseErroneousGMLCurve() {
         return Stream.of(
             Arguments.of("""
                     <gml:Curve gml:id="c1" xmlns:gml="http://www.opengis.net/gml/3.2">  
@@ -1266,7 +1270,7 @@ public class CurveGMLTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("PrintErroneousGMLCurve")
+    @MethodSource("ParseErroneousGMLCurve")
     @DisplayName("Reject erroneous GML Curves")
     void parseErroneousGMLCurve(String xml) throws Exception {
 
@@ -1278,8 +1282,180 @@ public class CurveGMLTest {
             .isInstanceOf(IllegalArgumentException.class);
     }
 
-    void marshallErroneousGMLCurve() {
-        // TODO
+    static Stream<Arguments> PrintErroneousGMLCurve() {
+        return Stream.of(
+            Arguments.of(
+                (GmlCurveType) null
+            ), // null AIXMCurveType
+            Arguments.of(
+                GisUtil.curveObj(
+                    null, 
+                    null, 
+                    null, 
+                    null)
+            ), // empty AIXMCurveType
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m3",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        GisUtil.posList(
+                            null,
+                            "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511)"
+                        )
+                    )
+                )
+            ), // missing srsName in posList
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m4",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                null,
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            GisUtil.pos(
+                                null,
+                                "POINT(38.89763528280979 -77.03654820204511)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        )
+                    )
+                )
+            ), // missing srsName in pos
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m5",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            GisUtil.pos(
+                                null,
+                                "POINT(38.89763528280979 -77.03654820204511)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        )
+                    )
+                )
+            ), // missing srsName in pos
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m6",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "urn:uuid:d163a00d-609f-4b15-9584-165f12599442",
+                                "external point",
+                                HrefType.URN,
+                                null
+                            )
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            null,
+                            GeometricType.REF,
+                                GisUtil.geometricProperty(
+                                "c6",
+                                "external point",
+                                HrefType.XML,
+                                null
+                            )
+                        )
+                    )
+                )
+            ), // missing srsName in reference
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m7",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "urn:uuid:d163a00d-609f-4b15-9584-165f12599442",
+                                "external point",
+                                HrefType.URN,
+                                "4326"
+                            )
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "c6",
+                                "external point",
+                                HrefType.XML,
+                                null
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+
+    @ParameterizedTest()
+    @MethodSource("PrintErroneousGMLCurve")
+    @DisplayName("Reject erroneous GML Curves")
+    void marshallErroneousGMLCurve(GmlCurveType value) throws Exception {
+                
+        // given + do + check
+        assertThatThrownBy(() -> CurveGmlHelper.printGMLCurve(value, CurveType.class))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
 }   

@@ -186,8 +186,8 @@ public class CurveGmlHelper {
         result.setSegmentType(SegmentType.CIRCLE);
 
         // B. SRS consistency
-        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
         // C. coordinates parsing
         if (value.getPos() != null) {
@@ -196,7 +196,7 @@ public class CurveGmlHelper {
             String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
             Pos resultPos = new Pos();
             resultPos.setValue(geomWkt);
-            resultPos.setSrsName(srsName);
+            resultPos.setSrsName(epsgCode);
             resultPoint.setPos(resultPos);
             result.setGmlPoint(resultPoint);
 
@@ -205,26 +205,27 @@ public class CurveGmlHelper {
                 GmlPointType resultPoint = new GmlPointType();
                 resultPoint.setGeometricType(GeometricType.REF);
                 GeometricProperty geometricProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
+                geometricProperty.setSrsName(epsgCode);
                 resultPoint.setGeometricProperty(geometricProperty);
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
@@ -285,8 +286,8 @@ public class CurveGmlHelper {
         result.setSegmentType(SegmentType.ARC);
 
         // B. SRS consistency
-        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
         // C. coordinates parsing
         if (value.getPos() != null) {
@@ -295,7 +296,7 @@ public class CurveGmlHelper {
             String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
             Pos resultPos = new Pos();
             resultPos.setValue(geomWkt);
-            resultPos.setSrsName(srsName);
+            resultPos.setSrsName(epsgCode);
             resultPoint.setPos(resultPos);
             result.setGmlPoint(resultPoint);
 
@@ -305,28 +306,28 @@ public class CurveGmlHelper {
                 GmlPointType resultPoint = new GmlPointType();
                 resultPoint.setGeometricType(GeometricType.REF);
                 GeometricProperty geometricProperty = HrefHelper.parseHref(value.getPointProperty().getHref(), value.getPointProperty().getSimpleLinkTitle());
-                geometricProperty.setSrsName(srsName);
+                geometricProperty.setSrsName(epsgCode);
                 resultPoint.setGeometricProperty(geometricProperty);
 
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == ElevatedPointType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
             } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:PointType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
-                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
@@ -380,8 +381,8 @@ public class CurveGmlHelper {
         result.setSegmentType(SegmentType.LINE);
 
         // B. SRS consistency
-        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
 
     
         if (value.getPosList() != null) {
@@ -390,7 +391,7 @@ public class CurveGmlHelper {
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
             PosList resultPosList = new PosList();
             resultPosList.setValue(geomWkt);
-            resultPosList.setSrsName(srsName);
+            resultPosList.setSrsName(epsgCode);
             result.setPosList(resultPosList);
             return result;
 
@@ -408,7 +409,7 @@ public class CurveGmlHelper {
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
                     Pos resultPos = new Pos();
                     resultPos.setValue(geomWkt);
-                    resultPos.setSrsName(srsName);
+                    resultPos.setSrsName(epsgCode);
                     resultPoint.setPos(resultPos);
                     resultPoint.setIndex(index);
                     result.getGmlPoint().add(resultPoint);
@@ -420,14 +421,14 @@ public class CurveGmlHelper {
                         GmlPointType resultPoint = new GmlPointType();
                         resultPoint.setGeometricType(GeometricType.REF);
                         GeometricProperty geometricProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle());
-                        geometricProperty.setSrsName(srsName);
+                        geometricProperty.setSrsName(epsgCode);
                         resultPoint.setGeometricProperty(geometricProperty);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -436,7 +437,7 @@ public class CurveGmlHelper {
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == ElevatedPointType.class) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -444,7 +445,7 @@ public class CurveGmlHelper {
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -486,8 +487,8 @@ public class CurveGmlHelper {
         result.setSegmentType(SegmentType.GEODESIC);
 
         // B. SRS consistency
-        String srsName = SRSValidationHelper.parseSrsName(geometrySrsName);
-        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(srsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(geometrySrsName);
+        Boolean inverse = SRSValidationHelper.IsInverseAxisOrder(geometrySrsName);
     
         if (value.getPosList() != null) {
 
@@ -495,7 +496,7 @@ public class CurveGmlHelper {
             String geomWkt = DirectPositionHelper.parseDirectPositionList(value.getPosList(),inverse);
             PosList resultPosList = new PosList();
             resultPosList.setValue(geomWkt);
-            resultPosList.setSrsName(srsName);
+            resultPosList.setSrsName(epsgCode);
             result.setPosList(resultPosList);
 
             return result;
@@ -514,7 +515,7 @@ public class CurveGmlHelper {
                     String geomWkt = DirectPositionHelper.parseDirectPosition(directPosition, inverse);
                     Pos resultPos = new Pos();
                     resultPos.setValue(geomWkt);
-                    resultPos.setSrsName(srsName);
+                    resultPos.setSrsName(epsgCode);
                     resultPoint.setPos(resultPos);
                     resultPoint.setIndex(index);
                     result.getGmlPoint().add(resultPoint);
@@ -526,14 +527,14 @@ public class CurveGmlHelper {
                         GmlPointType resultPoint = new GmlPointType();
                         resultPoint.setGeometricType(GeometricType.REF);
                         GeometricProperty geometricProperty = HrefHelper.parseHref(pointPropertyObj.getHref(), pointPropertyObj.getSimpleLinkTitle());
-                        geometricProperty.setSrsName(srsName);
+                        geometricProperty.setSrsName(epsgCode);
                         resultPoint.setGeometricProperty(geometricProperty);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -541,7 +542,7 @@ public class CurveGmlHelper {
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == ElevatedPointType.class) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedPointType> in <gml:ArcByCenterPointType>. <aixm:ElevatedPointType> will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -549,7 +550,7 @@ public class CurveGmlHelper {
                     } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.PointType.class) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:PointType> in <gml:ArcByCenterPointType>. <aixm:PointType> will be converted to <gml:PointType>.");
                         com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
-                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class);
+                        GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
@@ -623,18 +624,20 @@ public class CurveGmlHelper {
         }
 
         // B. Collect all SRS names
-        List<String> srsNames = curve.aggregateSrsNames();
+        List<String> epsgCodes = curve.aggregateEpsgCode();
         
-        if (!srsNames.isEmpty()) {
-            String firstSrsName = srsNames.get(0);
-            for (String srsName : srsNames) {
-                if (!srsName.equals(firstSrsName)) {
-                    throw new IllegalArgumentException("All segments must have the same SRS name. Found differing SRS names.");
-                }
+        if (!epsgCodes.isEmpty()) {
+            String firstEpsgCode = epsgCodes.get(0);
+            for (String epsgCode : epsgCodes) {
+                if (!epsgCode.equals(firstEpsgCode)) {
+                    throw new IllegalArgumentException("<T extends CurveType> geometry has inconsistent EPSG codes defined.");
+                }   
             }
+        } else {
+            throw new IllegalArgumentException("<T extends CurveType> geometry must have at least one EPSG code defined.");
         }
 
-        String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
+        String srsName = SRSValidationHelper.printSrsName(epsgCodes.get(0));
 
         // C. Coordinates printing
         CurveSegmentArrayPropertyType segments = printGMLCurveSegments(curve.getSegments());
@@ -644,7 +647,7 @@ public class CurveGmlHelper {
         result.setId(curve.getId());
         result.setDescription(curve.getDescription());
         result.setIdentifier(curve.getIdentifier());
-        result.setSrsName(epsgCode);
+        result.setSrsName(srsName);
 
         return result;
 
@@ -679,7 +682,6 @@ public class CurveGmlHelper {
                 Geodesic geodesic = (Geodesic) segment;
                 JAXBElement<GeodesicStringType> geodesicString = printGMLGeodesicString(geodesic);
                 result.getAbstractCurveSegment().add(geodesicString);
-
 
             } else {
                 throw new IllegalArgumentException("Unsupported Segment type " + segment.getClass().getName());

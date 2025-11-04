@@ -26,7 +26,7 @@ public class RingGmlHelper {
         }
 
         // B. SRS consistency
-        String srsName = SRSValidationHelper.parseSrsName(parentSrsName);
+        String epsgCode = SRSValidationHelper.parseSrsName(parentSrsName);
 
         // C. curveMember parsing
         Long curveIndex = 0L;
@@ -42,7 +42,7 @@ public class RingGmlHelper {
                 resultCurve.setGeometricType(GeometricType.REF);
                 GeometricProperty geometricProperty = HrefHelper.parseHref(curve.getHref(), curve.getSimpleLinkTitle());
                 resultCurve.setGeometricProperty(geometricProperty);
-                geometricProperty.setSrsName(srsName);
+                geometricProperty.setSrsName(epsgCode);
                 resultCurve.setIndex(curveIndex);
                 result.getGmlCurve().add(resultCurve);
 

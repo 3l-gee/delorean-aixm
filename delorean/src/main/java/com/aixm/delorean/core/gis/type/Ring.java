@@ -62,14 +62,18 @@ public class Ring {
         this.gmlCurve = value;
     }
 
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
+        List<String> epsgCodes = new ArrayList<>();
 
         for (GmlCurveType curve : getGmlCurve()) {
-            srsNames.addAll(curve.aggregateSrsNames());
+            epsgCodes.addAll(curve.aggregateEpsgCode());
         }
 
-        return srsNames;
+        if (epsgCodes.isEmpty()) {
+            throw new IllegalArgumentException("Ring geometry must have at least one EPSG code defined.");
+        }
+
+        return epsgCodes;
     }
 
     

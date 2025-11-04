@@ -63,16 +63,20 @@ public class Surface extends AbstractGMLType {
         this.interior = value;
     }
 
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
+        List<String> epsgCodes = new ArrayList<>();
 
-        srsNames.addAll(exterior.aggregateSrsNames());
+        epsgCodes.addAll(exterior.aggregateEpsgCode());
 
         for (Ring ring : getInterior()) {
-            srsNames.addAll(ring.aggregateSrsNames());
+            epsgCodes.addAll(ring.aggregateEpsgCode());
         }
 
-        return srsNames;
+        if (epsgCodes.isEmpty()) {
+            throw new IllegalArgumentException("Surface geometry must have at least one EPSG code defined.");
+        }
+
+        return epsgCodes;
     }
 
 }

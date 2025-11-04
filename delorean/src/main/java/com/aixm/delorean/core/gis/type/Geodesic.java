@@ -55,15 +55,21 @@ public class Geodesic extends Segment {
     }
 
     @Override
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
+        List<String> espgCodes = new ArrayList<>();
 
         for (GmlPointType point : getGmlPoint()) {
-            srsNames.addAll(point.aggregateSrsNames());
+            espgCodes.addAll(point.aggregateEpsgCode());
         }
 
-        srsNames.add(posList.getSrsName());
+        if (posList != null && posList.getSrsName() != null) {
+            espgCodes.add(posList.getSrsName());
+        }
 
-        return srsNames;
+        if (espgCodes.isEmpty()) {
+            throw new IllegalArgumentException("Geodesic geometry must have at least one EPSG code defined.");
+        }     
+
+        return espgCodes;
     }
 }

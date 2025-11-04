@@ -29,6 +29,11 @@ import javax.xml.namespace.QName;
 
 public class TemporalityTest {
 
+    @BeforeAll
+	public static void configureAssertJ() {
+		org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
+	}
+
 
     static CodeNavaidDesignatorType steve = new CodeNavaidDesignatorType() {{
         setValue("STEVE");

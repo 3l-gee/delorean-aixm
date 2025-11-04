@@ -61,17 +61,15 @@ public class GmlPointType extends com.aixm.delorean.core.gis.type.Point {
     }
 
     @Override
-    public List<String> aggregateSrsNames() {
-        ArrayList<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
         if (pos != null && pos.getSrsName() != null){
-            srsNames.add(pos.getSrsName());
+            return List.of(pos.getSrsName());
         }
 
         if (geometricProperty != null && geometricProperty.getSrsName() != null){
-            srsNames.add(geometricProperty.getSrsName());
+            return List.of(geometricProperty.getSrsName());
         }
 
-
-        return srsNames;
+        throw new IllegalArgumentException("GmlPointType geometry must have at least one EPSG code defined.");
     }
 }

@@ -1,13 +1,12 @@
 package com.aixm.delorean.unit.gis;
 
-import static org.assertj.core.api.Assertions.*;
 
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
 import com.aixm.delorean.core.gis.type.Surface;
@@ -17,7 +16,14 @@ import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
 
+import java.util.stream.Stream;
+
 public class SurfaceGMLTest {
+
+    @BeforeAll
+	public static void configureAssertJ() {
+		org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
+	}
     
     // -------------------------------------------------------------------------
     // POSITIVE TESTS

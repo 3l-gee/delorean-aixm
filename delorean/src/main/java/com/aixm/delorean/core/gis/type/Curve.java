@@ -50,13 +50,17 @@ public class Curve extends AbstractGMLType {
     }
 
 
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
+        List<String> epsgCodes = new ArrayList<>();
 
         for (Segment segment : getSegments()) {
-            srsNames.addAll(segment.aggregateSrsNames());
+            epsgCodes.addAll(segment.aggregateEpsgCode());
         }
 
-        return srsNames;
+        if (epsgCodes.isEmpty()) {
+            throw new IllegalArgumentException("Curve geometry must have at least one EPSG code defined.");
+        }
+
+        return epsgCodes;
     }
 }

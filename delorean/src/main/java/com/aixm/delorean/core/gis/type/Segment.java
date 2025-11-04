@@ -60,7 +60,7 @@ public class Segment {
         this.segmentType = segmentType;
     }
 
-    public List<String> aggregateSrsNames() {
+    public List<String> aggregateEpsgCode() {
         return null;
     }
     

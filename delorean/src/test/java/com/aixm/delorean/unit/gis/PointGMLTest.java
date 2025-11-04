@@ -21,12 +21,16 @@ import com.aixm.delorean.util.JaxbUtil;
 import java.util.stream.Stream;
 
 public class PointGMLTest {
+
+    @BeforeAll
+	public static void configureAssertJ() {
+		org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
+	}
     
     // -------------------------------------------------------------------------
     // POSITIVE TESTS
     // -------------------------------------------------------------------------
 
-    
     static Stream<Arguments> ParseValidGMLPoints() {
         return Stream.of(
             Arguments.of("""
@@ -116,7 +120,6 @@ public class PointGMLTest {
         );
     }
     
-
     @ParameterizedTest()
     @MethodSource("ParseValidGMLPoints")
     @DisplayName("Parse valid GML Points correctly")
@@ -194,7 +197,6 @@ public class PointGMLTest {
             .areIdentical();
     }
 
-    
     // -------------------------------------------------------------------------
     // NEGATIVE TESTS
     // -------------------------------------------------------------------------
@@ -245,13 +247,12 @@ public class PointGMLTest {
         assertThatThrownBy(() -> PointGmlHelper.parseGMLPoint(point, Point.class))
             .isInstanceOf(IllegalArgumentException.class);
     }
-
     
     static Stream<Arguments> PrintErroneousGMLPoints() {
     return Stream.of(
         Arguments.of(
-            (Point) null
-        ), // null  DeloreanPointType
+            (GmlPointType) null
+        ), // null  AIXMPointType
 
         Arguments.of(
             GisUtil.pointObj(
@@ -261,7 +262,7 @@ public class PointGMLTest {
                 null,
                 null
             )
-        ), // Empty DeloreanPointType
+        ), // Empty AIXMPointType
 
         Arguments.of(
             GisUtil.pointObj(
@@ -326,5 +327,4 @@ public class PointGMLTest {
         assertThatThrownBy(() -> PointGmlHelper.printGMLPoint(value, PointType.class))
             .isInstanceOf(IllegalArgumentException.class);
     }
-
 }

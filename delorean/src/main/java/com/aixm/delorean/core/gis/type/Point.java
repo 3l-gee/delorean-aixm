@@ -46,11 +46,11 @@ public class Point extends AbstractGMLType {
         this.pos = value;
     }
 
-    public List<String> aggregateSrsNames() {
-            if (pos == null) {
-                return new ArrayList<>();
-            }
-            
-            return new ArrayList<>(pos.getSrsName() != null ? List.of(pos.getSrsName()) : List.of());
+    public List<String> aggregateEpsgCode() {
+        if (pos != null && pos.getSrsName() != null) {
+            return List.of(pos.getSrsName());
+        }
+        
+        throw new IllegalArgumentException("Point geometry must have at least one EPSG code defined.");
     }
 }

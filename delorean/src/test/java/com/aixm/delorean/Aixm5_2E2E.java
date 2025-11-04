@@ -24,6 +24,7 @@ public class Aixm5_2E2E {
 
     @BeforeAll
     void setUp() {
+        org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
         app = new Main();
     }
 

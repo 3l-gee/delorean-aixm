@@ -137,18 +137,20 @@ public class SurfaceGmlHelper {
         }
 
         // B. Collect all SRS names
-        List<String> srsNames = surface.aggregateSrsNames();
+        List<String> epsgCode = surface.aggregateEpsgCode();
         
-        if (!srsNames.isEmpty()) {
-            String firstSrsName = srsNames.get(0);
-            for (String srsName : srsNames) {
+        if (!epsgCode.isEmpty()) {
+            String firstSrsName = epsgCode.get(0);
+            for (String srsName : epsgCode) {
                 if (!srsName.equals(firstSrsName)) {
-                    throw new IllegalArgumentException("All segments must have the same SRS name. Found differing SRS names.");
+                    throw new IllegalArgumentException("<T extends SurfaceType> geometry has inconsistent EPSG codes defined.");
                 }
             }
+        } else {
+            throw new IllegalArgumentException("<T extends SurfaceType> geometry must have at least one EPSG code defined.");
         }
 
-        String epsgCode = SRSValidationHelper.printSrsName(srsNames.get(0));
+        String srsName = SRSValidationHelper.printSrsName(epsgCode.get(0));
 
         // C. Coordinates printing exterior
 
@@ -184,7 +186,7 @@ public class SurfaceGmlHelper {
         result.setId(surface.getId());
         result.setDescription(surface.getDescription());
         result.setIdentifier(surface.getIdentifier());
-        result.setSrsName(epsgCode);
+        result.setSrsName(srsName);
 
         return result;
 

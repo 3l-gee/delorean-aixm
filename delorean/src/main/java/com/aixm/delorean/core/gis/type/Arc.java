@@ -82,11 +82,11 @@ public class Arc extends Segment {
     }
 
     @Override
-    public List<String> aggregateSrsNames() {
-        List<String> srsNames = new ArrayList<>();
+    public List<String> aggregateEpsgCode() {
+        if (gmlPoint != null) {
+            return gmlPoint.aggregateEpsgCode();
+        }
 
-        srsNames.addAll(gmlPoint.aggregateSrsNames());
-
-        return srsNames;
+        throw new IllegalArgumentException("Arc geometry must have at least one EPSG code defined.");
     }
 }

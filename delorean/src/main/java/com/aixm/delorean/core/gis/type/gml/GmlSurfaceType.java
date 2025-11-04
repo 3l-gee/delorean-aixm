@@ -3,6 +3,7 @@ package com.aixm.delorean.core.gis.type.gml;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aixm.delorean.core.gis.type.Ring;
 import com.aixm.delorean.core.gis.type.components.GeometricProperty;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import jakarta.persistence.AttributeOverrides;
@@ -56,5 +57,26 @@ public class GmlSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
 
     public void setGeometricType(GeometricType geometricType) {
         this.geometricType = geometricType;
+    }
+
+    @Override
+    public List<String> aggregateEpsgCode() {
+        if (geometricProperty != null && geometricProperty.getSrsName() != null){
+            return List.of(geometricProperty.getSrsName());
+        }
+
+        List<String> epsgCodes = new ArrayList<>();
+
+        epsgCodes.addAll(exterior.aggregateEpsgCode());
+
+        for (Ring ring : getInterior()) {
+            epsgCodes.addAll(ring.aggregateEpsgCode());
+        }
+
+        if (epsgCodes.isEmpty()) {
+            throw new IllegalArgumentException("GmlSurfaceType geometry must have at least one EPSG code defined.");
+        }
+
+        return epsgCodes;
     }
 }
