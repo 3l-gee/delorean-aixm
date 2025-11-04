@@ -2,7 +2,6 @@ from typing import List
 import datetime
 import inspect
 
-
 class Action:
     def __init__(self, stack: str, what: str, success: bool, why: str):
         self.who = stack[1].function

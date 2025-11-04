@@ -93,7 +93,7 @@ public class GisUtil {
         return s;
     }
 
-    public static GmlSurfaceType surfaceObj(String id, Long index, GeometricType geometricType, GeometricProperty geometricProperty, Ring exterior, Ring... interior) {
+    public static GmlSurfaceType surfaceObj(String id, Long index, Ring exterior, GeometricType geometricType, GeometricProperty geometricProperty, Ring... interior) {
         GmlSurfaceType s = new GmlSurfaceType();
         s.setId(id);
         s.setExterior(exterior);

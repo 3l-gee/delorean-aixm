@@ -1,9 +1,9 @@
-from validation import Validation
-from control import Control
-from annotation import Annox, Jpa, Tag, Jaxb, Xml, HyperJAXB
-from view import View
-from content import Content
-from field_handler import FieldHandler
+from .validation import Validation
+from .control import Control
+from .annotation import Annox, Jpa, Tag, Jaxb, Xml, HyperJAXB
+from .view import View
+from .content import Content
+from .field_handler import FieldHandler
 
 
 class ComplexType: 

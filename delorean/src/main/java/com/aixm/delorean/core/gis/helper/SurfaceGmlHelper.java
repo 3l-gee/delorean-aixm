@@ -78,11 +78,9 @@ public class SurfaceGmlHelper {
 
         // D. Exterior ring parsing
         RingType exteriorRing;
-        Long exteriorRingIndex = 0L;
         if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == RingType.class) {
             exteriorRing = (RingType) polygonPatch.getExterior().getAbstractRing().getValue();
             Ring parsed = RingGmlHelper.parseRing(exteriorRing, geometrySrsName);
-            parsed.setIndex(exteriorRingIndex);
             result.setExterior(parsed);
 
         } else if (polygonPatch.getExterior().getAbstractRing().getValue().getClass() == LinearRingType.class) {
@@ -172,9 +170,9 @@ public class SurfaceGmlHelper {
         PolygonPatchType polygonPatch = new PolygonPatchType();
         polygonPatch.setExterior(exteriorRingProperty);
         polygonPatch.getInterior().addAll(interiorRingsProperties);
-        JAXBElement<PolygonPatchType> polygonPatchElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "AbstractSurfacePatch"), PolygonPatchType.class, polygonPatch);
+        JAXBElement<PolygonPatchType> polygonPatchElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "PolygonPatch"), PolygonPatchType.class, polygonPatch);
 
-        // C.4 build SurfacePatchArrayPropertyType
+        // C.4 build PolygonPatchType
         SurfacePatchArrayPropertyType surfacePatchArray = new SurfacePatchArrayPropertyType();
         surfacePatchArray.getAbstractSurfacePatch().add(polygonPatchElement);
         JAXBElement<SurfacePatchArrayPropertyType> surfacePatchArrayElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "patches"), SurfacePatchArrayPropertyType.class, surfacePatchArray);

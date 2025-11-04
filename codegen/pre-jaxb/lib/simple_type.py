@@ -1,7 +1,7 @@
-from validation import Validation
-from control import Control
-from content import Content
-from annotation import Annox, Jpa, Tag, Jaxb, Xml
+from .validation import Validation
+from .control import Control
+from .content import Content
+from .annotation import Annox, Jpa, Tag, Jaxb, Xml
 
 
 class SimpleType: 

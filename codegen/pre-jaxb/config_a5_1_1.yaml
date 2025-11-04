@@ -1,0 +1,12 @@
+version: a5_1_1
+output_path: schema/aixm5_1_1/binding/aixm.xjb
+
+schemas:
+
+ignore:
+
+transient:
+
+embed:
+
+abstract:

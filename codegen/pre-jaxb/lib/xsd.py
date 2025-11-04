@@ -1,5 +1,6 @@
-from annotation import Tag, Strategy
+
 import xml.etree.ElementTree as ET
+from .annotation import Tag, Strategy
 
 
 class Xsd: 

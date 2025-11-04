@@ -1,8 +1,8 @@
-from machinery import Machinery
-from annotation import Tag, Strategy
-from view import View
-from content import Content
-from control import Control
+from lib.machinery import Machinery
+from lib.annotation import Tag, Strategy
+from lib.view import View
+from lib.content import Content
+from lib.control import Control
 
 
 
@@ -412,7 +412,6 @@ View({
 })
 config = {
     "ignore": [
-        # TODO solve this   
         "XHTMLType",
 
         # Core
@@ -423,8 +422,8 @@ config = {
         "FeatureMetadataPropertyType",
         "FeatureTimeSliceMetadataPropertyType",
         "MessageMetadataPropertyType,",
-
-        # Abstract
+        
+        # Core Abstract
         "AbstractAIXMMessageBaseType",
         "AbstractAIXMMessageType",
         "AbstractAIXMFeatureBaseType",
@@ -436,6 +435,12 @@ config = {
         "AbstractAIXMObjectType",
 
         # Gis
+        "PointType",
+        "ElevatedPointType",
+        "CurveType",
+        "ElevatedCurveType",
+        "SurfaceType",
+        "ElevatedSurfaceType",
         "PointPropertyType",
         "CurvePropertyType",
         "SurfacePropertyType",
@@ -472,16 +477,9 @@ config = {
         "aixm:AbstractAIXMTimeSliceType",
         "aixm:AbstractAIXMPropertyType",
         "aixm:AbstractAIXMObjectBaseType",
-        "aixm:AbstractAIXMObjectType",
+        "aixm:AbstractAIXMObjectType"
     ],
     "embed": [
-        "PointType",
-        "ElevatedPointType",
-        "CurveType",
-        "ElevatedCurveType",
-        "SurfaceType",
-        "ElevatedSurfaceType",
-        "DateTimeType"
     ],
     "abstract": [
         "AbstractMarkingType",
@@ -512,21 +510,21 @@ feature = {
     "path" : "schema/aixm5_1_1/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
     "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm",
-    "manual" : "codegen/manual/a5_1_1/AIXM_Features.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_Features.xjb"
 }
 
 data_types = {
     "name" : "../aixm/AIXM_DataTypes",
     "path" : "schema/aixm5_1_1/aixm/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/manual/a5_1_1/AIXM_DataTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
     "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
     "path" : "schema/aixm5_1_1/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
@@ -534,12 +532,12 @@ message = {
     "path" : "schema/aixm5_1_1/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm.message",
-    "manual" : "codegen/manual/a5_1_1/AIXM_BasicMessage.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_BasicMessage.xjb"
 }
 
 
 
-# out = Machinery(config, [data_types, feature, abstract, message])
+out = Machinery(config, [data_types, feature, abstract, message])
 
 config = {
     "ignore": [
@@ -650,21 +648,21 @@ feature = {
     "path" : "schema/aixm5_1/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
     "package" : "com.aixm.delorean.core.schema.a5_1.aixm",
-    "manual" : "codegen/manual/a5_1/AIXM_Features.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_Features.xjb"
 }
 
 data_types = {
     "name" : "../aixm/AIXM_DataTypes",
     "path" : "schema/aixm5_1/aixm/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/manual/a5_1/AIXM_DataTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
     "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
     "path" : "schema/aixm5_1/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/manual/a5_1/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
@@ -672,7 +670,7 @@ message = {
     "path" : "schema/aixm5_1/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.core.schema.a5_1.aixm.message",
-    "manual" : "codegen/manual/a5_1/AIXM_BasicMessage.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_BasicMessage.xjb"
 }
 
 # out = Machinery(config, [data_types, feature, abstract, message])
@@ -778,21 +776,21 @@ feature = {
     "path" : "schema/aixm5_2/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
     "package" : "com.aixm.delorean.core.schema.a5_2.aixm",
-    "manual" : "codegen/manual/a5_2/AIXM_Features.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_Features.xjb"
 }
 
 data_types = {
     "name" : "../aixm/AIXM_DataTypes",
     "path" : "schema/aixm5_2/aixm/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/manual/a5_2/AIXM_DataTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_DataTypes.xjb"
 }
 
 abstract = {
     "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
     "path" : "schema/aixm5_2/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/manual/a5_2/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
@@ -800,7 +798,7 @@ message = {
     "path" : "schema/aixm5_2/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.core.schema.a5_2.aixm.message",
-    "manual" : "codegen/manual/a5_2/AIXM_BasicMessage.xjb"
+    "manual" : "codegen/pre-jaxb/lib/manual/a5_2/AIXM_BasicMessage.xjb"
 }
 
-out = Machinery(config, [data_types, feature, abstract, message])
+# out = Machinery(config, [data_types, feature, abstract, message])

@@ -4,15 +4,15 @@ from lxml import etree
 from typing import List
 import os
 import json
-from content import Content
-from simple_type import SimpleType
-from complex_type import ComplexType
-from group_type import GroupType
-from annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
-from control import Control
-from validation import Validation
-from xsd import Xsd
-from view import View
+from .content import Content
+from .simple_type import SimpleType
+from .complex_type import ComplexType
+from .group_type import GroupType
+from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
+from .control import Control
+from .validation import Validation
+from .xsd import Xsd
+from .view import View
 
 
    # machinery.print_entity_class(machinery.entity_feature)

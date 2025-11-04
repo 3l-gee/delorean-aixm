@@ -1,7 +1,7 @@
-from validation import Validation
-from control import Control
-from annotation import Annox, Jpa, Tag, Jaxb, Xml, Xpath
-from content import Content
+from .validation import Validation
+from .control import Control
+from .annotation import Annox, Jpa, Tag, Jaxb, Xml, Xpath
+from .content import Content
 
 
 class FieldHandler: 
@@ -107,6 +107,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -153,6 +154,7 @@ class FieldHandler:
             node.append(Jaxb.property.element)
 
         if element.attrib.get("name") == "extension":
+            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -195,6 +197,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -244,6 +247,7 @@ class FieldHandler:
             node.append(Jaxb.property.element)
 
         if element.attrib.get("name") == "extension":
+            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
         # else : 
@@ -308,6 +312,7 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
+            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 

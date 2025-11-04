@@ -5,40 +5,44 @@
 <!--April 2016-->
 <!--====================================================================-->
 <!--
-                Copyright (c) 2016, EUROCONTROL & FAA
-                =====================================
-                All rights reserved.
-                Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-                        * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-                        * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-                        * Neither the names of EUROCONTROL or FAA nor the names of their contributors may be used to endorse or promote products derived from this specification without specific prior written permission.
+		Copyright (c) 2016, EUROCONTROL & FAA
+		=====================================
+		All rights reserved.
+		Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+			* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+			* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+			* Neither the names of EUROCONTROL or FAA nor the names of their contributors may be used to endorse or promote products derived from this specification without specific prior written permission.
 
-                THIS SPECIFICATION IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-                ==========================================
-                Editorial note: this license is an instance of the BSD license template as
-                provided by the Open Source Initiative:
-                http://www.opensource.org/licenses/bsd-license.php
-        -->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmd="http://www.isotc211.org/2005/gmd" targetNamespace="http://www.aixm.aero/schema/5.1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1.1">
-        <annotation>
-                <appinfo>
-                        <gml:gmlProfileSchema>http://external.schemas.opengis.net/gmlAIXMProfile/1.1/gml321forAIXM.xsd</gml:gmlProfileSchema>
-                </appinfo>
-        </annotation>
-        <!--====================================================================-->
-        <!--Schema Imports and Includes-->
-        <!--====================================================================-->
-        <!--==== IMPORT GML 3.2 ====-->
-        <!-- <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/> -->
-        <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./gml/3.2.1/gml.xsd"/>
-        <!--==== IMPORT ISO19139 METADATA SCHEMA ====-->
-        <!-- <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/> -->
-        <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="./iso/19139/20070417/gmd/gmd.xsd"/>
-        <!--====================================================================-->
-        <!--Base AIXM Feature/Object Constructs-->
-        <!--====================================================================-->
-        <complexType name="AbstractAIXMFeatureBaseType" abstract="true">
+		THIS SPECIFICATION IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+		CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+		==========================================
+		Editorial note: this license is an instance of the BSD license template as
+		provided by the Open Source Initiative:
+		http://www.opensource.org/licenses/bsd-license.php
+	-->
+<!--
+    Modifications License
+    ==========================================
+    Modifications Copyright (c) 2025, Raphaël Gerth / Delorean-AIXM
+    Licensed under the GNU General Public License, version 3 (GPLv3).
+    See: https://www.gnu.org/licenses/gpl-3.0.html
+
+    This schema has been modified from the original AIXM 5.1.1 specification.
+    The modifications are distributed under the GPLv3. 
+    You must retain both this GPLv3 notice and the original BSD license notice.
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmd="http://www.isotc211.org/2005/gmd" targetNamespace="http://www.aixm.aero/schema/5.1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1.1">
+	<!--====================================================================-->
+	<!--Schema Imports and Includes-->
+	<!--====================================================================-->
+	<!--==== IMPORT GML 3.2 ====-->
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./gml/3.2.1/gml.xsd"/>
+	<!--==== IMPORT ISO19139 METADATA SCHEMA ====-->
+	<import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="./iso/19139/20070417/gmd/gmd.xsd"/>
+	<!--====================================================================-->
+	<!--Base AIXM Feature/Object Constructs-->
+	<!--====================================================================-->
+	<complexType name="AbstractAIXMFeatureBaseType" abstract="true">
 		<annotation>
 			<documentation>This derives from gml:DynamicFeatureType, as all AIXM features are expected to have temporal properties modeled using the Timeslice model. While the GML specification does not mandate that dynamic features derive from gml:DynamicFeatureType, many GML-aware applications may only detect a dynamic feature by this type hierarchy. Note that all temporal properties of gml:DynamicFeatureType are removed during this restriction, because they will be added for each AIXM feature specifically, based on the TimeSlice model</documentation>
 		</annotation>
@@ -68,8 +72,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<extension base="aixm:AbstractAIXMFeatureBaseType">
 				<sequence>
 					<element name="featureMetadata" type="aixm:FeatureMetadataPropertyType" minOccurs="0"/>
-					<!-- Adding dbid as a new field -->
-                	<!-- <element name="dbid" type="xs:long"/> -->
 				</sequence>
 			</extension>
 		</complexContent>
@@ -79,7 +81,7 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<documentation>Substitution head for AIXM features.</documentation>
 		</annotation>
 	</element>
-	<complexType name="AbstractAIXMObjectBaseType" abstract="true">
+	<complexType name="AbstractAIXMObjectType" abstract="true">
 		<annotation>
 			<documentation>Base type for AIXM complex types that are NOT features. For example, City, ContactInformation, AirspaceVolume, etc. It derives from AbstractGMLType so that AIXM objects are recognised as GML objects, thus ensuring that GML-aware applications recognise them properly. Retains only the mandatory gml:id attribute.</documentation>
 		</annotation>
@@ -92,19 +94,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			</restriction>
 		</complexContent>
 	</complexType>
-	<complexType name="AbstractAIXMObjectType" abstract="true">
-		<annotation>
-			<documentation>Adds the FeatureMetadata, which is common to all AIXM features</documentation>
-		</annotation>
-		<complexContent>
-			<extension base="aixm:AbstractAIXMObjectBaseType">
-				<sequence>
-					<!-- Adding dbid as a new field -->
-                	<!-- <element name="dbid" type="xs:long"/> -->
-				</sequence>
-			</extension>
-		</complexContent>
-	</complexType>
 	<element name="AbstractAIXMObject" type="aixm:AbstractAIXMObjectType" abstract="true" substitutionGroup="gml:AbstractGML">
 		<annotation>
 			<documentation>Substitution head for AIXM objects.</documentation>
@@ -114,10 +103,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 		<annotation>
 			<documentation>It provides a basis for deriving AIXM feature/object properties. It defines the nilReason attribute and currently, it is only used for properties that are derived from association with an AIM object.</documentation>
 		</annotation>
-		<sequence>
-			<!-- Adding dbid as a new field -->
-			<element name="dbid" type="xs:long" minOccurs="0"/>
-		</sequence>
 		<attribute name="nilReason" type="gml:NilReasonEnumeration"/>
 	</complexType>
 	<!--====================================================================-->
@@ -135,6 +120,7 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 						<annotation>
 							<documentation>The efffectivity of the TimeSlice.</documentation>
 						</annotation>
+						<!-- delorean hyper jaxb codgen limitation -->
 						<!-- <element ref="gml:validTime"/> -->
 						<element ref="gml:aixmValidTime"/>
 					</sequence>
@@ -154,10 +140,9 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 					<element ref="aixm:sequenceNumber" minOccurs="0"/>
 					<element ref="aixm:correctionNumber" minOccurs="0"/>
 					<element name="timeSliceMetadata" type="aixm:FeatureTimeSliceMetadataPropertyType" minOccurs="0"/>
-					<!-- <element name="aixm:featureLifetime" minOccurs="0"/> -->
-					<element name="featureLifetime" type="xs:string" minOccurs="0"/>
-					<!-- Adding dbid as a new field -->
-                	<!-- <element name="dbid" type="xs:long"/> -->
+					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- <element ref="aixm:featureLifetime" minOccurs="0"/> -->	
+					<element name="featureLifetime" type="string" minOccurs="0"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -171,8 +156,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 				<sequence>
 					<element ref="aixm:sequenceNumber" minOccurs="0"/>
 					<element name="messageMetadata" type="aixm:MessageMetadataPropertyType" minOccurs="0"/>
-					<!-- Adding dbid as a new field -->
-                	<!-- <element name="dbid" type="xs:long"/> -->
 				</sequence>
 			</extension>
 		</complexContent>
@@ -225,13 +208,12 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<restriction base="unsignedInt"/>
 		</simpleType>
 	</element>
-	<!-- timelice / feature lifetime handeling-->
-	<!-- <element name="featureLifetime" type="gml:TimePrimitivePropertyType"> -->
-	<!-- <element name="featureLifetime" type="string">
+	<!-- delorean hyper jaxb codgen limitation -->
+	<!-- <element name="featureLifetime" type="gml:TimePrimitivePropertyType">
 		<annotation>
 			<documentation>The start and end of life of the feature. See the AIXM Temporality model for details.</documentation>
 		</annotation>
-	</element> -->
+	</element> !-->
 	<!--====================================================================-->
 	<!--Base AIXM Metadata Property Types-->
 	<!--====================================================================-->
@@ -240,8 +222,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
 					<element ref="gmd:MD_Metadata"/>
-					<!-- Adding dbid as a new field -->
-                	<element name="dbid" type="xs:long"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -251,8 +231,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
 					<element ref="gmd:MD_Metadata"/>
-					<!-- Adding dbid as a new field -->
-                	<element name="dbid" type="xs:long"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -262,8 +240,6 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
 					<element ref="gmd:MD_Metadata"/>
-					<!-- Adding dbid as a new field -->
-                	<element name="dbid" type="xs:long"/>
 				</sequence>
 			</extension>
 		</complexContent>

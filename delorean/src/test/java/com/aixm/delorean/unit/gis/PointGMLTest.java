@@ -11,7 +11,6 @@ import org.xmlunit.assertj.XmlAssert;
 
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.a5_2.AixmPointType;
 import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
@@ -111,7 +110,7 @@ public class PointGMLTest {
                 null,
                 GisUtil.pos(
                     "4326",
-                    "POINT(13.377717264214601 52.51630693440871)"
+                    "POINT(52.51630693440871 13.377717264214601)"
                 ),
                 null,
                 null
@@ -185,11 +184,8 @@ public class PointGMLTest {
 
         //do
         String xml = JaxbUtil.printToXml(printed, PointType.class);
-        xml = xml.replace("\r\n", "\n");
-        expectedXml = expectedXml.replace("\r\n", "\n");
 
         //check
-        // assertThat(xml).isEqualTo(expectedXml);
         XmlAssert.assertThat(xml)
             .and(expectedXml)
             .ignoreWhitespace()

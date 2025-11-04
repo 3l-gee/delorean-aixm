@@ -1,8 +1,8 @@
-from validation import Validation
-from control import Control
-from annotation import Annox, Jpa, Tag, Jaxb, Xml
-from content import Content
-from field_handler import FieldHandler
+from .validation import Validation
+from .control import Control
+from .annotation import Annox, Jpa, Tag, Jaxb, Xml
+from .content import Content
+from .field_handler import FieldHandler
 
 
 class GroupType: 

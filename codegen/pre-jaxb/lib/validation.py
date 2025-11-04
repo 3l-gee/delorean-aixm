@@ -1,6 +1,6 @@
 
-from control import Control
-from annotation import Annox, Jpa, Tag, Relation, HyperJAXB
+from .control import Control
+from .annotation import Annox, Jpa, Tag, Relation, HyperJAXB
 
 class Validation: 
 

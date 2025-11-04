@@ -1,10 +1,11 @@
 from typing import List
-from xsd import Xsd
 import json
-from control import Control, Action
-from annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
-from validation import Validation
 import xml.etree.ElementTree as ET
+from .xsd import Xsd
+from .control import Control, Action
+from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
+from .validation import Validation
+
 
 class SingletonMeta(type):
 

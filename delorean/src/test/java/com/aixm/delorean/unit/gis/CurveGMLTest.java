@@ -26,8 +26,6 @@ import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
 
 import java.util.stream.Stream;
-import java.util.List;
-
 
 public class CurveGMLTest {
 
@@ -165,13 +163,13 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "d163a00d-609f-4b15-9584-165f12599442",
                                 "external curve",
-                                HrefType.URN,
+                                HrefType.UUID,
                                 "4326"
                             )
                         )
                     )
                 )
-            ), // urn EPSG:4326, LineStringSegment list of pos and pointProperty, lat lon order
+            ), // urn EPSG:4326, LineStringSegment list of pos and pointProperty UUID, lat lon order
             Arguments.of("""
                 <gml:Curve gml:id="c5" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
@@ -304,7 +302,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "d163a00d-609f-4b15-9584-165f12599442",
                                 "external point",
-                                HrefType.URN,
+                                HrefType.UUID,
                                 "4326"
                             )
                         ),
@@ -322,7 +320,7 @@ public class CurveGMLTest {
                         }}
                     )
                 )
-            ), // urn EPSG:4326, ArcByCenterPoint, pointProperty urn, lat lon case
+            ), // urn EPSG:4326, ArcByCenterPoint, pointProperty UUID, lat lon case
             Arguments.of("""
                 <gml:Curve gml:id="c8" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
@@ -474,7 +472,7 @@ public class CurveGMLTest {
                             GisUtil.geometricProperty(
                                 "d163a00d-609f-4b15-9584-165f12599442",
                                 "external point",
-                                HrefType.URN,
+                                HrefType.UUID,
                                 "4326"
                             )
                         ),
@@ -484,7 +482,7 @@ public class CurveGMLTest {
                         }}
                     )
                 )
-            ), // urn EPSG:4326, ArcByCenterPoint, pointProperty xml, lat lon case
+            ), // urn EPSG:4326, ArcByCenterPoint, pointProperty urn, lat lon case
             Arguments.of("""
                 <gml:Curve gml:id="c12" srsName="urn:ogc:def:crs:EPSG::4326" xmlns:gml="http://www.opengis.net/gml/3.2">
                     <gml:segments>
@@ -672,7 +670,50 @@ public class CurveGMLTest {
                         }}
                     )
                 )
-            )
+            ),
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c18" xmlns:gml="http://www.opengis.net/gml/3.2">
+                    <gml:segments>
+                        <gml:LineStringSegment>
+                            <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="d163a00d-609f-4b15-9584-165f12599442" xlink:title="external curve"/>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+                """,
+                GisUtil.curveObj(
+                    "c18",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "d163a00d-609f-4b15-9584-165f12599442",
+                                "external curve",
+                                HrefType.UUID,
+                                "4326"
+                            )
+                        )
+                    )
+                )
+            ) // urn EPSG:4326, LineStringSegment list of pos and pointProperty raw UUID, lat lon order
         );  
     }
 
@@ -886,9 +927,9 @@ public class CurveGMLTest {
                             null,
                             GeometricType.REF,
                             GisUtil.geometricProperty(
-                                "urn:uuid:d163a00d-609f-4b15-9584-165f12599442",
+                                "d163a00d-609f-4b15-9584-165f12599442",
                                 "external point",
-                                HrefType.URN,
+                                HrefType.UUID,
                                 "4326"
                             )
                         ),
@@ -931,7 +972,7 @@ public class CurveGMLTest {
                             null,
                             null,
                             null,
-                            GeometricType.GML,
+                            GeometricType.REF,
                             GisUtil.geometricProperty(
                                 "c6",
                                 "external point",
@@ -1125,8 +1166,6 @@ public class CurveGMLTest {
 
         // do
         String xml = JaxbUtil.printToXml(printed, CurveType.class);
-        xml = xml.replace("\r\n", "\n");
-        expectedXml = expectedXml.replace("\r\n", "\n");
     
         //check
         XmlAssert.assertThat(xml)
@@ -1265,7 +1304,37 @@ public class CurveGMLTest {
                             </gml:OffsetCurve>
                         </gml:segments>
                     </gml:Curve>
-            """) // use of OffsetCurve
+            """), // use of OffsetCurve¨
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c1" xmlns:gml="http://www.opengis.net/gml/3.2">
+                    <gml:segments>
+                        <gml:LineStringSegment>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="id1" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#c6" xlink:title="external point"/>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            """), // Mallformed pointProperty references
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c1" xmlns:gml="http://www.opengis.net/gml/3.2">
+                    <gml:segments>
+                        <gml:LineStringSegment>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="urd:uuid:52z80d3b-5f40-424e-bee4-392cc186a0c2" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#c6" xlink:title="external point"/>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            """), // Mallformed pointProperty references
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c1" xmlns:gml="http://www.opengis.net/gml/3.2">
+                    <gml:segments>
+                        <gml:LineStringSegment>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="C:/Users/rapha/Downloads" xlink:title="external point"/>
+                            <gml:pointProperty xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#c6" xlink:title="external point"/>
+                        </gml:LineStringSegment>
+                    </gml:segments>
+                </gml:Curve>
+            """) // Mallformed pointProperty references
         );
     }
 
@@ -1444,7 +1513,43 @@ public class CurveGMLTest {
                         )
                     )
                 )
-            )
+            ), // missing srsName in reference
+            Arguments.of(
+                GisUtil.curveObj(
+                    "m8",
+                    null,
+                    null,
+                    null,
+                    GisUtil.line(
+                        0L,
+                        null,
+                        GisUtil.pointObj(
+                            null,
+                            0L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                "c7",
+                                "external point",
+                                HrefType.XML,
+                                "4326"
+                            )
+                        ),
+                        GisUtil.pointObj(
+                            null,
+                            1L,
+                            null,
+                            GeometricType.REF,
+                            GisUtil.geometricProperty(
+                                null,
+                                "external point",
+                                HrefType.XML,
+                                "4326"
+                            )
+                        )
+                    )
+                )
+           ) // reference is null
         );
     }
 

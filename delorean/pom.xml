@@ -400,7 +400,40 @@
                         </dependencies>
                         <executions>
                             <execution>
-                                <id>generate</id>
+                                <id>generate aixm 5.1.1</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <noFileHeader>true</noFileHeader>
+                                    <extension>true</extension>
+                                    <schemaDirectory>${project.parent.basedir}/schema/aixm5_1_1/aixm/message</schemaDirectory>
+                                    <schemaIncludes>
+                                        <include>AIXM_BasicMessage.xsd</include>
+                                    </schemaIncludes>
+                                    <bindingDirectory>${project.parent.basedir}/schema/aixm5_1_1/binding</bindingDirectory>
+                                    <bindingIncludes>
+                                        <include>*.xjb</include>
+                                    </bindingIncludes>
+                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- <plugin>
+                        <groupId>org.patrodyne.jvnet</groupId>
+                        <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
+                        <version>${hisrc-hyperjaxb.version}</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.patrodyne.jvnet</groupId>
+                                <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
+                                <version>${hisrc-hyperjaxb.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>generate aixm 5.2</id>
                                 <goals>
                                     <goal>generate</goal>
                                 </goals>
@@ -419,7 +452,7 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin> -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
