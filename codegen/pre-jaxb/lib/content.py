@@ -2,7 +2,6 @@ from typing import List
 import json
 import xml.etree.ElementTree as ET
 from .xsd import Xsd
-from .control import Control, Action
 from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
 from .validation import Validation
 
@@ -56,12 +55,6 @@ class Content(metaclass=SingletonMeta):
                     "type" : xsd.get_groups(),
                 }
             }
-
-            Control.log_action(
-                    what="XSD processed",
-                    success=True,
-                    why=str(xsd.name),
-                )
                 
     @staticmethod
     def get_content():

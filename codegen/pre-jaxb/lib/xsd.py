@@ -4,13 +4,13 @@ from .annotation import Tag, Strategy
 
 
 class Xsd: 
-    def __init__(self, name:str, path:str, strategie: Strategy, manual: dict, package: str = None):
-        self.name = name
-        self.package = package
-        self.path = path
-        self.strategy = strategie
-        self.manual = manual
-        self.root = ET.parse(path).getroot()
+    def __init__(self, xsd: dict):
+        self.name = xsd.get("name")
+        self.package = xsd.get("package")
+        self.path = xsd.get("path")
+        self.strategy = xsd.get("strategy")
+        self.manual = xsd.get("manual")
+        self.root = ET.parse(self.path).getroot()
         self.namespaces = self.get_namespaces()
         self.elements = self.root.findall(Tag.element, self.namespaces) or []
         self.groups = self.root.findall(Tag.group, self.namespaces) or []

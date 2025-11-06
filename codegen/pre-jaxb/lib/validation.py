@@ -1,5 +1,3 @@
-
-from .control import Control
 from .annotation import Annox, Jpa, Tag, Relation, HyperJAXB
 
 class Validation: 
@@ -92,11 +90,6 @@ class Validation:
         # if whiteSpace is not None:
         #     pass        
             
-        Control.log_action(
-            what="",
-            success=True,
-            why=res,
-        )
         return res
     
     @staticmethod
@@ -126,10 +119,10 @@ class Validation:
 
         if maxOccurs == "unbounded":
             if type in embed.keys():
-                res.append(HyperJAXB.embedded())
+                res.append(HyperJAXB.hj_embedded_start())
                 return res
             else : 
-                res.append(HyperJAXB.one_to_many())
+                res.append(HyperJAXB.hj_one_to_many_start())
                 return res
             #     res.append(Annox.field_add(Jpa.relation.collection_element()))
             #     res.append(Annox.field_add(Jpa.relation.collection_table(type)))
@@ -149,10 +142,10 @@ class Validation:
 
         if maxOccurs == 1:
             if type in embed.keys():
-                res.append(HyperJAXB.embedded())
+                res.append(HyperJAXB.hj_embedded_start())
                 return res
             else : 
-                res.append(HyperJAXB.one_to_one())
+                res.append(HyperJAXB.hj_one_to_one_start())
                 return res
             #     res.append(Annox.field_add(Jpa.embedded))
             #     temp = []

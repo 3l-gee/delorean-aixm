@@ -1,5 +1,4 @@
 from .validation import Validation
-from .control import Control
 from .content import Content
 from .annotation import Annox, Jpa, Tag, Jaxb, Xml
 
@@ -19,11 +18,6 @@ class SimpleType:
         node = []
 
         if element is None :    
-            Control.log_action(
-                what="element is None",
-                success=False,
-                why=str(element),
-            )
             return node
         
         element_name = element.attrib["name"]

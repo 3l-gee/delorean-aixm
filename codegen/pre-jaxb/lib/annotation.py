@@ -511,6 +511,7 @@ SQL_RESERVED_KEY_WORD = [
     "WINDOW",
     "WITH"
 ]
+
 class Util:
     @staticmethod
     def modify_forbiden_key_word(name):
@@ -729,8 +730,24 @@ class HyperJAXB:
         return f'''<orm:inheritance {annotation} />'''
     
     @staticmethod
-    def embedded():
-        return f'''<hj:embedded/>'''
+    def orm_join_column(name, referenced_column_name="hjid"):
+        return f'''<orm:join-column name="{Util.snake_case(str(name + "_id"))}" referenced-column-name="{referenced_column_name}" />'''
+    
+    @staticmethod 
+    def orm_join_table(name, join_column_name, inverse_join_column_name):
+        return f'''<orm:join-table name="{Util.snake_case_table(str(name))}"><orm:join-column name="{Util.snake_case(str(join_column_name))}" referenced-column-name="hjid" /><orm:inverse-join-column name="{Util.snake_case(str(inverse_join_column_name))}" referenced-column-name="hjid" /></orm:join-table>'''
+    
+    @staticmethod
+    def hj_embedded_start():
+        return f'''<hj:embedded>'''
+    
+    @staticmethod
+    def hj_embedded_end():
+        return f'''</hj:embedded>'''
+    
+    @staticmethod
+    def attribute_override(name, column):
+        return f'''<orm:attribute-override name="{name}">{column}</orm:attribute-override>'''
     
     @staticmethod
     def embeddable():
@@ -769,13 +786,30 @@ class HyperJAXB:
         return f'<orm:table name = "{Util.snake_case([prefix,name, suffix])}" schema = "{schema}" />'
 
     @staticmethod
-    def one_to_one():
-        return f'<hj:one-to-one><orm:join-column updatable="false" insertable="true" nullable="false"/></hj:one-to-one>'
+    def hj_one_to_one_start():
+        return f'<hj:one-to-one>'
 
     @staticmethod
-    def one_to_many():
-        return f'<hj:one-to-many><orm:join-table><orm:join-column nullable="false"/><orm:inverse-join-column nullable="false"/></orm:join-table></hj:one-to-many>'
+    def hj_one_to_one_end():
+        return f'</hj:one-to-one>'
+    
+    @staticmethod
+    def hj_one_to_many_start():
+        return f'<hj:one-to-many>'
+
+    @staticmethod
+    def hj_one_to_many_end():
+        return f'</hj:one-to-many>'
+    
+    @staticmethod
+    def hj_one_to_many_start():
+        return f'<hj:one-to-many>'
+
+    @staticmethod
+    def hj_one_to_many_end():
+        return f'</hj:one-to-many>'
         
+     
     
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"

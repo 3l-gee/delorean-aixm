@@ -1,5 +1,4 @@
 from .validation import Validation
-from .control import Control
 from .annotation import Annox, Jpa, Tag, Jaxb, Xml, HyperJAXB
 from .view import View
 from .content import Content
@@ -20,11 +19,6 @@ class ComplexType:
     def runner(element) :
         node = []
         if element is None :    
-            Control.log_action(
-                what="element is None",
-                success=False,
-                why=str(element),
-            )
             return node
 
         if element.attrib["name"] in Content.get_ignore():

@@ -1,417 +1,16 @@
-from lib.machinery import Machinery
+from lib.coordinator import Coordinator
 from lib.annotation import Tag, Strategy
 from lib.view import View
 from lib.content import Content
-from lib.control import Control
 
 
 
-View({
-    "Event" : {
-        "schema" : "event",
-        "list" : [
+View(yaml_path="codegen/pre-jaxb/view.yaml")
 
-        ],
-    },
-    "Aerial Refuelling" : {
-        "schema" : "aerial_refuelling",
-        "list" : [
-            "AerialRefuelling",
-            "AerialRefuellingAnchor",
-            "AerialRefuellingPoint",
-            "AerialRefuellingTrack",
-            "AuthorityForAerialRefuelling",
-        ],
-    },
-    "Airport Heliport" : {
-        "schema" : "airport_heliport",
-        "list" : [
-            "AirportHeliport",
-            "AirportHeliportAvailability",
-            "AirportHeliportCollocation",
-            "AirportHeliportProtectionArea",
-            "AirportHeliportResponsibilityOrganisation",
-            "AirportHeliportUsage",
-            "AirportHotSpot",
-            "AltimeterSource",
-            "AltimeterSourceStatus",
-            "City",
-            "ConditionCombination",
-            "NonMovementArea",
-            "SurfaceCharacteristics",
-            "SurveyControlPoint",
-            "UsageCondition",
-            "WorkArea",
-            "WorkareaActivity",
-            "AircraftStand",
-            "Apron",
-            "ApronAreaAvailability",
-            "ApronAreaUsage",
-            "ApronElement",
-            "DeicingArea",
-            "PassengerLoadingBridge",
-            "Road",
-            "TouchDownLiftOff",
-            "TouchDownLiftOffSafeArea",
-            "ApproachLightingSystem",
-            "ApronLightSystem",
-            "GroundLightSystem",
-            "GroundLightingAvailability",
-            "GuidanceLineLightSystem",
-            "LightActivation",
-            "RunwayDirectionLightSystem",
-            "RunwayProtectAreaLightSystem",
-            "TaxiHoldingPositionLightSystem",
-            "TaxiwayLightSystem",
-            "TouchDownLiftOffLightSystem",
-            "AirportProtectionAreaMarking",
-            "ApronMarking",
-            "DeicingAreaMarking",
-            "GuidanceLineMarking",
-            "Marking",
-            "MarkingElement",
-            "MarkingExtent",
-            "RunwayMarking",
-            "StandMarking",
-            "TaxiHoldingPositionMarking",
-            "TaxiwayMarking",
-            "TouchDownLiftOffMarking",
-            "ArrestingGear",
-            "ArrestingGearExtent",
-            "ManoeuvringAreaAvailability",
-            "ManoeuvringAreaUsage",
-            "NavaidEquipmentDistance",
-            "Runway",
-            "RunwayBlastPad",
-            "RunwayCentrelinePoint",
-            "RunwayDeclaredDistance",
-            "RunwayDeclaredDistanceValue",
-            "RunwayDirection",
-            "RunwayElement",
-            "RunwayProtectArea",
-            "RunwayVisualRange",
-            "VisualGlideSlopeIndicator",
-            "FloatingDockSite",
-            "MarkingBuoy",
-            "SeaplaneLandingArea",
-            "SeaplaneRampSite",
-            "AircraftStandContamination",
-            "AirportHeliportContamination",
-            "ApronContamination",
-            "Ridge",
-            "RunwayContamination",
-            "RunwaySectionContamination",
-            "SurfaceContamination",
-            "SurfaceContaminationLayer",
-            "TaxiwayContamination",
-            "TouchDownLiftOffContamination",
-            "GuidanceLine",
-            "TaxiHoldingPosition",
-            "Taxiway",
-            "TaxiwayElement",
-            "WaterBody",
-            "WeatherSource",
-            "WeatherSourceAvailability",
-            "LightGroup",
-            "AirportSign",
-            "AirportSignStatus",
-            "RunwayVisualRangeEquipment",
-            "Gangway",
-            "GuidanceLineDirection"
-        ],
-    },
-    "Airspace" : {
-        "schema" : "airspace",
-        "list" : [
-            "Airspace",
-            "AirspaceActivation",
-            "AirspaceGeometryComponent",
-            "AirspaceLayerClass",
-            "AirspaceVolume",
-            "AirspaceVolumeDependency",
-            "AuthorityForAirspace",
-            "GeoBorder",
-        ],
-    },
-    "Geometry" : {
-        "schema" : "gml",
-        "suffix" : "aixm",
-        "list" : [
-            "PointPropertyType",
-            "CurvePropertyType",
-            "SurfacePropertyType",
-            "ElevatedPointPropertyType",
-            "ElevatedCurvePropertyType",
-            "ElevatedSurfacePropertyType",
-            "ElevatedPoint",
-            "ElevatedCurve",
-            "ElevatedSurface",
-            "Point",
-            "Curve",
-            "Surface",
-            "PointType",
-            "ElevatedPointType",
-            "CurveType",
-            "ElevatedCurveType",
-            "SurfaceType",
-            "ElevatedSurfaceType",
-        ],
-    },
-    "Holding" : {
-        "schema" : "holding",
-        "list" : [
-            "HoldingPattern",
-            "HoldingPatternDistance",
-            "HoldingPatternDuration",
-            "HoldingPatternLength",
-            "UnplannedHolding",
-        ],
-    },
-    "Navaids Points" : {
-        "schema" : "navaids_points",
-        "list" : [
-            "GuidanceService",
-            "AuthorityForNavaidEquipment",
-            "AuthorityForSpecialNavigationStation",
-            "AuthorityForSpecialNavigationSystem",
-            "Azimuth",
-            "CheckpointINS",
-            "CheckpointVOR",
-            "DME",
-            "DirectionFinder",
-            "Elevation",
-            "Glidepath",
-            "Localizer",
-            "MarkerBeacon",
-            "NDB",
-            "Navaid",
-            "NavaidComponent",
-            "NavaidEquipment",
-            "NavaidEquipmentMonitoring",
-            "NavaidOperationalStatus",
-            "NavigationSystemCheckpoint",
-            "SDF",
-            "SpecialNavigationStation",
-            "SpecialNavigationStationStatus",
-            "SpecialNavigationSystem",
-            "TACAN",
-            "VOR",
-            "AngleIndication",
-            "AngleUse",
-            "DistanceIndication",
-            "EnRouteSegmentPoint",
-            "PointReference",
-            "SegmentPoint",
-            "TerminalSegmentPoint",
-            "DesignatedPoint",
-            "SignificantPoint",
-            "SignificantPointInAirspace",
-            "AeronauticalGroundLight",
-            "AltimeterCheckpoint",
-            "Angle",
-            "Distance",
-            "PointUsage",
-            "FlightInspectionTrajectory",
-            "GBAS",
-            "GBASService",
-            "RadioFrequency",
-            "SatelliteApproachOperation",
-            "SatelliteSystem",
-            "SatelliteService",
-            "SatelliteServiceArea",
-            "VDBAntenna"
-        ],
-    },
-    "Notes" : {
-        "schema" : "notes",
-        "list" : [
-            "LinguisticNote",
-            "Note"
-            ],
-    },
-    "Obstacles" : {
-        "schema" : "obstacles",
-        "list" : [
-            "ObstacleArea",
-            "ObstacleAreaOrigin",
-            "VerticalStructure",
-            "VerticalStructureLightingStatus",
-            "VerticalStructurePart",
-            "VerticalStructurePartGeometry",
-        ],
-    },
-    "Organisation" : {
-        "schema" : "organisation",
-        "list" : [
-            "OrganisationAuthority",
-            "OrganisationAuthorityAssociation",
-            "Unit",
-            "UnitAvailability",
-            "UnitDependency",
-        ],
-    },
-    "Procedure" : {
-        "schema" : "procedure",
-        "list" : [
-            "ApproachAltitudeTable",
-            "ApproachCondition",
-            "ApproachDistanceTable",
-            "ApproachTimingTable",
-            "FinalProfile",
-            "InstrumentApproachProcedure",
-            "MissedApproachGroup",
-            "TerminalArrivalArea",
-            "TerminalArrivalAreaSector",
-            "FASDataBlock",
-            "CirclingArea",
-            "CirclingRestriction",
-            "EquipmentUnavailableAdjustment",
-            "EquipmentUnavailableAdjustmentColumn",
-            "Minima",
-            "StandardInstrumentArrival",
-            "DepartureArrivalCondition",
-            "NavigationArea",
-            "NavigationAreaSector",
-            "SectorDesign",
-            "StandardInstrumentDeparture",
-            "SafeAltitudeArea",
-            "SafeAltitudeAreaSector",
-            "ApproachLeg",
-            "ArrivalFeederLeg",
-            "ArrivalLeg",
-            "DepartureLeg",
-            "FinalLeg",
-            "HoldingUse",
-            "InitialLeg",
-            "IntermediateLeg",
-            "LandingTakeoffAreaCollection",
-            "MissedApproachLeg",
-            "NavigationAreaRestriction",
-            "Procedure",
-            "ProcedureDME",
-            "ProcedureTransition",  
-            "ProcedureTransitionLeg",
-            "SegmentLeg",
-            "ProcedureAvailability",
-            "FinalApproachControlAltitude",
-            "FinalApproachControlPosition",
-            "FinalApproachProfile",
-            "FinalApproachSegmentData",
-            "SegmentLegAltitudeCondition",
-            "MinimumAltitudeArea",
-            "MinimumAltitudeAreaSector",
-            "CourseGroup",
-        ],
-    },
-    "Routes" : {
-        "schema" : "routes",
-        "list" : [
-            "ChangeOverPoint",
-            "Route",
-            "RouteAvailability",
-            "RouteDME",
-            "RoutePortion",  
-            "RouteSegment",
-            "AirspaceBorderCrossing",
-            "DirectFlight",
-            "DirectFlightClass",
-            "DirectFlightSegment",
-            "FlightConditionCircumstance",
-            "FlightConditionCombination",
-            "FlightConditionElement",
-            "FlightConditionElementChoice",
-            "FlightRestriction",
-            "FlightRestrictionLevel",
-            "FlightRestrictionRoute",
-            "FlightRoutingElement",
-            "FlightRoutingElementChoice",
-            "AltitudeIndication"
-        ],
-    },
-    "Rules Procedures" : {
-        "schema" : "rules_procedures",
-        "list" : [
-            "RulesProcedures",
-        ],
-    },
-    "Service" : {
-        "schema" : "service",
-        "list" : [
-            "AirTrafficControlService",
-            "AirTrafficManagementService",
-            "AircraftGroundService",
-            "AirportClearanceService",
-            "AirportGroundService",
-            "AirportSuppliesService",
-            "CallsignDetail",
-            "FireFightingService",
-            "Fuel",
-            "GroundTrafficControlService",
-            "InformationService",
-            "Nitrogen",
-            "Oil",
-            "Oxygen",
-            "PassengerService",
-            "PilotControlledLighting",
-            "RadioCommunicationChannel",
-            "RadioCommunicationOperationalStatus",
-            "SearchRescueService",
-            "Service",
-            "ServiceOperationalStatus",
-            "TrafficSeparationService",
-            "AirTrafficFlowManagementService"
-        ],
-    },
-    "Shared" : {
-        "schema" : "shared",
-        "list" : [
-            "ContactInformation",
-            "OnlineContact",
-            "PostalAddress",
-            "TelephoneContact",
-            "AircraftCharacteristic",
-            "FlightCharacteristic",
-            "AirspaceLayer",
-            "CircleSector",
-            "LightElement",
-            "LightElementStatus",
-            "Meteorology",
-            "EquipmentChoice",
-            "RadioFrequencyArea",
-            "PropertiesWithSchedule",
-            "SpecialDate",
-            "Timesheet",
-            "StandardLevel",
-            "StandardLevelColumn",
-            "StandardLevelSector",
-            "StandardLevelTable",
-            "AltitudeAdjustment",
-            "HoldingAssessment",
-            "ObstacleAssessmentArea",
-            "ObstaclePlacement",
-            "Obstruction",
-            "AircraftNavigationEquipment",
-            "DesignStandard",
-            "ObstacleAssessmentSurface"
-        ],
-    },
-    "Surveillance" : {
-        "schema" : "surveillance",
-        "list" : [
-            "PrecisionApproachRadar",
-            "PrimarySurveillanceRadar",
-            "RadarComponent",
-            "RadarEquipment",
-            "RadarSystem",
-            "Reflector",
-            "SecondarySurveillanceRadar",
-            "SurveillanceGroundStation",
-            "SurveillanceRadar",
-        ],
-    }
-})
 config = {
     "ignore": [
+        # TODO solve this
+        "StandardLevelColumnPropertyGroup.unitOfMeasurement",
         "XHTMLType",
 
         # Core
@@ -510,21 +109,21 @@ feature = {
     "path" : "schema/aixm5_1_1/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
     "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm",
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_Features.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_Features.xjb"
 }
 
 data_types = {
     "name" : "../aixm/AIXM_DataTypes",
     "path" : "schema/aixm5_1_1/aixm/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_DataTypes.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
     "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
     "path" : "schema/aixm5_1_1/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
@@ -532,12 +131,12 @@ message = {
     "path" : "schema/aixm5_1_1/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm.message",
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1_1/AIXM_BasicMessage.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_BasicMessage.xjb"
 }
 
 
 
-out = Machinery(config, [data_types, feature, abstract, message])
+out = Coordinator(config, [data_types, feature, abstract, message])
 
 config = {
     "ignore": [
@@ -648,21 +247,21 @@ feature = {
     "path" : "schema/aixm5_1/aixm/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
     "package" : "com.aixm.delorean.core.schema.a5_1.aixm",
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_Features.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_Features.xjb"
 }
 
 data_types = {
     "name" : "../aixm/AIXM_DataTypes",
     "path" : "schema/aixm5_1/aixm/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_DataTypes.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
     "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
     "path" : "schema/aixm5_1/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
@@ -670,7 +269,7 @@ message = {
     "path" : "schema/aixm5_1/aixm/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.core.schema.a5_1.aixm.message",
-    "manual" : "codegen/pre-jaxb/lib/manual/a5_1/AIXM_BasicMessage.xjb"
+    "manual" : "codegen/pre-jaxb/manual/a5_1/AIXM_BasicMessage.xjb"
 }
 
 # out = Machinery(config, [data_types, feature, abstract, message])

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="155.16757mm"
+   height="189.27414mm"
+   viewBox="0 0 155.16757 189.27414"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm">
+    <inkscape:page
+       x="-2.9685813e-13"
+       y="0"
+       width="155.16759"
+       height="189.27414"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <rect
+       x="97.931763"
+       y="52.661415"
+       width="10402.444"
+       height="1183.078"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-25.911078,-11.2546)">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:106.667px;line-height:1.15;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);shape-padding:0;fill:#ffffff;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="delorean-aixm-logo-big.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         x="97.931641"
+         y="140.66238"
+         id="tspan3"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan2"> ██████╗ 
+</tspan></tspan><tspan
+         x="97.931641"
+         y="264.11069"
+         id="tspan5"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan4"> ██╔══██╗
+</tspan></tspan><tspan
+         x="97.931641"
+         y="387.55899"
+         id="tspan7"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan6"> ██║  ██║
+</tspan></tspan><tspan
+         x="97.931641"
+         y="511.00729"
+         id="tspan9"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan8"> ██║  ██║
+</tspan></tspan><tspan
+         x="97.931641"
+         y="634.4556"
+         id="tspan11"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan10"> ██████╔╝ 
+</tspan></tspan><tspan
+         x="97.931641"
+         y="757.9039"
+         id="tspan13"><tspan
+           style="font-family:Consolas;-inkscape-font-specification:Consolas"
+           id="tspan12"> ╚═════╝ </tspan></tspan></text>
+  </g>
+</svg>

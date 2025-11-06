@@ -1,5 +1,4 @@
 from .validation import Validation
-from .control import Control
 from .annotation import Annox, Jpa, Tag, Jaxb, Xml, Xpath
 from .content import Content
 

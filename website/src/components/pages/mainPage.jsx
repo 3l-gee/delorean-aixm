@@ -37,16 +37,10 @@ export function MainPage() {
   <section className="space-y-4">
     <h2 className="text-2xl font-semibold">Why Delorean?</h2>
     <p>
-      The world of aeronautical data management is in transition from paper to digital products. 
-      This transition is supported by the Aeronautical Information Exchange Model (AIXM). 
-      While AIXM provides guidance on how data should be stored and exchanged, the actual 
-      creation, manipulation, or visualization of such data remains a challenge.
-    </p>
-    <p>
-      While a range of commercial products offer based on AIXM exists, Delorean aims to fill a gap - 
-      providing an open source alternative to such tools. Delorean combines the roles of an aeronautical 
-      database schema builder, QGIS project generator, and XML transformation engine. 
-      It does all this through a simple, robust cli interface that handles your data safely and precisely.
+      The Delorean-AIXM project offers an open-source solution for managing AIXM aeronautical information datasets. 
+      Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling 
+      validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with 
+      GIS tools, web servers, feature servers, and much more.
     </p>
   </section>
 
