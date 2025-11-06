@@ -607,22 +607,115 @@ class Util:
     def bool_str(value):
         return str(value).lower()
     
+    @staticmethod
+    def generate_constraints(element) :
+
+        res = {"type" : element.attrib["name"]}
+        union = element.find(Tag.union)
+
+        if union is not None:
+            enum = []
+            simple_types = union.findall(Tag.simple_type)
+            for simple_type in simple_types:
+                restriction = simple_type.find(Tag.restriction)
+                pattern = restriction.find(Tag.pattern)
+                enumerations = restriction.findall(Tag.enumeration)
+                for enumeration in enumerations:
+                    enum.append(enumeration.attrib["value"])
+                
+                if pattern is not None:
+                    enum.append(pattern.attrib["value"])
+            res["enum"] = enum
+            return res
+
+        restriction = element.find(Tag.restriction)
+        if restriction is None:
+            return res
+    
+        base = restriction.attrib["base"]
+        fractionDigits = restriction.find(Tag.fractionDigits)
+        length = restriction.find(Tag.length)
+        maxExclusive = restriction.find(Tag.maxExclusive)
+        minExclusive = restriction.find(Tag.minExclusive)
+        maxInclusive = restriction.find(Tag.maxInclusive)
+        minInclusive = restriction.find(Tag.minInclusive)
+        maxLength = restriction.find(Tag.maxLength)
+        minLength = restriction.find(Tag.minLength)
+        pattern = restriction.find(Tag.pattern)
+        totalDigits = restriction.find(Tag.totalDigits)
+        whiteSpace = restriction.find(Tag.whiteSpace)
+
+        if base is not None:
+            if base == "string":
+                res["column_definition"] = "TEXT"
+            elif base == "integer":
+                res["column_definition"] = "INTEGER"
+            elif base == "decimal":
+                res["column_definition"] = "DECIMAL" 
+            elif base == "boolean":
+                res["column_definition"] = "BOOLEAN"
+            elif base == "date":
+                res["column_definition"] = "DATE"
+            elif base == "dateTime":
+                res["column_definition"] = "TIMESTAMP"
+            elif base == "time":
+                res["column_definition"] = "TIME"
+
+        # if fractionDigits is not None:
+        #     pass
+
+        # if length is not None:
+        #     pass
+
+        # if maxExclusive is not None:
+        #     pass
+
+        # if minExclusive is not None:
+        #     pass
+    
+        # if maxInclusive is not None:
+        #     pass
+
+        # if minInclusive is not None:
+            pass
+
+        if length is not None:
+            res["column_length"] = length.attrib["value"]
+
+        # if maxLength is not None:
+        #     res["column_length"] = maxLength.attrib["value"]
+
+        # if minLength is not None or maxLength is not None:
+        #     res["size"] = (Annox.field_add(Jpa.constraint.size(minLength.attrib["value"], maxLength.attrib["value"])))
+
+        # if pattern is not None:
+        #     res["pattern"] = (Annox.field_add(Jpa.constraint.pattern(pattern.attrib["value"], "this field must match")))
+
+        # if totalDigits is not None:
+        #     pass
+
+        # if whiteSpace is not None:
+        #     pass        
+            
+        return res
+
+    
 
 class Property:
     @staticmethod
-    def name(name="aixmName"):
+    def name(name):
         return f'<jaxb:property name="{name}"/>'
     
     # element = '<jaxb:property generateElementProperty="false"/>'
     element = ''
 
     @staticmethod
-    def name_element(name="aixmName"):
+    def name_element(name):
         # return f'<jaxb:property name="{name}" generateElementProperty="false"/>'
         return f'<jaxb:property name="{name}"/>'
     
     @staticmethod
-    def nameClass(name="aixmName"):
+    def nameClass(name):
         return f'<jaxb:class  name="{name}"/>'
     
 
@@ -730,8 +823,8 @@ class HyperJAXB:
         return f'''<orm:inheritance {annotation} />'''
     
     @staticmethod
-    def orm_join_column(name, referenced_column_name="hjid"):
-        return f'''<orm:join-column name="{Util.snake_case(str(name + "_id"))}" referenced-column-name="{referenced_column_name}" />'''
+    def orm_join_column(name):
+        return f'''<orm:join-column name="{Util.snake_case(str(name + "_hjid"))}" referenced-column-name="hjid" />'''
     
     @staticmethod 
     def orm_join_table(name, join_column_name, inverse_join_column_name):
@@ -747,7 +840,7 @@ class HyperJAXB:
     
     @staticmethod
     def attribute_override(name, column):
-        return f'''<orm:attribute-override name="{name}">{column}</orm:attribute-override>'''
+        return f'''<orm:attribute-override name="{name}">{Util.snake_case_column(column)}</orm:attribute-override>'''
     
     @staticmethod
     def embeddable():

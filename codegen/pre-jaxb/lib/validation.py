@@ -1,99 +1,110 @@
+from os import name
 from .annotation import Annox, Jpa, Tag, Relation, HyperJAXB
+import xml.etree.ElementTree as ET
+from .content import Content
 
-class Validation: 
+class OrmHandler: 
 
     @staticmethod
-    def generate_constraints(element) : 
-        res = {"type" : element.attrib["name"]}
-        union = element.find(Tag.union)
-        if union is not None:
-            enum = []
-            simple_types = union.findall(Tag.simple_type)
-            for simple_type in simple_types:
-                restriction = simple_type.find(Tag.restriction)
-                pattern = restriction.find(Tag.pattern)
-                enumerations = restriction.findall(Tag.enumeration)
-                for enumeration in enumerations:
-                    enum.append(enumeration.attrib["value"])
-                
-                if pattern is not None:
-                    enum.append(pattern.attrib["value"])
-            res["enum"] = enum
-            return res
+    def embeded_types(type, parent, element) -> dict:
+        res = []
+        if "name" not in element.attrib:
+            raise KeyError("Element must have a name attribute")
+        name = element.attrib["name"]
 
-        restriction = element.find(Tag.restriction)
-        if restriction is None:
-            return res
+        nillable = element.attrib.get("nillable", "false").lower() == "true"
+        minOccurs = int(element.attrib.get("minOccurs", "1"))
+        maxOccurs = element.attrib.get("maxOccurs", "1")
+
+        if maxOccurs.lower() == "unbounded":
+            raise KeyError("Embeded types cannot be collections")
+
+        constraints = Content().get_embed_by_type(type)
+
+        res.append(HyperJAXB.hj_embedded_start())
+
+        for key, value in constraints.items():
+            if key == "value" : 
+                res.append(HyperJAXB.attribute_override(key, str(name)))
+            else:
+                res.append(HyperJAXB.attribute_override(key, str(name +  "_" + key)))
+
+        res.append(HyperJAXB.hj_embedded_end())
+
+        return res
+
+    @staticmethod
+    def referenced_types(type, parent, element) -> dict:
+        res = []
+        if "name" not in element.attrib:
+            raise KeyError("Element must have a name attribute", ET.tostring(element, encoding='unicode', method='xml'))
+        name = element.attrib["name"]
+
+        nillable = element.attrib.get("nillable", "false").lower() == "true"
+        minOccurs = int(element.attrib.get("minOccurs", "1"))
+        maxOccurs = element.attrib.get("maxOccurs", "1")
+
+        if maxOccurs.lower() == "unbounded":
+            maxOccurs = "unbounded"
+        else:
+            maxOccurs = int(maxOccurs)
+
+        if maxOccurs == "unbounded":
+            res.append(HyperJAXB.hj_one_to_many_start())
+            res.append(HyperJAXB.orm_join_column(name))
+            res.append(HyperJAXB.hj_one_to_many_end())
+
+
+        if maxOccurs == 1:
+            res.append(HyperJAXB.hj_one_to_one_start())
+            res.append(HyperJAXB.orm_join_column(name))
+            res.append(HyperJAXB.hj_one_to_one_end())
+
+        return res
     
-        base = restriction.attrib["base"]
-        fractionDigits = restriction.find(Tag.fractionDigits)
-        length = restriction.find(Tag.length)
-        maxExclusive = restriction.find(Tag.maxExclusive)
-        minExclusive = restriction.find(Tag.minExclusive)
-        maxInclusive = restriction.find(Tag.maxInclusive)
-        minInclusive = restriction.find(Tag.minInclusive)
-        maxLength = restriction.find(Tag.maxLength)
-        minLength = restriction.find(Tag.minLength)
-        pattern = restriction.find(Tag.pattern)
-        totalDigits = restriction.find(Tag.totalDigits)
-        whiteSpace = restriction.find(Tag.whiteSpace)
+    def referenced_refs(ref, parent, element) -> dict:
+        res = []
 
-        if base is not None:
-            if base == "string":
-                res["column_definition"] = "TEXT"
-            elif base == "integer":
-                res["column_definition"] = "INTEGER"
-            elif base == "decimal":
-                res["column_definition"] = "DECIMAL" 
-            elif base == "boolean":
-                res["column_definition"] = "BOOLEAN"
-            elif base == "date":
-                res["column_definition"] = "DATE"
-            elif base == "dateTime":
-                res["column_definition"] = "TIMESTAMP"
-            elif base == "time":
-                res["column_definition"] = "TIME"
+        if "ref" not in element.attrib:
+            raise KeyError("Element must have a name reference attribute", ET.tostring(element, encoding='unicode', method='xml'))
+        ref = element.attrib["ref"]
 
-        # if fractionDigits is not None:
-        #     pass
+        nillable = element.attrib.get("nillable", "false").lower() == "true"
+        minOccurs = int(element.attrib.get("minOccurs", "1"))
+        maxOccurs = element.attrib.get("maxOccurs", "1")
 
-        # if length is not None:
-        #     pass
+        if maxOccurs.lower() == "unbounded":
+            maxOccurs = "unbounded"
+        else:
+            maxOccurs = int(maxOccurs)
 
-        # if maxExclusive is not None:
-        #     pass
+        if maxOccurs == "unbounded":
+            if "TimeSlicePropertyType" in ref:
+                res.append(HyperJAXB.hj_one_to_many_start())
+                res.append(HyperJAXB.orm_join_column("tsp"))
+                res.append(HyperJAXB.hj_one_to_many_end())
+            elif "TimeSlice" in ref:
+                res.append(HyperJAXB.hj_one_to_many_start())
+                res.append(HyperJAXB.orm_join_column("extension"))
+                res.append(HyperJAXB.hj_one_to_many_end())
+            else:
+                raise KeyError("Unknown reference for collection type", ET.tostring(element, encoding='unicode', method='xml'))
 
-        # if minExclusive is not None:
-        #     pass
-    
-        # if maxInclusive is not None:
-        #     pass
 
-        # if minInclusive is not None:
-            pass
+        if maxOccurs == 1:
+            if "TimeSlice" in ref:
+                res.append(HyperJAXB.hj_one_to_one_start())
+                res.append(HyperJAXB.orm_join_column("ts"))
+                res.append(HyperJAXB.hj_one_to_one_end())
 
-        if length is not None:
-            res["column_length"] = length.attrib["value"]
+            else:
+                raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
 
-        # if maxLength is not None:
-        #     res["column_length"] = maxLength.attrib["value"]
-
-        # if minLength is not None or maxLength is not None:
-        #     res["size"] = (Annox.field_add(Jpa.constraint.size(minLength.attrib["value"], maxLength.attrib["value"])))
-
-        # if pattern is not None:
-        #     res["pattern"] = (Annox.field_add(Jpa.constraint.pattern(pattern.attrib["value"], "this field must match")))
-
-        # if totalDigits is not None:
-        #     pass
-
-        # if whiteSpace is not None:
-        #     pass        
-            
         return res
     
     @staticmethod
     def generate_cardinality(parent, element, embed):
+
         res = []
         type = element.attrib.get("type", "").replace("aixm:", "")
         annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")

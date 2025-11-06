@@ -1,9 +1,7 @@
 from typing import List
 import json
-import xml.etree.ElementTree as ET
 from .xsd import Xsd
-from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
-from .validation import Validation
+from .annotation import Strategy, Tag, Util
 
 
 class SingletonMeta(type):
@@ -55,7 +53,15 @@ class Content(metaclass=SingletonMeta):
                     "type" : xsd.get_groups(),
                 }
             }
-                
+
+
+    def get_embed_by_type(self, type):
+        type = type.replace("aixm:", "")
+        if type in Content().embed:
+            return Content().embed[type]
+        else:
+            raise KeyError(f"Embedable type {type} not found in embed dictionary.")
+
     @staticmethod
     def get_content():
         return Content().content
@@ -135,7 +141,7 @@ class Content(metaclass=SingletonMeta):
         dict = {}
         for element in type:
             name = element.attrib["name"]
-            constraints = Validation.generate_constraints(element)
+            constraints = Util.generate_constraints(element)
             transposition[name] = constraints
 
         for element in type:
@@ -156,8 +162,8 @@ class Content(metaclass=SingletonMeta):
            
             deep_dict = {}
             for item in graph[name]:
-                deep_dict.update({item : Validation.generate_constraints(element)})
-                deep_dict.update(Content.graph_traversal(element, item, graph))
+                deep_dict.update({item : Util.generate_constraints(element)})
+                deep_dict.update(Content._graph_traversal(element, item, graph))
                 
                 dict.update(deep_dict)
         return dict
@@ -197,3 +203,5 @@ class Content(metaclass=SingletonMeta):
                 res[name][attribute.attrib["name"]] = transposition.get(type, {})
             
         return res
+    
+    

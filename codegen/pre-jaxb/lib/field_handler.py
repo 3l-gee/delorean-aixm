@@ -1,6 +1,8 @@
-from .validation import Validation
+from .validation import OrmHandler
 from .annotation import Annox, Jpa, Tag, Jaxb, Xml, Xpath
 from .content import Content
+
+import xml.etree.ElementTree as ET
 
 
 class FieldHandler: 
@@ -9,7 +11,7 @@ class FieldHandler:
         node = []
         
         # Process simpleContent
-        node.extend(FieldHandler.process_simple_content(type, parent_xpath))
+        # node.extend(FieldHandler.process_simple_content(type, parent_xpath))
         
         # Process sequence
         node.extend(FieldHandler.process_sequence(type, parent_xpath))
@@ -106,7 +108,6 @@ class FieldHandler:
             node.append(Jaxb.property.name())
 
         if attribute.attrib.get("name") == "extension":
-            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -121,53 +122,51 @@ class FieldHandler:
         """Handle elements in a sequence."""
         node = []
 
+        # generate xpath to xsd element
         if str(parent.attrib.get("name","") + "." + element.attrib.get("name","")) in Content.get_ignore():
             return node
             
-        if element.attrib.get("ref") is not None and element.attrib.get("name") is None :
+        elif element.attrib.get("ref") is not None and element.attrib.get("name") is None :
             node.append(Jaxb.element(element.attrib.get("ref"),parent=parent_xpath, xpath=Xpath.GLOBAL.value ,at="ref"))
-        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
 
         elif element.attrib.get("name") is not None:
             node.append(Jaxb.element(element.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
-            
-        #     if element.attrib.get("name") == "dbid":
-        #         node.append(Annox.field_add(Jpa.id))
-        #         node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
-        #         node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
-        #         node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
-        #         node.append(Annox.field_add(Xml.transient))
-        #         node.append(Jaxb.end)
-        #         return node
-                                            
-        if element.attrib.get("name") == "name":
-            node.append(Jaxb.property.name_element())
-        else :
-            node.append(Jaxb.property.element)
 
+        else :
+            raise Exception("Element has no name or ref attribute : " + ET.tostring(element, encoding='unicode', method='xml'))
+        
+        # spacial cases name must be renamed to aixmName
+        if element.attrib.get("name") == "name":
+            node.append(Jaxb.property.name_element("aixmName"))
+
+        # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
-            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+            return node
 
+        type_element = element.attrib.get("type", None)
+        if type_element is not None:
+            type_element = type_element.replace("aixm:", "")
+        embeded = Content().embed.get(type_element, None)
+        ref = element.attrib.get("ref")
 
-        # else :
-        #     print(element.attrib)
+        # element links to a embedable type as embedded (embeddable)
+        if type_element is not None and embeded is not None:
+            node.extend(OrmHandler.embeded_types(type_element, parent, element))
 
-        # annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
-        # snowflake_text = annotation.text if annotation is not None and annotation.text else ""
-            
-        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
-        node.append('''<jaxb:bindings/>''')
+        # element links to a entity type as reference (one to one, one to many, many to one, etc)
+        elif type_element is not None and embeded is None:
+            node.extend(OrmHandler.referenced_types(type_element, parent, element))
+
+        # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
+        elif ref is not None:
+            node.extend(OrmHandler.referenced_refs(ref, parent, element))
+
+        else:
+            raise Exception("Element has no type or ref element : " + ET.tostring(element, encoding='unicode', method='xml'))
+        
         node.append(Jaxb.end)
-
         return node
 
     @staticmethod
@@ -175,38 +174,50 @@ class FieldHandler:
         """Handle restrictions in content."""
         node = []
 
+        # generate xpath to xsd attribute
         if str(parent.attrib.get("name","") + "." + attribute.parent.attrib.get("name","")) in Content.get_ignore():
             return node
         
-        if attribute.attrib.get("ref") is not None and attribute.attrib.get("name") is None :
+        elif attribute.attrib.get("ref") is not None and attribute.attrib.get("name") is None :
             node.append(Jaxb.attribute(attribute.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
             
         elif attribute.attrib.get("name") is not None:
             node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
-            
-        if attribute.attrib.get("name") == "name":
-            node.append(Jaxb.property.name())
 
-        if attribute.attrib.get("name") == "extension":
+        else :
+            raise Exception("Attribute has no name or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
             
+        # spacial cases name must be renamed to aixmName
+        if attribute.attrib.get("name") == "name":
+            node.append(Jaxb.property.name("aixmName"))
+
+        # special case extension must point to specific class
+        if attribute.attrib.get("name") == "extension":
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
-        # else : 
-        #     print(attribute.attrib)
+        type_element = attribute.attrib.get("type", None)
+        if type_element is not None:
+            type_element = type_element.replace("aixm:", "")
+        embeded = Content().embed.get(type_element, None)
+        ref = attribute.attrib.get("ref")
 
-        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
-        node.append('''<jaxb:bindings/>''')
+        # element links to a embedable type as embedded (embeddable)
+        if type_element is not None and embeded is not None:
+            node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
+
+        # element links to a entity type as reference (one to one, one to many, many to one, etc)
+        elif type_element is not None and embeded is None:
+            node.extend(OrmHandler.referenced_types(type_element, parent, attribute))
+
+        # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
+        elif ref is not None:
+            node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
+
+        else:
+            raise Exception("Element has no type or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
+
         node.append(Jaxb.end)
-
         return node
 
     @staticmethod
@@ -214,75 +225,50 @@ class FieldHandler:
         """Handle attributes in a sequence."""
         node = []
 
+        # generate xpath to xsd element
         if str(parent.attrib.get("name","") + "." + element.attrib.get("name","")) in Content.get_ignore():
             return node
     
-        if element.attrib.get("ref") is not None and element.attrib.get("name") is None :
+        elif element.attrib.get("ref") is not None and element.attrib.get("name") is None :
             node.append(Jaxb.element(element.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
 
         elif element.attrib.get("name") is not None:
             node.append(Jaxb.element(element.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-        #     if element.attrib.get("name") in Content.get_transient() or element.attrib.get("ref") in Content.get_transient() or element.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
-            
-        #     if element.attrib.get("name") == "dbid":
-        #         node.append(Annox.field_add(Jpa.id))
-        #         node.append(Annox.field_add(Jpa.generated_value("delorean_seq_gen")))
-        #         node.append(Annox.field_add(Jpa.sequence_generator("delorean_seq_gen")))
-        #         node.append(Annox.field_add(Jpa.column("id", nullable=False, unique=True)))
-        #         node.append(Annox.field_add(Xml.transient))
-        #         node.append(Annox.end)
-        #         return node
-                                    
-        if element.attrib.get("name") == "name":
-            node.append(Jaxb.property.name_element())
-        else :
-            node.append(Jaxb.property.element)
 
+        else :
+            raise Exception("Element has no name or ref attribute : " + ET.tostring(element, encoding='unicode', method='xml'))
+
+        # spacial cases name must be renamed to aixmName
+        if element.attrib.get("name") == "name":
+            node.append(Jaxb.property.name_element("aixmName"))
+
+        # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
-            
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
-        # else : 
-        #     print(element.attrib)
 
-        # annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
-        # snowflake_text = annotation.text if annotation is not None and annotation.text else ""
+        type_element = element.attrib.get("type", None)
+        if type_element is not None:
+            type_element = type_element.replace("aixm:", "")
+        embeded = Content().embed.get(type_element, None)
+        ref = element.attrib.get("ref")
 
-        # if snowflake_text == "snowflake:DateTimeType" :
-        #     node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
-        #     node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateTimeType.class", False)))
-        #     node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTimeTypeAdapter.class")))
-        #     node.append(Annox.field_add(Jpa.embedded))
-        #     node.append(Annox.field_add(Jpa.attribute_main_override([
-        #         str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
-        #         str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
-        #         ])))
-        #     node.append(Jaxb.end)
-        #     return node
+        # element links to a embedable type as embedded (embeddable)
+        if type_element is not None and embeded is not None:
+            node.extend(OrmHandler.embeded_types(type_element, parent, element))
 
-        # if snowflake_text == "snowflake:DateType" :
-        #     node.append(Jaxb.java_type("com.aixm.delorean.core.adapter.type.date.AixmTimestamp"))
-        #     node.append(Annox.field_add(Xml.element(element.attrib.get("name"), "com.aixm.delorean.core.schema." + Content.get_version() + ".aixm.DateType.class", False)))
-        #     node.append(Annox.field_add(Xml.adapter("com.aixm.delorean.core.adapter." + Content.get_version() + ".date.DateTypeAdapter.class")))
-        #     node.append(Annox.field_add(Jpa.embedded))
-        #     node.append(Annox.field_add(Jpa.attribute_main_override([
-        #         str('@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_value", length = 255, columnDefinition = "TIMESTAMP", nullable = true, unique = false))'),
-        #         str('@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "' + element.attrib.get("name") + '_nilreason", length = 255, nullable = true, unique = false))')
-        #         ])))
-        #     node.append(Jaxb.end)
-        #     return node
+        # element links to a entity type as reference (one to one, one to many, many to one, etc)
+        elif type_element is not None and embeded is None:
+            node.extend(OrmHandler.referenced_types(type_element, parent, element))
 
-        node.extend(Validation.generate_cardinality(parent, element, Content.get_embed()))
-        node.append('''<jaxb:bindings/>''')
+        # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
+        elif ref is not None:
+            node.extend(OrmHandler.referenced_refs(ref, parent, element))
+
+        else:
+            raise Exception("Element has no type or ref element : " + ET.tostring(element, encoding='unicode', method='xml'))
+
         node.append(Jaxb.end)
-
         return node
 
     @staticmethod
@@ -290,36 +276,48 @@ class FieldHandler:
         """Handle elements in a sequence."""
         node = []
 
+        # generate xpath to xsd attribute
         if str(parent.attrib.get("name","") + "." + attribute.attrib.get("name","")) in Content.get_ignore():
             return node
 
         if attribute.attrib.get("ref") is not None and attribute.attrib.get("name") is None :
             node.append(Jaxb.attribute(attribute.attrib.get("ref"), parent=parent_xpath, xpath=Xpath.GLOBAL.value, at="ref"))
-        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
             
         elif attribute.attrib.get("name") is not None:
             node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath, xpath=Xpath.GLOBAL.value))
-        #     if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-        #         node.append(Annox.field_add(Jpa.transient))
-        #         node.append(Jaxb.end)
-        #         return node
-            
-        if attribute.attrib.get("name") == "name":
-            node.append(Jaxb.property.name())
 
-        if attribute.attrib.get("name") == "extension":
+        else :
+            raise Exception("Attribute has no name or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
             
+        # spacial cases name must be renamed to aixmName
+        if attribute.attrib.get("name") == "name":
+            node.append(Jaxb.property.name("aixmName"))
+
+        # special case extension must point to specific class
+        if attribute.attrib.get("name") == "extension":
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
-        # else : 
-        #     print(attribute.attrib)
+        type_element = attribute.attrib.get("type", None)
+        if type_element is not None:
+            type_element = type_element.replace("aixm:", "")
+        embeded = Content().embed.get(type_element, None)
+        ref = attribute.attrib.get("ref")
 
-        node.extend(Validation.generate_cardinality(parent, attribute, Content.get_embed()))
-        node.append('''<jaxb:bindings/>''')
+        # element links to a embedable type as embedded (embeddable)
+        if type_element is not None and embeded is not None:
+            node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
+
+        # element links to a entity type as reference (one to one, one to many, many to one, etc)
+        elif type_element is not None and embeded is None:
+            node.extend(OrmHandler.referenced_types(type_element, parent, attribute))
+
+        # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
+        elif ref is not None:
+            node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
+
+        else:
+            raise Exception("Element has no type or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
+        
         node.append(Jaxb.end)
-
         return node

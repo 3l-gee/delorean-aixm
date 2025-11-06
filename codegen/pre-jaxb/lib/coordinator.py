@@ -9,7 +9,7 @@ from .simple_type import SimpleType
 from .complex_type import ComplexType
 from .group_type import GroupType
 from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
-from .validation import Validation
+from .validation import OrmHandler
 from .xsd import Xsd
 from .view import View
 
@@ -120,7 +120,7 @@ class Coordinator:
 
             f.write(Jaxb.end)
 
-        self.format_xml(Content.get_output_path())
+        # self.format_xml(Content.get_output_path())
 
     def format_xml(self, file_path):
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)

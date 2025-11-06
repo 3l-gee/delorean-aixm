@@ -1,4 +1,4 @@
-from .validation import Validation
+from .validation import OrmHandler
 from .content import Content
 from .annotation import Annox, Jpa, Tag, Jaxb, Xml
 
