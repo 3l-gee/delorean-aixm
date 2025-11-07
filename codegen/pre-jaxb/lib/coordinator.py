@@ -4,15 +4,13 @@ from lxml import etree
 from typing import List
 import os
 import json
+
 from .content import Content
 from .simple_type import SimpleType
 from .complex_type import ComplexType
 from .group_type import GroupType
-from .annotation import Property, Annox, Strategy, Jpa, Relation, Xpath,Tag, Jaxb, Xml
-from .validation import OrmHandler
+from .annotation import Jaxb
 from .xsd import Xsd
-from .view import View
-
 
 class Coordinator:
     def __init__(self, config_dict: dict, xsds_dict: List[dict]): 
@@ -120,7 +118,7 @@ class Coordinator:
 
             f.write(Jaxb.end)
 
-        # self.format_xml(Content.get_output_path())
+        self.format_xml(Content.get_output_path())
 
     def format_xml(self, file_path):
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)

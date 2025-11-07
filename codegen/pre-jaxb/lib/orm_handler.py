@@ -1,6 +1,9 @@
-from os import name
-from .annotation import Annox, Jpa, Tag, Relation, HyperJAXB
+from platform import node
+import re
 import xml.etree.ElementTree as ET
+
+from .view import View
+from .annotation import HyperJAXB, Jaxb
 from .content import Content
 
 class OrmHandler: 
@@ -90,7 +93,6 @@ class OrmHandler:
             else:
                 raise KeyError("Unknown reference for collection type", ET.tostring(element, encoding='unicode', method='xml'))
 
-
         if maxOccurs == 1:
             if "TimeSlice" in ref:
                 res.append(HyperJAXB.hj_one_to_one_start())
@@ -98,9 +100,40 @@ class OrmHandler:
                 res.append(HyperJAXB.hj_one_to_one_end())
 
             else:
-                raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
+                return res
+                # raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
 
         return res
+    
+    @staticmethod
+    def inline_complex_type(parent):
+        res = []
+
+        if "name" not in parent.attrib:
+            raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
+        name = parent.attrib["name"]
+
+        schema = View.get_schema(name)
+        suffix = View.get_suffix(name)
+
+        if "TimeSliceType" in name:
+            extension_name = name.replace("TimeSliceType", "Extension")
+            res.append(HyperJAXB.hj_entity_start())
+            res.append(HyperJAXB.table(extension_name,schema,suffix))
+            res.append(HyperJAXB.hj_entity_end())
+            return res
+
+        elif "Type" in name:
+            extension_name = name.replace("Type", "Extension")
+            res.append(HyperJAXB.hj_entity_start())
+            res.append(HyperJAXB.table(extension_name,schema,suffix))
+            res.append(HyperJAXB.hj_entity_end())
+            return res
+
+        else:
+            raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
+
+        return res  
     
     @staticmethod
     def generate_cardinality(parent, element, embed):

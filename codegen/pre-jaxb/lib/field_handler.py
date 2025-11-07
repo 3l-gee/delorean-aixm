@@ -1,9 +1,8 @@
-from .validation import OrmHandler
-from .annotation import Annox, Jpa, Tag, Jaxb, Xml, Xpath
-from .content import Content
-
 import xml.etree.ElementTree as ET
 
+from .orm_handler import OrmHandler
+from .annotation import Tag, Jaxb, Xpath
+from .content import Content
 
 class FieldHandler: 
     @staticmethod
@@ -21,28 +20,28 @@ class FieldHandler:
         
         return node
 
-    @staticmethod
-    def process_simple_content(parent, parent_xpath):
-        """Process the simpleContent flow."""
-        node = []
-        simple_content = parent.find(Tag.simple_content)
+    # @staticmethod
+    # def process_simple_content(parent, parent_xpath):
+    #     """Process the simpleContent flow."""
+    #     node = []
+    #     simple_content = parent.find(Tag.simple_content)
     
-        if simple_content is not None:
-            extension = simple_content.find(Tag.extension)
-            restriction = simple_content.find(Tag.restriction)
+    #     if simple_content is not None:
+    #         extension = simple_content.find(Tag.extension)
+    #         restriction = simple_content.find(Tag.restriction)
 
-            attribute_list = []
+    #         attribute_list = []
 
-            if extension is not None:
-                attribute_list.extend(extension.findall(".//" + Tag.attribute))
+    #         if extension is not None:
+    #             attribute_list.extend(extension.findall(".//" + Tag.attribute))
             
-            if restriction is not None:
-                attribute_list.extend(restriction.findall(".//" + Tag.attribute))
+    #         if restriction is not None:
+    #             attribute_list.extend(restriction.findall(".//" + Tag.attribute))
 
-            for attribute in attribute_list:
-                node.extend(FieldHandler.handel_simple_attribute(attribute, parent, parent_xpath))
+    #         for attribute in attribute_list:
+    #             node.extend(FieldHandler.handel_simple_attribute(attribute, parent, parent_xpath))
 
-        return node
+    #     return node
     
     @staticmethod
     def process_sequence(parent, parent_xpath):
@@ -90,32 +89,26 @@ class FieldHandler:
         
         return node
     
-    @staticmethod
-    def handel_simple_attribute(attribute, parent, parent_xpath):
-        """Handle attributes in simpleContent."""
-        node = []
-        node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath))
+    # @staticmethod
+    # def handel_simple_attribute(attribute, parent, parent_xpath):
+    #     """Handle attributes in simpleContent."""
+    #     node = []
+    #     node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath))
 
-        if str(parent.attrib.get("name","") + "." + attribute.attrib.get("name","")) in Content.get_ignore():
-            return node
+    #     if str(parent.attrib.get("name","") + "." + attribute.attrib.get("name","")) in Content.get_ignore():
+    #         return node
+        
+    #     # spacial cases name must be renamed to aixmName
+    #     if attribute.attrib.get("name") == "name":
+    #         node.append(Jaxb.property.name())
 
-        # if attribute.attrib.get("name") in Content.get_transient() or attribute.attrib.get("ref") in Content.get_transient() or attribute.attrib.get("type") in Content.get_transient():
-        #     node.append(Annox.field_add(Jpa.transient))
-        #     node.append(Jaxb.end)
-        #     return node
+    #     # special case extension must point to specific class
+    #     if attribute.attrib.get("name") == "extension":
+    #         Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
+    #         node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
-        if attribute.attrib.get("name") == "name":
-            node.append(Jaxb.property.name())
-
-        if attribute.attrib.get("name") == "extension":
-            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
-
-        # name = parent.attrib.get("name") + "_" + attribute.attrib.get("name")
-        # node.append(Annox.field_add(Jpa.column(name)))
-        node.append('''<jaxb:bindings/>''')
-        node.append(Jaxb.end)
-        return node
+    #     node.append(Jaxb.end)
+    #     return node
 
     @staticmethod
     def handle_sequence_element(element, parent, parent_xpath):
@@ -141,6 +134,7 @@ class FieldHandler:
 
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
+            node[-1] = node[-1].replace('">', '/xs:complexType">')
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
             return node
@@ -154,20 +148,29 @@ class FieldHandler:
         # element links to a embedable type as embedded (embeddable)
         if type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, element))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc)
         elif type_element is not None and embeded is None:
             node.extend(OrmHandler.referenced_types(type_element, parent, element))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, element))
+            node.append(Jaxb.end)
+            return node
+
+        # element defines an inline complexType
+        elif element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
 
         else:
             raise Exception("Element has no type or ref element : " + ET.tostring(element, encoding='unicode', method='xml'))
-        
-        node.append(Jaxb.end)
-        return node
 
     @staticmethod
     def handle_sequence_attribute(attribute, parent, parent_xpath):
@@ -193,6 +196,7 @@ class FieldHandler:
 
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
+            node[-1] = node[-1].replace('">', '/xs:complexType">')
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -205,20 +209,29 @@ class FieldHandler:
         # element links to a embedable type as embedded (embeddable)
         if type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc)
         elif type_element is not None and embeded is None:
             node.extend(OrmHandler.referenced_types(type_element, parent, attribute))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
+            node.append(Jaxb.end)
+            return node
+
+        # element defines an inline complexType
+        elif attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
 
         else:
             raise Exception("Element has no type or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
-
-        node.append(Jaxb.end)
-        return node
 
     @staticmethod
     def handle_complex_element(element, parent, parent_xpath):
@@ -244,6 +257,7 @@ class FieldHandler:
 
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
+            node[-1] = node[-1].replace('">','/xs:complexType">')
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -256,20 +270,29 @@ class FieldHandler:
         # element links to a embedable type as embedded (embeddable)
         if type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, element))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc)
         elif type_element is not None and embeded is None:
             node.extend(OrmHandler.referenced_types(type_element, parent, element))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, element))
+            node.append(Jaxb.end)
+            return node
+
+        # element defines an inline complexType
+        elif element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
 
         else:
             raise Exception("Element has no type or ref element : " + ET.tostring(element, encoding='unicode', method='xml'))
-
-        node.append(Jaxb.end)
-        return node
 
     @staticmethod
     def handle_complex_attribute(attribute, parent, parent_xpath):
@@ -295,6 +318,7 @@ class FieldHandler:
 
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
+            node[-1] = node[-1].replace('">','/xs:complexType">')
             Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
             node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
 
@@ -307,17 +331,26 @@ class FieldHandler:
         # element links to a embedable type as embedded (embeddable)
         if type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc)
         elif type_element is not None and embeded is None:
             node.extend(OrmHandler.referenced_types(type_element, parent, attribute))
+            node.append(Jaxb.end)
+            return node
 
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
+            node.append(Jaxb.end)
+            return node
+
+        # element defines an inline complexType
+        elif attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
 
         else:
             raise Exception("Element has no type or ref attribute : " + ET.tostring(attribute, encoding='unicode', method='xml'))
-        
-        node.append(Jaxb.end)
-        return node

@@ -1,5 +1,6 @@
 import re
 from enum import Enum
+from unicodedata import name
 
 TABLE = []
 
@@ -575,6 +576,7 @@ class Util:
             "PropertyGroup": "_Pg",
             "PropertyType": "_Pt",
             "TimeSliceType": "_Ts",
+            "Extension" : "_Ext",
             "Type": "",
             "-" : "_",
         }
@@ -840,7 +842,7 @@ class HyperJAXB:
     
     @staticmethod
     def attribute_override(name, column):
-        return f'''<orm:attribute-override name="{name}">{Util.snake_case_column(column)}</orm:attribute-override>'''
+        return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}"/></orm:attribute-override>'''
     
     @staticmethod
     def embeddable():

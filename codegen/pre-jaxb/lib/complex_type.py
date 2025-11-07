@@ -1,4 +1,3 @@
-
 from .annotation import Jaxb, HyperJAXB
 from .view import View
 from .content import Content
@@ -29,7 +28,6 @@ class ComplexType:
 
         node.append(Jaxb.complex(element.attrib["name"]))
         node.extend(ComplexType.class_writer(element, schema, suffix))
-        node.append('''<jaxb:bindings/>''')
         node.append(Jaxb.end)
 
         parent_xpath = Jaxb.complex_xpath(element.attrib.get("name"))
