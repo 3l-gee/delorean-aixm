@@ -133,19 +133,6 @@ public class ScopedNamePropertyType implements Serializable, Equals, HashCode, T
         }
         final ScopedNamePropertyType that = ((ScopedNamePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetScopedName();
-            boolean rhsFieldIsSet = that.isSetScopedName();
-            CodeType lhsField;
-            lhsField = this.getScopedName();
-            CodeType rhsField;
-            rhsField = that.getScopedName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scopedName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scopedName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class ScopedNamePropertyType implements Serializable, Equals, HashCode, T
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetScopedName();
+            boolean rhsFieldIsSet = that.isSetScopedName();
+            CodeType lhsField;
+            lhsField = this.getScopedName();
+            CodeType rhsField;
+            rhsField = that.getScopedName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scopedName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scopedName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

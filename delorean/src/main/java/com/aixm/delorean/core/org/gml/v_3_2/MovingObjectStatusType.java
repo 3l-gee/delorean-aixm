@@ -411,58 +411,6 @@ public class MovingObjectStatusType
         }
         final MovingObjectStatusType that = ((MovingObjectStatusType) object);
         {
-            boolean lhsFieldIsSet = this.isSetElevation();
-            boolean rhsFieldIsSet = that.isSetElevation();
-            MeasureType lhsField;
-            lhsField = this.getElevation();
-            MeasureType rhsField;
-            rhsField = that.getElevation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStatus();
-            boolean rhsFieldIsSet = that.isSetStatus();
-            StringOrRefType lhsField;
-            lhsField = this.getStatus();
-            StringOrRefType rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAcceleration();
-            boolean rhsFieldIsSet = that.isSetAcceleration();
-            MeasureType lhsField;
-            lhsField = this.getAcceleration();
-            MeasureType rhsField;
-            rhsField = that.getAcceleration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "acceleration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "acceleration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosition();
-            boolean rhsFieldIsSet = that.isSetPosition();
-            GeometryPropertyType lhsField;
-            lhsField = this.getPosition();
-            GeometryPropertyType rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocationName();
             boolean rhsFieldIsSet = that.isSetLocationName();
             CodeType lhsField;
@@ -476,27 +424,14 @@ public class MovingObjectStatusType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBearing();
-            boolean rhsFieldIsSet = that.isSetBearing();
-            DirectionPropertyType lhsField;
-            lhsField = this.getBearing();
-            DirectionPropertyType rhsField;
-            rhsField = that.getBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationReference();
-            boolean rhsFieldIsSet = that.isSetLocationReference();
-            ReferenceType lhsField;
-            lhsField = this.getLocationReference();
-            ReferenceType rhsField;
-            rhsField = that.getLocationReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
+            GeometryPropertyType lhsField;
+            lhsField = this.getPosition();
+            GeometryPropertyType rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -541,6 +476,32 @@ public class MovingObjectStatusType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetElevation();
+            boolean rhsFieldIsSet = that.isSetElevation();
+            MeasureType lhsField;
+            lhsField = this.getElevation();
+            MeasureType rhsField;
+            rhsField = that.getElevation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStatus();
+            boolean rhsFieldIsSet = that.isSetStatus();
+            StringOrRefType lhsField;
+            lhsField = this.getStatus();
+            StringOrRefType rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStatusReference();
             boolean rhsFieldIsSet = that.isSetStatusReference();
             ReferenceType lhsField;
@@ -549,6 +510,45 @@ public class MovingObjectStatusType
             rhsField = that.getStatusReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statusReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statusReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationReference();
+            boolean rhsFieldIsSet = that.isSetLocationReference();
+            ReferenceType lhsField;
+            lhsField = this.getLocationReference();
+            ReferenceType rhsField;
+            rhsField = that.getLocationReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAcceleration();
+            boolean rhsFieldIsSet = that.isSetAcceleration();
+            MeasureType lhsField;
+            lhsField = this.getAcceleration();
+            MeasureType rhsField;
+            rhsField = that.getAcceleration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "acceleration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "acceleration", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBearing();
+            boolean rhsFieldIsSet = that.isSetBearing();
+            DirectionPropertyType lhsField;
+            lhsField = this.getBearing();
+            DirectionPropertyType rhsField;
+            rhsField = that.getBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bearing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

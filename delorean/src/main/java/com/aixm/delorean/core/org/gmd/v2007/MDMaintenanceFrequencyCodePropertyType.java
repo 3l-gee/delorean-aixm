@@ -133,19 +133,6 @@ public class MDMaintenanceFrequencyCodePropertyType implements Serializable, Equ
         }
         final MDMaintenanceFrequencyCodePropertyType that = ((MDMaintenanceFrequencyCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDMaintenanceFrequencyCode();
-            boolean rhsFieldIsSet = that.isSetMDMaintenanceFrequencyCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDMaintenanceFrequencyCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDMaintenanceFrequencyCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMaintenanceFrequencyCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMaintenanceFrequencyCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class MDMaintenanceFrequencyCodePropertyType implements Serializable, Equ
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDMaintenanceFrequencyCode();
+            boolean rhsFieldIsSet = that.isSetMDMaintenanceFrequencyCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDMaintenanceFrequencyCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDMaintenanceFrequencyCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMaintenanceFrequencyCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMaintenanceFrequencyCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

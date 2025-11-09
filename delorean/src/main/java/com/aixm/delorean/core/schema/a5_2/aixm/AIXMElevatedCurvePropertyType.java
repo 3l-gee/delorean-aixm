@@ -63,7 +63,7 @@ public class AIXMElevatedCurvePropertyType
      *     
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "elevated_curve_id")
+@jakarta.persistence.JoinColumn(name = "elevated_curve_id", referencedColumnName = "hjid")
     public AixmElevatedCurveType getElevatedCurve() {
         return elevatedCurve;
     }

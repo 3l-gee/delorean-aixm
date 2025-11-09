@@ -84,10 +84,10 @@ public class PointTypeExtension implements Serializable, Equals, HashCode, ToStr
      *     
      */
     @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.MERGE,
+        CascadeType.REFRESH,
         CascadeType.PERSIST,
         CascadeType.DETACH,
-        CascadeType.REFRESH
+        CascadeType.MERGE
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_POINT_EXTENSION_POI_0", nullable = true)
     public AbstractExtensionType getAbstractPointExtension() {

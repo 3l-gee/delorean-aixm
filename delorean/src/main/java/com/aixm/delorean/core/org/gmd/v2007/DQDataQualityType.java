@@ -168,6 +168,19 @@ public class DQDataQualityType
         }
         final DQDataQualityType that = ((DQDataQualityType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLineage();
+            boolean rhsFieldIsSet = that.isSetLineage();
+            LILineagePropertyType lhsField;
+            lhsField = this.getLineage();
+            LILineagePropertyType rhsField;
+            rhsField = that.getLineage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetReport();
             boolean rhsFieldIsSet = that.isSetReport();
             List<DQElementPropertyType> lhsField;
@@ -189,19 +202,6 @@ public class DQDataQualityType
             rhsField = that.getScope();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLineage();
-            boolean rhsFieldIsSet = that.isSetLineage();
-            LILineagePropertyType lhsField;
-            lhsField = this.getLineage();
-            LILineagePropertyType rhsField;
-            rhsField = that.getLineage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

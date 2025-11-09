@@ -63,7 +63,7 @@ public class AIXMPointPropertyType
      *     
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "point_id")
+@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")
     public AixmPointType getPoint() {
         return point;
     }

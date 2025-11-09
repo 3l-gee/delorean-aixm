@@ -63,7 +63,7 @@ public class AIXMElevatedSurfacePropertyType
      *     
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "elevated_surface_id")
+@jakarta.persistence.JoinColumn(name = "elevated_surface_id", referencedColumnName = "hjid")
     public AixmElevatedSurfaceType getElevatedSurface() {
         return elevatedSurface;
     }

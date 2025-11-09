@@ -214,6 +214,19 @@ public class MDDigitalTransferOptionsType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetOffLine();
+            boolean rhsFieldIsSet = that.isSetOffLine();
+            MDMediumPropertyType lhsField;
+            lhsField = this.getOffLine();
+            MDMediumPropertyType rhsField;
+            rhsField = that.getOffLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
             boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
             CharacterStringPropertyType lhsField;
@@ -235,19 +248,6 @@ public class MDDigitalTransferOptionsType
             rhsField = (that.isSetOnLine()?that.getOnLine():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOffLine();
-            boolean rhsFieldIsSet = that.isSetOffLine();
-            MDMediumPropertyType lhsField;
-            lhsField = this.getOffLine();
-            MDMediumPropertyType rhsField;
-            rhsField = that.getOffLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

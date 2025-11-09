@@ -175,19 +175,6 @@ public class ValMagneticVariationChangeType implements Serializable, Equals, Has
         }
         final ValMagneticVariationChangeType that = ((ValMagneticVariationChangeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAccuracy();
-            boolean rhsFieldIsSet = that.isSetAccuracy();
-            String lhsField;
-            lhsField = this.getAccuracy();
-            String rhsField;
-            rhsField = that.getAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -209,6 +196,19 @@ public class ValMagneticVariationChangeType implements Serializable, Equals, Has
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAccuracy();
+            boolean rhsFieldIsSet = that.isSetAccuracy();
+            String lhsField;
+            lhsField = this.getAccuracy();
+            String rhsField;
+            rhsField = that.getAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

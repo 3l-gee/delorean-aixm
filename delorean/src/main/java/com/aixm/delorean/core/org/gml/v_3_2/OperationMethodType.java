@@ -262,27 +262,14 @@ public class OperationMethodType
         }
         final OperationMethodType that = ((OperationMethodType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFormula();
-            boolean rhsFieldIsSet = that.isSetFormula();
-            JAXBElement<CodeType> lhsField;
-            lhsField = this.getFormula();
-            JAXBElement<CodeType> rhsField;
-            rhsField = that.getFormula();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSourceDimensions();
-            boolean rhsFieldIsSet = that.isSetSourceDimensions();
-            BigInteger lhsField;
-            lhsField = this.getSourceDimensions();
-            BigInteger rhsField;
-            rhsField = that.getSourceDimensions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceDimensions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceDimensions", rhsField);
+            boolean lhsFieldIsSet = this.isSetFormulaCitation();
+            boolean rhsFieldIsSet = that.isSetFormulaCitation();
+            FormulaCitation lhsField;
+            lhsField = this.getFormulaCitation();
+            FormulaCitation rhsField;
+            rhsField = that.getFormulaCitation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -314,14 +301,27 @@ public class OperationMethodType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFormulaCitation();
-            boolean rhsFieldIsSet = that.isSetFormulaCitation();
-            FormulaCitation lhsField;
-            lhsField = this.getFormulaCitation();
-            FormulaCitation rhsField;
-            rhsField = that.getFormulaCitation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSourceDimensions();
+            boolean rhsFieldIsSet = that.isSetSourceDimensions();
+            BigInteger lhsField;
+            lhsField = this.getSourceDimensions();
+            BigInteger rhsField;
+            rhsField = that.getSourceDimensions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceDimensions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceDimensions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFormula();
+            boolean rhsFieldIsSet = that.isSetFormula();
+            JAXBElement<CodeType> lhsField;
+            lhsField = this.getFormula();
+            JAXBElement<CodeType> rhsField;
+            rhsField = that.getFormula();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

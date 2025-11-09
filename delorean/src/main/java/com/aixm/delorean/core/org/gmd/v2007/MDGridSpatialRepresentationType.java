@@ -209,14 +209,14 @@ public class MDGridSpatialRepresentationType
         }
         final MDGridSpatialRepresentationType that = ((MDGridSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNumberOfDimensions();
-            boolean rhsFieldIsSet = that.isSetNumberOfDimensions();
-            IntegerPropertyType lhsField;
-            lhsField = this.getNumberOfDimensions();
-            IntegerPropertyType rhsField;
-            rhsField = that.getNumberOfDimensions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberOfDimensions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberOfDimensions", rhsField);
+            boolean lhsFieldIsSet = this.isSetTransformationParameterAvailability();
+            boolean rhsFieldIsSet = that.isSetTransformationParameterAvailability();
+            BooleanPropertyType lhsField;
+            lhsField = this.getTransformationParameterAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getTransformationParameterAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -248,14 +248,14 @@ public class MDGridSpatialRepresentationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTransformationParameterAvailability();
-            boolean rhsFieldIsSet = that.isSetTransformationParameterAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getTransformationParameterAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getTransformationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumberOfDimensions();
+            boolean rhsFieldIsSet = that.isSetNumberOfDimensions();
+            IntegerPropertyType lhsField;
+            lhsField = this.getNumberOfDimensions();
+            IntegerPropertyType rhsField;
+            rhsField = that.getNumberOfDimensions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberOfDimensions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberOfDimensions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

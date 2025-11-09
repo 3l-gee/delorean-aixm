@@ -99,8 +99,14 @@ class OrmHandler:
                 res.append(HyperJAXB.orm_join_column("ts"))
                 res.append(HyperJAXB.hj_one_to_one_end())
 
+            elif parent.get("name") == element.get("ref").replace("aixm:", "") + "PropertyType":
+                res.append(HyperJAXB.hj_one_to_one_start())
+                res.append(HyperJAXB.orm_join_column(element.get("ref").replace("aixm:", "")))
+                res.append(HyperJAXB.hj_one_to_one_end())
+
             else:
-                raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
+                return res
+                # raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
 
         return res
     
@@ -132,7 +138,6 @@ class OrmHandler:
         else:
             raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
 
-        return res  
     
     @staticmethod
     def generate_cardinality(parent, element, embed):

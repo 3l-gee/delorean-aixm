@@ -182,32 +182,6 @@ public class MDStandardOrderProcessType
         }
         final MDStandardOrderProcessType that = ((MDStandardOrderProcessType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
-            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOrderingInstructions();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOrderingInstructions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPlannedAvailableDateTime();
-            boolean rhsFieldIsSet = that.isSetPlannedAvailableDateTime();
-            DateTimePropertyType lhsField;
-            lhsField = this.getPlannedAvailableDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getPlannedAvailableDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedAvailableDateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedAvailableDateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTurnaround();
             boolean rhsFieldIsSet = that.isSetTurnaround();
             CharacterStringPropertyType lhsField;
@@ -229,6 +203,32 @@ public class MDStandardOrderProcessType
             rhsField = that.getFees();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fees", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fees", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
+            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrderingInstructions();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrderingInstructions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPlannedAvailableDateTime();
+            boolean rhsFieldIsSet = that.isSetPlannedAvailableDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getPlannedAvailableDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getPlannedAvailableDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedAvailableDateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedAvailableDateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

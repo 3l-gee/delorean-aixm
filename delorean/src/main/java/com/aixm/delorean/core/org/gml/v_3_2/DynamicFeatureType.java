@@ -207,19 +207,6 @@ public class DynamicFeatureType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataSourceReference();
-            boolean rhsFieldIsSet = that.isSetDataSourceReference();
-            ReferenceType lhsField;
-            lhsField = this.getDataSourceReference();
-            ReferenceType rhsField;
-            rhsField = that.getDataSourceReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
             TimePrimitivePropertyType lhsField;
@@ -228,6 +215,19 @@ public class DynamicFeatureType
             rhsField = that.getValidTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataSourceReference();
+            boolean rhsFieldIsSet = that.isSetDataSourceReference();
+            ReferenceType lhsField;
+            lhsField = this.getDataSourceReference();
+            ReferenceType rhsField;
+            rhsField = that.getDataSourceReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

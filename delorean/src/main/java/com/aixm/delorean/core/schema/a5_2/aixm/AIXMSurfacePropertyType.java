@@ -43,7 +43,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "surface"
 })
 @Entity(name = "AIXMSurfacePropertyType")
-@Table(name = "aixm_esurface_pt", schema = "gml")
+@Table(name = "aixm_surface_pt", schema = "gml")
 public class AIXMSurfacePropertyType
     extends AbstractAIXMPropertyType
     implements Serializable
@@ -63,7 +63,7 @@ public class AIXMSurfacePropertyType
      *     
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "surface_id")
+@jakarta.persistence.JoinColumn(name = "surface_id", referencedColumnName = "hjid")
     public AixmSurfaceType getSurface() {
         return surface;
     }

@@ -249,6 +249,19 @@ public class LIProcessStepType
         }
         final LIProcessStepType that = ((LIProcessStepType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSource();
             boolean rhsFieldIsSet = that.isSetSource();
             List<LISourcePropertyType> lhsField;
@@ -262,14 +275,14 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRationale();
-            boolean rhsFieldIsSet = that.isSetRationale();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getRationale();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getRationale();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rationale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rationale", rhsField);
+            boolean lhsFieldIsSet = this.isSetProcessor();
+            boolean rhsFieldIsSet = that.isSetProcessor();
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (this.isSetProcessor()?this.getProcessor():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (that.isSetProcessor()?that.getProcessor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -288,27 +301,14 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateTime();
-            boolean rhsFieldIsSet = that.isSetDateTime();
-            DateTimePropertyType lhsField;
-            lhsField = this.getDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProcessor();
-            boolean rhsFieldIsSet = that.isSetProcessor();
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetProcessor()?this.getProcessor():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetProcessor()?that.getProcessor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
+            boolean lhsFieldIsSet = this.isSetRationale();
+            boolean rhsFieldIsSet = that.isSetRationale();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getRationale();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getRationale();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rationale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rationale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

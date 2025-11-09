@@ -152,14 +152,14 @@ public class MDBrowseGraphicType
         }
         final MDBrowseGraphicType that = ((MDBrowseGraphicType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFileDescription();
-            boolean rhsFieldIsSet = that.isSetFileDescription();
+            boolean lhsFieldIsSet = this.isSetFileType();
+            boolean rhsFieldIsSet = that.isSetFileType();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getFileDescription();
+            lhsField = this.getFileType();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getFileDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDescription", rhsField);
+            rhsField = that.getFileType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -178,14 +178,14 @@ public class MDBrowseGraphicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFileType();
-            boolean rhsFieldIsSet = that.isSetFileType();
+            boolean lhsFieldIsSet = this.isSetFileDescription();
+            boolean rhsFieldIsSet = that.isSetFileDescription();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getFileType();
+            lhsField = this.getFileDescription();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getFileType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileType", rhsField);
+            rhsField = that.getFileDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

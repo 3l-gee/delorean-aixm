@@ -145,19 +145,6 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
         }
         final MeasurePropertyType that = ((MeasurePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMeasure();
-            boolean rhsFieldIsSet = that.isSetMeasure();
-            JAXBElement<? extends MeasureType> lhsField;
-            lhsField = this.getMeasure();
-            JAXBElement<? extends MeasureType> rhsField;
-            rhsField = that.getMeasure();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measure", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -166,6 +153,19 @@ public class MeasurePropertyType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMeasure();
+            boolean rhsFieldIsSet = that.isSetMeasure();
+            JAXBElement<? extends MeasureType> lhsField;
+            lhsField = this.getMeasure();
+            JAXBElement<? extends MeasureType> rhsField;
+            rhsField = that.getMeasure();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measure", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

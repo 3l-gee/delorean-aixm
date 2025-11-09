@@ -63,7 +63,7 @@ public class AIXMCurvePropertyType
      *     
      */
 @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "curve_id")
+@jakarta.persistence.JoinColumn(name = "curve_id", referencedColumnName = "hjid")
     public AixmCurveType getCurve() {
         return curve;
     }
