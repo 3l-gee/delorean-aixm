@@ -118,7 +118,7 @@ class Coordinator:
 
             f.write(Jaxb.end)
 
-        self.format_xml(Content.get_output_path())
+        # self.format_xml(Content.get_output_path())
 
     def format_xml(self, file_path):
         main = etree.XMLParser(remove_blank_text=True, huge_tree=True)

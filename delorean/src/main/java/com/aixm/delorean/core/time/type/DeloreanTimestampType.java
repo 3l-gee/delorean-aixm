@@ -1,22 +1,24 @@
 package com.aixm.delorean.core.time.type;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class DeloreanTimestamp {
+public class DeloreanTimestampType {
 
-    @Column(name = "value", columnDefinition = "TIMESTAMP")
-    protected java.sql.Timestamp value;
+    @Column(name = "value", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    protected LocalDateTime value;
 
     @Column(name = "nilReason", length = 255)
     protected String nilReason;
 
-    public java.sql.Timestamp getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return value;
     }
 
-    public void setTimestamp(java.sql.Timestamp value) {
+    public void setTimestamp(LocalDateTime value) {
         this.value = value;
     }
 

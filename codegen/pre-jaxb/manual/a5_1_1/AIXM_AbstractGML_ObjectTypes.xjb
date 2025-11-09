@@ -12,44 +12,52 @@
 
   <jaxb:bindings schemaLocation="../aixm/AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
         <jaxb:bindings node="manual">
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageBaseType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageBaseType']">
                 <hj:mapped-superclass/>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMMessageType']">
-                <hj:entity>
-                    <orm:table name="abstract_aixm_message" schema="public"/>
-                    <orm:inheritance strategy="TABLE_PER_CLASS"/>
-                </hj:entity>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageBaseType']//xs:element[@name='messageMetadata']">
+                <hj:one-to-one>
+                    <orm:join-column name="message_metadata_hjid" referenced-column-name="hjid" />
+                </hj:one-to-one>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureBaseType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageType']">
                 <hj:mapped-superclass/>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureBaseType']">
+                <hj:mapped-superclass/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_feature" schema="public"/>
                     <orm:inheritance strategy="TABLE_PER_CLASS"/>
                 </hj:entity>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMObjectType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMObjectType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_object" schema="public"/>
                     <orm:inheritance strategy="TABLE_PER_CLASS"/>
                 </hj:entity>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMPropertyType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMPropertyType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_property" schema="public"/>
                     <orm:inheritance strategy="TABLE_PER_CLASS"/>
                 </hj:entity>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
                 <hj:mapped-superclass/>
             </jaxb:bindings>
-            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_timeslice" schema="public"/>
                     <orm:inheritance strategy="TABLE_PER_CLASS"/>
                 </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
+                <jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+                <jaxb:property name="featureLifetime"/>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
                 <hj:entity>

@@ -52,7 +52,7 @@ public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY_VAL", precision = 20, scale = 10)),
+        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY", precision = 20, scale = 10)),
         @AttributeOverride(name = "uom", column = @Column(name = "HORIZONTAL_ACCURACY_UOM")),
         @AttributeOverride(name = "accuracy", column = @Column(name = "HORIZONTAL_ACCURACY_ACC", length = 255)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "HORIZONTAL_ACCURACY_NIL"))
@@ -68,7 +68,7 @@ public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve {
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ANNOTATION_AIXMELEVATED")
+    @JoinColumn(name = "ANNOTATION_hjid")
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -92,7 +92,7 @@ public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve {
     @OneToMany(targetEntity = CurveTypeExtension.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIXMPOINT_TYPE_HJID")
+    @JoinColumn(name = "EXTENSION_hjid")
     public List<CurveTypeExtension> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

@@ -8,7 +8,7 @@ change:
           '@jakarta.persistence.Embedded',
           '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end"))})'
         ]
-
+# AIXM 5.2
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AbstractAIXMTimeSliceType.java
       method: getFeatureLifetime 
@@ -26,7 +26,7 @@ change:
       - old: Transient
         new: 
           - '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)'
-          - '@jakarta.persistence.JoinColumn(name = "point_id")'
+          - '@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")'
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedPointPropertyType.java
       method: getElevatedPoint
@@ -34,7 +34,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_point_id")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_point_id", referencedColumnName = "hjid")'
         ]
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMCurvePropertyType.java
@@ -43,7 +43,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "curve_id")'
+          '@jakarta.persistence.JoinColumn(name = "curve_id", referencedColumnName = "hjid")'
         ]
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedCurvePropertyType.java
@@ -52,7 +52,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_curve_id")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_curve_id", referencedColumnName = "hjid")'
         ]
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMSurfacePropertyType.java
@@ -61,7 +61,7 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "surface_id")'
+          '@jakarta.persistence.JoinColumn(name = "surface_id", referencedColumnName = "hjid")'
         ]   
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AIXMElevatedSurfacePropertyType.java
@@ -70,5 +70,134 @@ change:
       - old: Transient
         new: [
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "elevated_surface_id")'
+          '@jakarta.persistence.JoinColumn(name = "elevated_surface_id", referencedColumnName = "hjid")'
+        ]
+
+# AIXM 5.1.1
+  - where:
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\BasicMessageMemberAIXMPropertyType.java
+      method: getAbstractAIXMFeatureValue
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "feature_hjid", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMTimeSliceType.java
+      method: getFeatureLifetime 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Embedded',
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end"))})'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMTimeSliceType.java
+      method: getTimeSliceMetadata 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "time_slice_metadata_hjid", referencedColumnName = "hjid")'
+        ]
+        
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMPointPropertyType.java
+      method: getPoint 
+    updates:
+      - old: Transient
+        new: 
+          - '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)'
+          - '@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")'
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedPointPropertyType.java
+      method: getElevatedPoint
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_point_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMCurvePropertyType.java
+      method: getCurve 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "curve_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedCurvePropertyType.java
+      method: getElevatedCurve 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_curve_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMSurfacePropertyType.java
+      method: getSurface 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "surface_id", referencedColumnName = "hjid")'
+        ]   
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedSurfacePropertyType.java
+      method: getElevatedSurface 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "elevated_surface_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+      field: value 
+    updates:
+      - old: XmlValue
+        new: []
+      - old: XmlJavaTypeAdapter
+        new: [
+          '@jakarta.xml.bind.annotation.XmlValue',
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+      field: value 
+    updates:
+      - old: XmlValue
+        new: []
+      - old: XmlJavaTypeAdapter
+        new: [
+          '@jakarta.xml.bind.annotation.XmlValue',
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMFeatureType.java
+      method: getFeatureMetadata 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "feature_metadata_id", referencedColumnName = "hjid")'
         ]

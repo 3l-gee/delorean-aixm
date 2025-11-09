@@ -3,24 +3,6 @@ regex:
     regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\(Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
     replacement: |
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\message\package-info.java
-    regex: "(?s)^.*$"
-    replacement: |
-      @jakarta.xml.bind.annotation.XmlSchema(
-          namespace = "http://www.aixm.aero/schema/5.2/message",
-          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.2/message")},
-          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
-      )
-      package com.aixm.delorean.core.schema.a5_2.aixm.message;
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\package-info.java
-    regex: "(?s)^.*$"
-    replacement: |
-      @jakarta.xml.bind.annotation.XmlSchema(
-          namespace = "http://www.aixm.aero/schema/5.2",
-          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.2")},
-          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
-      )
-      package com.aixm.delorean.core.schema.a5_2.aixm;
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -30,6 +12,7 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gco.v2007;
+
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -39,6 +22,7 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gmd.v2007;
+
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -51,6 +35,7 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gml.v_3_2;
+
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -60,6 +45,7 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gsr.v2007;
+
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -69,6 +55,7 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gss.v2007;
+      
   - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
@@ -78,6 +65,57 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gts.v2007;
+
+# AIXM 5.2
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\message\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+          namespace = "http://www.aixm.aero/schema/5.2/message",
+          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.2/message")},
+          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.schema.a5_2.aixm.message;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+          namespace = "http://www.aixm.aero/schema/5.2",
+          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.2")},
+          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.schema.a5_2.aixm;
+
+# AIXM 5.1.1
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+          namespace = "http://www.aixm.aero/schema/5.1.1/message",
+          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.1.1/message")},
+          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.schema.a5_1_1.aixm.message;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+          namespace = "http://www.aixm.aero/schema/5.1.1",
+          xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.1.1")},
+          elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.schema.a5_1_1.aixm;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+    regex: import org.w3._2001.xmlschema.Adapter1;
+    replacement: |
+  
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+    regex: import org.w3._2001.xmlschema.Adapter2;
+    replacement: |
+
 
 
 

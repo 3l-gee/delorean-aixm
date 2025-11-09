@@ -104,8 +104,8 @@ class FieldHandler:
 
     #     # special case extension must point to specific class
     #     if attribute.attrib.get("name") == "extension":
-    #         Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-    #         node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+    #         Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
+    #         node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
 
     #     node.append(Jaxb.end)
     #     return node
@@ -135,8 +135,8 @@ class FieldHandler:
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
             node[-1] = node[-1].replace('">', '/xs:complexType">')
-            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
             return node
 
         type_element = element.attrib.get("type", None)
@@ -145,8 +145,14 @@ class FieldHandler:
         embeded = Content().embed.get(type_element, None)
         ref = element.attrib.get("ref")
 
+        # element defines an inline complexType
+        if element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
+
         # element links to a embedable type as embedded (embeddable)
-        if type_element is not None and embeded is not None:
+        elif type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, element))
             node.append(Jaxb.end)
             return node
@@ -162,13 +168,7 @@ class FieldHandler:
             node.extend(OrmHandler.referenced_refs(ref, parent, element))
             node.append(Jaxb.end)
             return node
-
-        # element defines an inline complexType
-        elif element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
-            node.extend(OrmHandler.inline_complex_type(parent))
-            node.append(Jaxb.end)
-            return node
-
+        
         else:
             raise Exception("Element has no type or ref element : " + ET.tostring(element, encoding='unicode', method='xml'))
 
@@ -197,8 +197,8 @@ class FieldHandler:
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
             node[-1] = node[-1].replace('">', '/xs:complexType">')
-            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
 
         type_element = attribute.attrib.get("type", None)
         if type_element is not None:
@@ -206,6 +206,12 @@ class FieldHandler:
         embeded = Content().embed.get(type_element, None)
         ref = attribute.attrib.get("ref")
 
+        # element defines an inline complexType
+        if attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
+        
         # element links to a embedable type as embedded (embeddable)
         if type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
@@ -221,12 +227,6 @@ class FieldHandler:
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
-            node.append(Jaxb.end)
-            return node
-
-        # element defines an inline complexType
-        elif attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
-            node.extend(OrmHandler.inline_complex_type(parent))
             node.append(Jaxb.end)
             return node
 
@@ -258,8 +258,8 @@ class FieldHandler:
         # special case extension must point to specific class
         if element.attrib.get("name") == "extension":
             node[-1] = node[-1].replace('">','/xs:complexType">')
-            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
 
         type_element = element.attrib.get("type", None)
         if type_element is not None:
@@ -267,8 +267,14 @@ class FieldHandler:
         embeded = Content().embed.get(type_element, None)
         ref = element.attrib.get("ref")
 
+        # element defines an inline complexType
+        if element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
+
         # element links to a embedable type as embedded (embeddable)
-        if type_element is not None and embeded is not None:
+        elif type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, element))
             node.append(Jaxb.end)
             return node
@@ -282,12 +288,6 @@ class FieldHandler:
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, element))
-            node.append(Jaxb.end)
-            return node
-
-        # element defines an inline complexType
-        elif element.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
-            node.extend(OrmHandler.inline_complex_type(parent))
             node.append(Jaxb.end)
             return node
 
@@ -319,8 +319,8 @@ class FieldHandler:
         # special case extension must point to specific class
         if attribute.attrib.get("name") == "extension":
             node[-1] = node[-1].replace('">','/xs:complexType">')
-            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension"))
-            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "Extension")))
+            Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
+            node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
 
         type_element = attribute.attrib.get("type", None)
         if type_element is not None:
@@ -328,8 +328,14 @@ class FieldHandler:
         embeded = Content().embed.get(type_element, None)
         ref = attribute.attrib.get("ref")
 
+        # element defines an inline complexType
+        if attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
+            node.extend(OrmHandler.inline_complex_type(parent))
+            node.append(Jaxb.end)
+            return node
+
         # element links to a embedable type as embedded (embeddable)
-        if type_element is not None and embeded is not None:
+        elif type_element is not None and embeded is not None:
             node.extend(OrmHandler.embeded_types(type_element, parent, attribute))
             node.append(Jaxb.end)
             return node
@@ -343,12 +349,6 @@ class FieldHandler:
         # element links to a entity type as reference (one to one, one to many, many to one, etc) but as a ref in the xsd
         elif ref is not None:
             node.extend(OrmHandler.referenced_refs(ref, parent, attribute))
-            node.append(Jaxb.end)
-            return node
-
-        # element defines an inline complexType
-        elif attribute.find("{http://www.w3.org/2001/XMLSchema}complexType") is not None:
-            node.extend(OrmHandler.inline_complex_type(parent))
             node.append(Jaxb.end)
             return node
 

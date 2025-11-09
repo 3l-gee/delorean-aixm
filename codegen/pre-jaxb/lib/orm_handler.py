@@ -100,8 +100,7 @@ class OrmHandler:
                 res.append(HyperJAXB.hj_one_to_one_end())
 
             else:
-                return res
-                # raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
+                raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
 
         return res
     

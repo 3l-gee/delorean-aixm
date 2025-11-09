@@ -826,7 +826,7 @@ class HyperJAXB:
     
     @staticmethod
     def orm_join_column(name):
-        return f'''<orm:join-column name="{Util.snake_case(str(name + "_hjid"))}" referenced-column-name="hjid" />'''
+        return f'''<orm:join-column name="{Util.snake_case(str(name + "_id"))}" referenced-column-name="hjid" />'''
     
     @staticmethod 
     def orm_join_table(name, join_column_name, inverse_join_column_name):

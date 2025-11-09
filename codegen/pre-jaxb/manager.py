@@ -11,7 +11,6 @@ config = {
     "ignore": [
         # TODO solve this
         "StandardLevelColumnPropertyGroup.unitOfMeasurement",
-        "XHTMLType",
 
         # Core
         "AIXMBasicMessageType",
@@ -50,7 +49,6 @@ config = {
     "transient" : [       
         # TODO solve this         
         "extension",
-        "aixm:XHTMLType",
 
         # Core
         "aixm:AIXMBasicMessageType",

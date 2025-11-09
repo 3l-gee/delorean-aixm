@@ -58,7 +58,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "ELEVATION_VAL", length = 255)),
+        @AttributeOverride(name = "value", column = @Column(name = "ELEVATION", length = 255)),
         @AttributeOverride(name = "uom", column = @Column(name = "ELEVATION_UOM")),
         @AttributeOverride(name = "accuracy", column = @Column(name = "ELEVATION_ACC", length = 255)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "ELEVATION_NIL"))
@@ -86,7 +86,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "GEOID_UNDULATION_VAL", precision = 20, scale = 10)),
+        @AttributeOverride(name = "value", column = @Column(name = "GEOID_UNDULATION", precision = 20, scale = 10)),
         @AttributeOverride(name = "uom", column = @Column(name = "GEOID_UNDULATION_UOM")),
         @AttributeOverride(name = "accuracy", column = @Column(name = "GEOID_UNDULATION_ACC", length = 255)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "GEOID_UNDULATION_NIL"))
@@ -114,7 +114,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "VERTICAL_DATUM_VAL", length = 60)),
+        @AttributeOverride(name = "value", column = @Column(name = "VERTICAL_DATUM", length = 60)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "VERTICAL_DATUM_NIL"))
     })
     public TextNameType getVerticalDatumItem() {
@@ -140,7 +140,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY_VAL", precision = 20, scale = 10)),
+        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY", precision = 20, scale = 10)),
         @AttributeOverride(name = "uom", column = @Column(name = "HORIZONTAL_ACCURACY_UOM")),
         @AttributeOverride(name = "accuracy", column = @Column(name = "HORIZONTAL_ACCURACY_ACC", length = 255)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "HORIZONTAL_ACCURACY_NIL"))
@@ -156,7 +156,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ANNOTATION_AIXMELEVATED")
+    @JoinColumn(name = "ANNOTATION_hjid")
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -180,7 +180,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     @OneToMany(targetEntity = ElevatedPointTypeExtension.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIXMPOINT_TYPE_HJID")
+    @JoinColumn(name = "EXTENSION_hjid")
     public List<ElevatedPointTypeExtension> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

@@ -9,10 +9,27 @@
     xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
-    <jaxb:bindings schemaLocation="../aixm/AIXM_DataTypes.xsd"
-                    node="/xs:schema">
+    <jaxb:bindings schemaLocation="../aixm/AIXM_BasicMessage.xsd" node="/xs:schema">
         <jaxb:bindings node="manual">
+            <jaxb:bindings node="//xs:complexType[@name='AIXMBasicMessageType']">
+                <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>
+                <hj:entity>
+                    <orm:table name="aixm_message" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:group[@name='AIXMBasicMessagePropertyGroup']//xs:element[@name='hasMember']">
+                <hj:many-to-many>
+                    <orm:join-table name="message_member_link" schema="aixm">
+                        <orm:join-column name="message_hjid" referenced-column-name="hjid"/>
+                        <orm:inverse-join-column name="member_hjid" referenced-column-name="hjid"/>
+                    </orm:join-table>
+                </hj:many-to-many>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='BasicMessageMemberAIXMPropertyType']">
+                <hj:entity>
+                    <orm:table name="basic_message_member_property" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
         </jaxb:bindings>
     </jaxb:bindings>
 </jaxb:bindings>
-
