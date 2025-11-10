@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -92,17 +91,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PRIMARY_SURVEILLANCE_RADAR_E_1", joinColumns = {
-        @JoinColumn(name = "PARENT_PRIMARY_SURVEILLANCE__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractprimarysurveillanceradar_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPrimarySurveillanceRadarExtension() {
         return abstractPrimarySurveillanceRadarExtension;
     }
@@ -132,17 +124,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PRIMARY_SURVEILLANCE_RADAR_E_2", joinColumns = {
-        @JoinColumn(name = "PARENT_PRIMARY_SURVEILLANCE__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractsurveillanceradar_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurveillanceRadarExtension() {
         return abstractSurveillanceRadarExtension;
     }
@@ -172,17 +157,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PRIMARY_SURVEILLANCE_RADAR_E_3", joinColumns = {
-        @JoinColumn(name = "PARENT_PRIMARY_SURVEILLANCE__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractradarequipment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarEquipmentExtension() {
         return abstractRadarEquipmentExtension;
     }
@@ -319,19 +297,6 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         }
         final PrimarySurveillanceRadarExtensionType that = ((PrimarySurveillanceRadarExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPrimarySurveillanceRadarExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPrimarySurveillanceRadarExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrimarySurveillanceRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrimarySurveillanceRadarExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -340,6 +305,19 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPrimarySurveillanceRadarExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPrimarySurveillanceRadarExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrimarySurveillanceRadarExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrimarySurveillanceRadarExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

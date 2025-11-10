@@ -599,32 +599,6 @@ public class SignificantPointInAirspaceTimeSliceType
         }
         final SignificantPointInAirspaceTimeSliceType that = ((SignificantPointInAirspaceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SignificantPointInAirspaceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SignificantPointInAirspaceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetLocationNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getLocationNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getLocationNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocationAirportReferencePoint();
             boolean rhsFieldIsSet = that.isSetLocationAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -638,6 +612,19 @@ public class SignificantPointInAirspaceTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SignificantPointInAirspaceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SignificantPointInAirspaceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeAirspacePointRoleType> lhsField;
@@ -646,58 +633,6 @@ public class SignificantPointInAirspaceTimeSliceType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetLocationRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getLocationRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getLocationRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelativeLocation();
-            boolean rhsFieldIsSet = that.isSetRelativeLocation();
-            JAXBElement<CodeAirspacePointPositionType> lhsField;
-            lhsField = this.getRelativeLocation();
-            JAXBElement<CodeAirspacePointPositionType> rhsField;
-            rhsField = that.getRelativeLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContainingAirspace();
-            boolean rhsFieldIsSet = that.isSetContainingAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getContainingAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getContainingAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "containingAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "containingAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocationPosition();
-            boolean rhsFieldIsSet = that.isSetLocationPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getLocationPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getLocationPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -737,6 +672,71 @@ public class SignificantPointInAirspaceTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetLocationRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getLocationRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getLocationRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationPosition();
+            boolean rhsFieldIsSet = that.isSetLocationPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getLocationPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getLocationPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocationNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetLocationNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getLocationNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getLocationNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locationNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locationNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelativeLocation();
+            boolean rhsFieldIsSet = that.isSetRelativeLocation();
+            JAXBElement<CodeAirspacePointPositionType> lhsField;
+            lhsField = this.getRelativeLocation();
+            JAXBElement<CodeAirspacePointPositionType> rhsField;
+            rhsField = that.getRelativeLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativeLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativeLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContainingAirspace();
+            boolean rhsFieldIsSet = that.isSetContainingAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getContainingAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getContainingAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "containingAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "containingAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

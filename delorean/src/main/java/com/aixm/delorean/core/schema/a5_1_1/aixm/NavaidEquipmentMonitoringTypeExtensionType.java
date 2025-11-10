@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "NAVAID_EQUIPMENT_MONITORING__2", joinColumns = {
-        @JoinColumn(name = "PARENT_NAVAID_EQUIPMENT_MONI_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "NAVAID_EQUIPMENT_MONITORING__3", joinColumns = {
-        @JoinColumn(name = "PARENT_NAVAID_EQUIPMENT_MONI_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractnavaidequipmentmonitoring_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentMonitoringExtension() {
         return abstractNavaidEquipmentMonitoringExtension;
     }
@@ -275,14 +260,14 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
         }
         final NavaidEquipmentMonitoringTypeExtensionType that = ((NavaidEquipmentMonitoringTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,14 +286,14 @@ public class NavaidEquipmentMonitoringTypeExtensionType implements Serializable,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

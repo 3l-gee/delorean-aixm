@@ -528,6 +528,19 @@ public class PointReferenceType
         }
         final PointReferenceType that = ((PointReferenceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFacilityAngle();
+            boolean rhsFieldIsSet = that.isSetFacilityAngle();
+            List<AngleUsePropertyType> lhsField;
+            lhsField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
+            List<AngleUsePropertyType> rhsField;
+            rhsField = (that.isSetFacilityAngle()?that.getFacilityAngle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             JAXBElement<CodeReferenceRoleType> lhsField;
@@ -541,27 +554,14 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFacilityDistance();
-            boolean rhsFieldIsSet = that.isSetFacilityDistance();
-            List<DistanceIndicationPropertyType> lhsField;
-            lhsField = (this.isSetFacilityDistance()?this.getFacilityDistance():null);
-            List<DistanceIndicationPropertyType> rhsField;
-            rhsField = (that.isSetFacilityDistance()?that.getFacilityDistance():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFacilityAngle();
-            boolean rhsFieldIsSet = that.isSetFacilityAngle();
-            List<AngleUsePropertyType> lhsField;
-            lhsField = (this.isSetFacilityAngle()?this.getFacilityAngle():null);
-            List<AngleUsePropertyType> rhsField;
-            rhsField = (that.isSetFacilityAngle()?that.getFacilityAngle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
+            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getPostFixTolerance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -593,32 +593,6 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
-            boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getPriorFixTolerance();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getPriorFixTolerance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
-            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getPostFixTolerance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFixToleranceArea();
             boolean rhsFieldIsSet = that.isSetFixToleranceArea();
             JAXBElement<AIXMSurfacePropertyType> lhsField;
@@ -627,6 +601,32 @@ public class PointReferenceType
             rhsField = that.getFixToleranceArea();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFacilityDistance();
+            boolean rhsFieldIsSet = that.isSetFacilityDistance();
+            List<DistanceIndicationPropertyType> lhsField;
+            lhsField = (this.isSetFacilityDistance()?this.getFacilityDistance():null);
+            List<DistanceIndicationPropertyType> rhsField;
+            rhsField = (that.isSetFacilityDistance()?that.getFacilityDistance():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
+            boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getPriorFixTolerance();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getPriorFixTolerance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

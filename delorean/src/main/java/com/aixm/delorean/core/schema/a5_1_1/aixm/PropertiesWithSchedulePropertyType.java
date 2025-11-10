@@ -159,17 +159,8 @@ public class PropertiesWithSchedulePropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractPropertiesWithScheduleType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PROPERTIES_WITH_SCHEDULE_PRO_1", joinColumns = {
-        @JoinColumn(name = "PARENT_PROPERTIES_WITH_SCHED_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_PROPERTIES_WI_0")
-    })
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "properties_with_schedule_id", referencedColumnName = "hjid")
     public AbstractPropertiesWithScheduleType getAbstractPropertiesWithScheduleValue() {
         if (this.getAbstractPropertiesWithSchedule() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractPropertiesWithScheduleType.class, this.getAbstractPropertiesWithSchedule());

@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class ObstructionTypeExtensionType implements Serializable, Equals, HashC
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "OBSTRUCTION_TYPE_EXTENSION_T_1", joinColumns = {
-        @JoinColumn(name = "PARENT_OBSTRUCTION_TYPE_EXTE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractobstruction_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractObstructionExtension() {
         return abstractObstructionExtension;
     }
@@ -231,19 +223,6 @@ public class ObstructionTypeExtensionType implements Serializable, Equals, HashC
         }
         final ObstructionTypeExtensionType that = ((ObstructionTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractObstructionExtension();
             boolean rhsFieldIsSet = that.isSetAbstractObstructionExtension();
             AbstractExtensionType lhsField;
@@ -252,6 +231,19 @@ public class ObstructionTypeExtensionType implements Serializable, Equals, HashC
             rhsField = that.getAbstractObstructionExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObstructionExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObstructionExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

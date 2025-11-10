@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -62,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractElevatedPointExtension"
 })
 @Entity(name = "ElevatedPointTypeExtension")
-@Table(name = "ELEVATED_POINT_TYPE_EXTENSION")
+@Table(name = "elevatedpoint_ext", schema = "gml")
 public class ElevatedPointTypeExtension implements Serializable, Equals, HashCode, ToString
 {
 
@@ -84,17 +83,10 @@ public class ElevatedPointTypeExtension implements Serializable, Equals, HashCod
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ELEVATED_POINT_TYPE_EXTENSIO_0", joinColumns = {
-        @JoinColumn(name = "PARENT_ELEVATED_POINT_TYPE_E_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractelevatedpoint_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractElevatedPointExtension() {
         return abstractElevatedPointExtension;
     }

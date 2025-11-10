@@ -164,19 +164,6 @@ public class TopoPrimitiveArrayAssociationType implements Serializable, Equals, 
         }
         final TopoPrimitiveArrayAssociationType that = ((TopoPrimitiveArrayAssociationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTopoPrimitive();
-            boolean rhsFieldIsSet = that.isSetAbstractTopoPrimitive();
-            List<JAXBElement<? extends AbstractTopoPrimitiveType>> lhsField;
-            lhsField = (this.isSetAbstractTopoPrimitive()?this.getAbstractTopoPrimitive():null);
-            List<JAXBElement<? extends AbstractTopoPrimitiveType>> rhsField;
-            rhsField = (that.isSetAbstractTopoPrimitive()?that.getAbstractTopoPrimitive():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -185,6 +172,19 @@ public class TopoPrimitiveArrayAssociationType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTopoPrimitive();
+            boolean rhsFieldIsSet = that.isSetAbstractTopoPrimitive();
+            List<JAXBElement<? extends AbstractTopoPrimitiveType>> lhsField;
+            lhsField = (this.isSetAbstractTopoPrimitive()?this.getAbstractTopoPrimitive():null);
+            List<JAXBElement<? extends AbstractTopoPrimitiveType>> rhsField;
+            rhsField = (that.isSetAbstractTopoPrimitive()?that.getAbstractTopoPrimitive():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

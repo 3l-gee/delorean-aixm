@@ -208,19 +208,6 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCodeSpace();
-            boolean rhsFieldIsSet = that.isSetCodeSpace();
-            String lhsField;
-            lhsField = this.getCodeSpace();
-            String rhsField;
-            rhsField = that.getCodeSpace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             String lhsField;
@@ -242,6 +229,19 @@ public class CodeListValueType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getCodeList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
+            String lhsField;
+            lhsField = this.getCodeSpace();
+            String rhsField;
+            rhsField = that.getCodeSpace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

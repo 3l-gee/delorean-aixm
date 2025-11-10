@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "DIRECT_FLIGHT_SEGMENT_TYPE_E_1", joinColumns = {
-        @JoinColumn(name = "PARENT_DIRECT_FLIGHT_SEGMENT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractdirectflight_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightExtension() {
         return abstractDirectFlightExtension;
     }
@@ -128,17 +120,10 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "DIRECT_FLIGHT_SEGMENT_TYPE_E_2", joinColumns = {
-        @JoinColumn(name = "PARENT_DIRECT_FLIGHT_SEGMENT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractdirectflightsegment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightSegmentExtension() {
         return abstractDirectFlightSegmentExtension;
     }
@@ -275,6 +260,19 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
         }
         final DirectFlightSegmentTypeExtensionType that = ((DirectFlightSegmentTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectFlightExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectFlightExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -296,19 +294,6 @@ public class DirectFlightSegmentTypeExtensionType implements Serializable, Equal
             rhsField = that.getAbstractDirectFlightSegmentExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightSegmentExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightSegmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectFlightExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectFlightExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

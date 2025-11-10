@@ -223,19 +223,6 @@ public class TaxiwayTimeSlicePropertyType implements Serializable, Equals, HashC
         }
         final TaxiwayTimeSlicePropertyType that = ((TaxiwayTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTaxiwayTimeSlice();
-            boolean rhsFieldIsSet = that.isSetTaxiwayTimeSlice();
-            TaxiwayTimeSliceType lhsField;
-            lhsField = this.getTaxiwayTimeSlice();
-            TaxiwayTimeSliceType rhsField;
-            rhsField = that.getTaxiwayTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class TaxiwayTimeSlicePropertyType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTaxiwayTimeSlice();
+            boolean rhsFieldIsSet = that.isSetTaxiwayTimeSlice();
+            TaxiwayTimeSliceType lhsField;
+            lhsField = this.getTaxiwayTimeSlice();
+            TaxiwayTimeSliceType rhsField;
+            rhsField = that.getTaxiwayTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

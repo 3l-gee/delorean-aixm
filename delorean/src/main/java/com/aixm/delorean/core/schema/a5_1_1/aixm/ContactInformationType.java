@@ -455,19 +455,6 @@ public class ContactInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPhoneFax();
-            boolean rhsFieldIsSet = that.isSetPhoneFax();
-            List<TelephoneContactPropertyType> lhsField;
-            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
-            List<TelephoneContactPropertyType> rhsField;
-            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNetworkNode();
             boolean rhsFieldIsSet = that.isSetNetworkNode();
             List<OnlineContactPropertyType> lhsField;
@@ -476,19 +463,6 @@ public class ContactInformationType
             rhsField = (that.isSetNetworkNode()?that.getNetworkNode():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -515,6 +489,32 @@ public class ContactInformationType
             rhsField = (that.isSetAddress()?that.getAddress():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPhoneFax();
+            boolean rhsFieldIsSet = that.isSetPhoneFax();
+            List<TelephoneContactPropertyType> lhsField;
+            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
+            List<TelephoneContactPropertyType> rhsField;
+            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

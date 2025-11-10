@@ -487,32 +487,6 @@ public class StandardLevelSectorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetToTrack();
-            boolean rhsFieldIsSet = that.isSetToTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getToTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getToTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightRule();
-            boolean rhsFieldIsSet = that.isSetFlightRule();
-            JAXBElement<CodeFlightRuleType> lhsField;
-            lhsField = this.getFlightRule();
-            JAXBElement<CodeFlightRuleType> rhsField;
-            rhsField = that.getFlightRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApplicableAirspace();
             boolean rhsFieldIsSet = that.isSetApplicableAirspace();
             List<AirspacePropertyType> lhsField;
@@ -521,19 +495,6 @@ public class StandardLevelSectorTimeSliceType
             rhsField = (that.isSetApplicableAirspace()?that.getApplicableAirspace():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableAirspace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelSectorExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelSectorExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -552,14 +513,40 @@ public class StandardLevelSectorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleType();
-            boolean rhsFieldIsSet = that.isSetAngleType();
-            JAXBElement<CodeNorthReferenceType> lhsField;
-            lhsField = this.getAngleType();
-            JAXBElement<CodeNorthReferenceType> rhsField;
-            rhsField = that.getAngleType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightRule();
+            boolean rhsFieldIsSet = that.isSetFlightRule();
+            JAXBElement<CodeFlightRuleType> lhsField;
+            lhsField = this.getFlightRule();
+            JAXBElement<CodeFlightRuleType> rhsField;
+            rhsField = that.getFlightRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightRule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetToTrack();
+            boolean rhsFieldIsSet = that.isSetToTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getToTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getToTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelSectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelSectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -573,6 +560,19 @@ public class StandardLevelSectorTimeSliceType
             rhsField = that.getFromTrack();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromTrack", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAngleType();
+            boolean rhsFieldIsSet = that.isSetAngleType();
+            JAXBElement<CodeNorthReferenceType> lhsField;
+            lhsField = this.getAngleType();
+            JAXBElement<CodeNorthReferenceType> rhsField;
+            rhsField = that.getAngleType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

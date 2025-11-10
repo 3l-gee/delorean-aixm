@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ALTIMETER_SOURCE_EXTENSION_T_1", joinColumns = {
-        @JoinColumn(name = "PARENT_ALTIMETER_SOURCE_EXTE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractaltimetersource_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltimeterSourceExtension() {
         return abstractAltimeterSourceExtension;
     }
@@ -231,19 +223,6 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
         }
         final AltimeterSourceExtensionType that = ((AltimeterSourceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAltimeterSourceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAltimeterSourceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAltimeterSourceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAltimeterSourceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

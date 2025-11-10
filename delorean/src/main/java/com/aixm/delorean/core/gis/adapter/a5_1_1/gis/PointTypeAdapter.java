@@ -9,6 +9,9 @@ import com.aixm.delorean.core.gis.type.a5_1_1.AixmPointType;
 public class PointTypeAdapter extends XmlAdapter<PointType, AixmPointType> {
     @Override
     public AixmPointType unmarshal(PointType value) throws Exception {
+        if (value == null) {
+            return null;
+        }   
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -36,6 +39,9 @@ public class PointTypeAdapter extends XmlAdapter<PointType, AixmPointType> {
 
     @Override
     public PointType marshal(AixmPointType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "point";
         String schema = "gml";

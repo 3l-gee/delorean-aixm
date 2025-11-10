@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FLIGHT_CONDITION_COMBINATION_2", joinColumns = {
-        @JoinColumn(name = "PARENT_FLIGHT_CONDITION_COMB_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FLIGHT_CONDITION_COMBINATION_3", joinColumns = {
-        @JoinColumn(name = "PARENT_FLIGHT_CONDITION_COMB_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractflightconditioncombination_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightConditionCombinationExtension() {
         return abstractFlightConditionCombinationExtension;
     }
@@ -275,19 +260,6 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
         }
         final FlightConditionCombinationTypeExtensionType that = ((FlightConditionCombinationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCombinationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCombinationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightConditionCombinationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightConditionCombinationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCombinationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCombinationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -309,6 +281,19 @@ public class FlightConditionCombinationTypeExtensionType implements Serializable
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCombinationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCombinationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightConditionCombinationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightConditionCombinationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCombinationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCombinationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

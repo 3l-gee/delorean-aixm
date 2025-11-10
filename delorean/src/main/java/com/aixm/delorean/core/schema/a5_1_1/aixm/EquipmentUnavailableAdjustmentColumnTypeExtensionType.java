@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "EQUIPMENT_UNAVAILABLE_ADJUST_3", joinColumns = {
-        @JoinColumn(name = "PARENT_EQUIPMENT_UNAVAILABLE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractequipmentunavailableadjustmentcolumn_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEquipmentUnavailableAdjustmentColumnExtension() {
         return abstractEquipmentUnavailableAdjustmentColumnExtension;
     }
@@ -231,19 +223,6 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
         }
         final EquipmentUnavailableAdjustmentColumnTypeExtensionType that = ((EquipmentUnavailableAdjustmentColumnTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class EquipmentUnavailableAdjustmentColumnTypeExtensionType implements Se
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractEquipmentUnavailableAdjustmentColumnExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentColumnExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

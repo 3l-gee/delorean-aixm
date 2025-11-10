@@ -177,19 +177,6 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsSphere();
-            boolean rhsFieldIsSet = that.isSetIsSphere();
-            java.lang.Boolean lhsField;
-            lhsField = this.getIsSphere();
-            java.lang.Boolean rhsField;
-            rhsField = that.getIsSphere();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInverseFlattening();
             boolean rhsFieldIsSet = that.isSetInverseFlattening();
             MeasureType lhsField;
@@ -198,6 +185,19 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
             rhsField = that.getInverseFlattening();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsSphere();
+            boolean rhsFieldIsSet = that.isSetIsSphere();
+            java.lang.Boolean lhsField;
+            lhsField = this.getIsSphere();
+            java.lang.Boolean rhsField;
+            rhsField = that.getIsSphere();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

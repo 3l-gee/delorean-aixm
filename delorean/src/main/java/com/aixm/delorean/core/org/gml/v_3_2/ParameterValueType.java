@@ -412,6 +412,19 @@ public class ParameterValueType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetIntegerValueList();
+            boolean rhsFieldIsSet = that.isSetIntegerValueList();
+            List<BigInteger> lhsField;
+            lhsField = (this.isSetIntegerValueList()?this.getIntegerValueList():null);
+            List<BigInteger> rhsField;
+            rhsField = (that.isSetIntegerValueList()?that.getIntegerValueList():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integerValueList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integerValueList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStringValue();
             boolean rhsFieldIsSet = that.isSetStringValue();
             String lhsField;
@@ -438,40 +451,14 @@ public class ParameterValueType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDmsAngleValue();
-            boolean rhsFieldIsSet = that.isSetDmsAngleValue();
-            DMSAngleType lhsField;
-            lhsField = this.getDmsAngleValue();
-            DMSAngleType rhsField;
-            rhsField = that.getDmsAngleValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngleValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngleValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntegerValueList();
-            boolean rhsFieldIsSet = that.isSetIntegerValueList();
-            List<BigInteger> lhsField;
-            lhsField = (this.isSetIntegerValueList()?this.getIntegerValueList():null);
-            List<BigInteger> rhsField;
-            rhsField = (that.isSetIntegerValueList()?that.getIntegerValueList():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integerValueList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integerValueList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationParameter();
-            boolean rhsFieldIsSet = that.isSetOperationParameter();
-            JAXBElement<OperationParameterPropertyType> lhsField;
-            lhsField = this.getOperationParameter();
-            JAXBElement<OperationParameterPropertyType> rhsField;
-            rhsField = that.getOperationParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationParameter", rhsField);
+            boolean lhsFieldIsSet = this.isSetValueList();
+            boolean rhsFieldIsSet = that.isSetValueList();
+            MeasureListType lhsField;
+            lhsField = this.getValueList();
+            MeasureListType rhsField;
+            rhsField = that.getValueList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -490,14 +477,27 @@ public class ParameterValueType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValueList();
-            boolean rhsFieldIsSet = that.isSetValueList();
-            MeasureListType lhsField;
-            lhsField = this.getValueList();
-            MeasureListType rhsField;
-            rhsField = that.getValueList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueList", rhsField);
+            boolean lhsFieldIsSet = this.isSetDmsAngleValue();
+            boolean rhsFieldIsSet = that.isSetDmsAngleValue();
+            DMSAngleType lhsField;
+            lhsField = this.getDmsAngleValue();
+            DMSAngleType rhsField;
+            rhsField = that.getDmsAngleValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngleValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngleValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationParameter();
+            boolean rhsFieldIsSet = that.isSetOperationParameter();
+            JAXBElement<OperationParameterPropertyType> lhsField;
+            lhsField = this.getOperationParameter();
+            JAXBElement<OperationParameterPropertyType> rhsField;
+            rhsField = that.getOperationParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

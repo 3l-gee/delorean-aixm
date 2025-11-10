@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ANGLE_USE_TYPE_EXTENSION_TYP_0", joinColumns = {
-        @JoinColumn(name = "PARENT_ANGLE_USE_TYPE_EXTENS_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractangleuse_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAngleUseExtension() {
         return abstractAngleUseExtension;
     }
@@ -231,19 +223,6 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
         }
         final AngleUseTypeExtensionType that = ((AngleUseTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAngleUseExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAngleUseExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAngleUseExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAngleUseExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAngleUseExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAngleUseExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAngleUseExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAngleUseExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAngleUseExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAngleUseExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAngleUseExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAngleUseExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

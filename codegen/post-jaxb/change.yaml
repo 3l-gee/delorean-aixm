@@ -179,6 +179,15 @@ change:
         ]
 
   - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+      method: getValue 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Basic'
+        ]
+
+  - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
       field: value 
     updates:
@@ -188,6 +197,15 @@ change:
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
           '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+      method: getValue 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Basic'
         ]
 
   - where: 

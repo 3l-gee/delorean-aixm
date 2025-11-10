@@ -111,17 +111,8 @@ public class SegmentPointPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractSegmentPointType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "SEGMENT_POINT_PROPERTY_TYPE__0", joinColumns = {
-        @JoinColumn(name = "PARENT_SEGMENT_POINT_PROPERT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_SEGMENT_POINT_0")
-    })
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "segment_point_id", referencedColumnName = "hjid")
     public AbstractSegmentPointType getAbstractSegmentPointValue() {
         if (this.getAbstractSegmentPoint() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractSegmentPointType.class, this.getAbstractSegmentPoint());

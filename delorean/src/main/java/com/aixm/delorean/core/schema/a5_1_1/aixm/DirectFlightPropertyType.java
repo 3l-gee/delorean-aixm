@@ -109,17 +109,8 @@ public class DirectFlightPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractDirectFlightType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "DIRECT_FLIGHT_PROPERTY_TYPE__0", joinColumns = {
-        @JoinColumn(name = "PARENT_DIRECT_FLIGHT_PROPERT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_DIRECT_FLIGHT_0")
-    })
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "direct_flight_id", referencedColumnName = "hjid")
     public AbstractDirectFlightType getAbstractDirectFlightValue() {
         if (this.getAbstractDirectFlight() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractDirectFlightType.class, this.getAbstractDirectFlight());

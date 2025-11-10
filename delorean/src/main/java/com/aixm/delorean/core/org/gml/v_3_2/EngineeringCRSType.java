@@ -404,6 +404,45 @@ public class EngineeringCRSType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
+            JAXBElement<CartesianCSPropertyType> lhsField;
+            lhsField = this.getCartesianCS();
+            JAXBElement<CartesianCSPropertyType> rhsField;
+            rhsField = that.getCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCylindricalCS();
+            boolean rhsFieldIsSet = that.isSetCylindricalCS();
+            CylindricalCSPropertyType lhsField;
+            lhsField = this.getCylindricalCS();
+            CylindricalCSPropertyType rhsField;
+            rhsField = that.getCylindricalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cylindricalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cylindricalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUserDefinedCS();
+            boolean rhsFieldIsSet = that.isSetUserDefinedCS();
+            UserDefinedCSPropertyType lhsField;
+            lhsField = this.getUserDefinedCS();
+            UserDefinedCSPropertyType rhsField;
+            rhsField = that.getUserDefinedCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLinearCS();
             boolean rhsFieldIsSet = that.isSetLinearCS();
             LinearCSPropertyType lhsField;
@@ -443,32 +482,6 @@ public class EngineeringCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUserDefinedCS();
-            boolean rhsFieldIsSet = that.isSetUserDefinedCS();
-            UserDefinedCSPropertyType lhsField;
-            lhsField = this.getUserDefinedCS();
-            UserDefinedCSPropertyType rhsField;
-            rhsField = that.getUserDefinedCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSphericalCS();
-            boolean rhsFieldIsSet = that.isSetSphericalCS();
-            JAXBElement<SphericalCSPropertyType> lhsField;
-            lhsField = this.getSphericalCS();
-            JAXBElement<SphericalCSPropertyType> rhsField;
-            rhsField = that.getSphericalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPolarCS();
             boolean rhsFieldIsSet = that.isSetPolarCS();
             PolarCSPropertyType lhsField;
@@ -482,27 +495,14 @@ public class EngineeringCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCylindricalCS();
-            boolean rhsFieldIsSet = that.isSetCylindricalCS();
-            CylindricalCSPropertyType lhsField;
-            lhsField = this.getCylindricalCS();
-            CylindricalCSPropertyType rhsField;
-            rhsField = that.getCylindricalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cylindricalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cylindricalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCartesianCS();
-            boolean rhsFieldIsSet = that.isSetCartesianCS();
-            JAXBElement<CartesianCSPropertyType> lhsField;
-            lhsField = this.getCartesianCS();
-            JAXBElement<CartesianCSPropertyType> rhsField;
-            rhsField = that.getCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetSphericalCS();
+            boolean rhsFieldIsSet = that.isSetSphericalCS();
+            JAXBElement<SphericalCSPropertyType> lhsField;
+            lhsField = this.getSphericalCS();
+            JAXBElement<SphericalCSPropertyType> rhsField;
+            rhsField = that.getSphericalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

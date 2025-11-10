@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "APRON_LIGHT_SYSTEM_EXTENSION_1", joinColumns = {
-        @JoinColumn(name = "PARENT_APRON_LIGHT_SYSTEM_EX_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractapronlightsystem_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApronLightSystemExtension() {
         return abstractApronLightSystemExtension;
     }
@@ -128,17 +120,10 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "APRON_LIGHT_SYSTEM_EXTENSION_2", joinColumns = {
-        @JoinColumn(name = "PARENT_APRON_LIGHT_SYSTEM_EX_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -275,19 +260,6 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
         }
         final ApronLightSystemExtensionType that = ((ApronLightSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -309,6 +281,19 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
             rhsField = that.getAbstractGroundLightSystemExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApronLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApronLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApronLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

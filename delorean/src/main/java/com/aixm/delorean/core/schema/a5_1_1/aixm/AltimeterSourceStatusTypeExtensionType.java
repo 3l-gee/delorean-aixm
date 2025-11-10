@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ALTIMETER_SOURCE_STATUS_TYPE_1", joinColumns = {
-        @JoinColumn(name = "PARENT_ALTIMETER_SOURCE_STAT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ALTIMETER_SOURCE_STATUS_TYPE_2", joinColumns = {
-        @JoinColumn(name = "PARENT_ALTIMETER_SOURCE_STAT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractaltimetersourcestatus_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltimeterSourceStatusExtension() {
         return abstractAltimeterSourceStatusExtension;
     }
@@ -275,19 +260,6 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
         }
         final AltimeterSourceStatusTypeExtensionType that = ((AltimeterSourceStatusTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAltimeterSourceStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAltimeterSourceStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceStatusExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -296,6 +268,19 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAltimeterSourceStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAltimeterSourceStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

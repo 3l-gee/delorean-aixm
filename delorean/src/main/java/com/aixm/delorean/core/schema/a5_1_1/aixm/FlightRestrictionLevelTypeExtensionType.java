@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class FlightRestrictionLevelTypeExtensionType implements Serializable, Eq
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FLIGHT_RESTRICTION_LEVEL_TYP_1", joinColumns = {
-        @JoinColumn(name = "PARENT_FLIGHT_RESTRICTION_LE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractflightrestrictionlevel_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRestrictionLevelExtension() {
         return abstractFlightRestrictionLevelExtension;
     }
@@ -231,19 +223,6 @@ public class FlightRestrictionLevelTypeExtensionType implements Serializable, Eq
         }
         final FlightRestrictionLevelTypeExtensionType that = ((FlightRestrictionLevelTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightRestrictionLevelExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightRestrictionLevelExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightRestrictionLevelExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightRestrictionLevelExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRestrictionLevelExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRestrictionLevelExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class FlightRestrictionLevelTypeExtensionType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightRestrictionLevelExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightRestrictionLevelExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightRestrictionLevelExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightRestrictionLevelExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRestrictionLevelExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRestrictionLevelExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

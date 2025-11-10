@@ -2,7 +2,7 @@
 package com.aixm.delorean.core.schema.a5_1_1.aixm;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -57,7 +57,7 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
  @jakarta.xml.bind.annotation.XmlValue @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
    protected
     
-    LocalDateTime value;
+    OffsetDateTime value;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
 
@@ -69,8 +69,8 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-    @Transient
-    public LocalDateTime getValue() {
+@jakarta.persistence.Basic
+    public OffsetDateTime getValue() {
         return value;
     }
 
@@ -82,7 +82,7 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-    public void setValue(LocalDateTime value) {
+    public void setValue(OffsetDateTime value) {
         this.value = value;
     }
 
@@ -144,6 +144,19 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
         }
         final DateTimeType that = ((DateTimeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            OffsetDateTime lhsField;
+            lhsField = this.getValue();
+            OffsetDateTime rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -152,19 +165,6 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            LocalDateTime lhsField;
-            lhsField = this.getValue();
-            LocalDateTime rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -187,7 +187,7 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
         int currentHashCode = 1;
         {
             boolean theFieldIsSet = this.isSetValue();
-            LocalDateTime theField;
+            OffsetDateTime theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -226,7 +226,7 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
             boolean theFieldIsSet = this.isSetValue();
-            LocalDateTime theField;
+            OffsetDateTime theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }

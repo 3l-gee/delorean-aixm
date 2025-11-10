@@ -235,19 +235,6 @@ public class MDDistributorType
         }
         final MDDistributorType that = ((MDDistributorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistributionOrderProcess();
-            boolean rhsFieldIsSet = that.isSetDistributionOrderProcess();
-            List<MDStandardOrderProcessPropertyType> lhsField;
-            lhsField = (this.isSetDistributionOrderProcess()?this.getDistributionOrderProcess():null);
-            List<MDStandardOrderProcessPropertyType> rhsField;
-            rhsField = (that.isSetDistributionOrderProcess()?that.getDistributionOrderProcess():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionOrderProcess", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionOrderProcess", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistributorContact();
             boolean rhsFieldIsSet = that.isSetDistributorContact();
             CIResponsiblePartyPropertyType lhsField;
@@ -269,6 +256,19 @@ public class MDDistributorType
             rhsField = (that.isSetDistributorFormat()?that.getDistributorFormat():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorFormat", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistributionOrderProcess();
+            boolean rhsFieldIsSet = that.isSetDistributionOrderProcess();
+            List<MDStandardOrderProcessPropertyType> lhsField;
+            lhsField = (this.isSetDistributionOrderProcess()?this.getDistributionOrderProcess():null);
+            List<MDStandardOrderProcessPropertyType> rhsField;
+            rhsField = (that.isSetDistributionOrderProcess()?that.getDistributionOrderProcess():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionOrderProcess", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionOrderProcess", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

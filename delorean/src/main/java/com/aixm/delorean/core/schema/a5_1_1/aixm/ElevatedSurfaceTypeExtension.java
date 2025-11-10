@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -62,7 +61,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "abstractElevatedSurfaceExtension"
 })
 @Entity(name = "ElevatedSurfaceTypeExtension")
-@Table(name = "ELEVATED_SURFACE_TYPE_EXTENS_0")
+@Table(name = "elevatedsurface_ext", schema = "gml")
 public class ElevatedSurfaceTypeExtension implements Serializable, Equals, HashCode, ToString
 {
 
@@ -84,17 +83,10 @@ public class ElevatedSurfaceTypeExtension implements Serializable, Equals, HashC
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ELEVATED_SURFACE_TYPE_EXTENS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_ELEVATED_SURFACE_TYPE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractelevatedsurface_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractElevatedSurfaceExtension() {
         return abstractElevatedSurfaceExtension;
     }
@@ -231,19 +223,6 @@ public class ElevatedSurfaceTypeExtension implements Serializable, Equals, HashC
         }
         final ElevatedSurfaceTypeExtension that = ((ElevatedSurfaceTypeExtension) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractElevatedSurfaceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractElevatedSurfaceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractElevatedSurfaceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractElevatedSurfaceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractElevatedSurfaceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractElevatedSurfaceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class ElevatedSurfaceTypeExtension implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractElevatedSurfaceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractElevatedSurfaceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractElevatedSurfaceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractElevatedSurfaceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractElevatedSurfaceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractElevatedSurfaceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

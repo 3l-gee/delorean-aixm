@@ -84,10 +84,10 @@ public class ElevatedCurveTypeExtension implements Serializable, Equals, HashCod
      *     
      */
     @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
         CascadeType.DETACH,
-        CascadeType.MERGE
+        CascadeType.MERGE,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_ELEVATED_CURVE_EXTE_1", nullable = true)
     public AbstractExtensionType getAbstractElevatedCurveExtension() {
@@ -226,19 +226,6 @@ public class ElevatedCurveTypeExtension implements Serializable, Equals, HashCod
         }
         final ElevatedCurveTypeExtension that = ((ElevatedCurveTypeExtension) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractElevatedCurveExtension();
             boolean rhsFieldIsSet = that.isSetAbstractElevatedCurveExtension();
             AbstractExtensionType lhsField;
@@ -247,6 +234,19 @@ public class ElevatedCurveTypeExtension implements Serializable, Equals, HashCod
             rhsField = that.getAbstractElevatedCurveExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractElevatedCurveExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractElevatedCurveExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

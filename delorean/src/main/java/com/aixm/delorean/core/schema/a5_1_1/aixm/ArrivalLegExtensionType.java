@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ARRIVAL_LEG_EXTENSION_TYPE_A_0", joinColumns = {
-        @JoinColumn(name = "PARENT_ARRIVAL_LEG_EXTENSION_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractarrivalleg_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractArrivalLegExtension() {
         return abstractArrivalLegExtension;
     }
@@ -128,17 +120,10 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ARRIVAL_LEG_EXTENSION_TYPE_A_1", joinColumns = {
-        @JoinColumn(name = "PARENT_ARRIVAL_LEG_EXTENSION_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractsegmentleg_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }
@@ -275,19 +260,6 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
         }
         final ArrivalLegExtensionType that = ((ArrivalLegExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractArrivalLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractArrivalLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
             AbstractExtensionType lhsField;
@@ -296,6 +268,19 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
             rhsField = that.getAbstractSegmentLegExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractArrivalLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractArrivalLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractArrivalLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractArrivalLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrivalLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrivalLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

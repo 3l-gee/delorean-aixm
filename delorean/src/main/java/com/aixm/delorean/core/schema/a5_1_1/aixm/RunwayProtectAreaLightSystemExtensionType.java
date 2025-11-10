@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "RUNWAY_PROTECT_AREA_LIGHT_SY_2", joinColumns = {
-        @JoinColumn(name = "PARENT_RUNWAY_PROTECT_AREA_L_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractrunwayprotectarealightsystem_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayProtectAreaLightSystemExtension() {
         return abstractRunwayProtectAreaLightSystemExtension;
     }
@@ -128,17 +120,10 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "RUNWAY_PROTECT_AREA_LIGHT_SY_3", joinColumns = {
-        @JoinColumn(name = "PARENT_RUNWAY_PROTECT_AREA_L_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -288,19 +273,6 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayProtectAreaLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayProtectAreaLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -309,6 +281,19 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayProtectAreaLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayProtectAreaLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayProtectAreaLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayProtectAreaLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayProtectAreaLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayProtectAreaLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

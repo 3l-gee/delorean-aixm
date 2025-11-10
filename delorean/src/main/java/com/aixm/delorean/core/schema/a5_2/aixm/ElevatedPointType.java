@@ -291,19 +291,6 @@ public class ElevatedPointType
         }
         final ElevatedPointType that = ((ElevatedPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
-            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getHorizontalAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getHorizontalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGeoidUndulation();
             boolean rhsFieldIsSet = that.isSetGeoidUndulation();
             JAXBElement<ValDistanceSignedType> lhsField;
@@ -312,32 +299,6 @@ public class ElevatedPointType
             rhsField = that.getGeoidUndulation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geoidUndulation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geoidUndulation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElevation();
-            boolean rhsFieldIsSet = that.isSetElevation();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getElevation();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getElevation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedPointTypeExtension> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ElevatedPointTypeExtension> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -356,6 +317,32 @@ public class ElevatedPointType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedPointTypeExtension> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ElevatedPointTypeExtension> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
+            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getHorizontalAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getHorizontalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -364,6 +351,19 @@ public class ElevatedPointType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElevation();
+            boolean rhsFieldIsSet = that.isSetElevation();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getElevation();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getElevation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

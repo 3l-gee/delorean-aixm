@@ -168,6 +168,19 @@ public class DQScopeType
         }
         final DQScopeType that = ((DQScopeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLevelDescription();
+            boolean rhsFieldIsSet = that.isSetLevelDescription();
+            List<MDScopeDescriptionPropertyType> lhsField;
+            lhsField = (this.isSetLevelDescription()?this.getLevelDescription():null);
+            List<MDScopeDescriptionPropertyType> rhsField;
+            rhsField = (that.isSetLevelDescription()?that.getLevelDescription():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLevel();
             boolean rhsFieldIsSet = that.isSetLevel();
             MDScopeCodePropertyType lhsField;
@@ -189,19 +202,6 @@ public class DQScopeType
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLevelDescription();
-            boolean rhsFieldIsSet = that.isSetLevelDescription();
-            List<MDScopeDescriptionPropertyType> lhsField;
-            lhsField = (this.isSetLevelDescription()?this.getLevelDescription():null);
-            List<MDScopeDescriptionPropertyType> rhsField;
-            rhsField = (that.isSetLevelDescription()?that.getLevelDescription():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

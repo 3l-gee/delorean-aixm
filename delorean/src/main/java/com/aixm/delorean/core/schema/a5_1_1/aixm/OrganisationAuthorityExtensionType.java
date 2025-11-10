@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class OrganisationAuthorityExtensionType implements Serializable, Equals,
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ORGANISATION_AUTHORITY_EXTEN_1", joinColumns = {
-        @JoinColumn(name = "PARENT_ORGANISATION_AUTHORIT_1")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractorganisationauthority_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOrganisationAuthorityExtension() {
         return abstractOrganisationAuthorityExtension;
     }
@@ -231,19 +223,6 @@ public class OrganisationAuthorityExtensionType implements Serializable, Equals,
         }
         final OrganisationAuthorityExtensionType that = ((OrganisationAuthorityExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOrganisationAuthorityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOrganisationAuthorityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class OrganisationAuthorityExtensionType implements Serializable, Equals,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOrganisationAuthorityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOrganisationAuthorityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -223,19 +223,6 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
         }
         final VerticalStructureTimeSlicePropertyType that = ((VerticalStructureTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalStructureTimeSlice();
-            boolean rhsFieldIsSet = that.isSetVerticalStructureTimeSlice();
-            VerticalStructureTimeSliceType lhsField;
-            lhsField = this.getVerticalStructureTimeSlice();
-            VerticalStructureTimeSliceType rhsField;
-            rhsField = that.getVerticalStructureTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalStructureTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalStructureTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalStructureTimeSlice();
+            boolean rhsFieldIsSet = that.isSetVerticalStructureTimeSlice();
+            VerticalStructureTimeSliceType lhsField;
+            lhsField = this.getVerticalStructureTimeSlice();
+            VerticalStructureTimeSliceType rhsField;
+            rhsField = that.getVerticalStructureTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalStructureTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalStructureTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

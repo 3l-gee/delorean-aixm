@@ -10,6 +10,9 @@ public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, Aixm
     
     @Override
     public AixmElevatedCurveType unmarshal(ElevatedCurveType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -41,6 +44,9 @@ public class ElevatedCurveTypeAdapter extends XmlAdapter<ElevatedCurveType, Aixm
 
     @Override
     public ElevatedCurveType marshal(AixmElevatedCurveType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "elevated_curve";
         String schema = "gml";

@@ -224,19 +224,6 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReal();
-            boolean rhsFieldIsSet = that.isSetReal();
-            Double lhsField;
-            lhsField = this.getReal();
-            Double rhsField;
-            rhsField = that.getReal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDecimal();
             boolean rhsFieldIsSet = that.isSetDecimal();
             BigDecimal lhsField;
@@ -245,6 +232,19 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getDecimal();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReal();
+            boolean rhsFieldIsSet = that.isSetReal();
+            Double lhsField;
+            lhsField = this.getReal();
+            Double rhsField;
+            rhsField = that.getReal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

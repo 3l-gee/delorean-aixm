@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "GLIDEPATH_EXTENSION_TYPE_ABS_0", joinColumns = {
-        @JoinColumn(name = "PARENT_GLIDEPATH_EXTENSION_T_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractglidepath_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGlidepathExtension() {
         return abstractGlidepathExtension;
     }
@@ -128,17 +120,10 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "GLIDEPATH_EXTENSION_TYPE_ABS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_GLIDEPATH_EXTENSION_T_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -275,19 +260,6 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
         }
         final GlidepathExtensionType that = ((GlidepathExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGlidepathExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGlidepathExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -296,6 +268,19 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGlidepathExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGlidepathExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

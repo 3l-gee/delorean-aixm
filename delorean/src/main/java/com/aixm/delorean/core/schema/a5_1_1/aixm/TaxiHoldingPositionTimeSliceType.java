@@ -427,19 +427,6 @@ public class TaxiHoldingPositionTimeSliceType
         }
         final TaxiHoldingPositionTimeSliceType that = ((TaxiHoldingPositionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProtectedRunway();
-            boolean rhsFieldIsSet = that.isSetProtectedRunway();
-            List<RunwayPropertyType> lhsField;
-            lhsField = (this.isSetProtectedRunway()?this.getProtectedRunway():null);
-            List<RunwayPropertyType> rhsField;
-            rhsField = (that.isSetProtectedRunway()?that.getProtectedRunway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLandingCategory();
             boolean rhsFieldIsSet = that.isSetLandingCategory();
             JAXBElement<CodeHoldingCategoryType> lhsField;
@@ -474,6 +461,19 @@ public class TaxiHoldingPositionTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtectedRunway();
+            boolean rhsFieldIsSet = that.isSetProtectedRunway();
+            List<RunwayPropertyType> lhsField;
+            lhsField = (this.isSetProtectedRunway()?this.getProtectedRunway():null);
+            List<RunwayPropertyType> rhsField;
+            rhsField = (that.isSetProtectedRunway()?that.getProtectedRunway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

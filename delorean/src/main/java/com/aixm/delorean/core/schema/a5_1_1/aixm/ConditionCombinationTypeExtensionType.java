@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "CONDITION_COMBINATION_TYPE_E_1", joinColumns = {
-        @JoinColumn(name = "PARENT_CONDITION_COMBINATION_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "CONDITION_COMBINATION_TYPE_E_2", joinColumns = {
-        @JoinColumn(name = "PARENT_CONDITION_COMBINATION_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractconditioncombination_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractConditionCombinationExtension() {
         return abstractConditionCombinationExtension;
     }
@@ -275,19 +260,6 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
         }
         final ConditionCombinationTypeExtensionType that = ((ConditionCombinationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractConditionCombinationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractConditionCombinationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractConditionCombinationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractConditionCombinationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractConditionCombinationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractConditionCombinationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -309,6 +281,19 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractConditionCombinationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractConditionCombinationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractConditionCombinationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractConditionCombinationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractConditionCombinationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractConditionCombinationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class OrganisationAuthorityAssociationTypeExtensionType implements Serial
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ORGANISATION_AUTHORITY_ASSOC_2", joinColumns = {
-        @JoinColumn(name = "PARENT_ORGANISATION_AUTHORIT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractorganisationauthorityassociation_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOrganisationAuthorityAssociationExtension() {
         return abstractOrganisationAuthorityAssociationExtension;
     }
@@ -231,19 +223,6 @@ public class OrganisationAuthorityAssociationTypeExtensionType implements Serial
         }
         final OrganisationAuthorityAssociationTypeExtensionType that = ((OrganisationAuthorityAssociationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityAssociationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityAssociationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOrganisationAuthorityAssociationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOrganisationAuthorityAssociationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityAssociationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityAssociationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class OrganisationAuthorityAssociationTypeExtensionType implements Serial
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractOrganisationAuthorityAssociationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOrganisationAuthorityAssociationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOrganisationAuthorityAssociationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOrganisationAuthorityAssociationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOrganisationAuthorityAssociationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOrganisationAuthorityAssociationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -183,6 +183,19 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
         }
         final AbstractCurveSegmentType that = ((AbstractCurveSegmentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetNumDerivativesAtEnd();
+            boolean rhsFieldIsSet = that.isSetNumDerivativesAtEnd();
+            BigInteger lhsField;
+            lhsField = this.getNumDerivativesAtEnd();
+            BigInteger rhsField;
+            rhsField = that.getNumDerivativesAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetNumDerivativesAtStart();
             boolean rhsFieldIsSet = that.isSetNumDerivativesAtStart();
             BigInteger lhsField;
@@ -204,19 +217,6 @@ public abstract class AbstractCurveSegmentType implements Serializable, Equals, 
             rhsField = that.getNumDerivativeInterior();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativeInterior", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativeInterior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNumDerivativesAtEnd();
-            boolean rhsFieldIsSet = that.isSetNumDerivativesAtEnd();
-            BigInteger lhsField;
-            lhsField = this.getNumDerivativesAtEnd();
-            BigInteger rhsField;
-            rhsField = that.getNumDerivativesAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

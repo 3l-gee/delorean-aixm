@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class StandardInstrumentArrivalExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "STANDARD_INSTRUMENT_ARRIVAL__2", joinColumns = {
-        @JoinColumn(name = "PARENT_STANDARD_INSTRUMENT_A_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractstandardinstrumentarrival_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardInstrumentArrivalExtension() {
         return abstractStandardInstrumentArrivalExtension;
     }
@@ -128,17 +120,10 @@ public class StandardInstrumentArrivalExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "STANDARD_INSTRUMENT_ARRIVAL__3", joinColumns = {
-        @JoinColumn(name = "PARENT_STANDARD_INSTRUMENT_A_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractprocedure_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureExtension() {
         return abstractProcedureExtension;
     }
@@ -288,19 +273,6 @@ public class StandardInstrumentArrivalExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandardInstrumentArrivalExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandardInstrumentArrivalExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandardInstrumentArrivalExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandardInstrumentArrivalExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardInstrumentArrivalExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardInstrumentArrivalExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
             boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
             AbstractExtensionType lhsField;
@@ -309,6 +281,19 @@ public class StandardInstrumentArrivalExtensionType implements Serializable, Equ
             rhsField = that.getAbstractProcedureExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractStandardInstrumentArrivalExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandardInstrumentArrivalExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractStandardInstrumentArrivalExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractStandardInstrumentArrivalExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardInstrumentArrivalExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardInstrumentArrivalExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

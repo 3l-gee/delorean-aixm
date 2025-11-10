@@ -291,6 +291,19 @@ public class AirspaceBorderCrossingTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExitedAirspace();
+            boolean rhsFieldIsSet = that.isSetExitedAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getExitedAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getExitedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEnteredAirspace();
             boolean rhsFieldIsSet = that.isSetEnteredAirspace();
             JAXBElement<AirspacePropertyType> lhsField;
@@ -312,19 +325,6 @@ public class AirspaceBorderCrossingTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExitedAirspace();
-            boolean rhsFieldIsSet = that.isSetExitedAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getExitedAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getExitedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

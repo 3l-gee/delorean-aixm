@@ -139,19 +139,6 @@ public class MultiSolidType
         }
         final MultiSolidType that = ((MultiSolidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSolidMember();
-            boolean rhsFieldIsSet = that.isSetSolidMember();
-            List<SolidPropertyType> lhsField;
-            lhsField = (this.isSetSolidMember()?this.getSolidMember():null);
-            List<SolidPropertyType> rhsField;
-            rhsField = (that.isSetSolidMember()?that.getSolidMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSolidMembers();
             boolean rhsFieldIsSet = that.isSetSolidMembers();
             SolidArrayPropertyType lhsField;
@@ -160,6 +147,19 @@ public class MultiSolidType
             rhsField = that.getSolidMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidMembers", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidMembers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSolidMember();
+            boolean rhsFieldIsSet = that.isSetSolidMember();
+            List<SolidPropertyType> lhsField;
+            lhsField = (this.isSetSolidMember()?this.getSolidMember():null);
+            List<SolidPropertyType> rhsField;
+            rhsField = (that.isSetSolidMember()?that.getSolidMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

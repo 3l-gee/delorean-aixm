@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "RADIO_COMMUNICATION_OPERATIO_2", joinColumns = {
-        @JoinColumn(name = "PARENT_RADIO_COMMUNICATION_O_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "RADIO_COMMUNICATION_OPERATIO_3", joinColumns = {
-        @JoinColumn(name = "PARENT_RADIO_COMMUNICATION_O_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractradiocommunicationoperationalstatus_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadioCommunicationOperationalStatusExtension() {
         return abstractRadioCommunicationOperationalStatusExtension;
     }
@@ -288,19 +273,6 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationOperationalStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadioCommunicationOperationalStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadioCommunicationOperationalStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationOperationalStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationOperationalStatusExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -309,6 +281,19 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationOperationalStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadioCommunicationOperationalStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadioCommunicationOperationalStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationOperationalStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

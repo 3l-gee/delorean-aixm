@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class HoldingAssessmentExtensionType implements Serializable, Equals, Has
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "HOLDING_ASSESSMENT_EXTENSION_1", joinColumns = {
-        @JoinColumn(name = "PARENT_HOLDING_ASSESSMENT_EX_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractholdingassessment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingAssessmentExtension() {
         return abstractHoldingAssessmentExtension;
     }
@@ -231,19 +223,6 @@ public class HoldingAssessmentExtensionType implements Serializable, Equals, Has
         }
         final HoldingAssessmentExtensionType that = ((HoldingAssessmentExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractHoldingAssessmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractHoldingAssessmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractHoldingAssessmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractHoldingAssessmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingAssessmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingAssessmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class HoldingAssessmentExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractHoldingAssessmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractHoldingAssessmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractHoldingAssessmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractHoldingAssessmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingAssessmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingAssessmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

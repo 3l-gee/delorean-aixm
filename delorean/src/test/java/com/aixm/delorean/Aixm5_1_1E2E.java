@@ -70,27 +70,27 @@ public class Aixm5_1_1E2E {
         assertThat(app.containerWarehouse.getContainer(containerID).xmlBinding.getMarshaller().getSchema()).isEqualTo(xmlConfig.getSchema());
     }
 
-    // @Test
-    // @Order(30)
-    // void loadXml() {
+    @Test
+    @Order(30)
+    void loadXml() {
 
-    //     // given
-    //     String xmlPath = "src/test/xml/a5_2/xml-in.xml";
+        // given
+        String xmlPath = "src/test/xml/a5_1_1/donlon-in.xml";
 
-    //     // do
-    //     app.containerWarehouse.getContainer(containerID).unmarshal(xmlPath);
-    // }
+        // do
+        app.containerWarehouse.getContainer(containerID).unmarshal(xmlPath);
+    }
 
-    // @Test
-    // @Order(40)
-    // void extractXml() {
+    @Test
+    @Order(40)
+    void extractXml() {
 
-    //     // given
-    //     String xmlPath = "src/test/xml/a5_2/xml-out.xml";
+        // given
+        String xmlPath = "src/test/xml/a5_1_1/donlon-out.xml";
 
-    //     // do
-    //     app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
-    // }
+        // do
+        app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
+    }
 
     @Test
     @Order(50)

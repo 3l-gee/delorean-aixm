@@ -434,19 +434,6 @@ public class SpecialDateTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SpecialDateExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SpecialDateExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeSpecialDateType> lhsField;
@@ -455,6 +442,32 @@ public class SpecialDateTimeSliceType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateDay();
+            boolean rhsFieldIsSet = that.isSetDateDay();
+            JAXBElement<DateMonthDayType> lhsField;
+            lhsField = this.getDateDay();
+            JAXBElement<DateMonthDayType> rhsField;
+            rhsField = that.getDateDay();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateYear();
+            boolean rhsFieldIsSet = that.isSetDateYear();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateYear();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateYear();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -486,27 +499,14 @@ public class SpecialDateTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateYear();
-            boolean rhsFieldIsSet = that.isSetDateYear();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateYear();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateYear();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateDay();
-            boolean rhsFieldIsSet = that.isSetDateDay();
-            JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getDateDay();
-            JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getDateDay();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SpecialDateExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SpecialDateExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

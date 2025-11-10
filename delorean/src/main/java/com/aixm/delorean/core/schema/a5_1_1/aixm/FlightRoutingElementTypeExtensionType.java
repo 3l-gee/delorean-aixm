@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FLIGHT_ROUTING_ELEMENT_TYPE__1", joinColumns = {
-        @JoinColumn(name = "PARENT_FLIGHT_ROUTING_ELEMEN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractflightroutingelement_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRoutingElementExtension() {
         return abstractFlightRoutingElementExtension;
     }
@@ -231,19 +223,6 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
         }
         final FlightRoutingElementTypeExtensionType that = ((FlightRoutingElementTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightRoutingElementExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightRoutingElementExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightRoutingElementExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightRoutingElementExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRoutingElementExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRoutingElementExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightRoutingElementExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightRoutingElementExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightRoutingElementExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightRoutingElementExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRoutingElementExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRoutingElementExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

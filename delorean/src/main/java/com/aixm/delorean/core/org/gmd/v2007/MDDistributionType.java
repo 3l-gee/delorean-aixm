@@ -202,6 +202,19 @@ public class MDDistributionType
         }
         final MDDistributionType that = ((MDDistributionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDistributor();
+            boolean rhsFieldIsSet = that.isSetDistributor();
+            List<MDDistributorPropertyType> lhsField;
+            lhsField = (this.isSetDistributor()?this.getDistributor():null);
+            List<MDDistributorPropertyType> rhsField;
+            rhsField = (that.isSetDistributor()?that.getDistributor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDistributionFormat();
             boolean rhsFieldIsSet = that.isSetDistributionFormat();
             List<MDFormatPropertyType> lhsField;
@@ -223,19 +236,6 @@ public class MDDistributionType
             rhsField = (that.isSetTransferOptions()?that.getTransferOptions():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferOptions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferOptions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistributor();
-            boolean rhsFieldIsSet = that.isSetDistributor();
-            List<MDDistributorPropertyType> lhsField;
-            lhsField = (this.isSetDistributor()?this.getDistributor():null);
-            List<MDDistributorPropertyType> rhsField;
-            rhsField = (that.isSetDistributor()?that.getDistributor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

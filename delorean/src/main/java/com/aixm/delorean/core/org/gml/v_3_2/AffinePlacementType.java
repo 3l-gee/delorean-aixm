@@ -219,6 +219,32 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
         }
         final AffinePlacementType that = ((AffinePlacementType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOutDimension();
+            boolean rhsFieldIsSet = that.isSetOutDimension();
+            BigInteger lhsField;
+            lhsField = this.getOutDimension();
+            BigInteger rhsField;
+            rhsField = that.getOutDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInDimension();
+            boolean rhsFieldIsSet = that.isSetInDimension();
+            BigInteger lhsField;
+            lhsField = this.getInDimension();
+            BigInteger rhsField;
+            rhsField = that.getInDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRefDirection();
             boolean rhsFieldIsSet = that.isSetRefDirection();
             List<VectorType> lhsField;
@@ -240,32 +266,6 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInDimension();
-            boolean rhsFieldIsSet = that.isSetInDimension();
-            BigInteger lhsField;
-            lhsField = this.getInDimension();
-            BigInteger rhsField;
-            rhsField = that.getInDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inDimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutDimension();
-            boolean rhsFieldIsSet = that.isSetOutDimension();
-            BigInteger lhsField;
-            lhsField = this.getOutDimension();
-            BigInteger rhsField;
-            rhsField = that.getOutDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -132,19 +132,6 @@ public class UnlimitedIntegerPropertyType implements Serializable, Equals, HashC
         }
         final UnlimitedIntegerPropertyType that = ((UnlimitedIntegerPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUnlimitedInteger();
             boolean rhsFieldIsSet = that.isSetUnlimitedInteger();
             UnlimitedIntegerType lhsField;
@@ -153,6 +140,19 @@ public class UnlimitedIntegerPropertyType implements Serializable, Equals, HashC
             rhsField = that.getUnlimitedInteger();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unlimitedInteger", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unlimitedInteger", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

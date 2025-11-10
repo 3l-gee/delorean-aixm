@@ -10,6 +10,9 @@ public class ElevatedSurfaceTypeAdapter extends XmlAdapter<ElevatedSurfaceType, 
     
     @Override
     public AixmElevatedSurfaceType unmarshal(ElevatedSurfaceType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -41,6 +44,9 @@ public class ElevatedSurfaceTypeAdapter extends XmlAdapter<ElevatedSurfaceType, 
 
     @Override
     public ElevatedSurfaceType marshal(AixmElevatedSurfaceType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "elevated_surface";
         String schema = "gml";

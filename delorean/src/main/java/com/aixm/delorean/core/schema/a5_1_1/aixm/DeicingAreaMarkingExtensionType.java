@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "DEICING_AREA_MARKING_EXTENSI_1", joinColumns = {
-        @JoinColumn(name = "PARENT_DEICING_AREA_MARKING__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractdeicingareamarking_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDeicingAreaMarkingExtension() {
         return abstractDeicingAreaMarkingExtension;
     }
@@ -128,17 +120,10 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "DEICING_AREA_MARKING_EXTENSI_2", joinColumns = {
-        @JoinColumn(name = "PARENT_DEICING_AREA_MARKING__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractmarking_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }
@@ -275,14 +260,14 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
         }
         final DeicingAreaMarkingExtensionType that = ((DeicingAreaMarkingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDeicingAreaMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,14 +286,14 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDeicingAreaMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

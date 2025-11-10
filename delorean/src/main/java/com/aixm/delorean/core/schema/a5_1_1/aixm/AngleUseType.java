@@ -273,32 +273,6 @@ public class AngleUseType
         }
         final AngleUseType that = ((AngleUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
-            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAlongCourseGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheAngleIndication();
             boolean rhsFieldIsSet = that.isSetTheAngleIndication();
             AngleIndicationPropertyType lhsField;
@@ -320,6 +294,32 @@ public class AngleUseType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
+            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAlongCourseGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

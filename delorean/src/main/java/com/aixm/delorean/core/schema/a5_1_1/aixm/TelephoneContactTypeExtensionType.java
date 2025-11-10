@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class TelephoneContactTypeExtensionType implements Serializable, Equals, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "TELEPHONE_CONTACT_TYPE_EXTEN_1", joinColumns = {
-        @JoinColumn(name = "PARENT_TELEPHONE_CONTACT_TYP_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -128,17 +120,10 @@ public class TelephoneContactTypeExtensionType implements Serializable, Equals, 
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "TELEPHONE_CONTACT_TYPE_EXTEN_2", joinColumns = {
-        @JoinColumn(name = "PARENT_TELEPHONE_CONTACT_TYP_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstracttelephonecontact_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTelephoneContactExtension() {
         return abstractTelephoneContactExtension;
     }
@@ -275,6 +260,19 @@ public class TelephoneContactTypeExtensionType implements Serializable, Equals, 
         }
         final TelephoneContactTypeExtensionType that = ((TelephoneContactTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractTelephoneContactExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTelephoneContactExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTelephoneContactExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTelephoneContactExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTelephoneContactExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTelephoneContactExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -296,19 +294,6 @@ public class TelephoneContactTypeExtensionType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractTelephoneContactExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTelephoneContactExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTelephoneContactExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTelephoneContactExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTelephoneContactExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTelephoneContactExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class FlightConditionCircumstanceTypeExtensionType implements Serializabl
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FLIGHT_CONDITION_CIRCUMSTANC_2", joinColumns = {
-        @JoinColumn(name = "PARENT_FLIGHT_CONDITION_CIRC_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractflightconditioncircumstance_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightConditionCircumstanceExtension() {
         return abstractFlightConditionCircumstanceExtension;
     }
@@ -231,19 +223,6 @@ public class FlightConditionCircumstanceTypeExtensionType implements Serializabl
         }
         final FlightConditionCircumstanceTypeExtensionType that = ((FlightConditionCircumstanceTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCircumstanceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCircumstanceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightConditionCircumstanceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightConditionCircumstanceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCircumstanceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCircumstanceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class FlightConditionCircumstanceTypeExtensionType implements Serializabl
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightConditionCircumstanceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightConditionCircumstanceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightConditionCircumstanceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightConditionCircumstanceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightConditionCircumstanceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightConditionCircumstanceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

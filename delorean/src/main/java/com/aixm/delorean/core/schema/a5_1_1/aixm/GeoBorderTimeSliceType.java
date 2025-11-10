@@ -329,19 +329,6 @@ public class GeoBorderTimeSliceType
         }
         final GeoBorderTimeSliceType that = ((GeoBorderTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBorder();
-            boolean rhsFieldIsSet = that.isSetBorder();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getBorder();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getBorder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -368,14 +355,14 @@ public class GeoBorderTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GeoBorderExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<GeoBorderExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetBorder();
+            boolean rhsFieldIsSet = that.isSetBorder();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getBorder();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getBorder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -389,6 +376,19 @@ public class GeoBorderTimeSliceType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GeoBorderExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<GeoBorderExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

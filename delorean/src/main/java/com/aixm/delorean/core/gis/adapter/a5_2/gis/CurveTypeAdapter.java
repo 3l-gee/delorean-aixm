@@ -11,6 +11,9 @@ public class CurveTypeAdapter extends XmlAdapter<CurveType, AixmCurveType> {
 
     @Override
     public AixmCurveType unmarshal(CurveType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -39,6 +42,9 @@ public class CurveTypeAdapter extends XmlAdapter<CurveType, AixmCurveType> {
 
     @Override
     public CurveType marshal(AixmCurveType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "curve";
         String schema = "gml";

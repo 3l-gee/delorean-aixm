@@ -17,6 +17,16 @@ public class DirectPositionHelper {
         return wkt.toString();
     }
 
+    public static String parseDirectPosition (DirectPositionListType posList, Boolean inverse) {
+        if (posList == null || posList.getValue() == null || posList.getValue().size() != 2) {
+            throw new IllegalArgumentException("DirectPositionListType must contain exactly one coordinate pair (two values).");
+        }
+        StringBuilder wkt = new StringBuilder("POINT(");
+        wkt.append(posListToWkt(posList, inverse));
+        wkt.append(")");
+        return wkt.toString();
+    }
+
     public static String parseDirectPositionList (DirectPositionListType posList, Boolean inverse) {
         StringBuilder wkt = new StringBuilder("LINESTRING(");
         wkt.append(posListToWkt(posList, inverse));
@@ -96,7 +106,7 @@ public class DirectPositionHelper {
         List<Double> coordinates = posList.getValue();
 
         if (coordinates == null || coordinates.isEmpty()) {
-            throw new IllegalArgumentException("GML posList cannot be null or empty.");
+            throw new IllegalArgumentException("<gml:posList> cannot be null or empty.");
         }
 
         if (coordinates.size() % 2 != 0) {

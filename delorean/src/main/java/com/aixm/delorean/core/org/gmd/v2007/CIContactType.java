@@ -212,32 +212,6 @@ public class CIContactType
         }
         final CIContactType that = ((CIContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPhone();
-            boolean rhsFieldIsSet = that.isSetPhone();
-            CITelephonePropertyType lhsField;
-            lhsField = this.getPhone();
-            CITelephonePropertyType rhsField;
-            rhsField = that.getPhone();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phone", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phone", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAddress();
-            boolean rhsFieldIsSet = that.isSetAddress();
-            CIAddressPropertyType lhsField;
-            lhsField = this.getAddress();
-            CIAddressPropertyType rhsField;
-            rhsField = that.getAddress();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHoursOfService();
             boolean rhsFieldIsSet = that.isSetHoursOfService();
             CharacterStringPropertyType lhsField;
@@ -272,6 +246,32 @@ public class CIContactType
             rhsField = that.getContactInstructions();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInstructions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInstructions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPhone();
+            boolean rhsFieldIsSet = that.isSetPhone();
+            CITelephonePropertyType lhsField;
+            lhsField = this.getPhone();
+            CITelephonePropertyType rhsField;
+            rhsField = that.getPhone();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phone", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phone", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAddress();
+            boolean rhsFieldIsSet = that.isSetAddress();
+            CIAddressPropertyType lhsField;
+            lhsField = this.getAddress();
+            CIAddressPropertyType rhsField;
+            rhsField = that.getAddress();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

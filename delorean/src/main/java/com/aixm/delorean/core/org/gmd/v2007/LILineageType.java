@@ -184,6 +184,19 @@ public class LILineageType
         }
         final LILineageType that = ((LILineageType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSource();
+            boolean rhsFieldIsSet = that.isSetSource();
+            List<LISourcePropertyType> lhsField;
+            lhsField = (this.isSetSource()?this.getSource():null);
+            List<LISourcePropertyType> rhsField;
+            rhsField = (that.isSetSource()?that.getSource():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetProcessStep();
             boolean rhsFieldIsSet = that.isSetProcessStep();
             List<LIProcessStepPropertyType> lhsField;
@@ -205,19 +218,6 @@ public class LILineageType
             rhsField = that.getStatement();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSource();
-            boolean rhsFieldIsSet = that.isSetSource();
-            List<LISourcePropertyType> lhsField;
-            lhsField = (this.isSetSource()?this.getSource():null);
-            List<LISourcePropertyType> rhsField;
-            rhsField = (that.isSetSource()?that.getSource():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

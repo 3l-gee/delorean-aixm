@@ -362,19 +362,6 @@ public class PassengerLoadingBridgeTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedStand();
-            boolean rhsFieldIsSet = that.isSetAssociatedStand();
-            List<AircraftStandPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedStand()?this.getAssociatedStand():null);
-            List<AircraftStandPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedStand()?that.getAssociatedStand():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedStand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedStand", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -396,6 +383,19 @@ public class PassengerLoadingBridgeTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedStand();
+            boolean rhsFieldIsSet = that.isSetAssociatedStand();
+            List<AircraftStandPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedStand()?this.getAssociatedStand():null);
+            List<AircraftStandPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedStand()?that.getAssociatedStand():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedStand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

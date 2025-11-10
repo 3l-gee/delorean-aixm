@@ -262,6 +262,19 @@ public class OperationMethodType
         }
         final OperationMethodType that = ((OperationMethodType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFormula();
+            boolean rhsFieldIsSet = that.isSetFormula();
+            JAXBElement<CodeType> lhsField;
+            lhsField = this.getFormula();
+            JAXBElement<CodeType> rhsField;
+            rhsField = that.getFormula();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFormulaCitation();
             boolean rhsFieldIsSet = that.isSetFormulaCitation();
             FormulaCitation lhsField;
@@ -309,19 +322,6 @@ public class OperationMethodType
             rhsField = that.getSourceDimensions();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceDimensions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceDimensions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFormula();
-            boolean rhsFieldIsSet = that.isSetFormula();
-            JAXBElement<CodeType> lhsField;
-            lhsField = this.getFormula();
-            JAXBElement<CodeType> rhsField;
-            rhsField = that.getFormula();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formula", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formula", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

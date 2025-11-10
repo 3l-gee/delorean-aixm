@@ -713,7 +713,87 @@ public class CurveGMLTest {
                         )
                     )
                 )
-            ) // urn EPSG:4326, LineStringSegment list of pos and pointProperty raw UUID, lat lon order
+            ), // urn EPSG:4326, LineStringSegment list of pos and pointProperty raw UUID, lat lon order
+            Arguments.of(
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c19" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:posList>52.51630693440871 13.377717264214601</gml:posList>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""",
+                GisUtil.curveObj(
+                    "c19",
+                    null,
+                    null,
+                    null,
+                    GisUtil.circle(
+                        0L,
+                        GisUtil.pointObj(
+                            null,
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
+                        new DistanceType() {{
+                            setValue(new BigDecimal(5.0));
+                            setUom(DistanceUom.KM);
+                        }}
+                    )
+                )
+            ), // Standard urn case, EPSG:4326, CircleByCenterPoint with posList convertion in pos lat lon order
+            Arguments.of(
+                """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c20" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:posList>52.51630693440871 13.377717264214601</gml:posList>
+                            <gml:radius uom="NM">20.0</gml:radius>
+                            <gml:startAngle uom="deg">0.0</gml:startAngle>
+                            <gml:endAngle uom="deg">90.0</gml:endAngle>
+                        </gml:ArcByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>""",
+                GisUtil.curveObj(
+                    "c20",
+                    null,
+                    null,
+                    null,
+                    GisUtil.arc(
+                        0L,
+                        GisUtil.pointObj(
+                            null,
+                            null,
+                            GisUtil.pos(
+                                "4326",
+                                "POINT(52.51630693440871 13.377717264214601)"
+                            ),
+                            GeometricType.POS,
+                            null
+                        ),
+                        new DistanceType() {{
+                            setValue(new BigDecimal(20.0));
+                            setUom(DistanceUom.NM);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(0.0));
+                            setUom(AngleUom.DEG);
+                        }},
+                        new AngleType() {{
+                            setValue(new BigDecimal(90.0));
+                            setUom(AngleUom.DEG);
+                        }}
+                    )
+                )
+            ) // Standard urn case, EPSG:4326, CircleByCenterPoint with posList convertion in pos lat lon order
         );  
     }
 
@@ -1334,7 +1414,29 @@ public class CurveGMLTest {
                         </gml:LineStringSegment>
                     </gml:segments>
                 </gml:Curve>
-            """) // Mallformed pointProperty references
+            """), // Mallformed pointProperty references
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c20" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:ArcByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:posList>52.51630693440871 13.377717264214601, 43.51630693440871 321.377717264214601</gml:posList>
+                            <gml:radius uom="NM">20.0</gml:radius>
+                            <gml:startAngle uom="deg">0.0</gml:startAngle>
+                            <gml:endAngle uom="deg">90.0</gml:endAngle>
+                        </gml:ArcByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>
+            """), // Mallformed posList in ArcByCenterPoint
+            Arguments.of("""
+                <gml:Curve srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c20" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:message="http://www.aixm.aero/schema/5.2/message" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:aixm="http://www.aixm.aero/schema/5.2">
+                    <gml:segments>
+                        <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
+                            <gml:posList>52.51630693440871 13.377717264214601, 43.51630693440871 321.377717264214601</gml:posList>
+                            <gml:radius uom="KM">5.0</gml:radius>
+                        </gml:CircleByCenterPoint>
+                    </gml:segments>
+                </gml:Curve>
+            """) // Mallformed posList in ArcByCenterPoint
         );
     }
 

@@ -223,19 +223,6 @@ public class InformationServiceTimeSlicePropertyType implements Serializable, Eq
         }
         final InformationServiceTimeSlicePropertyType that = ((InformationServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInformationServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetInformationServiceTimeSlice();
-            InformationServiceTimeSliceType lhsField;
-            lhsField = this.getInformationServiceTimeSlice();
-            InformationServiceTimeSliceType rhsField;
-            rhsField = that.getInformationServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "informationServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "informationServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class InformationServiceTimeSlicePropertyType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInformationServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetInformationServiceTimeSlice();
+            InformationServiceTimeSliceType lhsField;
+            lhsField = this.getInformationServiceTimeSlice();
+            InformationServiceTimeSliceType rhsField;
+            rhsField = that.getInformationServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "informationServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "informationServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

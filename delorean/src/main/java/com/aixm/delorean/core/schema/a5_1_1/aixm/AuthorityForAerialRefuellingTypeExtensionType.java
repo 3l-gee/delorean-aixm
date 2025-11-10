@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AUTHORITY_FOR_AERIAL_REFUELL_2", joinColumns = {
-        @JoinColumn(name = "PARENT_AUTHORITY_FOR_AERIAL__0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractauthorityforaerialrefuelling_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForAerialRefuellingExtension() {
         return abstractAuthorityForAerialRefuellingExtension;
     }
@@ -231,19 +223,6 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
         }
         final AuthorityForAerialRefuellingTypeExtensionType that = ((AuthorityForAerialRefuellingTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAerialRefuellingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAerialRefuellingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAuthorityForAerialRefuellingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAuthorityForAerialRefuellingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAerialRefuellingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAerialRefuellingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAerialRefuellingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAerialRefuellingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAuthorityForAerialRefuellingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAuthorityForAerialRefuellingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAerialRefuellingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAerialRefuellingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

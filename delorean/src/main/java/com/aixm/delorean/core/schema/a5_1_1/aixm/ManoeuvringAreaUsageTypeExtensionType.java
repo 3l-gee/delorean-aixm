@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "MANOEUVRING_AREA_USAGE_TYPE__1", joinColumns = {
-        @JoinColumn(name = "PARENT_MANOEUVRING_AREA_USAG_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractusagecondition_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUsageConditionExtension() {
         return abstractUsageConditionExtension;
     }
@@ -128,17 +120,10 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "MANOEUVRING_AREA_USAGE_TYPE__2", joinColumns = {
-        @JoinColumn(name = "PARENT_MANOEUVRING_AREA_USAG_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractmanoeuvringareausage_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractManoeuvringAreaUsageExtension() {
         return abstractManoeuvringAreaUsageExtension;
     }
@@ -275,19 +260,6 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
         }
         final ManoeuvringAreaUsageTypeExtensionType that = ((ManoeuvringAreaUsageTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUsageConditionExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUsageConditionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -309,6 +281,19 @@ public class ManoeuvringAreaUsageTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractManoeuvringAreaUsageExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractManoeuvringAreaUsageExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractManoeuvringAreaUsageExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUsageConditionExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUsageConditionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

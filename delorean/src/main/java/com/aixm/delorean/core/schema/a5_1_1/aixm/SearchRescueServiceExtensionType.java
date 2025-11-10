@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "SEARCH_RESCUE_SERVICE_EXTENS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_SEARCH_RESCUE_SERVICE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractsearchrescueservice_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSearchRescueServiceExtension() {
         return abstractSearchRescueServiceExtension;
     }
@@ -128,17 +120,10 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "SEARCH_RESCUE_SERVICE_EXTENS_2", joinColumns = {
-        @JoinColumn(name = "PARENT_SEARCH_RESCUE_SERVICE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -288,19 +273,6 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSearchRescueServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSearchRescueServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
@@ -309,6 +281,19 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSearchRescueServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSearchRescueServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

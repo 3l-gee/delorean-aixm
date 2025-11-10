@@ -147,19 +147,6 @@ public class TopoCurvePropertyType implements Serializable, Equals, HashCode, To
         }
         final TopoCurvePropertyType that = ((TopoCurvePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTopoCurve();
-            boolean rhsFieldIsSet = that.isSetTopoCurve();
-            TopoCurveType lhsField;
-            lhsField = this.getTopoCurve();
-            TopoCurveType rhsField;
-            rhsField = that.getTopoCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -168,6 +155,19 @@ public class TopoCurvePropertyType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTopoCurve();
+            boolean rhsFieldIsSet = that.isSetTopoCurve();
+            TopoCurveType lhsField;
+            lhsField = this.getTopoCurve();
+            TopoCurveType rhsField;
+            rhsField = that.getTopoCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoCurve", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

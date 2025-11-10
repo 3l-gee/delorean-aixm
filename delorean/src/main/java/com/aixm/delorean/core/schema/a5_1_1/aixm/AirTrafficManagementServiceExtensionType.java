@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AIR_TRAFFIC_MANAGEMENT_SERVI_2", joinColumns = {
-        @JoinColumn(name = "PARENT_AIR_TRAFFIC_MANAGEMEN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractairtrafficmanagementservice_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirTrafficManagementServiceExtension() {
         return abstractAirTrafficManagementServiceExtension;
     }
@@ -128,17 +120,10 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AIR_TRAFFIC_MANAGEMENT_SERVI_3", joinColumns = {
-        @JoinColumn(name = "PARENT_AIR_TRAFFIC_MANAGEMEN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -275,14 +260,14 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
         }
         final AirTrafficManagementServiceExtensionType that = ((AirTrafficManagementServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficManagementServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficManagementServiceExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirTrafficManagementServiceExtension();
+            lhsField = this.getAbstractServiceExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirTrafficManagementServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficManagementServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficManagementServiceExtension", rhsField);
+            rhsField = that.getAbstractServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,14 +286,14 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficManagementServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficManagementServiceExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceExtension();
+            lhsField = this.getAbstractAirTrafficManagementServiceExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            rhsField = that.getAbstractAirTrafficManagementServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficManagementServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficManagementServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

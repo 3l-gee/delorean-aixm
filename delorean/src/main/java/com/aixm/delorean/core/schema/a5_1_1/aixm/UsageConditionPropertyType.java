@@ -111,17 +111,8 @@ public class UsageConditionPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractUsageConditionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "USAGE_CONDITION_PROPERTY_TYP_0", joinColumns = {
-        @JoinColumn(name = "PARENT_USAGE_CONDITION_PROPE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_USAGE_CONDITI_0")
-    })
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "usage_condition_id", referencedColumnName = "hjid")
     public AbstractUsageConditionType getAbstractUsageConditionValue() {
         if (this.getAbstractUsageCondition() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractUsageConditionType.class, this.getAbstractUsageCondition());

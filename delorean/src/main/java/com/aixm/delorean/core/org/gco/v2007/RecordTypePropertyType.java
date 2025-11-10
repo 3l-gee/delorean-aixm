@@ -132,19 +132,6 @@ public class RecordTypePropertyType implements Serializable, Equals, HashCode, T
         }
         final RecordTypePropertyType that = ((RecordTypePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRecordType();
-            boolean rhsFieldIsSet = that.isSetRecordType();
-            RecordTypeType lhsField;
-            lhsField = this.getRecordType();
-            RecordTypeType rhsField;
-            rhsField = that.getRecordType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "recordType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "recordType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -153,6 +140,19 @@ public class RecordTypePropertyType implements Serializable, Equals, HashCode, T
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRecordType();
+            boolean rhsFieldIsSet = that.isSetRecordType();
+            RecordTypeType lhsField;
+            lhsField = this.getRecordType();
+            RecordTypeType rhsField;
+            rhsField = that.getRecordType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "recordType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "recordType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

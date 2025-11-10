@@ -118,19 +118,6 @@ public class GeographicCRSType
         }
         final GeographicCRSType that = ((GeographicCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsesGeodeticDatum();
-            boolean rhsFieldIsSet = that.isSetUsesGeodeticDatum();
-            GeodeticDatumPropertyType lhsField;
-            lhsField = this.getUsesGeodeticDatum();
-            GeodeticDatumPropertyType rhsField;
-            rhsField = that.getUsesGeodeticDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesGeodeticDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesGeodeticDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUsesEllipsoidalCS();
             boolean rhsFieldIsSet = that.isSetUsesEllipsoidalCS();
             EllipsoidalCSPropertyType lhsField;
@@ -139,6 +126,19 @@ public class GeographicCRSType
             rhsField = that.getUsesEllipsoidalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesEllipsoidalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesEllipsoidalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesGeodeticDatum();
+            boolean rhsFieldIsSet = that.isSetUsesGeodeticDatum();
+            GeodeticDatumPropertyType lhsField;
+            lhsField = this.getUsesGeodeticDatum();
+            GeodeticDatumPropertyType rhsField;
+            rhsField = that.getUsesGeodeticDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesGeodeticDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesGeodeticDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

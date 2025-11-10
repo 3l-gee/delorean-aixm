@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class ApronAreaUsageTypeExtensionType implements Serializable, Equals, Ha
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "APRON_AREA_USAGE_TYPE_EXTENS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_APRON_AREA_USAGE_TYPE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractusagecondition_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUsageConditionExtension() {
         return abstractUsageConditionExtension;
     }
@@ -128,17 +120,10 @@ public class ApronAreaUsageTypeExtensionType implements Serializable, Equals, Ha
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "APRON_AREA_USAGE_TYPE_EXTENS_2", joinColumns = {
-        @JoinColumn(name = "PARENT_APRON_AREA_USAGE_TYPE_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractapronareausage_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApronAreaUsageExtension() {
         return abstractApronAreaUsageExtension;
     }
@@ -275,6 +260,19 @@ public class ApronAreaUsageTypeExtensionType implements Serializable, Equals, Ha
         }
         final ApronAreaUsageTypeExtensionType that = ((ApronAreaUsageTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUsageConditionExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUsageConditionExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -296,19 +294,6 @@ public class ApronAreaUsageTypeExtensionType implements Serializable, Equals, Ha
             rhsField = that.getAbstractApronAreaUsageExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronAreaUsageExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronAreaUsageExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractUsageConditionExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUsageConditionExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUsageConditionExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUsageConditionExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUsageConditionExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUsageConditionExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class StandardLevelColumnExtensionType implements Serializable, Equals, H
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "STANDARD_LEVEL_COLUMN_EXTENS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_STANDARD_LEVEL_COLUMN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractstandardlevelcolumn_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardLevelColumnExtension() {
         return abstractStandardLevelColumnExtension;
     }
@@ -231,19 +223,6 @@ public class StandardLevelColumnExtensionType implements Serializable, Equals, H
         }
         final StandardLevelColumnExtensionType that = ((StandardLevelColumnExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelColumnExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelColumnExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandardLevelColumnExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandardLevelColumnExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelColumnExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelColumnExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class StandardLevelColumnExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelColumnExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelColumnExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractStandardLevelColumnExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractStandardLevelColumnExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelColumnExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelColumnExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

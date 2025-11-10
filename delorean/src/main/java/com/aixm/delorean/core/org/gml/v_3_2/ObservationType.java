@@ -194,19 +194,6 @@ public class ObservationType
         }
         final ObservationType that = ((ObservationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsing();
-            boolean rhsFieldIsSet = that.isSetUsing();
-            ProcedurePropertyType lhsField;
-            lhsField = this.getUsing();
-            ProcedurePropertyType rhsField;
-            rhsField = that.getUsing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTarget();
             boolean rhsFieldIsSet = that.isSetTarget();
             JAXBElement<TargetPropertyType> lhsField;
@@ -241,6 +228,19 @@ public class ObservationType
             rhsField = that.getResultOf();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsing();
+            boolean rhsFieldIsSet = that.isSetUsing();
+            ProcedurePropertyType lhsField;
+            lhsField = this.getUsing();
+            ProcedurePropertyType rhsField;
+            rhsField = that.getUsing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

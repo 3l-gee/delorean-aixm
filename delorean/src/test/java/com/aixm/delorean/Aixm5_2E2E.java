@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.Scanner;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+// @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+// @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Aixm5_2E2E {
 
     private Main app;

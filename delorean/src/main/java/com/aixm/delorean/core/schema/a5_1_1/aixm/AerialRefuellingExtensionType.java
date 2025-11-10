@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class AerialRefuellingExtensionType implements Serializable, Equals, Hash
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AERIAL_REFUELLING_EXTENSION__1", joinColumns = {
-        @JoinColumn(name = "PARENT_AERIAL_REFUELLING_EXT_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractaerialrefuelling_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingExtension() {
         return abstractAerialRefuellingExtension;
     }
@@ -231,19 +223,6 @@ public class AerialRefuellingExtensionType implements Serializable, Equals, Hash
         }
         final AerialRefuellingExtensionType that = ((AerialRefuellingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAerialRefuellingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAerialRefuellingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class AerialRefuellingExtensionType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAerialRefuellingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAerialRefuellingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

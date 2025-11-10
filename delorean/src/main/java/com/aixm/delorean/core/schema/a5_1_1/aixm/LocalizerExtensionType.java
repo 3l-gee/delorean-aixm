@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "LOCALIZER_EXTENSION_TYPE_ABS_0", joinColumns = {
-        @JoinColumn(name = "PARENT_LOCALIZER_EXTENSION_T_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractlocalizer_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLocalizerExtension() {
         return abstractLocalizerExtension;
     }
@@ -128,17 +120,10 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "LOCALIZER_EXTENSION_TYPE_ABS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_LOCALIZER_EXTENSION_T_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -275,19 +260,6 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
         }
         final LocalizerExtensionType that = ((LocalizerExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractLocalizerExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractLocalizerExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractLocalizerExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractLocalizerExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLocalizerExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLocalizerExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -296,6 +268,19 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
             rhsField = that.getAbstractNavaidEquipmentExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractLocalizerExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractLocalizerExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractLocalizerExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractLocalizerExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLocalizerExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLocalizerExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

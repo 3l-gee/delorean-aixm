@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "ROUTE_SEGMENT_EXTENSION_TYPE_0", joinColumns = {
-        @JoinColumn(name = "PARENT_ROUTE_SEGMENT_EXTENSI_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractroutesegment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteSegmentExtension() {
         return abstractRouteSegmentExtension;
     }
@@ -231,19 +223,6 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
         }
         final RouteSegmentExtensionType that = ((RouteSegmentExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRouteSegmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRouteSegmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRouteSegmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRouteSegmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteSegmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteSegmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRouteSegmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRouteSegmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRouteSegmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRouteSegmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteSegmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteSegmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

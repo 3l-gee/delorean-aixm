@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "FASDATA_BLOCK_TYPE_EXTENSION_1", joinColumns = {
-        @JoinColumn(name = "PARENT_FASDATA_BLOCK_TYPE_EX_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractfasdatablock_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFASDataBlockExtension() {
         return abstractFASDataBlockExtension;
     }
@@ -231,19 +223,6 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
         }
         final FASDataBlockTypeExtensionType that = ((FASDataBlockTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFASDataBlockExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFASDataBlockExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFASDataBlockExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFASDataBlockExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFASDataBlockExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFASDataBlockExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFASDataBlockExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFASDataBlockExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFASDataBlockExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFASDataBlockExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFASDataBlockExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFASDataBlockExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

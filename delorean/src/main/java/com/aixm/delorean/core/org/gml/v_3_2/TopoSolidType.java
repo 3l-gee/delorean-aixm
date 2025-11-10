@@ -265,14 +265,14 @@ public class TopoSolidType
         }
         final TopoSolidType that = ((TopoSolidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsolated();
+            boolean rhsFieldIsSet = that.isSetIsolated();
+            List<NodeOrEdgePropertyType> lhsField;
+            lhsField = (this.isSetIsolated()?this.getIsolated():null);
+            List<NodeOrEdgePropertyType> rhsField;
+            rhsField = (that.isSetIsolated()?that.getIsolated():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -291,6 +291,19 @@ public class TopoSolidType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSolidProperty();
             boolean rhsFieldIsSet = that.isSetSolidProperty();
             SolidPropertyType lhsField;
@@ -299,19 +312,6 @@ public class TopoSolidType
             rhsField = that.getSolidProperty();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidProperty", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidProperty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsolated();
-            boolean rhsFieldIsSet = that.isSetIsolated();
-            List<NodeOrEdgePropertyType> lhsField;
-            lhsField = (this.isSetIsolated()?this.getIsolated():null);
-            List<NodeOrEdgePropertyType> rhsField;
-            rhsField = (that.isSetIsolated()?that.getIsolated():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

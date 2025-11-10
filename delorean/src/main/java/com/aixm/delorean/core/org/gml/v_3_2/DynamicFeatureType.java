@@ -194,14 +194,14 @@ public class DynamicFeatureType
         }
         final DynamicFeatureType that = ((DynamicFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDataSource();
-            boolean rhsFieldIsSet = that.isSetDataSource();
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataSourceReference();
+            boolean rhsFieldIsSet = that.isSetDataSourceReference();
+            ReferenceType lhsField;
+            lhsField = this.getDataSourceReference();
+            ReferenceType rhsField;
+            rhsField = that.getDataSourceReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,14 +220,14 @@ public class DynamicFeatureType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataSourceReference();
-            boolean rhsFieldIsSet = that.isSetDataSourceReference();
-            ReferenceType lhsField;
-            lhsField = this.getDataSourceReference();
-            ReferenceType rhsField;
-            rhsField = that.getDataSourceReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

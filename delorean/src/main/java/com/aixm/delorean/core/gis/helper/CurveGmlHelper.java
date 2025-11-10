@@ -163,19 +163,25 @@ public class CurveGmlHelper {
 
         // A. Sanity Check
         if (value == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> cannot be null.");
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> cannot be null.");
         }
 
-        if (value.getPos() == null && value.getPointProperty() == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> or <gml:pointProperty> can not be null.");
+        if (value.getPos() == null && value.getPointProperty() == null && value.getPosList() == null) {
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:pos>, <gml:posList>, or <gml:pointProperty> can not be null.");
+        }
+
+        if ((value.getPos() != null && value.getPointProperty() != null) || 
+            (value.getPos() != null && value.getPosList() != null) || 
+            (value.getPointProperty() != null && value.getPosList() != null)) {
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:pos>, <gml:posList> and <gml:pointProperty> can not be set simultaneously.");
         }
 
         if (value.getPos() != null && value.getPointProperty() != null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> and <gml:pointProperty> can not be both set.");
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:pos> and <gml:pointProperty> can not be both set.");
         }
 
         if (value.getRadius() == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:radius> can not be null.");
+            throw new IllegalArgumentException("<gml:CircleByCenterPointType> Content <gml:radius> can not be null.");
         }
 
         if (value.getStartAngle() != null || value.getEndAngle() != null) {
@@ -194,6 +200,16 @@ public class CurveGmlHelper {
             GmlPointType resultPoint = new GmlPointType();
             resultPoint.setGeometricType(GeometricType.POS);
             String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
+            Pos resultPos = new Pos();
+            resultPos.setValue(geomWkt);
+            resultPos.setSrsName(epsgCode);
+            resultPoint.setPos(resultPos);
+            result.setGmlPoint(resultPoint);
+
+        } else if (value.getPosList() != null) {
+            GmlPointType resultPoint = new GmlPointType();
+            resultPoint.setGeometricType(GeometricType.POS);
+            String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPosList(), inverse);
             Pos resultPos = new Pos();
             resultPos.setValue(geomWkt);
             resultPos.setSrsName(epsgCode);
@@ -254,12 +270,14 @@ public class CurveGmlHelper {
             throw new IllegalArgumentException("<gml:ArcByCenterPointType> cannot be null.");
         }
 
-        if (value.getPos() == null && value.getPointProperty() == null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> or <gml:pointProperty> can not be null.");
+        if (value.getPos() == null && value.getPointProperty() == null && value.getPosList() == null) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos>, <gml:posList> or <gml:pointProperty> can not be null.");
         }
 
-        if (value.getPos() != null && value.getPointProperty() != null) {
-            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos> and <gml:pointProperty> can not be both set.");
+        if ((value.getPos() != null && value.getPointProperty() != null) || 
+            (value.getPos() != null && value.getPosList() != null) || 
+            (value.getPointProperty() != null && value.getPosList() != null)) {
+            throw new IllegalArgumentException("<gml:ArcByCenterPointType> Content <gml:pos>, <gml:posList> and <gml:pointProperty> can not be set simultaneously.");
         }
 
         if (value.getRadius() == null) {
@@ -294,6 +312,16 @@ public class CurveGmlHelper {
             GmlPointType resultPoint = new GmlPointType();
             resultPoint.setGeometricType(GeometricType.POS);
             String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPos(), inverse);
+            Pos resultPos = new Pos();
+            resultPos.setValue(geomWkt);
+            resultPos.setSrsName(epsgCode);
+            resultPoint.setPos(resultPos);
+            result.setGmlPoint(resultPoint);
+
+        } else if (value.getPosList() != null) {
+            GmlPointType resultPoint = new GmlPointType();
+            resultPoint.setGeometricType(GeometricType.POS);
+            String geomWkt = DirectPositionHelper.parseDirectPosition(value.getPosList(), inverse);
             Pos resultPos = new Pos();
             resultPos.setValue(geomWkt);
             resultPos.setSrsName(epsgCode);

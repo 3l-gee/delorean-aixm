@@ -199,27 +199,14 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
         }
         final DirectionDescriptionType that = ((DirectionDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetKeyword();
-            boolean rhsFieldIsSet = that.isSetKeyword();
-            CodeType lhsField;
-            lhsField = this.getKeyword();
-            CodeType rhsField;
-            rhsField = that.getKeyword();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            String lhsField;
-            lhsField = this.getDescription();
-            String rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            boolean lhsFieldIsSet = this.isSetCompassPoint();
+            boolean rhsFieldIsSet = that.isSetCompassPoint();
+            CompassPointEnumeration lhsField;
+            lhsField = this.getCompassPoint();
+            CompassPointEnumeration rhsField;
+            rhsField = that.getCompassPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compassPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compassPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -238,14 +225,27 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCompassPoint();
-            boolean rhsFieldIsSet = that.isSetCompassPoint();
-            CompassPointEnumeration lhsField;
-            lhsField = this.getCompassPoint();
-            CompassPointEnumeration rhsField;
-            rhsField = that.getCompassPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compassPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compassPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            String lhsField;
+            lhsField = this.getDescription();
+            String rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetKeyword();
+            boolean rhsFieldIsSet = that.isSetKeyword();
+            CodeType lhsField;
+            lhsField = this.getKeyword();
+            CodeType rhsField;
+            rhsField = that.getKeyword();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

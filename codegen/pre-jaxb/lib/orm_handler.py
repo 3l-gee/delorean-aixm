@@ -86,6 +86,7 @@ class OrmHandler:
                 res.append(HyperJAXB.hj_one_to_many_start())
                 res.append(HyperJAXB.orm_join_column("tsp"))
                 res.append(HyperJAXB.hj_one_to_many_end())
+
             elif "TimeSlice" in ref:
                 res.append(HyperJAXB.hj_one_to_many_start())
                 res.append(HyperJAXB.orm_join_column("extension"))
@@ -99,18 +100,14 @@ class OrmHandler:
                 res.append(HyperJAXB.orm_join_column("ts"))
                 res.append(HyperJAXB.hj_one_to_one_end())
 
-            # elif parent.get("name") == element.get("ref").replace("aixm:", "") + "PropertyType":
-            #     res.append(HyperJAXB.hj_one_to_one_start())
-            #     res.append(HyperJAXB.orm_join_column(element.get("ref").replace("aixm:", "")))
-            #     res.append(HyperJAXB.hj_one_to_one_end())
+            elif "PropertyType" in parent.attrib.get("name","") and "Abstract" in element.attrib.get("ref",""):
+                pass
 
-            else:
+            else :
                 res.append(HyperJAXB.hj_one_to_one_start())
                 res.append(HyperJAXB.orm_join_column(element.get("ref").replace("aixm:", "")))
                 res.append(HyperJAXB.hj_one_to_one_end())
-                return res
-                # raise KeyError("Unknown reference for single type", ET.tostring(element, encoding='unicode', method='xml'))
-
+                
         return res
     
     @staticmethod

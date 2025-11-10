@@ -223,19 +223,6 @@ public class ArrivalFeederLegTimeSlicePropertyType implements Serializable, Equa
         }
         final ArrivalFeederLegTimeSlicePropertyType that = ((ArrivalFeederLegTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetArrivalFeederLegTimeSlice();
-            boolean rhsFieldIsSet = that.isSetArrivalFeederLegTimeSlice();
-            ArrivalFeederLegTimeSliceType lhsField;
-            lhsField = this.getArrivalFeederLegTimeSlice();
-            ArrivalFeederLegTimeSliceType rhsField;
-            rhsField = that.getArrivalFeederLegTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrivalFeederLegTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrivalFeederLegTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ArrivalFeederLegTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArrivalFeederLegTimeSlice();
+            boolean rhsFieldIsSet = that.isSetArrivalFeederLegTimeSlice();
+            ArrivalFeederLegTimeSliceType lhsField;
+            lhsField = this.getArrivalFeederLegTimeSlice();
+            ArrivalFeederLegTimeSliceType rhsField;
+            rhsField = that.getArrivalFeederLegTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arrivalFeederLegTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arrivalFeederLegTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

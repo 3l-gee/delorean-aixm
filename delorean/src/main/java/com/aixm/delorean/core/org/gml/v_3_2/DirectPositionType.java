@@ -296,19 +296,6 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSrsDimension();
             boolean rhsFieldIsSet = that.isSetSrsDimension();
             BigInteger lhsField;
@@ -343,6 +330,19 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getSrsName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -223,19 +223,6 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
         }
         final PrimarySurveillanceRadarTimeSlicePropertyType that = ((PrimarySurveillanceRadarTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPrimarySurveillanceRadarTimeSlice();
-            boolean rhsFieldIsSet = that.isSetPrimarySurveillanceRadarTimeSlice();
-            PrimarySurveillanceRadarTimeSliceType lhsField;
-            lhsField = this.getPrimarySurveillanceRadarTimeSlice();
-            PrimarySurveillanceRadarTimeSliceType rhsField;
-            rhsField = that.getPrimarySurveillanceRadarTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primarySurveillanceRadarTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primarySurveillanceRadarTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class PrimarySurveillanceRadarTimeSlicePropertyType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPrimarySurveillanceRadarTimeSlice();
+            boolean rhsFieldIsSet = that.isSetPrimarySurveillanceRadarTimeSlice();
+            PrimarySurveillanceRadarTimeSliceType lhsField;
+            lhsField = this.getPrimarySurveillanceRadarTimeSlice();
+            PrimarySurveillanceRadarTimeSliceType rhsField;
+            rhsField = that.getPrimarySurveillanceRadarTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primarySurveillanceRadarTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primarySurveillanceRadarTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

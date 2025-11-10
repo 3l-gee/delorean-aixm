@@ -23,12 +23,12 @@
 				<xjc:noValidatingUnmarshaller/>
 				<jaxb:serializable uid="20251104"/>
 				<jaxb:javaType
-					name="java.time.LocalDateTime"
+					name="java.time.OffsetDateTime"
 					xmlType="xs:dateTime"
 					parseMethod="com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.unmarshal"
 					printMethod="com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
 				<jaxb:javaType
-					name="java.time.LocalDateTime"
+					name="java.time.OffsetDateTime"
 					xmlType="xs:date"
 					parseMethod="com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.unmarshal"
 					printMethod="com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
@@ -120,6 +120,14 @@
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='extension']/xs:complexType">
 				<jaxb:class name="ElevatedPointTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedpoint_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@ref='aixm:AbstractElevatedPointExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedpoint_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='elevation']">
 				<hj:embedded/>
@@ -165,6 +173,14 @@
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='extension']/xs:complexType">
 				<jaxb:class name="ElevatedCurveTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedcurve_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@ref='aixm:AbstractElevatedCurveExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedcurve_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='elevation']">
 				<hj:embedded/>
@@ -210,6 +226,14 @@
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='extension']/xs:complexType">
 				<jaxb:class name="ElevatedSurfaceTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedsurface_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@ref='aixm:AbstractElevatedSurfaceExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedsurface_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
 			</jaxb:bindings>
 			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='elevation']">
 				<hj:embedded/>

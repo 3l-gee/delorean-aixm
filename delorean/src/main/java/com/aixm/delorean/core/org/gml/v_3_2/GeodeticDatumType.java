@@ -133,19 +133,6 @@ public class GeodeticDatumType
         }
         final GeodeticDatumType that = ((GeodeticDatumType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPrimeMeridian();
-            boolean rhsFieldIsSet = that.isSetPrimeMeridian();
-            JAXBElement<PrimeMeridianPropertyType> lhsField;
-            lhsField = this.getPrimeMeridian();
-            JAXBElement<PrimeMeridianPropertyType> rhsField;
-            rhsField = that.getPrimeMeridian();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primeMeridian", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primeMeridian", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEllipsoid();
             boolean rhsFieldIsSet = that.isSetEllipsoid();
             JAXBElement<EllipsoidPropertyType> lhsField;
@@ -154,6 +141,19 @@ public class GeodeticDatumType
             rhsField = that.getEllipsoid();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoid", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPrimeMeridian();
+            boolean rhsFieldIsSet = that.isSetPrimeMeridian();
+            JAXBElement<PrimeMeridianPropertyType> lhsField;
+            lhsField = this.getPrimeMeridian();
+            JAXBElement<PrimeMeridianPropertyType> rhsField;
+            rhsField = that.getPrimeMeridian();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primeMeridian", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primeMeridian", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

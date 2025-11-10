@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AERIAL_REFUELLING_POINT_TYPE_1", joinColumns = {
-        @JoinColumn(name = "PARENT_AERIAL_REFUELLING_POI_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractsegmentpoint_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -128,17 +120,10 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "AERIAL_REFUELLING_POINT_TYPE_2", joinColumns = {
-        @JoinColumn(name = "PARENT_AERIAL_REFUELLING_POI_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractaerialrefuellingpoint_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingPointExtension() {
         return abstractAerialRefuellingPointExtension;
     }
@@ -275,6 +260,19 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
         }
         final AerialRefuellingPointTypeExtensionType that = ((AerialRefuellingPointTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -296,19 +294,6 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractAerialRefuellingPointExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingPointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

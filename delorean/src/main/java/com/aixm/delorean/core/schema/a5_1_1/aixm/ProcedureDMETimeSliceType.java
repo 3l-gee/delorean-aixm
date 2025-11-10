@@ -374,19 +374,6 @@ public class ProcedureDMETimeSliceType
         }
         final ProcedureDMETimeSliceType that = ((ProcedureDMETimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDME();
-            boolean rhsFieldIsSet = that.isSetDME();
-            JAXBElement<DMEPropertyType> lhsField;
-            lhsField = this.getDME();
-            JAXBElement<DMEPropertyType> rhsField;
-            rhsField = that.getDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dme", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dme", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSatisfactory();
             boolean rhsFieldIsSet = that.isSetSatisfactory();
             JAXBElement<CodeYesNoType> lhsField;
@@ -413,14 +400,14 @@ public class ProcedureDMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureDMEExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ProcedureDMEExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> lhsField;
+            lhsField = this.getSegmentLeg();
+            JAXBElement<SegmentLegPropertyType> rhsField;
+            rhsField = that.getSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "segmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "segmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +426,27 @@ public class ProcedureDMETimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> lhsField;
-            lhsField = this.getSegmentLeg();
-            JAXBElement<SegmentLegPropertyType> rhsField;
-            rhsField = that.getSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "segmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "segmentLeg", rhsField);
+            boolean lhsFieldIsSet = this.isSetDME();
+            boolean rhsFieldIsSet = that.isSetDME();
+            JAXBElement<DMEPropertyType> lhsField;
+            lhsField = this.getDME();
+            JAXBElement<DMEPropertyType> rhsField;
+            rhsField = that.getDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dme", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dme", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureDMEExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ProcedureDMEExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

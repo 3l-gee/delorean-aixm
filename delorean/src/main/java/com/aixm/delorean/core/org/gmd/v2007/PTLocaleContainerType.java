@@ -295,19 +295,6 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDate();
-            boolean rhsFieldIsSet = that.isSetDate();
-            List<CIDatePropertyType> lhsField;
-            lhsField = (this.isSetDate()?this.getDate():null);
-            List<CIDatePropertyType> rhsField;
-            rhsField = (that.isSetDate()?that.getDate():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetResponsibleParty();
             boolean rhsFieldIsSet = that.isSetResponsibleParty();
             List<CIResponsiblePartyPropertyType> lhsField;
@@ -321,14 +308,14 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            boolean lhsFieldIsSet = this.isSetDate();
+            boolean rhsFieldIsSet = that.isSetDate();
+            List<CIDatePropertyType> lhsField;
+            lhsField = (this.isSetDate()?this.getDate():null);
+            List<CIDatePropertyType> rhsField;
+            rhsField = (that.isSetDate()?that.getDate():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -342,6 +329,19 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetLocalisedString()?that.getLocalisedString():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

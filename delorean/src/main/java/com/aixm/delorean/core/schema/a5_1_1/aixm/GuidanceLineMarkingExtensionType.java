@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "GUIDANCE_LINE_MARKING_EXTENS_1", joinColumns = {
-        @JoinColumn(name = "PARENT_GUIDANCE_LINE_MARKING_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractguidancelinemarking_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGuidanceLineMarkingExtension() {
         return abstractGuidanceLineMarkingExtension;
     }
@@ -128,17 +120,10 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "GUIDANCE_LINE_MARKING_EXTENS_2", joinColumns = {
-        @JoinColumn(name = "PARENT_GUIDANCE_LINE_MARKING_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractmarking_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }
@@ -275,6 +260,19 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
         }
         final GuidanceLineMarkingExtensionType that = ((GuidanceLineMarkingExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGuidanceLineMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGuidanceLineMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
             AbstractExtensionType lhsField;
@@ -296,19 +294,6 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGuidanceLineMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGuidanceLineMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

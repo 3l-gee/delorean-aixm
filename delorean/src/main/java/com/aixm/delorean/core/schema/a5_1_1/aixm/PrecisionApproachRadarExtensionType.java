@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PRECISION_APPROACH_RADAR_EXT_1", joinColumns = {
-        @JoinColumn(name = "PARENT_PRECISION_APPROACH_RA_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractprecisionapproachradar_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPrecisionApproachRadarExtension() {
         return abstractPrecisionApproachRadarExtension;
     }
@@ -128,17 +120,10 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "PRECISION_APPROACH_RADAR_EXT_2", joinColumns = {
-        @JoinColumn(name = "PARENT_PRECISION_APPROACH_RA_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractradarequipment_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarEquipmentExtension() {
         return abstractRadarEquipmentExtension;
     }
@@ -275,14 +260,14 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
         }
         final PrecisionApproachRadarExtensionType that = ((PrecisionApproachRadarExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPrecisionApproachRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPrecisionApproachRadarExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadarEquipmentExtension();
+            lhsField = this.getAbstractPrecisionApproachRadarExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadarEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension", rhsField);
+            rhsField = that.getAbstractPrecisionApproachRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrecisionApproachRadarExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrecisionApproachRadarExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,14 +286,14 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPrecisionApproachRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPrecisionApproachRadarExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPrecisionApproachRadarExtension();
+            lhsField = this.getAbstractRadarEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPrecisionApproachRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrecisionApproachRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrecisionApproachRadarExtension", rhsField);
+            rhsField = that.getAbstractRadarEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -687,32 +687,6 @@ public class GuidanceLineTimeSliceType
         }
         final GuidanceLineTimeSliceType that = ((GuidanceLineTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetConnectedApron();
-            boolean rhsFieldIsSet = that.isSetConnectedApron();
-            List<ApronPropertyType> lhsField;
-            lhsField = (this.isSetConnectedApron()?this.getConnectedApron():null);
-            List<ApronPropertyType> rhsField;
-            rhsField = (that.isSetConnectedApron()?that.getConnectedApron():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedApron", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedApron", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetConnectedRunwayCentrelinePoint();
             boolean rhsFieldIsSet = that.isSetConnectedRunwayCentrelinePoint();
             List<RunwayCentrelinePointPropertyType> lhsField;
@@ -752,53 +726,14 @@ public class GuidanceLineTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetConnectedTouchDownLiftOff();
-            boolean rhsFieldIsSet = that.isSetConnectedTouchDownLiftOff();
-            List<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = (this.isSetConnectedTouchDownLiftOff()?this.getConnectedTouchDownLiftOff():null);
-            List<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = (that.isSetConnectedTouchDownLiftOff()?that.getConnectedTouchDownLiftOff():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTouchDownLiftOff", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTouchDownLiftOff", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<GuidanceLineExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<GuidanceLineExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedTaxiway();
-            boolean rhsFieldIsSet = that.isSetConnectedTaxiway();
-            List<TaxiwayPropertyType> lhsField;
-            lhsField = (this.isSetConnectedTaxiway()?this.getConnectedTaxiway():null);
-            List<TaxiwayPropertyType> rhsField;
-            rhsField = (that.isSetConnectedTaxiway()?that.getConnectedTaxiway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTaxiway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTaxiway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetConnectedStand();
+            boolean rhsFieldIsSet = that.isSetConnectedStand();
+            List<AircraftStandPropertyType> lhsField;
+            lhsField = (this.isSetConnectedStand()?this.getConnectedStand():null);
+            List<AircraftStandPropertyType> rhsField;
+            rhsField = (that.isSetConnectedStand()?that.getConnectedStand():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedStand", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -817,6 +752,84 @@ public class GuidanceLineTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedTaxiway();
+            boolean rhsFieldIsSet = that.isSetConnectedTaxiway();
+            List<TaxiwayPropertyType> lhsField;
+            lhsField = (this.isSetConnectedTaxiway()?this.getConnectedTaxiway():null);
+            List<TaxiwayPropertyType> rhsField;
+            rhsField = (that.isSetConnectedTaxiway()?that.getConnectedTaxiway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTaxiway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTaxiway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<GuidanceLineExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<GuidanceLineExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedTouchDownLiftOff();
+            boolean rhsFieldIsSet = that.isSetConnectedTouchDownLiftOff();
+            List<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = (this.isSetConnectedTouchDownLiftOff()?this.getConnectedTouchDownLiftOff():null);
+            List<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = (that.isSetConnectedTouchDownLiftOff()?that.getConnectedTouchDownLiftOff():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedTouchDownLiftOff", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedTouchDownLiftOff", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConnectedApron();
+            boolean rhsFieldIsSet = that.isSetConnectedApron();
+            List<ApronPropertyType> lhsField;
+            lhsField = (this.isSetConnectedApron()?this.getConnectedApron():null);
+            List<ApronPropertyType> rhsField;
+            rhsField = (that.isSetConnectedApron()?that.getConnectedApron():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedApron", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedApron", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaxSpeed();
             boolean rhsFieldIsSet = that.isSetMaxSpeed();
             JAXBElement<ValSpeedType> lhsField;
@@ -825,19 +838,6 @@ public class GuidanceLineTimeSliceType
             rhsField = that.getMaxSpeed();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxSpeed", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxSpeed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetConnectedStand();
-            boolean rhsFieldIsSet = that.isSetConnectedStand();
-            List<AircraftStandPropertyType> lhsField;
-            lhsField = (this.isSetConnectedStand()?this.getConnectedStand():null);
-            List<AircraftStandPropertyType> rhsField;
-            rhsField = (that.isSetConnectedStand()?that.getConnectedStand():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "connectedStand", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "connectedStand", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

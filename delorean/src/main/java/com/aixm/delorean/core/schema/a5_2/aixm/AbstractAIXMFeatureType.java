@@ -82,10 +82,10 @@ public abstract class AbstractAIXMFeatureType
      *     
      */
     @ManyToOne(targetEntity = FeatureMetadataPropertyType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
         CascadeType.DETACH,
-        CascadeType.MERGE
+        CascadeType.MERGE,
+        CascadeType.PERSIST,
+        CascadeType.REFRESH
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "FEATURE_METADATA_ABSTRACT_AI_0", nullable = true)
     public FeatureMetadataPropertyType getFeatureMetadata() {

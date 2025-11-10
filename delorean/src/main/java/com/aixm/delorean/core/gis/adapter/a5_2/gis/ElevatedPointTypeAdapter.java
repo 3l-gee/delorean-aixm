@@ -10,6 +10,9 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Aixm
     
     @Override
     public AixmElevatedPointType unmarshal(ElevatedPointType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -41,6 +44,9 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Aixm
 
     @Override
     public ElevatedPointType marshal(AixmElevatedPointType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "elevated_point";
         String schema = "gml";

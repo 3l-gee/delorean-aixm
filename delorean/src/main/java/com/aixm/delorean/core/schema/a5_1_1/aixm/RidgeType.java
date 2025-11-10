@@ -344,14 +344,14 @@ public class RidgeType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSide();
-            boolean rhsFieldIsSet = that.isSetSide();
-            JAXBElement<CodeSideType> lhsField;
-            lhsField = this.getSide();
-            JAXBElement<CodeSideType> rhsField;
-            rhsField = that.getSide();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -370,6 +370,19 @@ public class RidgeType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSide();
+            boolean rhsFieldIsSet = that.isSetSide();
+            JAXBElement<CodeSideType> lhsField;
+            lhsField = this.getSide();
+            JAXBElement<CodeSideType> rhsField;
+            rhsField = that.getSide();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "side", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "side", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDepth();
             boolean rhsFieldIsSet = that.isSetDepth();
             JAXBElement<ValDepthType> lhsField;
@@ -378,19 +391,6 @@ public class RidgeType
             rhsField = that.getDepth();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

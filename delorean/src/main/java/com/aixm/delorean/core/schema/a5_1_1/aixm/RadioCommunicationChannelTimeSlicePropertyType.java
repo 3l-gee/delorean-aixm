@@ -223,19 +223,6 @@ public class RadioCommunicationChannelTimeSlicePropertyType implements Serializa
         }
         final RadioCommunicationChannelTimeSlicePropertyType that = ((RadioCommunicationChannelTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRadioCommunicationChannelTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRadioCommunicationChannelTimeSlice();
-            RadioCommunicationChannelTimeSliceType lhsField;
-            lhsField = this.getRadioCommunicationChannelTimeSlice();
-            RadioCommunicationChannelTimeSliceType rhsField;
-            rhsField = that.getRadioCommunicationChannelTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunicationChannelTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunicationChannelTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RadioCommunicationChannelTimeSlicePropertyType implements Serializa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadioCommunicationChannelTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRadioCommunicationChannelTimeSlice();
+            RadioCommunicationChannelTimeSliceType lhsField;
+            lhsField = this.getRadioCommunicationChannelTimeSlice();
+            RadioCommunicationChannelTimeSliceType rhsField;
+            rhsField = that.getRadioCommunicationChannelTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioCommunicationChannelTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioCommunicationChannelTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class SpecialNavigationSystemExtensionType implements Serializable, Equal
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "SPECIAL_NAVIGATION_SYSTEM_EX_1", joinColumns = {
-        @JoinColumn(name = "PARENT_SPECIAL_NAVIGATION_SY_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractspecialnavigationsystem_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSpecialNavigationSystemExtension() {
         return abstractSpecialNavigationSystemExtension;
     }
@@ -231,19 +223,6 @@ public class SpecialNavigationSystemExtensionType implements Serializable, Equal
         }
         final SpecialNavigationSystemExtensionType that = ((SpecialNavigationSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSpecialNavigationSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSpecialNavigationSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialNavigationSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialNavigationSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class SpecialNavigationSystemExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSpecialNavigationSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSpecialNavigationSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSpecialNavigationSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSpecialNavigationSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialNavigationSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialNavigationSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

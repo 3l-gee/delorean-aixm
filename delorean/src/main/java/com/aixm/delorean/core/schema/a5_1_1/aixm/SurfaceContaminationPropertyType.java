@@ -119,17 +119,8 @@ public class SurfaceContaminationPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractSurfaceContaminationType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "SURFACE_CONTAMINATION_PROPER_1", joinColumns = {
-        @JoinColumn(name = "PARENT_SURFACE_CONTAMINATION_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_SURFACE_CONTA_0")
-    })
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "surface_contamination_id", referencedColumnName = "hjid")
     public AbstractSurfaceContaminationType getAbstractSurfaceContaminationValue() {
         if (this.getAbstractSurfaceContamination() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractSurfaceContaminationType.class, this.getAbstractSurfaceContamination());

@@ -149,14 +149,14 @@ public class OffsetCurveType
         }
         final OffsetCurveType that = ((OffsetCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRefDirection();
-            boolean rhsFieldIsSet = that.isSetRefDirection();
-            VectorType lhsField;
-            lhsField = this.getRefDirection();
-            VectorType rhsField;
-            rhsField = that.getRefDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            LengthType lhsField;
+            lhsField = this.getDistance();
+            LengthType rhsField;
+            rhsField = that.getDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -175,14 +175,14 @@ public class OffsetCurveType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            LengthType lhsField;
-            lhsField = this.getDistance();
-            LengthType rhsField;
-            rhsField = that.getDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            boolean lhsFieldIsSet = this.isSetRefDirection();
+            boolean rhsFieldIsSet = that.isSetRefDirection();
+            VectorType lhsField;
+            lhsField = this.getRefDirection();
+            VectorType rhsField;
+            rhsField = that.getRefDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

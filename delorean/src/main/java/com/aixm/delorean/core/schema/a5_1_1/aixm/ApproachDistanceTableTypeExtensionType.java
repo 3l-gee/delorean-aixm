@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -84,17 +83,10 @@ public class ApproachDistanceTableTypeExtensionType implements Serializable, Equ
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "APPROACH_DISTANCE_TABLE_TYPE_1", joinColumns = {
-        @JoinColumn(name = "PARENT_APPROACH_DISTANCE_TAB_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractapproachdistancetable_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachDistanceTableExtension() {
         return abstractApproachDistanceTableExtension;
     }
@@ -231,19 +223,6 @@ public class ApproachDistanceTableTypeExtensionType implements Serializable, Equ
         }
         final ApproachDistanceTableTypeExtensionType that = ((ApproachDistanceTableTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachDistanceTableExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachDistanceTableExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachDistanceTableExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachDistanceTableExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachDistanceTableExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachDistanceTableExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -252,6 +231,19 @@ public class ApproachDistanceTableTypeExtensionType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApproachDistanceTableExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachDistanceTableExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApproachDistanceTableExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApproachDistanceTableExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachDistanceTableExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachDistanceTableExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

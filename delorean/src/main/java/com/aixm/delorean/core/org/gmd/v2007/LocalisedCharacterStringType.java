@@ -168,14 +168,14 @@ public class LocalisedCharacterStringType implements Serializable, Equals, HashC
         }
         final LocalisedCharacterStringType that = ((LocalisedCharacterStringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetId();
-            boolean rhsFieldIsSet = that.isSetId();
+            boolean lhsFieldIsSet = this.isSetLocale();
+            boolean rhsFieldIsSet = that.isSetLocale();
             String lhsField;
-            lhsField = this.getId();
+            lhsField = this.getLocale();
             String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
+            rhsField = that.getLocale();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -194,14 +194,14 @@ public class LocalisedCharacterStringType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocale();
-            boolean rhsFieldIsSet = that.isSetLocale();
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
             String lhsField;
-            lhsField = this.getLocale();
+            lhsField = this.getId();
             String rhsField;
-            rhsField = that.getLocale();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

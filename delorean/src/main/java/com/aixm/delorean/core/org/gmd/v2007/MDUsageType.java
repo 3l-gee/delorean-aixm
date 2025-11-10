@@ -204,19 +204,6 @@ public class MDUsageType
         }
         final MDUsageType that = ((MDUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecificUsage();
-            boolean rhsFieldIsSet = that.isSetSpecificUsage();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSpecificUsage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSpecificUsage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUsageDateTime();
             boolean rhsFieldIsSet = that.isSetUsageDateTime();
             DateTimePropertyType lhsField;
@@ -230,19 +217,6 @@ public class MDUsageType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUserContactInfo();
-            boolean rhsFieldIsSet = that.isSetUserContactInfo();
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetUserContactInfo()?that.getUserContactInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUserDeterminedLimitations();
             boolean rhsFieldIsSet = that.isSetUserDeterminedLimitations();
             CharacterStringPropertyType lhsField;
@@ -251,6 +225,32 @@ public class MDUsageType
             rhsField = that.getUserDeterminedLimitations();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecificUsage();
+            boolean rhsFieldIsSet = that.isSetSpecificUsage();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSpecificUsage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSpecificUsage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUserContactInfo();
+            boolean rhsFieldIsSet = that.isSetUserContactInfo();
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (that.isSetUserContactInfo()?that.getUserContactInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

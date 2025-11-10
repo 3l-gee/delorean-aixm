@@ -10,6 +10,9 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, AixmSurfaceType>
 
     @Override
     public AixmSurfaceType unmarshal(SurfaceType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String featureId = "<unknown>";
 
@@ -36,6 +39,9 @@ public class SurfaceTypeAdapter extends XmlAdapter<SurfaceType, AixmSurfaceType>
 
     @Override
     public SurfaceType marshal(AixmSurfaceType value) throws Exception {
+        if (value == null) {
+            return null;
+        }
         String featureType = value.getClass().toString();
         String table = "surface";
         String schema = "gml";

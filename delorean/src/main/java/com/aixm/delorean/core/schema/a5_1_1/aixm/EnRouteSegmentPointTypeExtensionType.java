@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "EN_ROUTE_SEGMENT_POINT_TYPE__1", joinColumns = {
-        @JoinColumn(name = "PARENT_EN_ROUTE_SEGMENT_POIN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractsegmentpoint_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -128,17 +120,10 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "EN_ROUTE_SEGMENT_POINT_TYPE__2", joinColumns = {
-        @JoinColumn(name = "PARENT_EN_ROUTE_SEGMENT_POIN_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractenroutesegmentpoint_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEnRouteSegmentPointExtension() {
         return abstractEnRouteSegmentPointExtension;
     }
@@ -275,19 +260,6 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
         }
         final EnRouteSegmentPointTypeExtensionType that = ((EnRouteSegmentPointTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEnRouteSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractEnRouteSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractEnRouteSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractEnRouteSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEnRouteSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEnRouteSegmentPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
             AbstractExtensionType lhsField;
@@ -296,6 +268,19 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
             rhsField = that.getAbstractSegmentPointExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractEnRouteSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractEnRouteSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractEnRouteSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractEnRouteSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEnRouteSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEnRouteSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

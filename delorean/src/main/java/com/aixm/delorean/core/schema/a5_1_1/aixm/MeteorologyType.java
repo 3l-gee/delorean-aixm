@@ -423,14 +423,14 @@ public class MeteorologyType
         }
         final MeteorologyType that = ((MeteorologyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
-            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
-            JAXBElement<CodeValueInterpretationType> lhsField;
-            lhsField = this.getRunwayVisualRangeInterpretation();
-            JAXBElement<CodeValueInterpretationType> rhsField;
-            rhsField = that.getRunwayVisualRangeInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetFlightConditions();
+            boolean rhsFieldIsSet = that.isSetFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> lhsField;
+            lhsField = this.getFlightConditions();
+            JAXBElement<CodeMeteoConditionsType> rhsField;
+            rhsField = that.getFlightConditions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,14 +449,14 @@ public class MeteorologyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunwayVisualRange();
+            boolean rhsFieldIsSet = that.isSetRunwayVisualRange();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getRunwayVisualRange();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getRunwayVisualRange();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRange", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRange", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,14 +475,14 @@ public class MeteorologyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRunwayVisualRange();
-            boolean rhsFieldIsSet = that.isSetRunwayVisualRange();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getRunwayVisualRange();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getRunwayVisualRange();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRange", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRange", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -501,14 +501,14 @@ public class MeteorologyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightConditions();
-            boolean rhsFieldIsSet = that.isSetFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> lhsField;
-            lhsField = this.getFlightConditions();
-            JAXBElement<CodeMeteoConditionsType> rhsField;
-            rhsField = that.getFlightConditions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightConditions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightConditions", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunwayVisualRangeInterpretation();
+            boolean rhsFieldIsSet = that.isSetRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> lhsField;
+            lhsField = this.getRunwayVisualRangeInterpretation();
+            JAXBElement<CodeValueInterpretationType> rhsField;
+            rhsField = that.getRunwayVisualRangeInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayVisualRangeInterpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayVisualRangeInterpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -234,19 +234,6 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
         }
         final ControlPoint that = ((ControlPoint) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
-            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
-            List<Object> lhsField;
-            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -255,6 +242,19 @@ public class ControlPoint implements Serializable, Equals, HashCode, ToString
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
+            boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
+            List<Object> lhsField;
+            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

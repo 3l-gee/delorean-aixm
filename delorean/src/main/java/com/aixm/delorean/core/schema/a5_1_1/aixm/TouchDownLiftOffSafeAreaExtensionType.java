@@ -11,8 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -88,17 +87,10 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "TOUCH_DOWN_LIFT_OFF_SAFE_ARE_2", joinColumns = {
-        @JoinColumn(name = "PARENT_TOUCH_DOWN_LIFT_OFF_S_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstracttouchdownliftoffsafearea_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTouchDownLiftOffSafeAreaExtension() {
         return abstractTouchDownLiftOffSafeAreaExtension;
     }
@@ -128,17 +120,10 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
      *     {@link AbstractExtensionType }
      *     
      */
-    @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.REFRESH,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.MERGE
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinTable(name = "TOUCH_DOWN_LIFT_OFF_SAFE_ARE_3", joinColumns = {
-        @JoinColumn(name = "PARENT_TOUCH_DOWN_LIFT_OFF_S_0")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "CHILD_ABSTRACT_EXTENSION_TYP_0")
-    })
+    @JoinColumn(name = "abstractairportheliportprotectionarea_ext_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportProtectionAreaExtension() {
         return abstractAirportHeliportProtectionAreaExtension;
     }
@@ -275,14 +260,14 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
         }
         final TouchDownLiftOffSafeAreaExtensionType that = ((TouchDownLiftOffSafeAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffSafeAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffSafeAreaExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
+            lhsField = this.getAbstractTouchDownLiftOffSafeAreaExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
+            rhsField = that.getAbstractTouchDownLiftOffSafeAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffSafeAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffSafeAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,14 +286,14 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffSafeAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffSafeAreaExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTouchDownLiftOffSafeAreaExtension();
+            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTouchDownLiftOffSafeAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffSafeAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffSafeAreaExtension", rhsField);
+            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

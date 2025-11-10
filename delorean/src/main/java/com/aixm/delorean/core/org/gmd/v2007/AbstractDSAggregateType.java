@@ -259,19 +259,6 @@ public abstract class AbstractDSAggregateType
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSuperset();
-            boolean rhsFieldIsSet = that.isSetSuperset();
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (this.isSetSuperset()?this.getSuperset():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (that.isSetSuperset()?that.getSuperset():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetComposedOf();
             boolean rhsFieldIsSet = that.isSetComposedOf();
             List<DSDataSetPropertyType> lhsField;
@@ -293,6 +280,19 @@ public abstract class AbstractDSAggregateType
             rhsField = (that.isSetSubset()?that.getSubset():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSuperset();
+            boolean rhsFieldIsSet = that.isSetSuperset();
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (this.isSetSuperset()?this.getSuperset():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (that.isSetSuperset()?that.getSuperset():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
