@@ -1130,6 +1130,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingTimeSliceType']//xs:element[@ref='aixm:AbstractAerialRefuellingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaerialrefuelling_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingAnchorType']">
 <hj:entity>
@@ -1143,6 +1146,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingAnchorType']//xs:element[@ref='aixm:AbstractAerialRefuellingAnchorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaerialrefuellinganchor_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingAnchorPropertyType']">
 <hj:entity>
@@ -1166,8 +1172,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingPointType']//xs:element[@ref='aixm:AbstractSegmentPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingPointType']//xs:element[@ref='aixm:AbstractAerialRefuellingPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaerialrefuellingpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingPointPropertyType']">
 <hj:entity>
@@ -1191,6 +1203,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingTrackType']//xs:element[@ref='aixm:AbstractAerialRefuellingTrackExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaerialrefuellingtrack_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AerialRefuellingTrackPropertyType']">
 <hj:entity>
@@ -1214,6 +1229,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForAerialRefuellingType']//xs:element[@ref='aixm:AbstractAuthorityForAerialRefuellingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractauthorityforaerialrefuelling_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForAerialRefuellingPropertyType']">
 <hj:entity>
@@ -1262,6 +1280,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportTimeSliceType']//xs:element[@ref='aixm:AbstractAirportHeliportExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliport_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportAvailabilityType']">
 <hj:entity>
@@ -1275,8 +1296,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportAvailabilityType']//xs:element[@ref='aixm:AbstractAirportHeliportAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportAvailabilityPropertyType']">
 <hj:entity>
@@ -1325,6 +1352,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportCollocationTimeSliceType']//xs:element[@ref='aixm:AbstractAirportHeliportCollocationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportcollocation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportProtectionAreaPropertyType']">
 <hj:entity>
@@ -1349,8 +1379,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportResponsibilityOrganisationType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportResponsibilityOrganisationType']//xs:element[@ref='aixm:AbstractAirportHeliportResponsibilityOrganisationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportresponsibilityorganisation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportResponsibilityOrganisationPropertyType']">
 <hj:entity>
@@ -1374,8 +1410,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportUsageType']//xs:element[@ref='aixm:AbstractUsageConditionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractusagecondition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportUsageType']//xs:element[@ref='aixm:AbstractAirportHeliportUsageExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportusage_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportUsagePropertyType']">
 <hj:entity>
@@ -1424,6 +1466,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHotSpotTimeSliceType']//xs:element[@ref='aixm:AbstractAirportHotSpotExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairporthotspot_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourcePropertyType']">
 <hj:entity>
@@ -1462,6 +1507,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceTimeSliceType']//xs:element[@ref='aixm:AbstractAltimeterSourceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaltimetersource_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceStatusType']">
 <hj:entity>
@@ -1475,8 +1523,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceStatusType']//xs:element[@ref='aixm:AbstractAltimeterSourceStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaltimetersourcestatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltimeterSourceStatusPropertyType']">
 <hj:entity>
@@ -1500,6 +1554,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CityType']//xs:element[@ref='aixm:AbstractCityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcity_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CityPropertyType']">
 <hj:entity>
@@ -1523,8 +1580,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ConditionCombinationType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ConditionCombinationType']//xs:element[@ref='aixm:AbstractConditionCombinationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractconditioncombination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ConditionCombinationPropertyType']">
 <hj:entity>
@@ -1573,6 +1636,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NonMovementAreaTimeSliceType']//xs:element[@ref='aixm:AbstractNonMovementAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnonmovementarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceCharacteristicsType']">
 <hj:entity>
@@ -1586,6 +1652,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceCharacteristicsType']//xs:element[@ref='aixm:AbstractSurfaceCharacteristicsExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecharacteristics_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceCharacteristicsPropertyType']">
 <hj:entity>
@@ -1634,6 +1703,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurveyControlPointTimeSliceType']//xs:element[@ref='aixm:AbstractSurveyControlPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurveycontrolpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AbstractUsageConditionType']">
 <hj:entity>
@@ -1647,6 +1719,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UsageConditionPropertyType']//xs:element[@ref='aixm:AbstractUsageCondition']">
+<!-- <hj:one-to-one>
+<orm:join-column name="abstractusagecondition_id" referenced-column-name="hjid" />
+</hj:one-to-one> -->
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkAreaPropertyType']">
 <hj:entity>
@@ -1685,6 +1760,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkAreaTimeSliceType']//xs:element[@ref='aixm:AbstractWorkAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractworkarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkareaActivityType']">
 <hj:entity>
@@ -1698,8 +1776,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkareaActivityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkareaActivityType']//xs:element[@ref='aixm:AbstractWorkareaActivityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractworkareaactivity_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='WorkareaActivityPropertyType']">
 <hj:entity>
@@ -1748,6 +1832,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftStandTimeSliceType']//xs:element[@ref='aixm:AbstractAircraftStandExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaircraftstand_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronPropertyType']">
 <hj:entity>
@@ -1786,6 +1873,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronTimeSliceType']//xs:element[@ref='aixm:AbstractApronExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapron_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaAvailabilityType']">
 <hj:entity>
@@ -1799,8 +1889,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaAvailabilityType']//xs:element[@ref='aixm:AbstractApronAreaAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapronareaavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaAvailabilityPropertyType']">
 <hj:entity>
@@ -1824,8 +1920,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaUsageType']//xs:element[@ref='aixm:AbstractUsageConditionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractusagecondition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaUsageType']//xs:element[@ref='aixm:AbstractApronAreaUsageExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapronareausage_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronAreaUsagePropertyType']">
 <hj:entity>
@@ -1874,6 +1976,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronElementTimeSliceType']//xs:element[@ref='aixm:AbstractApronElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapronelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DeicingAreaPropertyType']">
 <hj:entity>
@@ -1912,6 +2017,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DeicingAreaTimeSliceType']//xs:element[@ref='aixm:AbstractDeicingAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdeicingarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PassengerLoadingBridgePropertyType']">
 <hj:entity>
@@ -1950,6 +2058,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PassengerLoadingBridgeTimeSliceType']//xs:element[@ref='aixm:AbstractPassengerLoadingBridgeExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpassengerloadingbridge_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoadPropertyType']">
 <hj:entity>
@@ -1988,6 +2099,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoadTimeSliceType']//xs:element[@ref='aixm:AbstractRoadExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractroad_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffPropertyType']">
 <hj:entity>
@@ -2026,6 +2140,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffTimeSliceType']//xs:element[@ref='aixm:AbstractTouchDownLiftOffExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttouchdownliftoff_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffSafeAreaPropertyType']">
 <hj:entity>
@@ -2064,8 +2181,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffSafeAreaTimeSliceType']//xs:element[@ref='aixm:AbstractTouchDownLiftOffSafeAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttouchdownliftoffsafearea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffSafeAreaTimeSliceType']//xs:element[@ref='aixm:AbstractAirportHeliportProtectionAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportprotectionarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachLightingSystemPropertyType']">
 <hj:entity>
@@ -2104,8 +2227,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachLightingSystemTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLightingSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachlightingsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachLightingSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronLightSystemPropertyType']">
 <hj:entity>
@@ -2144,8 +2273,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractApronLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapronlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundLightingAvailabilityType']">
 <hj:entity>
@@ -2159,8 +2294,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundLightingAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundLightingAvailabilityType']//xs:element[@ref='aixm:AbstractGroundLightingAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightingavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundLightingAvailabilityPropertyType']">
 <hj:entity>
@@ -2220,8 +2361,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGuidanceLineLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractguidancelinelightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightActivationType']">
 <hj:entity>
@@ -2235,6 +2382,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightActivationType']//xs:element[@ref='aixm:AbstractLightActivationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlightactivation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightActivationPropertyType']">
 <hj:entity>
@@ -2283,8 +2433,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDirectionLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayDirectionLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaydirectionlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDirectionLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaLightSystemPropertyType']">
 <hj:entity>
@@ -2323,8 +2479,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayProtectAreaLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwayprotectarealightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionLightSystemPropertyType']">
 <hj:entity>
@@ -2363,8 +2525,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiHoldingPositionLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiholdingpositionlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayLightSystemPropertyType']">
 <hj:entity>
@@ -2403,8 +2571,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiwayLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiwaylightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffLightSystemPropertyType']">
 <hj:entity>
@@ -2443,8 +2617,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractTouchDownLiftOffLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttouchdownliftofflightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffLightSystemTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportProtectionAreaMarkingPropertyType']">
 <hj:entity>
@@ -2483,8 +2663,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportProtectionAreaMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractAirportProtectionAreaMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportprotectionareamarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportProtectionAreaMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronMarkingPropertyType']">
 <hj:entity>
@@ -2523,8 +2709,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractApronMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapronmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DeicingAreaMarkingPropertyType']">
 <hj:entity>
@@ -2563,8 +2755,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DeicingAreaMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractDeicingAreaMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdeicingareamarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DeicingAreaMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineMarkingPropertyType']">
 <hj:entity>
@@ -2603,8 +2801,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractGuidanceLineMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractguidancelinemarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkingPropertyType']">
 <hj:entity>
@@ -2629,6 +2833,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkingElementType']//xs:element[@ref='aixm:AbstractMarkingElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarkingelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkingElementPropertyType']">
 <hj:entity>
@@ -2677,8 +2884,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaymarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandMarkingPropertyType']">
 <hj:entity>
@@ -2717,8 +2930,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractStandMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionMarkingPropertyType']">
 <hj:entity>
@@ -2757,8 +2976,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiHoldingPositionMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiholdingpositionmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayMarkingPropertyType']">
 <hj:entity>
@@ -2797,8 +3022,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiwayMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiwaymarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffMarkingPropertyType']">
 <hj:entity>
@@ -2837,8 +3068,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractTouchDownLiftOffMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttouchdownliftoffmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffMarkingTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarking_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrestingGearPropertyType']">
 <hj:entity>
@@ -2877,6 +3114,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrestingGearTimeSliceType']//xs:element[@ref='aixm:AbstractArrestingGearExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractarrestinggear_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaAvailabilityType']">
 <hj:entity>
@@ -2890,8 +3130,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaAvailabilityType']//xs:element[@ref='aixm:AbstractManoeuvringAreaAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmanoeuvringareaavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaAvailabilityPropertyType']">
 <hj:entity>
@@ -2915,8 +3161,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaUsageType']//xs:element[@ref='aixm:AbstractUsageConditionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractusagecondition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaUsageType']//xs:element[@ref='aixm:AbstractManoeuvringAreaUsageExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmanoeuvringareausage_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ManoeuvringAreaUsagePropertyType']">
 <hj:entity>
@@ -2940,6 +3192,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidEquipmentDistanceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentDistanceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipmentdistance_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidEquipmentDistancePropertyType']">
 <hj:entity>
@@ -2988,6 +3243,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunway_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayBlastPadPropertyType']">
 <hj:entity>
@@ -3026,6 +3284,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayBlastPadTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayBlastPadExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwayblastpad_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayCentrelinePointPropertyType']">
 <hj:entity>
@@ -3064,6 +3325,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayCentrelinePointTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayCentrelinePointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaycentrelinepoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistanceType']">
 <hj:entity>
@@ -3077,6 +3341,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistanceType']//xs:element[@ref='aixm:AbstractRunwayDeclaredDistanceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaydeclareddistance_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistancePropertyType']">
 <hj:entity>
@@ -3100,8 +3367,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistanceValueType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistanceValueType']//xs:element[@ref='aixm:AbstractRunwayDeclaredDistanceValueExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaydeclareddistancevalue_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDeclaredDistanceValuePropertyType']">
 <hj:entity>
@@ -3150,6 +3423,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayDirectionTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayDirectionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaydirection_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayElementPropertyType']">
 <hj:entity>
@@ -3188,6 +3464,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayElementTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwayelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaPropertyType']">
 <hj:entity>
@@ -3226,8 +3505,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayProtectAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwayprotectarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayProtectAreaTimeSliceType']//xs:element[@ref='aixm:AbstractAirportHeliportProtectionAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportprotectionarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayVisualRangePropertyType']">
 <hj:entity>
@@ -3266,6 +3551,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayVisualRangeTimeSliceType']//xs:element[@ref='aixm:AbstractRunwayVisualRangeExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwayvisualrange_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VisualGlideSlopeIndicatorPropertyType']">
 <hj:entity>
@@ -3304,8 +3592,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VisualGlideSlopeIndicatorTimeSliceType']//xs:element[@ref='aixm:AbstractVisualGlideSlopeIndicatorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractvisualglideslopeindicator_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VisualGlideSlopeIndicatorTimeSliceType']//xs:element[@ref='aixm:AbstractGroundLightSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundlightsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FloatingDockSitePropertyType']">
 <hj:entity>
@@ -3344,6 +3638,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FloatingDockSiteTimeSliceType']//xs:element[@ref='aixm:AbstractFloatingDockSiteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfloatingdocksite_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyPropertyType']">
 <hj:entity>
@@ -3382,6 +3679,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkingBuoyTimeSliceType']//xs:element[@ref='aixm:AbstractMarkingBuoyExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarkingbuoy_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SeaplaneLandingAreaPropertyType']">
 <hj:entity>
@@ -3420,6 +3720,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SeaplaneLandingAreaTimeSliceType']//xs:element[@ref='aixm:AbstractSeaplaneLandingAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractseaplanelandingarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SeaplaneRampSitePropertyType']">
 <hj:entity>
@@ -3458,6 +3761,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SeaplaneRampSiteTimeSliceType']//xs:element[@ref='aixm:AbstractSeaplaneRampSiteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractseaplanerampsite_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationType']">
 <hj:entity>
@@ -3471,8 +3777,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationType']//xs:element[@ref='aixm:AbstractAircraftStandContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaircraftstandcontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftStandContaminationPropertyType']">
 <hj:entity>
@@ -3496,8 +3808,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportContaminationType']//xs:element[@ref='aixm:AbstractAirportHeliportContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportheliportcontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportHeliportContaminationPropertyType']">
 <hj:entity>
@@ -3521,8 +3839,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronContaminationType']//xs:element[@ref='aixm:AbstractApronContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaproncontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApronContaminationPropertyType']">
 <hj:entity>
@@ -3546,6 +3870,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RidgeType']//xs:element[@ref='aixm:AbstractRidgeExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractridge_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RidgePropertyType']">
 <hj:entity>
@@ -3569,8 +3896,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayContaminationType']//xs:element[@ref='aixm:AbstractRunwayContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaycontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwayContaminationPropertyType']">
 <hj:entity>
@@ -3594,8 +3927,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwaySectionContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwaySectionContaminationType']//xs:element[@ref='aixm:AbstractRunwaySectionContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrunwaysectioncontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RunwaySectionContaminationPropertyType']">
 <hj:entity>
@@ -3619,6 +3958,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceContaminationPropertyType']//xs:element[@ref='aixm:AbstractSurfaceContamination']">
+<!-- <hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_id" referenced-column-name="hjid" />
+</hj:one-to-one> -->
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceContaminationLayerType']">
 <hj:entity>
@@ -3632,6 +3974,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceContaminationLayerType']//xs:element[@ref='aixm:AbstractSurfaceContaminationLayerExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontaminationlayer_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurfaceContaminationLayerPropertyType']">
 <hj:entity>
@@ -3655,8 +4000,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayContaminationType']//xs:element[@ref='aixm:AbstractTaxiwayContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiwaycontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayContaminationPropertyType']">
 <hj:entity>
@@ -3680,8 +4031,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffContaminationType']//xs:element[@ref='aixm:AbstractSurfaceContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurfacecontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffContaminationType']//xs:element[@ref='aixm:AbstractTouchDownLiftOffContaminationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttouchdownliftoffcontamination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TouchDownLiftOffContaminationPropertyType']">
 <hj:entity>
@@ -3730,6 +4087,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GuidanceLineTimeSliceType']//xs:element[@ref='aixm:AbstractGuidanceLineExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractguidanceline_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionPropertyType']">
 <hj:entity>
@@ -3768,6 +4128,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiHoldingPositionTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiHoldingPositionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiholdingposition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayPropertyType']">
 <hj:entity>
@@ -3806,6 +4169,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiwayExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiway_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayElementPropertyType']">
 <hj:entity>
@@ -3844,6 +4210,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TaxiwayElementTimeSliceType']//xs:element[@ref='aixm:AbstractTaxiwayElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttaxiwayelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspacePropertyType']">
 <hj:entity>
@@ -3882,6 +4251,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceTimeSliceType']//xs:element[@ref='aixm:AbstractAirspaceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspace_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceActivationType']">
 <hj:entity>
@@ -3895,8 +4267,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceActivationType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceActivationType']//xs:element[@ref='aixm:AbstractAirspaceActivationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspaceactivation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceActivationPropertyType']">
 <hj:entity>
@@ -3920,6 +4298,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceGeometryComponentType']//xs:element[@ref='aixm:AbstractAirspaceGeometryComponentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacegeometrycomponent_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceGeometryComponentPropertyType']">
 <hj:entity>
@@ -3943,8 +4324,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceLayerClassType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceLayerClassType']//xs:element[@ref='aixm:AbstractAirspaceLayerClassExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacelayerclass_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceLayerClassPropertyType']">
 <hj:entity>
@@ -3968,6 +4355,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumeType']//xs:element[@ref='aixm:AbstractAirspaceVolumeExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacevolume_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumePropertyType']">
 <hj:entity>
@@ -3991,6 +4381,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumeDependencyType']//xs:element[@ref='aixm:AbstractAirspaceVolumeDependencyExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacevolumedependency_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceVolumeDependencyPropertyType']">
 <hj:entity>
@@ -4039,6 +4432,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForAirspaceTimeSliceType']//xs:element[@ref='aixm:AbstractAuthorityForAirspaceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractauthorityforairspace_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GeoBorderPropertyType']">
 <hj:entity>
@@ -4077,6 +4473,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GeoBorderTimeSliceType']//xs:element[@ref='aixm:AbstractGeoBorderExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgeoborder_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternPropertyType']">
 <hj:entity>
@@ -4115,6 +4514,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternTimeSliceType']//xs:element[@ref='aixm:AbstractHoldingPatternExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractholdingpattern_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternDistanceType']">
 <hj:entity>
@@ -4128,6 +4530,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternDistanceType']//xs:element[@ref='aixm:AbstractHoldingPatternDistanceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractholdingpatterndistance_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternDistancePropertyType']">
 <hj:entity>
@@ -4151,6 +4556,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternDurationType']//xs:element[@ref='aixm:AbstractHoldingPatternDurationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractholdingpatternduration_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingPatternDurationPropertyType']">
 <hj:entity>
@@ -4199,6 +4607,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnplannedHoldingTimeSliceType']//xs:element[@ref='aixm:AbstractUnplannedHoldingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractunplannedholding_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForNavaidEquipmentType']">
 <hj:entity>
@@ -4212,6 +4623,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForNavaidEquipmentType']//xs:element[@ref='aixm:AbstractAuthorityForNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractauthorityfornavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForNavaidEquipmentPropertyType']">
 <hj:entity>
@@ -4235,6 +4649,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForSpecialNavigationStationType']//xs:element[@ref='aixm:AbstractAuthorityForSpecialNavigationStationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractauthorityforspecialnavigationstation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForSpecialNavigationStationPropertyType']">
 <hj:entity>
@@ -4258,6 +4675,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForSpecialNavigationSystemType']//xs:element[@ref='aixm:AbstractAuthorityForSpecialNavigationSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractauthorityforspecialnavigationsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AuthorityForSpecialNavigationSystemPropertyType']">
 <hj:entity>
@@ -4306,8 +4726,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AzimuthTimeSliceType']//xs:element[@ref='aixm:AbstractAzimuthExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractazimuth_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AzimuthTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointINSPropertyType']">
 <hj:entity>
@@ -4346,8 +4772,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointINSTimeSliceType']//xs:element[@ref='aixm:AbstractCheckpointINSExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcheckpointins_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointINSTimeSliceType']//xs:element[@ref='aixm:AbstractNavigationSystemCheckpointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavigationsystemcheckpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointVORPropertyType']">
 <hj:entity>
@@ -4386,8 +4818,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointVORTimeSliceType']//xs:element[@ref='aixm:AbstractCheckpointVORExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcheckpointvor_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CheckpointVORTimeSliceType']//xs:element[@ref='aixm:AbstractNavigationSystemCheckpointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavigationsystemcheckpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectionFinderPropertyType']">
 <hj:entity>
@@ -4426,8 +4864,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectionFinderTimeSliceType']//xs:element[@ref='aixm:AbstractDirectionFinderExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdirectionfinder_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectionFinderTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DMEPropertyType']">
 <hj:entity>
@@ -4466,8 +4910,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DMETimeSliceType']//xs:element[@ref='aixm:AbstractDMEExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdme_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DMETimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ElevationPropertyType']">
 <hj:entity>
@@ -4506,8 +4956,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ElevationTimeSliceType']//xs:element[@ref='aixm:AbstractElevationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractelevation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ElevationTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GlidepathPropertyType']">
 <hj:entity>
@@ -4546,8 +5002,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GlidepathTimeSliceType']//xs:element[@ref='aixm:AbstractGlidepathExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractglidepath_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GlidepathTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LocalizerPropertyType']">
 <hj:entity>
@@ -4586,8 +5048,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LocalizerTimeSliceType']//xs:element[@ref='aixm:AbstractLocalizerExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlocalizer_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LocalizerTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkerBeaconPropertyType']">
 <hj:entity>
@@ -4626,8 +5094,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkerBeaconTimeSliceType']//xs:element[@ref='aixm:AbstractMarkerBeaconExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmarkerbeacon_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MarkerBeaconTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidPropertyType']">
 <hj:entity>
@@ -4666,6 +5140,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaid_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidComponentType']">
 <hj:entity>
@@ -4679,6 +5156,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidComponentType']//xs:element[@ref='aixm:AbstractNavaidComponentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidcomponent_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidComponentPropertyType']">
 <hj:entity>
@@ -4713,8 +5193,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidEquipmentMonitoringType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidEquipmentMonitoringType']//xs:element[@ref='aixm:AbstractNavaidEquipmentMonitoringExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipmentmonitoring_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidEquipmentMonitoringPropertyType']">
 <hj:entity>
@@ -4738,8 +5224,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidOperationalStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidOperationalStatusType']//xs:element[@ref='aixm:AbstractNavaidOperationalStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidoperationalstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavaidOperationalStatusPropertyType']">
 <hj:entity>
@@ -4799,8 +5291,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NDBTimeSliceType']//xs:element[@ref='aixm:AbstractNDBExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractndb_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NDBTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SDFPropertyType']">
 <hj:entity>
@@ -4839,8 +5337,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SDFTimeSliceType']//xs:element[@ref='aixm:AbstractSDFExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsdf_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SDFTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationPropertyType']">
 <hj:entity>
@@ -4879,6 +5383,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationTimeSliceType']//xs:element[@ref='aixm:AbstractSpecialNavigationStationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractspecialnavigationstation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationStatusType']">
 <hj:entity>
@@ -4892,8 +5399,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationStatusType']//xs:element[@ref='aixm:AbstractSpecialNavigationStationStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractspecialnavigationstationstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationStationStatusPropertyType']">
 <hj:entity>
@@ -4942,6 +5455,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialNavigationSystemTimeSliceType']//xs:element[@ref='aixm:AbstractSpecialNavigationSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractspecialnavigationsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TACANPropertyType']">
 <hj:entity>
@@ -4980,8 +5496,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TACANTimeSliceType']//xs:element[@ref='aixm:AbstractTACANExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttacan_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TACANTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VORPropertyType']">
 <hj:entity>
@@ -5020,8 +5542,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VORTimeSliceType']//xs:element[@ref='aixm:AbstractVORExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractvor_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VORTimeSliceType']//xs:element[@ref='aixm:AbstractNavaidEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavaidequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AngleIndicationPropertyType']">
 <hj:entity>
@@ -5060,6 +5588,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AngleIndicationTimeSliceType']//xs:element[@ref='aixm:AbstractAngleIndicationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractangleindication_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AngleUseType']">
 <hj:entity>
@@ -5073,6 +5604,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AngleUseType']//xs:element[@ref='aixm:AbstractAngleUseExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractangleuse_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AngleUsePropertyType']">
 <hj:entity>
@@ -5121,6 +5655,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DistanceIndicationTimeSliceType']//xs:element[@ref='aixm:AbstractDistanceIndicationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdistanceindication_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EnRouteSegmentPointType']">
 <hj:entity>
@@ -5134,8 +5671,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EnRouteSegmentPointType']//xs:element[@ref='aixm:AbstractSegmentPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EnRouteSegmentPointType']//xs:element[@ref='aixm:AbstractEnRouteSegmentPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractenroutesegmentpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EnRouteSegmentPointPropertyType']">
 <hj:entity>
@@ -5159,6 +5702,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PointReferenceType']//xs:element[@ref='aixm:AbstractPointReferenceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpointreference_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PointReferencePropertyType']">
 <hj:entity>
@@ -5182,6 +5728,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SegmentPointPropertyType']//xs:element[@ref='aixm:AbstractSegmentPoint']">
+<!-- <hj:one-to-one>
+<orm:join-column name="abstractsegmentpoint_id" referenced-column-name="hjid" />
+</hj:one-to-one> -->
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalSegmentPointType']">
 <hj:entity>
@@ -5195,8 +5744,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalSegmentPointType']//xs:element[@ref='aixm:AbstractSegmentPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalSegmentPointType']//xs:element[@ref='aixm:AbstractTerminalSegmentPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractterminalsegmentpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalSegmentPointPropertyType']">
 <hj:entity>
@@ -5245,6 +5800,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DesignatedPointTimeSliceType']//xs:element[@ref='aixm:AbstractDesignatedPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdesignatedpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SignificantPointInAirspacePropertyType']">
 <hj:entity>
@@ -5283,6 +5841,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SignificantPointInAirspaceTimeSliceType']//xs:element[@ref='aixm:AbstractSignificantPointInAirspaceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsignificantpointinairspace_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AeronauticalGroundLightPropertyType']">
 <hj:entity>
@@ -5321,6 +5882,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AeronauticalGroundLightTimeSliceType']//xs:element[@ref='aixm:AbstractAeronauticalGroundLightExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaeronauticalgroundlight_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LinguisticNoteType']">
 <hj:entity>
@@ -5334,6 +5898,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LinguisticNoteType']//xs:element[@ref='aixm:AbstractLinguisticNoteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlinguisticnote_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LinguisticNotePropertyType']">
 <hj:entity>
@@ -5357,6 +5924,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NoteType']//xs:element[@ref='aixm:AbstractNoteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnote_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NotePropertyType']">
 <hj:entity>
@@ -5405,6 +5975,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstacleAreaTimeSliceType']//xs:element[@ref='aixm:AbstractObstacleAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractobstaclearea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructurePropertyType']">
 <hj:entity>
@@ -5443,6 +6016,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructureTimeSliceType']//xs:element[@ref='aixm:AbstractVerticalStructureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractverticalstructure_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructureLightingStatusType']">
 <hj:entity>
@@ -5456,8 +6032,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructureLightingStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructureLightingStatusType']//xs:element[@ref='aixm:AbstractVerticalStructureLightingStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractverticalstructurelightingstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructureLightingStatusPropertyType']">
 <hj:entity>
@@ -5481,8 +6063,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructurePartType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructurePartType']//xs:element[@ref='aixm:AbstractVerticalStructurePartExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractverticalstructurepart_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='VerticalStructurePartPropertyType']">
 <hj:entity>
@@ -5531,6 +6119,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OrganisationAuthorityTimeSliceType']//xs:element[@ref='aixm:AbstractOrganisationAuthorityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractorganisationauthority_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OrganisationAuthorityAssociationType']">
 <hj:entity>
@@ -5544,6 +6135,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OrganisationAuthorityAssociationType']//xs:element[@ref='aixm:AbstractOrganisationAuthorityAssociationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractorganisationauthorityassociation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OrganisationAuthorityAssociationPropertyType']">
 <hj:entity>
@@ -5592,6 +6186,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitTimeSliceType']//xs:element[@ref='aixm:AbstractUnitExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractunit_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitAvailabilityType']">
 <hj:entity>
@@ -5605,8 +6202,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitAvailabilityType']//xs:element[@ref='aixm:AbstractUnitAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractunitavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitAvailabilityPropertyType']">
 <hj:entity>
@@ -5630,6 +6233,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitDependencyType']//xs:element[@ref='aixm:AbstractUnitDependencyExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractunitdependency_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='UnitDependencyPropertyType']">
 <hj:entity>
@@ -5653,6 +6259,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachAltitudeTableType']//xs:element[@ref='aixm:AbstractApproachAltitudeTableExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachaltitudetable_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachAltitudeTablePropertyType']">
 <hj:entity>
@@ -5676,6 +6285,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachConditionType']//xs:element[@ref='aixm:AbstractApproachConditionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachcondition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachConditionPropertyType']">
 <hj:entity>
@@ -5699,6 +6311,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachDistanceTableType']//xs:element[@ref='aixm:AbstractApproachDistanceTableExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachdistancetable_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachDistanceTablePropertyType']">
 <hj:entity>
@@ -5722,6 +6337,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachTimingTableType']//xs:element[@ref='aixm:AbstractApproachTimingTableExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachtimingtable_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ApproachTimingTablePropertyType']">
 <hj:entity>
@@ -5745,6 +6363,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalProfileType']//xs:element[@ref='aixm:AbstractFinalProfileExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfinalprofile_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalProfilePropertyType']">
 <hj:entity>
@@ -5793,8 +6414,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InstrumentApproachProcedureTimeSliceType']//xs:element[@ref='aixm:AbstractInstrumentApproachProcedureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractinstrumentapproachprocedure_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InstrumentApproachProcedureTimeSliceType']//xs:element[@ref='aixm:AbstractProcedureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprocedure_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachGroupType']">
 <hj:entity>
@@ -5808,6 +6435,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachGroupType']//xs:element[@ref='aixm:AbstractMissedApproachGroupExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmissedapproachgroup_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachGroupPropertyType']">
 <hj:entity>
@@ -5856,6 +6486,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalArrivalAreaTimeSliceType']//xs:element[@ref='aixm:AbstractTerminalArrivalAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractterminalarrivalarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalArrivalAreaSectorType']">
 <hj:entity>
@@ -5869,6 +6502,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalArrivalAreaSectorType']//xs:element[@ref='aixm:AbstractTerminalArrivalAreaSectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractterminalarrivalareasector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TerminalArrivalAreaSectorPropertyType']">
 <hj:entity>
@@ -5892,6 +6528,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FASDataBlockType']//xs:element[@ref='aixm:AbstractFASDataBlockExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfasdatablock_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FASDataBlockPropertyType']">
 <hj:entity>
@@ -5940,6 +6579,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CirclingAreaTimeSliceType']//xs:element[@ref='aixm:AbstractCirclingAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcirclingarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CirclingRestrictionType']">
 <hj:entity>
@@ -5953,8 +6595,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CirclingRestrictionType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CirclingRestrictionType']//xs:element[@ref='aixm:AbstractCirclingRestrictionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcirclingrestriction_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CirclingRestrictionPropertyType']">
 <hj:entity>
@@ -5978,6 +6626,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EquipmentUnavailableAdjustmentType']//xs:element[@ref='aixm:AbstractEquipmentUnavailableAdjustmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractequipmentunavailableadjustment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EquipmentUnavailableAdjustmentPropertyType']">
 <hj:entity>
@@ -6001,6 +6652,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EquipmentUnavailableAdjustmentColumnType']//xs:element[@ref='aixm:AbstractEquipmentUnavailableAdjustmentColumnExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractequipmentunavailableadjustmentcolumn_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='EquipmentUnavailableAdjustmentColumnPropertyType']">
 <hj:entity>
@@ -6024,6 +6678,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MinimaType']//xs:element[@ref='aixm:AbstractMinimaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractminima_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MinimaPropertyType']">
 <hj:entity>
@@ -6072,8 +6729,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentArrivalTimeSliceType']//xs:element[@ref='aixm:AbstractStandardInstrumentArrivalExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardinstrumentarrival_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentArrivalTimeSliceType']//xs:element[@ref='aixm:AbstractProcedureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprocedure_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureArrivalConditionType']">
 <hj:entity>
@@ -6087,6 +6750,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureArrivalConditionType']//xs:element[@ref='aixm:AbstractDepartureArrivalConditionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdeparturearrivalcondition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureArrivalConditionPropertyType']">
 <hj:entity>
@@ -6135,6 +6801,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaTimeSliceType']//xs:element[@ref='aixm:AbstractNavigationAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavigationarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaSectorType']">
 <hj:entity>
@@ -6148,6 +6817,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaSectorType']//xs:element[@ref='aixm:AbstractNavigationAreaSectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavigationareasector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaSectorPropertyType']">
 <hj:entity>
@@ -6171,6 +6843,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SectorDesignType']//xs:element[@ref='aixm:AbstractSectorDesignExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsectordesign_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SectorDesignPropertyType']">
 <hj:entity>
@@ -6219,8 +6894,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentDepartureTimeSliceType']//xs:element[@ref='aixm:AbstractStandardInstrumentDepartureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardinstrumentdeparture_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardInstrumentDepartureTimeSliceType']//xs:element[@ref='aixm:AbstractProcedureExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprocedure_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaPropertyType']">
 <hj:entity>
@@ -6259,6 +6940,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaTimeSliceType']//xs:element[@ref='aixm:AbstractSafeAltitudeAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsafealtitudearea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaSectorType']">
 <hj:entity>
@@ -6272,6 +6956,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaSectorType']//xs:element[@ref='aixm:AbstractSafeAltitudeAreaSectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsafealtitudeareasector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SafeAltitudeAreaSectorPropertyType']">
 <hj:entity>
@@ -6331,10 +7018,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalFeederLegTimeSliceType']//xs:element[@ref='aixm:AbstractArrivalFeederLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractarrivalfeederleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalFeederLegTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalFeederLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalLegPropertyType']">
 <hj:entity>
@@ -6373,8 +7069,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalLegTimeSliceType']//xs:element[@ref='aixm:AbstractArrivalLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractarrivalleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ArrivalLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureLegPropertyType']">
 <hj:entity>
@@ -6413,8 +7115,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureLegTimeSliceType']//xs:element[@ref='aixm:AbstractDepartureLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdepartureleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DepartureLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalLegPropertyType']">
 <hj:entity>
@@ -6453,10 +7161,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalLegTimeSliceType']//xs:element[@ref='aixm:AbstractFinalLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfinalleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalLegTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FinalLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingUseType']">
 <hj:entity>
@@ -6470,6 +7187,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingUseType']//xs:element[@ref='aixm:AbstractHoldingUseExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractholdinguse_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingUsePropertyType']">
 <hj:entity>
@@ -6518,10 +7238,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InitialLegTimeSliceType']//xs:element[@ref='aixm:AbstractInitialLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractinitialleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InitialLegTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InitialLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='IntermediateLegPropertyType']">
 <hj:entity>
@@ -6560,10 +7289,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='IntermediateLegTimeSliceType']//xs:element[@ref='aixm:AbstractIntermediateLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractintermediateleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='IntermediateLegTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='IntermediateLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LandingTakeoffAreaCollectionType']">
 <hj:entity>
@@ -6577,6 +7315,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LandingTakeoffAreaCollectionType']//xs:element[@ref='aixm:AbstractLandingTakeoffAreaCollectionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlandingtakeoffareacollection_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LandingTakeoffAreaCollectionPropertyType']">
 <hj:entity>
@@ -6625,10 +7366,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachLegTimeSliceType']//xs:element[@ref='aixm:AbstractMissedApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmissedapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachLegTimeSliceType']//xs:element[@ref='aixm:AbstractApproachLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractapproachleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MissedApproachLegTimeSliceType']//xs:element[@ref='aixm:AbstractSegmentLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsegmentleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaRestrictionPropertyType']">
 <hj:entity>
@@ -6667,6 +7417,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NavigationAreaRestrictionTimeSliceType']//xs:element[@ref='aixm:AbstractNavigationAreaRestrictionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnavigationarearestriction_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedurePropertyType']">
 <hj:entity>
@@ -6716,6 +7469,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureDMETimeSliceType']//xs:element[@ref='aixm:AbstractProcedureDMEExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractproceduredme_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureTransitionType']">
 <hj:entity>
@@ -6729,6 +7485,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureTransitionType']//xs:element[@ref='aixm:AbstractProcedureTransitionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractproceduretransition_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureTransitionPropertyType']">
 <hj:entity>
@@ -6752,6 +7511,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureTransitionLegType']//xs:element[@ref='aixm:AbstractProcedureTransitionLegExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractproceduretransitionleg_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureTransitionLegPropertyType']">
 <hj:entity>
@@ -6786,8 +7548,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureAvailabilityType']//xs:element[@ref='aixm:AbstractProcedureAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprocedureavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ProcedureAvailabilityPropertyType']">
 <hj:entity>
@@ -6836,6 +7604,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ChangeOverPointTimeSliceType']//xs:element[@ref='aixm:AbstractChangeOverPointExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractchangeoverpoint_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoutePropertyType']">
 <hj:entity>
@@ -6874,6 +7645,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteTimeSliceType']//xs:element[@ref='aixm:AbstractRouteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractroute_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteAvailabilityType']">
 <hj:entity>
@@ -6887,8 +7661,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteAvailabilityType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteAvailabilityType']//xs:element[@ref='aixm:AbstractRouteAvailabilityExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrouteavailability_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteAvailabilityPropertyType']">
 <hj:entity>
@@ -6937,6 +7717,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteDMETimeSliceType']//xs:element[@ref='aixm:AbstractRouteDMEExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractroutedme_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoutePortionType']">
 <hj:entity>
@@ -6950,6 +7733,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoutePortionType']//xs:element[@ref='aixm:AbstractRoutePortionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrouteportion_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RoutePortionPropertyType']">
 <hj:entity>
@@ -6998,6 +7784,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RouteSegmentTimeSliceType']//xs:element[@ref='aixm:AbstractRouteSegmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractroutesegment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceBorderCrossingPropertyType']">
 <hj:entity>
@@ -7036,6 +7825,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceBorderCrossingTimeSliceType']//xs:element[@ref='aixm:AbstractAirspaceBorderCrossingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacebordercrossing_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AbstractDirectFlightType']">
 <hj:entity>
@@ -7049,6 +7841,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightPropertyType']//xs:element[@ref='aixm:AbstractDirectFlight']">
+<!-- <hj:one-to-one>
+<orm:join-column name="abstractdirectflight_id" referenced-column-name="hjid" />
+</hj:one-to-one> -->
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightClassType']">
 <hj:entity>
@@ -7062,8 +7857,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightClassType']//xs:element[@ref='aixm:AbstractDirectFlightExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdirectflight_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightClassType']//xs:element[@ref='aixm:AbstractDirectFlightClassExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdirectflightclass_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightClassPropertyType']">
 <hj:entity>
@@ -7087,8 +7888,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightSegmentType']//xs:element[@ref='aixm:AbstractDirectFlightExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdirectflight_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightSegmentType']//xs:element[@ref='aixm:AbstractDirectFlightSegmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractdirectflightsegment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='DirectFlightSegmentPropertyType']">
 <hj:entity>
@@ -7112,6 +7919,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionCircumstanceType']//xs:element[@ref='aixm:AbstractFlightConditionCircumstanceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightconditioncircumstance_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionCircumstancePropertyType']">
 <hj:entity>
@@ -7135,8 +7945,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionCombinationType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionCombinationType']//xs:element[@ref='aixm:AbstractFlightConditionCombinationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightconditioncombination_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionCombinationPropertyType']">
 <hj:entity>
@@ -7160,6 +7976,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionElementType']//xs:element[@ref='aixm:AbstractFlightConditionElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightconditionelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightConditionElementPropertyType']">
 <hj:entity>
@@ -7208,6 +8027,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionTimeSliceType']//xs:element[@ref='aixm:AbstractFlightRestrictionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightrestriction_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionLevelType']">
 <hj:entity>
@@ -7221,6 +8043,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionLevelType']//xs:element[@ref='aixm:AbstractFlightRestrictionLevelExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightrestrictionlevel_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionLevelPropertyType']">
 <hj:entity>
@@ -7244,6 +8069,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionRouteType']//xs:element[@ref='aixm:AbstractFlightRestrictionRouteExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightrestrictionroute_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRestrictionRoutePropertyType']">
 <hj:entity>
@@ -7267,6 +8095,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRoutingElementType']//xs:element[@ref='aixm:AbstractFlightRoutingElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightroutingelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightRoutingElementPropertyType']">
 <hj:entity>
@@ -7315,6 +8146,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RulesProceduresTimeSliceType']//xs:element[@ref='aixm:AbstractRulesProceduresExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractrulesprocedures_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftGroundServicePropertyType']">
 <hj:entity>
@@ -7353,10 +8187,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftGroundServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAircraftGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaircraftgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftGroundServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftGroundServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportClearanceServicePropertyType']">
 <hj:entity>
@@ -7395,10 +8238,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportClearanceServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportClearanceServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportclearanceservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportClearanceServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportClearanceServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportGroundServicePropertyType']">
 <hj:entity>
@@ -7448,10 +8300,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportSuppliesServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportSuppliesServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportsuppliesservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportSuppliesServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirportSuppliesServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficControlServicePropertyType']">
 <hj:entity>
@@ -7490,10 +8351,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirTrafficControlServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairtrafficcontrolservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractTrafficSeparationServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttrafficseparationservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficManagementServicePropertyType']">
 <hj:entity>
@@ -7532,8 +8402,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficManagementServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirTrafficManagementServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairtrafficmanagementservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirTrafficManagementServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CallsignDetailType']">
 <hj:entity>
@@ -7547,6 +8423,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CallsignDetailType']//xs:element[@ref='aixm:AbstractCallsignDetailExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcallsigndetail_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CallsignDetailPropertyType']">
 <hj:entity>
@@ -7595,10 +8474,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FireFightingServiceTimeSliceType']//xs:element[@ref='aixm:AbstractFireFightingServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfirefightingservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FireFightingServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FireFightingServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FuelType']">
 <hj:entity>
@@ -7612,6 +8500,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FuelType']//xs:element[@ref='aixm:AbstractFuelExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractfuel_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FuelPropertyType']">
 <hj:entity>
@@ -7660,10 +8551,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractGroundTrafficControlServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractgroundtrafficcontrolservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractTrafficSeparationServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttrafficseparationservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='GroundTrafficControlServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InformationServicePropertyType']">
 <hj:entity>
@@ -7702,8 +8602,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InformationServiceTimeSliceType']//xs:element[@ref='aixm:AbstractInformationServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractinformationservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='InformationServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NitrogenType']">
 <hj:entity>
@@ -7717,6 +8623,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NitrogenType']//xs:element[@ref='aixm:AbstractNitrogenExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractnitrogen_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='NitrogenPropertyType']">
 <hj:entity>
@@ -7740,6 +8649,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OilType']//xs:element[@ref='aixm:AbstractOilExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractoil_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OilPropertyType']">
 <hj:entity>
@@ -7763,6 +8675,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OxygenType']//xs:element[@ref='aixm:AbstractOxygenExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractoxygen_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OxygenPropertyType']">
 <hj:entity>
@@ -7811,10 +8726,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PassengerServiceTimeSliceType']//xs:element[@ref='aixm:AbstractPassengerServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpassengerservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PassengerServiceTimeSliceType']//xs:element[@ref='aixm:AbstractAirportGroundServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairportgroundservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PassengerServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PilotControlledLightingPropertyType']">
 <hj:entity>
@@ -7853,6 +8777,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PilotControlledLightingTimeSliceType']//xs:element[@ref='aixm:AbstractPilotControlledLightingExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpilotcontrolledlighting_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationChannelPropertyType']">
 <hj:entity>
@@ -7891,6 +8818,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationChannelTimeSliceType']//xs:element[@ref='aixm:AbstractRadioCommunicationChannelExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradiocommunicationchannel_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationOperationalStatusType']">
 <hj:entity>
@@ -7904,8 +8834,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationOperationalStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationOperationalStatusType']//xs:element[@ref='aixm:AbstractRadioCommunicationOperationalStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradiocommunicationoperationalstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioCommunicationOperationalStatusPropertyType']">
 <hj:entity>
@@ -7954,8 +8890,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SearchRescueServiceTimeSliceType']//xs:element[@ref='aixm:AbstractSearchRescueServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsearchrescueservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SearchRescueServiceTimeSliceType']//xs:element[@ref='aixm:AbstractServiceExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractservice_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ServicePropertyType']">
 <hj:entity>
@@ -7980,8 +8922,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ServiceOperationalStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ServiceOperationalStatusType']//xs:element[@ref='aixm:AbstractServiceOperationalStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractserviceoperationalstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ServiceOperationalStatusPropertyType']">
 <hj:entity>
@@ -8016,6 +8964,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ContactInformationType']//xs:element[@ref='aixm:AbstractContactInformationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcontactinformation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ContactInformationPropertyType']">
 <hj:entity>
@@ -8039,8 +8990,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OnlineContactType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OnlineContactType']//xs:element[@ref='aixm:AbstractOnlineContactExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractonlinecontact_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='OnlineContactPropertyType']">
 <hj:entity>
@@ -8064,8 +9021,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PostalAddressType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PostalAddressType']//xs:element[@ref='aixm:AbstractPostalAddressExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpostaladdress_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PostalAddressPropertyType']">
 <hj:entity>
@@ -8089,8 +9052,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TelephoneContactType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TelephoneContactType']//xs:element[@ref='aixm:AbstractTelephoneContactExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttelephonecontact_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TelephoneContactPropertyType']">
 <hj:entity>
@@ -8114,6 +9083,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftCharacteristicType']//xs:element[@ref='aixm:AbstractAircraftCharacteristicExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaircraftcharacteristic_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AircraftCharacteristicPropertyType']">
 <hj:entity>
@@ -8137,6 +9109,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightCharacteristicType']//xs:element[@ref='aixm:AbstractFlightCharacteristicExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractflightcharacteristic_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='FlightCharacteristicPropertyType']">
 <hj:entity>
@@ -8160,6 +9135,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceLayerType']//xs:element[@ref='aixm:AbstractAirspaceLayerExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractairspacelayer_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AirspaceLayerPropertyType']">
 <hj:entity>
@@ -8183,6 +9161,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CircleSectorType']//xs:element[@ref='aixm:AbstractCircleSectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractcirclesector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='CircleSectorPropertyType']">
 <hj:entity>
@@ -8206,6 +9187,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightElementType']//xs:element[@ref='aixm:AbstractLightElementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlightelement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightElementPropertyType']">
 <hj:entity>
@@ -8229,8 +9213,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightElementStatusType']//xs:element[@ref='aixm:AbstractPropertiesWithScheduleExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightElementStatusType']//xs:element[@ref='aixm:AbstractLightElementStatusExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractlightelementstatus_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='LightElementStatusPropertyType']">
 <hj:entity>
@@ -8254,6 +9244,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MeteorologyType']//xs:element[@ref='aixm:AbstractMeteorologyExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractmeteorology_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='MeteorologyPropertyType']">
 <hj:entity>
@@ -8302,6 +9295,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadioFrequencyAreaTimeSliceType']//xs:element[@ref='aixm:AbstractRadioFrequencyAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradiofrequencyarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AbstractPropertiesWithScheduleType']">
 <hj:entity>
@@ -8315,6 +9311,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PropertiesWithSchedulePropertyType']//xs:element[@ref='aixm:AbstractPropertiesWithSchedule']">
+<!-- <hj:one-to-one>
+<orm:join-column name="abstractpropertieswithschedule_id" referenced-column-name="hjid" />
+</hj:one-to-one> -->
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialDatePropertyType']">
 <hj:entity>
@@ -8353,6 +9352,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SpecialDateTimeSliceType']//xs:element[@ref='aixm:AbstractSpecialDateExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractspecialdate_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TimesheetType']">
 <hj:entity>
@@ -8366,6 +9368,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TimesheetType']//xs:element[@ref='aixm:AbstractTimesheetExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstracttimesheet_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='TimesheetPropertyType']">
 <hj:entity>
@@ -8389,6 +9394,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelType']//xs:element[@ref='aixm:AbstractStandardLevelExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardlevel_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelPropertyType']">
 <hj:entity>
@@ -8437,6 +9445,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelColumnTimeSliceType']//xs:element[@ref='aixm:AbstractStandardLevelColumnExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardlevelcolumn_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelSectorPropertyType']">
 <hj:entity>
@@ -8475,6 +9486,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelSectorTimeSliceType']//xs:element[@ref='aixm:AbstractStandardLevelSectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardlevelsector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelTablePropertyType']">
 <hj:entity>
@@ -8513,6 +9527,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='StandardLevelTableTimeSliceType']//xs:element[@ref='aixm:AbstractStandardLevelTableExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractstandardleveltable_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltitudeAdjustmentType']">
 <hj:entity>
@@ -8526,6 +9543,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltitudeAdjustmentType']//xs:element[@ref='aixm:AbstractAltitudeAdjustmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractaltitudeadjustment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='AltitudeAdjustmentPropertyType']">
 <hj:entity>
@@ -8574,6 +9594,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='HoldingAssessmentTimeSliceType']//xs:element[@ref='aixm:AbstractHoldingAssessmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractholdingassessment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstacleAssessmentAreaType']">
 <hj:entity>
@@ -8587,6 +9610,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstacleAssessmentAreaType']//xs:element[@ref='aixm:AbstractObstacleAssessmentAreaExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractobstacleassessmentarea_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstacleAssessmentAreaPropertyType']">
 <hj:entity>
@@ -8610,6 +9636,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstaclePlacementType']//xs:element[@ref='aixm:AbstractObstaclePlacementExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractobstacleplacement_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstaclePlacementPropertyType']">
 <hj:entity>
@@ -8633,6 +9662,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstructionType']//xs:element[@ref='aixm:AbstractObstructionExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractobstruction_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ObstructionPropertyType']">
 <hj:entity>
@@ -8681,8 +9713,14 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrecisionApproachRadarTimeSliceType']//xs:element[@ref='aixm:AbstractPrecisionApproachRadarExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprecisionapproachradar_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrecisionApproachRadarTimeSliceType']//xs:element[@ref='aixm:AbstractRadarEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradarequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrimarySurveillanceRadarPropertyType']">
 <hj:entity>
@@ -8721,10 +9759,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrimarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractPrimarySurveillanceRadarExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractprimarysurveillanceradar_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrimarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractSurveillanceRadarExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurveillanceradar_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='PrimarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractRadarEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradarequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadarComponentType']">
 <hj:entity>
@@ -8738,6 +9785,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadarComponentType']//xs:element[@ref='aixm:AbstractRadarComponentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradarcomponent_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadarComponentPropertyType']">
 <hj:entity>
@@ -8797,6 +9847,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='RadarSystemTimeSliceType']//xs:element[@ref='aixm:AbstractRadarSystemExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradarsystem_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ReflectorType']">
 <hj:entity>
@@ -8810,6 +9863,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ReflectorType']//xs:element[@ref='aixm:AbstractReflectorExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractreflector_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='ReflectorPropertyType']">
 <hj:entity>
@@ -8858,10 +9914,19 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SecondarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractSecondarySurveillanceRadarExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsecondarysurveillanceradar_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SecondarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractSurveillanceRadarExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurveillanceradar_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SecondarySurveillanceRadarTimeSliceType']//xs:element[@ref='aixm:AbstractRadarEquipmentExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractradarequipment_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurveillanceGroundStationType']">
 <hj:entity>
@@ -8875,6 +9940,9 @@
 </hj:entity>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurveillanceGroundStationType']//xs:element[@ref='aixm:AbstractSurveillanceGroundStationExtension']">
+<hj:one-to-one>
+<orm:join-column name="abstractsurveillancegroundstation_ext_id" referenced-column-name="hjid" />
+</hj:one-to-one>
 </jaxb:bindings>
 <jaxb:bindings node="//xs:complexType[@name='SurveillanceGroundStationPropertyType']">
 <hj:entity>

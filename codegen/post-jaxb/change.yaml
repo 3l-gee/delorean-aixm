@@ -201,3 +201,63 @@ change:
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
           '@jakarta.persistence.JoinColumn(name = "feature_metadata_id", referencedColumnName = "hjid")'
         ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\SegmentPointPropertyType.java
+      method: getAbstractSegmentPointValue 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "segment_point_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DirectFlightPropertyType.java
+      method: getAbstractDirectFlightValue 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "direct_flight_id", referencedColumnName = "hjid")'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\PropertiesWithSchedulePropertyType.java
+      method: getAbstractPropertiesWithScheduleValue 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "properties_with_schedule_id", referencedColumnName = "hjid")'
+        ]
+        
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\SurfaceContaminationPropertyType.java
+      method: getAbstractSurfaceContaminationValue 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "surface_contamination_id", referencedColumnName = "hjid")'
+        ]
+        
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\UsageConditionPropertyType.java
+      method: getAbstractUsageConditionValue 
+    updates:
+      - old: ManyToOne
+        new: []
+      - old: JoinTable
+        new: [
+          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
+          '@jakarta.persistence.JoinColumn(name = "usage_condition_id", referencedColumnName = "hjid")'
+        ]
