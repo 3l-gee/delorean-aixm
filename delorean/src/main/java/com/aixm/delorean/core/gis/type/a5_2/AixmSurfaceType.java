@@ -27,7 +27,6 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "AixmSurfaceType")
 @Table(name = "aixm_surface", schema = "gml")
 public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface {

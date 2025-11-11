@@ -45,6 +45,7 @@ public class DatabaseBinding<T, X> {
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private DatabaseConfig databaseConfig;
+    private Connection status;
 
     public DatabaseBinding(DatabaseConfig databaseConfig, Class<T> structure, Class<X> featureClass) {
         this.databaseConfig = databaseConfig;
@@ -251,7 +252,7 @@ public class DatabaseBinding<T, X> {
         );
     }
 
-    public <X> void load(Object object, Class<T> clazz, Class<X> featureClass) {
+    public void persist(Object object) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }
@@ -259,76 +260,14 @@ public class DatabaseBinding<T, X> {
         Session session = this.getSession();
         Transaction transaction = null;
 
-        if (object == null || !isMappedClass(object) ){
-            return;
-        }
-
-        // if (!com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType.class.isAssignableFrom(clazz) && !com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType.class.isAssignableFrom(clazz)) {
-        //     ConsoleLogger.log(LogLevel.ERROR, "Unsupported class for loading: " + clazz.getName());
-        //     return;
-        // }
-
         try {
             transaction = session.beginTransaction();
 
-            // 1. Convert to AixmBasicMesage to separet message and memeber
-            AIXMBasicMessageType message = (AIXMBasicMessageType) object;
-            List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
-            message.unsetHasMember();
-
-            // 2. Persite memeberless message
-            session.persist(message); 
-
-            // 3. extract current top timeslice from db (top = last)
-            List<MutationFeatureTimeslice> mutationFeatureTimeslices = this.getTopTimeslice(session, this.databaseConfig.getFeatureSqlList());
-
-            // 4. merge timeslice
-            basicMessageMembers.parallelStream().forEach(bmm -> {
-                try (Session threadSession = this.sessionFactory.openSession()) {
-                    threadSession.beginTransaction();
-
-                    AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
-                    String identifier = abstractFeature.getIdentifier().getValue();
-                    MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
-                        .filter(f -> f.getIdentifier().equals(identifier))
-                        .findFirst()
-                        .orElse(null);
-
-                    DatabaseFunctionHelper.A5_2HandelTimeSlice(bmm, existing, threadSession);
-
-                    threadSession.getTransaction().commit();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-
-            // 5. flush and close original session after persisting message
-            session.flush();
-
-            // 6. Use StatelessSession for manual batch operations
-            StatelessSession statelessSession = this.sessionFactory.openStatelessSession();
-            Transaction statelessTx = statelessSession.beginTransaction();
-
-            try {
-                for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
-                    if (mft != null) {
-                        mft.appplyMutationStateless(statelessSession); // << implement this
-                    }
-                }
-
-                statelessTx.commit();
-                ConsoleLogger.log(LogLevel.INFO, "Successfully loaded");
-            } catch (Exception e) {
-                statelessTx.rollback();
-                e.printStackTrace();
-            } finally {
-                statelessSession.close();
-            }
+            session.persist(object); 
 
             transaction.commit();
-            ConsoleLogger.log(LogLevel.INFO, "Sucessfully loaded");
+            ConsoleLogger.log(LogLevel.INFO, "Sucessfully persisted");
 
-            //TODO : link BasicMessageMemberAIXMPropertyType back to AIXMBasicMessageType, but how do i know to wich one ?
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -338,6 +277,89 @@ public class DatabaseBinding<T, X> {
             session.close();
         }
     }
+
+    // public <X> void persist(Object object, Class<T> clazz, Class<X> featureClass) {
+    //     if (this.sessionFactory == null){
+    //         throw new IllegalArgumentException("sessionfactory is not init");
+    //     }
+
+    //     Session session = this.getSession();
+    //     Transaction transaction = null;
+
+    //     if (object == null || !isMappedClass(object) ){
+    //         return;
+    //     }
+
+    //     try {
+    //         transaction = session.beginTransaction();
+
+    //         // 1. Convert to AixmBasicMesage to separet message and memeber
+    //         AIXMBasicMessageType message = (AIXMBasicMessageType) object;
+    //         List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
+    //         message.unsetHasMember();
+
+    //         // 2. Persite memeberless message
+    //         session.persist(message); 
+
+    //         // 3. extract current top timeslice from db (top = last)
+    //         List<MutationFeatureTimeslice> mutationFeatureTimeslices = this.getTopTimeslice(session, this.databaseConfig.getFeatureSqlList());
+
+    //         // 4. merge timeslice
+    //         basicMessageMembers.parallelStream().forEach(bmm -> {
+    //             try (Session threadSession = this.sessionFactory.openSession()) {
+    //                 threadSession.beginTransaction();
+
+    //                 AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
+    //                 String identifier = abstractFeature.getIdentifier().getValue();
+    //                 MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
+    //                     .filter(f -> f.getIdentifier().equals(identifier))
+    //                     .findFirst()
+    //                     .orElse(null);
+
+    //                 DatabaseFunctionHelper.A5_2HandelTimeSlice(bmm, existing, threadSession);
+
+    //                 threadSession.getTransaction().commit();
+    //             } catch (Exception e) {
+    //                 e.printStackTrace();
+    //             }
+    //         });
+
+    //         // 5. flush and close original session after persisting message
+    //         session.flush();
+
+    //         // 6. Use StatelessSession for manual batch operations
+    //         StatelessSession statelessSession = this.sessionFactory.openStatelessSession();
+    //         Transaction statelessTx = statelessSession.beginTransaction();
+
+    //         try {
+    //             for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
+    //                 if (mft != null) {
+    //                     mft.appplyMutationStateless(statelessSession); // << implement this
+    //                 }
+    //             }
+
+    //             statelessTx.commit();
+    //             ConsoleLogger.log(LogLevel.INFO, "Successfully loaded");
+    //         } catch (Exception e) {
+    //             statelessTx.rollback();
+    //             e.printStackTrace();
+    //         } finally {
+    //             statelessSession.close();
+    //         }
+
+    //         transaction.commit();
+    //         ConsoleLogger.log(LogLevel.INFO, "Sucessfully loaded");
+
+    //         //TODO : link BasicMessageMemberAIXMPropertyType back to AIXMBasicMessageType, but how do i know to wich one ?
+    //     } catch (Exception e) {
+    //         if (transaction != null) {
+    //             transaction.rollback();
+    //         }
+    //         e.printStackTrace();
+    //     } finally {
+    //         session.close();
+    //     }
+    // }
 
     // public Object export(Class<T> structure, Object id) {
     //     ConsoleLogger.log(LogLevel.DEBUG, "Retrieving : " + structure + " with id: " + id, new Exception().getStackTrace()[0]);

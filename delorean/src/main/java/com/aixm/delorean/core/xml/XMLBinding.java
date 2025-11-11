@@ -127,28 +127,26 @@ public class XMLBinding<T, X> {
     }
 
 
-    public T, X unmarshal(String path) {
+    @SuppressWarnings("unchecked")
+    public T unmarshal(String path) {
         try (InputStream xmlStream = new FileInputStream(path)) {
             Object unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
-
+            JAXBElement<?> rootElement;
             if (unmarshalledObject instanceof JAXBElement<?>) {
-                JAXBElement<?> rootElement = (JAXBElement<?>) unmarshalledObject;
-
-                // Check if T is of type AIXM 5.1.1 or 5.2
-                if (com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType.class.isInstance(rootElement.getValue())) {
-                    JAXBElement<com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType> aixm5_1_1Element = (JAXBElement<com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType>) rootElement;
-                    ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixm5_1_1Element.getDeclaredType().getName() + "> / : " + aixm5_1_1Element.getValue().getHasMember().size() + " members");
-                    return (T) rootElement.getValue();
-
-                } else if (com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType.class.isInstance(rootElement.getValue())) {
-                    JAXBElement<com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType> aixm5_2Element = (JAXBElement<com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType>) rootElement;
-                    ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixm5_2Element.getDeclaredType().getName() + "> / " + aixm5_2Element.getValue().getHasMember().size() + " members");
-                    return (T) rootElement.getValue();
-                } else {
-                    ConsoleLogger.log(LogLevel.ERROR, "Unknown AIXM version : " + rootElement.getValue().getClass().getName());
-                }
+                rootElement = (JAXBElement<?>) unmarshalledObject;
             } else {
                 ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
+                return null;
+            }
+
+            JAXBElement<T> aixmElement;
+            if (this.root.isInstance(rootElement.getValue())) {
+                aixmElement = (JAXBElement<T>) rootElement;
+                ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixmElement.getDeclaredType().getName() + ">");
+                return (T) rootElement.getValue();
+
+            } else {
+                ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
             }
 
         } catch (JAXBException e) {
@@ -164,19 +162,16 @@ public class XMLBinding<T, X> {
     }
     
     
-    public void marshal(T record, String path, Class<T> clazz) {
+    public void marshal(T record, String path, Class<T> clazz, QName qName) {
         try (FileOutputStream outputStream = new FileOutputStream(new File(path))) {
-            //TODO for now this is easier
+
             this.marshaller.setSchema(null);
 
-            // Create JAXBElement with the provided class type
-            QName qName = new QName("http://www.aixm.aero/schema/5.1/message", "AIXMBasicMessage");
             JAXBElement<T> rootElement = new JAXBElement<>(qName, clazz, record);
 
-            // Marshal the JAXBElement to the output stream
             this.marshaller.marshal(rootElement, outputStream); 
 
-            ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled");
+            ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + "> to " + path);
 
         } catch (Exception e) {
             e.printStackTrace();

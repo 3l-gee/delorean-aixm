@@ -27,7 +27,6 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "DeloreanCurveType")
 @Table(name = "aixm_curve", schema = "gml")
 public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve {

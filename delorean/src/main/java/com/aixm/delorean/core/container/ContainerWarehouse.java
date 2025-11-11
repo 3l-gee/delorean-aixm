@@ -7,7 +7,7 @@ import java.util.Set;
 import com.aixm.delorean.core.util.Util;
 
 public class ContainerWarehouse {
-    private Map<String, AbstractContainer> containers;
+    private Map<String, Container> containers;
     private String lastContainerId; 
 
     public ContainerWarehouse() {
@@ -15,14 +15,14 @@ public class ContainerWarehouse {
         lastContainerId = null; 
     }
 
-    public void addContainer(AbstractContainer container) {
+    public void addContainer(Container container) {
         String id = Util.generateId();
 
         containers.put(id, container);
         lastContainerId = id;
     }
 
-    public void replaceContainer(String id, AbstractContainer container) {
+    public void replaceContainer(String id, Container container) {
         containers.put(id, container);
         lastContainerId = id; 
     }
@@ -32,7 +32,7 @@ public class ContainerWarehouse {
         lastContainerId = id; 
     }
 
-    public AbstractContainer getContainer(String id) {
+    public Container getContainer(String id) {
         lastContainerId = id; 
         return containers.get(id);
     }
@@ -45,7 +45,7 @@ public class ContainerWarehouse {
         return lastContainerId;
     }
 
-    public AbstractContainer getLastContainer() {
+    public Container getLastContainer() {
         return containers.get(lastContainerId);
     }
 }

@@ -30,7 +30,6 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "AixmElevatedPointType")
 @Table(name = "aixm_elevated_point", schema = "gml")
 public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point {

@@ -15,7 +15,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "GmlSurfaceType")
 @Table(name = "surface", schema = "gml")
 public class GmlSurfaceType extends com.aixm.delorean.core.gis.type.Surface {

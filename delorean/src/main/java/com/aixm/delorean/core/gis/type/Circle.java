@@ -1,5 +1,6 @@
 package com.aixm.delorean.core.gis.type;
 
+import jakarta.persistence.Access;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -7,14 +8,17 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
-
+@Access(jakarta.persistence.AccessType.PROPERTY)
+@Entity(name = "Circle")
+@Table(name = "circle", schema = "gml")
 public class Circle extends Segment {
     
     protected GmlPointType gmlPoint;

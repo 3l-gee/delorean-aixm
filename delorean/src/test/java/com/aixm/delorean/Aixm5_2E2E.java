@@ -59,8 +59,7 @@ public class Aixm5_2E2E {
         StructureConfig strctConfig = StructureConfig.AIXM_5_2;
 
         // do
-        XMLBinding<?> binding = new XMLBinding<>(xmlConfig, app.containerWarehouse.getContainer(containerID).getRoot());
-        app.containerWarehouse.getContainer(containerID).setXmlBinding(binding);
+        app.containerWarehouse.getContainer(containerID).setXmlBinding(xmlConfig);
 
         // check that
         // the generated jaxb marshaller is of the right structure
@@ -99,10 +98,9 @@ public class Aixm5_2E2E {
 
         // given
         DatabaseConfig dbConfig = DatabaseConfig.A5_2;
-        DatabaseBinding dbBinding = new DatabaseBinding(dbConfig);
 
         // do
-        app.containerWarehouse.getContainer(containerID).setDatabaseBinding(dbBinding);
+        app.containerWarehouse.getContainer(containerID).setDatabaseBinding(dbConfig);
         app.containerWarehouse.getContainer(containerID).databaseBinding.setUrl("jdbc:postgresql://localhost:5432/aixm_5_2");
         app.containerWarehouse.getContainer(containerID).databaseBinding.setUsername("postgres");
         app.containerWarehouse.getContainer(containerID).databaseBinding.setPassword("postgres");
@@ -131,7 +129,7 @@ public class Aixm5_2E2E {
     void DatabaseLoad() {
 
         // do
-        app.containerWarehouse.getContainer(containerID).loadDB();
+        app.containerWarehouse.getContainer(containerID).persist();
 
         // check that 
     }

@@ -212,8 +212,7 @@ public class Main {
         try {
             if (this.containerWarehouse.getIds().contains(argument)) {
                 xmlConfig = XMLConfig.fromString(parameter);
-                XMLBinding xmlBinding = new XMLBinding(xmlConfig, this.containerWarehouse.getContainer(argument).getRoot());
-                this.containerWarehouse.getContainer(argument).setXmlBinding(xmlBinding);
+                this.containerWarehouse.getContainer(argument).setXmlBinding(xmlConfig);
             } else {
                 System.err.println("Container " + argument + " does not exist or parameter is missing");
             }
@@ -262,12 +261,7 @@ public class Main {
 
         if (this.containerWarehouse.getIds().contains(argument)) {
             DatabaseConfig databaseConfiguration = DatabaseConfig.fromString(parameter);
-            try{
-                DatabaseBinding dbBinding = new DatabaseBinding(databaseConfiguration);
-                this.containerWarehouse.getContainer(argument).setDatabaseBinding(dbBinding);
-            } catch (IllegalArgumentException e) {
-                System.err.println("Invalid argument: " + e.getMessage());
-            }
+            this.containerWarehouse.getContainer(argument).setDatabaseBinding(databaseConfiguration);
 
             Console console = System.console();
             try {
@@ -362,15 +356,15 @@ public class Main {
         if (this.containerWarehouse.getIds().contains(argument)) {
             switch (parameter.toLowerCase()) {
                 case "startup":
-                    this.containerWarehouse.getContainer(argument).databaseBinding.startup();
+                    this.containerWarehouse.getContainer(argument).startDatabaseConnection();
                     break;
                 
                 case "shutdown":
-                    this.containerWarehouse.getContainer(argument).databaseBinding.shutdown();
+                    this.containerWarehouse.getContainer(argument).shutdownDatabaseConnection();
                     break;
 
                 case "load":
-                    this.containerWarehouse.getContainer(argument).loadDB();
+                    this.containerWarehouse.getContainer(argument).persist();
                     break; 
 
                 case "compute":
@@ -378,7 +372,7 @@ public class Main {
                     break; 
                     
                 case "export":
-                    this.containerWarehouse.getContainer(argument).exportDB(option);
+                    this.containerWarehouse.getContainer(argument).extract(option);
                     break;
 
                 default:

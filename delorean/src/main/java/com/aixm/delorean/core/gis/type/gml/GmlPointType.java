@@ -15,7 +15,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "GmlPointType")
 @Table(name = "point", schema = "gml")
 public class GmlPointType extends com.aixm.delorean.core.gis.type.Point {

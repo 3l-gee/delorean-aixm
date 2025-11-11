@@ -27,7 +27,6 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "AixmPointType")
 @Table(name = "aixm_point", schema = "gml")
 public class AixmPointType extends com.aixm.delorean.core.gis.type.Point {

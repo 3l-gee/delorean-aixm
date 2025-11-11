@@ -3,6 +3,7 @@ package com.aixm.delorean.core.container;
 import com.aixm.delorean.core.xml.XMLBinding;
 import com.aixm.delorean.core.xml.XMLConfig;
 import com.aixm.delorean.core.database.DatabaseBinding;
+import com.aixm.delorean.core.database.DatabaseConfig;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.qgis.QgisProjectBinding;
@@ -10,23 +11,26 @@ import com.aixm.delorean.core.qgis.QgisProjectBinding;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import javax.xml.namespace.QName;
+
 import org.hibernate.Session;
 
-public abstract class AbstractContainer<T, X> {
-
+public class Container<T, X> {
+    private final QName qName;
     private final Class<T> root;
     private final Class<X> feature;
     private T message;
     private MessageType messageType;
-    public XMLBinding xmlBinding;
-    public DatabaseBinding databaseBinding;
+    public XMLBinding<T, X> xmlBinding;
+    public DatabaseBinding<T, X> databaseBinding;
     private QgisProjectBinding publisherPRJ;
     private QgisProjectBinding editorPRJ;
     
 
-    public AbstractContainer(Class<T> rootClass, Class<X> featureClass) {
+    public Container(Class<T> rootClass, Class<X> featureClass, QName qName) {
         this.root = rootClass;
         this.feature = featureClass;
+        this.qName = qName;
     }
 
     public T getMessage() {
@@ -37,19 +41,19 @@ public abstract class AbstractContainer<T, X> {
         return this.root;
     }
 
-    public void setXmlBinding(XMLBinding xmlBinding) {
-        this.xmlBinding = xmlBinding;
+    public void setXmlBinding(XMLConfig xmlConfig) {
+        this.xmlBinding = new XMLBinding<T, X>(xmlConfig, this.root, this.feature);
     }
 
-    public XMLBinding getXmlBinding() {
+    public XMLBinding<T, X> getXmlBinding() {
         return this.xmlBinding;
     }
 
-    public void setDatabaseBinding(DatabaseBinding databaseBinding) {
-        this.databaseBinding = databaseBinding;
+    public void setDatabaseBinding(DatabaseConfig databaseConfig) {
+        this.databaseBinding = new DatabaseBinding<T, X>(databaseConfig, this.root, this.feature);
     }
 
-    public DatabaseBinding getDatabaseBinding() {
+    public DatabaseBinding<T, X> getDatabaseBinding() {
         return this.databaseBinding;
     }
 
@@ -73,18 +77,58 @@ public abstract class AbstractContainer<T, X> {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        this.message = (T) this.xmlBinding.unmarshal(path, this.root);
+        this.message = (T) this.xmlBinding.unmarshal(path);
     }
 
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        this.xmlBinding.marshal(this.message, path, this.root);
+        this.xmlBinding.marshal(this.message, path, this.root, this.qName);
+    }
+
+    public void startDatabaseConnection() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }
+        this.databaseBinding.startup();
+    }
+
+    public void shutdownDatabaseConnection() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }
+        this.databaseBinding.shutdown();
     }
 
     public void show() {
         recursiveShow(this.message.getClass(), this.message); 
+    }
+
+    public void persist() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }
+        this.databaseBinding.persist(this.message);
+        
+        // if (this.getEditorProject() != null) {
+        // }
+
+        // if (this.getPublisherProject() != null) {
+        //     Session session = this.databaseBinding.getSession();
+        //     String userName = this.databaseBinding.getUserName();
+        //     this.publisherPRJ.loadProject(session, userName);
+        //     ConsoleLogger.log(LogLevel.INFO, "AIXM and project successfully loaded");
+        // } else {
+        //     ConsoleLogger.log(LogLevel.INFO, "AIXM successfully loaded");
+        // }
+    }
+
+    public void extract(Object id) {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }   
+        // this.record = (T) this.databaseBinding.export(structure, id);
     }
 
     public void initQGIS(){
@@ -96,31 +140,7 @@ public abstract class AbstractContainer<T, X> {
         ConsoleLogger.log(LogLevel.INFO, "QGIS project successfully initialized.");
     }
 
-    public void loadDB() {
-        if (this.databaseBinding == null) {
-            throw new RuntimeException("DatabaseBinding is not set");
-        }
-        this.databaseBinding.load(this.message, this.root, null);
-        
-        if (this.getEditorProject() != null) {
-        }
 
-        if (this.getPublisherProject() != null) {
-            Session session = this.databaseBinding.getSession();
-            String userName = this.databaseBinding.getUserName();
-            this.publisherPRJ.loadProject(session, userName);
-            ConsoleLogger.log(LogLevel.INFO, "AIXM and project successfully loaded");
-        } else {
-            ConsoleLogger.log(LogLevel.INFO, "AIXM successfully loaded");
-        }
-    }
-
-    public void exportDB(Object id) {
-        if (this.databaseBinding == null) {
-            throw new RuntimeException("DatabaseBinding is not set");
-        }   
-        // this.record = (T) this.databaseBinding.export(structure, id);
-    }
 
     //TODO this should be cleaned up in untility function or deleted
     private void recursiveShow(Class<?> clazz, Object instance) {

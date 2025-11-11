@@ -6,12 +6,12 @@ Delorean-AIXM offers an open-source solution for managing AIXM aeronautical info
 mindmap
     root((Delorean))
         xml
-            load
-            export
+            unmarshal
+            marshal
             validate
         postgres
-            load
-            export
+            persist
+            extract
             view
         filter
             feature

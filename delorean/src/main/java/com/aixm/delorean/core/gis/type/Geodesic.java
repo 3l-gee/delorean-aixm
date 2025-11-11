@@ -1,5 +1,6 @@
 package com.aixm.delorean.core.gis.type;
 
+import jakarta.persistence.Access;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
+@Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Geodesic")
 @Table(name = "geodesic", schema = "gml")
 public class Geodesic extends Segment {

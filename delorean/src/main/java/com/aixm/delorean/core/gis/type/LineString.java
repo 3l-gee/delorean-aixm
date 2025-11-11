@@ -6,6 +6,7 @@ import java.util.List;
 import com.aixm.delorean.core.gis.type.components.PosList;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
+import jakarta.persistence.Access;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,6 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
+@Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "LineString")
 @Table(name = "linestring", schema = "gml")
 public class LineString extends Segment {

@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
-@Access(AccessType.PROPERTY)
 @Entity(name = "GmlCurveType")
 @Table(name = "curve", schema = "gml")
 public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve {

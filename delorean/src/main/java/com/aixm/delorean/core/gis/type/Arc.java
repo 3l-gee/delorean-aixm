@@ -1,5 +1,6 @@
 package com.aixm.delorean.core.gis.type;
 
+import jakarta.persistence.Access;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -10,13 +11,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.aixm.delorean.core.gis.type.components.AngleType;
 import com.aixm.delorean.core.gis.type.components.DistanceType;
 import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
+@Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Arc")
 @Table(name = "arc", schema = "gml")
 public class Arc extends Segment {
