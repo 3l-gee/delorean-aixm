@@ -59,7 +59,7 @@ public class RingGmlHelper {
             } else if (curve.getAbstractCurve().getValue().getClass() == OrientableCurveType.class) {
                 throw new IllegalArgumentException("Delorean does not (yet) support OrientableCurveType.");
 
-            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class) {
+            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.CurveType.class || curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_1_1.aixm.CurveType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:CurveType> in <gml:RingType>. <aixm:CurveType> will be converted to <gml:CurveType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
@@ -67,7 +67,7 @@ public class RingGmlHelper {
                 parsed.setGeometricType(GeometricType.GML);
                 result.getGmlCurve().add(parsed);
 
-            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType.class) {
+            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_2.aixm.ElevatedCurveType.class || curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.schema.a5_1_1.aixm.ElevatedCurveType.class) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <aixm:ElevatedCurveType> in <gml:RingType>. <aixm:ElevatedCurveType> will be converted to <gml:CurveType>.");
                 com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);

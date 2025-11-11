@@ -38,10 +38,7 @@ public class Main {
                     break;
             }
         }
-
-        if (mainInstance.testOption) {
-            mainInstance.testRun();
-        }             
+         
         mainInstance.run();
     }
 
@@ -90,71 +87,6 @@ public class Main {
         }
 
         scanner.close();
-    }
-
-    private void testRun() {
-        Scanner scanner = new Scanner(System.in);
-        ConsoleLogger.log(LogLevel.INFO, "new a5_2");
-        executeNewCommand("a5_2", scanner,  "", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml_config - a5_1");
-        // excuteXmlConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner, "a5_1", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml - load src/test/xml/a5_1_1/gis/GMLpoint.xml");
-        // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), "load", "src/test/xml/a5_1_1/gis/GMLpoint.xml");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml - load src/test/xml/a5_1_1/gis/GMLCurve.xml");
-        // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), scanner, "load", "src/test/xml/a5_1_1/gis/GMLCurve.xml");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml - load src/test/xml/a5_1_1/gis/GMLSurface.xml");
-        // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), "load", "src/test/xml/a5_1_1/gis/GMLSurface.xml");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml - export src/main/resources/importExport.xml");
-        // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"export", "src/main/resources/export.xml");
-
-        // ConsoleLogger.log(LogLevel.INFO, "qgig_config - a5_1");
-        // executeQgisConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_1", "");
-        
-        ConsoleLogger.log(LogLevel.INFO, "db_config - a5_2");
-        executeDbConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_2", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "qgig_config - init");
-        // executeQgisActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"init", "");
-
-        ConsoleLogger.log(LogLevel.INFO, "db - startup");
-        executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"startup", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "db - load");
-        // executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"load", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "new a5_1_1");
-        // executeNewCommand("a5_1_1", scanner, "", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml_config - a5_1_1");
-        // excuteXmlConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner, "a5_1_1", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "db_config - a5_1_1");
-        // executeDbConfigurationCommand(this.containerWarehouse.getLastContainerId(), scanner,"a5_1_1", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "db - startup");
-        // executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"startup", "");
-
-        // ConsoleLogger.log(LogLevel.INFO, "db - export 1");
-        // executeDbActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"retrieve", "1");
-
-        // ConsoleLogger.log(LogLevel.INFO, "xml - export src/main/resources/test.xml");
-        // executeXmlActionCommand(this.containerWarehouse.getLastContainerId(), scanner,"export", "src/main/resources/retrive.xml");
-
-        // logger.log(LogLevel.INFO, "Exiting...");
-
-        // logger.log(LogLevel.INFO, "new house");
-        // executeNewCommand("house");
-
-        // logger.log(LogLevel.INFO, "db_config - house");
-        // executeDbConfigurationCommand(this.containerWarehouse.getLastContainerId(),"house", "");
-
-        // logger.log(LogLevel.INFO, "db - startup");
-        // executeDbActionCommand(this.containerWarehouse.getLastContainerId(),"startup", "");
     }
 
     private void executeCommand(String command, Scanner scanner) {
@@ -263,7 +195,7 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.err.println("Invalid argument: " + e.getMessage());
         } finally {
-            ConsoleLogger.log(LogLevel.INFO, "New container: " + this.containerWarehouse.getLastContainerId());
+            ConsoleLogger.log(LogLevel.INFO, "New container: <" + this.containerWarehouse.getLastContainerId() + ">");
         }
     }
 
@@ -275,10 +207,12 @@ public class Main {
         if (parameter == null) {
             throw new IllegalArgumentException("parameter is null");
         }
+        
+        XMLConfig xmlConfig = null;
         try {
             if (this.containerWarehouse.getIds().contains(argument)) {
-                XMLConfig xmlConfig = XMLConfig.fromString(parameter);
-                XMLBinding xmlBinding = new XMLBinding(xmlConfig, this.containerWarehouse.getContainer(argument).getStructure());
+                xmlConfig = XMLConfig.fromString(parameter);
+                XMLBinding xmlBinding = new XMLBinding(xmlConfig, this.containerWarehouse.getContainer(argument).getRoot());
                 this.containerWarehouse.getContainer(argument).setXmlBinding(xmlBinding);
             } else {
                 System.err.println("Container " + argument + " does not exist or parameter is missing");
@@ -286,7 +220,7 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.err.println("Invalid argument: " + e.getMessage());
         } finally {
-            ConsoleLogger.log(LogLevel.INFO, "XML configuration set");
+            ConsoleLogger.log(LogLevel.INFO, "XML configuration set : <" + this.containerWarehouse.getContainer(argument).getXmlBinding().getVersion() + ">");
         }
     }
 
@@ -330,7 +264,7 @@ public class Main {
             DatabaseConfig databaseConfiguration = DatabaseConfig.fromString(parameter);
             try{
                 DatabaseBinding dbBinding = new DatabaseBinding(databaseConfiguration);
-                this.containerWarehouse.getContainer(argument).setDbBiding(dbBinding);
+                this.containerWarehouse.getContainer(argument).setDatabaseBinding(dbBinding);
             } catch (IllegalArgumentException e) {
                 System.err.println("Invalid argument: " + e.getMessage());
             }

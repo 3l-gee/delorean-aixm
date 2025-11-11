@@ -7,15 +7,23 @@ public final class ContainerFactory {
         // Private constructor to prevent instantiation
     }
 
-    public static Container createContainer(StructureConfig structure) {
+    public static AbstractContainer createContainer(StructureConfig structure) {
         Class<?> structureClass = null;
         try {
             structureClass = Class.forName(structure.getStructure());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw new IllegalArgumentException("Invalid structure class: " + structure.getStructure(), e);
         }
 
-        return new Container(structureClass);
+        if (structureClass == com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType.class) {
+
+            return new Aixm5_1_1Container();
+        } else if (structureClass == com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType.class) {
+
+            return new Aixm5_2Container();
+        } else {
+            throw new IllegalArgumentException("Unsupported container type: " + structureClass.getName());
+        }
     }
        
 }

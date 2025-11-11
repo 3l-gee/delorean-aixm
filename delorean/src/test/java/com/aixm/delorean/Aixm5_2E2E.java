@@ -47,7 +47,7 @@ public class Aixm5_2E2E {
         assertThat(app.containerWarehouse.getIds()).contains(containerID);
 
         // the container is of the right structure
-        assertThat(app.containerWarehouse.getContainer(containerID).getStructure()).isEqualTo(AIXMBasicMessageType.class);
+        assertThat(app.containerWarehouse.getContainer(containerID).getRoot()).isEqualTo(AIXMBasicMessageType.class);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class Aixm5_2E2E {
         StructureConfig strctConfig = StructureConfig.AIXM_5_2;
 
         // do
-        XMLBinding<?> binding = new XMLBinding<>(xmlConfig, app.containerWarehouse.getContainer(containerID).getStructure());
+        XMLBinding<?> binding = new XMLBinding<>(xmlConfig, app.containerWarehouse.getContainer(containerID).getRoot());
         app.containerWarehouse.getContainer(containerID).setXmlBinding(binding);
 
         // check that
@@ -102,7 +102,7 @@ public class Aixm5_2E2E {
         DatabaseBinding dbBinding = new DatabaseBinding(dbConfig);
 
         // do
-        app.containerWarehouse.getContainer(containerID).setDbBiding(dbBinding);
+        app.containerWarehouse.getContainer(containerID).setDatabaseBinding(dbBinding);
         app.containerWarehouse.getContainer(containerID).databaseBinding.setUrl("jdbc:postgresql://localhost:5432/aixm_5_2");
         app.containerWarehouse.getContainer(containerID).databaseBinding.setUsername("postgres");
         app.containerWarehouse.getContainer(containerID).databaseBinding.setPassword("postgres");

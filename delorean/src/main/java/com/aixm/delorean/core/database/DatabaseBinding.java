@@ -4,6 +4,7 @@ import org.hibernate.FlushMode;
 import org.hibernate.Session;
 import org.hibernate.Filter;
 import org.hibernate.query.Query;
+import org.locationtech.jts.awt.PointShapeFactory.X;
 import org.hibernate.SessionFactory;
 import org.hibernate.StatelessSession;
 import org.hibernate.cfg.Configuration;
@@ -11,9 +12,9 @@ import org.hibernate.cfg.Configuration;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 // import com.aixm.delorean.core.org.gml.v_3_2.ArcStringType;
-import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
-import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMFeatureType;
+import com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType;
+import com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.schema.a5_1_1.aixm.AbstractAIXMFeatureType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMEType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSlicePropertyType;
 import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
@@ -38,16 +39,20 @@ import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Set;
 
-public class DatabaseBinding<T> {
+public class DatabaseBinding<T, X> {
+    private final Class<T> root;
+    private final Class<X> feature;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private DatabaseConfig databaseConfig;
 
-    public DatabaseBinding(DatabaseConfig databaseConfig){
+    public DatabaseBinding(DatabaseConfig databaseConfig, Class<T> structure, Class<X> featureClass) {
         this.databaseConfig = databaseConfig;
         Configuration configuration = databaseConfig.getConfiguration();
         this.configuration = configuration;
         this.sessionFactory = null;
+        this.root = structure;
+        this.feature = featureClass;
     }
     
     public void setUrl(String url){
@@ -144,10 +149,10 @@ public class DatabaseBinding<T> {
                 default:
                     throw new IllegalArgumentException("Unknown hbm2ddl.auto value: " + hbm2ddl);
             }
-            ConsoleLogger.log(LogLevel.INFO, "Successfully initialized Hibernate session factory");
+            ConsoleLogger.log(LogLevel.INFO, "Successfully initialized Hibernate session factory <" + this.getUrl() + ">");
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Failed during startup", e);
-            throw new RuntimeException("Startup failed", e);
+            ConsoleLogger.log(LogLevel.ERROR, "Error initializing Hibernate session factory", e);
+
         }
     }
 
@@ -183,7 +188,7 @@ public class DatabaseBinding<T> {
 
     public void shutdown(){
         this.sessionFactory.close();
-        ConsoleLogger.log(LogLevel.INFO, "Successfully close connection");
+        ConsoleLogger.log(LogLevel.INFO, "Successfully close connection <" + this.getUrl() + ">");
     }
 
     private List<MutationFeatureTimeslice> getTopTimeslice(Session session, List<String> nameList){
@@ -246,7 +251,7 @@ public class DatabaseBinding<T> {
         );
     }
 
-    public void load(Object object){
+    public <X> void load(Object object, Class<T> clazz, Class<X> featureClass) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }
@@ -257,6 +262,11 @@ public class DatabaseBinding<T> {
         if (object == null || !isMappedClass(object) ){
             return;
         }
+
+        // if (!com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType.class.isAssignableFrom(clazz) && !com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType.class.isAssignableFrom(clazz)) {
+        //     ConsoleLogger.log(LogLevel.ERROR, "Unsupported class for loading: " + clazz.getName());
+        //     return;
+        // }
 
         try {
             transaction = session.beginTransaction();

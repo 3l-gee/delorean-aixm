@@ -23,19 +23,23 @@ import jakarta.xml.bind.ValidationEvent;
 import jakarta.xml.bind.ValidationEventHandler;
 import jakarta.xml.bind.ValidationEventLocator;
 
-public class XMLBinding<T> {
+public class XMLBinding<T, X> {
+    private final String version;
+    private final Class<T> root;
+    private final Class<X> feature;
     private JAXBContext context;
-    private final Class<T> structure;
     private Unmarshaller unmarshaller;
     private Marshaller marshaller;
     private SchemaFactory schemaFactory;
     private Schema schema;
 
-    public XMLBinding(XMLConfig xmlConfig, Class<T> structure) {
+    public XMLBinding(XMLConfig xmlConfig, Class<T> root, Class<X> feature) {
+        this.version = xmlConfig.getVersion();
         this.schema = xmlConfig.getSchema();
-        this.structure = structure;
+        this.root = root;
+        this.feature = feature;
         try {
-            this.context = JAXBContext.newInstance(structure);
+            this.context = JAXBContext.newInstance(root);
             this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             this.unmarshaller = this.context.createUnmarshaller();
             // this.unmarshaller.setSchema(schema);
@@ -49,7 +53,11 @@ public class XMLBinding<T> {
         }
     }
 
-    public Unmarshaller getUnMarshaller() {
+    public String getVersion() {
+        return this.version;
+    }
+
+    public Unmarshaller getUnmarshaller() {
         return this.unmarshaller;
     }
 
@@ -119,35 +127,43 @@ public class XMLBinding<T> {
     }
 
 
-    public T unmarshal(String path) {
+    public T, X unmarshal(String path) {
         try (InputStream xmlStream = new FileInputStream(path)) {
             Object unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
 
             if (unmarshalledObject instanceof JAXBElement<?>) {
-                JAXBElement<T> rootElement = (JAXBElement<T>) unmarshalledObject;
-                ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled");
-                return rootElement.getValue();
+                JAXBElement<?> rootElement = (JAXBElement<?>) unmarshalledObject;
+
+                // Check if T is of type AIXM 5.1.1 or 5.2
+                if (com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType.class.isInstance(rootElement.getValue())) {
+                    JAXBElement<com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType> aixm5_1_1Element = (JAXBElement<com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType>) rootElement;
+                    ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixm5_1_1Element.getDeclaredType().getName() + "> / : " + aixm5_1_1Element.getValue().getHasMember().size() + " members");
+                    return (T) rootElement.getValue();
+
+                } else if (com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType.class.isInstance(rootElement.getValue())) {
+                    JAXBElement<com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType> aixm5_2Element = (JAXBElement<com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType>) rootElement;
+                    ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixm5_2Element.getDeclaredType().getName() + "> / " + aixm5_2Element.getValue().getHasMember().size() + " members");
+                    return (T) rootElement.getValue();
+                } else {
+                    ConsoleLogger.log(LogLevel.ERROR, "Unknown AIXM version : " + rootElement.getValue().getClass().getName());
+                }
             } else {
-                ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled");
-                return (T) unmarshalledObject;
+                ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
             }
+
         } catch (JAXBException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled");
-            System.err.println("JAXBException while unmarshalling");
+            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during unmarshalling");
             e.printStackTrace();
-            if (e.getLinkedException() != null) {
-                System.err.println("Linked Exception:");
-                e.getLinkedException().printStackTrace(System.err);
-            }
+
         } catch (Exception e) {
-            System.err.println("General exception during unmarshalling");
+            ConsoleLogger.log(LogLevel.ERROR, "General exception during unmarshalling");
             e.printStackTrace();
         }
 
         return null;
     }
     
-
+    
     public void marshal(T record, String path, Class<T> clazz) {
         try (FileOutputStream outputStream = new FileOutputStream(new File(path))) {
             //TODO for now this is easier
