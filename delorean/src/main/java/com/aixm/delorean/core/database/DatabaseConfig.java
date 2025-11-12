@@ -939,7 +939,7 @@ public enum DatabaseConfig {
             com.aixm.delorean.core.gis.type.LineString.class,
             com.aixm.delorean.core.gis.type.Ring.class,
             com.aixm.delorean.core.gis.type.Circle.class,
-            com.aixm.delorean.core.gis.type.Segment.class,
+            // com.aixm.delorean.core.gis.type.Segment.class,
             com.aixm.delorean.core.schema.a5_1_1.aixm.AIXMPointPropertyType.class,
             com.aixm.delorean.core.schema.a5_1_1.aixm.AIXMElevatedPointPropertyType.class,
             com.aixm.delorean.core.schema.a5_1_1.aixm.ElevatedPointTypeExtension.class,
@@ -2389,7 +2389,7 @@ public enum DatabaseConfig {
         configuration.setProperty("hibernate.show_sql", "true");
         configuration.setProperty("hibernate.format_sql", "true");  
         configuration.setProperty("hibernate.generate_statistics", "true");  
-        configuration.setProperty("hibernate.use_sql_comments", "false");
+        configuration.setProperty("hibernate.use_sql_comments", "true");
         configuration.setProperty("hibernate.highlight_sql", "true");
 
         // Set Hibernate batching

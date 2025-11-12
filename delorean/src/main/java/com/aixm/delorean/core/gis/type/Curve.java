@@ -34,12 +34,10 @@ public class Curve extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToMany(targetEntity = Segment.class, cascade = {
-    CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "curve_id")
     public List<Segment> getSegments() {
-        if (segments == null) {
+        if (segments == null) { 
             segments = new ArrayList<>();
         }
         return segments;

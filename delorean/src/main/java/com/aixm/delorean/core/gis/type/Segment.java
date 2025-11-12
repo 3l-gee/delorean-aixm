@@ -9,6 +9,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
 
+import com.aixm.delorean.core.gis.AbstractSegment;
 import com.aixm.delorean.core.gis.type.components.SegmentType;
 
 import java.util.List;
@@ -16,30 +17,20 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Segment")
 @Table(name = "segment", schema = "gml")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Segment {
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)    
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Segment extends AbstractSegment{
 
-    protected Long hjid;
     protected Long index;
     protected SegmentType segmentType;
 
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
-        return hjid;
-    }
 
-    public void setHjid(Long value) {
-        this.hjid = value;
-    }
-
-    @Column(name ="index")
+    @Column(name = "index")
     public Long getIndex() {
         return index;
     }
@@ -58,8 +49,8 @@ public class Segment {
         this.segmentType = segmentType;
     }
 
+
     public List<String> aggregateEpsgCode() {
         return null;
     }
-    
 }
