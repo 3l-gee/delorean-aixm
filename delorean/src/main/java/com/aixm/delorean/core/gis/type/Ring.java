@@ -20,9 +20,11 @@ import jakarta.persistence.Table;
 
 @Entity(name = "Ring")
 @Table(name = "ring", schema = "gml")
-public class Ring {
+public class Ring implements java.io.Serializable {
 
-    protected Long hjid;
+    
+    private static final long serialVersionUID = 20250910L;
+    protected Long hjid;    
     protected Long index;
     protected List<GmlCurveType> gmlCurve;
 
@@ -47,9 +49,7 @@ public class Ring {
         this.index = index;
     }
 
-    @OneToMany(targetEntity = Segment.class, cascade = {
-    CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "gml_curve_id")
     public List<GmlCurveType> getGmlCurve() {
         if (gmlCurve == null) {

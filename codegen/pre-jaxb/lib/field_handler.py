@@ -9,9 +9,6 @@ class FieldHandler:
     def field_writer(type, parent_xpath):
         node = []
         
-        # Process simpleContent
-        # node.extend(FieldHandler.process_simple_content(type, parent_xpath))
-        
         # Process sequence
         node.extend(FieldHandler.process_sequence(type, parent_xpath))
         
@@ -19,29 +16,6 @@ class FieldHandler:
         node.extend(FieldHandler.process_complex_content(type, parent_xpath))
         
         return node
-
-    # @staticmethod
-    # def process_simple_content(parent, parent_xpath):
-    #     """Process the simpleContent flow."""
-    #     node = []
-    #     simple_content = parent.find(Tag.simple_content)
-    
-    #     if simple_content is not None:
-    #         extension = simple_content.find(Tag.extension)
-    #         restriction = simple_content.find(Tag.restriction)
-
-    #         attribute_list = []
-
-    #         if extension is not None:
-    #             attribute_list.extend(extension.findall(".//" + Tag.attribute))
-            
-    #         if restriction is not None:
-    #             attribute_list.extend(restriction.findall(".//" + Tag.attribute))
-
-    #         for attribute in attribute_list:
-    #             node.extend(FieldHandler.handel_simple_attribute(attribute, parent, parent_xpath))
-
-    #     return node
     
     @staticmethod
     def process_sequence(parent, parent_xpath):
@@ -88,27 +62,6 @@ class FieldHandler:
                 node.extend(FieldHandler.handle_complex_element(element, parent, parent_xpath))
         
         return node
-    
-    # @staticmethod
-    # def handel_simple_attribute(attribute, parent, parent_xpath):
-    #     """Handle attributes in simpleContent."""
-    #     node = []
-    #     node.append(Jaxb.attribute(attribute.attrib.get("name"), parent=parent_xpath))
-
-    #     if str(parent.attrib.get("name","") + "." + attribute.attrib.get("name","")) in Content.get_ignore():
-    #         return node
-        
-    #     # spacial cases name must be renamed to aixmName
-    #     if attribute.attrib.get("name") == "name":
-    #         node.append(Jaxb.property.name())
-
-    #     # special case extension must point to specific class
-    #     if attribute.attrib.get("name") == "extension":
-    #         Content.append_entity(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType"))
-    #         node.append(Jaxb.property.nameClass(str(parent.attrib.get("name").removesuffix("TimeSliceType") + "ExtensionType")))
-
-    #     node.append(Jaxb.end)
-    #     return node
 
     @staticmethod
     def handle_sequence_element(element, parent, parent_xpath):

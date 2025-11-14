@@ -24,30 +24,27 @@ import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Geodesic")
 @Table(name = "geodesic", schema = "gml")
-public class Geodesic extends Segment {
+public class Geodesic extends Segment implements java.io.Serializable{
 
+    private static final long serialVersionUID = 20250910L;
     protected PosList posList;
     protected List<GmlPointType> gmlPoint;
 
     @Embedded
     @AttributeOverrides({
-        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_list_srs_name", length = 128)),
-        @jakarta.persistence.AttributeOverride(name = "posList", column = @Column(name = "pos_list", length = 2048))
+        @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "srs_name", length = 255)),
+        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "pos_list", columnDefinition = "TEXT"))
     })
     public PosList getPosList() {
         return posList;
     }
-
 
     public void setPosList(PosList value) {
         this.posList = value;
     }
 
     @OneToMany(targetEntity = GmlPointType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.REFRESH
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "gml_point_id", nullable = true)
     public List<GmlPointType> getGmlPoint() {

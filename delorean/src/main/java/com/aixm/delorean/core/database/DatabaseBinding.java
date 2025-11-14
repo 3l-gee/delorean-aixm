@@ -278,6 +278,17 @@ public class DatabaseBinding<T, X> {
         }
     }
 
+    // public Object extractId(Class<T> root, Int id){
+    //     if (this.sessionFactory == null) {
+    //         throw new IllegalArgumentException("sessionfactory is not init");
+    //     // }
+
+    //     Session session = this.getSession();
+    //     Transaction transaction = null;
+
+
+    // }
+
     // public <X> void persist(Object object, Class<T> clazz, Class<X> featureClass) {
     //     if (this.sessionFactory == null){
     //         throw new IllegalArgumentException("sessionfactory is not init");

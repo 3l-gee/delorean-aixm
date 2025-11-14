@@ -526,29 +526,6 @@ class Util:
         return name
 
     @staticmethod
-    def snake_case(name, name_type=str):
-        if isinstance(name, list):
-            name = [x for x in name if x is not None]
-
-        if type(name) is list : 
-            names = [Util.snake_case(n, list) for n in name]
-            return "_".join(names)
-
-        else :
-            value = Util.replace_name(name)
-
-            try: 
-                value = value.split(':')[-1]
-            except:
-                pass
-
-            s1 = re.sub('(.)([A-Z][a-z]+)', r'\1\2', value)
-            result = re.sub('([a-z0-9])([A-Z])', r'\1\2', s1).lower()
-            if name_type is str:
-                result = Util.modify_forbiden_key_word(result)
-            return result
-
-    @staticmethod
     def snake_case_table(name, name_type=str):
         if isinstance(name, list):
             name = [x for x in name if x is not None]
@@ -568,8 +545,9 @@ class Util:
             result = re.sub('([a-z0-9])([A-Z])', r'\1\2', s1).lower()
             if name_type is str:
                 result = Util.modify_forbiden_key_word(result)
-            return result
-
+            return result.strip('\"')
+        
+    @staticmethod
     def replace_name(name):  
         replacements = {
             "TimeSlicePropertyType": "_Tsp",
@@ -586,7 +564,7 @@ class Util:
 
         return name    
 
-
+    @staticmethod
     def snake_case_column(name, name_type=str):
         if type(name) is list :
             names = [Util.snake_case_column(n, list) for n in name]
@@ -603,7 +581,7 @@ class Util:
             result = re.sub('([a-z0-9])([A-Z])', r'\1\2', s1).lower().replace("_base_type", "").replace("_type", "")
             if name_type is str:
                 result = Util.modify_forbiden_key_word(result)
-            return result
+            return result.strip('\"')
     
     @staticmethod
     def bool_str(value):
@@ -826,11 +804,11 @@ class HyperJAXB:
     
     @staticmethod
     def orm_join_column(name):
-        return f'''<orm:join-column name="{Util.snake_case(str(name + "_id"))}" referenced-column-name="hjid" />'''
+        return f'''<orm:join-column name="{Util.snake_case_column(str(name + "_id"))}" referenced-column-name="hjid" />'''
     
     @staticmethod 
-    def orm_join_table(name, join_column_name, inverse_join_column_name):
-        return f'''<orm:join-table name="{Util.snake_case_table(str(name))}"><orm:join-column name="{Util.snake_case(str(join_column_name))}" referenced-column-name="hjid" /><orm:inverse-join-column name="{Util.snake_case(str(inverse_join_column_name))}" referenced-column-name="hjid" /></orm:join-table>'''
+    def orm_join_table(schema, join_column_name, inverse_join_column_name):
+        return f'''<orm:join-table name="{Util.snake_case_table([join_column_name, inverse_join_column_name, "link"])}" schema="{schema}"><orm:join-column name="{Util.snake_case_column(str(join_column_name))}" referenced-column-name="hjid" /><orm:inverse-join-column name="{Util.snake_case_column(str(inverse_join_column_name))}" referenced-column-name="hjid" /></orm:join-table>'''
     
     @staticmethod
     def hj_embedded_start():
@@ -873,12 +851,12 @@ class HyperJAXB:
         return f'</hj:persistence>'
     
     @staticmethod
-    def inhertiance(strategy="TABLE_PER_CLASS"):
+    def inhertiance(strategy="JOINED"):
         return f'<orm:inheritance strategy="{strategy}" />'
     
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
-        return f'<orm:table name = "{Util.snake_case([prefix,name, suffix])}" schema = "{schema}" />'
+        return f'<orm:table name = "{Util.snake_case_table([prefix, name, suffix])}" schema = "{schema}" />'
 
     @staticmethod
     def hj_one_to_one_start():
@@ -903,8 +881,14 @@ class HyperJAXB:
     @staticmethod
     def hj_one_to_many_end():
         return f'</hj:one-to-many>'
-        
-     
+    
+    @staticmethod
+    def hj_many_to_many_start():
+        return f'<hj:many-to-many>'
+    
+    @staticmethod
+    def hj_many_to_many_end():
+        return f'</hj:many-to-many>'
     
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"
@@ -1017,7 +1001,7 @@ class Relation:
 
     @staticmethod
     def inhertiance():
-        return f'<orm:inheritance strategy="TABLE_PER_CLASS" />'
+        return f'<orm:inheritance strategy="JOINED" />'
         
     @staticmethod
     def one_to_one(cascade="CascadeType.ALL", fetch="FetchType.EAGER"):   

@@ -7,7 +7,9 @@ import com.aixm.delorean.core.util.AngleUom;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class AngleType {
+public class AngleType implements java.io.Serializable {
+    
+    private static final long serialVersionUID = 20250910L;
     protected BigDecimal value;
     protected AngleUom uom;
 

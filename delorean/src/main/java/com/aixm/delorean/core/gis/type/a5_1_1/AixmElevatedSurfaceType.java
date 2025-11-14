@@ -32,7 +32,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedSurfaceType")
 @Table(name = "aixm_elevated_surface", schema = "gml")
-public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
+public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable{
     
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;
@@ -42,6 +42,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     protected List<NotePropertyType> annotation;
     protected List<ElevatedSurfaceTypeExtension> extension;
 
+    @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {
         return elevation;
     }
@@ -69,6 +70,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
         setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.1.1", "elevation"), ElevatedSurfaceType.class, target));
     }
 
+    @Transient
     public JAXBElement<ValDistanceSignedType> getGeoidUndulation() {
         return geoidUndulation;
     }
@@ -96,6 +98,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
         setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.1.1", "geoidUndulation"), ElevatedSurfaceType.class, target));
     }
 
+    @Transient
     public JAXBElement<CodeVerticalDatumType> getVerticalDatum() {
         return verticalDatum;
     }
@@ -122,6 +125,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
         setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(CodeVerticalDatumType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalDatum"), ElevatedSurfaceType.class, target));
     }
 
+    @Transient
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }

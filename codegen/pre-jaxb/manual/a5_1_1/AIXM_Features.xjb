@@ -37,7 +37,7 @@
             <hj:persistence>
 
 				<hj:default-entity>
-					<orm:inheritance strategy="TABLE_PER_CLASS"/>
+					<orm:inheritance strategy="JOINED"/>
 				</hj:default-entity>
 
 				<hj:default-generated-version
@@ -60,28 +60,14 @@
 				<hj:default-one-to-many fetch="EAGER" join-table="false"/>
 
 				<hj:default-many-to-one merge="false" fetch="EAGER">
-						<orm:join-table>
-							<orm:join-column/>
-							<orm:inverse-join-column/>
-						</orm:join-table>
 						<orm:cascade>
-							<orm:cascade-refresh/>
-							<orm:cascade-persist/>
-							<orm:cascade-merge/>
-							<orm:cascade-detach/>
+							<orm:cascade-all/>
 						</orm:cascade>
 				</hj:default-many-to-one>
 
 				<hj:default-many-to-many merge="false" fetch="EAGER">
-						<orm:join-table>
-							<orm:join-column/>
-							<orm:inverse-join-column/>
-						</orm:join-table>
 						<orm:cascade>
-							<orm:cascade-refresh/>
-							<orm:cascade-persist/>
-							<orm:cascade-merge/>
-							<orm:cascade-detach/>
+							<orm:cascade-all/>
 						</orm:cascade>
 				</hj:default-many-to-many>
 			</hj:persistence>

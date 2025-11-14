@@ -32,7 +32,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedPointType")
 @Table(name = "aixm_elevated_point", schema = "gml")
-public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point {
+public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point implements java.io.Serializable {
 
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;
@@ -42,6 +42,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     protected List<NotePropertyType> annotation;
     protected List<ElevatedPointTypeExtension> extension;
 
+    @Transient
     public JAXBElement<ValDistanceVerticalType> getElevation() {
         return elevation;
     }
@@ -70,6 +71,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
         setElevation(XmlAdapterUtils.marshallJAXBElement(ValDistanceVerticalType.class, new QName("http://www.aixm.aero/schema/5.2", "elevation"), ElevatedPointType.class, target));
     }
 
+    @Transient
     public JAXBElement<ValDistanceSignedType> getGeoidUndulation() {
         return geoidUndulation;
     }
@@ -98,6 +100,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
         setGeoidUndulation(XmlAdapterUtils.marshallJAXBElement(ValDistanceSignedType.class, new QName("http://www.aixm.aero/schema/5.2", "geoidUndulation"), ElevatedPointType.class, target));
     }
 
+    @Transient
     public JAXBElement<TextNameType> getVerticalDatum() {
         return verticalDatum;
     }
@@ -124,6 +127,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
         setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "verticalDatum"), ElevatedPointType.class, target));
     }
 
+    @Transient
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }

@@ -16,8 +16,8 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
 @Entity(name = "GmlPointType")
-@Table(name = "point", schema = "gml")
-public class GmlPointType extends com.aixm.delorean.core.gis.type.Point {
+@Table(name = "gml_point", schema = "gml")
+public class GmlPointType extends com.aixm.delorean.core.gis.type.Point implements java.io.Serializable{
 
     private static final long serialVersionUID = 20250910L;
     protected Long index;

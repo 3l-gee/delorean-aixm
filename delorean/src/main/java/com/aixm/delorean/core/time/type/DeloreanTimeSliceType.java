@@ -2,10 +2,14 @@ package com.aixm.delorean.core.time.type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+
+import java.io.Serializable;
 import java.time.Instant;
 
 @Embeddable
-public class DeloreanTimeSliceType {
+public class DeloreanTimeSliceType implements Serializable {
+
+    private static final long serialVersionUID = 20240610L;
 
     @Column(name = "begin_position", columnDefinition = "TIMESTAMP")
     protected Instant beginPosition;

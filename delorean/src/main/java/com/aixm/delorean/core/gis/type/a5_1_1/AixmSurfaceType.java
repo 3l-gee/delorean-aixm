@@ -28,12 +28,13 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmSurfaceType")
 @Table(name = "aixm_surface", schema = "gml")
-public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
+public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable {
 
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
 
+    @Transient
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }

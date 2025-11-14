@@ -9,14 +9,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "curve", schema = "gml")
 public class Curve extends AbstractGMLType {
 
     protected Long hjid;
@@ -34,7 +40,7 @@ public class Curve extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinColumn(name = "curve_id")
     public List<Segment> getSegments() {
         if (segments == null) { 

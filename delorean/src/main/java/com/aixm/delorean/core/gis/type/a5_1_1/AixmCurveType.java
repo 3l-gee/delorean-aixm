@@ -28,12 +28,13 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "DeloreanCurveType")
 @Table(name = "aixm_curve", schema = "gml")
-public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve {
+public class AixmCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable {
     
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
 
+    @Transient
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }

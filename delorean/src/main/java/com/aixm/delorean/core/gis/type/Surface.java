@@ -15,9 +15,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "surface", schema = "gml")
 public class Surface extends AbstractGMLType {
 
     protected Long hjid;
@@ -36,9 +41,7 @@ public class Surface extends AbstractGMLType {
         this.hjid = value;
     }
 
-    @OneToOne(targetEntity = Segment.class, cascade = {
-    CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "exterior_id")
     public Ring getExterior() {
         return exterior;
@@ -48,9 +51,7 @@ public class Surface extends AbstractGMLType {
         this.exterior = value;
     }
 
-    @OneToMany(targetEntity = Segment.class, cascade = {
-    CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "interior_id")
     public List<Ring> getInterior() {
         if (interior == null) {

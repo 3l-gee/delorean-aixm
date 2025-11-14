@@ -31,7 +31,7 @@ class OrmHandler:
                 res.append(HyperJAXB.attribute_override(key, str(name)))
             else:
                 res.append(HyperJAXB.attribute_override(key, str(name +  "_" + key)))
-
+            
         res.append(HyperJAXB.hj_embedded_end())
 
         return res
@@ -42,6 +42,7 @@ class OrmHandler:
         if "name" not in element.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(element, encoding='unicode', method='xml'))
         name = element.attrib["name"]
+        parent_name = parent.attrib.get("name","")
 
         nillable = element.attrib.get("nillable", "false").lower() == "true"
         minOccurs = int(element.attrib.get("minOccurs", "1"))
@@ -53,9 +54,15 @@ class OrmHandler:
             maxOccurs = int(maxOccurs)
 
         if maxOccurs == "unbounded":
-            res.append(HyperJAXB.hj_one_to_many_start())
-            res.append(HyperJAXB.orm_join_column(name))
-            res.append(HyperJAXB.hj_one_to_many_end())
+            if parent_name == "":
+                raise KeyError("Parent element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))
+            schema = View.get_schema(parent_name)
+            res.append(HyperJAXB.hj_many_to_many_start())
+            res.append(HyperJAXB.orm_join_table(schema, name, parent_name))
+            res.append(HyperJAXB.hj_many_to_many_end())
+            # res.append(HyperJAXB.hj_one_to_many_start())
+            # res.append(HyperJAXB.orm_join_column(name))
+            # res.append(HyperJAXB.hj_one_to_many_end())
 
 
         if maxOccurs == 1:
@@ -91,6 +98,7 @@ class OrmHandler:
                 res.append(HyperJAXB.hj_one_to_many_start())
                 res.append(HyperJAXB.orm_join_column("extension"))
                 res.append(HyperJAXB.hj_one_to_many_end())
+
             else:
                 raise KeyError("Unknown reference for collection type", ET.tostring(element, encoding='unicode', method='xml'))
 
@@ -137,88 +145,3 @@ class OrmHandler:
 
         else:
             raise KeyError("Unknown inline complex type", ET.tostring(parent, encoding='unicode', method='xml'))
-
-    
-    @staticmethod
-    def generate_cardinality(parent, element, embed):
-
-        res = []
-        type = element.attrib.get("type", "").replace("aixm:", "")
-        annotation = element.find("{http://www.w3.org/2001/XMLSchema}annotation/{http://www.w3.org/2001/XMLSchema}documentation")
-        snowflake_text = annotation.text if annotation is not None and annotation.text else ""
-        name = element.attrib.get("name","")
-        ref = element.attrib.get("ref")
-        nillable = element.attrib.get("nillable", "false").lower() == "true"
-        minOccurs = int(element.attrib.get("minOccurs", "1"))
-        maxOccurs = element.attrib.get("maxOccurs", "1")  # Default is 1
-        constraints = embed.get(type)
-
-        if maxOccurs.lower() == "unbounded":
-            maxOccurs = "unbounded"
-        else:
-            maxOccurs = int(maxOccurs)
-
-        # print(type in embed.keys())
-        if snowflake_text != "":
-            type = snowflake_text.replace("aixm:", "")
-
-        if ref : 
-            return res
-
-        if maxOccurs == "unbounded":
-            if type in embed.keys():
-                res.append(HyperJAXB.hj_embedded_start())
-                return res
-            else : 
-                res.append(HyperJAXB.hj_one_to_many_start())
-                return res
-            #     res.append(Annox.field_add(Jpa.relation.collection_element()))
-            #     res.append(Annox.field_add(Jpa.relation.collection_table(type)))
-
-            #     temp = [Jpa.attribute_sub_override("href", Jpa.column_with_definition(name))]
-            #     temp.append(Jpa.attribute_sub_override("nilReason", element.attrib["name"]))
-            #     res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
-            #     return res 
-
-            # res.append(Annox.field_add(Jpa.relation.one_to_many()))
-
-            # res.append(Annox.field_add(Relation.join_table(
-            #     parent.attrib["name"], element.attrib["name"], parent.attrib["name"], element.attrib["type"])))
-            # res.append(Annox.field_add(Relation.join_table("master", "join", "source", "target")))
-            # join_column_name = element.attrib.get("name") if element.attrib.get("name") else element.attrib.get("ref")
-            
-
-        if maxOccurs == 1:
-            if type in embed.keys():
-                res.append(HyperJAXB.hj_embedded_start())
-                return res
-            else : 
-                res.append(HyperJAXB.hj_one_to_one_start())
-                return res
-            #     res.append(Annox.field_add(Jpa.embedded))
-            #     temp = []
-            #     for key, value in embed[type].items():
-            #         column_length = value.get("column_length") or 255
-            #         column_definition = value.get("column_definition")
-            #         if column_definition is not None:
-            #             temp.append(Jpa.attribute_sub_override(key, Jpa.column_with_definition(str(name + "_" + key), column_definition, column_length)))
-            #         else:
-            #             temp.append(Jpa.attribute_sub_override(key, Jpa.column(str(name + "_" + key), column_length)))
-
-                # for attribute in embed[type].findall(".//"+ Tag.attribute) or []:
-                #     temp.append(Jpa.attribute_sub_override(attribute.attrib["name"], element.attrib["name"]))
-                
-                #PropertyType with Ownership and Association
-                # if temp == []:
-                #     temp.append(Jpa.attribute_sub_override("href", element.attrib["name"]))
-                #     temp.append(Jpa.attribute_sub_override("nilReason", element.attrib["name"]))
-
-                # else: 
-                #     temp.append(Jpa.attribute_sub_override("value", element.attrib["name"]))
-
-                # res.append(Annox.field_add(Jpa.attribute_main_override(temp)))
-
-        if nillable:
-            pass
-
-        return res

@@ -17,8 +17,8 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
 @Entity(name = "GmlCurveType")
-@Table(name = "curve", schema = "gml")
-public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve {
+@Table(name = "gml_curve", schema = "gml")
+public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable{
     
     private static final long serialVersionUID = 20250910L;
     protected Long index;

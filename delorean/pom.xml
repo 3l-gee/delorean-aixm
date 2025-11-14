@@ -36,6 +36,7 @@
         <jts.version>1.20.0</jts.version>
         <proj4.version>1.4.1</proj4.version>
         <freemarker.version>2.3.34</freemarker.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
 	</properties>
 
 	<dependencies>
@@ -180,7 +181,7 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>1.6.3</version>
+            <version>${mapstruct.version}</version>
         </dependency>
         
         <!-- Test Dependencies -->
@@ -248,7 +249,7 @@
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>1.6.0</version>
+                            <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -269,7 +270,7 @@
                         </configurationParameters>
                     </properties>
                     <parallel>all</parallel>
-                    <forkCount>1C</forkCount> <!-- 1 fork per CPU core -->
+                    <forkCount>1C</forkCount>
                     <reuseForks>true</reuseForks>
                     <systemPropertyVariables>
                         <junit.platform.properties>src/test/resources/unit-junit-platform.properties</junit.platform.properties>

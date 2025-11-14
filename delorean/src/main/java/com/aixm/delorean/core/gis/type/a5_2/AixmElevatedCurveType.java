@@ -32,7 +32,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedCurveType")
 @Table(name = "aixm_elevated_curve", schema = "gml")
-public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve {
+public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable {
         
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;
@@ -127,7 +127,8 @@ public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve
         setVerticalDatum(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.2", "verticalDatum"), ElevatedCurveType.class, target));
     }
 
-        public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
+    @Transient
+    public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }
 

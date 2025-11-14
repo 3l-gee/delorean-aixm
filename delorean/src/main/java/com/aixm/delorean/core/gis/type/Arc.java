@@ -25,18 +25,17 @@ import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Arc")
 @Table(name = "arc", schema = "gml")
-public class Arc extends Segment {
+public class Arc extends Segment implements java.io.Serializable {
 
+    
+    private static final long serialVersionUID = 20250910L;
     protected GmlPointType gmlPoint;
     protected DistanceType radius;
     protected AngleType startAngle;
     protected AngleType endAngle;
     
     @OneToOne(targetEntity = GmlPointType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.REFRESH
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "gml_point_id", nullable = true)
     public GmlPointType getGmlPoint() {

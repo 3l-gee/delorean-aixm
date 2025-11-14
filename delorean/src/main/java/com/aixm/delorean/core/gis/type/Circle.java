@@ -24,8 +24,9 @@ import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Circle")
 @Table(name = "circle", schema = "gml")
-public class Circle extends Segment {
+public class Circle extends Segment implements java.io.Serializable {
     
+    private static final long serialVersionUID = 20250910L;
     protected GmlPointType gmlPoint;
     protected DistanceType radius;
     
@@ -43,10 +44,7 @@ public class Circle extends Segment {
     }
 
     @OneToOne(targetEntity = GmlPointType.class, cascade = {
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.DETACH,
-        CascadeType.REFRESH
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "gml_point_id", nullable = true)
     public GmlPointType getGmlPoint() {

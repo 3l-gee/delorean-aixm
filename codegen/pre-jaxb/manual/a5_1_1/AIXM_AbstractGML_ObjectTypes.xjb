@@ -29,19 +29,19 @@
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_feature" schema="public"/>
-                    <orm:inheritance strategy="TABLE_PER_CLASS"/>
+                    <orm:inheritance strategy="JOINED"/>
                 </hj:entity>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMObjectType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_object" schema="public"/>
-                    <orm:inheritance strategy="TABLE_PER_CLASS"/>
+                    <orm:inheritance strategy="JOINED"/>
                 </hj:entity>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMPropertyType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_property" schema="public"/>
-                    <orm:inheritance strategy="TABLE_PER_CLASS"/>
+                    <orm:inheritance strategy="JOINED"/>
                 </hj:entity>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
@@ -50,7 +50,7 @@
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceType']">
                 <hj:entity>
                     <orm:table name="abstract_aixm_timeslice" schema="public"/>
-                    <orm:inheritance strategy="TABLE_PER_CLASS"/>
+                    <orm:inheritance strategy="JOINED"/>
                 </hj:entity>
             </jaxb:bindings>
             <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">

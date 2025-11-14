@@ -28,12 +28,13 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmPointType")
 @Table(name = "aixm_point", schema = "gml")
-public class AixmPointType extends com.aixm.delorean.core.gis.type.Point {
+public class AixmPointType extends com.aixm.delorean.core.gis.type.Point implements java.io.Serializable {
 
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
     protected List<NotePropertyType> annotation;
 
+    @Transient
     public JAXBElement<ValDistanceType> getHorizontalAccuracy() {
         return horizontalAccuracy;
     }

@@ -16,8 +16,8 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 
 @Entity(name = "GmlSurfaceType")
-@Table(name = "surface", schema = "gml")
-public class GmlSurfaceType extends com.aixm.delorean.core.gis.type.Surface {
+@Table(name = "gml_surface", schema = "gml")
+public class GmlSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable{
     
     private static final long serialVersionUID = 20250910L;
     protected Long index;

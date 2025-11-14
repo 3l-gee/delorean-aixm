@@ -7,7 +7,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -15,7 +18,9 @@ import java.util.ArrayList;
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "point", schema = "gml")
 public class Point extends AbstractGMLType {
 
     protected Long hjid;
@@ -36,7 +41,7 @@ public class Point extends AbstractGMLType {
     @Embedded
     @AttributeOverrides({
         @jakarta.persistence.AttributeOverride(name = "srsName", column = @Column(name = "pos_srs_name", length = 128)),
-        @jakarta.persistence.AttributeOverride(name = "pos", column = @Column(name = "pos", length = 2048))
+        @jakarta.persistence.AttributeOverride(name = "value", column = @Column(name = "pos", length = 2048))
     })
     public Pos getPos() {
         return pos;

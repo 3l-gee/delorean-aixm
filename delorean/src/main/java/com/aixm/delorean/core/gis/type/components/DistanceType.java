@@ -7,7 +7,9 @@ import com.aixm.delorean.core.util.DistanceUom;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class DistanceType {
+public class DistanceType implements java.io.Serializable {
+
+    private static final long serialVersionUID = 20250910L;
     protected BigDecimal value;
     protected DistanceUom uom;
 

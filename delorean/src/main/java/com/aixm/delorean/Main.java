@@ -120,7 +120,7 @@ public class Main {
             case "?":
             case "help":
             System.out.println("""
-               -={ Delorean Shell Commands }=-
+               -={ delorean-aixm Shell Commands }=-
     help                                                              : Display this help message
     new         [a5.1, a5.1.1]                                        : Create a new container with the specified argument       
     xml-config  <container id, - >      [a5.1, a5.1.1]                : Configures the xml schema to use for the specified container
