@@ -86,7 +86,7 @@ public class PointReferenceTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpointreference_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpointreferenceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPointReferenceExtension() {
         return abstractPointReferenceExtension;
     }

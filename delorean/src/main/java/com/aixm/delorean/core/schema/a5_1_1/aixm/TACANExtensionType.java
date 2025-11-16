@@ -90,7 +90,7 @@ public class TACANExtensionType implements Serializable, Equals, HashCode, ToStr
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttacan_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttacanextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTACANExtension() {
         return abstractTACANExtension;
     }
@@ -123,7 +123,7 @@ public class TACANExtensionType implements Serializable, Equals, HashCode, ToStr
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,19 +260,6 @@ public class TACANExtensionType implements Serializable, Equals, HashCode, ToStr
         }
         final TACANExtensionType that = ((TACANExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTACANExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTACANExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTACANExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTACANExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTACANExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTACANExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class TACANExtensionType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getAbstractNavaidEquipmentExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTACANExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTACANExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTACANExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTACANExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTACANExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTACANExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

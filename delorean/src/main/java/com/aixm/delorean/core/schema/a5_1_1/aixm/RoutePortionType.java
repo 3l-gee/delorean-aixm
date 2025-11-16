@@ -9,8 +9,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -724,10 +726,14 @@ public class RoutePortionType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_routeportion_link", schema = "route", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "routeportionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -802,7 +808,7 @@ public class RoutePortionType
         this.extension = null;
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -814,7 +820,7 @@ public class RoutePortionType
         setStartFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_navaidsystem_id", referencedColumnName = "hjid")
@@ -826,7 +832,7 @@ public class RoutePortionType
         setStartNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_position_id", referencedColumnName = "hjid")
@@ -838,7 +844,7 @@ public class RoutePortionType
         setStartPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_position"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_runwaypoint_id", referencedColumnName = "hjid")
@@ -850,7 +856,7 @@ public class RoutePortionType
         setStartRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_aimingpoint_id", referencedColumnName = "hjid")
@@ -862,7 +868,7 @@ public class RoutePortionType
         setStartAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "start_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -874,7 +880,7 @@ public class RoutePortionType
         setStartAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "start_airportReferencePoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -886,7 +892,7 @@ public class RoutePortionType
         setIntermediatePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_navaidsystem_id", referencedColumnName = "hjid")
@@ -898,7 +904,7 @@ public class RoutePortionType
         setIntermediatePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_position_id", referencedColumnName = "hjid")
@@ -910,7 +916,7 @@ public class RoutePortionType
         setIntermediatePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_position"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_runwaypoint_id", referencedColumnName = "hjid")
@@ -922,7 +928,7 @@ public class RoutePortionType
         setIntermediatePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_aimingpoint_id", referencedColumnName = "hjid")
@@ -934,7 +940,7 @@ public class RoutePortionType
         setIntermediatePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "intermediatepoint_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -946,7 +952,7 @@ public class RoutePortionType
         setIntermediatePointAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "intermediatePoint_airportReferencePoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = RoutePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RoutePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "referencedroute_id", referencedColumnName = "hjid")
@@ -958,7 +964,7 @@ public class RoutePortionType
         setReferencedRoute(XmlAdapterUtils.marshallJAXBElement(RoutePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "referencedRoute"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -970,7 +976,7 @@ public class RoutePortionType
         setEndFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_fixDesignatedPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_navaidsystem_id", referencedColumnName = "hjid")
@@ -982,7 +988,7 @@ public class RoutePortionType
         setEndNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_navaidSystem"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_position_id", referencedColumnName = "hjid")
@@ -994,7 +1000,7 @@ public class RoutePortionType
         setEndPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_position"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_runwaypoint_id", referencedColumnName = "hjid")
@@ -1006,7 +1012,7 @@ public class RoutePortionType
         setEndRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_runwayPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_aimingpoint_id", referencedColumnName = "hjid")
@@ -1018,7 +1024,7 @@ public class RoutePortionType
         setEndAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "end_aimingPoint"), RoutePortionType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "end_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -1043,27 +1049,40 @@ public class RoutePortionType
         }
         final RoutePortionType that = ((RoutePortionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointPosition();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RoutePortionTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RoutePortionTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetStartFixDesignatedPoint();
+            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getStartAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getStartAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getStartFixDesignatedPoint();
+            lhsField = this.getIntermediatePointFixDesignatedPoint();
             JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getStartFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startFixDesignatedPoint", rhsField);
+            rhsField = that.getIntermediatePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1082,14 +1101,53 @@ public class RoutePortionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetEndFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getEndFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getEndFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndAimingPoint();
+            boolean rhsFieldIsSet = that.isSetEndAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getEndAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getEndAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetEndAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getEndAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getEndAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetStartNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getStartNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getStartNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1103,6 +1161,45 @@ public class RoutePortionType
             rhsField = that.getStartAimingPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAimingPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetStartFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getStartFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getStartFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointPosition();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getIntermediatePointPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getIntermediatePointPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getIntermediatePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getIntermediatePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1134,131 +1231,14 @@ public class RoutePortionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetEndFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getEndFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getEndFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RoutePortionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RoutePortionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetEndAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getEndAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getEndAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndAimingPoint();
-            boolean rhsFieldIsSet = that.isSetEndAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getEndAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getEndAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getIntermediatePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getIntermediatePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointAimingPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getIntermediatePointAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getIntermediatePointAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetStartNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getStartNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getStartNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartPosition();
-            boolean rhsFieldIsSet = that.isSetStartPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getStartPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getStartPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getStartAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getStartAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getIntermediatePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getIntermediatePointAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAirportReferencePoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1277,27 +1257,14 @@ public class RoutePortionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntermediatePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetIntermediatePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getIntermediatePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getIntermediatePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetIntermediatePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getIntermediatePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getIntermediatePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointRunwayPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1311,6 +1278,45 @@ public class RoutePortionType
             rhsField = that.getStartRunwayPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startRunwayPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointAimingPoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getIntermediatePointAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getIntermediatePointAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediatePointAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetIntermediatePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getIntermediatePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getIntermediatePointAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediatePointAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediatePointAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartPosition();
+            boolean rhsFieldIsSet = that.isSetStartPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getStartPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getStartPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

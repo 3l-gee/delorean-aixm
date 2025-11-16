@@ -86,7 +86,7 @@ public class AirspaceBorderCrossingExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacebordercrossing_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacebordercrossingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceBorderCrossingExtension() {
         return abstractAirspaceBorderCrossingExtension;
     }

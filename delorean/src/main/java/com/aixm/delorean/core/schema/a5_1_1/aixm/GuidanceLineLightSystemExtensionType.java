@@ -90,7 +90,7 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractguidancelinelightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractguidancelinelightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGuidanceLineLightSystemExtension() {
         return abstractGuidanceLineLightSystemExtension;
     }
@@ -123,7 +123,7 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -260,6 +260,19 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
         }
         final GuidanceLineLightSystemExtensionType that = ((GuidanceLineLightSystemExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class GuidanceLineLightSystemExtensionType implements Serializable, Equal
             rhsField = that.getAbstractGuidanceLineLightSystemExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineLightSystemExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

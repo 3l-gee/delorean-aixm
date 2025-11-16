@@ -86,7 +86,7 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradiocommunicationchannel_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradiocommunicationchannelextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadioCommunicationChannelExtension() {
         return abstractRadioCommunicationChannelExtension;
     }

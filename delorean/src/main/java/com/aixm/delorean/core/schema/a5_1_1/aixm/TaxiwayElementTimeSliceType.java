@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -335,10 +337,14 @@ public class TaxiwayElementTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_taxiwayelement_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiwayelementpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -385,10 +391,14 @@ public class TaxiwayElementTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "availability_id", referencedColumnName = "hjid")
+    @JoinTable(name = "availability_taxiwayelement_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiwayelementpropertygroup", referencedColumnName = "hjid")
+    })
     public List<ManoeuvringAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -517,7 +527,7 @@ public class TaxiwayElementTimeSliceType
         setGradeSeparation(XmlAdapterUtils.marshallJAXBElement(CodeGradeSeparationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "gradeSeparation"), TaxiwayElementTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfaceproperties_id", referencedColumnName = "hjid")
@@ -529,7 +539,7 @@ public class TaxiwayElementTimeSliceType
         setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), TaxiwayElementTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "associatedtaxiway_id", referencedColumnName = "hjid")
@@ -541,7 +551,7 @@ public class TaxiwayElementTimeSliceType
         setAssociatedTaxiway(XmlAdapterUtils.marshallJAXBElement(TaxiwayPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedTaxiway"), TaxiwayElementTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
@@ -566,58 +576,6 @@ public class TaxiwayElementTimeSliceType
         }
         final TaxiwayElementTimeSliceType that = ((TaxiwayElementTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGradeSeparation();
-            boolean rhsFieldIsSet = that.isSetGradeSeparation();
-            JAXBElement<CodeGradeSeparationType> lhsField;
-            lhsField = this.getGradeSeparation();
-            JAXBElement<CodeGradeSeparationType> rhsField;
-            rhsField = that.getGradeSeparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradeSeparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradeSeparation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiwayElementExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TaxiwayElementExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAssociatedTaxiway();
             boolean rhsFieldIsSet = that.isSetAssociatedTaxiway();
             JAXBElement<TaxiwayPropertyType> lhsField;
@@ -631,14 +589,14 @@ public class TaxiwayElementTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeTaxiwayElementType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeTaxiwayElementType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -657,6 +615,45 @@ public class TaxiwayElementTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGradeSeparation();
+            boolean rhsFieldIsSet = that.isSetGradeSeparation();
+            JAXBElement<CodeGradeSeparationType> lhsField;
+            lhsField = this.getGradeSeparation();
+            JAXBElement<CodeGradeSeparationType> rhsField;
+            rhsField = that.getGradeSeparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gradeSeparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gradeSeparation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeTaxiwayElementType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeTaxiwayElementType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
@@ -670,14 +667,27 @@ public class TaxiwayElementTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiwayElementExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TaxiwayElementExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -86,7 +86,7 @@ public class AirspaceVolumeDependencyTypeExtensionType implements Serializable, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacevolumedependency_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacevolumedependencyextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceVolumeDependencyExtension() {
         return abstractAirspaceVolumeDependencyExtension;
     }

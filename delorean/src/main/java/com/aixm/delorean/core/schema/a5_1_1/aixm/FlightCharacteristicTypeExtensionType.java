@@ -86,7 +86,7 @@ public class FlightCharacteristicTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightcharacteristic_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightcharacteristicextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightCharacteristicExtension() {
         return abstractFlightCharacteristicExtension;
     }

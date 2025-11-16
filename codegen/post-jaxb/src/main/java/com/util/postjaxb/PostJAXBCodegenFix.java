@@ -175,21 +175,21 @@ public class PostJAXBCodegenFix {
         for (ChangeUpdate update : change.getUpdates()) {
             String oldAnnotationName = update.getOld();
 
-            node.getAnnotationByName(oldAnnotationName).ifPresent(oldAnn -> {
-                oldAnn.remove();
+            // Remove the old annotation if it exists
+            node.getAnnotationByName(oldAnnotationName).ifPresent(AnnotationExpr::remove);
 
-                List<String> newAnnotations = update.getNew();
-                for (String newAnnStr : newAnnotations) {
-                    try {
-                        AnnotationExpr newAnnotation = StaticJavaParser.parseAnnotation(newAnnStr);
-                        node.addAnnotation(newAnnotation);
-                        System.out.println("[INFO] Applying field change to file: " + change.getWhere().getFilePath());
-                    } catch (Exception e) {
-                        System.err.println("[ERROR] Failed to parse and add annotation string: "
-                            + newAnnStr + ". Error: " + e.getMessage());
-                    }
+            // Add new annotations
+            List<String> newAnnotations = update.getNew();
+            for (String newAnnStr : newAnnotations) {
+                try {
+                    AnnotationExpr newAnnotation = StaticJavaParser.parseAnnotation(newAnnStr);
+                    node.addAnnotation(newAnnotation);
+                    System.out.println("[INFO] Applying field change to file: " + change.getWhere().getFilePath());
+                } catch (Exception e) {
+                    System.err.println("[ERROR] Failed to parse and add annotation string: "
+                        + newAnnStr + ". Error: " + e.getMessage());
                 }
-            });
+            }
         }
     }
 

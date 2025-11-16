@@ -86,7 +86,7 @@ public class SurfaceContaminationLayerTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontaminationlayer_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationlayerextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationLayerExtension() {
         return abstractSurfaceContaminationLayerExtension;
     }
@@ -223,19 +223,6 @@ public class SurfaceContaminationLayerTypeExtensionType implements Serializable,
         }
         final SurfaceContaminationLayerTypeExtensionType that = ((SurfaceContaminationLayerTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationLayerExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationLayerExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class SurfaceContaminationLayerTypeExtensionType implements Serializable,
             rhsField = that.getAbstractSurfaceContaminationLayerExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationLayerExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationLayerExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

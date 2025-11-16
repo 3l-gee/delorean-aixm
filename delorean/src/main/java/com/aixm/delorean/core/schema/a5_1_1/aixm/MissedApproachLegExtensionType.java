@@ -94,7 +94,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmissedapproachleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmissedapproachlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMissedApproachLegExtension() {
         return abstractMissedApproachLegExtension;
     }
@@ -127,7 +127,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachLegExtension() {
         return abstractApproachLegExtension;
     }
@@ -160,7 +160,7 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }

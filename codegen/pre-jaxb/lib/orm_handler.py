@@ -10,7 +10,7 @@ class OrmHandler:
 
     @staticmethod
     def embeded_types(type, parent, element) -> dict:
-        res = []
+        res = ["<!-- Embedded -->"]
         if "name" not in element.attrib:
             raise KeyError("Element must have a name attribute")
         name = element.attrib["name"]
@@ -38,7 +38,7 @@ class OrmHandler:
 
     @staticmethod
     def referenced_types(type, parent, element) -> dict:
-        res = []
+        res = ["<!-- Types -->"]
         if "name" not in element.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(element, encoding='unicode', method='xml'))
         name = element.attrib["name"]
@@ -66,14 +66,17 @@ class OrmHandler:
 
 
         if maxOccurs == 1:
-            res.append(HyperJAXB.hj_one_to_one_start())
+            res.append(HyperJAXB.hj_many_to_one_start())
             res.append(HyperJAXB.orm_join_column(name))
-            res.append(HyperJAXB.hj_one_to_one_end())
+            res.append(HyperJAXB.hj_many_to_one_end())
+            # res.append(HyperJAXB.hj_one_to_one_start())
+            # res.append(HyperJAXB.orm_join_column(name))
+            # res.append(HyperJAXB.hj_one_to_one_end())
 
         return res
     
     def referenced_refs(ref, parent, element) -> dict:
-        res = []
+        res = ["<!-- Refs -->"]
 
         if "ref" not in element.attrib:
             raise KeyError("Element must have a name reference attribute", ET.tostring(element, encoding='unicode', method='xml'))
@@ -120,7 +123,7 @@ class OrmHandler:
     
     @staticmethod
     def inline_complex_type(parent):
-        res = []
+        res = ["<!-- Complex-->"]
 
         if "name" not in parent.attrib:
             raise KeyError("Element must have a name attribute", ET.tostring(parent, encoding='unicode', method='xml'))

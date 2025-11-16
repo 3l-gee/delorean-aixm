@@ -90,7 +90,7 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -123,7 +123,7 @@ public class TerminalSegmentPointTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractterminalsegmentpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractterminalsegmentpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTerminalSegmentPointExtension() {
         return abstractTerminalSegmentPointExtension;
     }

@@ -172,19 +172,6 @@ public class SurfaceArrayPropertyType implements Serializable, Equals, HashCode,
         }
         final SurfaceArrayPropertyType that = ((SurfaceArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSurface();
-            boolean rhsFieldIsSet = that.isSetAbstractSurface();
-            List<JAXBElement<? extends AbstractSurfaceType>> lhsField;
-            lhsField = (this.isSetAbstractSurface()?this.getAbstractSurface():null);
-            List<JAXBElement<? extends AbstractSurfaceType>> rhsField;
-            rhsField = (that.isSetAbstractSurface()?that.getAbstractSurface():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -193,6 +180,19 @@ public class SurfaceArrayPropertyType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSurface();
+            boolean rhsFieldIsSet = that.isSetAbstractSurface();
+            List<JAXBElement<? extends AbstractSurfaceType>> lhsField;
+            lhsField = (this.isSetAbstractSurface()?this.getAbstractSurface():null);
+            List<JAXBElement<? extends AbstractSurfaceType>> rhsField;
+            rhsField = (that.isSetAbstractSurface()?that.getAbstractSurface():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

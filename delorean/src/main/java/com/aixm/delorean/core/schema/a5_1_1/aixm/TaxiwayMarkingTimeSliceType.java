@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -180,10 +182,14 @@ public class TaxiwayMarkingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_id", referencedColumnName = "hjid")
+    @JoinTable(name = "element_taxiwaymarking_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiwaymarkingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<MarkingElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -230,10 +236,14 @@ public class TaxiwayMarkingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_taxiwaymarking_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiwaymarkingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -437,7 +447,7 @@ public class TaxiwayMarkingTimeSliceType
         setMarkingLocation(XmlAdapterUtils.marshallJAXBElement(CodeTaxiwaySectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markingLocation"), TaxiwayMarkingTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "markedtaxiway_id", referencedColumnName = "hjid")
@@ -449,7 +459,7 @@ public class TaxiwayMarkingTimeSliceType
         setMarkedTaxiway(XmlAdapterUtils.marshallJAXBElement(TaxiwayPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markedTaxiway"), TaxiwayMarkingTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TaxiwayElementPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TaxiwayElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "markedelement_id", referencedColumnName = "hjid")
@@ -474,27 +484,27 @@ public class TaxiwayMarkingTimeSliceType
         }
         final TaxiwayMarkingTimeSliceType that = ((TaxiwayMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkedTaxiway();
-            boolean rhsFieldIsSet = that.isSetMarkedTaxiway();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getMarkedTaxiway();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getMarkedTaxiway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiway", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            JAXBElement<CodeMarkingConditionType> lhsField;
-            lhsField = this.getCondition();
-            JAXBElement<CodeMarkingConditionType> rhsField;
-            rhsField = that.getCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiwayMarkingExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TaxiwayMarkingExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -539,6 +549,32 @@ public class TaxiwayMarkingTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            JAXBElement<CodeMarkingConditionType> lhsField;
+            lhsField = this.getCondition();
+            JAXBElement<CodeMarkingConditionType> rhsField;
+            rhsField = that.getCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedTaxiway();
+            boolean rhsFieldIsSet = that.isSetMarkedTaxiway();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getMarkedTaxiway();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getMarkedTaxiway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
             boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
             JAXBElement<CodeYesNoType> lhsField;
@@ -547,32 +583,6 @@ public class TaxiwayMarkingTimeSliceType
             rhsField = that.getMarkingICAOStandard();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiwayMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TaxiwayMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

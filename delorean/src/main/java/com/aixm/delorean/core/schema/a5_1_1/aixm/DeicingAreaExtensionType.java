@@ -86,7 +86,7 @@ public class DeicingAreaExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdeicingarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdeicingareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDeicingAreaExtension() {
         return abstractDeicingAreaExtension;
     }

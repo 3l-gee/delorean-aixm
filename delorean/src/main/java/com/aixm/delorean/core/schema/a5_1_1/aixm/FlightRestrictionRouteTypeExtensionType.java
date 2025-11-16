@@ -86,7 +86,7 @@ public class FlightRestrictionRouteTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightrestrictionroute_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightrestrictionrouteextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRestrictionRouteExtension() {
         return abstractFlightRestrictionRouteExtension;
     }

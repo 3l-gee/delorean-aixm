@@ -90,7 +90,7 @@ public class ElevationExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractelevation_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractelevationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractElevationExtension() {
         return abstractElevationExtension;
     }
@@ -123,7 +123,7 @@ public class ElevationExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }

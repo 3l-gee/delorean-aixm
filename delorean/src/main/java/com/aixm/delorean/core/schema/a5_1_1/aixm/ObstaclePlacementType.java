@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -232,10 +234,14 @@ public class ObstaclePlacementType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_obstacleplacement_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "obstacleplacementpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -376,6 +382,32 @@ public class ObstaclePlacementType
         }
         final ObstaclePlacementType that = ((ObstaclePlacementType) object);
         {
+            boolean lhsFieldIsSet = this.isSetObstacleDistance();
+            boolean rhsFieldIsSet = that.isSetObstacleDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getObstacleDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getObstacleDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointType();
+            boolean rhsFieldIsSet = that.isSetPointType();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPointType();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPointType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetObstacleBearing();
             boolean rhsFieldIsSet = that.isSetObstacleBearing();
             JAXBElement<ValBearingType> lhsField;
@@ -402,32 +434,6 @@ public class ObstaclePlacementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointType();
-            boolean rhsFieldIsSet = that.isSetPointType();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPointType();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPointType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ObstaclePlacementTypeExtensionType> lhsField;
@@ -441,14 +447,14 @@ public class ObstaclePlacementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObstacleDistance();
-            boolean rhsFieldIsSet = that.isSetObstacleDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getObstacleDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getObstacleDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

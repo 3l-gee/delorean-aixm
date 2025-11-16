@@ -157,19 +157,6 @@ public abstract class AbstractCoverageType
         }
         final AbstractCoverageType that = ((AbstractCoverageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDomainSet();
-            boolean rhsFieldIsSet = that.isSetDomainSet();
-            JAXBElement<DomainSetType> lhsField;
-            lhsField = this.getDomainSet();
-            JAXBElement<DomainSetType> rhsField;
-            rhsField = that.getDomainSet();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRangeSet();
             boolean rhsFieldIsSet = that.isSetRangeSet();
             RangeSetType lhsField;
@@ -178,6 +165,19 @@ public abstract class AbstractCoverageType
             rhsField = that.getRangeSet();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeSet", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeSet", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDomainSet();
+            boolean rhsFieldIsSet = that.isSetDomainSet();
+            JAXBElement<DomainSetType> lhsField;
+            lhsField = this.getDomainSet();
+            JAXBElement<DomainSetType> rhsField;
+            rhsField = that.getDomainSet();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainSet", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

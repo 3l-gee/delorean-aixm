@@ -861,6 +861,20 @@
 		<jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:name']">
 			<hj:ignored/>
 		</jaxb:bindings>
+		<jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:description']">
+			<hj:embedded/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:descriptionReference']">
+			<hj:ignored/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:identifier']">
+			<hj:embedded/>
+		</jaxb:bindings>
+		<!-- <jaxb:bindings node="//xs:group[@name='StandardObjectProperties']//xs:element[@ref='gml:name']">
+			<annox:annotate target="field">
+				@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.util.adapter.ListCodeTypeAdapter.class)
+			</annox:annotate>
+		</jaxb:bindings> -->
 		<jaxb:bindings node="//xs:complexType[@name='AssociationRoleType']">
 			<hj:ignored/>
 		</jaxb:bindings>

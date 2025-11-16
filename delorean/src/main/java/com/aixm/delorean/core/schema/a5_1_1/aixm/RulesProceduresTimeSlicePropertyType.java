@@ -223,19 +223,6 @@ public class RulesProceduresTimeSlicePropertyType implements Serializable, Equal
         }
         final RulesProceduresTimeSlicePropertyType that = ((RulesProceduresTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRulesProceduresTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRulesProceduresTimeSlice();
-            RulesProceduresTimeSliceType lhsField;
-            lhsField = this.getRulesProceduresTimeSlice();
-            RulesProceduresTimeSliceType rhsField;
-            rhsField = that.getRulesProceduresTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rulesProceduresTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rulesProceduresTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RulesProceduresTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRulesProceduresTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRulesProceduresTimeSlice();
+            RulesProceduresTimeSliceType lhsField;
+            lhsField = this.getRulesProceduresTimeSlice();
+            RulesProceduresTimeSliceType rhsField;
+            rhsField = that.getRulesProceduresTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rulesProceduresTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rulesProceduresTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

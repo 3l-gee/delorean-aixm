@@ -90,7 +90,7 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractarrivalleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractarrivallegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractArrivalLegExtension() {
         return abstractArrivalLegExtension;
     }
@@ -123,7 +123,7 @@ public class ArrivalLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }

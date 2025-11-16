@@ -90,7 +90,7 @@ public class AircraftStandContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
     }
@@ -123,7 +123,7 @@ public class AircraftStandContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaircraftstandcontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaircraftstandcontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAircraftStandContaminationExtension() {
         return abstractAircraftStandContaminationExtension;
     }
@@ -260,19 +260,6 @@ public class AircraftStandContaminationTypeExtensionType implements Serializable
         }
         final AircraftStandContaminationTypeExtensionType that = ((AircraftStandContaminationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSurfaceContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSurfaceContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,6 +268,19 @@ public class AircraftStandContaminationTypeExtensionType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSurfaceContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSurfaceContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

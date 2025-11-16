@@ -90,7 +90,7 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayprotectarealightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayprotectarealightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayProtectAreaLightSystemExtension() {
         return abstractRunwayProtectAreaLightSystemExtension;
     }
@@ -123,7 +123,7 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -260,19 +260,6 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
         }
         final RunwayProtectAreaLightSystemExtensionType that = ((RunwayProtectAreaLightSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,6 +268,19 @@ public class RunwayProtectAreaLightSystemExtensionType implements Serializable, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

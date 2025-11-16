@@ -86,7 +86,7 @@ public class FlightConditionCircumstanceTypeExtensionType implements Serializabl
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightconditioncircumstance_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightconditioncircumstanceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightConditionCircumstanceExtension() {
         return abstractFlightConditionCircumstanceExtension;
     }

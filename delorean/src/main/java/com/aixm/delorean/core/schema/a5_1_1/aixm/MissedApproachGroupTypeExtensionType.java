@@ -86,7 +86,7 @@ public class MissedApproachGroupTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmissedapproachgroup_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmissedapproachgroupextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMissedApproachGroupExtension() {
         return abstractMissedApproachGroupExtension;
     }

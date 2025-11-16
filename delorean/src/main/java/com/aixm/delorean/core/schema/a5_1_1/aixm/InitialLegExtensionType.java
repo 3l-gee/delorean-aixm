@@ -94,7 +94,7 @@ public class InitialLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractinitialleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractinitiallegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractInitialLegExtension() {
         return abstractInitialLegExtension;
     }
@@ -127,7 +127,7 @@ public class InitialLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachLegExtension() {
         return abstractApproachLegExtension;
     }
@@ -160,7 +160,7 @@ public class InitialLegExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentleg_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentlegextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentLegExtension() {
         return abstractSegmentLegExtension;
     }
@@ -297,27 +297,14 @@ public class InitialLegExtensionType implements Serializable, Equals, HashCode, 
         }
         final InitialLegExtensionType that = ((InitialLegExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApproachLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachLegExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentLegExtension();
+            lhsField = this.getAbstractApproachLegExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractInitialLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractInitialLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractInitialLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractInitialLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractInitialLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractInitialLegExtension", rhsField);
+            rhsField = that.getAbstractApproachLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -336,14 +323,27 @@ public class InitialLegExtensionType implements Serializable, Equals, HashCode, 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachLegExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractInitialLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractInitialLegExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachLegExtension();
+            lhsField = this.getAbstractInitialLegExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension", rhsField);
+            rhsField = that.getAbstractInitialLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractInitialLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractInitialLegExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

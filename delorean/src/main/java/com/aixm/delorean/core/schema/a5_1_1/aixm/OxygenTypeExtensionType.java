@@ -86,7 +86,7 @@ public class OxygenTypeExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractoxygen_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractoxygenextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOxygenExtension() {
         return abstractOxygenExtension;
     }
@@ -223,19 +223,6 @@ public class OxygenTypeExtensionType implements Serializable, Equals, HashCode, 
         }
         final OxygenTypeExtensionType that = ((OxygenTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractOxygenExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOxygenExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOxygenExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOxygenExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOxygenExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOxygenExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class OxygenTypeExtensionType implements Serializable, Equals, HashCode, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractOxygenExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOxygenExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOxygenExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOxygenExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOxygenExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOxygenExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

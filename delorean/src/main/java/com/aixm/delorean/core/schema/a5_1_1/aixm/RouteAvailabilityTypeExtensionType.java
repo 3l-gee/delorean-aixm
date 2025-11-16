@@ -90,7 +90,7 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrouteavailability_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrouteavailabilityextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteAvailabilityExtension() {
         return abstractRouteAvailabilityExtension;
     }
@@ -260,14 +260,14 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
         }
         final RouteAvailabilityTypeExtensionType that = ((RouteAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractRouteAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRouteAvailabilityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRouteAvailabilityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRouteAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRouteAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRouteAvailabilityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRouteAvailabilityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRouteAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteAvailabilityExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -86,7 +86,7 @@ public class ProcedureDMEExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractproceduredme_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractproceduredmeextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureDMEExtension() {
         return abstractProcedureDMEExtension;
     }

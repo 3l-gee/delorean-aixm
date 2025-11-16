@@ -86,7 +86,7 @@ public class RadarSystemExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradarsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradarsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarSystemExtension() {
         return abstractRadarSystemExtension;
     }

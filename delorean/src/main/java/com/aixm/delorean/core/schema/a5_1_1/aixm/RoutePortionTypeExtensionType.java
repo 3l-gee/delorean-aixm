@@ -86,7 +86,7 @@ public class RoutePortionTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrouteportion_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrouteportionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRoutePortionExtension() {
         return abstractRoutePortionExtension;
     }

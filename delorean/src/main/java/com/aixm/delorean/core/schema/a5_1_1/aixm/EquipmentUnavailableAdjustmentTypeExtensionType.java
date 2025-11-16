@@ -86,7 +86,7 @@ public class EquipmentUnavailableAdjustmentTypeExtensionType implements Serializ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractequipmentunavailableadjustment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractequipmentunavailableadjustmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEquipmentUnavailableAdjustmentExtension() {
         return abstractEquipmentUnavailableAdjustmentExtension;
     }

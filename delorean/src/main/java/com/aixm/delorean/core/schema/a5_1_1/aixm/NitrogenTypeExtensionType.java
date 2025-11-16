@@ -86,7 +86,7 @@ public class NitrogenTypeExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnitrogen_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnitrogenextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNitrogenExtension() {
         return abstractNitrogenExtension;
     }
@@ -223,19 +223,6 @@ public class NitrogenTypeExtensionType implements Serializable, Equals, HashCode
         }
         final NitrogenTypeExtensionType that = ((NitrogenTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNitrogenExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNitrogenExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNitrogenExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNitrogenExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNitrogenExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNitrogenExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NitrogenTypeExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNitrogenExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNitrogenExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNitrogenExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNitrogenExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNitrogenExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNitrogenExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

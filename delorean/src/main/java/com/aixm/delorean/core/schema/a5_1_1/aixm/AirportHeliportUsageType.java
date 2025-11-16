@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -41,7 +43,11 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractUsageConditionType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}UsageConditionPropertyGroup"/>
+ *         <element name="type" type="{http://www.aixm.aero/schema/5.1.1}CodeUsageLimitationType" minOccurs="0"/>
+ *         <element name="priorPermission" type="{http://www.aixm.aero/schema/5.1.1}ValDurationType" minOccurs="0"/>
+ *         <element name="contact" type="{http://www.aixm.aero/schema/5.1.1}ContactInformationPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="selection" type="{http://www.aixm.aero/schema/5.1.1}ConditionCombinationPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirportHeliportUsagePropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -178,10 +184,14 @@ public class AirportHeliportUsageType
      * 
      * 
      */
-    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "contact_id", referencedColumnName = "hjid")
+    @JoinTable(name = "contact_airportheliportusage_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "contact", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airportheliportusagetype", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
             contact = new ArrayList<>();
@@ -258,10 +268,14 @@ public class AirportHeliportUsageType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_airportheliportusage_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airportheliportusagetype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -393,7 +407,7 @@ public class AirportHeliportUsageType
         setPriorPermission(XmlAdapterUtils.marshallJAXBElement(ValDurationType.class, new QName("http://www.aixm.aero/schema/5.1.1", "priorPermission"), AirportHeliportUsageType.class, target));
     }
 
-    @OneToOne(targetEntity = ConditionCombinationPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = ConditionCombinationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "selection_id", referencedColumnName = "hjid")
@@ -431,40 +445,14 @@ public class AirportHeliportUsageType
         }
         final AirportHeliportUsageType that = ((AirportHeliportUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUsageLimitationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUsageLimitationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeOperationAirportHeliportType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeOperationAirportHeliportType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -483,19 +471,6 @@ public class AirportHeliportUsageType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeOperationAirportHeliportType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeOperationAirportHeliportType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<ContactInformationPropertyType> lhsField;
@@ -504,6 +479,45 @@ public class AirportHeliportUsageType
             rhsField = (that.isSetContact()?that.getContact():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUsageLimitationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUsageLimitationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

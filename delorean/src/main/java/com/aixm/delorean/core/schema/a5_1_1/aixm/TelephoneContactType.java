@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -40,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}PropertiesWithSchedulePropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}TelephoneContactPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -114,10 +118,14 @@ public class TelephoneContactType
      * 
      * 
      */
-    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeinterval_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeinterval_telephonecontact_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "telephonecontacttype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -164,10 +172,14 @@ public class TelephoneContactType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_telephonecontact_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "telephonecontacttype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -214,10 +226,14 @@ public class TelephoneContactType
      * 
      * 
      */
-    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialdateauthority_id", referencedColumnName = "hjid")
+    @JoinTable(name = "specialdateauthority_telephonecontact_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "telephonecontacttype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -391,32 +407,6 @@ public class TelephoneContactType
         }
         final TelephoneContactType that = ((TelephoneContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVoice();
-            boolean rhsFieldIsSet = that.isSetVoice();
-            JAXBElement<TextPhoneType> lhsField;
-            lhsField = this.getVoice();
-            JAXBElement<TextPhoneType> rhsField;
-            rhsField = that.getVoice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -430,14 +420,14 @@ public class TelephoneContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TelephoneContactTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TelephoneContactTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetVoice();
+            boolean rhsFieldIsSet = that.isSetVoice();
+            JAXBElement<TextPhoneType> lhsField;
+            lhsField = this.getVoice();
+            JAXBElement<TextPhoneType> rhsField;
+            rhsField = that.getVoice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -456,6 +446,19 @@ public class TelephoneContactType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TelephoneContactTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TelephoneContactTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -464,6 +467,19 @@ public class TelephoneContactType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -202,14 +202,14 @@ public class NodeType
         }
         final NodeType that = ((NodeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirectedEdge();
-            boolean rhsFieldIsSet = that.isSetDirectedEdge();
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (that.isSetDirectedEdge()?that.getDirectedEdge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
+            PointPropertyType lhsField;
+            lhsField = this.getPointProperty();
+            PointPropertyType rhsField;
+            rhsField = that.getPointProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -241,14 +241,14 @@ public class NodeType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointProperty();
-            boolean rhsFieldIsSet = that.isSetPointProperty();
-            PointPropertyType lhsField;
-            lhsField = this.getPointProperty();
-            PointPropertyType rhsField;
-            rhsField = that.getPointProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge()?that.getDirectedEdge():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

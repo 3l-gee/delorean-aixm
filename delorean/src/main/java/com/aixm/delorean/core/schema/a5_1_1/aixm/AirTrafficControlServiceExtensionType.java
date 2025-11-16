@@ -94,7 +94,7 @@ public class AirTrafficControlServiceExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairtrafficcontrolservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairtrafficcontrolserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirTrafficControlServiceExtension() {
         return abstractAirTrafficControlServiceExtension;
     }
@@ -127,7 +127,7 @@ public class AirTrafficControlServiceExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttrafficseparationservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttrafficseparationserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTrafficSeparationServiceExtension() {
         return abstractTrafficSeparationServiceExtension;
     }
@@ -160,7 +160,7 @@ public class AirTrafficControlServiceExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -297,14 +297,14 @@ public class AirTrafficControlServiceExtensionType implements Serializable, Equa
         }
         final AirTrafficControlServiceExtensionType that = ((AirTrafficControlServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficControlServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficControlServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirTrafficControlServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirTrafficControlServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficControlServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficControlServiceExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -336,14 +336,14 @@ public class AirTrafficControlServiceExtensionType implements Serializable, Equa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficControlServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficControlServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirTrafficControlServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirTrafficControlServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficControlServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficControlServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

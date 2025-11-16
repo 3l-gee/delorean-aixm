@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -496,10 +498,14 @@ public class SurfaceCharacteristicsType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_surfacecharacteristics_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "surfacecharacteristicspropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -746,27 +752,14 @@ public class SurfaceCharacteristicsType
         }
         final SurfaceCharacteristicsType that = ((SurfaceCharacteristicsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetComposition();
-            boolean rhsFieldIsSet = that.isSetComposition();
-            JAXBElement<CodeSurfaceCompositionType> lhsField;
-            lhsField = this.getComposition();
-            JAXBElement<CodeSurfaceCompositionType> rhsField;
-            rhsField = that.getComposition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassLCN();
-            boolean rhsFieldIsSet = that.isSetClassLCN();
-            JAXBElement<ValLCNType> lhsField;
-            lhsField = this.getClassLCN();
-            JAXBElement<ValLCNType> rhsField;
-            rhsField = that.getClassLCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLCN", rhsField);
+            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
+            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
+            JAXBElement<ValPressureType> lhsField;
+            lhsField = this.getTyrePressureSIWL();
+            JAXBElement<ValPressureType> rhsField;
+            rhsField = that.getTyrePressureSIWL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -785,71 +778,6 @@ public class SurfaceCharacteristicsType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWeightAUW();
-            boolean rhsFieldIsSet = that.isSetWeightAUW();
-            JAXBElement<ValWeightType> lhsField;
-            lhsField = this.getWeightAUW();
-            JAXBElement<ValWeightType> rhsField;
-            rhsField = that.getWeightAUW();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightAUW", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightAUW", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTyrePressureSIWL();
-            boolean rhsFieldIsSet = that.isSetTyrePressureSIWL();
-            JAXBElement<ValPressureType> lhsField;
-            lhsField = this.getTyrePressureSIWL();
-            JAXBElement<ValPressureType> rhsField;
-            rhsField = that.getTyrePressureSIWL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tyrePressureSIWL", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tyrePressureSIWL", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
-            JAXBElement<CodePCNMethodType> lhsField;
-            lhsField = this.getEvaluationMethodPCN();
-            JAXBElement<CodePCNMethodType> rhsField;
-            rhsField = that.getEvaluationMethodPCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPavementSubgradePCN();
-            boolean rhsFieldIsSet = that.isSetPavementSubgradePCN();
-            JAXBElement<CodePCNSubgradeType> lhsField;
-            lhsField = this.getPavementSubgradePCN();
-            JAXBElement<CodePCNSubgradeType> rhsField;
-            rhsField = that.getPavementSubgradePCN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCN", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWeightSIWL();
-            boolean rhsFieldIsSet = that.isSetWeightSIWL();
-            JAXBElement<ValWeightType> lhsField;
-            lhsField = this.getWeightSIWL();
-            JAXBElement<ValWeightType> rhsField;
-            rhsField = that.getWeightSIWL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightSIWL", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightSIWL", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetClassPCN();
             boolean rhsFieldIsSet = that.isSetClassPCN();
             JAXBElement<ValPCNType> lhsField;
@@ -858,19 +786,6 @@ public class SurfaceCharacteristicsType
             rhsField = that.getClassPCN();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classPCN", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classPCN", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SurfaceCharacteristicsTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SurfaceCharacteristicsTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -889,14 +804,14 @@ public class SurfaceCharacteristicsType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPreparation();
-            boolean rhsFieldIsSet = that.isSetPreparation();
-            JAXBElement<CodeSurfacePreparationType> lhsField;
-            lhsField = this.getPreparation();
-            JAXBElement<CodeSurfacePreparationType> rhsField;
-            rhsField = that.getPreparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
+            boolean lhsFieldIsSet = this.isSetWeightSIWL();
+            boolean rhsFieldIsSet = that.isSetWeightSIWL();
+            JAXBElement<ValWeightType> lhsField;
+            lhsField = this.getWeightSIWL();
+            JAXBElement<ValWeightType> rhsField;
+            rhsField = that.getWeightSIWL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightSIWL", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightSIWL", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -923,6 +838,97 @@ public class SurfaceCharacteristicsType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPreparation();
+            boolean rhsFieldIsSet = that.isSetPreparation();
+            JAXBElement<CodeSurfacePreparationType> lhsField;
+            lhsField = this.getPreparation();
+            JAXBElement<CodeSurfacePreparationType> rhsField;
+            rhsField = that.getPreparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "preparation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "preparation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SurfaceCharacteristicsTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SurfaceCharacteristicsTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWeightAUW();
+            boolean rhsFieldIsSet = that.isSetWeightAUW();
+            JAXBElement<ValWeightType> lhsField;
+            lhsField = this.getWeightAUW();
+            JAXBElement<ValWeightType> rhsField;
+            rhsField = that.getWeightAUW();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weightAUW", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weightAUW", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodPCN();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodPCN();
+            JAXBElement<CodePCNMethodType> lhsField;
+            lhsField = this.getEvaluationMethodPCN();
+            JAXBElement<CodePCNMethodType> rhsField;
+            rhsField = that.getEvaluationMethodPCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodPCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodPCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComposition();
+            boolean rhsFieldIsSet = that.isSetComposition();
+            JAXBElement<CodeSurfaceCompositionType> lhsField;
+            lhsField = this.getComposition();
+            JAXBElement<CodeSurfaceCompositionType> rhsField;
+            rhsField = that.getComposition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPavementSubgradePCN();
+            boolean rhsFieldIsSet = that.isSetPavementSubgradePCN();
+            JAXBElement<CodePCNSubgradeType> lhsField;
+            lhsField = this.getPavementSubgradePCN();
+            JAXBElement<CodePCNSubgradeType> rhsField;
+            rhsField = that.getPavementSubgradePCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pavementSubgradePCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pavementSubgradePCN", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassLCN();
+            boolean rhsFieldIsSet = that.isSetClassLCN();
+            JAXBElement<ValLCNType> lhsField;
+            lhsField = this.getClassLCN();
+            JAXBElement<ValLCNType> rhsField;
+            rhsField = that.getClassLCN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classLCN", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classLCN", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

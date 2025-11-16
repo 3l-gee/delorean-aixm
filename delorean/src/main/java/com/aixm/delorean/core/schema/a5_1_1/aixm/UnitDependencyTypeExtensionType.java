@@ -86,7 +86,7 @@ public class UnitDependencyTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunitdependency_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunitdependencyextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnitDependencyExtension() {
         return abstractUnitDependencyExtension;
     }
@@ -223,19 +223,6 @@ public class UnitDependencyTypeExtensionType implements Serializable, Equals, Ha
         }
         final UnitDependencyTypeExtensionType that = ((UnitDependencyTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractUnitDependencyExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractUnitDependencyExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractUnitDependencyExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractUnitDependencyExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitDependencyExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitDependencyExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class UnitDependencyTypeExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractUnitDependencyExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractUnitDependencyExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractUnitDependencyExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractUnitDependencyExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitDependencyExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitDependencyExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

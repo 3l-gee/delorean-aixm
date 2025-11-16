@@ -90,7 +90,7 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdeicingareamarking_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdeicingareamarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDeicingAreaMarkingExtension() {
         return abstractDeicingAreaMarkingExtension;
     }
@@ -123,7 +123,7 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarking_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }
@@ -260,14 +260,14 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
         }
         final DeicingAreaMarkingExtensionType that = ((DeicingAreaMarkingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDeicingAreaMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDeicingAreaMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class DeicingAreaMarkingExtensionType implements Serializable, Equals, Ha
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDeicingAreaMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDeicingAreaMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDeicingAreaMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDeicingAreaMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDeicingAreaMarkingExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

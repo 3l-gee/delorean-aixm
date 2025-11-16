@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -499,10 +501,14 @@ public class MinimaType
      * 
      * 
      */
-    @OneToMany(targetEntity = EquipmentUnavailableAdjustmentPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = EquipmentUnavailableAdjustmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "adjustmentinop_id", referencedColumnName = "hjid")
+    @JoinTable(name = "adjustmentinop_minima_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "adjustmentinop", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "minimapropertygroup", referencedColumnName = "hjid")
+    })
     public List<EquipmentUnavailableAdjustmentPropertyType> getAdjustmentINOP() {
         if (adjustmentINOP == null) {
             adjustmentINOP = new ArrayList<>();
@@ -549,10 +555,14 @@ public class MinimaType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_minima_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "minimapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -802,19 +812,6 @@ public class MinimaType
         }
         final MinimaType that = ((MinimaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRadioHeight();
-            boolean rhsFieldIsSet = that.isSetRadioHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getRadioHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getRadioHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioHeight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioHeight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAltitudeReference();
             boolean rhsFieldIsSet = that.isSetAltitudeReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -823,84 +820,6 @@ public class MinimaType
             rhsField = that.getAltitudeReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAdjustmentINOP();
-            boolean rhsFieldIsSet = that.isSetAdjustmentINOP();
-            List<EquipmentUnavailableAdjustmentPropertyType> lhsField;
-            lhsField = (this.isSetAdjustmentINOP()?this.getAdjustmentINOP():null);
-            List<EquipmentUnavailableAdjustmentPropertyType> rhsField;
-            rhsField = (that.isSetAdjustmentINOP()?that.getAdjustmentINOP():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustmentINOP", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustmentINOP", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMandatoryRVR();
-            boolean rhsFieldIsSet = that.isSetMandatoryRVR();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMandatoryRVR();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMandatoryRVR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mandatoryRVR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mandatoryRVR", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMilitaryHeight();
-            boolean rhsFieldIsSet = that.isSetMilitaryHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMilitaryHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMilitaryHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryHeight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryHeight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHeightCode();
-            boolean rhsFieldIsSet = that.isSetHeightCode();
-            JAXBElement<CodeMinimumHeightType> lhsField;
-            lhsField = this.getHeightCode();
-            JAXBElement<CodeMinimumHeightType> rhsField;
-            rhsField = that.getHeightCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -919,40 +838,14 @@ public class MinimaType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVisibility();
-            boolean rhsFieldIsSet = that.isSetVisibility();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getVisibility();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getVisibility();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHeight();
-            boolean rhsFieldIsSet = that.isSetHeight();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getHeight();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getHeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<MinimaTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<MinimaTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetHeightCode();
+            boolean rhsFieldIsSet = that.isSetHeightCode();
+            JAXBElement<CodeMinimumHeightType> lhsField;
+            lhsField = this.getHeightCode();
+            JAXBElement<CodeMinimumHeightType> rhsField;
+            rhsField = that.getHeightCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "heightCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "heightCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -971,6 +864,19 @@ public class MinimaType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitudeCode();
             boolean rhsFieldIsSet = that.isSetAltitudeCode();
             JAXBElement<CodeMinimumAltitudeType> lhsField;
@@ -984,6 +890,97 @@ public class MinimaType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMilitaryHeight();
+            boolean rhsFieldIsSet = that.isSetMilitaryHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMilitaryHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMilitaryHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryHeight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryHeight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVisibility();
+            boolean rhsFieldIsSet = that.isSetVisibility();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getVisibility();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getVisibility();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibility", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMandatoryRVR();
+            boolean rhsFieldIsSet = that.isSetMandatoryRVR();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMandatoryRVR();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMandatoryRVR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mandatoryRVR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mandatoryRVR", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAdjustmentINOP();
+            boolean rhsFieldIsSet = that.isSetAdjustmentINOP();
+            List<EquipmentUnavailableAdjustmentPropertyType> lhsField;
+            lhsField = (this.isSetAdjustmentINOP()?this.getAdjustmentINOP():null);
+            List<EquipmentUnavailableAdjustmentPropertyType> rhsField;
+            rhsField = (that.isSetAdjustmentINOP()?that.getAdjustmentINOP():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "adjustmentINOP", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "adjustmentINOP", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<MinimaTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<MinimaTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHeight();
+            boolean rhsFieldIsSet = that.isSetHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "height", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "height", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRemoteAltimeterMinima();
             boolean rhsFieldIsSet = that.isSetRemoteAltimeterMinima();
             JAXBElement<CodeYesNoType> lhsField;
@@ -992,6 +989,19 @@ public class MinimaType
             rhsField = that.getRemoteAltimeterMinima();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteAltimeterMinima", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteAltimeterMinima", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadioHeight();
+            boolean rhsFieldIsSet = that.isSetRadioHeight();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getRadioHeight();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getRadioHeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioHeight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioHeight", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

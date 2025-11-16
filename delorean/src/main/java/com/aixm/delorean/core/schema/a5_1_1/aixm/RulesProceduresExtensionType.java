@@ -86,7 +86,7 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrulesprocedures_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrulesproceduresextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRulesProceduresExtension() {
         return abstractRulesProceduresExtension;
     }

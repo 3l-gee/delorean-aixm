@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -298,10 +300,14 @@ public class FlightCharacteristicType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_flightcharacteristic_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "flightcharacteristicpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -467,14 +473,14 @@ public class FlightCharacteristicType
         }
         final FlightCharacteristicType that = ((FlightCharacteristicType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightCharacteristicTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FlightCharacteristicTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOrigin();
+            boolean rhsFieldIsSet = that.isSetOrigin();
+            JAXBElement<CodeFlightOriginType> lhsField;
+            lhsField = this.getOrigin();
+            JAXBElement<CodeFlightOriginType> rhsField;
+            rhsField = that.getOrigin();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -493,19 +499,6 @@ public class FlightCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOrigin();
-            boolean rhsFieldIsSet = that.isSetOrigin();
-            JAXBElement<CodeFlightOriginType> lhsField;
-            lhsField = this.getOrigin();
-            JAXBElement<CodeFlightOriginType> rhsField;
-            rhsField = that.getOrigin();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMilitary();
             boolean rhsFieldIsSet = that.isSetMilitary();
             JAXBElement<CodeMilitaryStatusType> lhsField;
@@ -514,6 +507,19 @@ public class FlightCharacteristicType
             rhsField = that.getMilitary();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeFlightType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeFlightType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -545,14 +551,14 @@ public class FlightCharacteristicType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeFlightType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeFlightType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightCharacteristicTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightCharacteristicTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

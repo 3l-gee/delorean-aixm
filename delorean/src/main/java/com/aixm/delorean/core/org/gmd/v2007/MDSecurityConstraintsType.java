@@ -182,19 +182,6 @@ public class MDSecurityConstraintsType
         }
         final MDSecurityConstraintsType that = ((MDSecurityConstraintsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUserNote();
-            boolean rhsFieldIsSet = that.isSetUserNote();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUserNote();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUserNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetClassification();
             boolean rhsFieldIsSet = that.isSetClassification();
             MDClassificationCodePropertyType lhsField;
@@ -203,6 +190,19 @@ public class MDSecurityConstraintsType
             rhsField = that.getClassification();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHandlingDescription();
+            boolean rhsFieldIsSet = that.isSetHandlingDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getHandlingDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getHandlingDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -221,14 +221,14 @@ public class MDSecurityConstraintsType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHandlingDescription();
-            boolean rhsFieldIsSet = that.isSetHandlingDescription();
+            boolean lhsFieldIsSet = this.isSetUserNote();
+            boolean rhsFieldIsSet = that.isSetUserNote();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getHandlingDescription();
+            lhsField = this.getUserNote();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getHandlingDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
+            rhsField = that.getUserNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

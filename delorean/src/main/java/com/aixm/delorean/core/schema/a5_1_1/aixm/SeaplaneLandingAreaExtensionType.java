@@ -86,7 +86,7 @@ public class SeaplaneLandingAreaExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractseaplanelandingarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractseaplanelandingareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSeaplaneLandingAreaExtension() {
         return abstractSeaplaneLandingAreaExtension;
     }

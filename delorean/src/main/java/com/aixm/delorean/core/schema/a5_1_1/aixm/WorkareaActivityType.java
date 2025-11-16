@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -40,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}PropertiesWithSchedulePropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}WorkareaActivityPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -111,10 +115,14 @@ public class WorkareaActivityType
      * 
      * 
      */
-    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeinterval_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeinterval_workareaactivity_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "workareaactivitytype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -161,10 +169,14 @@ public class WorkareaActivityType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_workareaactivity_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "workareaactivitytype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -211,10 +223,14 @@ public class WorkareaActivityType
      * 
      * 
      */
-    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialdateauthority_id", referencedColumnName = "hjid")
+    @JoinTable(name = "specialdateauthority_workareaactivity_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "workareaactivitytype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -345,6 +361,19 @@ public class WorkareaActivityType
         }
         final WorkareaActivityType that = ((WorkareaActivityType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -371,32 +400,6 @@ public class WorkareaActivityType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsActive();
-            boolean rhsFieldIsSet = that.isSetIsActive();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsActive();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsActive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<WorkareaActivityTypeExtensionType> lhsField;
@@ -405,6 +408,19 @@ public class WorkareaActivityType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsActive();
+            boolean rhsFieldIsSet = that.isSetIsActive();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsActive();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsActive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

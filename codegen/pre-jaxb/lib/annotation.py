@@ -551,7 +551,7 @@ class Util:
     def replace_name(name):  
         replacements = {
             "TimeSlicePropertyType": "_Tsp",
-            "PropertyGroup": "_Pg",
+            "PropertyGroup": "",
             "PropertyType": "_Pt",
             "TimeSliceType": "_Ts",
             "Extension" : "_Ext",
@@ -857,6 +857,14 @@ class HyperJAXB:
     @staticmethod
     def table(name, schema, prefix=None, suffix=None):
         return f'<orm:table name = "{Util.snake_case_table([prefix, name, suffix])}" schema = "{schema}" />'
+    
+    @staticmethod
+    def hj_many_to_one_start():
+        return f'<hj:many-to-one>'
+
+    @staticmethod
+    def hj_many_to_one_end():
+        return f'</hj:many-to-one>'
 
     @staticmethod
     def hj_one_to_one_start():
@@ -865,14 +873,6 @@ class HyperJAXB:
     @staticmethod
     def hj_one_to_one_end():
         return f'</hj:one-to-one>'
-    
-    @staticmethod
-    def hj_one_to_many_start():
-        return f'<hj:one-to-many>'
-
-    @staticmethod
-    def hj_one_to_many_end():
-        return f'</hj:one-to-many>'
     
     @staticmethod
     def hj_one_to_many_start():

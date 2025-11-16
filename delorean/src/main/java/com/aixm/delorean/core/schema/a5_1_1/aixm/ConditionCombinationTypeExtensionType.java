@@ -90,7 +90,7 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class ConditionCombinationTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractconditioncombination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractconditioncombinationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractConditionCombinationExtension() {
         return abstractConditionCombinationExtension;
     }

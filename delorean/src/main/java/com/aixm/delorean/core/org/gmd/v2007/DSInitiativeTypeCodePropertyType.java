@@ -133,19 +133,6 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
         }
         final DSInitiativeTypeCodePropertyType that = ((DSInitiativeTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDSInitiativeTypeCode();
             boolean rhsFieldIsSet = that.isSetDSInitiativeTypeCode();
             CodeListValueType lhsField;
@@ -154,6 +141,19 @@ public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, H
             rhsField = that.getDSInitiativeTypeCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dsInitiativeTypeCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dsInitiativeTypeCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

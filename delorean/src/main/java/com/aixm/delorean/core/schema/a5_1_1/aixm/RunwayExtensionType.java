@@ -86,7 +86,7 @@ public class RunwayExtensionType implements Serializable, Equals, HashCode, ToSt
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunway_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayExtension() {
         return abstractRunwayExtension;
     }

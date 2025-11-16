@@ -84,10 +84,10 @@ public class ElevatedSurfaceTypeExtension implements Serializable, Equals, HashC
      *     
      */
     @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.DETACH,
-        CascadeType.MERGE,
         CascadeType.PERSIST,
-        CascadeType.REFRESH
+        CascadeType.REFRESH,
+        CascadeType.DETACH,
+        CascadeType.MERGE
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_ELEVATED_SURFACE_EX_1", nullable = true)
     public AbstractExtensionType getAbstractElevatedSurfaceExtension() {

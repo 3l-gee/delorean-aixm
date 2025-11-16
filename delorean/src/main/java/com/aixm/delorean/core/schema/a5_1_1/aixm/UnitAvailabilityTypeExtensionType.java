@@ -90,7 +90,7 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunitavailability_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunitavailabilityextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnitAvailabilityExtension() {
         return abstractUnitAvailabilityExtension;
     }
@@ -260,19 +260,6 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
         }
         final UnitAvailabilityTypeExtensionType that = ((UnitAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractUnitAvailabilityExtension();
             boolean rhsFieldIsSet = that.isSetAbstractUnitAvailabilityExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class UnitAvailabilityTypeExtensionType implements Serializable, Equals, 
             rhsField = that.getAbstractUnitAvailabilityExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractUnitAvailabilityExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractUnitAvailabilityExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

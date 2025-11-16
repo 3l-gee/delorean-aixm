@@ -86,7 +86,7 @@ public class AerialRefuellingAnchorTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuellinganchor_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellinganchorextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingAnchorExtension() {
         return abstractAerialRefuellingAnchorExtension;
     }

@@ -90,7 +90,7 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractvisualglideslopeindicator_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractvisualglideslopeindicatorextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractVisualGlideSlopeIndicatorExtension() {
         return abstractVisualGlideSlopeIndicatorExtension;
     }
@@ -123,7 +123,7 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -273,19 +273,6 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVisualGlideSlopeIndicatorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVisualGlideSlopeIndicatorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
             rhsField = that.getAbstractGroundLightSystemExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVisualGlideSlopeIndicatorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVisualGlideSlopeIndicatorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

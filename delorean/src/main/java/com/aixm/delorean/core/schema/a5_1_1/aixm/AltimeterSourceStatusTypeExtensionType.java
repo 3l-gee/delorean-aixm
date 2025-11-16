@@ -90,7 +90,7 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaltimetersourcestatus_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaltimetersourcestatusextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltimeterSourceStatusExtension() {
         return abstractAltimeterSourceStatusExtension;
     }
@@ -260,19 +260,6 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
         }
         final AltimeterSourceStatusTypeExtensionType that = ((AltimeterSourceStatusTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceStatusExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceStatusExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class AltimeterSourceStatusTypeExtensionType implements Serializable, Equ
             rhsField = that.getAbstractAltimeterSourceStatusExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceStatusExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceStatusExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

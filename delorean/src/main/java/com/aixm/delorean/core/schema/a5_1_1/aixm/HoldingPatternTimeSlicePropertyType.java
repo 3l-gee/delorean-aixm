@@ -223,19 +223,6 @@ public class HoldingPatternTimeSlicePropertyType implements Serializable, Equals
         }
         final HoldingPatternTimeSlicePropertyType that = ((HoldingPatternTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHoldingPatternTimeSlice();
-            boolean rhsFieldIsSet = that.isSetHoldingPatternTimeSlice();
-            HoldingPatternTimeSliceType lhsField;
-            lhsField = this.getHoldingPatternTimeSlice();
-            HoldingPatternTimeSliceType rhsField;
-            rhsField = that.getHoldingPatternTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPatternTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPatternTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class HoldingPatternTimeSlicePropertyType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingPatternTimeSlice();
+            boolean rhsFieldIsSet = that.isSetHoldingPatternTimeSlice();
+            HoldingPatternTimeSliceType lhsField;
+            lhsField = this.getHoldingPatternTimeSlice();
+            HoldingPatternTimeSliceType rhsField;
+            rhsField = that.getHoldingPatternTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPatternTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPatternTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

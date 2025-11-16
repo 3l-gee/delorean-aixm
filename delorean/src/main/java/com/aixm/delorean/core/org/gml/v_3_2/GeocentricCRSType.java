@@ -150,19 +150,6 @@ public class GeocentricCRSType
         }
         final GeocentricCRSType that = ((GeocentricCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUsesCartesianCS();
-            boolean rhsFieldIsSet = that.isSetUsesCartesianCS();
-            CartesianCSPropertyType lhsField;
-            lhsField = this.getUsesCartesianCS();
-            CartesianCSPropertyType rhsField;
-            rhsField = that.getUsesCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesCartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesCartesianCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUsesSphericalCS();
             boolean rhsFieldIsSet = that.isSetUsesSphericalCS();
             SphericalCSPropertyType lhsField;
@@ -171,6 +158,19 @@ public class GeocentricCRSType
             rhsField = that.getUsesSphericalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesSphericalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesSphericalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesCartesianCS();
+            boolean rhsFieldIsSet = that.isSetUsesCartesianCS();
+            CartesianCSPropertyType lhsField;
+            lhsField = this.getUsesCartesianCS();
+            CartesianCSPropertyType rhsField;
+            rhsField = that.getUsesCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesCartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesCartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -8,7 +8,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -78,10 +79,14 @@ public class NavigationAreaType
      * 
      * 
      */
-    @OneToMany(targetEntity = NavigationAreaTimeSlicePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NavigationAreaTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeslice_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeslice_navigationarea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "navigationareatype", referencedColumnName = "hjid")
+    })
     public List<NavigationAreaTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

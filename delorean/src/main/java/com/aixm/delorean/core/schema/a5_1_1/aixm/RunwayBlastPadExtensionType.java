@@ -86,7 +86,7 @@ public class RunwayBlastPadExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayblastpad_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayblastpadextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayBlastPadExtension() {
         return abstractRunwayBlastPadExtension;
     }

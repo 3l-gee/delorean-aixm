@@ -86,7 +86,7 @@ public class OrganisationAuthorityExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractorganisationauthority_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractorganisationauthorityextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOrganisationAuthorityExtension() {
         return abstractOrganisationAuthorityExtension;
     }

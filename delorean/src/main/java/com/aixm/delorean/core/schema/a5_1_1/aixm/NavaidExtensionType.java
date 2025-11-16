@@ -86,7 +86,7 @@ public class NavaidExtensionType implements Serializable, Equals, HashCode, ToSt
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaid_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidExtension() {
         return abstractNavaidExtension;
     }
@@ -223,19 +223,6 @@ public class NavaidExtensionType implements Serializable, Equals, HashCode, ToSt
         }
         final NavaidExtensionType that = ((NavaidExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NavaidExtensionType implements Serializable, Equals, HashCode, ToSt
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

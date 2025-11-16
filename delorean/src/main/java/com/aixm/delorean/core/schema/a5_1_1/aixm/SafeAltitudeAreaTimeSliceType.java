@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -338,10 +340,14 @@ public class SafeAltitudeAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = SafeAltitudeAreaSectorPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = SafeAltitudeAreaSectorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "sector_id", referencedColumnName = "hjid")
+    @JoinTable(name = "sector_safealtitudearea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "sector", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "safealtitudeareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<SafeAltitudeAreaSectorPropertyType> getSector() {
         if (sector == null) {
             sector = new ArrayList<>();
@@ -388,10 +394,14 @@ public class SafeAltitudeAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id", referencedColumnName = "hjid")
+    @JoinTable(name = "location_safealtitudearea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "location", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "safealtitudeareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<AirportHeliportPropertyType> getLocation() {
         if (location == null) {
             location = new ArrayList<>();
@@ -438,10 +448,14 @@ public class SafeAltitudeAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_safealtitudearea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "safealtitudeareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -529,7 +543,7 @@ public class SafeAltitudeAreaTimeSliceType
         setSafeAreaType(XmlAdapterUtils.marshallJAXBElement(CodeSafeAltitudeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "safeAreaType"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -541,7 +555,7 @@ public class SafeAltitudeAreaTimeSliceType
         setCentrePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_fixDesignatedPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_navaidsystem_id", referencedColumnName = "hjid")
@@ -553,7 +567,7 @@ public class SafeAltitudeAreaTimeSliceType
         setCentrePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_navaidSystem"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_position_id", referencedColumnName = "hjid")
@@ -565,7 +579,7 @@ public class SafeAltitudeAreaTimeSliceType
         setCentrePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_position"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_runwaypoint_id", referencedColumnName = "hjid")
@@ -577,7 +591,7 @@ public class SafeAltitudeAreaTimeSliceType
         setCentrePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_runwayPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_aimingpoint_id", referencedColumnName = "hjid")
@@ -589,7 +603,7 @@ public class SafeAltitudeAreaTimeSliceType
         setCentrePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_aimingPoint"), SafeAltitudeAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -614,14 +628,27 @@ public class SafeAltitudeAreaTimeSliceType
         }
         final SafeAltitudeAreaTimeSliceType that = ((SafeAltitudeAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getCentrePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<SafeAltitudeAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<SafeAltitudeAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -640,14 +667,40 @@ public class SafeAltitudeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<SafeAltitudeAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector()?this.getSector():null);
-            List<SafeAltitudeAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector()?that.getSector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            boolean lhsFieldIsSet = this.isSetSafeAreaType();
+            boolean rhsFieldIsSet = that.isSetSafeAreaType();
+            JAXBElement<CodeSafeAltitudeType> lhsField;
+            lhsField = this.getSafeAreaType();
+            JAXBElement<CodeSafeAltitudeType> rhsField;
+            rhsField = that.getSafeAreaType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAreaType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAreaType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getCentrePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetLocation()?this.getLocation():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetLocation()?that.getLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -661,19 +714,6 @@ public class SafeAltitudeAreaTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -705,27 +745,14 @@ public class SafeAltitudeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetLocation()?this.getLocation():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetLocation()?that.getLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSafeAreaType();
-            boolean rhsFieldIsSet = that.isSetSafeAreaType();
-            JAXBElement<CodeSafeAltitudeType> lhsField;
-            lhsField = this.getSafeAreaType();
-            JAXBElement<CodeSafeAltitudeType> rhsField;
-            rhsField = that.getSafeAreaType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAreaType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAreaType", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -739,19 +766,6 @@ public class SafeAltitudeAreaTimeSliceType
             rhsField = that.getCentrePointAirportReferencePoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

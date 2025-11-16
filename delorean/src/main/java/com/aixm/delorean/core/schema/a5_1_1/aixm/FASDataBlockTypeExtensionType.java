@@ -86,7 +86,7 @@ public class FASDataBlockTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfasdatablock_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfasdatablockextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFASDataBlockExtension() {
         return abstractFASDataBlockExtension;
     }

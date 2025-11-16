@@ -86,7 +86,7 @@ public class OrganisationAuthorityAssociationTypeExtensionType implements Serial
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractorganisationauthorityassociation_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractorganisationauthorityassociationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOrganisationAuthorityAssociationExtension() {
         return abstractOrganisationAuthorityAssociationExtension;
     }

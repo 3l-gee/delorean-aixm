@@ -86,7 +86,7 @@ public class ApproachDistanceTableTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachdistancetable_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachdistancetableextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachDistanceTableExtension() {
         return abstractApproachDistanceTableExtension;
     }

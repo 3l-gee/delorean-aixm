@@ -86,7 +86,7 @@ public class TaxiwayElementExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttaxiwayelement_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttaxiwayelementextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTaxiwayElementExtension() {
         return abstractTaxiwayElementExtension;
     }

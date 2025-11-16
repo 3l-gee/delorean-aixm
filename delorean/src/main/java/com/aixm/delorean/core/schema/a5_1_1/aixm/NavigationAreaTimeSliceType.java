@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -254,10 +256,14 @@ public class NavigationAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NavigationAreaSectorPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NavigationAreaSectorPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "sector_id", referencedColumnName = "hjid")
+    @JoinTable(name = "sector_navigationarea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "sector", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "navigationareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NavigationAreaSectorPropertyType> getSector() {
         if (sector == null) {
             sector = new ArrayList<>();
@@ -484,10 +490,14 @@ public class NavigationAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_navigationarea_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "navigationareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -603,7 +613,7 @@ public class NavigationAreaTimeSliceType
         setMinimumVisibility(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "minimumVisibility"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = StandardInstrumentDeparturePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "departure_id", referencedColumnName = "hjid")
@@ -615,7 +625,7 @@ public class NavigationAreaTimeSliceType
         setDeparture(XmlAdapterUtils.marshallJAXBElement(StandardInstrumentDeparturePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "departure"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -627,7 +637,7 @@ public class NavigationAreaTimeSliceType
         setCentrePointFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_fixDesignatedPoint"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_navaidsystem_id", referencedColumnName = "hjid")
@@ -639,7 +649,7 @@ public class NavigationAreaTimeSliceType
         setCentrePointNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_navaidSystem"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_position_id", referencedColumnName = "hjid")
@@ -651,7 +661,7 @@ public class NavigationAreaTimeSliceType
         setCentrePointPosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_position"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_runwaypoint_id", referencedColumnName = "hjid")
@@ -663,7 +673,7 @@ public class NavigationAreaTimeSliceType
         setCentrePointRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_runwayPoint"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_aimingpoint_id", referencedColumnName = "hjid")
@@ -675,7 +685,7 @@ public class NavigationAreaTimeSliceType
         setCentrePointAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "centrePoint_aimingPoint"), NavigationAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "centrepoint_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -700,19 +710,6 @@ public class NavigationAreaTimeSliceType
         }
         final NavigationAreaTimeSliceType that = ((NavigationAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNavigationAreaType();
-            boolean rhsFieldIsSet = that.isSetNavigationAreaType();
-            JAXBElement<CodeNavigationAreaType> lhsField;
-            lhsField = this.getNavigationAreaType();
-            JAXBElement<CodeNavigationAreaType> rhsField;
-            rhsField = that.getNavigationAreaType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationAreaType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationAreaType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMinimumCeiling();
             boolean rhsFieldIsSet = that.isSetMinimumCeiling();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -721,32 +718,6 @@ public class NavigationAreaTimeSliceType
             rhsField = that.getMinimumCeiling();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCeiling", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCeiling", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavigationAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NavigationAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getCentrePointAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -765,66 +736,14 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDeparture();
-            boolean rhsFieldIsSet = that.isSetDeparture();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getDeparture();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getDeparture();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departure", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<NavigationAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector()?this.getSector():null);
-            List<NavigationAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector()?that.getSector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getCentrePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
-            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getCentrePointPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavigationAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NavigationAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -843,6 +762,71 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<NavigationAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<NavigationAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
+            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getCentrePointPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getCentrePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeparture();
+            boolean rhsFieldIsSet = that.isSetDeparture();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getDeparture();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getDeparture();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavigationAreaType();
+            boolean rhsFieldIsSet = that.isSetNavigationAreaType();
+            JAXBElement<CodeNavigationAreaType> lhsField;
+            lhsField = this.getNavigationAreaType();
+            JAXBElement<CodeNavigationAreaType> rhsField;
+            rhsField = that.getNavigationAreaType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationAreaType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationAreaType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMinimumVisibility();
             boolean rhsFieldIsSet = that.isSetMinimumVisibility();
             JAXBElement<ValDistanceType> lhsField;
@@ -856,6 +840,19 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getCentrePointAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
             boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
             JAXBElement<NavaidPropertyType> lhsField;
@@ -864,6 +861,19 @@ public class NavigationAreaTimeSliceType
             rhsField = that.getCentrePointNavaidSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

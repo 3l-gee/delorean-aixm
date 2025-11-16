@@ -86,7 +86,7 @@ public class AuthorityForAirspaceExtensionType implements Serializable, Equals, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractauthorityforairspace_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractauthorityforairspaceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForAirspaceExtension() {
         return abstractAuthorityForAirspaceExtension;
     }
@@ -223,19 +223,6 @@ public class AuthorityForAirspaceExtensionType implements Serializable, Equals, 
         }
         final AuthorityForAirspaceExtensionType that = ((AuthorityForAirspaceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAirspaceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAirspaceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAuthorityForAirspaceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAuthorityForAirspaceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAirspaceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAirspaceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AuthorityForAirspaceExtensionType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAirspaceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAirspaceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAuthorityForAirspaceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAuthorityForAirspaceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAirspaceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAirspaceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

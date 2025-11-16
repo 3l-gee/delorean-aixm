@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -206,10 +208,14 @@ public class TaxiHoldingPositionTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = RunwayPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = RunwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "protectedrunway_id", referencedColumnName = "hjid")
+    @JoinTable(name = "protectedrunway_taxiholdingposition_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "protectedrunway", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiholdingpositionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<RunwayPropertyType> getProtectedRunway() {
         if (protectedRunway == null) {
             protectedRunway = new ArrayList<>();
@@ -286,10 +292,14 @@ public class TaxiHoldingPositionTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_taxiholdingposition_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "taxiholdingpositionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -390,7 +400,7 @@ public class TaxiHoldingPositionTimeSliceType
         setStatus(XmlAdapterUtils.marshallJAXBElement(CodeStatusOperationsType.class, new QName("http://www.aixm.aero/schema/5.1.1", "status"), TaxiHoldingPositionTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = GuidanceLinePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "associatedguidanceline_id", referencedColumnName = "hjid")
@@ -402,7 +412,7 @@ public class TaxiHoldingPositionTimeSliceType
         setAssociatedGuidanceLine(XmlAdapterUtils.marshallJAXBElement(GuidanceLinePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedGuidanceLine"), TaxiHoldingPositionTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id", referencedColumnName = "hjid")
@@ -427,40 +437,14 @@ public class TaxiHoldingPositionTimeSliceType
         }
         final TaxiHoldingPositionTimeSliceType that = ((TaxiHoldingPositionTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLandingCategory();
-            boolean rhsFieldIsSet = that.isSetLandingCategory();
-            JAXBElement<CodeHoldingCategoryType> lhsField;
-            lhsField = this.getLandingCategory();
-            JAXBElement<CodeHoldingCategoryType> rhsField;
-            rhsField = that.getLandingCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingCategory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAssociatedGuidanceLine();
-            boolean rhsFieldIsSet = that.isSetAssociatedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> lhsField;
-            lhsField = this.getAssociatedGuidanceLine();
-            JAXBElement<GuidanceLinePropertyType> rhsField;
-            rhsField = that.getAssociatedGuidanceLine();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedGuidanceLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedGuidanceLine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiHoldingPositionExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TaxiHoldingPositionExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -479,6 +463,19 @@ public class TaxiHoldingPositionTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiHoldingPositionExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TaxiHoldingPositionExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -492,14 +489,14 @@ public class TaxiHoldingPositionTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetLandingCategory();
+            boolean rhsFieldIsSet = that.isSetLandingCategory();
+            JAXBElement<CodeHoldingCategoryType> lhsField;
+            lhsField = this.getLandingCategory();
+            JAXBElement<CodeHoldingCategoryType> rhsField;
+            rhsField = that.getLandingCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingCategory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -513,6 +510,19 @@ public class TaxiHoldingPositionTimeSliceType
             rhsField = that.getStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedGuidanceLine();
+            boolean rhsFieldIsSet = that.isSetAssociatedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> lhsField;
+            lhsField = this.getAssociatedGuidanceLine();
+            JAXBElement<GuidanceLinePropertyType> rhsField;
+            rhsField = that.getAssociatedGuidanceLine();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedGuidanceLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedGuidanceLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

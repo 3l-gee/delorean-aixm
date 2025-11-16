@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -235,10 +237,14 @@ public class HoldingUseType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_holdinguse_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "holdingusepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -271,7 +277,7 @@ public class HoldingUseType
      *     {@link HoldingPatternPropertyType }
      *     
      */
-    @OneToOne(targetEntity = HoldingPatternPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = HoldingPatternPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "theholdingpattern_id", referencedColumnName = "hjid")
@@ -412,27 +418,14 @@ public class HoldingUseType
         }
         final HoldingUseType that = ((HoldingUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInstructionAltitudeReference();
-            boolean rhsFieldIsSet = that.isSetInstructionAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getInstructionAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getInstructionAltitudeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructionAltitudeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructionAltitudeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInstructedAltitude();
-            boolean rhsFieldIsSet = that.isSetInstructedAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getInstructedAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getInstructedAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructedAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructedAltitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetHoldingUse();
+            boolean rhsFieldIsSet = that.isSetHoldingUse();
+            JAXBElement<CodeHoldingUseType> lhsField;
+            lhsField = this.getHoldingUse();
+            JAXBElement<CodeHoldingUseType> rhsField;
+            rhsField = that.getHoldingUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -464,6 +457,19 @@ public class HoldingUseType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetInstructionAltitudeReference();
+            boolean rhsFieldIsSet = that.isSetInstructionAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getInstructionAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getInstructionAltitudeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructionAltitudeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructionAltitudeReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -477,14 +483,14 @@ public class HoldingUseType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHoldingUse();
-            boolean rhsFieldIsSet = that.isSetHoldingUse();
-            JAXBElement<CodeHoldingUseType> lhsField;
-            lhsField = this.getHoldingUse();
-            JAXBElement<CodeHoldingUseType> rhsField;
-            rhsField = that.getHoldingUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
+            boolean lhsFieldIsSet = this.isSetInstructedAltitude();
+            boolean rhsFieldIsSet = that.isSetInstructedAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getInstructedAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getInstructedAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructedAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructedAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

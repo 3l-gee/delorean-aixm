@@ -202,19 +202,6 @@ public class MDLegalConstraintsType
         }
         final MDLegalConstraintsType that = ((MDLegalConstraintsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAccessConstraints();
-            boolean rhsFieldIsSet = that.isSetAccessConstraints();
-            List<MDRestrictionCodePropertyType> lhsField;
-            lhsField = (this.isSetAccessConstraints()?this.getAccessConstraints():null);
-            List<MDRestrictionCodePropertyType> rhsField;
-            rhsField = (that.isSetAccessConstraints()?that.getAccessConstraints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessConstraints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUseConstraints();
             boolean rhsFieldIsSet = that.isSetUseConstraints();
             List<MDRestrictionCodePropertyType> lhsField;
@@ -236,6 +223,19 @@ public class MDLegalConstraintsType
             rhsField = (that.isSetOtherConstraints()?that.getOtherConstraints():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAccessConstraints();
+            boolean rhsFieldIsSet = that.isSetAccessConstraints();
+            List<MDRestrictionCodePropertyType> lhsField;
+            lhsField = (this.isSetAccessConstraints()?this.getAccessConstraints():null);
+            List<MDRestrictionCodePropertyType> rhsField;
+            rhsField = (that.isSetAccessConstraints()?that.getAccessConstraints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

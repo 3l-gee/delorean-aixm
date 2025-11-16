@@ -86,7 +86,7 @@ public class PassengerLoadingBridgeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpassengerloadingbridge_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpassengerloadingbridgeextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPassengerLoadingBridgeExtension() {
         return abstractPassengerLoadingBridgeExtension;
     }

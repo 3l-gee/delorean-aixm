@@ -151,7 +151,21 @@
 		<complexContent>
 			<extension base="aixm:AbstractSegmentPointType">
 				<sequence>
-					<group ref="aixm:SegmentPointPropertyGroup"/>
+					<element name="reportingATC" type="aixm:CodeATCReportingType" nillable="true" minOccurs="0"/>
+					<element name="flyOver" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="waypoint" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="radarGuidance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="facilityMakeup" type="aixm:PointReferencePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<choice>
+						<element name="pointChoice_fixDesignatedPoint" type="aixm:DesignatedPointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_navaidSystem" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_position" type="aixm:PointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_runwayPoint" type="aixm:RunwayCentrelinePointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_aimingPoint" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_airportReferencePoint" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0"/>
+					</choice>
+					<element name="extendedServiceVolume" type="aixm:RadioFrequencyAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AerialRefuellingPointPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -336,7 +350,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirportHeliportAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -425,7 +441,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="AirportHeliportProtectionAreaPropertyGroup">
+	<!-- <group name="AirportHeliportProtectionAreaPropertyGroup">
 		<sequence>
 			<element name="width" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
 			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
@@ -435,14 +451,16 @@
 			<element name="extent" type="aixm:ElevatedSurfacePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractAirportHeliportProtectionAreaExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="AirportHeliportResponsibilityOrganisation" type="aixm:AirportHeliportResponsibilityOrganisationType" substitutionGroup="aixm:AbstractPropertiesWithSchedule"/>
 	<complexType name="AirportHeliportResponsibilityOrganisationType">
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirportHeliportResponsibilityOrganisationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -478,7 +496,11 @@
 		<complexContent>
 			<extension base="aixm:AbstractUsageConditionType">
 				<sequence>
-					<group ref="aixm:UsageConditionPropertyGroup"/>
+					<element name="type" type="aixm:CodeUsageLimitationType" nillable="true" minOccurs="0"/>
+					<element name="priorPermission" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+					<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="selection" type="aixm:ConditionCombinationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirportHeliportUsagePropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -608,7 +630,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AltimeterSourceStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -677,7 +701,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ConditionCombinationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -857,7 +883,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	<group name="UsageConditionPropertyGroup">
+	<!-- <group name="UsageConditionPropertyGroup">
 		<sequence>
 			<element name="type" type="aixm:CodeUsageLimitationType" nillable="true" minOccurs="0"/>
 			<element name="priorPermission" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
@@ -865,7 +891,7 @@
 			<element name="selection" type="aixm:ConditionCombinationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<complexType name="UsageConditionPropertyType">
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
@@ -930,7 +956,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:WorkareaActivityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -1068,7 +1096,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ApronAreaAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -1105,7 +1135,11 @@
 		<complexContent>
 			<extension base="aixm:AbstractUsageConditionType">
 				<sequence>
-					<group ref="aixm:UsageConditionPropertyGroup"/>
+					<element name="type" type="aixm:CodeUsageLimitationType" nillable="true" minOccurs="0"/>
+					<element name="priorPermission" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+					<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="selection" type="aixm:ConditionCombinationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ApronAreaUsagePropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -1436,7 +1470,13 @@
 	</complexType>
 	<group name="TouchDownLiftOffSafeAreaPropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportHeliportProtectionAreaPropertyGroup" minOccurs="0"/>
+			<element name="width" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="lighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="obstacleFree" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="surfaceProperties" type="aixm:SurfaceCharacteristicsPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="extent" type="aixm:ElevatedSurfacePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="protectedTouchDownLiftOff" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -1482,7 +1522,12 @@
 	</complexType>
 	<group name="ApproachLightingSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="classICAO" type="aixm:CodeApproachLightingICAOType" nillable="true" minOccurs="0"/>
 			<element name="type" type="aixm:CodeApproachLightingType" nillable="true" minOccurs="0"/>
 			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
@@ -1533,7 +1578,12 @@
 	</complexType>
 	<group name="ApronLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="position" type="aixm:CodeApronSectionType" nillable="true" minOccurs="0"/>
 			<element name="lightedApron" type="aixm:ApronPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1544,7 +1594,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:GroundLightingAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -1584,7 +1636,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="GroundLightSystemPropertyGroup">
+	<!-- <group name="GroundLightSystemPropertyGroup">
 		<sequence>
 			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
@@ -1593,7 +1645,7 @@
 			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractGroundLightSystemExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="GuidanceLineLightSystemPropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -1636,7 +1688,12 @@
 	</complexType>
 	<group name="GuidanceLineLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="lightedGuidanceLine" type="aixm:GuidanceLinePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -1718,7 +1775,12 @@
 	</complexType>
 	<group name="RunwayDirectionLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="position" type="aixm:CodeRunwaySectionType" nillable="true" minOccurs="0"/>
 			<element name="associatedRunwayDirection" type="aixm:RunwayDirectionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1765,7 +1827,12 @@
 	</complexType>
 	<group name="RunwayProtectAreaLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="position" type="aixm:CodeProtectAreaSectionType" nillable="true" minOccurs="0"/>
 			<element name="lightedArea" type="aixm:RunwayProtectAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1812,7 +1879,12 @@
 	</complexType>
 	<group name="TaxiHoldingPositionLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeLightHoldingPositionType" nillable="true" minOccurs="0"/>
 			<element name="taxiHolding" type="aixm:TaxiHoldingPositionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1859,7 +1931,12 @@
 	</complexType>
 	<group name="TaxiwayLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="position" type="aixm:CodeTaxiwaySectionType" nillable="true" minOccurs="0"/>
 			<element name="lightedTaxiway" type="aixm:TaxiwayPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1906,7 +1983,12 @@
 	</complexType>
 	<group name="TouchDownLiftOffLightSystemPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="position" type="aixm:CodeTLOFSectionType" nillable="true" minOccurs="0"/>
 			<element name="lightedTouchDownLiftOff" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -1953,7 +2035,10 @@
 	</complexType>
 	<group name="AirportProtectionAreaMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markingLocation" type="aixm:CodeProtectAreaSectionType" nillable="true" minOccurs="0"/>
 			<element name="markedProtectionArea" type="aixm:AirportHeliportProtectionAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -2000,7 +2085,10 @@
 	</complexType>
 	<group name="ApronMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markingLocation" type="aixm:CodeApronSectionType" nillable="true" minOccurs="0"/>
 			<element name="markedApron" type="aixm:ApronPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -2047,7 +2135,10 @@
 	</complexType>
 	<group name="DeicingAreaMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markedDeicingArea" type="aixm:DeicingAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -2093,7 +2184,10 @@
 	</complexType>
 	<group name="GuidanceLineMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markedGuidanceLine" type="aixm:GuidanceLinePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -2108,14 +2202,14 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="MarkingPropertyGroup">
+	<!-- <group name="MarkingPropertyGroup">
 		<sequence>
 			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
 			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractMarkingExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="MarkingElement" type="aixm:MarkingElementType"/>
 	<complexType name="MarkingElementType">
@@ -2198,7 +2292,10 @@
 	</complexType>
 	<group name="RunwayMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markingLocation" type="aixm:CodeRunwaySectionType" nillable="true" minOccurs="0"/>
 			<element name="markedRunway" type="aixm:RunwayPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -2245,7 +2342,10 @@
 	</complexType>
 	<group name="StandMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markedStand" type="aixm:AircraftStandPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -2291,7 +2391,10 @@
 	</complexType>
 	<group name="TaxiHoldingPositionMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markedTaxiHold" type="aixm:TaxiHoldingPositionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -2337,7 +2440,10 @@
 	</complexType>
 	<group name="TaxiwayMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markingLocation" type="aixm:CodeTaxiwaySectionType" nillable="true" minOccurs="0"/>
 			<element name="markedTaxiway" type="aixm:TaxiwayPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="markedElement" type="aixm:TaxiwayElementPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
@@ -2385,7 +2491,10 @@
 	</complexType>
 	<group name="TouchDownLiftOffMarkingPropertyGroup">
 		<sequence>
-			<group ref="aixm:MarkingPropertyGroup" minOccurs="0"/>
+			<element name="markingICAOStandard" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="condition" type="aixm:CodeMarkingConditionType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:MarkingElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="markingLocation" type="aixm:CodeTLOFSectionType" nillable="true" minOccurs="0"/>
 			<element name="markedTouchDownLiftOff" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -2454,7 +2563,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ManoeuvringAreaAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -2491,7 +2602,11 @@
 		<complexContent>
 			<extension base="aixm:AbstractUsageConditionType">
 				<sequence>
-					<group ref="aixm:UsageConditionPropertyGroup"/>
+					<element name="type" type="aixm:CodeUsageLimitationType" nillable="true" minOccurs="0"/>
+					<element name="priorPermission" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+					<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="selection" type="aixm:ConditionCombinationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ManoeuvringAreaUsagePropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -2756,7 +2871,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:RunwayDeclaredDistanceValuePropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -2939,7 +3056,13 @@
 	</complexType>
 	<group name="RunwayProtectAreaPropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportHeliportProtectionAreaPropertyGroup" minOccurs="0"/>
+			<element name="width" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="lighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="obstacleFree" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="surfaceProperties" type="aixm:SurfaceCharacteristicsPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="extent" type="aixm:ElevatedSurfacePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeRunwayProtectionAreaType" nillable="true" minOccurs="0"/>
 			<element name="status" type="aixm:CodeStatusOperationsType" nillable="true" minOccurs="0"/>
 			<element name="protectedRunwayDirection" type="aixm:RunwayDirectionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
@@ -3034,7 +3157,12 @@
 	</complexType>
 	<group name="VisualGlideSlopeIndicatorPropertyGroup">
 		<sequence>
-			<group ref="aixm:GroundLightSystemPropertyGroup" minOccurs="0"/>
+			<element name="emergencyLighting" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="intensityLevel" type="aixm:CodeLightIntensityType" nillable="true" minOccurs="0"/>
+			<element name="colour" type="aixm:CodeColourType" nillable="true" minOccurs="0"/>
+			<element name="element" type="aixm:LightElementPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:GroundLightingAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeVASISType" nillable="true" minOccurs="0"/>
 			<element name="position" type="aixm:CodeSideType" nillable="true" minOccurs="0"/>
 			<element name="numberBox" type="aixm:NoNumberType" nillable="true" minOccurs="0"/>
@@ -3238,7 +3366,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AircraftStandContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3271,7 +3411,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirportHeliportContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3304,7 +3456,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ApronContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3373,7 +3537,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:RunwayContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3416,7 +3592,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:RunwaySectionContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3454,7 +3642,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	<group name="SurfaceContaminationPropertyGroup">
+	<!-- <group name="SurfaceContaminationPropertyGroup">
 		<sequence>
 			<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
 			<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
@@ -3470,7 +3658,7 @@
 			<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<complexType name="SurfaceContaminationPropertyType">
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
@@ -3522,7 +3710,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:TaxiwayContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3557,7 +3757,19 @@
 		<complexContent>
 			<extension base="aixm:AbstractSurfaceContaminationType">
 				<sequence>
-					<group ref="aixm:SurfaceContaminationPropertyGroup"/>
+					<element name="observationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="depth" type="aixm:ValDepthType" nillable="true" minOccurs="0"/>
+					<element name="frictionCoefficient" type="aixm:ValFrictionType" nillable="true" minOccurs="0"/>
+					<element name="frictionEstimation" type="aixm:CodeFrictionEstimateType" nillable="true" minOccurs="0"/>
+					<element name="frictionDevice" type="aixm:CodeFrictionDeviceType" nillable="true" minOccurs="0"/>
+					<element name="obscuredLights" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="furtherClearanceTime" type="aixm:TimeType" nillable="true" minOccurs="0"/>
+					<element name="furtherTotalClearance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="nextObservationTime" type="aixm:DateTimeType" nillable="true" minOccurs="0"/>
+					<element name="proportion" type="aixm:ValPercentType" nillable="true" minOccurs="0"/>
+					<element name="criticalRidge" type="aixm:RidgePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="layer" type="aixm:SurfaceContaminationLayerPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:TouchDownLiftOffContaminationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3854,7 +4066,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirspaceActivationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -3929,7 +4143,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:AirspaceLayerClassPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -4655,7 +4871,19 @@
 	</complexType>
 	<group name="AzimuthPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeMLSAzimuthType" nillable="true" minOccurs="0"/>
 			<element name="trueBearing" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
 			<element name="trueBearingAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
@@ -4709,7 +4937,17 @@
 	</complexType>
 	<group name="CheckpointINSPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavigationSystemCheckpointPropertyGroup" minOccurs="0"/>
+			<element name="category" type="aixm:CodeCheckpointCategoryType" nillable="true" minOccurs="0"/>
+			<element name="upperLimit" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimit" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="distance" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="angle" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="position" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</group>
 	<element name="AbstractCheckpointINSExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
@@ -4754,7 +4992,17 @@
 	</complexType>
 	<group name="CheckpointVORPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavigationSystemCheckpointPropertyGroup" minOccurs="0"/>
+			<element name="category" type="aixm:CodeCheckpointCategoryType" nillable="true" minOccurs="0"/>
+			<element name="upperLimit" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimit" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="distance" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="angle" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="position" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="checkPointFacility" type="aixm:VORPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</group>
@@ -4800,7 +5048,19 @@
 	</complexType>
 	<group name="DirectionFinderPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="doppler" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="informationProvision" type="aixm:InformationServicePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
@@ -4847,7 +5107,19 @@
 	</complexType>
 	<group name="DMEPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeDMEType" nillable="true" minOccurs="0"/>
 			<element name="channel" type="aixm:CodeDMEChannelType" nillable="true" minOccurs="0"/>
 			<element name="ghostFrequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
@@ -4896,7 +5168,19 @@
 	</complexType>
 	<group name="ElevationPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="angleNominal" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
 			<element name="angleMinimum" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
 			<element name="angleSpan" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
@@ -4945,7 +5229,19 @@
 	</complexType>
 	<group name="GlidepathPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="slope" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
 			<element name="angleAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
@@ -4995,7 +5291,19 @@
 	</complexType>
 	<group name="LocalizerPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="magneticBearing" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
 			<element name="magneticBearingAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
@@ -5049,7 +5357,19 @@
 	</complexType>
 	<group name="MarkerBeaconPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="class" type="aixm:CodeMarkerBeaconSignalType" nillable="true" minOccurs="0"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="axisBearing" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
@@ -5162,7 +5482,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="NavaidEquipmentPropertyGroup">
+	<!-- <group name="NavaidEquipmentPropertyGroup">
 		<sequence>
 			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
 			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
@@ -5178,14 +5498,16 @@
 			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractNavaidEquipmentExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="NavaidEquipmentMonitoring" type="aixm:NavaidEquipmentMonitoringType" substitutionGroup="aixm:AbstractPropertiesWithSchedule"/>
 	<complexType name="NavaidEquipmentMonitoringType">
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:NavaidEquipmentMonitoringPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -5220,7 +5542,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:NavaidOperationalStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -5261,7 +5585,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="NavigationSystemCheckpointPropertyGroup">
+	<!-- <group name="NavigationSystemCheckpointPropertyGroup">
 		<sequence>
 			<element name="category" type="aixm:CodeCheckpointCategoryType" nillable="true" minOccurs="0"/>
 			<element name="upperLimit" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
@@ -5275,7 +5599,7 @@
 			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractNavigationSystemCheckpointExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="NDBPropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -5318,7 +5642,19 @@
 	</complexType>
 	<group name="NDBPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="class" type="aixm:CodeNDBUsageType" nillable="true" minOccurs="0"/>
 			<element name="emissionBand" type="aixm:CodeEmissionBandType" nillable="true" minOccurs="0"/>
@@ -5366,7 +5702,19 @@
 	</complexType>
 	<group name="SDFPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="magneticBearing" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
 			<element name="trueBearing" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
@@ -5430,7 +5778,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:SpecialNavigationStationStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -5549,7 +5899,19 @@
 	</complexType>
 	<group name="TACANPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="channel" type="aixm:CodeTACANChannelType" nillable="true" minOccurs="0"/>
 			<element name="declination" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
 		</sequence>
@@ -5596,7 +5958,19 @@
 	</complexType>
 	<group name="VORPropertyGroup">
 		<sequence>
-			<group ref="aixm:NavaidEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="designator" type="aixm:CodeNavaidDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="emissionClass" type="aixm:CodeRadioEmissionType" nillable="true" minOccurs="0"/>
+			<element name="mobile" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="authority" type="aixm:AuthorityForNavaidEquipmentPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="monitoring" type="aixm:NavaidEquipmentMonitoringPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:NavaidOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeVORType" nillable="true" minOccurs="0"/>
 			<element name="frequency" type="aixm:ValFrequencyType" nillable="true" minOccurs="0"/>
 			<element name="zeroBearingDirection" type="aixm:CodeNorthReferenceType" nillable="true" minOccurs="0"/>
@@ -5759,7 +6133,21 @@
 		<complexContent>
 			<extension base="aixm:AbstractSegmentPointType">
 				<sequence>
-					<group ref="aixm:SegmentPointPropertyGroup"/>
+					<element name="reportingATC" type="aixm:CodeATCReportingType" nillable="true" minOccurs="0"/>
+					<element name="flyOver" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="waypoint" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="radarGuidance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="facilityMakeup" type="aixm:PointReferencePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<choice>
+						<element name="pointChoice_fixDesignatedPoint" type="aixm:DesignatedPointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_navaidSystem" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_position" type="aixm:PointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_runwayPoint" type="aixm:RunwayCentrelinePointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_aimingPoint" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_airportReferencePoint" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0"/>
+					</choice>
+					<element name="extendedServiceVolume" type="aixm:RadioFrequencyAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:EnRouteSegmentPointPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -5840,7 +6228,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	<group name="SegmentPointPropertyGroup">
+	<!-- <group name="SegmentPointPropertyGroup">
 		<sequence>
 			<element name="reportingATC" type="aixm:CodeATCReportingType" nillable="true" minOccurs="0"/>
 			<element name="flyOver" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
@@ -5858,7 +6246,7 @@
 			<element name="extendedServiceVolume" type="aixm:RadioFrequencyAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<complexType name="SegmentPointPropertyType">
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
@@ -5874,7 +6262,21 @@
 		<complexContent>
 			<extension base="aixm:AbstractSegmentPointType">
 				<sequence>
-					<group ref="aixm:SegmentPointPropertyGroup"/>
+					<element name="reportingATC" type="aixm:CodeATCReportingType" nillable="true" minOccurs="0"/>
+					<element name="flyOver" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="waypoint" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="radarGuidance" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+					<element name="facilityMakeup" type="aixm:PointReferencePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<choice>
+						<element name="pointChoice_fixDesignatedPoint" type="aixm:DesignatedPointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_navaidSystem" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_position" type="aixm:PointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_runwayPoint" type="aixm:RunwayCentrelinePointPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_aimingPoint" type="aixm:TouchDownLiftOffPropertyType" nillable="true" minOccurs="0"/>
+						<element name="pointChoice_airportReferencePoint" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0"/>
+					</choice>
+					<element name="extendedServiceVolume" type="aixm:RadioFrequencyAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:TerminalSegmentPointPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -6254,7 +6656,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:VerticalStructureLightingStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -6289,7 +6693,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:VerticalStructurePartPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -6480,7 +6886,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:UnitAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -6774,7 +7182,24 @@
 	</complexType>
 	<group name="InstrumentApproachProcedurePropertyGroup">
 		<sequence>
-			<group ref="aixm:ProcedurePropertyGroup" minOccurs="0"/>
+			<element name="communicationFailureInstruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="instruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="designCriteria" type="aixm:CodeDesignStandardType" nillable="true" minOccurs="0"/>
+			<element name="codingStandard" type="aixm:CodeProcedureCodingStandardType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="RNAV" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="availability" type="aixm:ProcedureAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="aircraftCharacteristic" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="flightTransition" type="aixm:ProcedureTransitionPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<choice>
+				<element name="guidanceFacility_specialNavigationSystem" type="aixm:SpecialNavigationSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_radar" type="aixm:RadarSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_navaid" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+			</choice>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="safeAltitude" type="aixm:SafeAltitudeAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="approachPrefix" type="aixm:CodeApproachPrefixType" nillable="true" minOccurs="0"/>
 			<element name="approachType" type="aixm:CodeApproachType" nillable="true" minOccurs="0"/>
 			<element name="multipleIdentification" type="aixm:CodeUpperAlphaType" nillable="true" minOccurs="0"/>
@@ -7031,7 +7456,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:CirclingRestrictionPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -7223,7 +7650,24 @@
 	</complexType>
 	<group name="StandardInstrumentArrivalPropertyGroup">
 		<sequence>
-			<group ref="aixm:ProcedurePropertyGroup" minOccurs="0"/>
+			<element name="communicationFailureInstruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="instruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="designCriteria" type="aixm:CodeDesignStandardType" nillable="true" minOccurs="0"/>
+			<element name="codingStandard" type="aixm:CodeProcedureCodingStandardType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="RNAV" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="availability" type="aixm:ProcedureAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="aircraftCharacteristic" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="flightTransition" type="aixm:ProcedureTransitionPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<choice>
+				<element name="guidanceFacility_specialNavigationSystem" type="aixm:SpecialNavigationSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_radar" type="aixm:RadarSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_navaid" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+			</choice>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="safeAltitude" type="aixm:SafeAltitudeAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="designator" type="aixm:TextSIDSTARDesignatorType" nillable="true" minOccurs="0"/>
 			<element name="arrival" type="aixm:LandingTakeoffAreaCollectionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -7440,7 +7884,24 @@
 	</complexType>
 	<group name="StandardInstrumentDeparturePropertyGroup">
 		<sequence>
-			<group ref="aixm:ProcedurePropertyGroup" minOccurs="0"/>
+			<element name="communicationFailureInstruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="instruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
+			<element name="designCriteria" type="aixm:CodeDesignStandardType" nillable="true" minOccurs="0"/>
+			<element name="codingStandard" type="aixm:CodeProcedureCodingStandardType" nillable="true" minOccurs="0"/>
+			<element name="flightChecked" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="RNAV" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="availability" type="aixm:ProcedureAvailabilityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="aircraftCharacteristic" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="flightTransition" type="aixm:ProcedureTransitionPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<choice>
+				<element name="guidanceFacility_specialNavigationSystem" type="aixm:SpecialNavigationSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_radar" type="aixm:RadarSystemPropertyType" nillable="true" minOccurs="0"/>
+				<element name="guidanceFacility_navaid" type="aixm:NavaidPropertyType" nillable="true" minOccurs="0"/>
+			</choice>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="safeAltitude" type="aixm:SafeAltitudeAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="designator" type="aixm:TextSIDSTARDesignatorType" nillable="true" minOccurs="0"/>
 			<element name="contingencyRoute" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="takeoff" type="aixm:LandingTakeoffAreaCollectionPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
@@ -7549,12 +8010,12 @@
 			<extension base="aixm:AbstractSegmentLegType"/>
 		</complexContent>
 	</complexType>
-	<group name="ApproachLegPropertyGroup">
+	<!-- <group name="ApproachLegPropertyGroup">
 		<sequence>
 			<group ref="aixm:SegmentLegPropertyGroup" minOccurs="0"/>
 			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractApproachLegExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="ArrivalFeederLegPropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -7598,7 +8059,39 @@
 	</complexType>
 	<group name="ArrivalFeederLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:ApproachLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="requiredNavigationPerformance" type="aixm:CodeRNPType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -7644,7 +8137,38 @@
 	</complexType>
 	<group name="ArrivalLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:SegmentLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="requiredNavigationPerformance" type="aixm:CodeRNPType" nillable="true" minOccurs="0"/>
 			<element name="arrival" type="aixm:StandardInstrumentArrivalPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -7691,7 +8215,38 @@
 	</complexType>
 	<group name="DepartureLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:SegmentLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="requiredNavigationPerformance" type="aixm:CodeRNPType" nillable="true" minOccurs="0"/>
 			<element name="minimumObstacleClearanceAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
 			<element name="departure" type="aixm:StandardInstrumentDeparturePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
@@ -7741,7 +8296,39 @@
 	</complexType>
 	<group name="FinalLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:ApproachLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="guidanceSystem" type="aixm:CodeFinalGuidanceType" nillable="true" minOccurs="0"/>
 			<element name="landingSystemCategory" type="aixm:CodeApproachGuidanceType" nillable="true" minOccurs="0"/>
 			<element name="minimumBaroVnavTemperature" type="aixm:ValTemperatureType" nillable="true" minOccurs="0"/>
@@ -7845,7 +8432,39 @@
 	</complexType>
 	<group name="InitialLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:ApproachLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="requiredNavigationPerformance" type="aixm:CodeRNPType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -7892,7 +8511,39 @@
 	</complexType>
 	<group name="IntermediateLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:ApproachLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="requiredNavigationPerformance" type="aixm:CodeRNPType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -7974,7 +8625,39 @@
 	</complexType>
 	<group name="MissedApproachLegPropertyGroup">
 		<sequence>
-			<group ref="aixm:ApproachLegPropertyGroup" minOccurs="0"/>
+			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
+			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
+			<element name="legTypeARINC" type="aixm:CodeSegmentPathType" nillable="true" minOccurs="0"/>
+			<element name="course" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="courseType" type="aixm:CodeCourseType" nillable="true" minOccurs="0"/>
+			<element name="courseDirection" type="aixm:CodeDirectionReferenceType" nillable="true" minOccurs="0"/>
+			<element name="turnDirection" type="aixm:CodeDirectionTurnType" nillable="true" minOccurs="0"/>
+			<element name="speedLimit" type="aixm:ValSpeedType" nillable="true" minOccurs="0"/>
+			<element name="speedReference" type="aixm:CodeSpeedReferenceType" nillable="true" minOccurs="0"/>
+			<element name="speedInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="bankAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="length" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="duration" type="aixm:ValDurationType" nillable="true" minOccurs="0"/>
+			<element name="procedureTurnRequired" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="upperLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="lowerLimitReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="altitudeInterpretation" type="aixm:CodeAltitudeUseType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideATC" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="altitudeOverrideReference" type="aixm:CodeVerticalReferenceType" nillable="true" minOccurs="0"/>
+			<element name="verticalAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="startPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="endPoint" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="trajectory" type="aixm:CurvePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="arcCentre" type="aixm:TerminalSegmentPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="angle" type="aixm:AngleIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="distance" type="aixm:DistanceIndicationPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="aircraftCategory" type="aixm:AircraftCharacteristicPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="holding" type="aixm:HoldingUsePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="approach" type="aixm:InstrumentApproachProcedurePropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="type" type="aixm:CodeMissedApproachType" nillable="true" minOccurs="0"/>
 			<element name="thresholdAfterMAPT" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="heightMAPT" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
@@ -8041,7 +8724,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="ProcedurePropertyGroup">
+	<!-- <group name="ProcedurePropertyGroup">
 		<sequence>
 			<element name="communicationFailureInstruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
 			<element name="instruction" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
@@ -8062,7 +8745,7 @@
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="safeAltitude" type="aixm:SafeAltitudeAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractProcedureExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="ProcedureDMEPropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -8197,7 +8880,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="SegmentLegPropertyGroup">
+	<!-- <group name="SegmentLegPropertyGroup">
 		<sequence>
 			<element name="endConditionDesignator" type="aixm:CodeSegmentTerminationType" nillable="true" minOccurs="0"/>
 			<element name="legPath" type="aixm:CodeTrajectoryType" nillable="true" minOccurs="0"/>
@@ -8232,14 +8915,16 @@
 			<element name="designSurface" type="aixm:ObstacleAssessmentAreaPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractSegmentLegExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="ProcedureAvailability" type="aixm:ProcedureAvailabilityType" substitutionGroup="aixm:AbstractPropertiesWithSchedule"/>
 	<complexType name="ProcedureAvailabilityType">
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ProcedureAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -8384,7 +9069,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:RouteAvailabilityPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -8651,11 +9338,11 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	<group name="DirectFlightPropertyGroup">
+	<!-- <group name="DirectFlightPropertyGroup">
 		<sequence>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<complexType name="DirectFlightPropertyType">
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
@@ -8671,7 +9358,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractDirectFlightType">
 				<sequence>
-					<group ref="aixm:DirectFlightPropertyGroup"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:DirectFlightClassPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -8706,7 +9393,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractDirectFlightType">
 				<sequence>
-					<group ref="aixm:DirectFlightPropertyGroup"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:DirectFlightSegmentPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -8791,7 +9478,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:FlightConditionCombinationPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -9149,7 +9838,18 @@
 	</complexType>
 	<group name="AircraftGroundServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportGroundServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeAircraftGroundServiceType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -9196,7 +9896,18 @@
 	</complexType>
 	<group name="AirportClearanceServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportGroundServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="snowPlan" type="aixm:TextInstructionType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -9211,12 +9922,12 @@
 			<extension base="aixm:AbstractServiceType"/>
 		</complexContent>
 	</complexType>
-	<group name="AirportGroundServicePropertyGroup">
+	<!-- <group name="AirportGroundServicePropertyGroup">
 		<sequence>
 			<group ref="aixm:ServicePropertyGroup" minOccurs="0"/>
 			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractAirportGroundServiceExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="AirportSuppliesServicePropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -9260,7 +9971,18 @@
 	</complexType>
 	<group name="AirportSuppliesServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportGroundServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="fuelSupply" type="aixm:FuelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="oilSupply" type="aixm:OilPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="nitrogenSupply" type="aixm:NitrogenPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
@@ -9310,7 +10032,20 @@
 	</complexType>
 	<group name="AirTrafficControlServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:TrafficSeparationServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radarAssisted" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="dataLinkEnabled" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="dataLinkChannel" type="aixm:CodeCommunicationChannelType" nillable="true" minOccurs="0"/>
 			<element name="type" type="aixm:CodeServiceATCType" nillable="true" minOccurs="0"/>
 			<element name="clientAirport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="clientAirspace" type="aixm:AirspacePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
@@ -9363,7 +10098,17 @@
 	</complexType>
 	<group name="AirTrafficManagementServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:ServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeServiceATFMType" nillable="true" minOccurs="0"/>
 			<element name="clientAirspace" type="aixm:AirspacePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="clientAerialRefuelling" type="aixm:AerialRefuellingPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
@@ -9448,7 +10193,18 @@
 	</complexType>
 	<group name="FireFightingServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportGroundServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="category" type="aixm:CodeFireFightingType" nillable="true" minOccurs="0"/>
 			<element name="standard" type="aixm:CodeAviationStandardsType" nillable="true" minOccurs="0"/>
 		</sequence>
@@ -9530,7 +10286,20 @@
 	</complexType>
 	<group name="GroundTrafficControlServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:TrafficSeparationServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radarAssisted" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="dataLinkEnabled" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="dataLinkChannel" type="aixm:CodeCommunicationChannelType" nillable="true" minOccurs="0"/>
 			<element name="type" type="aixm:CodeServiceGroundControlType" nillable="true" minOccurs="0"/>
 			<element name="clientAirport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</sequence>
@@ -9577,7 +10346,17 @@
 	</complexType>
 	<group name="InformationServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:ServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeServiceInformationType" nillable="true" minOccurs="0"/>
 			<element name="voice" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="dataLink" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
@@ -9736,7 +10515,18 @@
 	</complexType>
 	<group name="PassengerServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:AirportGroundServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="airportHeliport" type="aixm:AirportHeliportPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodePassengerServiceType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -9854,7 +10644,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:RadioCommunicationOperationalStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -9925,7 +10717,17 @@
 	</complexType>
 	<group name="SearchRescueServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:ServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodeServiceSARType" nillable="true" minOccurs="0"/>
 			<element name="clientAirspace" type="aixm:AirspacePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="clientRoute" type="aixm:RoutePortionPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
@@ -9942,7 +10744,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="ServicePropertyGroup">
+	<!-- <group name="ServicePropertyGroup">
 		<sequence>
 			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
 			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
@@ -9956,14 +10758,16 @@
 			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractServiceExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="ServiceOperationalStatus" type="aixm:ServiceOperationalStatusType" substitutionGroup="aixm:AbstractPropertiesWithSchedule"/>
 	<complexType name="ServiceOperationalStatusType">
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:ServiceOperationalStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -10003,14 +10807,24 @@
 			<extension base="aixm:AbstractServiceType"/>
 		</complexContent>
 	</complexType>
-	<group name="TrafficSeparationServicePropertyGroup">
+	<!-- <group name="TrafficSeparationServicePropertyGroup">
 		<sequence>
-			<group ref="aixm:ServicePropertyGroup" minOccurs="0"/>
+			<element name="flightOperations" type="aixm:CodeFlightDestinationType" nillable="true" minOccurs="0"/>
+			<element name="rank" type="aixm:CodeFacilityRankingType" nillable="true" minOccurs="0"/>
+			<element name="compliantICAO" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="serviceProvider" type="aixm:UnitPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="call-sign" type="aixm:CallsignDetailPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="radioCommunication" type="aixm:RadioCommunicationChannelPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="groundCommunication" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="availability" type="aixm:ServiceOperationalStatusPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="radarAssisted" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="dataLinkEnabled" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="dataLinkChannel" type="aixm:CodeCommunicationChannelType" nillable="true" minOccurs="0"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractTrafficSeparationServiceExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<element name="ContactInformation" type="aixm:ContactInformationType"/>
 	<complexType name="ContactInformationType">
@@ -10055,7 +10869,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:OnlineContactPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -10093,7 +10909,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:PostalAddressPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -10132,7 +10950,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:TelephoneContactPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -10383,7 +11203,9 @@
 		<complexContent>
 			<extension base="aixm:AbstractPropertiesWithScheduleType">
 				<sequence>
-					<group ref="aixm:PropertiesWithSchedulePropertyGroup"/>
+					<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 					<group ref="aixm:LightElementStatusPropertyGroup"/>
 					<element name="extension" minOccurs="0" maxOccurs="unbounded">
 						<complexType>
@@ -10515,13 +11337,13 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	<group name="PropertiesWithSchedulePropertyGroup">
+	<!-- <group name="PropertiesWithSchedulePropertyGroup">
 		<sequence>
 			<element name="timeInterval" type="aixm:TimesheetPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="specialDateAuthority" type="aixm:OrganisationAuthorityPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<complexType name="PropertiesWithSchedulePropertyType">
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
@@ -11067,7 +11889,23 @@
 	</complexType>
 	<group name="PrecisionApproachRadarPropertyGroup">
 		<sequence>
-			<group ref="aixm:RadarEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="serialNumber" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="range" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="rangeAccuracy" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="dualChannel" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="movingTargetIndicator" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="standbyPower" type="aixm:CodeStandbyPowerType" nillable="true" minOccurs="0"/>
+			<element name="digital" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="militaryUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialAircraftOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="precisionApproachRadarType" type="aixm:CodePARType" nillable="true" minOccurs="0"/>
 			<element name="slope" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
 			<element name="slopeAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
@@ -11117,7 +11955,30 @@
 	</complexType>
 	<group name="PrimarySurveillanceRadarPropertyGroup">
 		<sequence>
-			<group ref="aixm:SurveillanceRadarPropertyGroup" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="serialNumber" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="range" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="rangeAccuracy" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="dualChannel" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="movingTargetIndicator" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="standbyPower" type="aixm:CodeStandbyPowerType" nillable="true" minOccurs="0"/>
+			<element name="digital" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="militaryUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialAircraftOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="verticalCoverageAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="verticalCoverageDistance" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="verticalCoverageAzimuth" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="antennaTiltFixed" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="tiltAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="automatedRadarTerminalSystem" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="groundStation" type="aixm:SurveillanceGroundStationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="aixm:CodePrimaryRadarType" nillable="true" minOccurs="0"/>
 		</sequence>
 	</group>
@@ -11167,7 +12028,7 @@
 			<extension base="aixm:AbstractAIXMFeatureType"/>
 		</complexContent>
 	</complexType>
-	<group name="RadarEquipmentPropertyGroup">
+	<!-- <group name="RadarEquipmentPropertyGroup">
 		<sequence>
 			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
 			<element name="serialNumber" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
@@ -11187,7 +12048,7 @@
 			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractRadarEquipmentExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 	<complexType name="RadarSystemPropertyType">
 		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -11319,7 +12180,30 @@
 	</complexType>
 	<group name="SecondarySurveillanceRadarPropertyGroup">
 		<sequence>
-			<group ref="aixm:SurveillanceRadarPropertyGroup" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="serialNumber" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="range" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="rangeAccuracy" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="dualChannel" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="movingTargetIndicator" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="standbyPower" type="aixm:CodeStandbyPowerType" nillable="true" minOccurs="0"/>
+			<element name="digital" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="militaryUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialAircraftOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="verticalCoverageAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
+			<element name="verticalCoverageDistance" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="verticalCoverageAzimuth" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
+			<element name="antennaTiltFixed" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="tiltAngle" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="automatedRadarTerminalSystem" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="groundStation" type="aixm:SurveillanceGroundStationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="transponder" type="aixm:CodeTransponderType" nillable="true" minOccurs="0"/>
 			<element name="autonomous" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
 			<element name="monopulse" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
@@ -11371,9 +12255,25 @@
 			<extension base="aixm:AbstractRadarEquipmentType"/>
 		</complexContent>
 	</complexType>
-	<group name="SurveillanceRadarPropertyGroup">
+	<!-- <group name="SurveillanceRadarPropertyGroup">
 		<sequence>
-			<group ref="aixm:RadarEquipmentPropertyGroup" minOccurs="0"/>
+			<element name="name" type="aixm:TextNameType" nillable="true" minOccurs="0"/>
+			<element name="serialNumber" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
+			<element name="range" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="rangeAccuracy" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
+			<element name="dualChannel" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="movingTargetIndicator" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="standbyPower" type="aixm:CodeStandbyPowerType" nillable="true" minOccurs="0"/>
+			<element name="digital" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="militaryUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialUseOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="specialAircraftOnly" type="aixm:CodeYesNoType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariation" type="aixm:ValMagneticVariationType" nillable="true" minOccurs="0"/>
+			<element name="magneticVariationAccuracy" type="aixm:ValAngleType" nillable="true" minOccurs="0"/>
+			<element name="dateMagneticVariation" type="aixm:DateYearType" nillable="true" minOccurs="0"/>
+			<element name="contact" type="aixm:ContactInformationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="location" type="aixm:ElevatedPointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<element name="annotation" type="aixm:NotePropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="verticalCoverageAltitude" type="aixm:ValDistanceVerticalType" nillable="true" minOccurs="0"/>
 			<element name="verticalCoverageDistance" type="aixm:ValDistanceType" nillable="true" minOccurs="0"/>
 			<element name="verticalCoverageAzimuth" type="aixm:ValBearingType" nillable="true" minOccurs="0"/>
@@ -11382,6 +12282,6 @@
 			<element name="automatedRadarTerminalSystem" type="aixm:TextDesignatorType" nillable="true" minOccurs="0"/>
 			<element name="groundStation" type="aixm:SurveillanceGroundStationPropertyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-	</group>
+	</group> -->
 	<element name="AbstractSurveillanceRadarExtension" type="aixm:AbstractExtensionType" abstract="true" substitutionGroup="aixm:AbstractExtension"/>
 </schema>

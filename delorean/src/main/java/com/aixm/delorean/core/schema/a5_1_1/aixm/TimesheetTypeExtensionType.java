@@ -86,7 +86,7 @@ public class TimesheetTypeExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttimesheet_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttimesheetextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTimesheetExtension() {
         return abstractTimesheetExtension;
     }

@@ -9,8 +9,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -265,10 +267,14 @@ public class DeicingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_deicingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "deicingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -315,10 +321,14 @@ public class DeicingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ApronAreaAvailabilityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ApronAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "availability_id", referencedColumnName = "hjid")
+    @JoinTable(name = "availability_deicingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "deicingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<ApronAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -393,7 +403,7 @@ public class DeicingAreaTimeSliceType
         this.extension = null;
     }
 
-    @OneToOne(targetEntity = ApronPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = ApronPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "associatedapron_id", referencedColumnName = "hjid")
@@ -405,7 +415,7 @@ public class DeicingAreaTimeSliceType
         setAssociatedApron(XmlAdapterUtils.marshallJAXBElement(ApronPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedApron"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TaxiwayPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "taxiwaylocation_id", referencedColumnName = "hjid")
@@ -417,7 +427,7 @@ public class DeicingAreaTimeSliceType
         setTaxiwayLocation(XmlAdapterUtils.marshallJAXBElement(TaxiwayPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "taxiwayLocation"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AircraftStandPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AircraftStandPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "standlocation_id", referencedColumnName = "hjid")
@@ -429,7 +439,7 @@ public class DeicingAreaTimeSliceType
         setStandLocation(XmlAdapterUtils.marshallJAXBElement(AircraftStandPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "standLocation"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = SurfaceCharacteristicsPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfaceproperties_id", referencedColumnName = "hjid")
@@ -441,7 +451,7 @@ public class DeicingAreaTimeSliceType
         setSurfaceProperties(XmlAdapterUtils.marshallJAXBElement(SurfaceCharacteristicsPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "surfaceProperties"), DeicingAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
@@ -479,27 +489,14 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ApronAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ApronAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
-            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getTaxiwayLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetStandLocation();
+            boolean rhsFieldIsSet = that.isSetStandLocation();
+            JAXBElement<AircraftStandPropertyType> lhsField;
+            lhsField = this.getStandLocation();
+            JAXBElement<AircraftStandPropertyType> rhsField;
+            rhsField = that.getStandLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -518,14 +515,14 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStandLocation();
-            boolean rhsFieldIsSet = that.isSetStandLocation();
-            JAXBElement<AircraftStandPropertyType> lhsField;
-            lhsField = this.getStandLocation();
-            JAXBElement<AircraftStandPropertyType> rhsField;
-            rhsField = that.getStandLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
+            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getTaxiwayLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -544,6 +541,19 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAssociatedApron();
+            boolean rhsFieldIsSet = that.isSetAssociatedApron();
+            JAXBElement<ApronPropertyType> lhsField;
+            lhsField = this.getAssociatedApron();
+            JAXBElement<ApronPropertyType> rhsField;
+            rhsField = that.getAssociatedApron();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedApron", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedApron", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<DeicingAreaExtensionType> lhsField;
@@ -557,14 +567,14 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedApron();
-            boolean rhsFieldIsSet = that.isSetAssociatedApron();
-            JAXBElement<ApronPropertyType> lhsField;
-            lhsField = this.getAssociatedApron();
-            JAXBElement<ApronPropertyType> rhsField;
-            rhsField = that.getAssociatedApron();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedApron", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedApron", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ApronAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ApronAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

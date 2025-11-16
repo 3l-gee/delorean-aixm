@@ -86,7 +86,7 @@ public class NavaidEquipmentDistanceTypeExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipmentdistance_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentdistanceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentDistanceExtension() {
         return abstractNavaidEquipmentDistanceExtension;
     }

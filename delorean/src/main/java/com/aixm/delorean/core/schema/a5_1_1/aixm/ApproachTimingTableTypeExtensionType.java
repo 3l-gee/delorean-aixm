@@ -86,7 +86,7 @@ public class ApproachTimingTableTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachtimingtable_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachtimingtableextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachTimingTableExtension() {
         return abstractApproachTimingTableExtension;
     }
@@ -223,19 +223,6 @@ public class ApproachTimingTableTypeExtensionType implements Serializable, Equal
         }
         final ApproachTimingTableTypeExtensionType that = ((ApproachTimingTableTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApproachTimingTableExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApproachTimingTableExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApproachTimingTableExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApproachTimingTableExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachTimingTableExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachTimingTableExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApproachTimingTableTypeExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractApproachTimingTableExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApproachTimingTableExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractApproachTimingTableExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractApproachTimingTableExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApproachTimingTableExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachTimingTableExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

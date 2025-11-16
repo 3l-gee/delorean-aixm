@@ -86,7 +86,7 @@ public class AirspaceGeometryComponentTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacegeometrycomponent_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacegeometrycomponentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceGeometryComponentExtension() {
         return abstractAirspaceGeometryComponentExtension;
     }

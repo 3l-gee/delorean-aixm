@@ -86,7 +86,7 @@ public class TerminalArrivalAreaExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractterminalarrivalarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractterminalarrivalareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTerminalArrivalAreaExtension() {
         return abstractTerminalArrivalAreaExtension;
     }

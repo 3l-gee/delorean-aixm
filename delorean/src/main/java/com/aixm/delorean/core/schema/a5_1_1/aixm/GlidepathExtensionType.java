@@ -90,7 +90,7 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractglidepath_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractglidepathextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGlidepathExtension() {
         return abstractGlidepathExtension;
     }
@@ -123,7 +123,7 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,14 +260,14 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
         }
         final GlidepathExtensionType that = ((GlidepathExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

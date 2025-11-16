@@ -86,7 +86,7 @@ public class RouteExtensionType implements Serializable, Equals, HashCode, ToStr
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractroute_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrouteextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteExtension() {
         return abstractRouteExtension;
     }

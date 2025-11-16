@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -239,10 +241,14 @@ public class StandardLevelSectorTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "applicableairspace_id", referencedColumnName = "hjid")
+    @JoinTable(name = "applicableairspace_standardlevelsector_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "applicableairspace", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "standardlevelsectorpropertygroup", referencedColumnName = "hjid")
+    })
     public List<AirspacePropertyType> getApplicableAirspace() {
         if (applicableAirspace == null) {
             applicableAirspace = new ArrayList<>();
@@ -319,10 +325,14 @@ public class StandardLevelSectorTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_standardlevelsector_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "standardlevelsectorpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -449,7 +459,7 @@ public class StandardLevelSectorTimeSliceType
         setAngleType(XmlAdapterUtils.marshallJAXBElement(CodeNorthReferenceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "angleType"), StandardLevelSectorTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = StandardLevelColumnPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = StandardLevelColumnPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "applicablelevelcolumn_id", referencedColumnName = "hjid")
@@ -473,45 +483,6 @@ public class StandardLevelSectorTimeSliceType
             return false;
         }
         final StandardLevelSectorTimeSliceType that = ((StandardLevelSectorTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicableAirspace();
-            boolean rhsFieldIsSet = that.isSetApplicableAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetApplicableAirspace()?this.getApplicableAirspace():null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetApplicableAirspace()?that.getApplicableAirspace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicableLevelColumn();
-            boolean rhsFieldIsSet = that.isSetApplicableLevelColumn();
-            JAXBElement<StandardLevelColumnPropertyType> lhsField;
-            lhsField = this.getApplicableLevelColumn();
-            JAXBElement<StandardLevelColumnPropertyType> rhsField;
-            rhsField = that.getApplicableLevelColumn();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableLevelColumn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableLevelColumn", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetFlightRule();
             boolean rhsFieldIsSet = that.isSetFlightRule();
@@ -539,14 +510,40 @@ public class StandardLevelSectorTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelSectorExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelSectorExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetApplicableLevelColumn();
+            boolean rhsFieldIsSet = that.isSetApplicableLevelColumn();
+            JAXBElement<StandardLevelColumnPropertyType> lhsField;
+            lhsField = this.getApplicableLevelColumn();
+            JAXBElement<StandardLevelColumnPropertyType> rhsField;
+            rhsField = that.getApplicableLevelColumn();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableLevelColumn", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableLevelColumn", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApplicableAirspace();
+            boolean rhsFieldIsSet = that.isSetApplicableAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetApplicableAirspace()?this.getApplicableAirspace():null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetApplicableAirspace()?that.getApplicableAirspace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -573,6 +570,19 @@ public class StandardLevelSectorTimeSliceType
             rhsField = that.getAngleType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelSectorExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelSectorExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

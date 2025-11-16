@@ -198,19 +198,6 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
         }
         final NumberPropertyType that = ((NumberPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInteger();
-            boolean rhsFieldIsSet = that.isSetInteger();
-            BigInteger lhsField;
-            lhsField = this.getInteger();
-            BigInteger rhsField;
-            rhsField = that.getInteger();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -224,14 +211,14 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDecimal();
-            boolean rhsFieldIsSet = that.isSetDecimal();
-            BigDecimal lhsField;
-            lhsField = this.getDecimal();
-            BigDecimal rhsField;
-            rhsField = that.getDecimal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
+            boolean lhsFieldIsSet = this.isSetInteger();
+            boolean rhsFieldIsSet = that.isSetInteger();
+            BigInteger lhsField;
+            lhsField = this.getInteger();
+            BigInteger rhsField;
+            rhsField = that.getInteger();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -245,6 +232,19 @@ public class NumberPropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getReal();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDecimal();
+            boolean rhsFieldIsSet = that.isSetDecimal();
+            BigDecimal lhsField;
+            lhsField = this.getDecimal();
+            BigDecimal rhsField;
+            rhsField = that.getDecimal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

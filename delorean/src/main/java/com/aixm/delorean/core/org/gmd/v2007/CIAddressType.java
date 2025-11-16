@@ -279,6 +279,19 @@ public class CIAddressType
         }
         final CIAddressType that = ((CIAddressType) object);
         {
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getCountry();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPostalCode();
             boolean rhsFieldIsSet = that.isSetPostalCode();
             CharacterStringPropertyType lhsField;
@@ -313,19 +326,6 @@ public class CIAddressType
             rhsField = that.getCity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCountry();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

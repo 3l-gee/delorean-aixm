@@ -205,14 +205,14 @@ public class ImageCRSType
         }
         final ImageCRSType that = ((ImageCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetImageDatum();
-            boolean rhsFieldIsSet = that.isSetImageDatum();
-            JAXBElement<ImageDatumPropertyType> lhsField;
-            lhsField = this.getImageDatum();
-            JAXBElement<ImageDatumPropertyType> rhsField;
-            rhsField = that.getImageDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "imageDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "imageDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsesObliqueCartesianCS();
+            boolean rhsFieldIsSet = that.isSetUsesObliqueCartesianCS();
+            ObliqueCartesianCSPropertyType lhsField;
+            lhsField = this.getUsesObliqueCartesianCS();
+            ObliqueCartesianCSPropertyType rhsField;
+            rhsField = that.getUsesObliqueCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesObliqueCartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesObliqueCartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -231,14 +231,14 @@ public class ImageCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUsesObliqueCartesianCS();
-            boolean rhsFieldIsSet = that.isSetUsesObliqueCartesianCS();
-            ObliqueCartesianCSPropertyType lhsField;
-            lhsField = this.getUsesObliqueCartesianCS();
-            ObliqueCartesianCSPropertyType rhsField;
-            rhsField = that.getUsesObliqueCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesObliqueCartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesObliqueCartesianCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetImageDatum();
+            boolean rhsFieldIsSet = that.isSetImageDatum();
+            JAXBElement<ImageDatumPropertyType> lhsField;
+            lhsField = this.getImageDatum();
+            JAXBElement<ImageDatumPropertyType> rhsField;
+            rhsField = that.getImageDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "imageDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "imageDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

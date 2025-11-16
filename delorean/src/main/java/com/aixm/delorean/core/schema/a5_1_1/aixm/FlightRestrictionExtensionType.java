@@ -86,7 +86,7 @@ public class FlightRestrictionExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightrestriction_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightrestrictionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRestrictionExtension() {
         return abstractFlightRestrictionExtension;
     }

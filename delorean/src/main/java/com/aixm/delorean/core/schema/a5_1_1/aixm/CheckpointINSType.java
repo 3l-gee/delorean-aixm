@@ -8,7 +8,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -78,10 +79,14 @@ public class CheckpointINSType
      * 
      * 
      */
-    @OneToMany(targetEntity = CheckpointINSTimeSlicePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = CheckpointINSTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeslice_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeslice_checkpointins_link", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "checkpointinstype", referencedColumnName = "hjid")
+    })
     public List<CheckpointINSTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

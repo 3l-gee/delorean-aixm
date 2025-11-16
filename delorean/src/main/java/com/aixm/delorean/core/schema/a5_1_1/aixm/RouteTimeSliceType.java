@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -497,10 +499,14 @@ public class RouteTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_route_link", schema = "route", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "routepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -718,7 +724,7 @@ public class RouteTimeSliceType
         setMilitaryTrainingType(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryTrainingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "militaryTrainingType"), RouteTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "userorganisation_id", referencedColumnName = "hjid")
@@ -756,27 +762,27 @@ public class RouteTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
-            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getDesignatorNumber();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getDesignatorNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
+            boolean lhsFieldIsSet = this.isSetInternationalUse();
+            boolean rhsFieldIsSet = that.isSetInternationalUse();
+            JAXBElement<CodeRouteOriginType> lhsField;
+            lhsField = this.getInternationalUse();
+            JAXBElement<CodeRouteOriginType> rhsField;
+            rhsField = that.getInternationalUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "internationalUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "internationalUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorSecondLetter();
-            boolean rhsFieldIsSet = that.isSetDesignatorSecondLetter();
-            JAXBElement<CodeRouteDesignatorLetterType> lhsField;
-            lhsField = this.getDesignatorSecondLetter();
-            JAXBElement<CodeRouteDesignatorLetterType> rhsField;
-            rhsField = that.getDesignatorSecondLetter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSecondLetter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSecondLetter", rhsField);
+            boolean lhsFieldIsSet = this.isSetUserOrganisation();
+            boolean rhsFieldIsSet = that.isSetUserOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getUserOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getUserOrganisation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userOrganisation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -795,40 +801,14 @@ public class RouteTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorPrefix();
-            boolean rhsFieldIsSet = that.isSetDesignatorPrefix();
-            JAXBElement<CodeRouteDesignatorPrefixType> lhsField;
-            lhsField = this.getDesignatorPrefix();
-            JAXBElement<CodeRouteDesignatorPrefixType> rhsField;
-            rhsField = that.getDesignatorPrefix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorPrefix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorPrefix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightRule();
-            boolean rhsFieldIsSet = that.isSetFlightRule();
-            JAXBElement<CodeFlightRuleType> lhsField;
-            lhsField = this.getFlightRule();
-            JAXBElement<CodeFlightRuleType> rhsField;
-            rhsField = that.getFlightRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUserOrganisation();
-            boolean rhsFieldIsSet = that.isSetUserOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getUserOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getUserOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userOrganisation", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeRouteType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeRouteType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -860,6 +840,19 @@ public class RouteTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFlightRule();
+            boolean rhsFieldIsSet = that.isSetFlightRule();
+            JAXBElement<CodeFlightRuleType> lhsField;
+            lhsField = this.getFlightRule();
+            JAXBElement<CodeFlightRuleType> rhsField;
+            rhsField = that.getFlightRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightRule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMilitaryTrainingType();
             boolean rhsFieldIsSet = that.isSetMilitaryTrainingType();
             JAXBElement<CodeMilitaryTrainingType> lhsField;
@@ -873,45 +866,6 @@ public class RouteTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RouteExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeRouteType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeRouteType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInternationalUse();
-            boolean rhsFieldIsSet = that.isSetInternationalUse();
-            JAXBElement<CodeRouteOriginType> lhsField;
-            lhsField = this.getInternationalUse();
-            JAXBElement<CodeRouteOriginType> rhsField;
-            rhsField = that.getInternationalUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "internationalUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "internationalUse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMilitaryUse();
             boolean rhsFieldIsSet = that.isSetMilitaryUse();
             JAXBElement<CodeMilitaryStatusType> lhsField;
@@ -920,6 +874,58 @@ public class RouteTimeSliceType
             rhsField = that.getMilitaryUse();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "militaryUse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "militaryUse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorPrefix();
+            boolean rhsFieldIsSet = that.isSetDesignatorPrefix();
+            JAXBElement<CodeRouteDesignatorPrefixType> lhsField;
+            lhsField = this.getDesignatorPrefix();
+            JAXBElement<CodeRouteDesignatorPrefixType> rhsField;
+            rhsField = that.getDesignatorPrefix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorPrefix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorPrefix", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorSecondLetter();
+            boolean rhsFieldIsSet = that.isSetDesignatorSecondLetter();
+            JAXBElement<CodeRouteDesignatorLetterType> lhsField;
+            lhsField = this.getDesignatorSecondLetter();
+            JAXBElement<CodeRouteDesignatorLetterType> rhsField;
+            rhsField = that.getDesignatorSecondLetter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSecondLetter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSecondLetter", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignatorNumber();
+            boolean rhsFieldIsSet = that.isSetDesignatorNumber();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getDesignatorNumber();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getDesignatorNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RouteExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -265,27 +265,14 @@ public class MDFormatType
         }
         final MDFormatType that = ((MDFormatType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFormatDistributor();
-            boolean rhsFieldIsSet = that.isSetFormatDistributor();
-            List<MDDistributorPropertyType> lhsField;
-            lhsField = (this.isSetFormatDistributor()?this.getFormatDistributor():null);
-            List<MDDistributorPropertyType> rhsField;
-            rhsField = (that.isSetFormatDistributor()?that.getFormatDistributor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formatDistributor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formatDistributor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
+            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
+            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
+            lhsField = this.getFileDecompressionTechnique();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            rhsField = that.getFileDecompressionTechnique();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -304,27 +291,27 @@ public class MDFormatType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
-            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getFileDecompressionTechnique();
+            lhsField = this.getName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getFileDecompressionTechnique();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVersion();
-            boolean rhsFieldIsSet = that.isSetVersion();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getVersion();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            boolean lhsFieldIsSet = this.isSetFormatDistributor();
+            boolean rhsFieldIsSet = that.isSetFormatDistributor();
+            List<MDDistributorPropertyType> lhsField;
+            lhsField = (this.isSetFormatDistributor()?this.getFormatDistributor():null);
+            List<MDDistributorPropertyType> rhsField;
+            rhsField = (that.isSetFormatDistributor()?that.getFormatDistributor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formatDistributor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formatDistributor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -338,6 +325,19 @@ public class MDFormatType
             rhsField = that.getSpecification();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getVersion();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

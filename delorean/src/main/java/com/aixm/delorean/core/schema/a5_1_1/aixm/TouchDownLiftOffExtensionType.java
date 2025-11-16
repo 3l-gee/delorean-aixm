@@ -86,7 +86,7 @@ public class TouchDownLiftOffExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttouchdownliftoff_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttouchdownliftoffextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTouchDownLiftOffExtension() {
         return abstractTouchDownLiftOffExtension;
     }
@@ -223,19 +223,6 @@ public class TouchDownLiftOffExtensionType implements Serializable, Equals, Hash
         }
         final TouchDownLiftOffExtensionType that = ((TouchDownLiftOffExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class TouchDownLiftOffExtensionType implements Serializable, Equals, Hash
             rhsField = that.getAbstractTouchDownLiftOffExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

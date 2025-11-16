@@ -90,7 +90,7 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
     }
@@ -123,7 +123,7 @@ public class RunwaySectionContaminationTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaysectioncontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaysectioncontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwaySectionContaminationExtension() {
         return abstractRunwaySectionContaminationExtension;
     }

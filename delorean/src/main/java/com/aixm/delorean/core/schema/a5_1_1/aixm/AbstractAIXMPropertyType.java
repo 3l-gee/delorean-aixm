@@ -183,8 +183,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     SurveillanceGroundStationPropertyType.class
 })
 @Entity(name = "AbstractAIXMPropertyType")
-@Table(name = "abstract_aixm_property", schema = "public")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "aixm_property", schema = "aixm")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class AbstractAIXMPropertyType implements Serializable, Equals, HashCode, ToString
 {
 

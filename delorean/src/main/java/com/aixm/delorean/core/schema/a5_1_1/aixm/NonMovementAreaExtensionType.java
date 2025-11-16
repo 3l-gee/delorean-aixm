@@ -86,7 +86,7 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnonmovementarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnonmovementareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNonMovementAreaExtension() {
         return abstractNonMovementAreaExtension;
     }

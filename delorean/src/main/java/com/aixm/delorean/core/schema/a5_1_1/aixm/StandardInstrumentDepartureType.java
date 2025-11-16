@@ -8,7 +8,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -78,10 +79,14 @@ public class StandardInstrumentDepartureType
      * 
      * 
      */
-    @OneToMany(targetEntity = StandardInstrumentDepartureTimeSlicePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = StandardInstrumentDepartureTimeSlicePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeslice_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeslice_standardinstrumentdeparture_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "standardinstrumentdeparturetype", referencedColumnName = "hjid")
+    })
     public List<StandardInstrumentDepartureTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();

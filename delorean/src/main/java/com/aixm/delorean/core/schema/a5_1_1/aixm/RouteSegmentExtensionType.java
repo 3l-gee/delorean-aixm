@@ -86,7 +86,7 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractroutesegment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractroutesegmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteSegmentExtension() {
         return abstractRouteSegmentExtension;
     }
@@ -223,19 +223,6 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
         }
         final RouteSegmentExtensionType that = ((RouteSegmentExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractRouteSegmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractRouteSegmentExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class RouteSegmentExtensionType implements Serializable, Equals, HashCode
             rhsField = that.getAbstractRouteSegmentExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteSegmentExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteSegmentExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

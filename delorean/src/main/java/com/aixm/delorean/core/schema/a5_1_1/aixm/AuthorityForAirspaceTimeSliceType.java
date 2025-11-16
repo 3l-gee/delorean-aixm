@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -200,10 +202,14 @@ public class AuthorityForAirspaceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_authorityforairspace_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "authorityforairspacepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -291,7 +297,7 @@ public class AuthorityForAirspaceTimeSliceType
         setType(XmlAdapterUtils.marshallJAXBElement(CodeAuthorityType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), AuthorityForAirspaceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "responsibleorganisation_id", referencedColumnName = "hjid")
@@ -303,7 +309,7 @@ public class AuthorityForAirspaceTimeSliceType
         setResponsibleOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "responsibleOrganisation"), AuthorityForAirspaceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirspacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "assignedairspace_id", referencedColumnName = "hjid")
@@ -327,19 +333,6 @@ public class AuthorityForAirspaceTimeSliceType
             return false;
         }
         final AuthorityForAirspaceTimeSliceType that = ((AuthorityForAirspaceTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAssignedAirspace();
-            boolean rhsFieldIsSet = that.isSetAssignedAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getAssignedAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getAssignedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
@@ -367,19 +360,6 @@ public class AuthorityForAirspaceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AuthorityForAirspaceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AuthorityForAirspaceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeAuthorityType> lhsField;
@@ -388,6 +368,32 @@ public class AuthorityForAirspaceTimeSliceType
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssignedAirspace();
+            boolean rhsFieldIsSet = that.isSetAssignedAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getAssignedAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getAssignedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "assignedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "assignedAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AuthorityForAirspaceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AuthorityForAirspaceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

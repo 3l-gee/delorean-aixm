@@ -86,7 +86,7 @@ public class SpecialNavigationStationExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractspecialnavigationstation_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractspecialnavigationstationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSpecialNavigationStationExtension() {
         return abstractSpecialNavigationStationExtension;
     }

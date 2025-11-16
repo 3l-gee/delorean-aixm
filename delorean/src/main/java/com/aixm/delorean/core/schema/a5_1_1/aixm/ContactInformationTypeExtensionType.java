@@ -86,7 +86,7 @@ public class ContactInformationTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcontactinformation_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcontactinformationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractContactInformationExtension() {
         return abstractContactInformationExtension;
     }
@@ -223,19 +223,6 @@ public class ContactInformationTypeExtensionType implements Serializable, Equals
         }
         final ContactInformationTypeExtensionType that = ((ContactInformationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractContactInformationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractContactInformationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractContactInformationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractContactInformationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractContactInformationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractContactInformationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ContactInformationTypeExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractContactInformationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractContactInformationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractContactInformationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractContactInformationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractContactInformationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractContactInformationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -86,7 +86,7 @@ public class AirportHotSpotExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairporthotspot_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairporthotspotextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHotSpotExtension() {
         return abstractAirportHotSpotExtension;
     }

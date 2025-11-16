@@ -202,6 +202,19 @@ public class MDDistributionType
         }
         final MDDistributionType that = ((MDDistributionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTransferOptions();
+            boolean rhsFieldIsSet = that.isSetTransferOptions();
+            List<MDDigitalTransferOptionsPropertyType> lhsField;
+            lhsField = (this.isSetTransferOptions()?this.getTransferOptions():null);
+            List<MDDigitalTransferOptionsPropertyType> rhsField;
+            rhsField = (that.isSetTransferOptions()?that.getTransferOptions():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferOptions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferOptions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDistributor();
             boolean rhsFieldIsSet = that.isSetDistributor();
             List<MDDistributorPropertyType> lhsField;
@@ -223,19 +236,6 @@ public class MDDistributionType
             rhsField = (that.isSetDistributionFormat()?that.getDistributionFormat():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionFormat", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionFormat", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTransferOptions();
-            boolean rhsFieldIsSet = that.isSetTransferOptions();
-            List<MDDigitalTransferOptionsPropertyType> lhsField;
-            lhsField = (this.isSetTransferOptions()?this.getTransferOptions():null);
-            List<MDDigitalTransferOptionsPropertyType> rhsField;
-            rhsField = (that.isSetTransferOptions()?that.getTransferOptions():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferOptions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferOptions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

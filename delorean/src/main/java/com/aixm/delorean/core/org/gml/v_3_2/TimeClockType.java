@@ -204,27 +204,14 @@ public class TimeClockType
         }
         final TimeClockType that = ((TimeClockType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDateBasis();
-            boolean rhsFieldIsSet = that.isSetDateBasis();
-            List<TimeCalendarPropertyType> lhsField;
-            lhsField = (this.isSetDateBasis()?this.getDateBasis():null);
-            List<TimeCalendarPropertyType> rhsField;
-            rhsField = (that.isSetDateBasis()?that.getDateBasis():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferenceTime();
-            boolean rhsFieldIsSet = that.isSetReferenceTime();
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getReferenceTime();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getReferenceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceEvent();
+            boolean rhsFieldIsSet = that.isSetReferenceEvent();
+            StringOrRefType lhsField;
+            lhsField = this.getReferenceEvent();
+            StringOrRefType rhsField;
+            rhsField = that.getReferenceEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -243,14 +230,27 @@ public class TimeClockType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceEvent();
-            boolean rhsFieldIsSet = that.isSetReferenceEvent();
-            StringOrRefType lhsField;
-            lhsField = this.getReferenceEvent();
-            StringOrRefType rhsField;
-            rhsField = that.getReferenceEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceTime();
+            boolean rhsFieldIsSet = that.isSetReferenceTime();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getReferenceTime();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getReferenceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateBasis();
+            boolean rhsFieldIsSet = that.isSetDateBasis();
+            List<TimeCalendarPropertyType> lhsField;
+            lhsField = (this.isSetDateBasis()?this.getDateBasis():null);
+            List<TimeCalendarPropertyType> rhsField;
+            rhsField = (that.isSetDateBasis()?that.getDateBasis():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

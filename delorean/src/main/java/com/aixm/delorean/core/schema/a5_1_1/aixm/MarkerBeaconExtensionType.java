@@ -90,7 +90,7 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarkerbeacon_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkerbeaconextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkerBeaconExtension() {
         return abstractMarkerBeaconExtension;
     }
@@ -123,7 +123,7 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,6 +260,19 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
         }
         final MarkerBeaconExtensionType that = ((MarkerBeaconExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class MarkerBeaconExtensionType implements Serializable, Equals, HashCode
             rhsField = that.getAbstractMarkerBeaconExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkerBeaconExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkerBeaconExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

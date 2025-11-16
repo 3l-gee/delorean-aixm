@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -239,10 +241,14 @@ public class RunwayCentrelinePointTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = RunwayDeclaredDistancePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = RunwayDeclaredDistancePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "associateddeclareddistance_id", referencedColumnName = "hjid")
+    @JoinTable(name = "associateddeclareddistance_runwaycentrelinepoint_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "associateddeclareddistance", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "runwaycentrelinepointpropertygroup", referencedColumnName = "hjid")
+    })
     public List<RunwayDeclaredDistancePropertyType> getAssociatedDeclaredDistance() {
         if (associatedDeclaredDistance == null) {
             associatedDeclaredDistance = new ArrayList<>();
@@ -289,10 +295,14 @@ public class RunwayCentrelinePointTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NavaidEquipmentDistancePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NavaidEquipmentDistancePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidequipment_id", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidequipment_runwaycentrelinepoint_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "navaidequipment", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "runwaycentrelinepointpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NavaidEquipmentDistancePropertyType> getNavaidEquipment() {
         if (navaidEquipment == null) {
             navaidEquipment = new ArrayList<>();
@@ -339,10 +349,14 @@ public class RunwayCentrelinePointTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_runwaycentrelinepoint_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "runwaycentrelinepointpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -443,7 +457,7 @@ public class RunwayCentrelinePointTimeSliceType
         setDesignator(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "designator"), RunwayCentrelinePointTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id", referencedColumnName = "hjid")
@@ -455,7 +469,7 @@ public class RunwayCentrelinePointTimeSliceType
         setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), RunwayCentrelinePointTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "onrunway_id", referencedColumnName = "hjid")
@@ -479,71 +493,6 @@ public class RunwayCentrelinePointTimeSliceType
             return false;
         }
         final RunwayCentrelinePointTimeSliceType that = ((RunwayCentrelinePointTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeRunwayPointRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeRunwayPointRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetNavaidEquipment();
-            List<NavaidEquipmentDistancePropertyType> lhsField;
-            lhsField = (this.isSetNavaidEquipment()?this.getNavaidEquipment():null);
-            List<NavaidEquipmentDistancePropertyType> rhsField;
-            rhsField = (that.isSetNavaidEquipment()?that.getNavaidEquipment():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOnRunway();
-            boolean rhsFieldIsSet = that.isSetOnRunway();
-            JAXBElement<RunwayDirectionPropertyType> lhsField;
-            lhsField = this.getOnRunway();
-            JAXBElement<RunwayDirectionPropertyType> rhsField;
-            rhsField = that.getOnRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAssociatedDeclaredDistance();
             boolean rhsFieldIsSet = that.isSetAssociatedDeclaredDistance();
@@ -579,6 +528,71 @@ public class RunwayCentrelinePointTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOnRunway();
+            boolean rhsFieldIsSet = that.isSetOnRunway();
+            JAXBElement<RunwayDirectionPropertyType> lhsField;
+            lhsField = this.getOnRunway();
+            JAXBElement<RunwayDirectionPropertyType> rhsField;
+            rhsField = that.getOnRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onRunway", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeRunwayPointRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeRunwayPointRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetNavaidEquipment();
+            List<NavaidEquipmentDistancePropertyType> lhsField;
+            lhsField = (this.isSetNavaidEquipment()?this.getNavaidEquipment():null);
+            List<NavaidEquipmentDistancePropertyType> rhsField;
+            rhsField = (that.isSetNavaidEquipment()?that.getNavaidEquipment():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

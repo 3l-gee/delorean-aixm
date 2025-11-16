@@ -86,7 +86,7 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwayvisualrange_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwayvisualrangeextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayVisualRangeExtension() {
         return abstractRunwayVisualRangeExtension;
     }

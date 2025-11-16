@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -236,10 +238,14 @@ public class WorkAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = WorkareaActivityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = WorkareaActivityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "activation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "activation_workarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "activation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "workareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<WorkareaActivityPropertyType> getActivation() {
         if (activation == null) {
             activation = new ArrayList<>();
@@ -286,10 +292,14 @@ public class WorkAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_workarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "workareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -390,7 +400,7 @@ public class WorkAreaTimeSliceType
         setPlannedOperational(XmlAdapterUtils.marshallJAXBElement(DateType.class, new QName("http://www.aixm.aero/schema/5.1.1", "plannedOperational"), WorkAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "associatedairportheliport_id", referencedColumnName = "hjid")
@@ -402,7 +412,7 @@ public class WorkAreaTimeSliceType
         setAssociatedAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "associatedAirportHeliport"), WorkAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
@@ -427,6 +437,19 @@ public class WorkAreaTimeSliceType
         }
         final WorkAreaTimeSliceType that = ((WorkAreaTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetActivation();
+            boolean rhsFieldIsSet = that.isSetActivation();
+            List<WorkareaActivityPropertyType> lhsField;
+            lhsField = (this.isSetActivation()?this.getActivation():null);
+            List<WorkareaActivityPropertyType> rhsField;
+            rhsField = (that.isSetActivation()?that.getActivation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<WorkAreaExtensionType> lhsField;
@@ -435,19 +458,6 @@ public class WorkAreaTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -479,6 +489,19 @@ public class WorkAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetPlannedOperational();
+            boolean rhsFieldIsSet = that.isSetPlannedOperational();
+            JAXBElement<DateType> lhsField;
+            lhsField = this.getPlannedOperational();
+            JAXBElement<DateType> rhsField;
+            rhsField = that.getPlannedOperational();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedOperational", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedOperational", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
@@ -492,27 +515,14 @@ public class WorkAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActivation();
-            boolean rhsFieldIsSet = that.isSetActivation();
-            List<WorkareaActivityPropertyType> lhsField;
-            lhsField = (this.isSetActivation()?this.getActivation():null);
-            List<WorkareaActivityPropertyType> rhsField;
-            rhsField = (that.isSetActivation()?that.getActivation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPlannedOperational();
-            boolean rhsFieldIsSet = that.isSetPlannedOperational();
-            JAXBElement<DateType> lhsField;
-            lhsField = this.getPlannedOperational();
-            JAXBElement<DateType> rhsField;
-            rhsField = that.getPlannedOperational();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "plannedOperational", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "plannedOperational", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -391,6 +391,19 @@ public class EngineeringCRSType
         }
         final EngineeringCRSType that = ((EngineeringCRSType) object);
         {
+            boolean lhsFieldIsSet = this.isSetCoordinateSystem();
+            boolean rhsFieldIsSet = that.isSetCoordinateSystem();
+            JAXBElement<CoordinateSystemPropertyType> lhsField;
+            lhsField = this.getCoordinateSystem();
+            JAXBElement<CoordinateSystemPropertyType> rhsField;
+            rhsField = that.getCoordinateSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEngineeringDatum();
             boolean rhsFieldIsSet = that.isSetEngineeringDatum();
             JAXBElement<EngineeringDatumPropertyType> lhsField;
@@ -404,14 +417,14 @@ public class EngineeringCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCartesianCS();
-            boolean rhsFieldIsSet = that.isSetCartesianCS();
-            JAXBElement<CartesianCSPropertyType> lhsField;
-            lhsField = this.getCartesianCS();
-            JAXBElement<CartesianCSPropertyType> rhsField;
-            rhsField = that.getCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetAffineCS();
+            boolean rhsFieldIsSet = that.isSetAffineCS();
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -430,19 +443,6 @@ public class EngineeringCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUserDefinedCS();
-            boolean rhsFieldIsSet = that.isSetUserDefinedCS();
-            UserDefinedCSPropertyType lhsField;
-            lhsField = this.getUserDefinedCS();
-            UserDefinedCSPropertyType rhsField;
-            rhsField = that.getUserDefinedCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLinearCS();
             boolean rhsFieldIsSet = that.isSetLinearCS();
             LinearCSPropertyType lhsField;
@@ -456,27 +456,27 @@ public class EngineeringCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCoordinateSystem();
-            boolean rhsFieldIsSet = that.isSetCoordinateSystem();
-            JAXBElement<CoordinateSystemPropertyType> lhsField;
-            lhsField = this.getCoordinateSystem();
-            JAXBElement<CoordinateSystemPropertyType> rhsField;
-            rhsField = that.getCoordinateSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetUserDefinedCS();
+            boolean rhsFieldIsSet = that.isSetUserDefinedCS();
+            UserDefinedCSPropertyType lhsField;
+            lhsField = this.getUserDefinedCS();
+            UserDefinedCSPropertyType rhsField;
+            rhsField = that.getUserDefinedCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAffineCS();
-            boolean rhsFieldIsSet = that.isSetAffineCS();
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
+            JAXBElement<CartesianCSPropertyType> lhsField;
+            lhsField = this.getCartesianCS();
+            JAXBElement<CartesianCSPropertyType> rhsField;
+            rhsField = that.getCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -40,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}PropertiesWithSchedulePropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirspaceActivationPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -123,10 +127,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeinterval_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeinterval_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationtype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -173,10 +181,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationtype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -223,10 +235,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialdateauthority_id", referencedColumnName = "hjid")
+    @JoinTable(name = "specialdateauthority_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationtype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -333,10 +349,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AirspaceLayerPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "levels_id", referencedColumnName = "hjid")
+    @JoinTable(name = "levels_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "levels", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<AirspaceLayerPropertyType> getLevels() {
         if (levels == null) {
             levels = new ArrayList<>();
@@ -383,10 +403,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", referencedColumnName = "hjid")
+    @JoinTable(name = "user_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "user_", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getUser() {
         if (user == null) {
             user = new ArrayList<>();
@@ -433,10 +457,14 @@ public class AirspaceActivationType
      * 
      * 
      */
-    @OneToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AircraftCharacteristicPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "aircraft_id", referencedColumnName = "hjid")
+    @JoinTable(name = "aircraft_airspaceactivation_link", schema = "airspace", joinColumns = {
+        @JoinColumn(name = "aircraft", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "airspaceactivationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<AircraftCharacteristicPropertyType> getAircraft() {
         if (aircraft == null) {
             aircraft = new ArrayList<>();
@@ -550,27 +578,27 @@ public class AirspaceActivationType
         }
         final AirspaceActivationType that = ((AirspaceActivationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceActivationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirspaceActivationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetUser();
+            boolean rhsFieldIsSet = that.isSetUser();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetUser()?this.getUser():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetUser()?that.getUser():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "user", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "user", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -602,6 +630,19 @@ public class AirspaceActivationType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceActivationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceActivationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLevels();
             boolean rhsFieldIsSet = that.isSetLevels();
             List<AirspaceLayerPropertyType> lhsField;
@@ -610,6 +651,19 @@ public class AirspaceActivationType
             rhsField = (that.isSetLevels()?that.getLevels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAircraft();
+            boolean rhsFieldIsSet = that.isSetAircraft();
+            List<AircraftCharacteristicPropertyType> lhsField;
+            lhsField = (this.isSetAircraft()?this.getAircraft():null);
+            List<AircraftCharacteristicPropertyType> rhsField;
+            rhsField = (that.isSetAircraft()?that.getAircraft():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -628,40 +682,14 @@ public class AirspaceActivationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUser();
-            boolean rhsFieldIsSet = that.isSetUser();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetUser()?this.getUser():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetUser()?that.getUser():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "user", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "user", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAircraft();
-            boolean rhsFieldIsSet = that.isSetAircraft();
-            List<AircraftCharacteristicPropertyType> lhsField;
-            lhsField = (this.isSetAircraft()?this.getAircraft():null);
-            List<AircraftCharacteristicPropertyType> rhsField;
-            rhsField = (that.isSetAircraft()?that.getAircraft():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aircraft", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aircraft", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

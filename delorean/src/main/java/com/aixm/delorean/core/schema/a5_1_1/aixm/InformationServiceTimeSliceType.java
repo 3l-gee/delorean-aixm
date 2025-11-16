@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -345,10 +347,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = CallsignDetailPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "call_sign_id", referencedColumnName = "hjid")
+    @JoinTable(name = "call_sign_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "call-sign", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<CallsignDetailPropertyType> getCallSign() {
         if (callSign == null) {
             callSign = new ArrayList<>();
@@ -395,10 +401,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = RadioCommunicationChannelPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "radiocommunication_id", referencedColumnName = "hjid")
+    @JoinTable(name = "radiocommunication_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "radiocommunication", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<RadioCommunicationChannelPropertyType> getRadioCommunication() {
         if (radioCommunication == null) {
             radioCommunication = new ArrayList<>();
@@ -445,10 +455,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "groundcommunication_id", referencedColumnName = "hjid")
+    @JoinTable(name = "groundcommunication_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "groundcommunication", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getGroundCommunication() {
         if (groundCommunication == null) {
             groundCommunication = new ArrayList<>();
@@ -495,10 +509,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ServiceOperationalStatusPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ServiceOperationalStatusPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "availability_id", referencedColumnName = "hjid")
+    @JoinTable(name = "availability_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ServiceOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -545,10 +563,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -715,10 +737,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = VORPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = VORPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "navaidbroadcast_id", referencedColumnName = "hjid")
+    @JoinTable(name = "navaidbroadcast_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "navaidbroadcast", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<VORPropertyType> getNavaidBroadcast() {
         if (navaidBroadcast == null) {
             navaidBroadcast = new ArrayList<>();
@@ -765,10 +791,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = AirspacePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AirspacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientairspace_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientairspace_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientairspace", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<AirspacePropertyType> getClientAirspace() {
         if (clientAirspace == null) {
             clientAirspace = new ArrayList<>();
@@ -815,10 +845,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientairport_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientairport_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientairport", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<AirportHeliportPropertyType> getClientAirport() {
         if (clientAirport == null) {
             clientAirport = new ArrayList<>();
@@ -865,10 +899,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = RoutePortionPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = RoutePortionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientroute_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientroute_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientroute", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<RoutePortionPropertyType> getClientRoute() {
         if (clientRoute == null) {
             clientRoute = new ArrayList<>();
@@ -915,10 +953,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ProcedurePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ProcedurePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientprocedure_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientprocedure_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientprocedure", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ProcedurePropertyType> getClientProcedure() {
         if (clientProcedure == null) {
             clientProcedure = new ArrayList<>();
@@ -965,10 +1007,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = HoldingPatternPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = HoldingPatternPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientholding_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientholding_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientholding", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<HoldingPatternPropertyType> getClientHolding() {
         if (clientHolding == null) {
             clientHolding = new ArrayList<>();
@@ -1015,10 +1061,14 @@ public class InformationServiceTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = AerialRefuellingPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AerialRefuellingPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientaerialrefuelling_id", referencedColumnName = "hjid")
+    @JoinTable(name = "clientaerialrefuelling_informationservice_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "clientaerialrefuelling", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "informationservicepropertygroup", referencedColumnName = "hjid")
+    })
     public List<AerialRefuellingPropertyType> getClientAerialRefuelling() {
         if (clientAerialRefuelling == null) {
             clientAerialRefuelling = new ArrayList<>();
@@ -1145,7 +1195,7 @@ public class InformationServiceTimeSliceType
         setAixmName(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "name"), InformationServiceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id", referencedColumnName = "hjid")
@@ -1157,7 +1207,7 @@ public class InformationServiceTimeSliceType
         setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), InformationServiceTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = UnitPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = UnitPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "serviceprovider_id", referencedColumnName = "hjid")
@@ -1234,45 +1284,6 @@ public class InformationServiceTimeSliceType
         }
         final InformationServiceTimeSliceType that = ((InformationServiceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeServiceInformationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeServiceInformationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientRoute();
-            boolean rhsFieldIsSet = that.isSetClientRoute();
-            List<RoutePortionPropertyType> lhsField;
-            lhsField = (this.isSetClientRoute()?this.getClientRoute():null);
-            List<RoutePortionPropertyType> rhsField;
-            rhsField = (that.isSetClientRoute()?that.getClientRoute():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientRoute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientRoute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetClientAerialRefuelling();
             boolean rhsFieldIsSet = that.isSetClientAerialRefuelling();
             List<AerialRefuellingPropertyType> lhsField;
@@ -1281,32 +1292,6 @@ public class InformationServiceTimeSliceType
             rhsField = (that.isSetClientAerialRefuelling()?that.getClientAerialRefuelling():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAerialRefuelling", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAerialRefuelling", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCompliantICAO();
-            boolean rhsFieldIsSet = that.isSetCompliantICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCompliantICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCompliantICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1325,170 +1310,27 @@ public class InformationServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetServiceProvider();
-            boolean rhsFieldIsSet = that.isSetServiceProvider();
-            JAXBElement<UnitPropertyType> lhsField;
-            lhsField = this.getServiceProvider();
-            JAXBElement<UnitPropertyType> rhsField;
-            rhsField = that.getServiceProvider();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            boolean lhsFieldIsSet = this.isSetNavaidBroadcast();
+            boolean rhsFieldIsSet = that.isSetNavaidBroadcast();
+            List<VORPropertyType> lhsField;
+            lhsField = (this.isSetNavaidBroadcast()?this.getNavaidBroadcast():null);
+            List<VORPropertyType> rhsField;
+            rhsField = (that.isSetNavaidBroadcast()?that.getNavaidBroadcast():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidBroadcast", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidBroadcast", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDataLink();
-            boolean rhsFieldIsSet = that.isSetDataLink();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getDataLink();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getDataLink();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLink", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLink", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientAirspace();
-            boolean rhsFieldIsSet = that.isSetClientAirspace();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetClientAirspace()?this.getClientAirspace():null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetClientAirspace()?that.getClientAirspace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientAirport();
-            boolean rhsFieldIsSet = that.isSetClientAirport();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetClientAirport()?this.getClientAirport():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetClientAirport()?that.getClientAirport():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGroundCommunication();
-            boolean rhsFieldIsSet = that.isSetGroundCommunication();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetGroundCommunication()?this.getGroundCommunication():null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetGroundCommunication()?that.getGroundCommunication():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundCommunication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundCommunication", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientProcedure();
-            boolean rhsFieldIsSet = that.isSetClientProcedure();
-            List<ProcedurePropertyType> lhsField;
-            lhsField = (this.isSetClientProcedure()?this.getClientProcedure():null);
-            List<ProcedurePropertyType> rhsField;
-            rhsField = (that.isSetClientProcedure()?that.getClientProcedure():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientProcedure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientProcedure", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<InformationServiceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<InformationServiceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVoice();
-            boolean rhsFieldIsSet = that.isSetVoice();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getVoice();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getVoice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRecorded();
-            boolean rhsFieldIsSet = that.isSetRecorded();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRecorded();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRecorded();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "recorded", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "recorded", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClientHolding();
-            boolean rhsFieldIsSet = that.isSetClientHolding();
-            List<HoldingPatternPropertyType> lhsField;
-            lhsField = (this.isSetClientHolding()?this.getClientHolding():null);
-            List<HoldingPatternPropertyType> rhsField;
-            rhsField = (that.isSetClientHolding()?that.getClientHolding():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ServiceOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ServiceOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCallSign();
-            boolean rhsFieldIsSet = that.isSetCallSign();
-            List<CallsignDetailPropertyType> lhsField;
-            lhsField = (this.isSetCallSign()?this.getCallSign():null);
-            List<CallsignDetailPropertyType> rhsField;
-            rhsField = (that.isSetCallSign()?that.getCallSign():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1507,19 +1349,6 @@ public class InformationServiceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNavaidBroadcast();
-            boolean rhsFieldIsSet = that.isSetNavaidBroadcast();
-            List<VORPropertyType> lhsField;
-            lhsField = (this.isSetNavaidBroadcast()?this.getNavaidBroadcast():null);
-            List<VORPropertyType> rhsField;
-            rhsField = (that.isSetNavaidBroadcast()?that.getNavaidBroadcast():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidBroadcast", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidBroadcast", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRank();
             boolean rhsFieldIsSet = that.isSetRank();
             JAXBElement<CodeFacilityRankingType> lhsField;
@@ -1528,6 +1357,227 @@ public class InformationServiceTimeSliceType
             rhsField = that.getRank();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCompliantICAO();
+            boolean rhsFieldIsSet = that.isSetCompliantICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCompliantICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCompliantICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCallSign();
+            boolean rhsFieldIsSet = that.isSetCallSign();
+            List<CallsignDetailPropertyType> lhsField;
+            lhsField = (this.isSetCallSign()?this.getCallSign():null);
+            List<CallsignDetailPropertyType> rhsField;
+            rhsField = (that.isSetCallSign()?that.getCallSign():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientRoute();
+            boolean rhsFieldIsSet = that.isSetClientRoute();
+            List<RoutePortionPropertyType> lhsField;
+            lhsField = (this.isSetClientRoute()?this.getClientRoute():null);
+            List<RoutePortionPropertyType> rhsField;
+            rhsField = (that.isSetClientRoute()?that.getClientRoute():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientRoute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientRoute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetServiceProvider();
+            boolean rhsFieldIsSet = that.isSetServiceProvider();
+            JAXBElement<UnitPropertyType> lhsField;
+            lhsField = this.getServiceProvider();
+            JAXBElement<UnitPropertyType> rhsField;
+            rhsField = that.getServiceProvider();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "serviceProvider", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "serviceProvider", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroundCommunication();
+            boolean rhsFieldIsSet = that.isSetGroundCommunication();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetGroundCommunication()?this.getGroundCommunication():null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetGroundCommunication()?that.getGroundCommunication():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "groundCommunication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundCommunication", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeServiceInformationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeServiceInformationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVoice();
+            boolean rhsFieldIsSet = that.isSetVoice();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getVoice();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getVoice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientProcedure();
+            boolean rhsFieldIsSet = that.isSetClientProcedure();
+            List<ProcedurePropertyType> lhsField;
+            lhsField = (this.isSetClientProcedure()?this.getClientProcedure():null);
+            List<ProcedurePropertyType> rhsField;
+            rhsField = (that.isSetClientProcedure()?that.getClientProcedure():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientProcedure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientProcedure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataLink();
+            boolean rhsFieldIsSet = that.isSetDataLink();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getDataLink();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getDataLink();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataLink", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataLink", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRecorded();
+            boolean rhsFieldIsSet = that.isSetRecorded();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRecorded();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRecorded();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "recorded", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "recorded", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ServiceOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ServiceOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientAirport();
+            boolean rhsFieldIsSet = that.isSetClientAirport();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetClientAirport()?this.getClientAirport():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetClientAirport()?that.getClientAirport():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientHolding();
+            boolean rhsFieldIsSet = that.isSetClientHolding();
+            List<HoldingPatternPropertyType> lhsField;
+            lhsField = (this.isSetClientHolding()?this.getClientHolding():null);
+            List<HoldingPatternPropertyType> rhsField;
+            rhsField = (that.isSetClientHolding()?that.getClientHolding():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientHolding", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClientAirspace();
+            boolean rhsFieldIsSet = that.isSetClientAirspace();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetClientAirspace()?this.getClientAirspace():null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetClientAirspace()?that.getClientAirspace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clientAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clientAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<InformationServiceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<InformationServiceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

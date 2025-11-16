@@ -131,8 +131,8 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     SurveillanceGroundStationType.class
 })
 @Entity(name = "AbstractAIXMObjectType")
-@Table(name = "abstract_aixm_object", schema = "public")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "aixm_object", schema = "aixm")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class AbstractAIXMObjectType
     extends AbstractGMLType
     implements Serializable

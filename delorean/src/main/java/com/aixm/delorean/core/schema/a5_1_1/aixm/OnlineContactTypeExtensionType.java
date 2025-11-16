@@ -90,7 +90,7 @@ public class OnlineContactTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class OnlineContactTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractonlinecontact_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractonlinecontactextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractOnlineContactExtension() {
         return abstractOnlineContactExtension;
     }

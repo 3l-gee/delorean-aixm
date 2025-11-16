@@ -86,7 +86,7 @@ public class AuthorityForSpecialNavigationStationTypeExtensionType implements Se
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractauthorityforspecialnavigationstation_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractauthorityforspecialnavigationstationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAuthorityForSpecialNavigationStationExtension() {
         return abstractAuthorityForSpecialNavigationStationExtension;
     }

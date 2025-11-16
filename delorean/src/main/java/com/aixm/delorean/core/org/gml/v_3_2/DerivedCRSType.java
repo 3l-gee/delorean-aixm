@@ -169,19 +169,6 @@ public class DerivedCRSType
         }
         final DerivedCRSType that = ((DerivedCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBaseCRS();
-            boolean rhsFieldIsSet = that.isSetBaseCRS();
-            SingleCRSPropertyType lhsField;
-            lhsField = this.getBaseCRS();
-            SingleCRSPropertyType rhsField;
-            rhsField = that.getBaseCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDerivedCRSType();
             boolean rhsFieldIsSet = that.isSetDerivedCRSType();
             CodeWithAuthorityType lhsField;
@@ -203,6 +190,19 @@ public class DerivedCRSType
             rhsField = that.getCoordinateSystem();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseCRS();
+            boolean rhsFieldIsSet = that.isSetBaseCRS();
+            SingleCRSPropertyType lhsField;
+            lhsField = this.getBaseCRS();
+            SingleCRSPropertyType rhsField;
+            rhsField = that.getBaseCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

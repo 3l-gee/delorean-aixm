@@ -227,6 +227,19 @@ public class TinType
         }
         final TinType that = ((TinType) object);
         {
+            boolean lhsFieldIsSet = this.isSetStopLines();
+            boolean rhsFieldIsSet = that.isSetStopLines();
+            List<LineStringSegmentArrayPropertyType> lhsField;
+            lhsField = (this.isSetStopLines()?this.getStopLines():null);
+            List<LineStringSegmentArrayPropertyType> rhsField;
+            rhsField = (that.isSetStopLines()?that.getStopLines():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaxLength();
             boolean rhsFieldIsSet = that.isSetMaxLength();
             LengthType lhsField;
@@ -235,19 +248,6 @@ public class TinType
             rhsField = that.getMaxLength();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxLength", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxLength", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlPoint();
-            boolean rhsFieldIsSet = that.isSetControlPoint();
-            ControlPoint lhsField;
-            lhsField = this.getControlPoint();
-            ControlPoint rhsField;
-            rhsField = that.getControlPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -266,14 +266,14 @@ public class TinType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStopLines();
-            boolean rhsFieldIsSet = that.isSetStopLines();
-            List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetStopLines()?this.getStopLines():null);
-            List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetStopLines()?that.getStopLines():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
+            boolean lhsFieldIsSet = this.isSetControlPoint();
+            boolean rhsFieldIsSet = that.isSetControlPoint();
+            ControlPoint lhsField;
+            lhsField = this.getControlPoint();
+            ControlPoint rhsField;
+            rhsField = that.getControlPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

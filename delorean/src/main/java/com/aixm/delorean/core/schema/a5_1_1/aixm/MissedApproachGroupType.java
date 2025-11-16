@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -202,10 +204,14 @@ public class MissedApproachGroupType
      * 
      * 
      */
-    @OneToMany(targetEntity = AltimeterSourcePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = AltimeterSourcePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altimeter_id", referencedColumnName = "hjid")
+    @JoinTable(name = "altimeter_missedapproachgroup_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "altimeter", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "missedapproachgrouppropertygroup", referencedColumnName = "hjid")
+    })
     public List<AltimeterSourcePropertyType> getAltimeter() {
         if (altimeter == null) {
             altimeter = new ArrayList<>();
@@ -252,10 +258,14 @@ public class MissedApproachGroupType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_missedapproachgroup_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "missedapproachgrouppropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -409,32 +419,6 @@ public class MissedApproachGroupType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
-            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAlternateClimbAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAlternateClimbAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<MissedApproachGroupTypeExtensionType> lhsField;
@@ -456,6 +440,32 @@ public class MissedApproachGroupType
             rhsField = that.getAlternateClimbInstruction();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbInstruction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAlternateClimbAltitude();
+            boolean rhsFieldIsSet = that.isSetAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAlternateClimbAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAlternateClimbAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

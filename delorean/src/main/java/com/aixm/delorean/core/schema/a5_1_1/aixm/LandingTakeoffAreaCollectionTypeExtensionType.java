@@ -86,7 +86,7 @@ public class LandingTakeoffAreaCollectionTypeExtensionType implements Serializab
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlandingtakeoffareacollection_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlandingtakeoffareacollectionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLandingTakeoffAreaCollectionExtension() {
         return abstractLandingTakeoffAreaCollectionExtension;
     }

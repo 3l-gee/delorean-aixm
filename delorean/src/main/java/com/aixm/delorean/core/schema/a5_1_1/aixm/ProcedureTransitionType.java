@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -302,10 +304,14 @@ public class ProcedureTransitionType
      * 
      * 
      */
-    @OneToMany(targetEntity = ProcedureTransitionLegPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ProcedureTransitionLegPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "transitionleg_id", referencedColumnName = "hjid")
+    @JoinTable(name = "transitionleg_proceduretransition_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "transitionleg", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "proceduretransitionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<ProcedureTransitionLegPropertyType> getTransitionLeg() {
         if (transitionLeg == null) {
             transitionLeg = new ArrayList<>();
@@ -352,10 +358,14 @@ public class ProcedureTransitionType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_proceduretransition_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "proceduretransitionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -482,7 +492,7 @@ public class ProcedureTransitionType
         setVectorHeading(XmlAdapterUtils.marshallJAXBElement(ValBearingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "vectorHeading"), ProcedureTransitionType.class, target));
     }
 
-    @OneToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = LandingTakeoffAreaCollectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "departurerunwaytransition_id", referencedColumnName = "hjid")
@@ -494,7 +504,7 @@ public class ProcedureTransitionType
         setDepartureRunwayTransition(XmlAdapterUtils.marshallJAXBElement(LandingTakeoffAreaCollectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "departureRunwayTransition"), ProcedureTransitionType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMCurvePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "trajectory_id", referencedColumnName = "hjid")
@@ -519,45 +529,6 @@ public class ProcedureTransitionType
         }
         final ProcedureTransitionType that = ((ProcedureTransitionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDepartureRunwayTransition();
-            boolean rhsFieldIsSet = that.isSetDepartureRunwayTransition();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
-            lhsField = this.getDepartureRunwayTransition();
-            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
-            rhsField = that.getDepartureRunwayTransition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departureRunwayTransition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departureRunwayTransition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrajectory();
-            boolean rhsFieldIsSet = that.isSetTrajectory();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getTrajectory();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getTrajectory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trajectory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trajectory", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTransitionLeg();
             boolean rhsFieldIsSet = that.isSetTransitionLeg();
             List<ProcedureTransitionLegPropertyType> lhsField;
@@ -571,27 +542,14 @@ public class ProcedureTransitionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeProcedurePhaseType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeProcedurePhaseType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVectorHeading();
-            boolean rhsFieldIsSet = that.isSetVectorHeading();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getVectorHeading();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getVectorHeading();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorHeading", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorHeading", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -618,6 +576,58 @@ public class ProcedureTransitionType
             rhsField = that.getTransitionId();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transitionId", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transitionId", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDepartureRunwayTransition();
+            boolean rhsFieldIsSet = that.isSetDepartureRunwayTransition();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> lhsField;
+            lhsField = this.getDepartureRunwayTransition();
+            JAXBElement<LandingTakeoffAreaCollectionPropertyType> rhsField;
+            rhsField = that.getDepartureRunwayTransition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departureRunwayTransition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departureRunwayTransition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVectorHeading();
+            boolean rhsFieldIsSet = that.isSetVectorHeading();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getVectorHeading();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getVectorHeading();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "vectorHeading", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "vectorHeading", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTrajectory();
+            boolean rhsFieldIsSet = that.isSetTrajectory();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getTrajectory();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getTrajectory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trajectory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trajectory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeProcedurePhaseType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeProcedurePhaseType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

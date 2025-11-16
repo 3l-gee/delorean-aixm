@@ -8,6 +8,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -101,10 +103,14 @@ public class FinalProfileType
      * 
      * 
      */
-    @OneToMany(targetEntity = ApproachAltitudeTablePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ApproachAltitudeTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "altitude_id", referencedColumnName = "hjid")
+    @JoinTable(name = "altitude_finalprofile_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "altitude", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofilepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ApproachAltitudeTablePropertyType> getAltitude() {
         if (altitude == null) {
             altitude = new ArrayList<>();
@@ -151,10 +157,14 @@ public class FinalProfileType
      * 
      * 
      */
-    @OneToMany(targetEntity = ApproachDistanceTablePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ApproachDistanceTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "distance_id", referencedColumnName = "hjid")
+    @JoinTable(name = "distance_finalprofile_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "distance", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofilepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ApproachDistanceTablePropertyType> getDistance() {
         if (distance == null) {
             distance = new ArrayList<>();
@@ -201,10 +211,14 @@ public class FinalProfileType
      * 
      * 
      */
-    @OneToMany(targetEntity = ApproachTimingTablePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ApproachTimingTablePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timing_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timing_finalprofile_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "timing", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofilepropertygroup", referencedColumnName = "hjid")
+    })
     public List<ApproachTimingTablePropertyType> getTiming() {
         if (timing == null) {
             timing = new ArrayList<>();
@@ -251,10 +265,14 @@ public class FinalProfileType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_finalprofile_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "finalprofilepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -368,6 +386,19 @@ public class FinalProfileType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
+            List<ApproachDistanceTablePropertyType> lhsField;
+            lhsField = (this.isSetDistance()?this.getDistance():null);
+            List<ApproachDistanceTablePropertyType> rhsField;
+            rhsField = (that.isSetDistance()?that.getDistance():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAltitude();
             boolean rhsFieldIsSet = that.isSetAltitude();
             List<ApproachAltitudeTablePropertyType> lhsField;
@@ -389,19 +420,6 @@ public class FinalProfileType
             rhsField = (that.isSetTiming()?that.getTiming():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDistance();
-            boolean rhsFieldIsSet = that.isSetDistance();
-            List<ApproachDistanceTablePropertyType> lhsField;
-            lhsField = (this.isSetDistance()?this.getDistance():null);
-            List<ApproachDistanceTablePropertyType> rhsField;
-            rhsField = (that.isSetDistance()?that.getDistance():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

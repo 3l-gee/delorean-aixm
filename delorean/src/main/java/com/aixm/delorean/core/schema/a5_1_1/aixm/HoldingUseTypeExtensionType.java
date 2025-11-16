@@ -86,7 +86,7 @@ public class HoldingUseTypeExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdinguse_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdinguseextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingUseExtension() {
         return abstractHoldingUseExtension;
     }

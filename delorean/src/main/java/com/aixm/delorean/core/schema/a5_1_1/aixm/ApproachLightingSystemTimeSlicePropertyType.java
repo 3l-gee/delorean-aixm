@@ -223,19 +223,6 @@ public class ApproachLightingSystemTimeSlicePropertyType implements Serializable
         }
         final ApproachLightingSystemTimeSlicePropertyType that = ((ApproachLightingSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetApproachLightingSystemTimeSlice();
-            boolean rhsFieldIsSet = that.isSetApproachLightingSystemTimeSlice();
-            ApproachLightingSystemTimeSliceType lhsField;
-            lhsField = this.getApproachLightingSystemTimeSlice();
-            ApproachLightingSystemTimeSliceType rhsField;
-            rhsField = that.getApproachLightingSystemTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingSystemTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingSystemTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApproachLightingSystemTimeSlicePropertyType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproachLightingSystemTimeSlice();
+            boolean rhsFieldIsSet = that.isSetApproachLightingSystemTimeSlice();
+            ApproachLightingSystemTimeSliceType lhsField;
+            lhsField = this.getApproachLightingSystemTimeSlice();
+            ApproachLightingSystemTimeSliceType rhsField;
+            rhsField = that.getApproachLightingSystemTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingSystemTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingSystemTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

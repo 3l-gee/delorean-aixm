@@ -90,7 +90,7 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlocalizer_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlocalizerextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLocalizerExtension() {
         return abstractLocalizerExtension;
     }
@@ -123,7 +123,7 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,19 +260,6 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
         }
         final LocalizerExtensionType that = ((LocalizerExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractLocalizerExtension();
             boolean rhsFieldIsSet = that.isSetAbstractLocalizerExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class LocalizerExtensionType implements Serializable, Equals, HashCode, T
             rhsField = that.getAbstractLocalizerExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLocalizerExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLocalizerExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

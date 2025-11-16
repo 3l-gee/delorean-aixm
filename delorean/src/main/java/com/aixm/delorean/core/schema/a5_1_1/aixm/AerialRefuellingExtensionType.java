@@ -86,7 +86,7 @@ public class AerialRefuellingExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuelling_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingExtension() {
         return abstractAerialRefuellingExtension;
     }

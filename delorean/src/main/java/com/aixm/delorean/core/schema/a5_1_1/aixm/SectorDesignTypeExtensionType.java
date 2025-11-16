@@ -86,7 +86,7 @@ public class SectorDesignTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsectordesign_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsectordesignextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSectorDesignExtension() {
         return abstractSectorDesignExtension;
     }

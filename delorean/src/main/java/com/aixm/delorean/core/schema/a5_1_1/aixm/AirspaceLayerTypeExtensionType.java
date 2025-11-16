@@ -86,7 +86,7 @@ public class AirspaceLayerTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairspacelayer_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairspacelayerextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirspaceLayerExtension() {
         return abstractAirspaceLayerExtension;
     }

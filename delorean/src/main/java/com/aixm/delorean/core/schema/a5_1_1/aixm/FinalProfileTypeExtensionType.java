@@ -86,7 +86,7 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfinalprofile_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfinalprofileextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFinalProfileExtension() {
         return abstractFinalProfileExtension;
     }

@@ -94,7 +94,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractprimarysurveillanceradar_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractprimarysurveillanceradarextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPrimarySurveillanceRadarExtension() {
         return abstractPrimarySurveillanceRadarExtension;
     }
@@ -127,7 +127,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurveillanceradar_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurveillanceradarextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurveillanceRadarExtension() {
         return abstractSurveillanceRadarExtension;
     }
@@ -160,7 +160,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradarequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradarequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarEquipmentExtension() {
         return abstractRadarEquipmentExtension;
     }
@@ -297,19 +297,6 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         }
         final PrimarySurveillanceRadarExtensionType that = ((PrimarySurveillanceRadarExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPrimarySurveillanceRadarExtension();
             AbstractExtensionType lhsField;
@@ -318,6 +305,19 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
             rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrimarySurveillanceRadarExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrimarySurveillanceRadarExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

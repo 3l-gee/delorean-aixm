@@ -86,7 +86,7 @@ public class LightElementTypeExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlightelement_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlightelementextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLightElementExtension() {
         return abstractLightElementExtension;
     }

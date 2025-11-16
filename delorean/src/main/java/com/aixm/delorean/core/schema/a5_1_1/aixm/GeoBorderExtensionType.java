@@ -86,7 +86,7 @@ public class GeoBorderExtensionType implements Serializable, Equals, HashCode, T
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgeoborder_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgeoborderextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGeoBorderExtension() {
         return abstractGeoBorderExtension;
     }

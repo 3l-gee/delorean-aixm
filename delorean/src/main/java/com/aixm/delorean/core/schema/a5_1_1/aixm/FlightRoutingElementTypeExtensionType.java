@@ -86,7 +86,7 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractflightroutingelement_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractflightroutingelementextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFlightRoutingElementExtension() {
         return abstractFlightRoutingElementExtension;
     }
@@ -223,19 +223,6 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
         }
         final FlightRoutingElementTypeExtensionType that = ((FlightRoutingElementTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractFlightRoutingElementExtension();
             boolean rhsFieldIsSet = that.isSetAbstractFlightRoutingElementExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class FlightRoutingElementTypeExtensionType implements Serializable, Equa
             rhsField = that.getAbstractFlightRoutingElementExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightRoutingElementExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightRoutingElementExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

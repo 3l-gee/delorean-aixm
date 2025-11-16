@@ -50,7 +50,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "mdMetadata"
 })
 @Entity(name = "FeatureTimeSliceMetadataPropertyType")
-@Table(name = "feature_timeslice_metadata_property", schema = "aixm")
+@Table(name = "timeslice_metadata", schema = "aixm")
 public class FeatureTimeSliceMetadataPropertyType
     extends AbstractMetadataPropertyType
     implements Serializable

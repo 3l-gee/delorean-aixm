@@ -86,7 +86,7 @@ public class AircraftStandExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaircraftstand_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaircraftstandextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAircraftStandExtension() {
         return abstractAircraftStandExtension;
     }

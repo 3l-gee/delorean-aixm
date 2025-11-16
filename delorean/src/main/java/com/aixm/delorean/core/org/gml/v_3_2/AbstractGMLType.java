@@ -163,16 +163,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
      *     
      */
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "DESCRIPTION_VALUE", length = 255)),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "DESCRIPTION_NIL_REASON", length = 255)),
-        @AttributeOverride(name = "href", column = @Column(name = "DESCRIPTION_HREF")),
-        @AttributeOverride(name = "role", column = @Column(name = "DESCRIPTION_ROLE")),
-        @AttributeOverride(name = "arcrole", column = @Column(name = "DESCRIPTION_ARCROLE")),
-        @AttributeOverride(name = "simpleLinkTitle", column = @Column(name = "DESCRIPTION_SIMPLE_LINK_TITLE", length = 255)),
-        @AttributeOverride(name = "show", column = @Column(name = "DESCRIPTION_SHOW", length = 255)),
-        @AttributeOverride(name = "actuate", column = @Column(name = "DESCRIPTION_ACTUATE", length = 255))
-    })
+    @jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "description")), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "description_nilReason")), @jakarta.persistence.AttributeOverride(name = "href", column = @jakarta.persistence.Column(name = "description_href")) })
     public StringOrRefType getDescription() {
         return description;
     }
@@ -235,6 +226,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
      *     
      */
     @Embedded
+    @jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")), @jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace")) })
     public CodeWithAuthorityType getIdentifier() {
         return identifier;
     }
@@ -358,32 +350,6 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         }
         final AbstractGMLType that = ((AbstractGMLType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            StringOrRefType lhsField;
-            lhsField = this.getDescription();
-            StringOrRefType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDescriptionReference();
-            boolean rhsFieldIsSet = that.isSetDescriptionReference();
-            ReferenceType lhsField;
-            lhsField = this.getDescriptionReference();
-            ReferenceType rhsField;
-            rhsField = that.getDescriptionReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "descriptionReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "descriptionReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             List<CodeType> lhsField;
@@ -410,6 +376,32 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetIdentifier();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getIdentifier();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            StringOrRefType lhsField;
+            lhsField = this.getDescription();
+            StringOrRefType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetId();
             boolean rhsFieldIsSet = that.isSetId();
             String lhsField;
@@ -423,14 +415,14 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIdentifier();
-            boolean rhsFieldIsSet = that.isSetIdentifier();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getIdentifier();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescriptionReference();
+            boolean rhsFieldIsSet = that.isSetDescriptionReference();
+            ReferenceType lhsField;
+            lhsField = this.getDescriptionReference();
+            ReferenceType rhsField;
+            rhsField = that.getDescriptionReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "descriptionReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "descriptionReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

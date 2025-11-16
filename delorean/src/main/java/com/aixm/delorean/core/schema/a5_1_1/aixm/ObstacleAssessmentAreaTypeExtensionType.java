@@ -86,7 +86,7 @@ public class ObstacleAssessmentAreaTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractobstacleassessmentarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractobstacleassessmentareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractObstacleAssessmentAreaExtension() {
         return abstractObstacleAssessmentAreaExtension;
     }

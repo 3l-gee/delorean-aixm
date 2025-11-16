@@ -156,14 +156,14 @@ public abstract class AbstractGriddedSurfaceType
         }
         final AbstractGriddedSurfaceType that = ((AbstractGriddedSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRows();
-            boolean rhsFieldIsSet = that.isSetRows();
+            boolean lhsFieldIsSet = this.isSetColumns();
+            boolean rhsFieldIsSet = that.isSetColumns();
             BigInteger lhsField;
-            lhsField = this.getRows();
+            lhsField = this.getColumns();
             BigInteger rhsField;
-            rhsField = that.getRows();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
+            rhsField = that.getColumns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -182,14 +182,14 @@ public abstract class AbstractGriddedSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColumns();
-            boolean rhsFieldIsSet = that.isSetColumns();
+            boolean lhsFieldIsSet = this.isSetRows();
+            boolean rhsFieldIsSet = that.isSetRows();
             BigInteger lhsField;
-            lhsField = this.getColumns();
+            lhsField = this.getRows();
             BigInteger rhsField;
-            rhsField = that.getColumns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
+            rhsField = that.getRows();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

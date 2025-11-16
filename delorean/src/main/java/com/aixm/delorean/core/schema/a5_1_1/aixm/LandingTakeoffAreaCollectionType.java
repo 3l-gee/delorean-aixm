@@ -8,6 +8,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -98,10 +100,14 @@ public class LandingTakeoffAreaCollectionType
      * 
      * 
      */
-    @OneToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "runway_id", referencedColumnName = "hjid")
+    @JoinTable(name = "runway_landingtakeoffareacollection_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "runway", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "landingtakeoffareacollectionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<RunwayDirectionPropertyType> getRunway() {
         if (runway == null) {
             runway = new ArrayList<>();
@@ -148,10 +154,14 @@ public class LandingTakeoffAreaCollectionType
      * 
      * 
      */
-    @OneToMany(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "tlof_id", referencedColumnName = "hjid")
+    @JoinTable(name = "tlof_landingtakeoffareacollection_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "tlof", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "landingtakeoffareacollectionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<TouchDownLiftOffPropertyType> getTLOF() {
         if (tlof == null) {
             tlof = new ArrayList<>();
@@ -198,10 +208,14 @@ public class LandingTakeoffAreaCollectionType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_landingtakeoffareacollection_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "landingtakeoffareacollectionpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -289,6 +303,19 @@ public class LandingTakeoffAreaCollectionType
         }
         final LandingTakeoffAreaCollectionType that = ((LandingTakeoffAreaCollectionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTLOF();
+            boolean rhsFieldIsSet = that.isSetTLOF();
+            List<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = (this.isSetTLOF()?this.getTLOF():null);
+            List<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = (that.isSetTLOF()?that.getTLOF():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -297,19 +324,6 @@ public class LandingTakeoffAreaCollectionType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<LandingTakeoffAreaCollectionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<LandingTakeoffAreaCollectionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -328,14 +342,14 @@ public class LandingTakeoffAreaCollectionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTLOF();
-            boolean rhsFieldIsSet = that.isSetTLOF();
-            List<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = (this.isSetTLOF()?this.getTLOF():null);
-            List<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = (that.isSetTLOF()?that.getTLOF():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<LandingTakeoffAreaCollectionTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<LandingTakeoffAreaCollectionTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

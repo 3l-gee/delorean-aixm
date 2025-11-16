@@ -86,7 +86,7 @@ public class SpecialDateExtensionType implements Serializable, Equals, HashCode,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractspecialdate_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractspecialdateextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSpecialDateExtension() {
         return abstractSpecialDateExtension;
     }
@@ -223,19 +223,6 @@ public class SpecialDateExtensionType implements Serializable, Equals, HashCode,
         }
         final SpecialDateExtensionType that = ((SpecialDateExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSpecialDateExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSpecialDateExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSpecialDateExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSpecialDateExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialDateExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialDateExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SpecialDateExtensionType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSpecialDateExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSpecialDateExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSpecialDateExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSpecialDateExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSpecialDateExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSpecialDateExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

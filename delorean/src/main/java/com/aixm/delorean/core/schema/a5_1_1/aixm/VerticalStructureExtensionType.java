@@ -86,7 +86,7 @@ public class VerticalStructureExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractverticalstructure_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractverticalstructureextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractVerticalStructureExtension() {
         return abstractVerticalStructureExtension;
     }
@@ -223,19 +223,6 @@ public class VerticalStructureExtensionType implements Serializable, Equals, Has
         }
         final VerticalStructureExtensionType that = ((VerticalStructureExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructureExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructureExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVerticalStructureExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVerticalStructureExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVerticalStructureExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVerticalStructureExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class VerticalStructureExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractVerticalStructureExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVerticalStructureExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractVerticalStructureExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractVerticalStructureExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVerticalStructureExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVerticalStructureExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -90,7 +90,7 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairtrafficmanagementservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairtrafficmanagementserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirTrafficManagementServiceExtension() {
         return abstractAirTrafficManagementServiceExtension;
     }
@@ -123,7 +123,7 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -260,6 +260,19 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
         }
         final AirTrafficManagementServiceExtensionType that = ((AirTrafficManagementServiceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficManagementServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficManagementServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirTrafficManagementServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirTrafficManagementServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficManagementServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficManagementServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class AirTrafficManagementServiceExtensionType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAirTrafficManagementServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirTrafficManagementServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirTrafficManagementServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirTrafficManagementServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirTrafficManagementServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirTrafficManagementServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

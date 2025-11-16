@@ -188,19 +188,6 @@ public class MDCoverageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDimension();
-            boolean rhsFieldIsSet = that.isSetDimension();
-            List<MDRangeDimensionPropertyType> lhsField;
-            lhsField = (this.isSetDimension()?this.getDimension():null);
-            List<MDRangeDimensionPropertyType> rhsField;
-            rhsField = (that.isSetDimension()?that.getDimension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContentType();
             boolean rhsFieldIsSet = that.isSetContentType();
             MDCoverageContentTypeCodePropertyType lhsField;
@@ -209,6 +196,19 @@ public class MDCoverageDescriptionType
             rhsField = that.getContentType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contentType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contentType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDimension();
+            boolean rhsFieldIsSet = that.isSetDimension();
+            List<MDRangeDimensionPropertyType> lhsField;
+            lhsField = (this.isSetDimension()?this.getDimension():null);
+            List<MDRangeDimensionPropertyType> rhsField;
+            rhsField = (that.isSetDimension()?that.getDimension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

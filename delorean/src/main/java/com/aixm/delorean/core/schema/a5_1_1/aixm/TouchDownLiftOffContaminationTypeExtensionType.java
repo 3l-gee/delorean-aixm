@@ -90,7 +90,7 @@ public class TouchDownLiftOffContaminationTypeExtensionType implements Serializa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
     }
@@ -123,7 +123,7 @@ public class TouchDownLiftOffContaminationTypeExtensionType implements Serializa
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttouchdownliftoffcontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttouchdownliftoffcontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTouchDownLiftOffContaminationExtension() {
         return abstractTouchDownLiftOffContaminationExtension;
     }

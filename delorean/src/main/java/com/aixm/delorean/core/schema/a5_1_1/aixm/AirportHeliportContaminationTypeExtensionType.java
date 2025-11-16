@@ -90,7 +90,7 @@ public class AirportHeliportContaminationTypeExtensionType implements Serializab
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceContaminationExtension() {
         return abstractSurfaceContaminationExtension;
     }
@@ -123,7 +123,7 @@ public class AirportHeliportContaminationTypeExtensionType implements Serializab
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportheliportcontamination_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportheliportcontaminationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportHeliportContaminationExtension() {
         return abstractAirportHeliportContaminationExtension;
     }
@@ -260,19 +260,6 @@ public class AirportHeliportContaminationTypeExtensionType implements Serializab
         }
         final AirportHeliportContaminationTypeExtensionType that = ((AirportHeliportContaminationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportContaminationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHeliportContaminationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHeliportContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportContaminationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class AirportHeliportContaminationTypeExtensionType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportContaminationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportHeliportContaminationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportHeliportContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

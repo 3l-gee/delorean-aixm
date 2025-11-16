@@ -8,6 +8,24 @@ change:
           '@jakarta.persistence.Embedded',
           '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end"))})'
         ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      method: getDescription 
+    updates:
+      - old: AttributeOverrides
+        new: [
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "description")),@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "description_nilReason")),@jakarta.persistence.AttributeOverride(name = "href", column = @jakarta.persistence.Column(name = "description_href"))})'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      method: getIdentifier 
+    updates:
+      - old:
+        new: [
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")),@jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace"))})'
+        ]
 # AIXM 5.2
   - where: 
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_2\aixm\AbstractAIXMTimeSliceType.java
@@ -78,12 +96,9 @@ change:
       filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\BasicMessageMemberAIXMPropertyType.java
       method: getAbstractAIXMFeatureValue
     updates:
-      - old: ManyToOne
-        new: []
       - old: JoinTable
         new: [
-          '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
-          '@jakarta.persistence.JoinColumn(name = "feature_hjid", referencedColumnName = "hjid")'
+          '@jakarta.persistence.JoinColumn(name = "feature_id", referencedColumnName = "hjid")'
         ]
 
   - where: 

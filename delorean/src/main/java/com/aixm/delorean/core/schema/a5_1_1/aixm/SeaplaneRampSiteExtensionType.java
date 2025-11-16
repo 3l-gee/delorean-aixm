@@ -86,7 +86,7 @@ public class SeaplaneRampSiteExtensionType implements Serializable, Equals, Hash
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractseaplanerampsite_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractseaplanerampsiteextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSeaplaneRampSiteExtension() {
         return abstractSeaplaneRampSiteExtension;
     }

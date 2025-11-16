@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -304,10 +306,14 @@ public class PilotControlledLightingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = LightActivationPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = LightActivationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "controlledlightintensity_id", referencedColumnName = "hjid")
+    @JoinTable(name = "controlledlightintensity_pilotcontrolledlighting_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "controlledlightintensity", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pilotcontrolledlightingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<LightActivationPropertyType> getControlledLightIntensity() {
         if (controlledLightIntensity == null) {
             controlledLightIntensity = new ArrayList<>();
@@ -354,10 +360,14 @@ public class PilotControlledLightingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = GroundLightSystemPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "activatedgroundlighting_id", referencedColumnName = "hjid")
+    @JoinTable(name = "activatedgroundlighting_pilotcontrolledlighting_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "activatedgroundlighting", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pilotcontrolledlightingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<GroundLightSystemPropertyType> getActivatedGroundLighting() {
         if (activatedGroundLighting == null) {
             activatedGroundLighting = new ArrayList<>();
@@ -404,10 +414,14 @@ public class PilotControlledLightingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_pilotcontrolledlighting_link", schema = "service", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "pilotcontrolledlightingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -575,71 +589,6 @@ public class PilotControlledLightingTimeSliceType
         }
         final PilotControlledLightingTimeSliceType that = ((PilotControlledLightingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodePilotControlledLightingType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodePilotControlledLightingType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActivatedGroundLighting();
-            boolean rhsFieldIsSet = that.isSetActivatedGroundLighting();
-            List<GroundLightSystemPropertyType> lhsField;
-            lhsField = (this.isSetActivatedGroundLighting()?this.getActivatedGroundLighting():null);
-            List<GroundLightSystemPropertyType> rhsField;
-            rhsField = (that.isSetActivatedGroundLighting()?that.getActivatedGroundLighting():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activatedGroundLighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activatedGroundLighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActivationInstruction();
-            boolean rhsFieldIsSet = that.isSetActivationInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getActivationInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getActivationInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activationInstruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activationInstruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PilotControlledLightingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<PilotControlledLightingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlledLightIntensity();
-            boolean rhsFieldIsSet = that.isSetControlledLightIntensity();
-            List<LightActivationPropertyType> lhsField;
-            lhsField = (this.isSetControlledLightIntensity()?this.getControlledLightIntensity():null);
-            List<LightActivationPropertyType> rhsField;
-            rhsField = (that.isSetControlledLightIntensity()?that.getControlledLightIntensity():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledLightIntensity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledLightIntensity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -648,19 +597,6 @@ public class PilotControlledLightingTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadioFrequency();
-            boolean rhsFieldIsSet = that.isSetRadioFrequency();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getRadioFrequency();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getRadioFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioFrequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -679,14 +615,14 @@ public class PilotControlledLightingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIntensitySteps();
-            boolean rhsFieldIsSet = that.isSetIntensitySteps();
-            JAXBElement<NoNumberType> lhsField;
-            lhsField = this.getIntensitySteps();
-            JAXBElement<NoNumberType> rhsField;
-            rhsField = that.getIntensitySteps();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensitySteps", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensitySteps", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PilotControlledLightingExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<PilotControlledLightingExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -700,6 +636,84 @@ public class PilotControlledLightingTimeSliceType
             rhsField = that.getStandByIntensity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standByIntensity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standByIntensity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadioFrequency();
+            boolean rhsFieldIsSet = that.isSetRadioFrequency();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getRadioFrequency();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getRadioFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radioFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radioFrequency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivatedGroundLighting();
+            boolean rhsFieldIsSet = that.isSetActivatedGroundLighting();
+            List<GroundLightSystemPropertyType> lhsField;
+            lhsField = (this.isSetActivatedGroundLighting()?this.getActivatedGroundLighting():null);
+            List<GroundLightSystemPropertyType> rhsField;
+            rhsField = (that.isSetActivatedGroundLighting()?that.getActivatedGroundLighting():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activatedGroundLighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activatedGroundLighting", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntensitySteps();
+            boolean rhsFieldIsSet = that.isSetIntensitySteps();
+            JAXBElement<NoNumberType> lhsField;
+            lhsField = this.getIntensitySteps();
+            JAXBElement<NoNumberType> rhsField;
+            rhsField = that.getIntensitySteps();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intensitySteps", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intensitySteps", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActivationInstruction();
+            boolean rhsFieldIsSet = that.isSetActivationInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getActivationInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getActivationInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "activationInstruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "activationInstruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetControlledLightIntensity();
+            boolean rhsFieldIsSet = that.isSetControlledLightIntensity();
+            List<LightActivationPropertyType> lhsField;
+            lhsField = (this.isSetControlledLightIntensity()?this.getControlledLightIntensity():null);
+            List<LightActivationPropertyType> rhsField;
+            rhsField = (that.isSetControlledLightIntensity()?that.getControlledLightIntensity():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlledLightIntensity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlledLightIntensity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodePilotControlledLightingType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodePilotControlledLightingType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

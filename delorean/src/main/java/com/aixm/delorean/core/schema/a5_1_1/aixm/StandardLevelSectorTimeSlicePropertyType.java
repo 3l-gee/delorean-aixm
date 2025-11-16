@@ -223,19 +223,6 @@ public class StandardLevelSectorTimeSlicePropertyType implements Serializable, E
         }
         final StandardLevelSectorTimeSlicePropertyType that = ((StandardLevelSectorTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandardLevelSectorTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandardLevelSectorTimeSlice();
-            StandardLevelSectorTimeSliceType lhsField;
-            lhsField = this.getStandardLevelSectorTimeSlice();
-            StandardLevelSectorTimeSliceType rhsField;
-            rhsField = that.getStandardLevelSectorTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelSectorTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelSectorTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class StandardLevelSectorTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardLevelSectorTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandardLevelSectorTimeSlice();
+            StandardLevelSectorTimeSliceType lhsField;
+            lhsField = this.getStandardLevelSectorTimeSlice();
+            StandardLevelSectorTimeSliceType rhsField;
+            rhsField = that.getStandardLevelSectorTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelSectorTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelSectorTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

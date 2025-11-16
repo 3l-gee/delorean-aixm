@@ -86,7 +86,7 @@ public class GuidanceLineExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractguidanceline_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractguidancelineextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGuidanceLineExtension() {
         return abstractGuidanceLineExtension;
     }

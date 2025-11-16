@@ -86,7 +86,7 @@ public class PilotControlledLightingExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpilotcontrolledlighting_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpilotcontrolledlightingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPilotControlledLightingExtension() {
         return abstractPilotControlledLightingExtension;
     }
@@ -223,19 +223,6 @@ public class PilotControlledLightingExtensionType implements Serializable, Equal
         }
         final PilotControlledLightingExtensionType that = ((PilotControlledLightingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPilotControlledLightingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPilotControlledLightingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPilotControlledLightingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPilotControlledLightingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPilotControlledLightingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPilotControlledLightingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class PilotControlledLightingExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPilotControlledLightingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPilotControlledLightingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPilotControlledLightingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPilotControlledLightingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPilotControlledLightingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPilotControlledLightingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

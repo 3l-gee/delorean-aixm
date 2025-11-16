@@ -86,7 +86,7 @@ public class RadarComponentTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractradarcomponent_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractradarcomponentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarComponentExtension() {
         return abstractRadarComponentExtension;
     }
@@ -223,19 +223,6 @@ public class RadarComponentTypeExtensionType implements Serializable, Equals, Ha
         }
         final RadarComponentTypeExtensionType that = ((RadarComponentTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadarComponentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadarComponentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadarComponentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadarComponentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarComponentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarComponentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RadarComponentTypeExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadarComponentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadarComponentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadarComponentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadarComponentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarComponentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarComponentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

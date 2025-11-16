@@ -213,14 +213,14 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSeconds();
-            boolean rhsFieldIsSet = that.isSetSeconds();
+            boolean lhsFieldIsSet = this.isSetDecimalMinutes();
+            boolean rhsFieldIsSet = that.isSetDecimalMinutes();
             BigDecimal lhsField;
-            lhsField = this.getSeconds();
+            lhsField = this.getDecimalMinutes();
             BigDecimal rhsField;
-            rhsField = that.getSeconds();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
+            rhsField = that.getDecimalMinutes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimalMinutes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimalMinutes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -239,14 +239,14 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDecimalMinutes();
-            boolean rhsFieldIsSet = that.isSetDecimalMinutes();
+            boolean lhsFieldIsSet = this.isSetSeconds();
+            boolean rhsFieldIsSet = that.isSetSeconds();
             BigDecimal lhsField;
-            lhsField = this.getDecimalMinutes();
+            lhsField = this.getSeconds();
             BigDecimal rhsField;
-            rhsField = that.getDecimalMinutes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimalMinutes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimalMinutes", rhsField);
+            rhsField = that.getSeconds();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

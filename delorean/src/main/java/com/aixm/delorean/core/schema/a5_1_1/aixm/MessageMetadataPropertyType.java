@@ -50,7 +50,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "mdMetadata"
 })
 @Entity(name = "MessageMetadataPropertyType")
-@Table(name = "message_metadata_property", schema = "aixm")
+@Table(name = "message_metadata", schema = "aixm")
 public class MessageMetadataPropertyType
     extends AbstractMetadataPropertyType
     implements Serializable

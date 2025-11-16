@@ -283,14 +283,14 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
         }
         final DirectPositionType that = ((DirectPositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxisLabels();
-            boolean rhsFieldIsSet = that.isSetAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<Double> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<Double> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -309,14 +309,14 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            List<Double> lhsField;
-            lhsField = (this.isSetValue()?this.getValue():null);
-            List<Double> rhsField;
-            rhsField = (that.isSetValue()?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -335,14 +335,14 @@ public class DirectPositionType implements Serializable, Equals, HashCode, ToStr
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
             List<String> lhsField;
-            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             List<String> rhsField;
-            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

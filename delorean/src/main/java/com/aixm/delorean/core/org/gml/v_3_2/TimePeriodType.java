@@ -257,14 +257,14 @@ public class TimePeriodType
         }
         final TimePeriodType that = ((TimePeriodType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            TimeIntervalLengthType lhsField;
-            lhsField = this.getTimeInterval();
-            TimeIntervalLengthType rhsField;
-            rhsField = that.getTimeInterval();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetBegin();
+            boolean rhsFieldIsSet = that.isSetBegin();
+            TimeInstantPropertyType lhsField;
+            lhsField = this.getBegin();
+            TimeInstantPropertyType rhsField;
+            rhsField = that.getBegin();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "begin", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "begin", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -283,14 +283,27 @@ public class TimePeriodType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEndPosition();
-            boolean rhsFieldIsSet = that.isSetEndPosition();
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            TimeIntervalLengthType lhsField;
+            lhsField = this.getTimeInterval();
+            TimeIntervalLengthType rhsField;
+            rhsField = that.getTimeInterval();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBeginPosition();
+            boolean rhsFieldIsSet = that.isSetBeginPosition();
             TimePositionType lhsField;
-            lhsField = this.getEndPosition();
+            lhsField = this.getBeginPosition();
             TimePositionType rhsField;
-            rhsField = that.getEndPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            rhsField = that.getBeginPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -309,27 +322,14 @@ public class TimePeriodType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBegin();
-            boolean rhsFieldIsSet = that.isSetBegin();
-            TimeInstantPropertyType lhsField;
-            lhsField = this.getBegin();
-            TimeInstantPropertyType rhsField;
-            rhsField = that.getBegin();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "begin", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "begin", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBeginPosition();
-            boolean rhsFieldIsSet = that.isSetBeginPosition();
+            boolean lhsFieldIsSet = this.isSetEndPosition();
+            boolean rhsFieldIsSet = that.isSetEndPosition();
             TimePositionType lhsField;
-            lhsField = this.getBeginPosition();
+            lhsField = this.getEndPosition();
             TimePositionType rhsField;
-            rhsField = that.getBeginPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
+            rhsField = that.getEndPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

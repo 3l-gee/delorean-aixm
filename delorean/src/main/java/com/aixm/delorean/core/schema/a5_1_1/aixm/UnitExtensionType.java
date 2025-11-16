@@ -86,7 +86,7 @@ public class UnitExtensionType implements Serializable, Equals, HashCode, ToStri
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractunit_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractunitextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractUnitExtension() {
         return abstractUnitExtension;
     }

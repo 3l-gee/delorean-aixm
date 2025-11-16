@@ -95,10 +95,7 @@ public class AIXMBasicMessageType
      * 
      */
     @ManyToMany(targetEntity = BasicMessageMemberAIXMPropertyType.class, cascade = {
-        CascadeType.DETACH,
-        CascadeType.MERGE,
-        CascadeType.PERSIST,
-        CascadeType.REFRESH
+        CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinTable(name = "message_member_link", schema = "aixm", joinColumns = {
         @JoinColumn(name = "message_hjid", referencedColumnName = "hjid")

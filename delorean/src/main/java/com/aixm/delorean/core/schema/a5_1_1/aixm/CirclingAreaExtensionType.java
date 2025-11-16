@@ -86,7 +86,7 @@ public class CirclingAreaExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcirclingarea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcirclingareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCirclingAreaExtension() {
         return abstractCirclingAreaExtension;
     }

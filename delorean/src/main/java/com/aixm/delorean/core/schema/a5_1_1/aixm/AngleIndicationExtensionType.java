@@ -86,7 +86,7 @@ public class AngleIndicationExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractangleindication_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractangleindicationextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAngleIndicationExtension() {
         return abstractAngleIndicationExtension;
     }

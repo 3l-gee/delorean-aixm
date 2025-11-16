@@ -86,7 +86,7 @@ public class AngleUseTypeExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractangleuse_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractangleuseextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAngleUseExtension() {
         return abstractAngleUseExtension;
     }

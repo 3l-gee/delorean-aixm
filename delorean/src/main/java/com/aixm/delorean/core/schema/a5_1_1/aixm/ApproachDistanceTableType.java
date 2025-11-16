@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -232,10 +234,14 @@ public class ApproachDistanceTableType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_approachdistancetable_link", schema = "procedure", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "approachdistancetablepropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -377,32 +383,6 @@ public class ApproachDistanceTableType
         }
         final ApproachDistanceTableType that = ((ApproachDistanceTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValueHAT();
-            boolean rhsFieldIsSet = that.isSetValueHAT();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getValueHAT();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getValueHAT();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueHAT", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueHAT", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getEndingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
             boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
             JAXBElement<CodeProcedureDistanceType> lhsField;
@@ -411,6 +391,19 @@ public class ApproachDistanceTableType
             rhsField = that.getStartingMeasurementPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachDistanceTableTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ApproachDistanceTableTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -429,14 +422,27 @@ public class ApproachDistanceTableType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachDistanceTableTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ApproachDistanceTableTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getEndingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValueHAT();
+            boolean rhsFieldIsSet = that.isSetValueHAT();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getValueHAT();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getValueHAT();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueHAT", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueHAT", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

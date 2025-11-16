@@ -86,7 +86,7 @@ public class ApproachAltitudeTableTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachaltitudetable_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachaltitudetableextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachAltitudeTableExtension() {
         return abstractApproachAltitudeTableExtension;
     }

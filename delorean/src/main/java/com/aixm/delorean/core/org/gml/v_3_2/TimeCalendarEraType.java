@@ -209,19 +209,6 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceDate();
-            boolean rhsFieldIsSet = that.isSetReferenceDate();
-            String lhsField;
-            lhsField = this.getReferenceDate();
-            String rhsField;
-            rhsField = that.getReferenceDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEpochOfUse();
             boolean rhsFieldIsSet = that.isSetEpochOfUse();
             TimePeriodPropertyType lhsField;
@@ -230,6 +217,19 @@ public class TimeCalendarEraType
             rhsField = that.getEpochOfUse();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceDate();
+            boolean rhsFieldIsSet = that.isSetReferenceDate();
+            String lhsField;
+            lhsField = this.getReferenceDate();
+            String rhsField;
+            rhsField = that.getReferenceDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

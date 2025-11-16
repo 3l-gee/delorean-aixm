@@ -86,7 +86,7 @@ public class MinimaTypeExtensionType implements Serializable, Equals, HashCode, 
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractminima_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractminimaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMinimaExtension() {
         return abstractMinimaExtension;
     }

@@ -209,19 +209,6 @@ public class MDGridSpatialRepresentationType
         }
         final MDGridSpatialRepresentationType that = ((MDGridSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
-            boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
-            List<MDDimensionPropertyType> lhsField;
-            lhsField = (this.isSetAxisDimensionProperties()?this.getAxisDimensionProperties():null);
-            List<MDDimensionPropertyType> rhsField;
-            rhsField = (that.isSetAxisDimensionProperties()?that.getAxisDimensionProperties():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCellGeometry();
             boolean rhsFieldIsSet = that.isSetCellGeometry();
             MDCellGeometryCodePropertyType lhsField;
@@ -235,14 +222,14 @@ public class MDGridSpatialRepresentationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTransformationParameterAvailability();
-            boolean rhsFieldIsSet = that.isSetTransformationParameterAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getTransformationParameterAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getTransformationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
+            boolean lhsFieldIsSet = this.isSetAxisDimensionProperties();
+            boolean rhsFieldIsSet = that.isSetAxisDimensionProperties();
+            List<MDDimensionPropertyType> lhsField;
+            lhsField = (this.isSetAxisDimensionProperties()?this.getAxisDimensionProperties():null);
+            List<MDDimensionPropertyType> rhsField;
+            rhsField = (that.isSetAxisDimensionProperties()?that.getAxisDimensionProperties():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -256,6 +243,19 @@ public class MDGridSpatialRepresentationType
             rhsField = that.getNumberOfDimensions();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numberOfDimensions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numberOfDimensions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTransformationParameterAvailability();
+            boolean rhsFieldIsSet = that.isSetTransformationParameterAvailability();
+            BooleanPropertyType lhsField;
+            lhsField = this.getTransformationParameterAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getTransformationParameterAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

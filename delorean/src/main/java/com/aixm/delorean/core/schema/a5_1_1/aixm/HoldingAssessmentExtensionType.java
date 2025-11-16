@@ -86,7 +86,7 @@ public class HoldingAssessmentExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdingassessment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdingassessmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingAssessmentExtension() {
         return abstractHoldingAssessmentExtension;
     }

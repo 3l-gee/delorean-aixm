@@ -90,7 +90,7 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdirectionfinder_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdirectionfinderextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectionFinderExtension() {
         return abstractDirectionFinderExtension;
     }
@@ -123,7 +123,7 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,14 +260,14 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
         }
         final DirectionFinderExtensionType that = ((DirectionFinderExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectionFinderExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectionFinderExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectionFinderExtension();
+            lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectionFinderExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectionFinderExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectionFinderExtension", rhsField);
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractDirectionFinderExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectionFinderExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
+            lhsField = this.getAbstractDirectionFinderExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            rhsField = that.getAbstractDirectionFinderExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectionFinderExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectionFinderExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

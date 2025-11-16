@@ -228,14 +228,14 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
         }
         final CoordinatesType that = ((CoordinatesType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTs();
-            boolean rhsFieldIsSet = that.isSetTs();
+            boolean lhsFieldIsSet = this.isSetDecimal();
+            boolean rhsFieldIsSet = that.isSetDecimal();
             String lhsField;
-            lhsField = this.getTs();
+            lhsField = this.getDecimal();
             String rhsField;
-            rhsField = that.getTs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
+            rhsField = that.getDecimal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -254,14 +254,14 @@ public class CoordinatesType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDecimal();
-            boolean rhsFieldIsSet = that.isSetDecimal();
+            boolean lhsFieldIsSet = this.isSetTs();
+            boolean rhsFieldIsSet = that.isSetTs();
             String lhsField;
-            lhsField = this.getDecimal();
+            lhsField = this.getTs();
             String rhsField;
-            rhsField = that.getDecimal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
+            rhsField = that.getTs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ts", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ts", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -86,7 +86,7 @@ public class AerialRefuellingTrackTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuellingtrack_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellingtrackextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingTrackExtension() {
         return abstractAerialRefuellingTrackExtension;
     }

@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -374,10 +376,14 @@ public class UnitTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ContactInformationPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "contact_id", referencedColumnName = "hjid")
+    @JoinTable(name = "contact_unit_link", schema = "organisation", joinColumns = {
+        @JoinColumn(name = "contact", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "unitpropertygroup", referencedColumnName = "hjid")
+    })
     public List<ContactInformationPropertyType> getContact() {
         if (contact == null) {
             contact = new ArrayList<>();
@@ -424,10 +430,14 @@ public class UnitTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = UnitDependencyPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = UnitDependencyPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "relatedunit_id", referencedColumnName = "hjid")
+    @JoinTable(name = "relatedunit_unit_link", schema = "organisation", joinColumns = {
+        @JoinColumn(name = "relatedunit", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "unitpropertygroup", referencedColumnName = "hjid")
+    })
     public List<UnitDependencyPropertyType> getRelatedUnit() {
         if (relatedUnit == null) {
             relatedUnit = new ArrayList<>();
@@ -474,10 +484,14 @@ public class UnitTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = UnitAvailabilityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = UnitAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "availability_id", referencedColumnName = "hjid")
+    @JoinTable(name = "availability_unit_link", schema = "organisation", joinColumns = {
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "unitpropertygroup", referencedColumnName = "hjid")
+    })
     public List<UnitAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -524,10 +538,14 @@ public class UnitTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_unit_link", schema = "organisation", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "unitpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -667,7 +685,7 @@ public class UnitTimeSliceType
         setMilitary(XmlAdapterUtils.marshallJAXBElement(CodeMilitaryOperationsType.class, new QName("http://www.aixm.aero/schema/5.1.1", "military"), UnitTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "position_id", referencedColumnName = "hjid")
@@ -679,7 +697,7 @@ public class UnitTimeSliceType
         setPosition(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "position"), UnitTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportlocation_id", referencedColumnName = "hjid")
@@ -691,7 +709,7 @@ public class UnitTimeSliceType
         setAirportLocation(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "airportLocation"), UnitTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ownerorganisation_id", referencedColumnName = "hjid")
@@ -716,27 +734,14 @@ public class UnitTimeSliceType
         }
         final UnitTimeSliceType that = ((UnitTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMilitary();
-            boolean rhsFieldIsSet = that.isSetMilitary();
-            JAXBElement<CodeMilitaryOperationsType> lhsField;
-            lhsField = this.getMilitary();
-            JAXBElement<CodeMilitaryOperationsType> rhsField;
-            rhsField = that.getMilitary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact()?this.getContact():null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact()?that.getContact():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            boolean lhsFieldIsSet = this.isSetCompliantICAO();
+            boolean rhsFieldIsSet = that.isSetCompliantICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCompliantICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCompliantICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -755,19 +760,6 @@ public class UnitTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCompliantICAO();
-            boolean rhsFieldIsSet = that.isSetCompliantICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCompliantICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCompliantICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compliantICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compliantICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<UnitAvailabilityPropertyType> lhsField;
@@ -781,40 +773,14 @@ public class UnitTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUnitType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUnitType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPosition();
-            boolean rhsFieldIsSet = that.isSetPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getPosition();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRelatedUnit();
+            boolean rhsFieldIsSet = that.isSetRelatedUnit();
+            List<UnitDependencyPropertyType> lhsField;
+            lhsField = (this.isSetRelatedUnit()?this.getRelatedUnit():null);
+            List<UnitDependencyPropertyType> rhsField;
+            rhsField = (that.isSetRelatedUnit()?that.getRelatedUnit():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -833,14 +799,40 @@ public class UnitTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRelatedUnit();
-            boolean rhsFieldIsSet = that.isSetRelatedUnit();
-            List<UnitDependencyPropertyType> lhsField;
-            lhsField = (this.isSetRelatedUnit()?this.getRelatedUnit():null);
-            List<UnitDependencyPropertyType> rhsField;
-            rhsField = (that.isSetRelatedUnit()?that.getRelatedUnit():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedUnit", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getPosition();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirportLocation();
+            boolean rhsFieldIsSet = that.isSetAirportLocation();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAirportLocation();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAirportLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -872,14 +864,40 @@ public class UnitTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAirportLocation();
-            boolean rhsFieldIsSet = that.isSetAirportLocation();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAirportLocation();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAirportLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact()?this.getContact():null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact()?that.getContact():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUnitType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUnitType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMilitary();
+            boolean rhsFieldIsSet = that.isSetMilitary();
+            JAXBElement<CodeMilitaryOperationsType> lhsField;
+            lhsField = this.getMilitary();
+            JAXBElement<CodeMilitaryOperationsType> rhsField;
+            rhsField = that.getMilitary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

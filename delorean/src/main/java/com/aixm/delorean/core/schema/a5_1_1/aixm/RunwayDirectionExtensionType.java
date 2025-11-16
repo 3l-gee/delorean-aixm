@@ -86,7 +86,7 @@ public class RunwayDirectionExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractrunwaydirection_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractrunwaydirectionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRunwayDirectionExtension() {
         return abstractRunwayDirectionExtension;
     }

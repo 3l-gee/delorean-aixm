@@ -90,7 +90,7 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightingavailability_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightingavailabilityextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightingAvailabilityExtension() {
         return abstractGroundLightingAvailabilityExtension;
     }
@@ -260,19 +260,6 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
         }
         final GroundLightingAvailabilityTypeExtensionType that = ((GroundLightingAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightingAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightingAvailabilityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightingAvailabilityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightingAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightingAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightingAvailabilityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightingAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightingAvailabilityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundLightingAvailabilityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundLightingAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightingAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightingAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

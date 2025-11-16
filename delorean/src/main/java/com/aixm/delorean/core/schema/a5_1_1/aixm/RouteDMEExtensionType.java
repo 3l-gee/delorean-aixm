@@ -86,7 +86,7 @@ public class RouteDMEExtensionType implements Serializable, Equals, HashCode, To
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractroutedme_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractroutedmeextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRouteDMEExtension() {
         return abstractRouteDMEExtension;
     }

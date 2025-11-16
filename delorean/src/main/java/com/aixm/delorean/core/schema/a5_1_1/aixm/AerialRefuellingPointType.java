@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -41,7 +43,21 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractSegmentPointType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}SegmentPointPropertyGroup"/>
+ *         <element name="reportingATC" type="{http://www.aixm.aero/schema/5.1.1}CodeATCReportingType" minOccurs="0"/>
+ *         <element name="flyOver" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="waypoint" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="radarGuidance" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="facilityMakeup" type="{http://www.aixm.aero/schema/5.1.1}PointReferencePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <choice>
+ *           <element name="pointChoice_fixDesignatedPoint" type="{http://www.aixm.aero/schema/5.1.1}DesignatedPointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_navaidSystem" type="{http://www.aixm.aero/schema/5.1.1}NavaidPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_position" type="{http://www.aixm.aero/schema/5.1.1}PointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_runwayPoint" type="{http://www.aixm.aero/schema/5.1.1}RunwayCentrelinePointPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_aimingPoint" type="{http://www.aixm.aero/schema/5.1.1}TouchDownLiftOffPropertyType" minOccurs="0"/>
+ *           <element name="pointChoice_airportReferencePoint" type="{http://www.aixm.aero/schema/5.1.1}AirportHeliportPropertyType" minOccurs="0"/>
+ *         </choice>
+ *         <element name="extendedServiceVolume" type="{http://www.aixm.aero/schema/5.1.1}RadioFrequencyAreaPropertyType" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingPointPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -265,10 +281,14 @@ public class AerialRefuellingPointType
      * 
      * 
      */
-    @OneToMany(targetEntity = PointReferencePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = PointReferencePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "facilitymakeup_id", referencedColumnName = "hjid")
+    @JoinTable(name = "facilitymakeup_aerialrefuellingpoint_link", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "facilitymakeup", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aerialrefuellingpointtype", referencedColumnName = "hjid")
+    })
     public List<PointReferencePropertyType> getFacilityMakeup() {
         if (facilityMakeup == null) {
             facilityMakeup = new ArrayList<>();
@@ -525,10 +545,14 @@ public class AerialRefuellingPointType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_aerialrefuellingpoint_link", schema = "aerial_refuelling", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "aerialrefuellingpointtype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -715,7 +739,7 @@ public class AerialRefuellingPointType
         setRadarGuidance(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "radarGuidance"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = DesignatedPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_fixdesignatedpoint_id", referencedColumnName = "hjid")
@@ -727,7 +751,7 @@ public class AerialRefuellingPointType
         setPointChoiceFixDesignatedPoint(XmlAdapterUtils.marshallJAXBElement(DesignatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_fixDesignatedPoint"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = NavaidPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = NavaidPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_navaidsystem_id", referencedColumnName = "hjid")
@@ -739,7 +763,7 @@ public class AerialRefuellingPointType
         setPointChoiceNavaidSystem(XmlAdapterUtils.marshallJAXBElement(NavaidPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_navaidSystem"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMPointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_position_id", referencedColumnName = "hjid")
@@ -751,7 +775,7 @@ public class AerialRefuellingPointType
         setPointChoicePosition(XmlAdapterUtils.marshallJAXBElement(AIXMPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_position"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayCentrelinePointPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_runwaypoint_id", referencedColumnName = "hjid")
@@ -763,7 +787,7 @@ public class AerialRefuellingPointType
         setPointChoiceRunwayPoint(XmlAdapterUtils.marshallJAXBElement(RunwayCentrelinePointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_runwayPoint"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_aimingpoint_id", referencedColumnName = "hjid")
@@ -775,7 +799,7 @@ public class AerialRefuellingPointType
         setPointChoiceAimingPoint(XmlAdapterUtils.marshallJAXBElement(TouchDownLiftOffPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_aimingPoint"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "pointchoice_airportreferencepoint_id", referencedColumnName = "hjid")
@@ -787,7 +811,7 @@ public class AerialRefuellingPointType
         setPointChoiceAirportReferencePoint(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "pointChoice_airportReferencePoint"), AerialRefuellingPointType.class, target));
     }
 
-    @OneToOne(targetEntity = RadioFrequencyAreaPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RadioFrequencyAreaPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "extendedservicevolume_id", referencedColumnName = "hjid")
@@ -838,131 +862,14 @@ public class AerialRefuellingPointType
         }
         final AerialRefuellingPointType that = ((AerialRefuellingPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUsageType();
-            boolean rhsFieldIsSet = that.isSetUsageType();
-            JAXBElement<CodeAerialRefuellingPointType> lhsField;
-            lhsField = this.getUsageType();
-            JAXBElement<CodeAerialRefuellingPointType> rhsField;
-            rhsField = that.getUsageType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointChoiceFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
-            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getPointChoicePosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getPointChoicePosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtendedServiceVolume();
-            boolean rhsFieldIsSet = that.isSetExtendedServiceVolume();
-            JAXBElement<RadioFrequencyAreaPropertyType> lhsField;
-            lhsField = this.getExtendedServiceVolume();
-            JAXBElement<RadioFrequencyAreaPropertyType> rhsField;
-            rhsField = that.getExtendedServiceVolume();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedServiceVolume", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedServiceVolume", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFacilityMakeup();
-            boolean rhsFieldIsSet = that.isSetFacilityMakeup();
-            List<PointReferencePropertyType> lhsField;
-            lhsField = (this.isSetFacilityMakeup()?this.getFacilityMakeup():null);
-            List<PointReferencePropertyType> rhsField;
-            rhsField = (that.isSetFacilityMakeup()?that.getFacilityMakeup():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityMakeup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityMakeup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWaypoint();
-            boolean rhsFieldIsSet = that.isSetWaypoint();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getWaypoint();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getWaypoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waypoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waypoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReportingATC();
-            boolean rhsFieldIsSet = that.isSetReportingATC();
-            JAXBElement<CodeATCReportingType> lhsField;
-            lhsField = this.getReportingATC();
-            JAXBElement<CodeATCReportingType> rhsField;
-            rhsField = that.getReportingATC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reportingATC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reportingATC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadarGuidance();
-            boolean rhsFieldIsSet = that.isSetRadarGuidance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getRadarGuidance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getRadarGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointChoiceAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -981,6 +888,19 @@ public class AerialRefuellingPointType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetWaypoint();
+            boolean rhsFieldIsSet = that.isSetWaypoint();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getWaypoint();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getWaypoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "waypoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "waypoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSequence();
             boolean rhsFieldIsSet = that.isSetSequence();
             JAXBElement<NoSequenceType> lhsField;
@@ -989,6 +909,32 @@ public class AerialRefuellingPointType
             rhsField = that.getSequence();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequence", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequence", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsageType();
+            boolean rhsFieldIsSet = that.isSetUsageType();
+            JAXBElement<CodeAerialRefuellingPointType> lhsField;
+            lhsField = this.getUsageType();
+            JAXBElement<CodeAerialRefuellingPointType> rhsField;
+            rhsField = that.getUsageType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoicePosition();
+            boolean rhsFieldIsSet = that.isSetPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getPointChoicePosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getPointChoicePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoicePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoicePosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1007,6 +953,32 @@ public class AerialRefuellingPointType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFacilityMakeup();
+            boolean rhsFieldIsSet = that.isSetFacilityMakeup();
+            List<PointReferencePropertyType> lhsField;
+            lhsField = (this.isSetFacilityMakeup()?this.getFacilityMakeup():null);
+            List<PointReferencePropertyType> rhsField;
+            rhsField = (that.isSetFacilityMakeup()?that.getFacilityMakeup():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facilityMakeup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facilityMakeup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarGuidance();
+            boolean rhsFieldIsSet = that.isSetRadarGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getRadarGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getRadarGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarGuidance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
             boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -1020,14 +992,40 @@ public class AerialRefuellingPointType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointChoiceAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetReportingATC();
+            boolean rhsFieldIsSet = that.isSetReportingATC();
+            JAXBElement<CodeATCReportingType> lhsField;
+            lhsField = this.getReportingATC();
+            JAXBElement<CodeATCReportingType> rhsField;
+            rhsField = that.getReportingATC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reportingATC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reportingATC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtendedServiceVolume();
+            boolean rhsFieldIsSet = that.isSetExtendedServiceVolume();
+            JAXBElement<RadioFrequencyAreaPropertyType> lhsField;
+            lhsField = this.getExtendedServiceVolume();
+            JAXBElement<RadioFrequencyAreaPropertyType> rhsField;
+            rhsField = that.getExtendedServiceVolume();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedServiceVolume", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedServiceVolume", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1041,6 +1039,32 @@ public class AerialRefuellingPointType
             rhsField = that.getPointChoiceAirportReferencePoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAirportReferencePoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPointChoiceFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

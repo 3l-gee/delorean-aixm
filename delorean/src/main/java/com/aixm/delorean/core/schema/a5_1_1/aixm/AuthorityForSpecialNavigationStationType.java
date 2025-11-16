@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -136,10 +138,14 @@ public class AuthorityForSpecialNavigationStationType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_authorityforspecialnavigationstation_link", schema = "navaids_point", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "authorityforspecialnavigationstationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -172,7 +178,7 @@ public class AuthorityForSpecialNavigationStationType
      *     {@link OrganisationAuthorityPropertyType }
      *     
      */
-    @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "theorganisationauthority_id", referencedColumnName = "hjid")
@@ -273,19 +279,6 @@ public class AuthorityForSpecialNavigationStationType
         }
         final AuthorityForSpecialNavigationStationType that = ((AuthorityForSpecialNavigationStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AuthorityForSpecialNavigationStationTypeExtensionType> lhsField;
@@ -307,6 +300,19 @@ public class AuthorityForSpecialNavigationStationType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

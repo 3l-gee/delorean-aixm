@@ -90,7 +90,7 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdme_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdmeextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDMEExtension() {
         return abstractDMEExtension;
     }
@@ -123,7 +123,7 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavaidequipment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavaidequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavaidEquipmentExtension() {
         return abstractNavaidEquipmentExtension;
     }
@@ -260,14 +260,14 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
         }
         final DMEExtensionType that = ((DMEExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDMEExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDMEExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDMEExtension();
+            lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDMEExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDMEExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDMEExtension", rhsField);
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractDMEExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDMEExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
+            lhsField = this.getAbstractDMEExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            rhsField = that.getAbstractDMEExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDMEExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDMEExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

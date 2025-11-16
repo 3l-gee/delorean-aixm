@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -177,10 +179,14 @@ public class TouchDownLiftOffMarkingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "element_id", referencedColumnName = "hjid")
+    @JoinTable(name = "element_touchdownliftoffmarking_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "element", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "touchdownliftoffmarkingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<MarkingElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -227,10 +233,14 @@ public class TouchDownLiftOffMarkingTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_touchdownliftoffmarking_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "touchdownliftoffmarkingpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -404,7 +414,7 @@ public class TouchDownLiftOffMarkingTimeSliceType
         setMarkingLocation(XmlAdapterUtils.marshallJAXBElement(CodeTLOFSectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markingLocation"), TouchDownLiftOffMarkingTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = TouchDownLiftOffPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "markedtouchdownliftoff_id", referencedColumnName = "hjid")
@@ -428,6 +438,32 @@ public class TouchDownLiftOffMarkingTimeSliceType
             return false;
         }
         final TouchDownLiftOffMarkingTimeSliceType that = ((TouchDownLiftOffMarkingTimeSliceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingLocation();
+            boolean rhsFieldIsSet = that.isSetMarkingLocation();
+            JAXBElement<CodeTLOFSectionType> lhsField;
+            lhsField = this.getMarkingLocation();
+            JAXBElement<CodeTLOFSectionType> rhsField;
+            rhsField = that.getMarkingLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedTouchDownLiftOff();
+            boolean rhsFieldIsSet = that.isSetMarkedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getMarkedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getMarkedTouchDownLiftOff();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTouchDownLiftOff", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTouchDownLiftOff", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetCondition();
             boolean rhsFieldIsSet = that.isSetCondition();
@@ -455,32 +491,6 @@ public class TouchDownLiftOffMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkedTouchDownLiftOff();
-            boolean rhsFieldIsSet = that.isSetMarkedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getMarkedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getMarkedTouchDownLiftOff();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTouchDownLiftOff", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTouchDownLiftOff", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<TouchDownLiftOffMarkingExtensionType> lhsField;
@@ -494,19 +504,6 @@ public class TouchDownLiftOffMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingLocation();
-            boolean rhsFieldIsSet = that.isSetMarkingLocation();
-            JAXBElement<CodeTLOFSectionType> lhsField;
-            lhsField = this.getMarkingLocation();
-            JAXBElement<CodeTLOFSectionType> rhsField;
-            rhsField = that.getMarkingLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
             boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
             JAXBElement<CodeYesNoType> lhsField;
@@ -515,6 +512,19 @@ public class TouchDownLiftOffMarkingTimeSliceType
             rhsField = that.getMarkingICAOStandard();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

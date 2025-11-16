@@ -90,7 +90,7 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -123,7 +123,7 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractenroutesegmentpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractenroutesegmentpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractEnRouteSegmentPointExtension() {
         return abstractEnRouteSegmentPointExtension;
     }
@@ -260,19 +260,6 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
         }
         final EnRouteSegmentPointTypeExtensionType that = ((EnRouteSegmentPointTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractEnRouteSegmentPointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractEnRouteSegmentPointExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
             rhsField = that.getAbstractEnRouteSegmentPointExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEnRouteSegmentPointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEnRouteSegmentPointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

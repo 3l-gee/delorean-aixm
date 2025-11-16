@@ -90,7 +90,7 @@ public class CirclingRestrictionTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class CirclingRestrictionTypeExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcirclingrestriction_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcirclingrestrictionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCirclingRestrictionExtension() {
         return abstractCirclingRestrictionExtension;
     }

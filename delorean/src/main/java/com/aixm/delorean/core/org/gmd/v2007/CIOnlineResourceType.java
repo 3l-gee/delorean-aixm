@@ -245,14 +245,14 @@ public class CIOnlineResourceType
         }
         final CIOnlineResourceType that = ((CIOnlineResourceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFunction();
-            boolean rhsFieldIsSet = that.isSetFunction();
-            CIOnLineFunctionCodePropertyType lhsField;
-            lhsField = this.getFunction();
-            CIOnLineFunctionCodePropertyType rhsField;
-            rhsField = that.getFunction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
+            boolean lhsFieldIsSet = this.isSetApplicationProfile();
+            boolean rhsFieldIsSet = that.isSetApplicationProfile();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getApplicationProfile();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getApplicationProfile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicationProfile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicationProfile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -271,27 +271,27 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetApplicationProfile();
-            boolean rhsFieldIsSet = that.isSetApplicationProfile();
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getApplicationProfile();
+            lhsField = this.getDescription();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getApplicationProfile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicationProfile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicationProfile", rhsField);
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            boolean lhsFieldIsSet = this.isSetFunction();
+            boolean rhsFieldIsSet = that.isSetFunction();
+            CIOnLineFunctionCodePropertyType lhsField;
+            lhsField = this.getFunction();
+            CIOnLineFunctionCodePropertyType rhsField;
+            rhsField = that.getFunction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -310,14 +310,14 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
+            lhsField = this.getName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

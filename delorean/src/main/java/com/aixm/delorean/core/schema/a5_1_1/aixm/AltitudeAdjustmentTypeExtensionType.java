@@ -86,7 +86,7 @@ public class AltitudeAdjustmentTypeExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaltitudeadjustment_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaltitudeadjustmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltitudeAdjustmentExtension() {
         return abstractAltitudeAdjustmentExtension;
     }

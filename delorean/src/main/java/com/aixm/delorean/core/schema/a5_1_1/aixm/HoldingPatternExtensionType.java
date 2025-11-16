@@ -86,7 +86,7 @@ public class HoldingPatternExtensionType implements Serializable, Equals, HashCo
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractholdingpattern_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractholdingpatternextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractHoldingPatternExtension() {
         return abstractHoldingPatternExtension;
     }
@@ -223,19 +223,6 @@ public class HoldingPatternExtensionType implements Serializable, Equals, HashCo
         }
         final HoldingPatternExtensionType that = ((HoldingPatternExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractHoldingPatternExtension();
             boolean rhsFieldIsSet = that.isSetAbstractHoldingPatternExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class HoldingPatternExtensionType implements Serializable, Equals, HashCo
             rhsField = that.getAbstractHoldingPatternExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractHoldingPatternExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractHoldingPatternExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

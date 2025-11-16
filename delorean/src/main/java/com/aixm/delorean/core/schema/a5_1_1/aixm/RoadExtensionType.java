@@ -86,7 +86,7 @@ public class RoadExtensionType implements Serializable, Equals, HashCode, ToStri
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractroad_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractroadextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRoadExtension() {
         return abstractRoadExtension;
     }

@@ -86,7 +86,7 @@ public class CityTypeExtensionType implements Serializable, Equals, HashCode, To
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcity_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcityextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCityExtension() {
         return abstractCityExtension;
     }

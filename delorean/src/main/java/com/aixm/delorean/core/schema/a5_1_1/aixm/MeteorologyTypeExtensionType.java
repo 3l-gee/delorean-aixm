@@ -86,7 +86,7 @@ public class MeteorologyTypeExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmeteorology_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmeteorologyextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMeteorologyExtension() {
         return abstractMeteorologyExtension;
     }
@@ -223,19 +223,6 @@ public class MeteorologyTypeExtensionType implements Serializable, Equals, HashC
         }
         final MeteorologyTypeExtensionType that = ((MeteorologyTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMeteorologyExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMeteorologyExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMeteorologyExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMeteorologyExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMeteorologyExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMeteorologyExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class MeteorologyTypeExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMeteorologyExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMeteorologyExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMeteorologyExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMeteorologyExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMeteorologyExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMeteorologyExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

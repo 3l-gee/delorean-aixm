@@ -86,7 +86,7 @@ public class ChangeOverPointExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractchangeoverpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractchangeoverpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractChangeOverPointExtension() {
         return abstractChangeOverPointExtension;
     }

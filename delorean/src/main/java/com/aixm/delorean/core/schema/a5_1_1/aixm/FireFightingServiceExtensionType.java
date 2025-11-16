@@ -94,7 +94,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractfirefightingservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractfirefightingserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractFireFightingServiceExtension() {
         return abstractFireFightingServiceExtension;
     }
@@ -127,7 +127,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportgroundservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportgroundserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportGroundServiceExtension() {
         return abstractAirportGroundServiceExtension;
     }
@@ -160,7 +160,7 @@ public class FireFightingServiceExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }

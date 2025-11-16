@@ -90,7 +90,7 @@ public class TaxiwayLightSystemExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstracttaxiwaylightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstracttaxiwaylightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractTaxiwayLightSystemExtension() {
         return abstractTaxiwayLightSystemExtension;
     }
@@ -123,7 +123,7 @@ public class TaxiwayLightSystemExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractgroundlightsystem_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractgroundlightsystemextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGroundLightSystemExtension() {
         return abstractGroundLightSystemExtension;
     }
@@ -260,19 +260,6 @@ public class TaxiwayLightSystemExtensionType implements Serializable, Equals, Ha
         }
         final TaxiwayLightSystemExtensionType that = ((TaxiwayLightSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTaxiwayLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTaxiwayLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class TaxiwayLightSystemExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -86,7 +86,7 @@ public class SafeAltitudeAreaSectorTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsafealtitudeareasector_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsafealtitudeareasectorextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSafeAltitudeAreaSectorExtension() {
         return abstractSafeAltitudeAreaSectorExtension;
     }

@@ -9,8 +9,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -109,10 +111,14 @@ public class SeaplaneLandingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = SeaplaneRampSitePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = SeaplaneRampSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rampsite_id", referencedColumnName = "hjid")
+    @JoinTable(name = "rampsite_seaplanelandingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "rampsite", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "seaplanelandingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<SeaplaneRampSitePropertyType> getRampSite() {
         if (rampSite == null) {
             rampSite = new ArrayList<>();
@@ -159,10 +165,14 @@ public class SeaplaneLandingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = FloatingDockSitePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = FloatingDockSitePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "docksite_id", referencedColumnName = "hjid")
+    @JoinTable(name = "docksite_seaplanelandingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "docksite", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "seaplanelandingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<FloatingDockSitePropertyType> getDockSite() {
         if (dockSite == null) {
             dockSite = new ArrayList<>();
@@ -239,10 +249,14 @@ public class SeaplaneLandingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_seaplanelandingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "seaplanelandingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -289,10 +303,14 @@ public class SeaplaneLandingAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = ManoeuvringAreaAvailabilityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "availability_id", referencedColumnName = "hjid")
+    @JoinTable(name = "availability_seaplanelandingarea_link", schema = "airport_heliport", joinColumns = {
+        @JoinColumn(name = "availability", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "seaplanelandingareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<ManoeuvringAreaAvailabilityPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -367,7 +385,7 @@ public class SeaplaneLandingAreaTimeSliceType
         this.extension = null;
     }
 
-    @OneToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMElevatedSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "extent_id", referencedColumnName = "hjid")
@@ -392,27 +410,27 @@ public class SeaplaneLandingAreaTimeSliceType
         }
         final SeaplaneLandingAreaTimeSliceType that = ((SeaplaneLandingAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetRampSite();
+            boolean rhsFieldIsSet = that.isSetRampSite();
+            List<SeaplaneRampSitePropertyType> lhsField;
+            lhsField = (this.isSetRampSite()?this.getRampSite():null);
+            List<SeaplaneRampSitePropertyType> rhsField;
+            rhsField = (that.isSetRampSite()?that.getRampSite():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rampSite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rampSite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDockSite();
-            boolean rhsFieldIsSet = that.isSetDockSite();
-            List<FloatingDockSitePropertyType> lhsField;
-            lhsField = (this.isSetDockSite()?this.getDockSite():null);
-            List<FloatingDockSitePropertyType> rhsField;
-            rhsField = (that.isSetDockSite()?that.getDockSite():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SeaplaneLandingAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SeaplaneLandingAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -444,27 +462,27 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRampSite();
-            boolean rhsFieldIsSet = that.isSetRampSite();
-            List<SeaplaneRampSitePropertyType> lhsField;
-            lhsField = (this.isSetRampSite()?this.getRampSite():null);
-            List<SeaplaneRampSitePropertyType> rhsField;
-            rhsField = (that.isSetRampSite()?that.getRampSite():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rampSite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rampSite", rhsField);
+            boolean lhsFieldIsSet = this.isSetDockSite();
+            boolean rhsFieldIsSet = that.isSetDockSite();
+            List<FloatingDockSitePropertyType> lhsField;
+            lhsField = (this.isSetDockSite()?this.getDockSite():null);
+            List<FloatingDockSitePropertyType> rhsField;
+            rhsField = (that.isSetDockSite()?that.getDockSite():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SeaplaneLandingAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SeaplaneLandingAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

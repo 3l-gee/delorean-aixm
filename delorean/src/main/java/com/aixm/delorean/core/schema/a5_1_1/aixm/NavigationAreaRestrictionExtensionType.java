@@ -86,7 +86,7 @@ public class NavigationAreaRestrictionExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavigationarearestriction_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavigationarearestrictionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationAreaRestrictionExtension() {
         return abstractNavigationAreaRestrictionExtension;
     }

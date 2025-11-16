@@ -86,7 +86,7 @@ public class SurfaceCharacteristicsTypeExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsurfacecharacteristics_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsurfacecharacteristicsextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurfaceCharacteristicsExtension() {
         return abstractSurfaceCharacteristicsExtension;
     }
@@ -223,19 +223,6 @@ public class SurfaceCharacteristicsTypeExtensionType implements Serializable, Eq
         }
         final SurfaceCharacteristicsTypeExtensionType that = ((SurfaceCharacteristicsTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractSurfaceCharacteristicsExtension();
             boolean rhsFieldIsSet = that.isSetAbstractSurfaceCharacteristicsExtension();
             AbstractExtensionType lhsField;
@@ -244,6 +231,19 @@ public class SurfaceCharacteristicsTypeExtensionType implements Serializable, Eq
             rhsField = that.getAbstractSurfaceCharacteristicsExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceCharacteristicsExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceCharacteristicsExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

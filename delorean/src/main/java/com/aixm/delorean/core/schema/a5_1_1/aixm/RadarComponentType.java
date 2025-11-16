@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -136,10 +138,14 @@ public class RadarComponentType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_radarcomponent_link", schema = "surveillance", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "radarcomponentpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -172,7 +178,7 @@ public class RadarComponentType
      *     {@link RadarEquipmentPropertyType }
      *     
      */
-    @OneToOne(targetEntity = RadarEquipmentPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RadarEquipmentPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "theradarequipment_id", referencedColumnName = "hjid")
@@ -273,6 +279,19 @@ public class RadarComponentType
         }
         final RadarComponentType that = ((RadarComponentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
+            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
+            RadarEquipmentPropertyType lhsField;
+            lhsField = this.getTheRadarEquipment();
+            RadarEquipmentPropertyType rhsField;
+            rhsField = that.getTheRadarEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCollocationGroup();
             boolean rhsFieldIsSet = that.isSetCollocationGroup();
             JAXBElement<NoSequenceType> lhsField;
@@ -307,19 +326,6 @@ public class RadarComponentType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
-            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
-            RadarEquipmentPropertyType lhsField;
-            lhsField = this.getTheRadarEquipment();
-            RadarEquipmentPropertyType rhsField;
-            rhsField = that.getTheRadarEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

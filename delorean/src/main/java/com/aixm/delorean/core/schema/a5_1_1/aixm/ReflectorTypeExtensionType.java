@@ -86,7 +86,7 @@ public class ReflectorTypeExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractreflector_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractreflectorextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractReflectorExtension() {
         return abstractReflectorExtension;
     }

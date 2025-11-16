@@ -223,19 +223,6 @@ public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializ
         }
         final SignificantPointInAirspaceTimeSlicePropertyType that = ((SignificantPointInAirspaceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSignificantPointInAirspaceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSignificantPointInAirspaceTimeSlice();
-            SignificantPointInAirspaceTimeSliceType lhsField;
-            lhsField = this.getSignificantPointInAirspaceTimeSlice();
-            SignificantPointInAirspaceTimeSliceType rhsField;
-            rhsField = that.getSignificantPointInAirspaceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointInAirspaceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointInAirspaceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SignificantPointInAirspaceTimeSlicePropertyType implements Serializ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSignificantPointInAirspaceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSignificantPointInAirspaceTimeSlice();
+            SignificantPointInAirspaceTimeSliceType lhsField;
+            lhsField = this.getSignificantPointInAirspaceTimeSlice();
+            SignificantPointInAirspaceTimeSliceType rhsField;
+            rhsField = that.getSignificantPointInAirspaceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantPointInAirspaceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantPointInAirspaceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

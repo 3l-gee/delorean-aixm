@@ -278,6 +278,35 @@ public class DatabaseBinding<T, X> {
         }
     }
 
+    public Object extract(Class<T> structure, Object id) {
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("sessionfactory is not init");
+        }
+
+        Session session = this.getSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            Object object = session.find(structure, id);
+
+            transaction.commit();
+
+            ConsoleLogger.log(LogLevel.INFO, "Sucessfully extracted");
+            return object;
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     // public Object extractId(Class<T> root, Int id){
     //     if (this.sessionFactory == null) {
     //         throw new IllegalArgumentException("sessionfactory is not init");

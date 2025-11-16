@@ -232,14 +232,14 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            List<Object> lhsField;
-            lhsField = (this.isSetContent()?this.getContent():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetContent()?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
+            boolean lhsFieldIsSet = this.isSetTitleAttribute();
+            boolean rhsFieldIsSet = that.isSetTitleAttribute();
+            String lhsField;
+            lhsField = this.getTitleAttribute();
+            String rhsField;
+            rhsField = that.getTitleAttribute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -258,14 +258,14 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitleAttribute();
-            boolean rhsFieldIsSet = that.isSetTitleAttribute();
-            String lhsField;
-            lhsField = this.getTitleAttribute();
-            String rhsField;
-            rhsField = that.getTitleAttribute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent()?this.getContent():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent()?that.getContent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

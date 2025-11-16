@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -175,10 +177,14 @@ public class ContactInformationType
      * 
      * 
      */
-    @OneToMany(targetEntity = PostalAddressPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = PostalAddressPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id", referencedColumnName = "hjid")
+    @JoinTable(name = "address_contactinformation_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "address", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contactinformationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<PostalAddressPropertyType> getAddress() {
         if (address == null) {
             address = new ArrayList<>();
@@ -225,10 +231,14 @@ public class ContactInformationType
      * 
      * 
      */
-    @OneToMany(targetEntity = OnlineContactPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OnlineContactPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "networknode_id", referencedColumnName = "hjid")
+    @JoinTable(name = "networknode_contactinformation_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "networknode", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contactinformationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<OnlineContactPropertyType> getNetworkNode() {
         if (networkNode == null) {
             networkNode = new ArrayList<>();
@@ -275,10 +285,14 @@ public class ContactInformationType
      * 
      * 
      */
-    @OneToMany(targetEntity = TelephoneContactPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TelephoneContactPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "phonefax_id", referencedColumnName = "hjid")
+    @JoinTable(name = "phonefax_contactinformation_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "phonefax", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contactinformationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<TelephoneContactPropertyType> getPhoneFax() {
         if (phoneFax == null) {
             phoneFax = new ArrayList<>();
@@ -325,10 +339,14 @@ public class ContactInformationType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_contactinformation_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "contactinformationpropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -442,71 +460,6 @@ public class ContactInformationType
         }
         final ContactInformationType that = ((ContactInformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ContactInformationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ContactInformationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNetworkNode();
-            boolean rhsFieldIsSet = that.isSetNetworkNode();
-            List<OnlineContactPropertyType> lhsField;
-            lhsField = (this.isSetNetworkNode()?this.getNetworkNode():null);
-            List<OnlineContactPropertyType> rhsField;
-            rhsField = (that.isSetNetworkNode()?that.getNetworkNode():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAddress();
-            boolean rhsFieldIsSet = that.isSetAddress();
-            List<PostalAddressPropertyType> lhsField;
-            lhsField = (this.isSetAddress()?this.getAddress():null);
-            List<PostalAddressPropertyType> rhsField;
-            rhsField = (that.isSetAddress()?that.getAddress():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPhoneFax();
-            boolean rhsFieldIsSet = that.isSetPhoneFax();
-            List<TelephoneContactPropertyType> lhsField;
-            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
-            List<TelephoneContactPropertyType> rhsField;
-            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -528,6 +481,71 @@ public class ContactInformationType
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAddress();
+            boolean rhsFieldIsSet = that.isSetAddress();
+            List<PostalAddressPropertyType> lhsField;
+            lhsField = (this.isSetAddress()?this.getAddress():null);
+            List<PostalAddressPropertyType> rhsField;
+            rhsField = (that.isSetAddress()?that.getAddress():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "address", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "address", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNetworkNode();
+            boolean rhsFieldIsSet = that.isSetNetworkNode();
+            List<OnlineContactPropertyType> lhsField;
+            lhsField = (this.isSetNetworkNode()?this.getNetworkNode():null);
+            List<OnlineContactPropertyType> rhsField;
+            rhsField = (that.isSetNetworkNode()?that.getNetworkNode():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ContactInformationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ContactInformationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPhoneFax();
+            boolean rhsFieldIsSet = that.isSetPhoneFax();
+            List<TelephoneContactPropertyType> lhsField;
+            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
+            List<TelephoneContactPropertyType> rhsField;
+            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

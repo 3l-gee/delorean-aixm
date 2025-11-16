@@ -86,7 +86,7 @@ public class DepartureArrivalConditionTypeExtensionType implements Serializable,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdeparturearrivalcondition_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdeparturearrivalconditionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDepartureArrivalConditionExtension() {
         return abstractDepartureArrivalConditionExtension;
     }

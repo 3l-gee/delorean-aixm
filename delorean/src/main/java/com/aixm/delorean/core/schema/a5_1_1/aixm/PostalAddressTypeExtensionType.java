@@ -90,7 +90,7 @@ public class PostalAddressTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpropertieswithschedule_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpropertieswithscheduleextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPropertiesWithScheduleExtension() {
         return abstractPropertiesWithScheduleExtension;
     }
@@ -123,7 +123,7 @@ public class PostalAddressTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractpostaladdress_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractpostaladdressextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPostalAddressExtension() {
         return abstractPostalAddressExtension;
     }
@@ -260,6 +260,19 @@ public class PostalAddressTypeExtensionType implements Serializable, Equals, Has
         }
         final PostalAddressTypeExtensionType that = ((PostalAddressTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractPostalAddressExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPostalAddressExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPostalAddressExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPostalAddressExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPostalAddressExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPostalAddressExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class PostalAddressTypeExtensionType implements Serializable, Equals, Has
             rhsField = that.getAbstractPropertiesWithScheduleExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractPostalAddressExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPostalAddressExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPostalAddressExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPostalAddressExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPostalAddressExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPostalAddressExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

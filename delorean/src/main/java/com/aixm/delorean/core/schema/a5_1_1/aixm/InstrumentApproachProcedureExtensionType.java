@@ -90,7 +90,7 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractinstrumentapproachprocedure_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractinstrumentapproachprocedureextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractInstrumentApproachProcedureExtension() {
         return abstractInstrumentApproachProcedureExtension;
     }
@@ -123,7 +123,7 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractprocedure_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractprocedureextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractProcedureExtension() {
         return abstractProcedureExtension;
     }
@@ -273,19 +273,6 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractProcedureExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractProcedureExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractInstrumentApproachProcedureExtension();
             boolean rhsFieldIsSet = that.isSetAbstractInstrumentApproachProcedureExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class InstrumentApproachProcedureExtensionType implements Serializable, E
             rhsField = that.getAbstractInstrumentApproachProcedureExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractInstrumentApproachProcedureExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractInstrumentApproachProcedureExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractProcedureExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractProcedureExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractProcedureExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractProcedureExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

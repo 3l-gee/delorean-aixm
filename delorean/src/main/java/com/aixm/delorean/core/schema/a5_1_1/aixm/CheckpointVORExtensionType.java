@@ -90,7 +90,7 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcheckpointvor_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcheckpointvorextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCheckpointVORExtension() {
         return abstractCheckpointVORExtension;
     }
@@ -123,7 +123,7 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavigationsystemcheckpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavigationsystemcheckpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationSystemCheckpointExtension() {
         return abstractNavigationSystemCheckpointExtension;
     }
@@ -273,19 +273,6 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCheckpointVORExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCheckpointVORExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
             AbstractExtensionType lhsField;
@@ -294,6 +281,19 @@ public class CheckpointVORExtensionType implements Serializable, Equals, HashCod
             rhsField = that.getAbstractNavigationSystemCheckpointExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationSystemCheckpointExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationSystemCheckpointExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCheckpointVORExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCheckpointVORExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCheckpointVORExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCheckpointVORExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCheckpointVORExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCheckpointVORExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

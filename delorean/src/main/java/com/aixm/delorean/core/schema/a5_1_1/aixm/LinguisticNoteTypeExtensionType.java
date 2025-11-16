@@ -86,7 +86,7 @@ public class LinguisticNoteTypeExtensionType implements Serializable, Equals, Ha
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractlinguisticnote_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractlinguisticnoteextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractLinguisticNoteExtension() {
         return abstractLinguisticNoteExtension;
     }

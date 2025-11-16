@@ -86,7 +86,7 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaltimetersource_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaltimetersourceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAltimeterSourceExtension() {
         return abstractAltimeterSourceExtension;
     }

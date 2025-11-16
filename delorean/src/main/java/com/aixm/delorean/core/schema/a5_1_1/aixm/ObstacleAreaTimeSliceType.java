@@ -13,8 +13,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -302,10 +304,14 @@ public class ObstacleAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = VerticalStructurePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = VerticalStructurePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "obstacle_id", referencedColumnName = "hjid")
+    @JoinTable(name = "obstacle_obstaclearea_link", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "obstacle", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<VerticalStructurePropertyType> getObstacle() {
         if (obstacle == null) {
             obstacle = new ArrayList<>();
@@ -352,10 +358,14 @@ public class ObstacleAreaTimeSliceType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_obstaclearea_link", schema = "obstacle", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "obstacleareapropertygroup", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -456,7 +466,7 @@ public class ObstacleAreaTimeSliceType
         setObstructionIdSurfaceCondition(XmlAdapterUtils.marshallJAXBElement(CodeObstacleAssessmentSurfaceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "obstructionIdSurfaceCondition"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerorganisation_id", referencedColumnName = "hjid")
@@ -468,7 +478,7 @@ public class ObstacleAreaTimeSliceType
         setReferenceOwnerOrganisation(XmlAdapterUtils.marshallJAXBElement(OrganisationAuthorityPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerOrganisation"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = RunwayDirectionPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerrunway_id", referencedColumnName = "hjid")
@@ -480,7 +490,7 @@ public class ObstacleAreaTimeSliceType
         setReferenceOwnerRunway(XmlAdapterUtils.marshallJAXBElement(RunwayDirectionPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerRunway"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "reference_ownerairport_id", referencedColumnName = "hjid")
@@ -492,7 +502,7 @@ public class ObstacleAreaTimeSliceType
         setReferenceOwnerAirport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "reference_ownerAirport"), ObstacleAreaTimeSliceType.class, target));
     }
 
-    @OneToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
+    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "surfaceextent_id", referencedColumnName = "hjid")
@@ -517,27 +527,14 @@ public class ObstacleAreaTimeSliceType
         }
         final ObstacleAreaTimeSliceType that = ((ObstacleAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeObstacleAreaType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeObstacleAreaType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReferenceOwnerRunway();
-            boolean rhsFieldIsSet = that.isSetReferenceOwnerRunway();
-            JAXBElement<RunwayDirectionPropertyType> lhsField;
-            lhsField = this.getReferenceOwnerRunway();
-            JAXBElement<RunwayDirectionPropertyType> rhsField;
-            rhsField = that.getReferenceOwnerRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerRunway", rhsField);
+            boolean lhsFieldIsSet = this.isSetObstacle();
+            boolean rhsFieldIsSet = that.isSetObstacle();
+            List<VerticalStructurePropertyType> lhsField;
+            lhsField = (this.isSetObstacle()?this.getObstacle():null);
+            List<VerticalStructurePropertyType> rhsField;
+            rhsField = (that.isSetObstacle()?that.getObstacle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -556,6 +553,32 @@ public class ObstacleAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetReferenceOwnerOrganisation();
+            boolean rhsFieldIsSet = that.isSetReferenceOwnerOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = this.getReferenceOwnerOrganisation();
+            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = that.getReferenceOwnerOrganisation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerOrganisation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeObstacleAreaType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeObstacleAreaType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetObstructionIdSurfaceCondition();
             boolean rhsFieldIsSet = that.isSetObstructionIdSurfaceCondition();
             JAXBElement<CodeObstacleAssessmentSurfaceType> lhsField;
@@ -569,14 +592,14 @@ public class ObstacleAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceOwnerOrganisation();
-            boolean rhsFieldIsSet = that.isSetReferenceOwnerOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = this.getReferenceOwnerOrganisation();
-            JAXBElement<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = that.getReferenceOwnerOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerOrganisation", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceOwnerRunway();
+            boolean rhsFieldIsSet = that.isSetReferenceOwnerRunway();
+            JAXBElement<RunwayDirectionPropertyType> lhsField;
+            lhsField = this.getReferenceOwnerRunway();
+            JAXBElement<RunwayDirectionPropertyType> rhsField;
+            rhsField = that.getReferenceOwnerRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -595,19 +618,6 @@ public class ObstacleAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReferenceOwnerAirport();
-            boolean rhsFieldIsSet = that.isSetReferenceOwnerAirport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getReferenceOwnerAirport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getReferenceOwnerAirport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerAirport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerAirport", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -621,14 +631,14 @@ public class ObstacleAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObstacle();
-            boolean rhsFieldIsSet = that.isSetObstacle();
-            List<VerticalStructurePropertyType> lhsField;
-            lhsField = (this.isSetObstacle()?this.getObstacle():null);
-            List<VerticalStructurePropertyType> rhsField;
-            rhsField = (that.isSetObstacle()?that.getObstacle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacle", rhsField);
+            boolean lhsFieldIsSet = this.isSetReferenceOwnerAirport();
+            boolean rhsFieldIsSet = that.isSetReferenceOwnerAirport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getReferenceOwnerAirport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getReferenceOwnerAirport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceOwnerAirport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceOwnerAirport", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

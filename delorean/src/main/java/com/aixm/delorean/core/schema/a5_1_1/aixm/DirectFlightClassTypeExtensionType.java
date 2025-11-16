@@ -90,7 +90,7 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdirectflight_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdirectflightextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightExtension() {
         return abstractDirectFlightExtension;
     }
@@ -123,7 +123,7 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractdirectflightclass_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractdirectflightclassextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractDirectFlightClassExtension() {
         return abstractDirectFlightClassExtension;
     }
@@ -260,14 +260,14 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
         }
         final DirectFlightClassTypeExtensionType that = ((DirectFlightClassTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectFlightClassExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectFlightClassExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectFlightClassExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectFlightClassExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

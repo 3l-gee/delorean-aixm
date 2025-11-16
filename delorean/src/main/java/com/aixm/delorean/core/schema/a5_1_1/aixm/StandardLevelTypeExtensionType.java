@@ -86,7 +86,7 @@ public class StandardLevelTypeExtensionType implements Serializable, Equals, Has
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractstandardlevel_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractstandardlevelextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandardLevelExtension() {
         return abstractStandardLevelExtension;
     }

@@ -86,7 +86,7 @@ public class SignificantPointInAirspaceExtensionType implements Serializable, Eq
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsignificantpointinairspace_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsignificantpointinairspaceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSignificantPointInAirspaceExtension() {
         return abstractSignificantPointInAirspaceExtension;
     }

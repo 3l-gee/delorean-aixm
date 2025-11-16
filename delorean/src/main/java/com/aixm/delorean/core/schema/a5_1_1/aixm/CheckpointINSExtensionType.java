@@ -90,7 +90,7 @@ public class CheckpointINSExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractcheckpointins_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractcheckpointinsextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractCheckpointINSExtension() {
         return abstractCheckpointINSExtension;
     }
@@ -123,7 +123,7 @@ public class CheckpointINSExtensionType implements Serializable, Equals, HashCod
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractnavigationsystemcheckpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractnavigationsystemcheckpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractNavigationSystemCheckpointExtension() {
         return abstractNavigationSystemCheckpointExtension;
     }
@@ -260,14 +260,14 @@ public class CheckpointINSExtensionType implements Serializable, Equals, HashCod
         }
         final CheckpointINSExtensionType that = ((CheckpointINSExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavigationSystemCheckpointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavigationSystemCheckpointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationSystemCheckpointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationSystemCheckpointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class CheckpointINSExtensionType implements Serializable, Equals, HashCod
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavigationSystemCheckpointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavigationSystemCheckpointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavigationSystemCheckpointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavigationSystemCheckpointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationSystemCheckpointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationSystemCheckpointExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -90,7 +90,7 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractsegmentpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractsegmentpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSegmentPointExtension() {
         return abstractSegmentPointExtension;
     }
@@ -123,7 +123,7 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaerialrefuellingpoint_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaerialrefuellingpointextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAerialRefuellingPointExtension() {
         return abstractAerialRefuellingPointExtension;
     }
@@ -260,14 +260,14 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
         }
         final AerialRefuellingPointTypeExtensionType that = ((AerialRefuellingPointTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingPointExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
+            lhsField = this.getAbstractAerialRefuellingPointExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
+            rhsField = that.getAbstractAerialRefuellingPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class AerialRefuellingPointTypeExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingPointExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAerialRefuellingPointExtension();
+            lhsField = this.getAbstractSegmentPointExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAerialRefuellingPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingPointExtension", rhsField);
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

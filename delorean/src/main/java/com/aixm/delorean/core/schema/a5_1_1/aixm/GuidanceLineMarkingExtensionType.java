@@ -90,7 +90,7 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractguidancelinemarking_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractguidancelinemarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractGuidanceLineMarkingExtension() {
         return abstractGuidanceLineMarkingExtension;
     }
@@ -123,7 +123,7 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractmarking_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractmarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
     }

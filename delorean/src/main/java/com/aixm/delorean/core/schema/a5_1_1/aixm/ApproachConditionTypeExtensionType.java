@@ -86,7 +86,7 @@ public class ApproachConditionTypeExtensionType implements Serializable, Equals,
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractapproachcondition_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractapproachconditionextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractApproachConditionExtension() {
         return abstractApproachConditionExtension;
     }

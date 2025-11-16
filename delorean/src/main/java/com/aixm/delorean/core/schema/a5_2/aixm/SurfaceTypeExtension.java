@@ -84,10 +84,10 @@ public class SurfaceTypeExtension implements Serializable, Equals, HashCode, ToS
      *     
      */
     @ManyToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.DETACH,
-        CascadeType.MERGE,
         CascadeType.PERSIST,
-        CascadeType.REFRESH
+        CascadeType.REFRESH,
+        CascadeType.DETACH,
+        CascadeType.MERGE
     }, fetch = FetchType.EAGER)
     @JoinColumn(name = "ABSTRACT_SURFACE_EXTENSION_S_0", nullable = true)
     public AbstractExtensionType getAbstractSurfaceExtension() {

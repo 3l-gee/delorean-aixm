@@ -94,7 +94,7 @@ public class AirportSuppliesServiceExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportsuppliesservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportsuppliesserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportSuppliesServiceExtension() {
         return abstractAirportSuppliesServiceExtension;
     }
@@ -127,7 +127,7 @@ public class AirportSuppliesServiceExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractairportgroundservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractairportgroundserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportGroundServiceExtension() {
         return abstractAirportGroundServiceExtension;
     }
@@ -160,7 +160,7 @@ public class AirportSuppliesServiceExtensionType implements Serializable, Equals
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractservice_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
     }
@@ -297,32 +297,6 @@ public class AirportSuppliesServiceExtensionType implements Serializable, Equals
         }
         final AirportSuppliesServiceExtensionType that = ((AirportSuppliesServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportSuppliesServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportSuppliesServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportSuppliesServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportSuppliesServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportSuppliesServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportSuppliesServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractAirportGroundServiceExtension();
             AbstractExtensionType lhsField;
@@ -344,6 +318,32 @@ public class AirportSuppliesServiceExtensionType implements Serializable, Equals
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportSuppliesServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportSuppliesServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportSuppliesServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportSuppliesServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportSuppliesServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportSuppliesServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

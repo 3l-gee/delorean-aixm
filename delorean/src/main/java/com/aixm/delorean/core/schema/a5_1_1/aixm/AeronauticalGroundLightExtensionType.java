@@ -86,7 +86,7 @@ public class AeronauticalGroundLightExtensionType implements Serializable, Equal
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractaeronauticalgroundlight_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractaeronauticalgroundlightextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAeronauticalGroundLightExtension() {
         return abstractAeronauticalGroundLightExtension;
     }

@@ -86,7 +86,7 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
     @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "abstractobstaclearea_ext_id", referencedColumnName = "hjid")
+    @JoinColumn(name = "abstractobstacleareaextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractObstacleAreaExtension() {
         return abstractObstacleAreaExtension;
     }

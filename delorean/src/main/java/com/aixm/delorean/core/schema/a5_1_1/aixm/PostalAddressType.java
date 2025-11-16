@@ -13,6 +13,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -40,7 +42,9 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   <complexContent>
  *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}PropertiesWithSchedulePropertyGroup"/>
+ *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
  *         <group ref="{http://www.aixm.aero/schema/5.1.1}PostalAddressPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
@@ -123,10 +127,14 @@ public class PostalAddressType
      * 
      * 
      */
-    @OneToMany(targetEntity = TimesheetPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "timeinterval_id", referencedColumnName = "hjid")
+    @JoinTable(name = "timeinterval_postaladdress_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "postaladdresstype", referencedColumnName = "hjid")
+    })
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -173,10 +181,14 @@ public class PostalAddressType
      * 
      * 
      */
-    @OneToMany(targetEntity = NotePropertyType.class, cascade = {
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "annotation_id", referencedColumnName = "hjid")
+    @JoinTable(name = "annotation_postaladdress_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "postaladdresstype", referencedColumnName = "hjid")
+    })
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -223,10 +235,14 @@ public class PostalAddressType
      * 
      * 
      */
-    @OneToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
+    @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialdateauthority_id", referencedColumnName = "hjid")
+    @JoinTable(name = "specialdateauthority_postaladdress_link", schema = "shared", joinColumns = {
+        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
+    }, inverseJoinColumns = {
+        @JoinColumn(name = "postaladdresstype", referencedColumnName = "hjid")
+    })
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -529,14 +545,14 @@ public class PostalAddressType
         }
         final PostalAddressType that = ((PostalAddressType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
-            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
+            boolean lhsFieldIsSet = this.isSetCity();
+            boolean rhsFieldIsSet = that.isSetCity();
             JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAdministrativeArea();
+            lhsField = this.getCity();
             JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAdministrativeArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
+            rhsField = that.getCity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -550,6 +566,19 @@ public class PostalAddressType
             rhsField = that.getCountry();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
+            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getDeliveryPoint();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getDeliveryPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -581,32 +610,6 @@ public class PostalAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
-            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getDeliveryPoint();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getDeliveryPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPostalCode();
-            boolean rhsFieldIsSet = that.isSetPostalCode();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPostalCode();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPostalCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -633,14 +636,27 @@ public class PostalAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCity();
-            boolean rhsFieldIsSet = that.isSetCity();
+            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
+            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
             JAXBElement<TextNameType> lhsField;
-            lhsField = this.getCity();
+            lhsField = this.getAdministrativeArea();
             JAXBElement<TextNameType> rhsField;
-            rhsField = that.getCity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
+            rhsField = that.getAdministrativeArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPostalCode();
+            boolean rhsFieldIsSet = that.isSetPostalCode();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPostalCode();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPostalCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

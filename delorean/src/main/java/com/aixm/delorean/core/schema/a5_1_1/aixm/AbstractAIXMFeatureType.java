@@ -11,8 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -137,8 +135,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     AbstractRadarEquipmentType.class
 })
 @Entity(name = "AbstractAIXMFeatureType")
-@Table(name = "abstract_aixm_feature", schema = "public")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "aixm_feature", schema = "aixm")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class AbstractAIXMFeatureType
     extends AbstractAIXMFeatureBaseType
     implements Serializable

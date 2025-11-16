@@ -50,7 +50,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "mdMetadata"
 })
 @Entity(name = "FeatureMetadataPropertyType")
-@Table(name = "feature_metadata_property", schema = "aixm")
+@Table(name = "feature_metadata", schema = "aixm")
 public class FeatureMetadataPropertyType
     extends AbstractMetadataPropertyType
     implements Serializable
