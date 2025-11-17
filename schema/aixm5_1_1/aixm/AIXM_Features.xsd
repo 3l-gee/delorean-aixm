@@ -4370,7 +4370,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
 					<!-- <element ref="aixm:Curve"/> -->
 					<element name="Curve" type="string" />
 				</sequence>
@@ -4407,7 +4407,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
                     <!-- <element ref="aixm:ElevatedCurve"/> -->
                     <element name="ElevatedCurve" type="string" />
 				</sequence>
@@ -4445,7 +4445,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
                     <!-- <element ref="aixm:ElevatedPoint"/> -->
                     <element name="ElevatedPoint" type="string" />
 				</sequence>
@@ -4483,7 +4483,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
                     <!-- <element ref="aixm:ElevatedSurface"/> -->
                     <element name="ElevatedSurface" type="string" />
 				</sequence>
@@ -4511,7 +4511,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
 					<!-- <element ref="aixm:Point"/> -->
                 	<element name="Point" type="string" />
 				</sequence>
@@ -4538,7 +4538,7 @@
 		<complexContent>
 			<extension base="aixm:AbstractAIXMPropertyType">
 				<sequence>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
                     <!-- <element ref="aixm:Surface"/> -->
                     <element name="Surface" type="string" />
 				</sequence>

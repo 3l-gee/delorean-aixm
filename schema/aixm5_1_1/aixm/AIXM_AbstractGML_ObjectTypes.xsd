@@ -72,6 +72,8 @@
 			<extension base="aixm:AbstractAIXMFeatureBaseType">
 				<sequence>
 					<element name="featureMetadata" type="aixm:FeatureMetadataPropertyType" minOccurs="0"/>
+					<!-- delorean aixm approval status field -->
+					<element name="approvalStatus" type="string" minOccurs="0" default="APPROVED"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -120,7 +122,7 @@
 						<annotation>
 							<documentation>The efffectivity of the TimeSlice.</documentation>
 						</annotation>
-						<!-- delorean hyper jaxb codgen limitation -->
+						<!-- delorean aixm hyper jaxb codgen limitation -->
 						<!-- <element ref="gml:validTime"/> -->
 						<element ref="gml:aixmValidTime"/>
 					</sequence>
@@ -140,9 +142,11 @@
 					<element ref="aixm:sequenceNumber" minOccurs="0"/>
 					<element ref="aixm:correctionNumber" minOccurs="0"/>
 					<element name="timeSliceMetadata" type="aixm:FeatureTimeSliceMetadataPropertyType" minOccurs="0"/>
-					<!-- delorean hyper jaxb codgen limitation -->
+					<!-- delorean aixm hyper jaxb codgen limitation -->
 					<!-- <element ref="aixm:featureLifetime" minOccurs="0"/> -->	
 					<element name="featureLifetime" type="string" minOccurs="0"/>
+					<!-- delorean aixm approval status field -->
+					<element name="approvalStatus" type="string" minOccurs="0" default="APPROVED"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -208,7 +212,7 @@
 			<restriction base="unsignedInt"/>
 		</simpleType>
 	</element>
-	<!-- delorean hyper jaxb codgen limitation -->
+	<!-- delorean aixm hyper jaxb codgen limitation -->
 	<!-- <element name="featureLifetime" type="gml:TimePrimitivePropertyType">
 		<annotation>
 			<documentation>The start and end of life of the feature. See the AIXM Temporality model for details.</documentation>

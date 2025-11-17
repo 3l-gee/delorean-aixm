@@ -34625,6 +34625,9 @@
         <orm:inheritance strategy="JOINED"/>
       </hj:entity>
     </jaxb:bindings>
+    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']//xs:element[@name='approvalStatus']">
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMObjectType']">
       <hj:entity>
         <orm:table name="aixm_object" schema="aixm"/>
@@ -34652,6 +34655,9 @@
       <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
       <jaxb:property name="featureLifetime"/>
     </jaxb:bindings>
+    <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='approvalStatus']">
+      <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+    </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
       <hj:entity>
         <orm:table name="message_metadata" schema="aixm"/>
@@ -34667,19 +34673,13 @@
         <orm:table name="timeslice_metadata" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
-    <!-- <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
-                <hj:entity>
-                    <orm:table name="extension" schema="aixm"/>
-                </hj:entity>
-            </jaxb:bindings> -->
-    <!-- section : auto -->
-    <!-- part : default -->
     <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
       <hj:entity>
-        <orm:table name="abstract_ext" schema="public"/>
-        <orm:inheritance strategy="JOINED"/>
+        <orm:table name="aixm_extension" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
+    <!-- section : auto -->
+    <!-- part : default -->
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../aixm/message/AIXM_BasicMessage.xsd" node="/xs:schema">
     <jaxb:schemaBindings>

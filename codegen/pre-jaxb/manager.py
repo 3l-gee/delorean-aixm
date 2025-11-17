@@ -31,6 +31,7 @@ config = {
         "AbstractAIXMPropertyType",
         "AbstractAIXMObjectBaseType",
         "AbstractAIXMObjectType",
+        "AbstractExtensionType",
 
         # Gis
         "PointType",
@@ -51,13 +52,14 @@ config = {
         "extension",
 
         # Core
-        "aixm:AIXMBasicMessageType",
-        "aixm:AIXMBasicMessagePropertyGroup",
-        "aixm:BasicMessageMemberAIXMPropertyType",
-        "aixm:MessageMetadataPropertyType",
-        "aixm:FeatureMetadataPropertyType",
-        "aixm:FeatureTimeSliceMetadataPropertyType",
-        "aixm:MessageMetadataPropertyType,",
+        # "aixm:AIXMBasicMessageType",
+        # "aixm:AIXMBasicMessagePropertyGroup",
+        # "aixm:BasicMessageMemberAIXMPropertyType",
+        # "aixm:MessageMetadataPropertyType",
+        # "aixm:FeatureMetadataPropertyType",
+        # "aixm:FeatureTimeSliceMetadataPropertyType",
+        # "aixm:MessageMetadataPropertyType,",
+        
 
         # Abstract
         "aixm:AbstractDirectFlight",
@@ -91,7 +93,6 @@ config = {
         "AbstractTrafficSeparationServiceType",
         "AbstractAirportGroundServiceType",
         "AbstractRadarEquipmentType",
-        "AbstractExtensionType",
         "AbstractUsageConditionType",
         "AbstractSurfaceContaminationType",
         "AbstractSegmentPointType",

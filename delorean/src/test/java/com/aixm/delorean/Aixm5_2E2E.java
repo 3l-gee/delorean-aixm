@@ -133,4 +133,15 @@ public class Aixm5_2E2E {
 
         // check that 
     }
+
+    @Test
+    @Order(80)
+    //TODO change to psql testcontainers
+    void DatabaseExtract() {
+
+        // do
+        app.containerWarehouse.getContainer(containerID).extract(1);
+
+        // check that 
+    }
 }

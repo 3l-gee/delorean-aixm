@@ -82,10 +82,10 @@ public class Aixm5_1_1E2E {
 
     @Test
     @Order(40)
-    void extractXml() {
+    void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src/test/xml/a5_1_1/donlon-out.xml";
+        String xmlPath = "src/test/xml/a5_1_1/donlon-marshalled.xml";
 
         // do
         app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
@@ -123,11 +123,35 @@ public class Aixm5_1_1E2E {
 
     @Test
     @Order(70)
-    void DatabaseLoad() {
+    void databasePersist() {
 
         // do
         app.containerWarehouse.getContainer(containerID).persist();
 
         // check that 
     }
+
+
+    @Test
+    @Order(80)
+    void databaseExtract() {
+
+        // do
+        app.containerWarehouse.getContainer(containerID).extract(1);
+
+        // check that
+    }
+
+    @Test
+    @Order(90)
+    void extractExtractedXml() {
+
+        // given
+        String xmlPath = "src/test/xml/a5_1_1/donlon-extract.xml";
+
+        // do
+        app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
+    } 
+
+
 }

@@ -855,6 +855,10 @@ class HyperJAXB:
         return f'<orm:inheritance strategy="{strategy}" />'
     
     @staticmethod
+    def mapped_superclass():
+        return f'<hj:mapped-superclass/>'
+    
+    @staticmethod
     def table(name, schema, prefix=None, suffix=None):
         return f'<orm:table name = "{Util.snake_case_table([prefix, name, suffix])}" schema = "{schema}" />'
     

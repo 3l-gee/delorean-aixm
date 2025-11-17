@@ -128,7 +128,8 @@ public class Container<T, X> {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }   
-        // this.record = (T) this.databaseBinding.export(structure, id);
+
+        this.message = (T) this.databaseBinding.extract(this.root, id);
     }
 
     public void initQGIS(){
@@ -139,8 +140,6 @@ public class Container<T, X> {
         this.publisherPRJ.init(databaseBinding);
         ConsoleLogger.log(LogLevel.INFO, "QGIS project successfully initialized.");
     }
-
-
 
     //TODO this should be cleaned up in untility function or deleted
     private void recursiveShow(Class<?> clazz, Object instance) {
