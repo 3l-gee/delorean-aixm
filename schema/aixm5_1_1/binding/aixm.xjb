@@ -887,7 +887,7 @@
       <hj:default-generated-version name="hjversion" javaType="java.lang.Long" attributeName="hjversion" schemaType="xsd:long" transient="true" forced="true">
         <orm:column name="hjversion"/>
       </hj:default-generated-version>
-      <hj:default-generated-id>
+      <hj:default-generated-id name="hjid" javaType="java.lang.Long" attributeName="hjid" schemaType="xsd:long" transient="true" forced="true">
         <orm:generated-value strategy="SEQUENCE" generator="delorean_seq_gen"/>
         <orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
       </hj:default-generated-id>
@@ -34620,6 +34620,7 @@
       <hj:mapped-superclass/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureType']">
+      <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "AbstractAIXMFeatureType", propOrder = {"featureMetadata"})</annox:annotate>
       <hj:entity>
         <orm:table name="aixm_feature" schema="aixm"/>
         <orm:inheritance strategy="JOINED"/>
@@ -34644,6 +34645,7 @@
       <hj:mapped-superclass/>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceType']">
+      <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "AbstractAIXMTimeSliceType", propOrder = { "interpretation","sequenceNumber","correctionNumber","timeSliceMetadata","featureLifetime"})</annox:annotate>
       <hj:entity>
         <orm:table name="aixm_timeslice" schema="aixm"/>
         <orm:inheritance strategy="JOINED"/>
@@ -34663,6 +34665,12 @@
         <orm:table name="message_metadata" schema="aixm"/>
       </hj:entity>
     </jaxb:bindings>
+    <!-- <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']//xs:element[@name='messageMetadata']">
+                <jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "messageMetadata", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.util.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+                <jaxb:property name="messageMetadata"/>
+            </jaxb:bindings> -->
     <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
       <hj:entity>
         <orm:table name="feature_metadata" schema="aixm"/>

@@ -51,7 +51,12 @@
 						<orm:column name="hjversion"/>
 				</hj:default-generated-version>
 
-				<hj:default-generated-id>
+				<hj:default-generated-id name ="hjid"
+						javaType="java.lang.Long"
+						attributeName="hjid"
+						schemaType="xsd:long"
+						transient="true"
+						forced="true">
 					<orm:generated-value strategy="SEQUENCE" generator="delorean_seq_gen"/>
 					<orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
 				</hj:default-generated-id>

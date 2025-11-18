@@ -73,7 +73,17 @@
 				<sequence>
 					<element name="featureMetadata" type="aixm:FeatureMetadataPropertyType" minOccurs="0"/>
 					<!-- delorean aixm approval status field -->
-					<element name="approvalStatus" type="string" minOccurs="0" default="APPROVED"/>
+					<element name="approvalStatus" minOccurs="0">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="APPROVED"/>
+								<enumeration value="PENDING"/>
+								<enumeration value="CONFLICT"/>
+								<enumeration value="DECOMMISSIONED"/>
+								<enumeration value="IMPORTED"/>
+							</restriction>
+						</simpleType>
+					</element>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -146,7 +156,17 @@
 					<!-- <element ref="aixm:featureLifetime" minOccurs="0"/> -->	
 					<element name="featureLifetime" type="string" minOccurs="0"/>
 					<!-- delorean aixm approval status field -->
-					<element name="approvalStatus" type="string" minOccurs="0" default="APPROVED"/>
+					<element name="approvalStatus" minOccurs="0">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="APPROVED"/>
+								<enumeration value="PENDING"/>
+								<enumeration value="CONFLICT"/>
+								<enumeration value="DECOMMISSIONED"/>
+								<enumeration value="IMPORTED"/>
+							</restriction>
+						</simpleType>
+					</element>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -243,7 +263,9 @@
 		<complexContent>
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
+					<!-- delorean aixm hyper jaxb codegen limitation -->
 					<element ref="gmd:MD_Metadata"/>
+					<!-- <element name="messageMetadata" type="string"/> -->
 				</sequence>
 			</extension>
 		</complexContent>
