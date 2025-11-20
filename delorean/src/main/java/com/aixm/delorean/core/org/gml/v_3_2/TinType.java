@@ -227,6 +227,19 @@ public class TinType
         }
         final TinType that = ((TinType) object);
         {
+            boolean lhsFieldIsSet = this.isSetControlPoint();
+            boolean rhsFieldIsSet = that.isSetControlPoint();
+            ControlPoint lhsField;
+            lhsField = this.getControlPoint();
+            ControlPoint rhsField;
+            rhsField = that.getControlPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStopLines();
             boolean rhsFieldIsSet = that.isSetStopLines();
             List<LineStringSegmentArrayPropertyType> lhsField;
@@ -261,19 +274,6 @@ public class TinType
             rhsField = (that.isSetBreakLines()?that.getBreakLines():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetControlPoint();
-            boolean rhsFieldIsSet = that.isSetControlPoint();
-            ControlPoint lhsField;
-            lhsField = this.getControlPoint();
-            ControlPoint rhsField;
-            rhsField = that.getControlPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -132,19 +132,6 @@ public class EllipsoidType
         }
         final EllipsoidType that = ((EllipsoidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
-            boolean rhsFieldIsSet = that.isSetSecondDefiningParameterPropertyElement();
-            SecondDefiningParameterPropertyElement lhsField;
-            lhsField = this.getSecondDefiningParameterPropertyElement();
-            SecondDefiningParameterPropertyElement rhsField;
-            rhsField = that.getSecondDefiningParameterPropertyElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "secondDefiningParameterPropertyElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "secondDefiningParameterPropertyElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSemiMajorAxis();
             boolean rhsFieldIsSet = that.isSetSemiMajorAxis();
             MeasureType lhsField;
@@ -153,6 +140,19 @@ public class EllipsoidType
             rhsField = that.getSemiMajorAxis();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMajorAxis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMajorAxis", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
+            boolean rhsFieldIsSet = that.isSetSecondDefiningParameterPropertyElement();
+            SecondDefiningParameterPropertyElement lhsField;
+            lhsField = this.getSecondDefiningParameterPropertyElement();
+            SecondDefiningParameterPropertyElement rhsField;
+            rhsField = that.getSecondDefiningParameterPropertyElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "secondDefiningParameterPropertyElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "secondDefiningParameterPropertyElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

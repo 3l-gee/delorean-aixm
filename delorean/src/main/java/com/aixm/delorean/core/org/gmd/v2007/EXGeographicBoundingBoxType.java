@@ -185,14 +185,14 @@ public class EXGeographicBoundingBoxType
         }
         final EXGeographicBoundingBoxType that = ((EXGeographicBoundingBoxType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSouthBoundLatitude();
-            boolean rhsFieldIsSet = that.isSetSouthBoundLatitude();
+            boolean lhsFieldIsSet = this.isSetWestBoundLongitude();
+            boolean rhsFieldIsSet = that.isSetWestBoundLongitude();
             DecimalPropertyType lhsField;
-            lhsField = this.getSouthBoundLatitude();
+            lhsField = this.getWestBoundLongitude();
             DecimalPropertyType rhsField;
-            rhsField = that.getSouthBoundLatitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "southBoundLatitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "southBoundLatitude", rhsField);
+            rhsField = that.getWestBoundLongitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "westBoundLongitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "westBoundLongitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -211,14 +211,14 @@ public class EXGeographicBoundingBoxType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWestBoundLongitude();
-            boolean rhsFieldIsSet = that.isSetWestBoundLongitude();
+            boolean lhsFieldIsSet = this.isSetSouthBoundLatitude();
+            boolean rhsFieldIsSet = that.isSetSouthBoundLatitude();
             DecimalPropertyType lhsField;
-            lhsField = this.getWestBoundLongitude();
+            lhsField = this.getSouthBoundLatitude();
             DecimalPropertyType rhsField;
-            rhsField = that.getWestBoundLongitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "westBoundLongitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "westBoundLongitude", rhsField);
+            rhsField = that.getSouthBoundLatitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "southBoundLatitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "southBoundLatitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -300,4 +300,7 @@ change:
       method: getMdMetadata 
     updates:
       - old: Transient
-        new: ['@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")']
+        new: [
+          '@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)',
+          '@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")'
+          ]

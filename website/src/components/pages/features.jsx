@@ -33,7 +33,7 @@ export function Features({ onNavigate }) {
     <h1 className="text-4xl font-bold tracking-tight">Features</h1>
     <div className="flex space-y-8">
       <div className="space-y-6 flex-2">
-        <h2 className="text-4xl font-bold tracking-tight">AIXM-Compliant & Extensions</h2>
+        <h2 className="text-4xl font-bold tracking-tight">AIXM-Compliant</h2>
         <p>
           Delorean is fully OSGi-compliant, enabling seamless integration into modular 
           environments. It guarantees strict adherence to the official AIXM XML schemas while 
@@ -92,14 +92,11 @@ export function Features({ onNavigate }) {
   <section className="space-y-4">
     <div className="flex space-y-8">
       <div className="space-y-6 flex-2">
-      <h2 className="text-4xl font-bold tracking-tight">GML rendering & QGIS</h2>
+      <h2 className="text-4xl font-bold tracking-tight">Rendering</h2>
       <p>
-        Leveraging the robust QGIS and PostgreSQL ecosystem, Delorean
-        creates views that combine temporal and geographic data, and automatically generates a QGIS
-        project to display it. This project mirrors the AIXM structure as closely as possible, preserving
-        feature groups and including all features and objects defined in the dataset. To simplify
-        navigation, related features can be connected through QGIS actions, allowing users to move
-        seamlessly through the AIXM tree directly within the map.
+        Leveraging the robust PostgreSQL ecosystem, Delorean
+        creates views that combine temporal and geographic data, these views mirror the AIXM structure as closely as possible, preserving
+        feature groups and including all features and objects defined in the dataset.
       </p>
 
       <p>

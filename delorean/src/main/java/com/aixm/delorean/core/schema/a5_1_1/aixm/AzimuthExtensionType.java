@@ -74,7 +74,7 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
     protected AbstractExtensionType abstractNavaidEquipmentExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -185,7 +185,7 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -196,19 +196,19 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -260,14 +260,14 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
         }
         final AzimuthExtensionType that = ((AzimuthExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAzimuthExtension();
+            lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAzimuthExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
+            lhsField = this.getAbstractAzimuthExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            rhsField = that.getAbstractAzimuthExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -74,7 +74,7 @@ public class ApronAreaAvailabilityTypeExtensionType implements Serializable, Equ
     protected AbstractExtensionType abstractApronAreaAvailabilityExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -185,7 +185,7 @@ public class ApronAreaAvailabilityTypeExtensionType implements Serializable, Equ
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -196,19 +196,19 @@ public class ApronAreaAvailabilityTypeExtensionType implements Serializable, Equ
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -260,14 +260,14 @@ public class ApronAreaAvailabilityTypeExtensionType implements Serializable, Equ
         }
         final ApronAreaAvailabilityTypeExtensionType that = ((ApronAreaAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApronAreaAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronAreaAvailabilityExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            lhsField = this.getAbstractApronAreaAvailabilityExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            rhsField = that.getAbstractApronAreaAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronAreaAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronAreaAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class ApronAreaAvailabilityTypeExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronAreaAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronAreaAvailabilityExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronAreaAvailabilityExtension();
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronAreaAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronAreaAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronAreaAvailabilityExtension", rhsField);
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

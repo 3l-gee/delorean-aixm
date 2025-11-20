@@ -133,19 +133,6 @@ public class MDMediumFormatCodePropertyType implements Serializable, Equals, Has
         }
         final MDMediumFormatCodePropertyType that = ((MDMediumFormatCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDMediumFormatCode();
-            boolean rhsFieldIsSet = that.isSetMDMediumFormatCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDMediumFormatCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDMediumFormatCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMediumFormatCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMediumFormatCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class MDMediumFormatCodePropertyType implements Serializable, Equals, Has
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDMediumFormatCode();
+            boolean rhsFieldIsSet = that.isSetMDMediumFormatCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDMediumFormatCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDMediumFormatCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMediumFormatCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMediumFormatCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -74,7 +74,7 @@ public class NDBExtensionType implements Serializable, Equals, HashCode, ToStrin
     protected AbstractExtensionType abstractNavaidEquipmentExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -185,7 +185,7 @@ public class NDBExtensionType implements Serializable, Equals, HashCode, ToStrin
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -196,19 +196,19 @@ public class NDBExtensionType implements Serializable, Equals, HashCode, ToStrin
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -260,19 +260,6 @@ public class NDBExtensionType implements Serializable, Equals, HashCode, ToStrin
         }
         final NDBExtensionType that = ((NDBExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractNDBExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNDBExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class NDBExtensionType implements Serializable, Equals, HashCode, ToStrin
             rhsField = that.getAbstractNDBExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNDBExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNDBExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

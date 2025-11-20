@@ -70,7 +70,7 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
     protected RunwayCentrelinePointTimeSliceType runwayCentrelinePointTimeSlice;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -148,7 +148,7 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -159,19 +159,19 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -223,19 +223,6 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
         }
         final RunwayCentrelinePointTimeSlicePropertyType that = ((RunwayCentrelinePointTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRunwayCentrelinePointTimeSlice();
             boolean rhsFieldIsSet = that.isSetRunwayCentrelinePointTimeSlice();
             RunwayCentrelinePointTimeSliceType lhsField;
@@ -244,6 +231,19 @@ public class RunwayCentrelinePointTimeSlicePropertyType implements Serializable,
             rhsField = that.getRunwayCentrelinePointTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runwayCentrelinePointTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runwayCentrelinePointTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

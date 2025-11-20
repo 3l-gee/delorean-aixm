@@ -74,7 +74,7 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
     protected AbstractExtensionType abstractMarkingExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -185,7 +185,7 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -196,19 +196,19 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -260,19 +260,6 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
         }
         final GuidanceLineMarkingExtensionType that = ((GuidanceLineMarkingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGuidanceLineMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGuidanceLineMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineMarkingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class GuidanceLineMarkingExtensionType implements Serializable, Equals, H
             rhsField = that.getAbstractMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGuidanceLineMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGuidanceLineMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGuidanceLineMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGuidanceLineMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGuidanceLineMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGuidanceLineMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

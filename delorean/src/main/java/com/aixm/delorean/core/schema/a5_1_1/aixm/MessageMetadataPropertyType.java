@@ -2,8 +2,10 @@
 package com.aixm.delorean.core.schema.a5_1_1.aixm;
 
 import java.io.Serializable;
+import com.aixm.delorean.core.metadata.adapter.MDMetadataTypeAdapter;
 import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType;
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,10 +17,10 @@ import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -36,7 +38,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.isotc211.org/2005/gmd}MD_Metadata"/>
+ *         <element name="mdMetadata" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -57,9 +59,10 @@ public class MessageMetadataPropertyType
 {
 
     private static final long serialVersionUID = 20251104L;
-    @XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
-    protected MDMetadataType mdMetadata;
-    @XmlAttribute(name = "Hjid")
+    @XmlElement(type = MDMetadataType.class, name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
+    @XmlJavaTypeAdapter(MDMetadataTypeAdapter.class)
+    protected JsonNode mdMetadata;
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -69,11 +72,12 @@ public class MessageMetadataPropertyType
      * 
      * @return
      *     possible object is
-     *     {@link MDMetadataType }
+     *     {@link String }
      *     
      */
-    @Transient
-    public MDMetadataType getMDMetadata() {
+@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
+@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")
+    public JsonNode getMdMetadata() {
         return mdMetadata;
     }
 
@@ -82,20 +86,20 @@ public class MessageMetadataPropertyType
      * 
      * @param value
      *     allowed object is
-     *     {@link MDMetadataType }
+     *     {@link String }
      *     
      */
-    public void setMDMetadata(MDMetadataType value) {
+    public void setMdMetadata(JsonNode value) {
         this.mdMetadata = value;
     }
 
     @Transient
-    public boolean isSetMDMetadata() {
+    public boolean isSetMdMetadata() {
         return (this.mdMetadata!= null);
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -106,19 +110,19 @@ public class MessageMetadataPropertyType
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -161,12 +165,12 @@ public class MessageMetadataPropertyType
         }
         final MessageMetadataPropertyType that = ((MessageMetadataPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDMetadata();
-            boolean rhsFieldIsSet = that.isSetMDMetadata();
-            MDMetadataType lhsField;
-            lhsField = this.getMDMetadata();
-            MDMetadataType rhsField;
-            rhsField = that.getMDMetadata();
+            boolean lhsFieldIsSet = this.isSetMdMetadata();
+            boolean rhsFieldIsSet = that.isSetMdMetadata();
+            JsonNode lhsField;
+            lhsField = this.getMdMetadata();
+            JsonNode rhsField;
+            rhsField = that.getMdMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -180,9 +184,9 @@ public class MessageMetadataPropertyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = this.isSetMDMetadata();
-            MDMetadataType theField;
-            theField = this.getMDMetadata();
+            boolean theFieldIsSet = this.isSetMdMetadata();
+            JsonNode theField;
+            theField = this.getMdMetadata();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdMetadata", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -193,9 +197,9 @@ public class MessageMetadataPropertyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = this.isSetMDMetadata();
-            MDMetadataType theField;
-            theField = this.getMDMetadata();
+            boolean theFieldIsSet = this.isSetMdMetadata();
+            JsonNode theField;
+            theField = this.getMdMetadata();
             strategy.appendField(locator, this, "mdMetadata", buffer, theField, theFieldIsSet);
         }
         return buffer;

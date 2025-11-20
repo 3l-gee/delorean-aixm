@@ -175,14 +175,14 @@ public class ValMagneticVariationChangeType implements Serializable, Equals, Has
         }
         final ValMagneticVariationChangeType that = ((ValMagneticVariationChangeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetAccuracy();
+            boolean rhsFieldIsSet = that.isSetAccuracy();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getAccuracy();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -201,14 +201,14 @@ public class ValMagneticVariationChangeType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAccuracy();
-            boolean rhsFieldIsSet = that.isSetAccuracy();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getAccuracy();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accuracy", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

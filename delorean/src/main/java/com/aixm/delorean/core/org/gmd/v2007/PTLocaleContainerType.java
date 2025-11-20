@@ -282,19 +282,6 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
         }
         final PTLocaleContainerType that = ((PTLocaleContainerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocalisedString();
-            boolean rhsFieldIsSet = that.isSetLocalisedString();
-            List<LocalisedCharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetLocalisedString()?this.getLocalisedString():null);
-            List<LocalisedCharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetLocalisedString()?that.getLocalisedString():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDescription();
             boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
@@ -303,6 +290,32 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetResponsibleParty();
+            boolean rhsFieldIsSet = that.isSetResponsibleParty();
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (this.isSetResponsibleParty()?this.getResponsibleParty():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (that.isSetResponsibleParty()?that.getResponsibleParty():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleParty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleParty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocalisedString();
+            boolean rhsFieldIsSet = that.isSetLocalisedString();
+            List<LocalisedCharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLocalisedString()?this.getLocalisedString():null);
+            List<LocalisedCharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLocalisedString()?that.getLocalisedString():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -329,19 +342,6 @@ public class PTLocaleContainerType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetDate()?that.getDate():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResponsibleParty();
-            boolean rhsFieldIsSet = that.isSetResponsibleParty();
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetResponsibleParty()?this.getResponsibleParty():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetResponsibleParty()?that.getResponsibleParty():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleParty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleParty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -70,7 +70,7 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
     protected AbstractExtensionType abstractRunwayVisualRangeExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -148,7 +148,7 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -159,19 +159,19 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -223,19 +223,6 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
         }
         final RunwayVisualRangeExtensionType that = ((RunwayVisualRangeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayVisualRangeExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayVisualRangeExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayVisualRangeExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayVisualRangeExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayVisualRangeExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayVisualRangeExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RunwayVisualRangeExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayVisualRangeExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayVisualRangeExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayVisualRangeExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayVisualRangeExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayVisualRangeExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayVisualRangeExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

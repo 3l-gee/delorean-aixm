@@ -241,6 +241,19 @@ public class GridType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetGridAxisLabels();
+            boolean rhsFieldIsSet = that.isSetGridAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetGridAxisLabels()?this.getGridAxisLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetGridAxisLabels()?that.getGridAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDimension();
             boolean rhsFieldIsSet = that.isSetDimension();
             BigInteger lhsField;
@@ -262,19 +275,6 @@ public class GridType
             rhsField = that.getLimits();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "limits", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "limits", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGridAxisLabels();
-            boolean rhsFieldIsSet = that.isSetGridAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetGridAxisLabels()?this.getGridAxisLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetGridAxisLabels()?that.getGridAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

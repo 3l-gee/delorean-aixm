@@ -74,7 +74,7 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
     protected AbstractExtensionType abstractDirectFlightClassExtension;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -185,7 +185,7 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -196,19 +196,19 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -260,19 +260,6 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
         }
         final DirectFlightClassTypeExtensionType that = ((DirectFlightClassTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectFlightClassExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectFlightClassExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractDirectFlightExtension();
             boolean rhsFieldIsSet = that.isSetAbstractDirectFlightExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
             rhsField = that.getAbstractDirectFlightExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectFlightClassExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectFlightClassExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

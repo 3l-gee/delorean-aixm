@@ -1,6 +1,5 @@
 package com.aixm.delorean.core.gis.type;
 
-import jakarta.persistence.Access;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

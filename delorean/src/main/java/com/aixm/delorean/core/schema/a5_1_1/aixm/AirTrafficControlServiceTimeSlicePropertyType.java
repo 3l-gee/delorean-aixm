@@ -70,7 +70,7 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     protected AirTrafficControlServiceTimeSliceType airTrafficControlServiceTimeSlice;
     @XmlAttribute(name = "owns")
     protected Boolean owns;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -148,7 +148,7 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * Gets the value of the hjid property.
+     * 
      * 
      * @return
      *     possible object is
@@ -159,19 +159,19 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -223,19 +223,6 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
         }
         final AirTrafficControlServiceTimeSlicePropertyType that = ((AirTrafficControlServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAirTrafficControlServiceTimeSlice();
-            AirTrafficControlServiceTimeSliceType lhsField;
-            lhsField = this.getAirTrafficControlServiceTimeSlice();
-            AirTrafficControlServiceTimeSliceType rhsField;
-            rhsField = that.getAirTrafficControlServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAirTrafficControlServiceTimeSlice();
+            AirTrafficControlServiceTimeSliceType lhsField;
+            lhsField = this.getAirTrafficControlServiceTimeSlice();
+            AirTrafficControlServiceTimeSliceType rhsField;
+            rhsField = that.getAirTrafficControlServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

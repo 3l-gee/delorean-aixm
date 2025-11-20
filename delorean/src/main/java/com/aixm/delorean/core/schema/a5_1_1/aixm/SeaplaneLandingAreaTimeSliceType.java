@@ -410,14 +410,40 @@ public class SeaplaneLandingAreaTimeSliceType
         }
         final SeaplaneLandingAreaTimeSliceType that = ((SeaplaneLandingAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRampSite();
-            boolean rhsFieldIsSet = that.isSetRampSite();
-            List<SeaplaneRampSitePropertyType> lhsField;
-            lhsField = (this.isSetRampSite()?this.getRampSite():null);
-            List<SeaplaneRampSitePropertyType> rhsField;
-            rhsField = (that.isSetRampSite()?that.getRampSite():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rampSite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rampSite", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
+            lhsField = (this.isSetAvailability()?this.getAvailability():null);
+            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
+            rhsField = (that.isSetAvailability()?that.getAvailability():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDockSite();
+            boolean rhsFieldIsSet = that.isSetDockSite();
+            List<FloatingDockSitePropertyType> lhsField;
+            lhsField = (this.isSetDockSite()?this.getDockSite():null);
+            List<FloatingDockSitePropertyType> rhsField;
+            rhsField = (that.isSetDockSite()?that.getDockSite():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -449,40 +475,14 @@ public class SeaplaneLandingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDockSite();
-            boolean rhsFieldIsSet = that.isSetDockSite();
-            List<FloatingDockSitePropertyType> lhsField;
-            lhsField = (this.isSetDockSite()?this.getDockSite():null);
-            List<FloatingDockSitePropertyType> rhsField;
-            rhsField = (that.isSetDockSite()?that.getDockSite():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dockSite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dockSite", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<ManoeuvringAreaAvailabilityPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<ManoeuvringAreaAvailabilityPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetRampSite();
+            boolean rhsFieldIsSet = that.isSetRampSite();
+            List<SeaplaneRampSitePropertyType> lhsField;
+            lhsField = (this.isSetRampSite()?this.getRampSite():null);
+            List<SeaplaneRampSitePropertyType> rhsField;
+            rhsField = (that.isSetRampSite()?that.getRampSite():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rampSite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rampSite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

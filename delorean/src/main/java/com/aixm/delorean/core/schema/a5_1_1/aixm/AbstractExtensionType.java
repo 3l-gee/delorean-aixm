@@ -32,7 +32,7 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractExtensionType")
 @Entity(name = "AbstractExtensionType")
-@Table(name = "abstract_ext", schema = "public")
+@Table(name = "aixm_extension", schema = "aixm")
 public abstract class AbstractExtensionType
     extends AbstractAIXMObjectType
     implements Serializable

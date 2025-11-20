@@ -348,6 +348,32 @@ public class EXGeographicBoundingBoxPropertyType implements Serializable, Equals
         }
         final EXGeographicBoundingBoxPropertyType that = ((EXGeographicBoundingBoxPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetEXGeographicBoundingBox();
+            boolean rhsFieldIsSet = that.isSetEXGeographicBoundingBox();
+            EXGeographicBoundingBoxType lhsField;
+            lhsField = this.getEXGeographicBoundingBox();
+            EXGeographicBoundingBoxType rhsField;
+            rhsField = that.getEXGeographicBoundingBox();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exGeographicBoundingBox", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exGeographicBoundingBox", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -400,32 +426,6 @@ public class EXGeographicBoundingBoxPropertyType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEXGeographicBoundingBox();
-            boolean rhsFieldIsSet = that.isSetEXGeographicBoundingBox();
-            EXGeographicBoundingBoxType lhsField;
-            lhsField = this.getEXGeographicBoundingBox();
-            EXGeographicBoundingBoxType rhsField;
-            rhsField = that.getEXGeographicBoundingBox();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exGeographicBoundingBox", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exGeographicBoundingBox", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -452,14 +452,14 @@ public class EXGeographicBoundingBoxPropertyType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

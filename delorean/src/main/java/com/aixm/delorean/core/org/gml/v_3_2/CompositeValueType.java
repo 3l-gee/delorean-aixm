@@ -188,19 +188,6 @@ public class CompositeValueType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValueComponents();
-            boolean rhsFieldIsSet = that.isSetValueComponents();
-            ValueArrayPropertyType lhsField;
-            lhsField = this.getValueComponents();
-            ValueArrayPropertyType rhsField;
-            rhsField = that.getValueComponents();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValueComponent();
             boolean rhsFieldIsSet = that.isSetValueComponent();
             List<ValuePropertyType> lhsField;
@@ -209,6 +196,19 @@ public class CompositeValueType
             rhsField = (that.isSetValueComponent()?that.getValueComponent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValueComponents();
+            boolean rhsFieldIsSet = that.isSetValueComponents();
+            ValueArrayPropertyType lhsField;
+            lhsField = this.getValueComponents();
+            ValueArrayPropertyType rhsField;
+            rhsField = that.getValueComponents();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

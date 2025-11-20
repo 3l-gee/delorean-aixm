@@ -7,17 +7,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aixm.delorean</groupId>
-    <artifactId>delorean-parent</artifactId>
+    <artifactId>delorean-aixm</artifactId>
     <version>0.2.0</version>
     <packaging>pom</packaging>
 
-    <name>delorean-parent</name>
-    <!-- <name>delorean-aixm</name> -->
+    <name>delorean-aixm</name>
+    <description>Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.</description>
+    <url>https://github.com/3l-gee/delorean-aixm</url>
+    <inceptionYear>2024</inceptionYear>
+    <developers>
+        <developer>
+            <id>3l-gee</id>
+            <name>Raphaël Gerth</name>
+            <email>raphael.gerth@gmail.com</email>
+            <roles>
+                <role>project creator</role>
+            </roles>
+        </developer>
+    </developers>
 
     <modules>
         <module>delorean</module>
         <module>codegen/post-jaxb</module>
     </modules>
+
+    <!-- <modules>
+        <module>delorean-core</module>
+        <module>pre-jaxb</module>
+        <module>delorean-aixm-5.1</module>
+        <module>delorean-aixm-5.1.1</module>
+        <module>delorean-aixm-5.2</module>
+        <module>post-jaxb</module>
+    </modules> -->
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

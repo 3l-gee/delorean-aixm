@@ -133,19 +133,6 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
         }
         final MDKeywordTypeCodePropertyType that = ((MDKeywordTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDKeywordTypeCode();
-            boolean rhsFieldIsSet = that.isSetMDKeywordTypeCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDKeywordTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDKeywordTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdKeywordTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdKeywordTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class MDKeywordTypeCodePropertyType implements Serializable, Equals, Hash
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDKeywordTypeCode();
+            boolean rhsFieldIsSet = that.isSetMDKeywordTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDKeywordTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDKeywordTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdKeywordTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdKeywordTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

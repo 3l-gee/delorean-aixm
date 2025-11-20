@@ -194,19 +194,6 @@ public class PassThroughOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetModifiedCoordinate();
-            boolean rhsFieldIsSet = that.isSetModifiedCoordinate();
-            List<BigInteger> lhsField;
-            lhsField = (this.isSetModifiedCoordinate()?this.getModifiedCoordinate():null);
-            List<BigInteger> rhsField;
-            rhsField = (that.isSetModifiedCoordinate()?that.getModifiedCoordinate():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "modifiedCoordinate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "modifiedCoordinate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
@@ -215,6 +202,19 @@ public class PassThroughOperationType
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetModifiedCoordinate();
+            boolean rhsFieldIsSet = that.isSetModifiedCoordinate();
+            List<BigInteger> lhsField;
+            lhsField = (this.isSetModifiedCoordinate()?this.getModifiedCoordinate():null);
+            List<BigInteger> rhsField;
+            rhsField = (that.isSetModifiedCoordinate()?that.getModifiedCoordinate():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "modifiedCoordinate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "modifiedCoordinate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -154,19 +154,6 @@ public abstract class AbstractTimeSliceType
         }
         final AbstractTimeSliceType that = ((AbstractTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDataSource();
-            boolean rhsFieldIsSet = that.isSetDataSource();
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValidTime();
             boolean rhsFieldIsSet = that.isSetValidTime();
             DeloreanTimeSliceType lhsField;
@@ -175,6 +162,19 @@ public abstract class AbstractTimeSliceType
             rhsField = that.getValidTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

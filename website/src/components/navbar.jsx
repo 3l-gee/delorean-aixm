@@ -11,15 +11,15 @@ import AtIcon from "../assets/at.svg"
 
 
 export function Navbar({ onNavigate , onCleanBackground}) {
-  const [dark, setDark] = useState(false);
+  const [lightTheme, setLightTheme] = useState(false);
 
   useEffect(() => {
-    if (dark) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
+    if (lightTheme) {
       document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
     }
-  }, [dark]);
+  }, [lightTheme]);
 
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -29,7 +29,7 @@ export function Navbar({ onNavigate , onCleanBackground}) {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShow(false);
-      } else {
+      } else {  
         setShow(true);
       }
       setLastScrollY(currentScrollY);
@@ -41,23 +41,19 @@ export function Navbar({ onNavigate , onCleanBackground}) {
 
   return (
     <div className={`navbar ${show ? "show" : "hide"}`}>
-      {/* Left: Logo */}
-      <Link
-        href="/"
-        className="navbar-logo no-underline text-inherit cursor-pointer bg-transparent border-none p-0 m-0 text-left"
-        onClick={() => onCleanBackground(false)}
-      >
-        <pre className="m-0 p-0 text-secondary">
-{` ██████╗ ███████╗██╗      ██████╗ ██████╗ ███████╗ █████╗ ███╗   ██╗         █████╗ ██╗██╗  ██╗███╗   ███╗ 
- ██╔══██╗██╔════╝██║     ██╔═══██╗██╔══██╗██╔════╝██╔══██╗████╗  ██║        ██╔══██╗██║╚██╗██╔╝████╗ ████║ 
- ██║  ██║█████╗  ██║     ██║   ██║██████╔╝█████╗  ███████║██╔██╗ ██║ █████╗ ███████║██║ ╚███╔╝ ██╔████╔██║ 
- ██║  ██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║ ╚════╝ ██╔══██║██║ ██╔██╗ ██║╚██╔╝██║ 
- ██████╔╝███████╗███████╗╚██████╔╝██║  ██║███████╗██║  ██║██║ ╚████║        ██║  ██║██║██╔╝ ██╗██║ ╚═╝ ██║ 
- ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝        ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝     ╚═╝  `}
-        </pre>
-      </Link>
-
-      {/* Middle: Links */}
+        <Link
+          href="/"
+          className="navbar-logo no-underline text-inherit cursor-pointer bg-transparent border-none p-0 m-0 text-left"
+          onClick={() => onCleanBackground(false)}
+        >
+          <img
+            src="/src/assets/logo/delorean-aixm-logo-big-transparent.png"
+            alt="Delorean AIXM Logo"
+            className="navbar-logo-image"
+            width="600"
+            height="auto"
+          />
+        </Link>
       <div className="navbar-links">
         <DropDownButton
           label="About"
@@ -118,7 +114,7 @@ export function Navbar({ onNavigate , onCleanBackground}) {
           leftLabel="☀️"
           rightLabel="🌙"
           defaultOn={false}
-          onToggle={(isDark) => setDark(isDark)}
+          onToggle={(isDark) => setLightTheme(isDark)}
         />
       </div>
     </div>

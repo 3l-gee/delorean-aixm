@@ -138,19 +138,6 @@ public abstract class AbstractFeatureCollectionType
         }
         final AbstractFeatureCollectionType that = ((AbstractFeatureCollectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFeatureMembers();
-            boolean rhsFieldIsSet = that.isSetFeatureMembers();
-            FeatureArrayPropertyType lhsField;
-            lhsField = this.getFeatureMembers();
-            FeatureArrayPropertyType rhsField;
-            rhsField = that.getFeatureMembers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMembers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMembers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFeatureMember();
             boolean rhsFieldIsSet = that.isSetFeatureMember();
             List<FeaturePropertyType> lhsField;
@@ -159,6 +146,19 @@ public abstract class AbstractFeatureCollectionType
             rhsField = (that.isSetFeatureMember()?that.getFeatureMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatureMembers();
+            boolean rhsFieldIsSet = that.isSetFeatureMembers();
+            FeatureArrayPropertyType lhsField;
+            lhsField = this.getFeatureMembers();
+            FeatureArrayPropertyType rhsField;
+            rhsField = that.getFeatureMembers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMembers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMembers", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

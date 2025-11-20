@@ -13,7 +13,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import com.aixm.delorean.core.gis.type.components.Pos;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;

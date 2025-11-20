@@ -199,6 +199,19 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
         }
         final DirectionDescriptionType that = ((DirectionDescriptionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            String lhsField;
+            lhsField = this.getDescription();
+            String rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCompassPoint();
             boolean rhsFieldIsSet = that.isSetCompassPoint();
             CompassPointEnumeration lhsField;
@@ -233,19 +246,6 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
             rhsField = that.getReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            String lhsField;
-            lhsField = this.getDescription();
-            String rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

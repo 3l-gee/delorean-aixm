@@ -202,19 +202,6 @@ public class MDLegalConstraintsType
         }
         final MDLegalConstraintsType that = ((MDLegalConstraintsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUseConstraints();
-            boolean rhsFieldIsSet = that.isSetUseConstraints();
-            List<MDRestrictionCodePropertyType> lhsField;
-            lhsField = (this.isSetUseConstraints()?this.getUseConstraints():null);
-            List<MDRestrictionCodePropertyType> rhsField;
-            rhsField = (that.isSetUseConstraints()?that.getUseConstraints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOtherConstraints();
             boolean rhsFieldIsSet = that.isSetOtherConstraints();
             List<CharacterStringPropertyType> lhsField;
@@ -236,6 +223,19 @@ public class MDLegalConstraintsType
             rhsField = (that.isSetAccessConstraints()?that.getAccessConstraints():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessConstraints", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessConstraints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUseConstraints();
+            boolean rhsFieldIsSet = that.isSetUseConstraints();
+            List<MDRestrictionCodePropertyType> lhsField;
+            lhsField = (this.isSetUseConstraints()?this.getUseConstraints():null);
+            List<MDRestrictionCodePropertyType> rhsField;
+            rhsField = (that.isSetUseConstraints()?that.getUseConstraints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

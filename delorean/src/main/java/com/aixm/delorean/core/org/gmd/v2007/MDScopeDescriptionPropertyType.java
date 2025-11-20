@@ -132,19 +132,6 @@ public class MDScopeDescriptionPropertyType implements Serializable, Equals, Has
         }
         final MDScopeDescriptionPropertyType that = ((MDScopeDescriptionPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMDScopeDescription();
-            boolean rhsFieldIsSet = that.isSetMDScopeDescription();
-            MDScopeDescriptionType lhsField;
-            lhsField = this.getMDScopeDescription();
-            MDScopeDescriptionType rhsField;
-            rhsField = that.getMDScopeDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdScopeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdScopeDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -153,6 +140,19 @@ public class MDScopeDescriptionPropertyType implements Serializable, Equals, Has
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDScopeDescription();
+            boolean rhsFieldIsSet = that.isSetMDScopeDescription();
+            MDScopeDescriptionType lhsField;
+            lhsField = this.getMDScopeDescription();
+            MDScopeDescriptionType rhsField;
+            rhsField = that.getMDScopeDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdScopeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdScopeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

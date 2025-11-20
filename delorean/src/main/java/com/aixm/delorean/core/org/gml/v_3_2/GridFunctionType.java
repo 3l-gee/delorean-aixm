@@ -151,19 +151,6 @@ public class GridFunctionType implements Serializable, Equals, HashCode, ToStrin
         }
         final GridFunctionType that = ((GridFunctionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSequenceRule();
-            boolean rhsFieldIsSet = that.isSetSequenceRule();
-            SequenceRuleType lhsField;
-            lhsField = this.getSequenceRule();
-            SequenceRuleType rhsField;
-            rhsField = that.getSequenceRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStartPoint();
             boolean rhsFieldIsSet = that.isSetStartPoint();
             List<BigInteger> lhsField;
@@ -172,6 +159,19 @@ public class GridFunctionType implements Serializable, Equals, HashCode, ToStrin
             rhsField = (that.isSetStartPoint()?that.getStartPoint():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSequenceRule();
+            boolean rhsFieldIsSet = that.isSetSequenceRule();
+            SequenceRuleType lhsField;
+            lhsField = this.getSequenceRule();
+            SequenceRuleType rhsField;
+            rhsField = that.getSequenceRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceRule", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

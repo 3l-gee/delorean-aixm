@@ -346,19 +346,6 @@ public class SurfaceContaminationLayerType
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLayerOrder();
-            boolean rhsFieldIsSet = that.isSetLayerOrder();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getLayerOrder();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getLayerOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurfaceContaminationLayerTypeExtensionType> lhsField;
@@ -393,6 +380,19 @@ public class SurfaceContaminationLayerType
             rhsField = (that.isSetExtent()?that.getExtent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLayerOrder();
+            boolean rhsFieldIsSet = that.isSetLayerOrder();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getLayerOrder();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getLayerOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

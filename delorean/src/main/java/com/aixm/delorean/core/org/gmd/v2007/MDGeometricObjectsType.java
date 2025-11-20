@@ -119,19 +119,6 @@ public class MDGeometricObjectsType
         }
         final MDGeometricObjectsType that = ((MDGeometricObjectsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeometricObjectType();
-            boolean rhsFieldIsSet = that.isSetGeometricObjectType();
-            MDGeometricObjectTypeCodePropertyType lhsField;
-            lhsField = this.getGeometricObjectType();
-            MDGeometricObjectTypeCodePropertyType rhsField;
-            rhsField = that.getGeometricObjectType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGeometricObjectCount();
             boolean rhsFieldIsSet = that.isSetGeometricObjectCount();
             IntegerPropertyType lhsField;
@@ -140,6 +127,19 @@ public class MDGeometricObjectsType
             rhsField = that.getGeometricObjectCount();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectCount", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectCount", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricObjectType();
+            boolean rhsFieldIsSet = that.isSetGeometricObjectType();
+            MDGeometricObjectTypeCodePropertyType lhsField;
+            lhsField = this.getGeometricObjectType();
+            MDGeometricObjectTypeCodePropertyType rhsField;
+            rhsField = that.getGeometricObjectType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

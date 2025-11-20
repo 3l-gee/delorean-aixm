@@ -192,14 +192,14 @@ public class ClothoidType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetScaleFactor();
-            boolean rhsFieldIsSet = that.isSetScaleFactor();
-            BigDecimal lhsField;
-            lhsField = this.getScaleFactor();
-            BigDecimal rhsField;
-            rhsField = that.getScaleFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getEndParameter();
+            double rhsField;
+            rhsField = that.getEndParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -218,14 +218,14 @@ public class ClothoidType
             }
         }
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getEndParameter();
-            double rhsField;
-            rhsField = that.getEndParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
+            boolean lhsFieldIsSet = this.isSetScaleFactor();
+            boolean rhsFieldIsSet = that.isSetScaleFactor();
+            BigDecimal lhsField;
+            lhsField = this.getScaleFactor();
+            BigDecimal rhsField;
+            rhsField = that.getScaleFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

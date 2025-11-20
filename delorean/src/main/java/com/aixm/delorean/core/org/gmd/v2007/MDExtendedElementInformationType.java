@@ -521,27 +521,14 @@ public class MDExtendedElementInformationType
         }
         final MDExtendedElementInformationType that = ((MDExtendedElementInformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
+            boolean lhsFieldIsSet = this.isSetMaximumOccurrence();
+            boolean rhsFieldIsSet = that.isSetMaximumOccurrence();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
+            lhsField = this.getMaximumOccurrence();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDomainCode();
-            boolean rhsFieldIsSet = that.isSetDomainCode();
-            IntegerPropertyType lhsField;
-            lhsField = this.getDomainCode();
-            IntegerPropertyType rhsField;
-            rhsField = that.getDomainCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainCode", rhsField);
+            rhsField = that.getMaximumOccurrence();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumOccurrence", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumOccurrence", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -560,14 +547,14 @@ public class MDExtendedElementInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMaximumOccurrence();
-            boolean rhsFieldIsSet = that.isSetMaximumOccurrence();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMaximumOccurrence();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMaximumOccurrence();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumOccurrence", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumOccurrence", rhsField);
+            boolean lhsFieldIsSet = this.isSetObligation();
+            boolean rhsFieldIsSet = that.isSetObligation();
+            MDObligationCodePropertyType lhsField;
+            lhsField = this.getObligation();
+            MDObligationCodePropertyType rhsField;
+            rhsField = that.getObligation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obligation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obligation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,14 +573,14 @@ public class MDExtendedElementInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObligation();
-            boolean rhsFieldIsSet = that.isSetObligation();
-            MDObligationCodePropertyType lhsField;
-            lhsField = this.getObligation();
-            MDObligationCodePropertyType rhsField;
-            rhsField = that.getObligation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obligation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obligation", rhsField);
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -612,32 +599,6 @@ public class MDExtendedElementInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCondition();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRationale();
-            boolean rhsFieldIsSet = that.isSetRationale();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetRationale()?this.getRationale():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetRationale()?that.getRationale():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rationale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rationale", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDomainValue();
             boolean rhsFieldIsSet = that.isSetDomainValue();
             CharacterStringPropertyType lhsField;
@@ -651,14 +612,14 @@ public class MDExtendedElementInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRule();
-            boolean rhsFieldIsSet = that.isSetRule();
+            boolean lhsFieldIsSet = this.isSetShortName();
+            boolean rhsFieldIsSet = that.isSetShortName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getRule();
+            lhsField = this.getShortName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rule", rhsField);
+            rhsField = that.getShortName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "shortName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "shortName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -677,14 +638,53 @@ public class MDExtendedElementInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetShortName();
-            boolean rhsFieldIsSet = that.isSetShortName();
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getShortName();
+            lhsField = this.getCondition();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getShortName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "shortName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "shortName", rhsField);
+            rhsField = that.getCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDomainCode();
+            boolean rhsFieldIsSet = that.isSetDomainCode();
+            IntegerPropertyType lhsField;
+            lhsField = this.getDomainCode();
+            IntegerPropertyType rhsField;
+            rhsField = that.getDomainCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRule();
+            boolean rhsFieldIsSet = that.isSetRule();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getRule();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRationale();
+            boolean rhsFieldIsSet = that.isSetRationale();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetRationale()?this.getRationale():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetRationale()?that.getRationale():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rationale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rationale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

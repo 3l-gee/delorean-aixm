@@ -22,7 +22,6 @@ import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
@@ -52,6 +51,17 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}correctionNumber" minOccurs="0"/>
  *         <element name="timeSliceMetadata" type="{http://www.aixm.aero/schema/5.1.1}FeatureTimeSliceMetadataPropertyType" minOccurs="0"/>
  *         <element name="featureLifetime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         <element name="approvalStatus" minOccurs="0">
+ *           <simpleType>
+ *             <restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               <enumeration value="APPROVED"/>
+ *               <enumeration value="PENDING"/>
+ *               <enumeration value="CONFLICT"/>
+ *               <enumeration value="DECOMMISSIONED"/>
+ *               <enumeration value="IMPORTED"/>
+ *             </restriction>
+ *           </simpleType>
+ *         </element>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -224,7 +234,9 @@ public abstract class AbstractAIXMTimeSliceType
     @XmlElement(type = TimePrimitivePropertyType.class, name = "featureLifetime", required = true)
     @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
     protected DeloreanTimeSliceType featureLifetime;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
+    protected String approvalStatus;
+    @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
@@ -388,7 +400,38 @@ public abstract class AbstractAIXMTimeSliceType
     }
 
     /**
-     * Gets the value of the hjid property.
+     * Gets the value of the approvalStatus property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Basic
+    @Column(name = "APPROVAL_STATUS")
+    public String getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    /**
+     * Sets the value of the approvalStatus property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setApprovalStatus(String value) {
+        this.approvalStatus = value;
+    }
+
+    @Transient
+    public boolean isSetApprovalStatus() {
+        return (this.approvalStatus!= null);
+    }
+
+    /**
+     * 
      * 
      * @return
      *     possible object is
@@ -399,19 +442,19 @@ public abstract class AbstractAIXMTimeSliceType
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long getHjid() {
+    public Long gethjid() {
         return hjid;
     }
 
     /**
-     * Sets the value of the hjid property.
+     * 
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setHjid(Long value) {
+    public void sethjid(Long value) {
         this.hjid = value;
     }
 
@@ -454,14 +497,27 @@ public abstract class AbstractAIXMTimeSliceType
         }
         final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSequenceNumber();
-            boolean rhsFieldIsSet = that.isSetSequenceNumber();
-            Long lhsField;
-            lhsField = this.getSequenceNumber();
-            Long rhsField;
-            rhsField = that.getSequenceNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
+            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
+            DeloreanTimeSliceType lhsField;
+            lhsField = this.getFeatureLifetime();
+            DeloreanTimeSliceType rhsField;
+            rhsField = that.getFeatureLifetime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApprovalStatus();
+            boolean rhsFieldIsSet = that.isSetApprovalStatus();
+            String lhsField;
+            lhsField = this.getApprovalStatus();
+            String rhsField;
+            rhsField = that.getApprovalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -480,6 +536,19 @@ public abstract class AbstractAIXMTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSequenceNumber();
+            boolean rhsFieldIsSet = that.isSetSequenceNumber();
+            Long lhsField;
+            lhsField = this.getSequenceNumber();
+            Long rhsField;
+            rhsField = that.getSequenceNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCorrectionNumber();
             boolean rhsFieldIsSet = that.isSetCorrectionNumber();
             Long lhsField;
@@ -488,19 +557,6 @@ public abstract class AbstractAIXMTimeSliceType
             rhsField = that.getCorrectionNumber();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFeatureLifetime();
-            boolean rhsFieldIsSet = that.isSetFeatureLifetime();
-            DeloreanTimeSliceType lhsField;
-            lhsField = this.getFeatureLifetime();
-            DeloreanTimeSliceType rhsField;
-            rhsField = that.getFeatureLifetime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -559,6 +615,13 @@ public abstract class AbstractAIXMTimeSliceType
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureLifetime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = this.isSetApprovalStatus();
+            String theField;
+            theField = this.getApprovalStatus();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "approvalStatus", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -594,6 +657,12 @@ public abstract class AbstractAIXMTimeSliceType
             DeloreanTimeSliceType theField;
             theField = this.getFeatureLifetime();
             strategy.appendField(locator, this, "featureLifetime", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetApprovalStatus();
+            String theField;
+            theField = this.getApprovalStatus();
+            strategy.appendField(locator, this, "approvalStatus", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

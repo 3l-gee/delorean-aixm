@@ -382,19 +382,6 @@ public class ObstaclePlacementType
         }
         final ObstaclePlacementType that = ((ObstaclePlacementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetObstacleDistance();
-            boolean rhsFieldIsSet = that.isSetObstacleDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getObstacleDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getObstacleDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointType();
             boolean rhsFieldIsSet = that.isSetPointType();
             JAXBElement<TextNameType> lhsField;
@@ -408,6 +395,19 @@ public class ObstaclePlacementType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetObstacleDistance();
+            boolean rhsFieldIsSet = that.isSetObstacleDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getObstacleDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getObstacleDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetObstacleBearing();
             boolean rhsFieldIsSet = that.isSetObstacleBearing();
             JAXBElement<ValBearingType> lhsField;
@@ -416,19 +416,6 @@ public class ObstaclePlacementType
             rhsField = that.getObstacleBearing();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleBearing", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetObstaclePlacement();
-            boolean rhsFieldIsSet = that.isSetObstaclePlacement();
-            JAXBElement<CodeSideType> lhsField;
-            lhsField = this.getObstaclePlacement();
-            JAXBElement<CodeSideType> rhsField;
-            rhsField = that.getObstaclePlacement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstaclePlacement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstaclePlacement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,6 +442,19 @@ public class ObstaclePlacementType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetObstaclePlacement();
+            boolean rhsFieldIsSet = that.isSetObstaclePlacement();
+            JAXBElement<CodeSideType> lhsField;
+            lhsField = this.getObstaclePlacement();
+            JAXBElement<CodeSideType> rhsField;
+            rhsField = that.getObstaclePlacement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstaclePlacement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstaclePlacement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

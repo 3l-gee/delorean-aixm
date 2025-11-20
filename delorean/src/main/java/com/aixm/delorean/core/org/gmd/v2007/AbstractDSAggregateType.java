@@ -259,6 +259,19 @@ public abstract class AbstractDSAggregateType
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSubset();
+            boolean rhsFieldIsSet = that.isSetSubset();
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (this.isSetSubset()?this.getSubset():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (that.isSetSubset()?that.getSubset():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSeriesMetadata();
             boolean rhsFieldIsSet = that.isSetSeriesMetadata();
             List<MDMetadataPropertyType> lhsField;
@@ -280,19 +293,6 @@ public abstract class AbstractDSAggregateType
             rhsField = (that.isSetSuperset()?that.getSuperset():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSubset();
-            boolean rhsFieldIsSet = that.isSetSubset();
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (this.isSetSubset()?this.getSubset():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (that.isSetSubset()?that.getSubset():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

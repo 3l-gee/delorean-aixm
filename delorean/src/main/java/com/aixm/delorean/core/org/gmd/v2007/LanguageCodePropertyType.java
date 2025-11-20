@@ -133,19 +133,6 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
         }
         final LanguageCodePropertyType that = ((LanguageCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLanguageCode();
-            boolean rhsFieldIsSet = that.isSetLanguageCode();
-            CodeListValueType lhsField;
-            lhsField = this.getLanguageCode();
-            CodeListValueType rhsField;
-            rhsField = that.getLanguageCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "languageCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "languageCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -154,6 +141,19 @@ public class LanguageCodePropertyType implements Serializable, Equals, HashCode,
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLanguageCode();
+            boolean rhsFieldIsSet = that.isSetLanguageCode();
+            CodeListValueType lhsField;
+            lhsField = this.getLanguageCode();
+            CodeListValueType rhsField;
+            rhsField = that.getLanguageCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "languageCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "languageCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
