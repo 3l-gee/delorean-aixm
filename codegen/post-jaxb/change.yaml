@@ -294,3 +294,10 @@ change:
           '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)',
           '@jakarta.persistence.JoinColumn(name = "usage_condition_id", referencedColumnName = "hjid")'
         ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\MessageMetadataPropertyType.java
+      method: getMdMetadata 
+    updates:
+      - old: Transient
+        new: ['@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")']

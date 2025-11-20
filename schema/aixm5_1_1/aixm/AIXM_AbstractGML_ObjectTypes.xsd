@@ -264,8 +264,8 @@
 			<extension base="gml:AbstractMetadataPropertyType">
 				<sequence minOccurs="0">
 					<!-- delorean aixm hyper jaxb codegen limitation -->
-					<element ref="gmd:MD_Metadata"/>
-					<!-- <element name="messageMetadata" type="string"/> -->
+					<!-- <element ref="gmd:MD_Metadata"/> -->
+					<element name="mdMetadata" type="string"/>
 				</sequence>
 			</extension>
 		</complexContent>

@@ -23,3 +23,4 @@ delete:
   - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter7.java
   - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLTypeAnyItem.java
   - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter8.java

@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
 
     <name>delorean-parent</name>
+    <!-- <name>delorean-aixm</name> -->
 
     <modules>
         <module>delorean</module>
