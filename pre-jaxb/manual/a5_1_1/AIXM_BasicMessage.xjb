@@ -9,7 +9,7 @@
     xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">
-    <jaxb:bindings schemaLocation="../aixm/AIXM_BasicMessage.xsd" node="/xs:schema">
+    <jaxb:bindings schemaLocation="./AIXM_BasicMessage.xsd" node="/xs:schema">
         <jaxb:bindings node="manual">
             <jaxb:bindings node="//xs:complexType[@name='AIXMBasicMessageType']">
                 <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlRootElement</annox:annotate>

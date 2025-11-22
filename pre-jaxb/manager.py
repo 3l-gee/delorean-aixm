@@ -5,7 +5,7 @@ from lib.content import Content
 
 
 
-View(yaml_path="codegen/pre-jaxb/view.yaml")
+View(yaml_path="pre-jaxb/view.yaml")
 
 config = {
     "ignore": [
@@ -99,38 +99,38 @@ config = {
         "AbstractDirectFlightType",
         "AbstractPropertiesWithScheduleType",
     ],
-    "output_path": "schema/aixm5_1_1/binding/aixm.xjb",
+    "output_path": "delorean-aixm-511/src/main/schema",
     "version" : "a5_1_1",
 }
 
 feature = {
-    "name" : "../aixm/AIXM_Features",
-    "path" : "schema/aixm5_1_1/aixm/AIXM_Features.xsd",
+    "name" : "./AIXM_Features",
+    "path" : "delorean-aixm-511/src/main/schema/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
-    "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm",
-    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_Features.xjb"
+    "package" : "com.aixm.delorean.aixm511",
+    "manual" : "pre-jaxb/manual/a5_1_1/AIXM_Features.xjb"
 }
 
 data_types = {
-    "name" : "../aixm/AIXM_DataTypes",
-    "path" : "schema/aixm5_1_1/aixm/AIXM_DataTypes.xsd",
+    "name" : "./AIXM_DataTypes",
+    "path" : "delorean-aixm-511/src/main/schema/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
-    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_DataTypes.xjb"
+    "manual" : "pre-jaxb/manual/a5_1_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
-    "name" : "../aixm/AIXM_AbstractGML_ObjectTypes",
-    "path" : "schema/aixm5_1_1/aixm/AIXM_AbstractGML_ObjectTypes.xsd",
+    "name" : "./AIXM_AbstractGML_ObjectTypes",
+    "path" : "delorean-aixm-511/src/main/schema/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
-    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
+    "manual" : "pre-jaxb/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
-    "name" : "../aixm/message/AIXM_BasicMessage",
-    "path" : "schema/aixm5_1_1/aixm/message/AIXM_BasicMessage.xsd",
+    "name" : "./message/AIXM_BasicMessage",
+    "path" : "delorean-aixm-511/src/main/schema/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
-    "package" : "com.aixm.delorean.core.schema.a5_1_1.aixm.message",
-    "manual" : "codegen/pre-jaxb/manual/a5_1_1/AIXM_BasicMessage.xjb"
+    "package" : "com.aixm.delorean.aixm511.schema.message",
+    "manual" : "pre-jaxb/manual/a5_1_1/AIXM_BasicMessage.xjb"
 }
 
 

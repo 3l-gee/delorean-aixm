@@ -26,6 +26,25 @@
         </developer>
     </developers>
 
+    <properties>
+		<maven-min.version>3.9.0</maven-min.version>
+		<annotation.version>2.1.1</annotation.version>
+		<eclipselink.version>4.0.2</eclipselink.version>
+		<hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
+		<hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+		<h2database.version>2.2.224</h2database.version>
+		<postgresql.version>42.7.3</postgresql.version>
+        <postgis.version>2025.1.1</postgis.version>
+        <hikaricp.version>7.0.2</hikaricp.version>
+        <hibernate.version>7.1.0.Final</hibernate.version>
+		<jpa-api.version>3.2.0</jpa-api.version>
+		<slf4j.version>2.0.12</slf4j.version>
+        <jts.version>1.20.0</jts.version>
+        <proj4.version>1.4.1</proj4.version>
+        <freemarker.version>2.3.34</freemarker.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+	</properties>
+
     <modules>
         <module>delorean</module>
         <module>codegen/post-jaxb</module>
@@ -34,9 +53,9 @@
     <!-- <modules>
         <module>delorean-core</module>
         <module>pre-jaxb</module>
-        <module>delorean-aixm-5.1</module>
-        <module>delorean-aixm-5.1.1</module>
-        <module>delorean-aixm-5.2</module>
+        <module>delorean-aixm-51</module>
+        <module>delorean-aixm-511</module>
+        <module>delorean-aixm-52</module>
         <module>post-jaxb</module>
     </modules> -->
 

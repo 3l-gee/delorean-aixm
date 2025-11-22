@@ -10,7 +10,7 @@
     xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
     jaxb:extensionBindingPrefixes="xjc annox hj orm">¨
 
-  <jaxb:bindings schemaLocation="../aixm/AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
+  <jaxb:bindings schemaLocation="./AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
         <jaxb:bindings node="manual">
             <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageBaseType']">
                 <hj:mapped-superclass/>

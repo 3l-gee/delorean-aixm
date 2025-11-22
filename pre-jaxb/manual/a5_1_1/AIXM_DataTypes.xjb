@@ -10,7 +10,7 @@
 	xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
 	jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-  	<jaxb:bindings schemaLocation="../aixm/AIXM_DataTypes.xsd" node="/xs:schema">
+  	<jaxb:bindings schemaLocation="./AIXM_DataTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="manual">
 		</jaxb:bindings>
   	</jaxb:bindings>

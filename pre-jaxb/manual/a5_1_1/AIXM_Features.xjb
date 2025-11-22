@@ -10,7 +10,7 @@
 	version="3.0"
 	jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-	<jaxb:bindings schemaLocation="../aixm/AIXM_Features.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="./AIXM_Features.xsd" node="/xs:schema">
 		<jaxb:bindings node="manual">
 
 			<jaxb:globalBindings
