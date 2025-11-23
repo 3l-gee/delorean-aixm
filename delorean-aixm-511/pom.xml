@@ -117,7 +117,7 @@
 
         <!-- Test Dependencies -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>^
+            <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.10.2</version>
             <scope>test</scope>
@@ -197,7 +197,7 @@
                 </configuration>
             </plugin>
 
-            <!-- HiSrc HyperJAXB Code Generation -->
+            <!-- HiSrc HyperJAXB Code Generation for AIXM 5.1.1 -->
             <plugin>
                 <groupId>org.patrodyne.jvnet</groupId>
                 <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
@@ -211,7 +211,7 @@
                 </dependencies>
                 <executions>
                     <execution>
-                        <id>generate aixm 5.1.1</id>
+                        <id>generate aixm 511 bindings</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
@@ -219,15 +219,23 @@
                         <configuration>
                             <noFileHeader>true</noFileHeader>
                             <extension>true</extension>
-                            <schemaDirectory>${project.parent.basedir}/schema/aixm5_1_1/aixm/message</schemaDirectory>
+
+                            <schemaDirectory>${project.basedir}/src/main/schema/message</schemaDirectory>
                             <schemaIncludes>
                                 <include>AIXM_BasicMessage.xsd</include>
                             </schemaIncludes>
-                            <bindingDirectory>${project.parent.basedir}/schema/aixm5_1_1/binding</bindingDirectory>
+
+                            <bindingDirectory>${project.basedir}/src/main/schema/bindings</bindingDirectory>
                             <bindingIncludes>
                                 <include>*.xjb</include>
                             </bindingIncludes>
+
                             <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+
+                            <args>
+                                <arg>-episode</arg>
+                                <arg>${project.parent.basedir}/delorean-core/target/sun-jaxb.episode</arg>
+                            </args>
                         </configuration>
                     </execution>
                 </executions>
@@ -246,12 +254,10 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>com.util.postjaxb.PostJAXBCodegenFix</mainClass>
-                            <systemProperties>
-                                <systemProperty>
-                                    <key>project.root</key>
-                                    <value>${project.parent.basedir}</value>
-                                </systemProperty>
+                            <mainClass>com.aixm.delorean.postjaxb.PostJAXBCodegenFix</mainClass>
+                            <arguments>
+                                <argument>${project.basedir}/src/main/post-jaxb/aixm511-post-jaxb-config.yaml</argument>
+                            </arguments>
                             </systemProperties>
                         </configuration>
                     </execution>
@@ -365,120 +371,5 @@
             </plugin>
         </plugins>
 	</build>
-
-<profiles>
-
-        <profile>
-            <id>hyper-jaxb</id>
-            <build>
-                <plugins>
-                    <!-- <plugin>
-                        <groupId>org.patrodyne.jvnet</groupId>
-                        <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.patrodyne.jvnet</groupId>
-                                <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                                <version>${hisrc-hyperjaxb.version}</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-  
-                        </executions>
-                    </plugin> -->
-                    <plugin>
-                        <groupId>org.patrodyne.jvnet</groupId>
-                        <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.patrodyne.jvnet</groupId>
-                                <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                                <version>${hisrc-hyperjaxb.version}</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>aixm 511 bindings</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <noFileHeader>true</noFileHeader>
-                                    <extension>true</extension>
-                                    <bindingDirectory>${session.executionRootDirectory}/schema</bindingDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${session.executionRootDirectory}/schema</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>post-jaxb-fix</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>java</goal>
-                                </goals>
-                                <configuration>
-                                    <mainClass>com.util.postjaxb.PostJAXBCodegenFix</mainClass>
-                                    <systemProperties>
-                                        <systemProperty>
-                                            <key>project.root</key>
-                                            <value>${project.parent.basedir}</value>
-                                        </systemProperty>
-                                    </systemProperties>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.diffplug.spotless</groupId>
-                        <artifactId>spotless-maven-plugin</artifactId>
-                        <version>2.43.0</version>
-                        <executions>
-                            <execution>
-                                <id>format-generated-sources</id>
-                                <goals>
-                                    <goal>apply</goal> 
-                                </goals>
-                                <phase>process-sources</phase> 
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <java>
-                                <includes>
-                                    <include>${session.executionRootDirectory}/java/com/aixm/delorean/aixm /**/*.java</include>
-                                </includes>
-                                <googleJavaFormat>
-                                    <version>1.17.0</version>
-                                </googleJavaFormat>
-                                <indent>
-                                    <spaces>true</spaces>
-                                    <spacesPerTab>4</spacesPerTab> 
-                                </indent>
-                                <endWithNewline/>
-                                <trimTrailingWhitespace/>
-                                <removeUnusedImports/>
-                                <importOrder/>
-                            </java>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
 

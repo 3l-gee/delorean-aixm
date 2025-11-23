@@ -99,34 +99,34 @@ config = {
         "AbstractDirectFlightType",
         "AbstractPropertiesWithScheduleType",
     ],
-    "output_path": "delorean-aixm-511/src/main/schema",
+    "output_path": "delorean-aixm-511/src/main/schema/bindings/aixm.xjb",
     "version" : "a5_1_1",
 }
 
 feature = {
-    "name" : "./AIXM_Features",
+    "name" : "../AIXM_Features",
     "path" : "delorean-aixm-511/src/main/schema/AIXM_Features.xsd",
     "strategy" : Strategy.feature,
-    "package" : "com.aixm.delorean.aixm511",
+    "package" : "com.aixm.delorean.aixm511.schema",
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_Features.xjb"
 }
 
 data_types = {
-    "name" : "./AIXM_DataTypes",
+    "name" : "../AIXM_DataTypes",
     "path" : "delorean-aixm-511/src/main/schema/AIXM_DataTypes.xsd",
     "strategy" : Strategy.data_type,
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_DataTypes.xjb"
 }
 
 abstract = {
-    "name" : "./AIXM_AbstractGML_ObjectTypes",
+    "name" : "../AIXM_AbstractGML_ObjectTypes",
     "path" : "delorean-aixm-511/src/main/schema/AIXM_AbstractGML_ObjectTypes.xsd",
     "strategy" : Strategy.abstract,
     "manual" : "pre-jaxb/manual/a5_1_1/AIXM_AbstractGML_ObjectTypes.xjb"
 }
 
 message = {
-    "name" : "./message/AIXM_BasicMessage",
+    "name" : "../message/AIXM_BasicMessage",
     "path" : "delorean-aixm-511/src/main/schema/message/AIXM_BasicMessage.xsd",
     "strategy" : Strategy.other,
     "package" : "com.aixm.delorean.aixm511.schema.message",

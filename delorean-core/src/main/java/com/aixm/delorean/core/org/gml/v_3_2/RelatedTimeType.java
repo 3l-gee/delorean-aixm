@@ -1,0 +1,138 @@
+
+package com.aixm.delorean.core.org.gml.v_3_2;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlType;
+import org.jvnet.basicjaxb.lang.EqualsStrategy;
+import org.jvnet.basicjaxb.lang.HashCodeStrategy;
+import org.jvnet.basicjaxb.lang.ToStringStrategy;
+import org.jvnet.basicjaxb.locator.ObjectLocator;
+import org.jvnet.basicjaxb.locator.util.LocatorUtils;
+
+
+/**
+ * gml:RelatedTimeType provides a content model for indicating the relative position of an arbitrary member of the substitution group whose head is gml:AbstractTimePrimitive. It extends the generic gml:TimePrimitivePropertyType with an XML attribute relativePosition, whose value is selected from the set of 13 temporal relationships identified by Allen (1983)
+ * 
+ * <p>Java class for RelatedTimeType complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
+ * <pre>{@code
+ * <complexType name="RelatedTimeType">
+ *   <complexContent>
+ *     <extension base="{http://www.opengis.net/gml/3.2}TimePrimitivePropertyType">
+ *       <attribute name="relativePosition">
+ *         <simpleType>
+ *           <restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *             <enumeration value="Before"/>
+ *             <enumeration value="After"/>
+ *             <enumeration value="Begins"/>
+ *             <enumeration value="Ends"/>
+ *             <enumeration value="During"/>
+ *             <enumeration value="Equals"/>
+ *             <enumeration value="Contains"/>
+ *             <enumeration value="Overlaps"/>
+ *             <enumeration value="Meets"/>
+ *             <enumeration value="OverlappedBy"/>
+ *             <enumeration value="MetBy"/>
+ *             <enumeration value="BegunBy"/>
+ *             <enumeration value="EndedBy"/>
+ *           </restriction>
+ *         </simpleType>
+ *       </attribute>
+ *     </extension>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "RelatedTimeType")
+public class RelatedTimeType
+    extends TimePrimitivePropertyType
+{
+
+    @XmlAttribute(name = "relativePosition")
+    protected String relativePosition;
+
+    /**
+     * Gets the value of the relativePosition property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRelativePosition() {
+        return relativePosition;
+    }
+
+    /**
+     * Sets the value of the relativePosition property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRelativePosition(String value) {
+        this.relativePosition = value;
+    }
+
+    @Override
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
+        if ((object == null)||(this.getClass()!= object.getClass())) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
+        }
+        final RelatedTimeType that = ((RelatedTimeType) object);
+        {
+            boolean lhsFieldIsSet = (this.relativePosition!= null);
+            boolean rhsFieldIsSet = (that.relativePosition!= null);
+            String lhsField;
+            lhsField = this.getRelativePosition();
+            String rhsField;
+            rhsField = that.getRelativePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relativePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relativePosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
+        int currentHashCode = super.hashCode(locator, strategy);
+        {
+            boolean theFieldIsSet = (this.relativePosition!= null);
+            String theField;
+            theField = this.getRelativePosition();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "relativePosition", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        return currentHashCode;
+    }
+
+    @Override
+    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
+        super.appendFields(locator, buffer, strategy);
+        {
+            boolean theFieldIsSet = (this.relativePosition!= null);
+            String theField;
+            theField = this.getRelativePosition();
+            strategy.appendField(locator, this, "relativePosition", buffer, theField, theFieldIsSet);
+        }
+        return buffer;
+    }
+
+}

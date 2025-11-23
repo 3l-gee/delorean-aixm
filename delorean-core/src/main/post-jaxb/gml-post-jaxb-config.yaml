@@ -1,0 +1,103 @@
+copy:
+
+change:
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractTimeSliceType.java
+      method: getValidTime 
+    updates:
+      - old: Transient
+        new: [
+          '@jakarta.persistence.Embedded',
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")),@jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end"))})'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      method: getDescription 
+    updates:
+      - old: AttributeOverrides
+        new: [
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "description")),@jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "description_nilReason")),@jakarta.persistence.AttributeOverride(name = "href", column = @jakarta.persistence.Column(name = "description_href"))})'
+        ]
+
+  - where: 
+      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      method: getIdentifier 
+    updates:
+      - old:
+        new: [
+          '@jakarta.persistence.AttributeOverrides({@jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")),@jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace"))})'
+        ]
+
+delete:
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
+  - filePath: delorean\src\main\java\org\w3\_2001\xmlschema\Adapter1.java
+  - filePath: delorean\src\main\java\org\w3\_2001\xmlschema\Adapter2.java
+
+regex:
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java
+    regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\(Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
+    replacement: |
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.isotc211.org/2005/gco", 
+        xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gco", namespaceURI = "http://www.isotc211.org/2005/gco")},
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gco.v2007;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.isotc211.org/2005/gmd", 
+        xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gmd", namespaceURI = "http://www.isotc211.org/2005/gmd")},
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gmd.v2007;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.opengis.net/gml/3.2", 
+        xmlns = {
+          @jakarta.xml.bind.annotation.XmlNs(prefix = "gml", namespaceURI = "http://www.opengis.net/gml/3.2"),
+          @jakarta.xml.bind.annotation.XmlNs(prefix = "xlink", namespaceURI = "http://www.w3.org/1999/xlink")
+        },
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gml.v_3_2;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.isotc211.org/2005/gsr", 
+        xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gsr", namespaceURI = "http://www.isotc211.org/2005/gsr")},
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gsr.v2007;
+
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.isotc211.org/2005/gss", 
+        xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gss", namespaceURI = "http://www.isotc211.org/2005/gss")},
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gss.v2007;
+      
+  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
+    regex: "(?s)^.*$"
+    replacement: |
+      @jakarta.xml.bind.annotation.XmlSchema(
+        namespace = "http://www.isotc211.org/2005/gts", 
+        xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gts", namespaceURI = "http://www.isotc211.org/2005/gts")},
+        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
+      )
+      package com.aixm.delorean.core.org.gts.v2007;

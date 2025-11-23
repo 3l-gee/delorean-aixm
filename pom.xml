@@ -27,6 +27,11 @@
     </developers>
 
     <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
 		<maven-min.version>3.9.0</maven-min.version>
 		<annotation.version>2.1.1</annotation.version>
 		<eclipselink.version>4.0.2</eclipselink.version>
@@ -44,26 +49,19 @@
         <freemarker.version>2.3.34</freemarker.version>
         <mapstruct.version>1.6.3</mapstruct.version>
 	</properties>
-
+<!-- 
     <modules>
         <module>delorean</module>
         <module>codegen/post-jaxb</module>
-    </modules>
-
-    <!-- <modules>
-        <module>delorean-core</module>
-        <module>pre-jaxb</module>
-        <module>delorean-aixm-51</module>
-        <module>delorean-aixm-511</module>
-        <module>delorean-aixm-52</module>
-        <module>post-jaxb</module>
     </modules> -->
 
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+    <modules>
+        <module>post-jaxb</module>
+        <module>delorean-core</module>
+        <!-- <module>pre-jaxb</module> -->
+        <!-- <module>delorean-aixm-51</module> -->
+        <module>delorean-aixm-511</module>
+        <!-- <module>delorean-aixm-52</module> -->
+    </modules>
     
 </project>

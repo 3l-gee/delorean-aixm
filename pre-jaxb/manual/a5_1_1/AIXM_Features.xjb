@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jaxb:bindings
+	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
 	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -10,7 +11,7 @@
 	version="3.0"
 	jaxb:extensionBindingPrefixes="xjc annox hj orm">
 
-	<jaxb:bindings schemaLocation="./AIXM_Features.xsd" node="/xs:schema">
+	<jaxb:bindings schemaLocation="../AIXM_Features.xsd" node="/xs:schema">
 		<jaxb:bindings node="manual">
 
 			<jaxb:globalBindings
