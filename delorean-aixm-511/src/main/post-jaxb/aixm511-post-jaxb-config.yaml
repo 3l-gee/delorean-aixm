@@ -1,10 +1,6 @@
-copy:
-  - from: codegen\post-jaxb\files\XHTMLType.java
-    to: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java
-
 change:
   - where:
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\BasicMessageMemberAIXMPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\message\BasicMessageMemberAIXMPropertyType.java
       method: getAbstractAIXMFeatureValue
     updates:
       - old: JoinTable
@@ -13,7 +9,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMTimeSliceType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AbstractAIXMTimeSliceType.java
       method: getFeatureLifetime 
     updates:
       - old: Transient
@@ -23,7 +19,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMTimeSliceType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AbstractAIXMTimeSliceType.java
       method: getTimeSliceMetadata 
     updates:
       - old: ManyToOne
@@ -35,7 +31,7 @@ change:
         ]
         
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMPointPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMPointPropertyType.java
       method: getPoint 
     updates:
       - old: Transient
@@ -43,7 +39,7 @@ change:
           - '@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)'
           - '@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")'
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedPointPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMElevatedPointPropertyType.java
       method: getElevatedPoint
     updates:
       - old: Transient
@@ -53,7 +49,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMCurvePropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMCurvePropertyType.java
       method: getCurve 
     updates:
       - old: Transient
@@ -63,7 +59,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedCurvePropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMElevatedCurvePropertyType.java
       method: getElevatedCurve 
     updates:
       - old: Transient
@@ -73,7 +69,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMSurfacePropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMSurfacePropertyType.java
       method: getSurface 
     updates:
       - old: Transient
@@ -83,7 +79,7 @@ change:
         ]   
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AIXMElevatedSurfacePropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AIXMElevatedSurfacePropertyType.java
       method: getElevatedSurface 
     updates:
       - old: Transient
@@ -93,7 +89,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateTimeType.java
       field: value 
     updates:
       - old: XmlValue
@@ -105,7 +101,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateTimeType.java
       method: getValue 
     updates:
       - old: Transient
@@ -114,7 +110,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateType.java
       field: value 
     updates:
       - old: XmlValue
@@ -126,7 +122,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateType.java
       method: getValue 
     updates:
       - old: Transient
@@ -135,7 +131,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\AbstractAIXMFeatureType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\AbstractAIXMFeatureType.java
       method: getFeatureMetadata 
     updates:
       - old: ManyToOne
@@ -147,7 +143,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\SegmentPointPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\SegmentPointPropertyType.java
       method: getAbstractSegmentPointValue 
     updates:
       - old: ManyToOne
@@ -159,7 +155,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DirectFlightPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DirectFlightPropertyType.java
       method: getAbstractDirectFlightValue 
     updates:
       - old: ManyToOne
@@ -171,7 +167,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\PropertiesWithSchedulePropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\PropertiesWithSchedulePropertyType.java
       method: getAbstractPropertiesWithScheduleValue 
     updates:
       - old: ManyToOne
@@ -183,7 +179,7 @@ change:
         ]
         
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\SurfaceContaminationPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\SurfaceContaminationPropertyType.java
       method: getAbstractSurfaceContaminationValue 
     updates:
       - old: ManyToOne
@@ -195,7 +191,7 @@ change:
         ]
         
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\UsageConditionPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\UsageConditionPropertyType.java
       method: getAbstractUsageConditionValue 
     updates:
       - old: ManyToOne
@@ -207,7 +203,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\MessageMetadataPropertyType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\MessageMetadataPropertyType.java
       method: getMdMetadata 
     updates:
       - old: Transient
@@ -217,19 +213,19 @@ change:
           ]
 
 delete:
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter1.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter2.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter3.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter4.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter5.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter6.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter7.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLTypeAnyItem.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter8.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter1.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter2.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter3.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter4.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter5.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter6.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter7.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\XHTMLTypeAnyItem.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\XHTMLType.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter8.java
 
 regex:
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\message\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -239,7 +235,7 @@ regex:
       )
       package com.aixm.delorean.core.schema.a5_1_1.aixm.message;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -249,10 +245,14 @@ regex:
       )
       package com.aixm.delorean.core.schema.a5_1_1.aixm;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateTimeType.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateTimeType.java
     regex: import org.w3._2001.xmlschema.Adapter1;
     replacement: |
   
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\DateType.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateType.java
     regex: import org.w3._2001.xmlschema.Adapter2;
     replacement: |
+
+copy:
+  # - from: codegen\post-jaxb\files\XHTMLType.java
+  #   to: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java

@@ -17,6 +17,12 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- Delorean core -->
+        <dependency>
+            <groupId>com.aixm.delorean</groupId>
+            <artifactId>delorean-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
         <!-- JPA Dependencies -->
         <dependency>
@@ -155,9 +161,9 @@
 
         <!-- Post-JAXB Codegen Fix Utility -->
         <dependency>
-            <groupId>com.util</groupId>
-            <artifactId>post-jaxb-fix</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.aixm.delorean</groupId>
+            <artifactId>post-jaxb</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!-- JSON serialisation-->
@@ -204,6 +210,11 @@
                 <version>${hisrc-hyperjaxb.version}</version>
                 <dependencies>
                     <dependency>
+                        <groupId>com.aixm.delorean</groupId>
+                        <artifactId>delorean-core</artifactId>
+                        <version>${project.parent.version}</version>
+                    </dependency>
+                    <dependency>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
                         <version>${hisrc-hyperjaxb.version}</version>
@@ -219,23 +230,22 @@
                         <configuration>
                             <noFileHeader>true</noFileHeader>
                             <extension>true</extension>
-
                             <schemaDirectory>${project.basedir}/src/main/schema/message</schemaDirectory>
                             <schemaIncludes>
                                 <include>AIXM_BasicMessage.xsd</include>
                             </schemaIncludes>
-
                             <bindingDirectory>${project.basedir}/src/main/schema/bindings</bindingDirectory>
                             <bindingIncludes>
                                 <include>*.xjb</include>
                             </bindingIncludes>
-
                             <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-
-                            <args>
-                                <arg>-episode</arg>
-                                <arg>${project.parent.basedir}/delorean-core/target/sun-jaxb.episode</arg>
-                            </args>
+                            <episodes>
+                                <episode>
+                                    <groupId>com.aixm.delorean</groupId>
+                                    <artifactId>delorean-core</artifactId>
+                                    <version>${project.parent.version}</version>
+                                </episode>
+                            </episodes>
                         </configuration>
                     </execution>
                 </executions>
@@ -258,7 +268,6 @@
                             <arguments>
                                 <argument>${project.basedir}/src/main/post-jaxb/aixm511-post-jaxb-config.yaml</argument>
                             </arguments>
-                            </systemProperties>
                         </configuration>
                     </execution>
                 </executions>

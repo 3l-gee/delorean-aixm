@@ -190,9 +190,9 @@
 
         <!-- Post-JAXB Codegen Fix Utility -->
         <dependency>
-            <groupId>com.util</groupId>
-            <artifactId>post-jaxb-fix</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.aixm.delorean</groupId>
+            <artifactId>post-jaxb</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         
         <!-- JSON serialisation-->
@@ -255,7 +255,7 @@
                         <configuration>
                             <noFileHeader>true</noFileHeader>
                             <extension>true</extension>
-
+                            <episode>true</episode>
                             <schemaDirectory>${project.basedir}/src/main/schema/gml/3.2.1/</schemaDirectory>
                             <schemaIncludes>
                                 <include>gml.xsd</include>
@@ -265,10 +265,7 @@
                                 <include>*.xjb</include>
                             </bindingIncludes>
                             <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                            <!-- <args>
-                                <arg>-episode</arg>
-                                <arg>${project.parent.basedir}/delorean-core/target/sun-jaxb.episode</arg>
-                            </args> -->
+                            <episodeFile>${project.build.outputDirectory}/META-INF/sun-jaxb.episode</episodeFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -282,7 +279,7 @@
                 <executions>
                     <execution>
                         <id>post-jaxb</id>
-                        <phase>process-classes</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
@@ -313,7 +310,7 @@
                 <configuration>
                     <java>
                         <includes>
-                            <include>${project.basedir}/src/main/java/com/aixm/delorean/core/schema/**/*.java</include>
+                            <include>${project.basedir}/src/main/java/com/aixm/delorean/**/*.java</include>
                         </includes>
                         <googleJavaFormat>
                             <version>1.17.0</version>

@@ -42,25 +42,25 @@ public class PostJAXBCodegenFix {
         PostJAXBConfig postConfig = loadYaml(configYamlPath.toString(), PostJAXBConfig.class);
         
         if (postConfig.getChange() != null) {
-            applyAllChanges(postConfig.getChange().getChange(), config);
+            applyAllChanges(postConfig.getChange(), config);
         } else {
             System.out.println("[WARN] No changes defined in YAML");
         }
 
         if (postConfig.getDelete() != null) {
-            applyAllDeletes(postConfig.getDelete().getDelete());
+            applyAllDeletes(postConfig.getDelete());
         } else {
             System.out.println("[WARN] No deletes defined in YAML");
         }
 
         if (postConfig.getRegex() != null) {
-            applyAllRegexChanges(postConfig.getRegex().getRegex());
+            applyAllRegexChanges(postConfig.getRegex());
         } else {
             System.out.println("[WARN] No regex patterns defined in YAML");
         }
 
         if (postConfig.getCopy() != null) {
-            applyAllCopyChanges(postConfig.getCopy().getCopy());
+            applyAllCopyChanges(postConfig.getCopy());
         } else {
             System.out.println("[WARN] No copy operations defined in YAML");
         }
@@ -72,6 +72,7 @@ public class PostJAXBCodegenFix {
     private static void applyAllCopyChanges(List<Copy> copies) throws IOException {
         if (copies == null || copies.isEmpty()) return;
 
+        int successful = 0;
         for (Copy copy : copies) {
             Path fromPath = Paths.get(copy.getFrom());
             Path toPath = Paths.get(copy.getTo());
@@ -80,6 +81,7 @@ public class PostJAXBCodegenFix {
                 if (Files.exists(fromPath)) {
                     Files.createDirectories(toPath.getParent());
                     Files.copy(fromPath, toPath);
+                    successful++;
                 } else {
                     System.out.println("[WARNING] Source file not found for copy: " + copy.getFrom());
                 }
@@ -88,7 +90,7 @@ public class PostJAXBCodegenFix {
             }
         }
 
-        System.out.println("[INFO] " + copies.size() + " Copy operations completed.");
+        System.out.println("[INFO] " + successful + "/" + copies.size() + " files copied successfully.");
     }
 
     private static void applyAllChanges(List<Change> changes, ParserConfiguration config) throws IOException {
@@ -96,6 +98,7 @@ public class PostJAXBCodegenFix {
 
         JavaParser parser = new JavaParser(config);
 
+        int successful = 0;
         for (Change change : changes) {
             String filePathStr = change.getWhere().getFilePath();
             if (filePathStr == null || filePathStr.isEmpty()) continue;
@@ -124,12 +127,14 @@ public class PostJAXBCodegenFix {
                     Files.write(filePath, LexicalPreservingPrinter.print(cu).getBytes(StandardCharsets.UTF_8));
                 }
 
+                successful++;
+
             } catch (IOException e) {
                 System.err.println("[ERROR] Processing file " + filePath + ": " + e.getMessage());
             }
         }
 
-        System.out.println("[INFO] " + changes.size() + " Change operations completed.");
+        System.out.println("[INFO] " + successful + "/" + changes.size() + " change operations completed.");
 
     }
 
@@ -188,16 +193,17 @@ public class PostJAXBCodegenFix {
         }
     }
 
-
     private static void applyAllDeletes(List<Delete> deletes) {
         if (deletes == null || deletes.isEmpty()) return;
 
+        int successful = 0;
         for (Delete delete : deletes) {
             Path targetPath = Paths.get(delete.getFilePath());
             
             try {
                 if (Files.exists(targetPath)) {
                     Files.delete(targetPath);
+                    successful++;
                 } else {
                     System.out.println("[WARNING] File not found for deletion: " + delete.getFilePath());
                 }
@@ -206,12 +212,13 @@ public class PostJAXBCodegenFix {
             }
         }
 
-        System.out.println("[INFO] " + deletes.size() + " Delete operations completed.");
+        System.out.println("[INFO] " + successful + "/" + deletes.size() + " delete operations completed.");
     }
 
     private static void applyAllRegexChanges(List<Regex> regexChanges) {
         if (regexChanges == null) return;
 
+        int successful = 0;
         for (Regex change : regexChanges) {
             Path filePath = Paths.get(change.getFilePath());
 
@@ -226,13 +233,14 @@ public class PostJAXBCodegenFix {
 
                 if (!newContent.equals(content)) {
                     Files.writeString(filePath, newContent);
+                    successful++;
                 }
             } catch (IOException e) {
                 System.err.println("[ERROR] Regex change failed for " + filePath + ": " + e.getMessage());
             }
         }
 
-        System.out.println("[INFO] " + regexChanges.size() + " Regex operations completed.");
+        System.out.println("[INFO] " + successful + "/" + regexChanges.size() + " regex operations completed.");
     }
 
 

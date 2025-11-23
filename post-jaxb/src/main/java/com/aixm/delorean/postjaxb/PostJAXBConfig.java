@@ -1,42 +1,43 @@
 package com.aixm.delorean.postjaxb;
 
+import java.util.List;
 
 public class PostJAXBConfig {
-    private ChangeConfig change;
-    private DeleteConfig delete;
-    private RegexConfig regex;
-    private CopyConfig copy;
 
-    // Getters and setters
-    public ChangeConfig getChange() {
-         return change; 
+    private List<Change> change;
+    private List<Delete> delete;
+    private List<Regex> regex;
+    private List<Copy> copy;
+
+    public List<Change> getChange() {
+        return change;
     }
 
-    public void setChange(ChangeConfig change) {
-         this.change = change; 
+    public void setChange(List<Change> change) {
+        this.change = change;
     }
 
-    public DeleteConfig getDelete() { 
-        return delete; 
+    public List<Delete> getDelete() {
+        return delete;
     }
 
-    public void setDelete(DeleteConfig delete) { 
-        this.delete = delete; 
+    public void setDelete(List<Delete> delete) {
+        this.delete = delete;
     }
 
-    public RegexConfig getRegex() { 
-        return regex; 
+    public List<Regex> getRegex() {
+        return regex;
     }
 
-    public void setRegex(RegexConfig regex) {
-        this.regex = regex; 
+    public void setRegex(List<Regex> regex) {
+        this.regex = regex;
     }
 
-    public CopyConfig getCopy() {
-        return copy; 
+    public List<Copy> getCopy() {
+        return copy;
     }
 
-    public void setCopy(CopyConfig copy) {
+    public void setCopy(List<Copy> copy) {
         this.copy = copy;
     }
 }

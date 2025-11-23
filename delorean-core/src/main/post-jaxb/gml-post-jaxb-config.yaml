@@ -1,8 +1,6 @@
-copy:
-
 change:
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractTimeSliceType.java
+      filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractTimeSliceType.java
       method: getValidTime 
     updates:
       - old: Transient
@@ -12,7 +10,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
       method: getDescription 
     updates:
       - old: AttributeOverrides
@@ -30,16 +28,14 @@ change:
         ]
 
 delete:
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
-  - filePath: delorean\src\main\java\org\w3\_2001\xmlschema\Adapter1.java
-  - filePath: delorean\src\main\java\org\w3\_2001\xmlschema\Adapter2.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
 
 regex:
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java
     regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\(Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
     replacement: |
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -49,7 +45,7 @@ regex:
       )
       package com.aixm.delorean.core.org.gco.v2007;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -59,7 +55,7 @@ regex:
       )
       package com.aixm.delorean.core.org.gmd.v2007;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -72,7 +68,7 @@ regex:
       )
       package com.aixm.delorean.core.org.gml.v_3_2;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -82,7 +78,7 @@ regex:
       )
       package com.aixm.delorean.core.org.gsr.v2007;
 
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -92,7 +88,7 @@ regex:
       )
       package com.aixm.delorean.core.org.gss.v2007;
       
-  - filePath: delorean\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -101,3 +97,5 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gts.v2007;
+
+copy:

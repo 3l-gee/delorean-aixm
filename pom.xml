@@ -49,11 +49,6 @@
         <freemarker.version>2.3.34</freemarker.version>
         <mapstruct.version>1.6.3</mapstruct.version>
 	</properties>
-<!-- 
-    <modules>
-        <module>delorean</module>
-        <module>codegen/post-jaxb</module>
-    </modules> -->
 
     <modules>
         <module>post-jaxb</module>

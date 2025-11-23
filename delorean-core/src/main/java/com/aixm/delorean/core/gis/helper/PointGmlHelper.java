@@ -94,8 +94,8 @@ public class PointGmlHelper {
 
         } else if (point.getGeometricType() == GeometricType.GML) {
             PointType pointObj = printGMLPoint(point, PointType.class);
-            JAXBElement<PointType> pointElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Point"), PointType.class, pointObj);
-            pointProperty.setPoint(pointElement);
+            // JAXBElement<PointType> pointElement = new JAXBElement<>(new QName("http://www.opengis.net/gml/3.2", "Point"), PointType.class, pointObj);
+            pointProperty.setPoint(pointObj);
             return pointProperty;
 
         } else {
