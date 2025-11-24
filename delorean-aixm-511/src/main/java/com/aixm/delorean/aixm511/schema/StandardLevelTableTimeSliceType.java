@@ -289,14 +289,14 @@ public class StandardLevelTableTimeSliceType
         }
         final StandardLevelTableTimeSliceType that = ((StandardLevelTableTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<CodeLevelTableDesignatorType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<CodeLevelTableDesignatorType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            boolean lhsFieldIsSet = this.isSetStandardICAO();
+            boolean rhsFieldIsSet = that.isSetStandardICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getStandardICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getStandardICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,14 +315,14 @@ public class StandardLevelTableTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStandardICAO();
-            boolean rhsFieldIsSet = that.isSetStandardICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getStandardICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getStandardICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<CodeLevelTableDesignatorType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<CodeLevelTableDesignatorType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

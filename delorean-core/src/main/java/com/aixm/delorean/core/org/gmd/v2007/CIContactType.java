@@ -202,19 +202,6 @@ public class CIContactType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.contactInstructions!= null);
-            boolean rhsFieldIsSet = (that.contactInstructions!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getContactInstructions();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getContactInstructions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInstructions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInstructions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.phone!= null);
             boolean rhsFieldIsSet = (that.phone!= null);
             CITelephonePropertyType lhsField;
@@ -223,6 +210,19 @@ public class CIContactType
             rhsField = that.getPhone();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phone", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phone", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.onlineResource!= null);
+            boolean rhsFieldIsSet = (that.onlineResource!= null);
+            CIOnlineResourcePropertyType lhsField;
+            lhsField = this.getOnlineResource();
+            CIOnlineResourcePropertyType rhsField;
+            rhsField = that.getOnlineResource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -241,14 +241,14 @@ public class CIContactType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.onlineResource!= null);
-            boolean rhsFieldIsSet = (that.onlineResource!= null);
-            CIOnlineResourcePropertyType lhsField;
-            lhsField = this.getOnlineResource();
-            CIOnlineResourcePropertyType rhsField;
-            rhsField = that.getOnlineResource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onlineResource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onlineResource", rhsField);
+            boolean lhsFieldIsSet = (this.contactInstructions!= null);
+            boolean rhsFieldIsSet = (that.contactInstructions!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getContactInstructions();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getContactInstructions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInstructions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInstructions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

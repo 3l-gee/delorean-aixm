@@ -181,6 +181,32 @@ public class MDUsageType
         }
         final MDUsageType that = ((MDUsageType) object);
         {
+            boolean lhsFieldIsSet = (this.userDeterminedLimitations!= null);
+            boolean rhsFieldIsSet = (that.userDeterminedLimitations!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getUserDeterminedLimitations();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getUserDeterminedLimitations();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.specificUsage!= null);
+            boolean rhsFieldIsSet = (that.specificUsage!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSpecificUsage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSpecificUsage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.usageDateTime!= null);
             boolean rhsFieldIsSet = (that.usageDateTime!= null);
             DateTimePropertyType lhsField;
@@ -202,32 +228,6 @@ public class MDUsageType
             rhsField = (((that.userContactInfo!= null)&&(!that.userContactInfo.isEmpty()))?that.getUserContactInfo():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.specificUsage!= null);
-            boolean rhsFieldIsSet = (that.specificUsage!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSpecificUsage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSpecificUsage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.userDeterminedLimitations!= null);
-            boolean rhsFieldIsSet = (that.userDeterminedLimitations!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUserDeterminedLimitations();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUserDeterminedLimitations();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

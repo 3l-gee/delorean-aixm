@@ -320,32 +320,6 @@ public abstract class AbstractDQElementType
         }
         final AbstractDQElementType that = ((AbstractDQElementType) object);
         {
-            boolean lhsFieldIsSet = ((this.result!= null)&&(!this.result.isEmpty()));
-            boolean rhsFieldIsSet = ((that.result!= null)&&(!that.result.isEmpty()));
-            List<DQResultPropertyType> lhsField;
-            lhsField = (((this.result!= null)&&(!this.result.isEmpty()))?this.getResult():null);
-            List<DQResultPropertyType> rhsField;
-            rhsField = (((that.result!= null)&&(!that.result.isEmpty()))?that.getResult():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.measureIdentification!= null);
-            boolean rhsFieldIsSet = (that.measureIdentification!= null);
-            MDIdentifierPropertyType lhsField;
-            lhsField = this.getMeasureIdentification();
-            MDIdentifierPropertyType rhsField;
-            rhsField = that.getMeasureIdentification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureIdentification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureIdentification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.evaluationMethodDescription!= null);
             boolean rhsFieldIsSet = (that.evaluationMethodDescription!= null);
             CharacterStringPropertyType lhsField;
@@ -372,27 +346,14 @@ public abstract class AbstractDQElementType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.dateTime!= null)&&(!this.dateTime.isEmpty()));
-            boolean rhsFieldIsSet = ((that.dateTime!= null)&&(!that.dateTime.isEmpty()));
-            List<DateTimePropertyType> lhsField;
-            lhsField = (((this.dateTime!= null)&&(!this.dateTime.isEmpty()))?this.getDateTime():null);
-            List<DateTimePropertyType> rhsField;
-            rhsField = (((that.dateTime!= null)&&(!that.dateTime.isEmpty()))?that.getDateTime():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.evaluationMethodType!= null);
-            boolean rhsFieldIsSet = (that.evaluationMethodType!= null);
-            DQEvaluationMethodTypeCodePropertyType lhsField;
-            lhsField = this.getEvaluationMethodType();
-            DQEvaluationMethodTypeCodePropertyType rhsField;
-            rhsField = that.getEvaluationMethodType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
+            boolean lhsFieldIsSet = ((this.result!= null)&&(!this.result.isEmpty()));
+            boolean rhsFieldIsSet = ((that.result!= null)&&(!that.result.isEmpty()));
+            List<DQResultPropertyType> lhsField;
+            lhsField = (((this.result!= null)&&(!this.result.isEmpty()))?this.getResult():null);
+            List<DQResultPropertyType> rhsField;
+            rhsField = (((that.result!= null)&&(!that.result.isEmpty()))?that.getResult():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -419,6 +380,45 @@ public abstract class AbstractDQElementType
             rhsField = that.getEvaluationProcedure();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationProcedure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationProcedure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.measureIdentification!= null);
+            boolean rhsFieldIsSet = (that.measureIdentification!= null);
+            MDIdentifierPropertyType lhsField;
+            lhsField = this.getMeasureIdentification();
+            MDIdentifierPropertyType rhsField;
+            rhsField = that.getMeasureIdentification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureIdentification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureIdentification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.dateTime!= null)&&(!this.dateTime.isEmpty()));
+            boolean rhsFieldIsSet = ((that.dateTime!= null)&&(!that.dateTime.isEmpty()));
+            List<DateTimePropertyType> lhsField;
+            lhsField = (((this.dateTime!= null)&&(!this.dateTime.isEmpty()))?this.getDateTime():null);
+            List<DateTimePropertyType> rhsField;
+            rhsField = (((that.dateTime!= null)&&(!that.dateTime.isEmpty()))?that.getDateTime():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.evaluationMethodType!= null);
+            boolean rhsFieldIsSet = (that.evaluationMethodType!= null);
+            DQEvaluationMethodTypeCodePropertyType lhsField;
+            lhsField = this.getEvaluationMethodType();
+            DQEvaluationMethodTypeCodePropertyType rhsField;
+            rhsField = that.getEvaluationMethodType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

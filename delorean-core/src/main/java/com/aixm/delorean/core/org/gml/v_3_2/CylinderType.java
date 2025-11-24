@@ -110,19 +110,6 @@ public class CylinderType
         }
         final CylinderType that = ((CylinderType) object);
         {
-            boolean lhsFieldIsSet = (this.verticalCurveType!= null);
-            boolean rhsFieldIsSet = (that.verticalCurveType!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getVerticalCurveType();
-            CurveInterpolationType rhsField;
-            rhsField = that.getVerticalCurveType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCurveType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCurveType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.horizontalCurveType!= null);
             boolean rhsFieldIsSet = (that.horizontalCurveType!= null);
             CurveInterpolationType lhsField;
@@ -131,6 +118,19 @@ public class CylinderType
             rhsField = that.getHorizontalCurveType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalCurveType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalCurveType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.verticalCurveType!= null);
+            boolean rhsFieldIsSet = (that.verticalCurveType!= null);
+            CurveInterpolationType lhsField;
+            lhsField = this.getVerticalCurveType();
+            CurveInterpolationType rhsField;
+            rhsField = that.getVerticalCurveType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCurveType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCurveType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

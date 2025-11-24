@@ -157,19 +157,6 @@ public class FormulaType implements Equals, HashCode, ToString
         }
         final FormulaType that = ((FormulaType) object);
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getC();
-            double rhsField;
-            rhsField = that.getC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.a!= null);
             boolean rhsFieldIsSet = (that.a!= null);
             Double lhsField;
@@ -178,6 +165,19 @@ public class FormulaType implements Equals, HashCode, ToString
             rhsField = that.getA();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "a", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "a", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getC();
+            double rhsField;
+            rhsField = that.getC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

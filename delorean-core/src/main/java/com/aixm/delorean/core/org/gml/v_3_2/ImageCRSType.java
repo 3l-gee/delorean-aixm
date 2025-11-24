@@ -199,19 +199,6 @@ public class ImageCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.affineCS!= null);
-            boolean rhsFieldIsSet = (that.affineCS!= null);
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.usesObliqueCartesianCS!= null);
             boolean rhsFieldIsSet = (that.usesObliqueCartesianCS!= null);
             ObliqueCartesianCSPropertyType lhsField;
@@ -233,6 +220,19 @@ public class ImageCRSType
             rhsField = that.getCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.affineCS!= null);
+            boolean rhsFieldIsSet = (that.affineCS!= null);
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

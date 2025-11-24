@@ -223,19 +223,6 @@ public class NavaidComponentTypeExtensionType implements Serializable, Equals, H
         }
         final NavaidComponentTypeExtensionType that = ((NavaidComponentTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidComponentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidComponentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidComponentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidComponentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidComponentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidComponentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NavaidComponentTypeExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidComponentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidComponentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidComponentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidComponentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidComponentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidComponentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

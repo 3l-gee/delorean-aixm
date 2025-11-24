@@ -242,19 +242,6 @@ public class RangeSetType implements Equals, HashCode, ToString
         }
         final RangeSetType that = ((RangeSetType) object);
         {
-            boolean lhsFieldIsSet = (this.dataBlock!= null);
-            boolean rhsFieldIsSet = (that.dataBlock!= null);
-            DataBlockType lhsField;
-            lhsField = this.getDataBlock();
-            DataBlockType rhsField;
-            rhsField = that.getDataBlock();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.file!= null);
             boolean rhsFieldIsSet = (that.file!= null);
             FileType lhsField;
@@ -263,6 +250,19 @@ public class RangeSetType implements Equals, HashCode, ToString
             rhsField = that.getFile();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "file", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "file", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+            boolean rhsFieldIsSet = ((that.valueArray!= null)&&(!that.valueArray.isEmpty()));
+            List<ValueArrayType> lhsField;
+            lhsField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
+            List<ValueArrayType> rhsField;
+            rhsField = (((that.valueArray!= null)&&(!that.valueArray.isEmpty()))?that.getValueArray():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -281,14 +281,14 @@ public class RangeSetType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
-            boolean rhsFieldIsSet = ((that.valueArray!= null)&&(!that.valueArray.isEmpty()));
-            List<ValueArrayType> lhsField;
-            lhsField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
-            List<ValueArrayType> rhsField;
-            rhsField = (((that.valueArray!= null)&&(!that.valueArray.isEmpty()))?that.getValueArray():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
+            boolean lhsFieldIsSet = (this.dataBlock!= null);
+            boolean rhsFieldIsSet = (that.dataBlock!= null);
+            DataBlockType lhsField;
+            lhsField = this.getDataBlock();
+            DataBlockType rhsField;
+            rhsField = that.getDataBlock();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

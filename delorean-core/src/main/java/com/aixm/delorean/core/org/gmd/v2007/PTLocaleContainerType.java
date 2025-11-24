@@ -248,14 +248,27 @@ public class PTLocaleContainerType implements Equals, HashCode, ToString
         }
         final PTLocaleContainerType that = ((PTLocaleContainerType) object);
         {
-            boolean lhsFieldIsSet = (this.locale!= null);
-            boolean rhsFieldIsSet = (that.locale!= null);
-            PTLocalePropertyType lhsField;
-            lhsField = this.getLocale();
-            PTLocalePropertyType rhsField;
-            rhsField = that.getLocale();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
+            boolean lhsFieldIsSet = ((this.responsibleParty!= null)&&(!this.responsibleParty.isEmpty()));
+            boolean rhsFieldIsSet = ((that.responsibleParty!= null)&&(!that.responsibleParty.isEmpty()));
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (((this.responsibleParty!= null)&&(!this.responsibleParty.isEmpty()))?this.getResponsibleParty():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (((that.responsibleParty!= null)&&(!that.responsibleParty.isEmpty()))?that.getResponsibleParty():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleParty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleParty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.localisedString!= null)&&(!this.localisedString.isEmpty()));
+            boolean rhsFieldIsSet = ((that.localisedString!= null)&&(!that.localisedString.isEmpty()));
+            List<LocalisedCharacterStringPropertyType> lhsField;
+            lhsField = (((this.localisedString!= null)&&(!this.localisedString.isEmpty()))?this.getLocalisedString():null);
+            List<LocalisedCharacterStringPropertyType> rhsField;
+            rhsField = (((that.localisedString!= null)&&(!that.localisedString.isEmpty()))?that.getLocalisedString():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -287,27 +300,14 @@ public class PTLocaleContainerType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.responsibleParty!= null)&&(!this.responsibleParty.isEmpty()));
-            boolean rhsFieldIsSet = ((that.responsibleParty!= null)&&(!that.responsibleParty.isEmpty()));
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (((this.responsibleParty!= null)&&(!this.responsibleParty.isEmpty()))?this.getResponsibleParty():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (((that.responsibleParty!= null)&&(!that.responsibleParty.isEmpty()))?that.getResponsibleParty():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleParty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleParty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.localisedString!= null)&&(!this.localisedString.isEmpty()));
-            boolean rhsFieldIsSet = ((that.localisedString!= null)&&(!that.localisedString.isEmpty()));
-            List<LocalisedCharacterStringPropertyType> lhsField;
-            lhsField = (((this.localisedString!= null)&&(!this.localisedString.isEmpty()))?this.getLocalisedString():null);
-            List<LocalisedCharacterStringPropertyType> rhsField;
-            rhsField = (((that.localisedString!= null)&&(!that.localisedString.isEmpty()))?that.getLocalisedString():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localisedString", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localisedString", rhsField);
+            boolean lhsFieldIsSet = (this.locale!= null);
+            boolean rhsFieldIsSet = (that.locale!= null);
+            PTLocalePropertyType lhsField;
+            lhsField = this.getLocale();
+            PTLocalePropertyType rhsField;
+            rhsField = that.getLocale();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

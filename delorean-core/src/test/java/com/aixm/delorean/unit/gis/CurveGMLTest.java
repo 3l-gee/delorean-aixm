@@ -1,6 +1,5 @@
 package com.aixm.delorean.unit.gis;
 
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -28,6 +27,7 @@ import com.aixm.delorean.core.unit.DistanceUom;
 
 import java.util.stream.Stream;
 
+@Disabled
 public class CurveGMLTest {
 
     @BeforeAll

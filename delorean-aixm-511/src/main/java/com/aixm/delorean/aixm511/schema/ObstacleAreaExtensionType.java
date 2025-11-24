@@ -223,19 +223,6 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
         }
         final ObstacleAreaExtensionType that = ((ObstacleAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractObstacleAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractObstacleAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractObstacleAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractObstacleAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObstacleAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObstacleAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ObstacleAreaExtensionType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractObstacleAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractObstacleAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractObstacleAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractObstacleAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObstacleAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObstacleAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

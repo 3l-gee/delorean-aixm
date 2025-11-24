@@ -302,40 +302,14 @@ public class ArcType implements Equals, HashCode, ToString
         }
         final ArcType that = ((ArcType) object);
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.to!= null);
-            boolean rhsFieldIsSet = (that.to!= null);
-            String lhsField;
-            lhsField = this.getTo();
-            String rhsField;
-            rhsField = that.getTo();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "to", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "to", rhsField);
+            boolean lhsFieldIsSet = ((this.title!= null)&&(!this.title.isEmpty()));
+            boolean rhsFieldIsSet = ((that.title!= null)&&(!that.title.isEmpty()));
+            List<TitleEltType> lhsField;
+            lhsField = (((this.title!= null)&&(!this.title.isEmpty()))?this.getTitle():null);
+            List<TitleEltType> rhsField;
+            rhsField = (((that.title!= null)&&(!that.title.isEmpty()))?that.getTitle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -393,14 +367,40 @@ public class ArcType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.title!= null)&&(!this.title.isEmpty()));
-            boolean rhsFieldIsSet = ((that.title!= null)&&(!that.title.isEmpty()));
-            List<TitleEltType> lhsField;
-            lhsField = (((this.title!= null)&&(!this.title.isEmpty()))?this.getTitle():null);
-            List<TitleEltType> rhsField;
-            rhsField = (((that.title!= null)&&(!that.title.isEmpty()))?that.getTitle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.type!= null);
+            boolean rhsFieldIsSet = (that.type!= null);
+            TypeType lhsField;
+            lhsField = this.getType();
+            TypeType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.to!= null);
+            boolean rhsFieldIsSet = (that.to!= null);
+            String lhsField;
+            lhsField = this.getTo();
+            String rhsField;
+            rhsField = that.getTo();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "to", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "to", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

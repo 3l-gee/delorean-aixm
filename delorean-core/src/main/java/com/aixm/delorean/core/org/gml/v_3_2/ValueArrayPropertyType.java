@@ -203,19 +203,6 @@ public class ValueArrayPropertyType implements Equals, HashCode, ToString
         }
         final ValueArrayPropertyType that = ((ValueArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!that.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()))?this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!that.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()))?that.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -224,6 +211,19 @@ public class ValueArrayPropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
+            boolean rhsFieldIsSet = ((that.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!that.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
+            List<JAXBElement<?>> lhsField;
+            lhsField = (((this.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()))?this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (((that.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!that.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()))?that.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

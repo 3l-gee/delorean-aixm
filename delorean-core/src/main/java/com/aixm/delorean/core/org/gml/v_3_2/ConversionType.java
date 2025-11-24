@@ -132,19 +132,6 @@ public class ConversionType
         }
         final ConversionType that = ((ConversionType) object);
         {
-            boolean lhsFieldIsSet = (this.method!= null);
-            boolean rhsFieldIsSet = (that.method!= null);
-            JAXBElement<OperationMethodPropertyType> lhsField;
-            lhsField = this.getMethod();
-            JAXBElement<OperationMethodPropertyType> rhsField;
-            rhsField = that.getMethod();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "method", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "method", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
             boolean rhsFieldIsSet = ((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()));
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
@@ -153,6 +140,19 @@ public class ConversionType
             rhsField = (((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()))?that.getParameterValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.method!= null);
+            boolean rhsFieldIsSet = (that.method!= null);
+            JAXBElement<OperationMethodPropertyType> lhsField;
+            lhsField = this.getMethod();
+            JAXBElement<OperationMethodPropertyType> rhsField;
+            rhsField = that.getMethod();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "method", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "method", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

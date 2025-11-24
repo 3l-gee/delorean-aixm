@@ -371,14 +371,14 @@ public class NavaidComponentType
         }
         final NavaidComponentType that = ((NavaidComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProvidesNavigableLocation();
-            boolean rhsFieldIsSet = that.isSetProvidesNavigableLocation();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getProvidesNavigableLocation();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getProvidesNavigableLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "providesNavigableLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "providesNavigableLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkerPosition();
+            boolean rhsFieldIsSet = that.isSetMarkerPosition();
+            JAXBElement<CodePositionInILSType> lhsField;
+            lhsField = this.getMarkerPosition();
+            JAXBElement<CodePositionInILSType> rhsField;
+            rhsField = that.getMarkerPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -410,14 +410,14 @@ public class NavaidComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCollocationGroup();
-            boolean rhsFieldIsSet = that.isSetCollocationGroup();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getCollocationGroup();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getCollocationGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
+            boolean lhsFieldIsSet = this.isSetProvidesNavigableLocation();
+            boolean rhsFieldIsSet = that.isSetProvidesNavigableLocation();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getProvidesNavigableLocation();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getProvidesNavigableLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "providesNavigableLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "providesNavigableLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -436,14 +436,14 @@ public class NavaidComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkerPosition();
-            boolean rhsFieldIsSet = that.isSetMarkerPosition();
-            JAXBElement<CodePositionInILSType> lhsField;
-            lhsField = this.getMarkerPosition();
-            JAXBElement<CodePositionInILSType> rhsField;
-            rhsField = that.getMarkerPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetCollocationGroup();
+            boolean rhsFieldIsSet = that.isSetCollocationGroup();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getCollocationGroup();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getCollocationGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

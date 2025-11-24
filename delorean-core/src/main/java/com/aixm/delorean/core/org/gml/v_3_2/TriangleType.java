@@ -116,19 +116,6 @@ public class TriangleType
         }
         final TriangleType that = ((TriangleType) object);
         {
-            boolean lhsFieldIsSet = (this.exterior!= null);
-            boolean rhsFieldIsSet = (that.exterior!= null);
-            AbstractRingPropertyType lhsField;
-            lhsField = this.getExterior();
-            AbstractRingPropertyType rhsField;
-            rhsField = that.getExterior();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.interpolation!= null);
             boolean rhsFieldIsSet = (that.interpolation!= null);
             SurfaceInterpolationType lhsField;
@@ -137,6 +124,19 @@ public class TriangleType
             rhsField = that.getInterpolation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.exterior!= null);
+            boolean rhsFieldIsSet = (that.exterior!= null);
+            AbstractRingPropertyType lhsField;
+            lhsField = this.getExterior();
+            AbstractRingPropertyType rhsField;
+            rhsField = that.getExterior();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

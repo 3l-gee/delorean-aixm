@@ -5,26 +5,35 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.xml.namespace.QName;
+
 public class ContainerWarehouse<T, X> {
+    private final Class<T> root;
+    private final Class<X> feature;
+    private final QName qName;
     private Map<String, Container<T, X>> containers;
     private String lastContainerId; 
 
-    public ContainerWarehouse() {
+    public ContainerWarehouse(Class<T> root, Class<X> feature, QName qName) {
+        this.root = root;
+        this.feature = feature;
+        this.qName = qName;
         containers = new HashMap<>();
         lastContainerId = null; 
-        this.addContainer(getLastContainer());
+        this.createNewContainer();
     }
 
-    public void addContainer(Container<T, X> container) {
+    public Container<T, X> createContainer() {
+        return new Container<T, X>(this.root, this.feature, this.qName);
+
+    }
+
+    public void createNewContainer() {
+        Container<T, X> container = new Container<T, X>(this.root, this.feature, this.qName);
         String id = UUID.randomUUID().toString().substring(0, 6);
 
         containers.put(id, container);
         lastContainerId = id;
-    }
-
-    public void replaceContainer(String id, Container<T, X> container) {
-        containers.put(id, container);
-        lastContainerId = id; 
     }
 
     public void removeContainer(String id) {

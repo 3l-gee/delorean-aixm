@@ -223,19 +223,6 @@ public class DesignatedPointExtensionType implements Serializable, Equals, HashC
         }
         final DesignatedPointExtensionType that = ((DesignatedPointExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractDesignatedPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDesignatedPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDesignatedPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDesignatedPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDesignatedPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDesignatedPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class DesignatedPointExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractDesignatedPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDesignatedPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDesignatedPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDesignatedPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDesignatedPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDesignatedPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

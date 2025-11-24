@@ -223,19 +223,6 @@ public class RadioFrequencyAreaExtensionType implements Serializable, Equals, Ha
         }
         final RadioFrequencyAreaExtensionType that = ((RadioFrequencyAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadioFrequencyAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadioFrequencyAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadioFrequencyAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadioFrequencyAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioFrequencyAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioFrequencyAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RadioFrequencyAreaExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadioFrequencyAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadioFrequencyAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadioFrequencyAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadioFrequencyAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioFrequencyAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioFrequencyAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

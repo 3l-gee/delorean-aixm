@@ -27,18 +27,20 @@ import java.sql.SQLException;
 public class DatabaseBinding<T, X> {
     private final Class<T> root;
     private final Class<X> feature;
+    private String sqlPreInitPath;
+    private String sqlPostInitPath;
     private SessionFactory sessionFactory;
     private Configuration configuration;
-    private DatabaseConfig databaseConfig;
-    private Connection status;
+    private ConnectionStatus connectionStatus;
 
-    public DatabaseBinding(DatabaseConfig databaseConfig, Class<T> structure, Class<X> featureClass) {
-        this.databaseConfig = databaseConfig;
-        Configuration configuration = databaseConfig.getConfiguration();
+    public DatabaseBinding(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, SessionFactory sessionFactory, ConnectionStatus connectionStatus) {
+        this.root = root;
+        this.feature = feature;
+        this.sqlPreInitPath = sqlPreInitPath;
+        this.sqlPostInitPath = sqlPostInitPath;
         this.configuration = configuration;
-        this.sessionFactory = null;
-        this.root = structure;
-        this.feature = featureClass;
+        this.sessionFactory = sessionFactory;
+        this.connectionStatus = connectionStatus;
     }
     
     public void setUrl(String url){
@@ -120,9 +122,9 @@ public class DatabaseBinding<T, X> {
                 case "create":
                 case "create-only":
                 case "create-drop":
-                    this.executeSQLScript(this.databaseConfig.getSqlPreInitFilePath());
+                    this.executeSQLScript(this.sqlPreInitPath);
                     this.sessionFactory = configuration.buildSessionFactory();
-                    this.executeSQLScript(this.databaseConfig.getSqlPostInitFilePath());
+                    this.executeSQLScript(this.sqlPostInitPath);
                     break;
 
                 case "none":
@@ -465,18 +467,18 @@ public class DatabaseBinding<T, X> {
     //     return object;
     // }
 
-    public void computeDBView() {
-        this.executeSQLScript(this.databaseConfig.getSqlDBViewFilePath());
+    // public void computeDBView() {
+    //     this.executeSQLScript(this.databaseConfig.getSqlDBViewFilePath());
 
-        ConsoleLogger.log(LogLevel.INFO, "Database views successfully created.");
-    }
+    //     ConsoleLogger.log(LogLevel.INFO, "Database views successfully created.");
+    // }
 
 
-    private boolean isMappedClass(Object object){ 
-        if (this.databaseConfig.getMappedClasses().contains(object.getClass())){
-            return true;
-        }
-        return false;
-    }
+    // private boolean isMappedClass(Object object){ 
+    //     if (this.databaseConfig.getMappedClasses().contains(object.getClass())){
+    //         return true;
+    //     }
+    //     return false;
+    // }
 }
 

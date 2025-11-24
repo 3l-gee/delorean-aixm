@@ -223,19 +223,6 @@ public class AeronauticalGroundLightTimeSlicePropertyType implements Serializabl
         }
         final AeronauticalGroundLightTimeSlicePropertyType that = ((AeronauticalGroundLightTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAeronauticalGroundLightTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAeronauticalGroundLightTimeSlice();
-            AeronauticalGroundLightTimeSliceType lhsField;
-            lhsField = this.getAeronauticalGroundLightTimeSlice();
-            AeronauticalGroundLightTimeSliceType rhsField;
-            rhsField = that.getAeronauticalGroundLightTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aeronauticalGroundLightTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aeronauticalGroundLightTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AeronauticalGroundLightTimeSlicePropertyType implements Serializabl
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAeronauticalGroundLightTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAeronauticalGroundLightTimeSlice();
+            AeronauticalGroundLightTimeSliceType lhsField;
+            lhsField = this.getAeronauticalGroundLightTimeSlice();
+            AeronauticalGroundLightTimeSliceType rhsField;
+            rhsField = that.getAeronauticalGroundLightTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aeronauticalGroundLightTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aeronauticalGroundLightTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -177,14 +177,14 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.epochOfUse!= null);
-            boolean rhsFieldIsSet = (that.epochOfUse!= null);
-            TimePeriodPropertyType lhsField;
-            lhsField = this.getEpochOfUse();
-            TimePeriodPropertyType rhsField;
-            rhsField = that.getEpochOfUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
+            boolean lhsFieldIsSet = (this.julianReference!= null);
+            boolean rhsFieldIsSet = (that.julianReference!= null);
+            BigDecimal lhsField;
+            lhsField = this.getJulianReference();
+            BigDecimal rhsField;
+            rhsField = that.getJulianReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -203,14 +203,14 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.julianReference!= null);
-            boolean rhsFieldIsSet = (that.julianReference!= null);
-            BigDecimal lhsField;
-            lhsField = this.getJulianReference();
-            BigDecimal rhsField;
-            rhsField = that.getJulianReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
+            boolean lhsFieldIsSet = (this.epochOfUse!= null);
+            boolean rhsFieldIsSet = (that.epochOfUse!= null);
+            TimePeriodPropertyType lhsField;
+            lhsField = this.getEpochOfUse();
+            TimePeriodPropertyType rhsField;
+            rhsField = that.getEpochOfUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

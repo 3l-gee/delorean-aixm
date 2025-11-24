@@ -269,45 +269,6 @@ public abstract class AbstractCoordinateOperationType
         }
         final AbstractCoordinateOperationType that = ((AbstractCoordinateOperationType) object);
         {
-            boolean lhsFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
-            boolean rhsFieldIsSet = ((that.scope!= null)&&(!that.scope.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
-            List<String> rhsField;
-            rhsField = (((that.scope!= null)&&(!that.scope.isEmpty()))?that.getScope():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.operationVersion!= null);
-            boolean rhsFieldIsSet = (that.operationVersion!= null);
-            String lhsField;
-            lhsField = this.getOperationVersion();
-            String rhsField;
-            rhsField = that.getOperationVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationVersion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationVersion", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()));
-            boolean rhsFieldIsSet = ((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()));
-            List<CoordinateOperationAccuracy> lhsField;
-            lhsField = (((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()))?this.getCoordinateOperationAccuracy():null);
-            List<CoordinateOperationAccuracy> rhsField;
-            rhsField = (((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()))?that.getCoordinateOperationAccuracy():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.sourceCRS!= null);
             boolean rhsFieldIsSet = (that.sourceCRS!= null);
             CRSPropertyType lhsField;
@@ -342,6 +303,45 @@ public abstract class AbstractCoordinateOperationType
             rhsField = that.getDomainOfValidity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()));
+            boolean rhsFieldIsSet = ((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()));
+            List<CoordinateOperationAccuracy> lhsField;
+            lhsField = (((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()))?this.getCoordinateOperationAccuracy():null);
+            List<CoordinateOperationAccuracy> rhsField;
+            rhsField = (((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()))?that.getCoordinateOperationAccuracy():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.operationVersion!= null);
+            boolean rhsFieldIsSet = (that.operationVersion!= null);
+            String lhsField;
+            lhsField = this.getOperationVersion();
+            String rhsField;
+            rhsField = that.getOperationVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationVersion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationVersion", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
+            boolean rhsFieldIsSet = ((that.scope!= null)&&(!that.scope.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            List<String> rhsField;
+            rhsField = (((that.scope!= null)&&(!that.scope.isEmpty()))?that.getScope():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

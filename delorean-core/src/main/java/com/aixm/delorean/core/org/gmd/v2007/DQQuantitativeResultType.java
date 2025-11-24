@@ -195,14 +195,14 @@ public class DQQuantitativeResultType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.valueUnit!= null);
-            boolean rhsFieldIsSet = (that.valueUnit!= null);
-            UnitOfMeasurePropertyType lhsField;
-            lhsField = this.getValueUnit();
-            UnitOfMeasurePropertyType rhsField;
-            rhsField = that.getValueUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
+            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
+            List<RecordPropertyType> lhsField;
+            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            List<RecordPropertyType> rhsField;
+            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -221,14 +221,14 @@ public class DQQuantitativeResultType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
-            List<RecordPropertyType> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
-            List<RecordPropertyType> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = (this.valueUnit!= null);
+            boolean rhsFieldIsSet = (that.valueUnit!= null);
+            UnitOfMeasurePropertyType lhsField;
+            lhsField = this.getValueUnit();
+            UnitOfMeasurePropertyType rhsField;
+            rhsField = that.getValueUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

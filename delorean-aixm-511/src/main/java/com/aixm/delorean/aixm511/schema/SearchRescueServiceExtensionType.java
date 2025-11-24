@@ -260,14 +260,14 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
         }
         final SearchRescueServiceExtensionType that = ((SearchRescueServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceExtension();
+            lhsField = this.getAbstractSearchRescueServiceExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            rhsField = that.getAbstractSearchRescueServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class SearchRescueServiceExtensionType implements Serializable, Equals, H
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSearchRescueServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSearchRescueServiceExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSearchRescueServiceExtension();
+            lhsField = this.getAbstractServiceExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSearchRescueServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSearchRescueServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSearchRescueServiceExtension", rhsField);
+            rhsField = that.getAbstractServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

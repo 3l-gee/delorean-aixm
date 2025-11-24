@@ -235,100 +235,6 @@
                 </configuration>
             </plugin>
 
-            <!-- HiSrc HyperJAXB Code Generation for GML 3.2.1 -->
-            <plugin>
-                <groupId>org.patrodyne.jvnet</groupId>
-                <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
-                <version>${hisrc-hyperjaxb.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.patrodyne.jvnet</groupId>
-                        <artifactId>hisrc-hyperjaxb-annox-plugin</artifactId>
-                        <version>${hisrc-hyperjaxb.version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>generate gml bindings</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <noFileHeader>true</noFileHeader>
-                            <extension>true</extension>
-                            <episode>true</episode>
-                            <schemaDirectory>${project.basedir}/src/main/schema/gml/3.2.1/</schemaDirectory>
-                            <schemaIncludes>
-                                <include>gml.xsd</include>
-                            </schemaIncludes>
-                            <bindingDirectory>${project.basedir}/src/main/schema/bindings</bindingDirectory>
-                            <bindingIncludes>
-                                <include>*.xjb</include>
-                            </bindingIncludes>
-                            <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                            <episodeFile>${project.build.outputDirectory}/META-INF/sun-jaxb.episode</episodeFile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Post-JAXB Codegen Fix Utility -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>post-jaxb</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>com.aixm.delorean.postjaxb.PostJAXBCodegenFix</mainClass>
-                            <arguments>
-                                <argument>${project.basedir}/src/main/post-jaxb/gml-post-jaxb-config.yaml</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Spotless Code Formatter -->
-            <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-                <version>2.43.0</version>
-                <executions>
-                    <execution>
-                        <id>format-generated-sources</id>
-                        <goals>
-                            <goal>apply</goal> 
-                        </goals>
-                        <phase>process-sources</phase> 
-                    </execution>
-                </executions>
-                <configuration>
-                    <java>
-                        <includes>
-                            <include>${project.basedir}/src/main/java/com/aixm/delorean/**/*.java</include>
-                        </includes>
-                        <googleJavaFormat>
-                            <version>1.17.0</version>
-                        </googleJavaFormat>
-                        <indent>
-                            <spaces>true</spaces>
-                            <spacesPerTab>4</spacesPerTab> 
-                        </indent>
-                        <endWithNewline/>
-                        <trimTrailingWhitespace/>
-                        <removeUnusedImports/>
-                        <importOrder/>
-                    </java>
-                </configuration>
-            </plugin>
-
             <!-- Unit Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -402,9 +308,9 @@
 			</plugin>
 		</plugins>
 	</build>
-    
-    <!-- <profiles>
-        <profile>
+
+    <profiles>
+    <!-- <profile>
             <id>fat-jar</id>
             <build>
                 <plugins>
@@ -469,11 +375,12 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
+        </profile>-->
         <profile>
-            <id>hyper-jaxb</id>
+            <id>jaxb-core</id>
             <build>
                 <plugins>
+                    <!-- HiSrc HyperJAXB Code Generation for GML 3.2.1 -->
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
@@ -495,42 +402,45 @@
                                 <configuration>
                                     <noFileHeader>true</noFileHeader>
                                     <extension>true</extension>
-                                    <schemaDirectory>${project.parent.basedir}/schema/aixm5_1_1/aixm/message</schemaDirectory>
+                                    <episode>true</episode>
+                                    <schemaDirectory>${project.basedir}/src/main/schema/gml/3.2.1/</schemaDirectory>
                                     <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
+                                        <include>gml.xsd</include>
                                     </schemaIncludes>
-                                    <bindingDirectory>${project.parent.basedir}/schema/aixm5_1_1/binding</bindingDirectory>
+                                    <bindingDirectory>${project.basedir}/src/main/schema/bindings</bindingDirectory>
                                     <bindingIncludes>
                                         <include>*.xjb</include>
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                                    <episodeFile>${project.build.outputDirectory}/META-INF/sun-jaxb.episode</episodeFile>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- Post-JAXB Codegen Fix Utility -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>3.1.0</version>
                         <executions>
                             <execution>
-                                <id>post-jaxb-fix</id>
+                                <id>post-jaxb</id>
                                 <phase>process-sources</phase>
                                 <goals>
                                     <goal>java</goal>
                                 </goals>
                                 <configuration>
-                                    <mainClass>com.util.postjaxb.PostJAXBCodegenFix</mainClass>
-                                    <systemProperties>
-                                        <systemProperty>
-                                            <key>project.root</key>
-                                            <value>${project.parent.basedir}</value>
-                                        </systemProperty>
-                                    </systemProperties>
+                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBCodegenFix</mainClass>
+                                    <arguments>
+                                        <argument>${project.basedir}/src/main/post-jaxb/gml-post-jaxb-config.yaml</argument>
+                                    </arguments>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- Spotless Code Formatter -->
                     <plugin>
                         <groupId>com.diffplug.spotless</groupId>
                         <artifactId>spotless-maven-plugin</artifactId>
@@ -547,7 +457,7 @@
                         <configuration>
                             <java>
                                 <includes>
-                                    <include>${project.basedir}/src/main/java/com/aixm/delorean/core/schema/**/*.java</include>
+                                    <include>${project.basedir}/src/main/java/com/aixm/delorean/**/*.java</include>
                                 </includes>
                                 <googleJavaFormat>
                                     <version>1.17.0</version>
@@ -566,5 +476,5 @@
                 </plugins>
             </build>
         </profile>
-    </profiles> -->
+    </profiles>
 </project>

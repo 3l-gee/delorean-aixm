@@ -163,19 +163,6 @@ public class SequenceRuleType implements Equals, HashCode, ToString
         }
         final SequenceRuleType that = ((SequenceRuleType) object);
         {
-            boolean lhsFieldIsSet = ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()))?this.getAxisOrder():null);
-            List<String> rhsField;
-            rhsField = (((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()))?that.getAxisOrder():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisOrder", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisOrder", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.value!= null);
             boolean rhsFieldIsSet = (that.value!= null);
             SequenceRuleEnumeration lhsField;
@@ -197,6 +184,19 @@ public class SequenceRuleType implements Equals, HashCode, ToString
             rhsField = that.getOrder();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
+            boolean rhsFieldIsSet = ((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()))?this.getAxisOrder():null);
+            List<String> rhsField;
+            rhsField = (((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()))?that.getAxisOrder():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisOrder", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

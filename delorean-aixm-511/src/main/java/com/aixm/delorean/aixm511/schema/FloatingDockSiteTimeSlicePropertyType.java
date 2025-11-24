@@ -223,19 +223,6 @@ public class FloatingDockSiteTimeSlicePropertyType implements Serializable, Equa
         }
         final FloatingDockSiteTimeSlicePropertyType that = ((FloatingDockSiteTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFloatingDockSiteTimeSlice();
-            boolean rhsFieldIsSet = that.isSetFloatingDockSiteTimeSlice();
-            FloatingDockSiteTimeSliceType lhsField;
-            lhsField = this.getFloatingDockSiteTimeSlice();
-            FloatingDockSiteTimeSliceType rhsField;
-            rhsField = that.getFloatingDockSiteTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "floatingDockSiteTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "floatingDockSiteTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class FloatingDockSiteTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFloatingDockSiteTimeSlice();
+            boolean rhsFieldIsSet = that.isSetFloatingDockSiteTimeSlice();
+            FloatingDockSiteTimeSliceType lhsField;
+            lhsField = this.getFloatingDockSiteTimeSlice();
+            FloatingDockSiteTimeSliceType rhsField;
+            rhsField = that.getFloatingDockSiteTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "floatingDockSiteTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "floatingDockSiteTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

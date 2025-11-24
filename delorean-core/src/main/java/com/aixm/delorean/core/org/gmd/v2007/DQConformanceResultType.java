@@ -152,19 +152,6 @@ public class DQConformanceResultType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.pass!= null);
-            boolean rhsFieldIsSet = (that.pass!= null);
-            BooleanPropertyType lhsField;
-            lhsField = this.getPass();
-            BooleanPropertyType rhsField;
-            rhsField = that.getPass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.explanation!= null);
             boolean rhsFieldIsSet = (that.explanation!= null);
             CharacterStringPropertyType lhsField;
@@ -173,6 +160,19 @@ public class DQConformanceResultType
             rhsField = that.getExplanation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "explanation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "explanation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.pass!= null);
+            boolean rhsFieldIsSet = (that.pass!= null);
+            BooleanPropertyType lhsField;
+            lhsField = this.getPass();
+            BooleanPropertyType rhsField;
+            rhsField = that.getPass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

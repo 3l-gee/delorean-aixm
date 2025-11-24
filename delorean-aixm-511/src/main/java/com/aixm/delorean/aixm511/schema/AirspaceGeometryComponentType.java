@@ -335,14 +335,14 @@ public class AirspaceGeometryComponentType
         }
         final AirspaceGeometryComponentType that = ((AirspaceGeometryComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperationSequence();
-            boolean rhsFieldIsSet = that.isSetOperationSequence();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getOperationSequence();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getOperationSequence();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeAirspaceAggregationType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeAirspaceAggregationType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -361,14 +361,14 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeAirspaceAggregationType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeAirspaceAggregationType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationSequence();
+            boolean rhsFieldIsSet = that.isSetOperationSequence();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getOperationSequence();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getOperationSequence();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationSequence", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationSequence", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

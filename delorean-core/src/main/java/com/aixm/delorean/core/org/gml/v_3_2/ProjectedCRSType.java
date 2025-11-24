@@ -148,6 +148,19 @@ public class ProjectedCRSType
         }
         final ProjectedCRSType that = ((ProjectedCRSType) object);
         {
+            boolean lhsFieldIsSet = (this.baseGeographicCRS!= null);
+            boolean rhsFieldIsSet = (that.baseGeographicCRS!= null);
+            GeographicCRSPropertyType lhsField;
+            lhsField = this.getBaseGeographicCRS();
+            GeographicCRSPropertyType rhsField;
+            rhsField = that.getBaseGeographicCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeographicCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeographicCRS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.baseGeodeticCRS!= null);
             boolean rhsFieldIsSet = (that.baseGeodeticCRS!= null);
             GeodeticCRSPropertyType lhsField;
@@ -169,19 +182,6 @@ public class ProjectedCRSType
             rhsField = that.getCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.baseGeographicCRS!= null);
-            boolean rhsFieldIsSet = (that.baseGeographicCRS!= null);
-            GeographicCRSPropertyType lhsField;
-            lhsField = this.getBaseGeographicCRS();
-            GeographicCRSPropertyType rhsField;
-            rhsField = that.getBaseGeographicCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeographicCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeographicCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

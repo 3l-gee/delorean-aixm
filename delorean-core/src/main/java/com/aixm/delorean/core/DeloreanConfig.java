@@ -7,11 +7,11 @@ public class DeloreanConfig {
     protected final String name;
     protected final Class<?> root;
     protected final Class<?> feature;
-    private final QName qName;
+    protected final QName qName;
     protected final String schemaPath;
     protected final String sqlPreInitPath;
     protected final String sqlPostInitPath;
-    protected final Class<?>[] mappingClass;
+    protected final String configurationPath;
 
     public DeloreanConfig(
         // General settings
@@ -27,7 +27,7 @@ public class DeloreanConfig {
         // Database settings
         String sqlPreInitPath,
         String sqlPostInitPath,
-        Class<?>[] mappingClass
+        String configurationPath
     ) {
         this.name = name;
         this.root = root;
@@ -36,7 +36,7 @@ public class DeloreanConfig {
         this.schemaPath = schemaPath;
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
-        this.mappingClass = mappingClass;
+        this.configurationPath = configurationPath;
     }
 
     public String getName() {
@@ -51,6 +51,10 @@ public class DeloreanConfig {
         return this.feature;
     }
 
+    public QName getQName() {
+        return this.qName;
+    }
+
     public String getSchemaPath() {
         return this.schemaPath;
     }
@@ -63,8 +67,8 @@ public class DeloreanConfig {
         return this.sqlPostInitPath;
     }
 
-    public Class<?>[] getMappingClass() {
-        return this.mappingClass;
+    public String getConfigurationPath() {
+        return this.configurationPath;
     }
 
 }

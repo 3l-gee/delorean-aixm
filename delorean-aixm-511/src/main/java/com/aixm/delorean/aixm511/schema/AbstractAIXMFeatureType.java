@@ -228,19 +228,6 @@ public abstract class AbstractAIXMFeatureType
         }
         final AbstractAIXMFeatureType that = ((AbstractAIXMFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetApprovalStatus();
-            boolean rhsFieldIsSet = that.isSetApprovalStatus();
-            String lhsField;
-            lhsField = this.getApprovalStatus();
-            String rhsField;
-            rhsField = that.getApprovalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFeatureMetadata();
             boolean rhsFieldIsSet = that.isSetFeatureMetadata();
             FeatureMetadataPropertyType lhsField;
@@ -249,6 +236,19 @@ public abstract class AbstractAIXMFeatureType
             rhsField = that.getFeatureMetadata();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMetadata", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApprovalStatus();
+            boolean rhsFieldIsSet = that.isSetApprovalStatus();
+            String lhsField;
+            lhsField = this.getApprovalStatus();
+            String rhsField;
+            rhsField = that.getApprovalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

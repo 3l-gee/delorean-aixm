@@ -124,19 +124,6 @@ public abstract class AbstractRSReferenceSystemType
         }
         final AbstractRSReferenceSystemType that = ((AbstractRSReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
-            RSIdentifierPropertyType lhsField;
-            lhsField = this.getName();
-            RSIdentifierPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
             boolean rhsFieldIsSet = ((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()));
             List<EXExtentPropertyType> lhsField;
@@ -145,6 +132,19 @@ public abstract class AbstractRSReferenceSystemType
             rhsField = (((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()))?that.getDomainOfValidity():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.name!= null);
+            boolean rhsFieldIsSet = (that.name!= null);
+            RSIdentifierPropertyType lhsField;
+            lhsField = this.getName();
+            RSIdentifierPropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

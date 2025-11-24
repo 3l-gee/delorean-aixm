@@ -710,19 +710,6 @@ public class NavigationAreaTimeSliceType
         }
         final NavigationAreaTimeSliceType that = ((NavigationAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMinimumCeiling();
-            boolean rhsFieldIsSet = that.isSetMinimumCeiling();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumCeiling();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumCeiling();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCeiling", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCeiling", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
             boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -762,32 +749,6 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<NavigationAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector()?this.getSector():null);
-            List<NavigationAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector()?that.getSector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
             boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
             JAXBElement<AirportHeliportPropertyType> lhsField;
@@ -801,14 +762,14 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getCentrePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
+            boolean lhsFieldIsSet = this.isSetMinimumCeiling();
+            boolean rhsFieldIsSet = that.isSetMinimumCeiling();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumCeiling();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumCeiling();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCeiling", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCeiling", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -827,19 +788,6 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumVisibility();
-            boolean rhsFieldIsSet = that.isSetMinimumVisibility();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getMinimumVisibility();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getMinimumVisibility();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumVisibility", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumVisibility", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCentrePointAimingPoint();
             boolean rhsFieldIsSet = that.isSetCentrePointAimingPoint();
             JAXBElement<TouchDownLiftOffPropertyType> lhsField;
@@ -853,6 +801,45 @@ public class NavigationAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<NavigationAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<NavigationAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumVisibility();
+            boolean rhsFieldIsSet = that.isSetMinimumVisibility();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getMinimumVisibility();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getMinimumVisibility();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumVisibility", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumVisibility", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDeparture();
             boolean rhsFieldIsSet = that.isSetDeparture();
             JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
@@ -861,6 +848,19 @@ public class NavigationAreaTimeSliceType
             rhsField = that.getDeparture();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "departure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "departure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getCentrePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
 import com.aixm.delorean.core.schema.a5_2.aixm.CodeNavaidDesignatorType;
-import com.aixm.delorean.core.schema.a5_2.aixm.TextNameType;
 import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
 import com.aixm.delorean.core.schema.a5_2.aixm.NoteType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;

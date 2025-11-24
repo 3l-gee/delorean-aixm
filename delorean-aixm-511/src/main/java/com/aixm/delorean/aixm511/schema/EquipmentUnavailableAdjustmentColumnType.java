@@ -454,6 +454,19 @@ public class EquipmentUnavailableAdjustmentColumnType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetEquipmentRVR();
+            boolean rhsFieldIsSet = that.isSetEquipmentRVR();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getEquipmentRVR();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getEquipmentRVR();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentRVR", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentRVR", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetLandingSystemLights();
             boolean rhsFieldIsSet = that.isSetLandingSystemLights();
             JAXBElement<CodeYesNoType> lhsField;
@@ -462,19 +475,6 @@ public class EquipmentUnavailableAdjustmentColumnType
             rhsField = that.getLandingSystemLights();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingSystemLights", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingSystemLights", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVisibilityAdjustment();
-            boolean rhsFieldIsSet = that.isSetVisibilityAdjustment();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getVisibilityAdjustment();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getVisibilityAdjustment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityAdjustment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityAdjustment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -506,14 +506,14 @@ public class EquipmentUnavailableAdjustmentColumnType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEquipmentRVR();
-            boolean rhsFieldIsSet = that.isSetEquipmentRVR();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getEquipmentRVR();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getEquipmentRVR();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentRVR", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentRVR", rhsField);
+            boolean lhsFieldIsSet = this.isSetVisibilityAdjustment();
+            boolean rhsFieldIsSet = that.isSetVisibilityAdjustment();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getVisibilityAdjustment();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getVisibilityAdjustment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "visibilityAdjustment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "visibilityAdjustment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

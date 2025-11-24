@@ -2,6 +2,7 @@ package com.aixm.delorean.core.container;
 
 import com.aixm.delorean.core.xml.XMLBinding;
 import com.aixm.delorean.core.xml.XMLConfig;
+import com.aixm.delorean.core.Delorean;
 import com.aixm.delorean.core.database.DatabaseBinding;
 import com.aixm.delorean.core.database.DatabaseConfig;
 import com.aixm.delorean.core.log.ConsoleLogger;
@@ -41,16 +42,16 @@ public class Container<T, X> {
         return this.root;
     }
 
-    public void setXmlBinding(XMLConfig xmlConfig) {
-        this.xmlBinding = new XMLBinding<T, X>(xmlConfig, this.root, this.feature);
+    public void setXmlBinding(XMLBinding<T, X> xmlBinding) {
+        this.xmlBinding = xmlBinding;
     }
 
     public XMLBinding<T, X> getXmlBinding() {
         return this.xmlBinding;
     }
 
-    public void setDatabaseBinding(DatabaseConfig databaseConfig) {
-        this.databaseBinding = new DatabaseBinding<T, X>(databaseConfig, this.root, this.feature);
+    public void setDatabaseBinding(DatabaseBinding<T, X> databaseBinding) {
+        this.databaseBinding = databaseBinding;
     }
 
     public DatabaseBinding<T, X> getDatabaseBinding() {

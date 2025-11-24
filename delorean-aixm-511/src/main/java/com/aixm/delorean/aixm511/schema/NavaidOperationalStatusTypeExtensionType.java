@@ -260,14 +260,14 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
         }
         final NavaidOperationalStatusTypeExtensionType that = ((NavaidOperationalStatusTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidOperationalStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidOperationalStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidOperationalStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidOperationalStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class NavaidOperationalStatusTypeExtensionType implements Serializable, E
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidOperationalStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidOperationalStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidOperationalStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidOperationalStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidOperationalStatusExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

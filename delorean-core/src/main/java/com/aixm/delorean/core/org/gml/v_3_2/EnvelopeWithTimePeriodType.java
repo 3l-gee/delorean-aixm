@@ -141,6 +141,19 @@ public class EnvelopeWithTimePeriodType
         }
         final EnvelopeWithTimePeriodType that = ((EnvelopeWithTimePeriodType) object);
         {
+            boolean lhsFieldIsSet = (this.beginPosition!= null);
+            boolean rhsFieldIsSet = (that.beginPosition!= null);
+            TimePositionType lhsField;
+            lhsField = this.getBeginPosition();
+            TimePositionType rhsField;
+            rhsField = that.getBeginPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.endPosition!= null);
             boolean rhsFieldIsSet = (that.endPosition!= null);
             TimePositionType lhsField;
@@ -162,19 +175,6 @@ public class EnvelopeWithTimePeriodType
             rhsField = that.getFrame();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.beginPosition!= null);
-            boolean rhsFieldIsSet = (that.beginPosition!= null);
-            TimePositionType lhsField;
-            lhsField = this.getBeginPosition();
-            TimePositionType rhsField;
-            rhsField = that.getBeginPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "beginPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "beginPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -353,14 +353,14 @@ public class MDMaintenanceInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.maintenanceAndUpdateFrequency!= null);
-            boolean rhsFieldIsSet = (that.maintenanceAndUpdateFrequency!= null);
-            MDMaintenanceFrequencyCodePropertyType lhsField;
-            lhsField = this.getMaintenanceAndUpdateFrequency();
-            MDMaintenanceFrequencyCodePropertyType rhsField;
-            rhsField = that.getMaintenanceAndUpdateFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency", rhsField);
+            boolean lhsFieldIsSet = ((this.maintenanceNote!= null)&&(!this.maintenanceNote.isEmpty()));
+            boolean rhsFieldIsSet = ((that.maintenanceNote!= null)&&(!that.maintenanceNote.isEmpty()));
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (((this.maintenanceNote!= null)&&(!this.maintenanceNote.isEmpty()))?this.getMaintenanceNote():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (((that.maintenanceNote!= null)&&(!that.maintenanceNote.isEmpty()))?that.getMaintenanceNote():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -379,14 +379,14 @@ public class MDMaintenanceInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.maintenanceNote!= null)&&(!this.maintenanceNote.isEmpty()));
-            boolean rhsFieldIsSet = ((that.maintenanceNote!= null)&&(!that.maintenanceNote.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.maintenanceNote!= null)&&(!this.maintenanceNote.isEmpty()))?this.getMaintenanceNote():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.maintenanceNote!= null)&&(!that.maintenanceNote.isEmpty()))?that.getMaintenanceNote():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceNote", rhsField);
+            boolean lhsFieldIsSet = (this.maintenanceAndUpdateFrequency!= null);
+            boolean rhsFieldIsSet = (that.maintenanceAndUpdateFrequency!= null);
+            MDMaintenanceFrequencyCodePropertyType lhsField;
+            lhsField = this.getMaintenanceAndUpdateFrequency();
+            MDMaintenanceFrequencyCodePropertyType rhsField;
+            rhsField = that.getMaintenanceAndUpdateFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

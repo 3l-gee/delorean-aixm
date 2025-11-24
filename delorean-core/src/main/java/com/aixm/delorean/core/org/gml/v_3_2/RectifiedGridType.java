@@ -122,19 +122,6 @@ public class RectifiedGridType
         }
         final RectifiedGridType that = ((RectifiedGridType) object);
         {
-            boolean lhsFieldIsSet = ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
-            boolean rhsFieldIsSet = ((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()));
-            List<VectorType> lhsField;
-            lhsField = (((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()))?this.getOffsetVector():null);
-            List<VectorType> rhsField;
-            rhsField = (((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()))?that.getOffsetVector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetVector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetVector", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.origin!= null);
             boolean rhsFieldIsSet = (that.origin!= null);
             PointPropertyType lhsField;
@@ -143,6 +130,19 @@ public class RectifiedGridType
             rhsField = that.getOrigin();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
+            boolean rhsFieldIsSet = ((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()));
+            List<VectorType> lhsField;
+            lhsField = (((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()))?this.getOffsetVector():null);
+            List<VectorType> rhsField;
+            rhsField = (((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()))?that.getOffsetVector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetVector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetVector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -173,19 +173,6 @@ public class GeometryArrayPropertyType implements Equals, HashCode, ToString
         }
         final GeometryArrayPropertyType that = ((GeometryArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractGeometry!= null)&&(!this.abstractGeometry.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractGeometry!= null)&&(!that.abstractGeometry.isEmpty()));
-            List<JAXBElement<? extends AbstractGeometryType>> lhsField;
-            lhsField = (((this.abstractGeometry!= null)&&(!this.abstractGeometry.isEmpty()))?this.getAbstractGeometry():null);
-            List<JAXBElement<? extends AbstractGeometryType>> rhsField;
-            rhsField = (((that.abstractGeometry!= null)&&(!that.abstractGeometry.isEmpty()))?that.getAbstractGeometry():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -194,6 +181,19 @@ public class GeometryArrayPropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.abstractGeometry!= null)&&(!this.abstractGeometry.isEmpty()));
+            boolean rhsFieldIsSet = ((that.abstractGeometry!= null)&&(!that.abstractGeometry.isEmpty()));
+            List<JAXBElement<? extends AbstractGeometryType>> lhsField;
+            lhsField = (((this.abstractGeometry!= null)&&(!this.abstractGeometry.isEmpty()))?this.getAbstractGeometry():null);
+            List<JAXBElement<? extends AbstractGeometryType>> rhsField;
+            rhsField = (((that.abstractGeometry!= null)&&(!that.abstractGeometry.isEmpty()))?that.getAbstractGeometry():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

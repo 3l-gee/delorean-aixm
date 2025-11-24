@@ -186,6 +186,19 @@ public class MDGridSpatialRepresentationType
         }
         final MDGridSpatialRepresentationType that = ((MDGridSpatialRepresentationType) object);
         {
+            boolean lhsFieldIsSet = (this.transformationParameterAvailability!= null);
+            boolean rhsFieldIsSet = (that.transformationParameterAvailability!= null);
+            BooleanPropertyType lhsField;
+            lhsField = this.getTransformationParameterAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getTransformationParameterAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.numberOfDimensions!= null);
             boolean rhsFieldIsSet = (that.numberOfDimensions!= null);
             IntegerPropertyType lhsField;
@@ -220,19 +233,6 @@ public class MDGridSpatialRepresentationType
             rhsField = (((that.axisDimensionProperties!= null)&&(!that.axisDimensionProperties.isEmpty()))?that.getAxisDimensionProperties():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDimensionProperties", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDimensionProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.transformationParameterAvailability!= null);
-            boolean rhsFieldIsSet = (that.transformationParameterAvailability!= null);
-            BooleanPropertyType lhsField;
-            lhsField = this.getTransformationParameterAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getTransformationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationParameterAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

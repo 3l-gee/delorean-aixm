@@ -124,19 +124,6 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
         }
         final MDTopicCategoryCodePropertyType that = ((MDTopicCategoryCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdTopicCategoryCode!= null);
-            boolean rhsFieldIsSet = (that.mdTopicCategoryCode!= null);
-            MDTopicCategoryCodeType lhsField;
-            lhsField = this.getMDTopicCategoryCode();
-            MDTopicCategoryCodeType rhsField;
-            rhsField = that.getMDTopicCategoryCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopicCategoryCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopicCategoryCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -145,6 +132,19 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdTopicCategoryCode!= null);
+            boolean rhsFieldIsSet = (that.mdTopicCategoryCode!= null);
+            MDTopicCategoryCodeType lhsField;
+            lhsField = this.getMDTopicCategoryCode();
+            MDTopicCategoryCodeType rhsField;
+            rhsField = that.getMDTopicCategoryCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopicCategoryCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopicCategoryCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -143,19 +143,6 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
         }
         final PointArrayPropertyType that = ((PointArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.point!= null)&&(!this.point.isEmpty()));
-            boolean rhsFieldIsSet = ((that.point!= null)&&(!that.point.isEmpty()));
-            List<PointType> lhsField;
-            lhsField = (((this.point!= null)&&(!this.point.isEmpty()))?this.getPoint():null);
-            List<PointType> rhsField;
-            rhsField = (((that.point!= null)&&(!that.point.isEmpty()))?that.getPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -164,6 +151,19 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.point!= null)&&(!this.point.isEmpty()));
+            boolean rhsFieldIsSet = ((that.point!= null)&&(!that.point.isEmpty()));
+            List<PointType> lhsField;
+            lhsField = (((this.point!= null)&&(!this.point.isEmpty()))?this.getPoint():null);
+            List<PointType> rhsField;
+            rhsField = (((that.point!= null)&&(!that.point.isEmpty()))?that.getPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

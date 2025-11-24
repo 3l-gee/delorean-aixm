@@ -260,14 +260,14 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
         }
         final ApronLightSystemExtensionType that = ((ApronLightSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronLightSystemExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronLightSystemExtension();
+            lhsField = this.getAbstractGroundLightSystemExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronLightSystemExtension", rhsField);
+            rhsField = that.getAbstractGroundLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class ApronLightSystemExtensionType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApronLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronLightSystemExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightSystemExtension();
+            lhsField = this.getAbstractApronLightSystemExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            rhsField = that.getAbstractApronLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

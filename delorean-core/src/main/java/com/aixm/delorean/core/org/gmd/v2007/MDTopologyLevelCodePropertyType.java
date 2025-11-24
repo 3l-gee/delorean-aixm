@@ -123,19 +123,6 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
         }
         final MDTopologyLevelCodePropertyType that = ((MDTopologyLevelCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdTopologyLevelCode!= null);
-            boolean rhsFieldIsSet = (that.mdTopologyLevelCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDTopologyLevelCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDTopologyLevelCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopologyLevelCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopologyLevelCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdTopologyLevelCode!= null);
+            boolean rhsFieldIsSet = (that.mdTopologyLevelCode!= null);
+            CodeListValueType lhsField;
+            lhsField = this.getMDTopologyLevelCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDTopologyLevelCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopologyLevelCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopologyLevelCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

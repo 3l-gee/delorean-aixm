@@ -364,19 +364,6 @@ public class MovingObjectStatusType
         }
         final MovingObjectStatusType that = ((MovingObjectStatusType) object);
         {
-            boolean lhsFieldIsSet = (this.status!= null);
-            boolean rhsFieldIsSet = (that.status!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getStatus();
-            StringOrRefType rhsField;
-            rhsField = that.getStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.pos!= null);
             boolean rhsFieldIsSet = (that.pos!= null);
             DirectPositionType lhsField;
@@ -385,6 +372,19 @@ public class MovingObjectStatusType
             rhsField = that.getPos();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.speed!= null);
+            boolean rhsFieldIsSet = (that.speed!= null);
+            MeasureType lhsField;
+            lhsField = this.getSpeed();
+            MeasureType rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -403,27 +403,14 @@ public class MovingObjectStatusType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.position!= null);
-            boolean rhsFieldIsSet = (that.position!= null);
-            GeometryPropertyType lhsField;
-            lhsField = this.getPosition();
-            GeometryPropertyType rhsField;
-            rhsField = that.getPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.statusReference!= null);
-            boolean rhsFieldIsSet = (that.statusReference!= null);
-            ReferenceType lhsField;
-            lhsField = this.getStatusReference();
-            ReferenceType rhsField;
-            rhsField = that.getStatusReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statusReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statusReference", rhsField);
+            boolean lhsFieldIsSet = (this.acceleration!= null);
+            boolean rhsFieldIsSet = (that.acceleration!= null);
+            MeasureType lhsField;
+            lhsField = this.getAcceleration();
+            MeasureType rhsField;
+            rhsField = that.getAcceleration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "acceleration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "acceleration", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,6 +442,19 @@ public class MovingObjectStatusType
             }
         }
         {
+            boolean lhsFieldIsSet = (this.status!= null);
+            boolean rhsFieldIsSet = (that.status!= null);
+            StringOrRefType lhsField;
+            lhsField = this.getStatus();
+            StringOrRefType rhsField;
+            rhsField = that.getStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "status", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "status", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.bearing!= null);
             boolean rhsFieldIsSet = (that.bearing!= null);
             DirectionPropertyType lhsField;
@@ -481,27 +481,27 @@ public class MovingObjectStatusType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.acceleration!= null);
-            boolean rhsFieldIsSet = (that.acceleration!= null);
-            MeasureType lhsField;
-            lhsField = this.getAcceleration();
-            MeasureType rhsField;
-            rhsField = that.getAcceleration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "acceleration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "acceleration", rhsField);
+            boolean lhsFieldIsSet = (this.statusReference!= null);
+            boolean rhsFieldIsSet = (that.statusReference!= null);
+            ReferenceType lhsField;
+            lhsField = this.getStatusReference();
+            ReferenceType rhsField;
+            rhsField = that.getStatusReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statusReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statusReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.speed!= null);
-            boolean rhsFieldIsSet = (that.speed!= null);
-            MeasureType lhsField;
-            lhsField = this.getSpeed();
-            MeasureType rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
+            boolean lhsFieldIsSet = (this.position!= null);
+            boolean rhsFieldIsSet = (that.position!= null);
+            GeometryPropertyType lhsField;
+            lhsField = this.getPosition();
+            GeometryPropertyType rhsField;
+            rhsField = that.getPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -255,32 +255,6 @@ public class LISourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.scaleDenominator!= null);
-            boolean rhsFieldIsSet = (that.scaleDenominator!= null);
-            MDRepresentativeFractionPropertyType lhsField;
-            lhsField = this.getScaleDenominator();
-            MDRepresentativeFractionPropertyType rhsField;
-            rhsField = that.getScaleDenominator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.sourceCitation!= null);
-            boolean rhsFieldIsSet = (that.sourceCitation!= null);
-            CICitationPropertyType lhsField;
-            lhsField = this.getSourceCitation();
-            CICitationPropertyType rhsField;
-            rhsField = that.getSourceCitation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.description!= null);
             boolean rhsFieldIsSet = (that.description!= null);
             CharacterStringPropertyType lhsField;
@@ -307,6 +281,19 @@ public class LISourceType
             }
         }
         {
+            boolean lhsFieldIsSet = (this.sourceCitation!= null);
+            boolean rhsFieldIsSet = (that.sourceCitation!= null);
+            CICitationPropertyType lhsField;
+            lhsField = this.getSourceCitation();
+            CICitationPropertyType rhsField;
+            rhsField = that.getSourceCitation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCitation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
             boolean rhsFieldIsSet = ((that.sourceExtent!= null)&&(!that.sourceExtent.isEmpty()));
             List<EXExtentPropertyType> lhsField;
@@ -315,6 +302,19 @@ public class LISourceType
             rhsField = (((that.sourceExtent!= null)&&(!that.sourceExtent.isEmpty()))?that.getSourceExtent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.scaleDenominator!= null);
+            boolean rhsFieldIsSet = (that.scaleDenominator!= null);
+            MDRepresentativeFractionPropertyType lhsField;
+            lhsField = this.getScaleDenominator();
+            MDRepresentativeFractionPropertyType rhsField;
+            rhsField = that.getScaleDenominator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

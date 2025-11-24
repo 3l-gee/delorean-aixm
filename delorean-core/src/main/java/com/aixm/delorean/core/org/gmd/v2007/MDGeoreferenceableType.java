@@ -207,6 +207,32 @@ public class MDGeoreferenceableType
         }
         final MDGeoreferenceableType that = ((MDGeoreferenceableType) object);
         {
+            boolean lhsFieldIsSet = (this.orientationParameterAvailability!= null);
+            boolean rhsFieldIsSet = (that.orientationParameterAvailability!= null);
+            BooleanPropertyType lhsField;
+            lhsField = this.getOrientationParameterAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getOrientationParameterAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.georeferencedParameters!= null);
+            boolean rhsFieldIsSet = (that.georeferencedParameters!= null);
+            RecordPropertyType lhsField;
+            lhsField = this.getGeoreferencedParameters();
+            RecordPropertyType rhsField;
+            rhsField = that.getGeoreferencedParameters();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "georeferencedParameters", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "georeferencedParameters", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.controlPointAvailability!= null);
             boolean rhsFieldIsSet = (that.controlPointAvailability!= null);
             BooleanPropertyType lhsField;
@@ -233,19 +259,6 @@ public class MDGeoreferenceableType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.georeferencedParameters!= null);
-            boolean rhsFieldIsSet = (that.georeferencedParameters!= null);
-            RecordPropertyType lhsField;
-            lhsField = this.getGeoreferencedParameters();
-            RecordPropertyType rhsField;
-            rhsField = that.getGeoreferencedParameters();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "georeferencedParameters", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "georeferencedParameters", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.orientationParameterDescription!= null);
             boolean rhsFieldIsSet = (that.orientationParameterDescription!= null);
             CharacterStringPropertyType lhsField;
@@ -254,19 +267,6 @@ public class MDGeoreferenceableType
             rhsField = that.getOrientationParameterDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.orientationParameterAvailability!= null);
-            boolean rhsFieldIsSet = (that.orientationParameterAvailability!= null);
-            BooleanPropertyType lhsField;
-            lhsField = this.getOrientationParameterAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getOrientationParameterAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientationParameterAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientationParameterAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

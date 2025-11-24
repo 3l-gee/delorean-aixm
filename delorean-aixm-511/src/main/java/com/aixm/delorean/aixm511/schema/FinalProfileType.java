@@ -373,19 +373,6 @@ public class FinalProfileType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTiming();
-            boolean rhsFieldIsSet = that.isSetTiming();
-            List<ApproachTimingTablePropertyType> lhsField;
-            lhsField = (this.isSetTiming()?this.getTiming():null);
-            List<ApproachTimingTablePropertyType> rhsField;
-            rhsField = (that.isSetTiming()?that.getTiming():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -394,6 +381,19 @@ public class FinalProfileType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTiming();
+            boolean rhsFieldIsSet = that.isSetTiming();
+            List<ApproachTimingTablePropertyType> lhsField;
+            lhsField = (this.isSetTiming()?this.getTiming():null);
+            List<ApproachTimingTablePropertyType> rhsField;
+            rhsField = (that.isSetTiming()?that.getTiming():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

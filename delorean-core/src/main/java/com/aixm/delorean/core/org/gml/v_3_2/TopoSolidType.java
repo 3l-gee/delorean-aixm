@@ -256,6 +256,19 @@ public class TopoSolidType
             }
         }
         {
+            boolean lhsFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean rhsFieldIsSet = ((that.directedFace!= null)&&(!that.directedFace.isEmpty()));
+            List<DirectedFacePropertyType> lhsField;
+            lhsField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            List<DirectedFacePropertyType> rhsField;
+            rhsField = (((that.directedFace!= null)&&(!that.directedFace.isEmpty()))?that.getDirectedFace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.aggregationType!= null);
             boolean rhsFieldIsSet = (that.aggregationType!= null);
             AggregationType lhsField;
@@ -277,19 +290,6 @@ public class TopoSolidType
             rhsField = that.getUniversal();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedFace!= null)&&(!that.directedFace.isEmpty()));
-            List<DirectedFacePropertyType> lhsField;
-            lhsField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
-            List<DirectedFacePropertyType> rhsField;
-            rhsField = (((that.directedFace!= null)&&(!that.directedFace.isEmpty()))?that.getDirectedFace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -124,19 +124,6 @@ public class CompoundCRSType
         }
         final CompoundCRSType that = ((CompoundCRSType) object);
         {
-            boolean lhsFieldIsSet = ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
-            boolean rhsFieldIsSet = ((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()));
-            List<JAXBElement<SingleCRSPropertyType>> lhsField;
-            lhsField = (((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()))?this.getComponentReferenceSystem():null);
-            List<JAXBElement<SingleCRSPropertyType>> rhsField;
-            rhsField = (((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()))?that.getComponentReferenceSystem():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "componentReferenceSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "componentReferenceSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.aggregationType!= null);
             boolean rhsFieldIsSet = (that.aggregationType!= null);
             AggregationType lhsField;
@@ -145,6 +132,19 @@ public class CompoundCRSType
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
+            boolean rhsFieldIsSet = ((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()));
+            List<JAXBElement<SingleCRSPropertyType>> lhsField;
+            lhsField = (((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()))?this.getComponentReferenceSystem():null);
+            List<JAXBElement<SingleCRSPropertyType>> rhsField;
+            rhsField = (((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()))?that.getComponentReferenceSystem():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "componentReferenceSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "componentReferenceSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

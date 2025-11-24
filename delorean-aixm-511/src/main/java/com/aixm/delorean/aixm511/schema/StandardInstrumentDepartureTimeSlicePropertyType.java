@@ -223,19 +223,6 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
         }
         final StandardInstrumentDepartureTimeSlicePropertyType that = ((StandardInstrumentDepartureTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStandardInstrumentDepartureTimeSlice();
-            boolean rhsFieldIsSet = that.isSetStandardInstrumentDepartureTimeSlice();
-            StandardInstrumentDepartureTimeSliceType lhsField;
-            lhsField = this.getStandardInstrumentDepartureTimeSlice();
-            StandardInstrumentDepartureTimeSliceType rhsField;
-            rhsField = that.getStandardInstrumentDepartureTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentDepartureTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentDepartureTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardInstrumentDepartureTimeSlice();
+            boolean rhsFieldIsSet = that.isSetStandardInstrumentDepartureTimeSlice();
+            StandardInstrumentDepartureTimeSliceType lhsField;
+            lhsField = this.getStandardInstrumentDepartureTimeSlice();
+            StandardInstrumentDepartureTimeSliceType rhsField;
+            rhsField = that.getStandardInstrumentDepartureTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentDepartureTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentDepartureTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

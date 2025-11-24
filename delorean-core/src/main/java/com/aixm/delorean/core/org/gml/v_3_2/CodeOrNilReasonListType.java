@@ -142,19 +142,6 @@ public class CodeOrNilReasonListType implements Equals, HashCode, ToString
         }
         final CodeOrNilReasonListType that = ((CodeOrNilReasonListType) object);
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
-            List<String> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.codeSpace!= null);
             boolean rhsFieldIsSet = (that.codeSpace!= null);
             String lhsField;
@@ -163,6 +150,19 @@ public class CodeOrNilReasonListType implements Equals, HashCode, ToString
             rhsField = that.getCodeSpace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

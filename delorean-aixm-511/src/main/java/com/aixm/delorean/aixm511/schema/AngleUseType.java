@@ -279,19 +279,6 @@ public class AngleUseType
         }
         final AngleUseType that = ((AngleUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheAngleIndication();
-            boolean rhsFieldIsSet = that.isSetTheAngleIndication();
-            AngleIndicationPropertyType lhsField;
-            lhsField = this.getTheAngleIndication();
-            AngleIndicationPropertyType rhsField;
-            rhsField = that.getTheAngleIndication();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAngleIndication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAngleIndication", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -300,6 +287,19 @@ public class AngleUseType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheAngleIndication();
+            boolean rhsFieldIsSet = that.isSetTheAngleIndication();
+            AngleIndicationPropertyType lhsField;
+            lhsField = this.getTheAngleIndication();
+            AngleIndicationPropertyType rhsField;
+            rhsField = that.getTheAngleIndication();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAngleIndication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAngleIndication", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

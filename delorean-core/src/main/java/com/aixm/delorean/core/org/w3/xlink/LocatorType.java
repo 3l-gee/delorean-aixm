@@ -251,19 +251,6 @@ public class LocatorType implements Equals, HashCode, ToString
         }
         final LocatorType that = ((LocatorType) object);
         {
-            boolean lhsFieldIsSet = (this.href!= null);
-            boolean rhsFieldIsSet = (that.href!= null);
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.type!= null);
             boolean rhsFieldIsSet = (that.type!= null);
             TypeType lhsField;
@@ -277,14 +264,14 @@ public class LocatorType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.label!= null);
-            boolean rhsFieldIsSet = (that.label!= null);
+            boolean lhsFieldIsSet = (this.href!= null);
+            boolean rhsFieldIsSet = (that.href!= null);
             String lhsField;
-            lhsField = this.getLabel();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getLabel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "label", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "label", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -324,6 +311,19 @@ public class LocatorType implements Equals, HashCode, ToString
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.label!= null);
+            boolean rhsFieldIsSet = (that.label!= null);
+            String lhsField;
+            lhsField = this.getLabel();
+            String rhsField;
+            rhsField = that.getLabel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "label", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "label", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

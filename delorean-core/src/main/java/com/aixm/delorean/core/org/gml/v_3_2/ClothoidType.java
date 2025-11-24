@@ -220,6 +220,19 @@ public class ClothoidType
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
+            lhsField = this.getStartParameter();
+            double rhsField;
+            rhsField = that.getStartParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
             lhsField = this.getEndParameter();
             double rhsField;
             rhsField = that.getEndParameter();
@@ -238,19 +251,6 @@ public class ClothoidType
             rhsField = that.getScaleFactor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getStartParameter();
-            double rhsField;
-            rhsField = that.getStartParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startParameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

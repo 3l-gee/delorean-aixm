@@ -163,6 +163,19 @@ public abstract class AbstractGriddedSurfaceType
         }
         final AbstractGriddedSurfaceType that = ((AbstractGriddedSurfaceType) object);
         {
+            boolean lhsFieldIsSet = (this.rows!= null);
+            boolean rhsFieldIsSet = (that.rows!= null);
+            BigInteger lhsField;
+            lhsField = this.getRows();
+            BigInteger rhsField;
+            rhsField = that.getRows();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.pointGridRows!= null);
             boolean rhsFieldIsSet = (that.pointGridRows!= null);
             AbstractGriddedSurfaceType.Rows lhsField;
@@ -184,19 +197,6 @@ public abstract class AbstractGriddedSurfaceType
             rhsField = that.getColumns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.rows!= null);
-            boolean rhsFieldIsSet = (that.rows!= null);
-            BigInteger lhsField;
-            lhsField = this.getRows();
-            BigInteger rhsField;
-            rhsField = that.getRows();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -612,19 +612,6 @@ public abstract class AbstractGriddedSurfaceType
                 }
                 final AbstractGriddedSurfaceType.Rows.Row that = ((AbstractGriddedSurfaceType.Rows.Row) object);
                 {
-                    boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
-                    boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
-                    List<Object> lhsField;
-                    lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
-                    List<Object> rhsField;
-                    rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
-                    ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-                    ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
-                    if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                        return false;
-                    }
-                }
-                {
                     boolean lhsFieldIsSet = (this.posList!= null);
                     boolean rhsFieldIsSet = (that.posList!= null);
                     DirectPositionListType lhsField;
@@ -633,6 +620,19 @@ public abstract class AbstractGriddedSurfaceType
                     rhsField = that.getPosList();
                     ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
                     ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+                    if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                        return false;
+                    }
+                }
+                {
+                    boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
+                    boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
+                    List<Object> lhsField;
+                    lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
+                    List<Object> rhsField;
+                    rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
+                    ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+                    ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
                     if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                         return false;
                     }

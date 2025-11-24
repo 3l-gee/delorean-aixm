@@ -124,19 +124,6 @@ public class MultiSurfaceType
         }
         final MultiSurfaceType that = ((MultiSurfaceType) object);
         {
-            boolean lhsFieldIsSet = (this.surfaceMembers!= null);
-            boolean rhsFieldIsSet = (that.surfaceMembers!= null);
-            SurfaceArrayPropertyType lhsField;
-            lhsField = this.getSurfaceMembers();
-            SurfaceArrayPropertyType rhsField;
-            rhsField = that.getSurfaceMembers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMembers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMembers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
             boolean rhsFieldIsSet = ((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()));
             List<SurfacePropertyType> lhsField;
@@ -145,6 +132,19 @@ public class MultiSurfaceType
             rhsField = (((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()))?that.getSurfaceMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.surfaceMembers!= null);
+            boolean rhsFieldIsSet = (that.surfaceMembers!= null);
+            SurfaceArrayPropertyType lhsField;
+            lhsField = this.getSurfaceMembers();
+            SurfaceArrayPropertyType rhsField;
+            rhsField = that.getSurfaceMembers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMembers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMembers", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

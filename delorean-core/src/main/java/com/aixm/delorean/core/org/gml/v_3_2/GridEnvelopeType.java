@@ -154,19 +154,6 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
         }
         final GridEnvelopeType that = ((GridEnvelopeType) object);
         {
-            boolean lhsFieldIsSet = ((this.high!= null)&&(!this.high.isEmpty()));
-            boolean rhsFieldIsSet = ((that.high!= null)&&(!that.high.isEmpty()));
-            List<BigInteger> lhsField;
-            lhsField = (((this.high!= null)&&(!this.high.isEmpty()))?this.getHigh():null);
-            List<BigInteger> rhsField;
-            rhsField = (((that.high!= null)&&(!that.high.isEmpty()))?that.getHigh():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.low!= null)&&(!this.low.isEmpty()));
             boolean rhsFieldIsSet = ((that.low!= null)&&(!that.low.isEmpty()));
             List<BigInteger> lhsField;
@@ -175,6 +162,19 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
             rhsField = (((that.low!= null)&&(!that.low.isEmpty()))?that.getLow():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "low", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "low", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.high!= null)&&(!this.high.isEmpty()));
+            boolean rhsFieldIsSet = ((that.high!= null)&&(!that.high.isEmpty()));
+            List<BigInteger> lhsField;
+            lhsField = (((this.high!= null)&&(!this.high.isEmpty()))?this.getHigh():null);
+            List<BigInteger> rhsField;
+            rhsField = (((that.high!= null)&&(!that.high.isEmpty()))?that.getHigh():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

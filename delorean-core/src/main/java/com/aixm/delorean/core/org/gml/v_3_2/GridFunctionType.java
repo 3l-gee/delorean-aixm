@@ -137,19 +137,6 @@ public class GridFunctionType implements Equals, HashCode, ToString
         }
         final GridFunctionType that = ((GridFunctionType) object);
         {
-            boolean lhsFieldIsSet = ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
-            boolean rhsFieldIsSet = ((that.startPoint!= null)&&(!that.startPoint.isEmpty()));
-            List<BigInteger> lhsField;
-            lhsField = (((this.startPoint!= null)&&(!this.startPoint.isEmpty()))?this.getStartPoint():null);
-            List<BigInteger> rhsField;
-            rhsField = (((that.startPoint!= null)&&(!that.startPoint.isEmpty()))?that.getStartPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.sequenceRule!= null);
             boolean rhsFieldIsSet = (that.sequenceRule!= null);
             SequenceRuleType lhsField;
@@ -158,6 +145,19 @@ public class GridFunctionType implements Equals, HashCode, ToString
             rhsField = that.getSequenceRule();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceRule", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceRule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
+            boolean rhsFieldIsSet = ((that.startPoint!= null)&&(!that.startPoint.isEmpty()));
+            List<BigInteger> lhsField;
+            lhsField = (((this.startPoint!= null)&&(!this.startPoint.isEmpty()))?this.getStartPoint():null);
+            List<BigInteger> rhsField;
+            rhsField = (((that.startPoint!= null)&&(!that.startPoint.isEmpty()))?that.getStartPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

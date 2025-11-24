@@ -181,6 +181,19 @@ public class TimeClockType
         }
         final TimeClockType that = ((TimeClockType) object);
         {
+            boolean lhsFieldIsSet = (this.referenceTime!= null);
+            boolean rhsFieldIsSet = (that.referenceTime!= null);
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getReferenceTime();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getReferenceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.referenceEvent!= null);
             boolean rhsFieldIsSet = (that.referenceEvent!= null);
             StringOrRefType lhsField;
@@ -202,19 +215,6 @@ public class TimeClockType
             rhsField = that.getUtcReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "utcReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "utcReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.referenceTime!= null);
-            boolean rhsFieldIsSet = (that.referenceTime!= null);
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getReferenceTime();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getReferenceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

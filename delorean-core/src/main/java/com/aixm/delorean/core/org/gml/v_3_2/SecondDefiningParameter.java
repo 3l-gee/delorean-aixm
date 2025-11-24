@@ -163,19 +163,6 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.semiMinorAxis!= null);
-            boolean rhsFieldIsSet = (that.semiMinorAxis!= null);
-            LengthType lhsField;
-            lhsField = this.getSemiMinorAxis();
-            LengthType rhsField;
-            rhsField = that.getSemiMinorAxis();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.inverseFlattening!= null);
             boolean rhsFieldIsSet = (that.inverseFlattening!= null);
             MeasureType lhsField;
@@ -184,6 +171,19 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
             rhsField = that.getInverseFlattening();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.semiMinorAxis!= null);
+            boolean rhsFieldIsSet = (that.semiMinorAxis!= null);
+            LengthType lhsField;
+            lhsField = this.getSemiMinorAxis();
+            LengthType rhsField;
+            rhsField = that.getSemiMinorAxis();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

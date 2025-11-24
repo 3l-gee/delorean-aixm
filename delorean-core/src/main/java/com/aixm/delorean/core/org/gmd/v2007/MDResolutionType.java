@@ -120,19 +120,6 @@ public class MDResolutionType implements Equals, HashCode, ToString
         }
         final MDResolutionType that = ((MDResolutionType) object);
         {
-            boolean lhsFieldIsSet = (this.equivalentScale!= null);
-            boolean rhsFieldIsSet = (that.equivalentScale!= null);
-            MDRepresentativeFractionPropertyType lhsField;
-            lhsField = this.getEquivalentScale();
-            MDRepresentativeFractionPropertyType rhsField;
-            rhsField = that.getEquivalentScale();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equivalentScale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equivalentScale", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.distance!= null);
             boolean rhsFieldIsSet = (that.distance!= null);
             DistancePropertyType lhsField;
@@ -141,6 +128,19 @@ public class MDResolutionType implements Equals, HashCode, ToString
             rhsField = that.getDistance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.equivalentScale!= null);
+            boolean rhsFieldIsSet = (that.equivalentScale!= null);
+            MDRepresentativeFractionPropertyType lhsField;
+            lhsField = this.getEquivalentScale();
+            MDRepresentativeFractionPropertyType rhsField;
+            rhsField = that.getEquivalentScale();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equivalentScale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equivalentScale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

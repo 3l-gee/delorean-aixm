@@ -166,19 +166,6 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
         }
         final CoverageFunctionType that = ((CoverageFunctionType) object);
         {
-            boolean lhsFieldIsSet = (this.mappingRule!= null);
-            boolean rhsFieldIsSet = (that.mappingRule!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getMappingRule();
-            StringOrRefType rhsField;
-            rhsField = that.getMappingRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mappingRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mappingRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.coverageMappingRule!= null);
             boolean rhsFieldIsSet = (that.coverageMappingRule!= null);
             MappingRuleType lhsField;
@@ -200,6 +187,19 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
             rhsField = that.getGridFunction();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mappingRule!= null);
+            boolean rhsFieldIsSet = (that.mappingRule!= null);
+            StringOrRefType lhsField;
+            lhsField = this.getMappingRule();
+            StringOrRefType rhsField;
+            rhsField = that.getMappingRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mappingRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mappingRule", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

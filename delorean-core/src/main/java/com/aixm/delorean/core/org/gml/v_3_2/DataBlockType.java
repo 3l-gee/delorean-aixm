@@ -174,19 +174,6 @@ public class DataBlockType implements Equals, HashCode, ToString
         }
         final DataBlockType that = ((DataBlockType) object);
         {
-            boolean lhsFieldIsSet = ((this.doubleOrNilReasonTupleList!= null)&&(!this.doubleOrNilReasonTupleList.isEmpty()));
-            boolean rhsFieldIsSet = ((that.doubleOrNilReasonTupleList!= null)&&(!that.doubleOrNilReasonTupleList.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.doubleOrNilReasonTupleList!= null)&&(!this.doubleOrNilReasonTupleList.isEmpty()))?this.getDoubleOrNilReasonTupleList():null);
-            List<String> rhsField;
-            rhsField = (((that.doubleOrNilReasonTupleList!= null)&&(!that.doubleOrNilReasonTupleList.isEmpty()))?that.getDoubleOrNilReasonTupleList():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "doubleOrNilReasonTupleList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "doubleOrNilReasonTupleList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.rangeParameters!= null);
             boolean rhsFieldIsSet = (that.rangeParameters!= null);
             AssociationRoleType lhsField;
@@ -208,6 +195,19 @@ public class DataBlockType implements Equals, HashCode, ToString
             rhsField = that.getTupleList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tupleList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tupleList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.doubleOrNilReasonTupleList!= null)&&(!this.doubleOrNilReasonTupleList.isEmpty()));
+            boolean rhsFieldIsSet = ((that.doubleOrNilReasonTupleList!= null)&&(!that.doubleOrNilReasonTupleList.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.doubleOrNilReasonTupleList!= null)&&(!this.doubleOrNilReasonTupleList.isEmpty()))?this.getDoubleOrNilReasonTupleList():null);
+            List<String> rhsField;
+            rhsField = (((that.doubleOrNilReasonTupleList!= null)&&(!that.doubleOrNilReasonTupleList.isEmpty()))?that.getDoubleOrNilReasonTupleList():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "doubleOrNilReasonTupleList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "doubleOrNilReasonTupleList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

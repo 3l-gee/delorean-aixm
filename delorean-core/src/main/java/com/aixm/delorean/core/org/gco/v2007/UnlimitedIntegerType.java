@@ -122,19 +122,6 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
         }
         final UnlimitedIntegerType that = ((UnlimitedIntegerType) object);
         {
-            boolean lhsFieldIsSet = (this.isInfinite!= null);
-            boolean rhsFieldIsSet = (that.isInfinite!= null);
-            Boolean lhsField;
-            lhsField = this.getIsInfinite();
-            Boolean rhsField;
-            rhsField = that.getIsInfinite();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.value!= null);
             boolean rhsFieldIsSet = (that.value!= null);
             BigInteger lhsField;
@@ -143,6 +130,19 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.isInfinite!= null);
+            boolean rhsFieldIsSet = (that.isInfinite!= null);
+            Boolean lhsField;
+            lhsField = this.getIsInfinite();
+            Boolean rhsField;
+            rhsField = that.getIsInfinite();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -190,14 +190,14 @@ public class CodeListValueType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.codeListValue!= null);
-            boolean rhsFieldIsSet = (that.codeListValue!= null);
+            boolean lhsFieldIsSet = (this.codeSpace!= null);
+            boolean rhsFieldIsSet = (that.codeSpace!= null);
             String lhsField;
-            lhsField = this.getCodeListValue();
+            lhsField = this.getCodeSpace();
             String rhsField;
-            rhsField = that.getCodeListValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
+            rhsField = that.getCodeSpace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -216,14 +216,14 @@ public class CodeListValueType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            boolean lhsFieldIsSet = (this.codeListValue!= null);
+            boolean rhsFieldIsSet = (that.codeListValue!= null);
             String lhsField;
-            lhsField = this.getCodeSpace();
+            lhsField = this.getCodeListValue();
             String rhsField;
-            rhsField = that.getCodeSpace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
+            rhsField = that.getCodeListValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeListValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeListValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

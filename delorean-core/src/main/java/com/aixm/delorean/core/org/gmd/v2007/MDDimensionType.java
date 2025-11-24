@@ -137,19 +137,6 @@ public class MDDimensionType
         }
         final MDDimensionType that = ((MDDimensionType) object);
         {
-            boolean lhsFieldIsSet = (this.resolution!= null);
-            boolean rhsFieldIsSet = (that.resolution!= null);
-            MeasurePropertyType lhsField;
-            lhsField = this.getResolution();
-            MeasurePropertyType rhsField;
-            rhsField = that.getResolution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.dimensionSize!= null);
             boolean rhsFieldIsSet = (that.dimensionSize!= null);
             IntegerPropertyType lhsField;
@@ -158,6 +145,19 @@ public class MDDimensionType
             rhsField = that.getDimensionSize();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionSize", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionSize", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.resolution!= null);
+            boolean rhsFieldIsSet = (that.resolution!= null);
+            MeasurePropertyType lhsField;
+            lhsField = this.getResolution();
+            MeasurePropertyType rhsField;
+            rhsField = that.getResolution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

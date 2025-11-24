@@ -8,7 +8,6 @@ import org.xmlunit.assertj.XmlAssert;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.time.DateTimeException;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeParseException;

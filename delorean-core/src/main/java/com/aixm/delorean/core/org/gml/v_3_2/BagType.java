@@ -119,19 +119,6 @@ public class BagType
         }
         final BagType that = ((BagType) object);
         {
-            boolean lhsFieldIsSet = ((this.member!= null)&&(!this.member.isEmpty()));
-            boolean rhsFieldIsSet = ((that.member!= null)&&(!that.member.isEmpty()));
-            List<AssociationRoleType> lhsField;
-            lhsField = (((this.member!= null)&&(!this.member.isEmpty()))?this.getMember():null);
-            List<AssociationRoleType> rhsField;
-            rhsField = (((that.member!= null)&&(!that.member.isEmpty()))?that.getMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.members!= null);
             boolean rhsFieldIsSet = (that.members!= null);
             ArrayAssociationType lhsField;
@@ -140,6 +127,19 @@ public class BagType
             rhsField = that.getMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "members", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "members", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.member!= null)&&(!this.member.isEmpty()));
+            boolean rhsFieldIsSet = ((that.member!= null)&&(!that.member.isEmpty()));
+            List<AssociationRoleType> lhsField;
+            lhsField = (((this.member!= null)&&(!this.member.isEmpty()))?this.getMember():null);
+            List<AssociationRoleType> rhsField;
+            rhsField = (((that.member!= null)&&(!that.member.isEmpty()))?that.getMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

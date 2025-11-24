@@ -237,32 +237,6 @@ public class FileType implements Equals, HashCode, ToString
         }
         final FileType that = ((FileType) object);
         {
-            boolean lhsFieldIsSet = (this.fileReference!= null);
-            boolean rhsFieldIsSet = (that.fileReference!= null);
-            String lhsField;
-            lhsField = this.getFileReference();
-            String rhsField;
-            rhsField = that.getFileReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.rangeParameters!= null);
-            boolean rhsFieldIsSet = (that.rangeParameters!= null);
-            AssociationRoleType lhsField;
-            lhsField = this.getRangeParameters();
-            AssociationRoleType rhsField;
-            rhsField = that.getRangeParameters();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.mimeType!= null);
             boolean rhsFieldIsSet = (that.mimeType!= null);
             String lhsField;
@@ -271,19 +245,6 @@ public class FileType implements Equals, HashCode, ToString
             rhsField = that.getMimeType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mimeType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mimeType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.compression!= null);
-            boolean rhsFieldIsSet = (that.compression!= null);
-            String lhsField;
-            lhsField = this.getCompression();
-            String rhsField;
-            rhsField = that.getCompression();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compression", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compression", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -302,6 +263,19 @@ public class FileType implements Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = (this.fileReference!= null);
+            boolean rhsFieldIsSet = (that.fileReference!= null);
+            String lhsField;
+            lhsField = this.getFileReference();
+            String rhsField;
+            rhsField = that.getFileReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.fileStructure!= null);
             boolean rhsFieldIsSet = (that.fileStructure!= null);
             CodeType lhsField;
@@ -310,6 +284,32 @@ public class FileType implements Equals, HashCode, ToString
             rhsField = that.getFileStructure();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileStructure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileStructure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.rangeParameters!= null);
+            boolean rhsFieldIsSet = (that.rangeParameters!= null);
+            AssociationRoleType lhsField;
+            lhsField = this.getRangeParameters();
+            AssociationRoleType rhsField;
+            rhsField = that.getRangeParameters();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.compression!= null);
+            boolean rhsFieldIsSet = (that.compression!= null);
+            String lhsField;
+            lhsField = this.getCompression();
+            String rhsField;
+            rhsField = that.getCompression();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compression", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compression", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

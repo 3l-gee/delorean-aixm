@@ -260,14 +260,14 @@ public class AirspaceActivationTypeExtensionType implements Serializable, Equals
         }
         final AirspaceActivationTypeExtensionType that = ((AirspaceActivationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceActivationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceActivationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceActivationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceActivationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceActivationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceActivationExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class AirspaceActivationTypeExtensionType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceActivationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceActivationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirspaceActivationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirspaceActivationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceActivationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceActivationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

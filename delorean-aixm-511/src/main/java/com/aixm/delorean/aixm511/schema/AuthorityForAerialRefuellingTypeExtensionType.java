@@ -223,19 +223,6 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
         }
         final AuthorityForAerialRefuellingTypeExtensionType that = ((AuthorityForAerialRefuellingTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAerialRefuellingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAerialRefuellingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAuthorityForAerialRefuellingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAuthorityForAerialRefuellingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAerialRefuellingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAerialRefuellingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AuthorityForAerialRefuellingTypeExtensionType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAuthorityForAerialRefuellingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAuthorityForAerialRefuellingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAuthorityForAerialRefuellingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAuthorityForAerialRefuellingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAuthorityForAerialRefuellingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAuthorityForAerialRefuellingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

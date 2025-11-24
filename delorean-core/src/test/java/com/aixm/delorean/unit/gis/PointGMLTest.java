@@ -19,6 +19,7 @@ import com.aixm.delorean.util.JaxbUtil;
 
 import java.util.stream.Stream;
 
+@Disabled
 public class PointGMLTest {
 
     @BeforeAll

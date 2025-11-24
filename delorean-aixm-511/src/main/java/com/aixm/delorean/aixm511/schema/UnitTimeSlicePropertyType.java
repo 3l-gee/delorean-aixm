@@ -223,19 +223,6 @@ public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode
         }
         final UnitTimeSlicePropertyType that = ((UnitTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnitTimeSlice();
-            boolean rhsFieldIsSet = that.isSetUnitTimeSlice();
-            UnitTimeSliceType lhsField;
-            lhsField = this.getUnitTimeSlice();
-            UnitTimeSliceType rhsField;
-            rhsField = that.getUnitTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class UnitTimeSlicePropertyType implements Serializable, Equals, HashCode
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnitTimeSlice();
+            boolean rhsFieldIsSet = that.isSetUnitTimeSlice();
+            UnitTimeSliceType lhsField;
+            lhsField = this.getUnitTimeSlice();
+            UnitTimeSliceType rhsField;
+            rhsField = that.getUnitTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

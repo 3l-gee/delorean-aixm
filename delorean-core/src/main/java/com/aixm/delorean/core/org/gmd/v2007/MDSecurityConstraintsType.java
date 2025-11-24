@@ -163,19 +163,6 @@ public class MDSecurityConstraintsType
         }
         final MDSecurityConstraintsType that = ((MDSecurityConstraintsType) object);
         {
-            boolean lhsFieldIsSet = (this.classificationSystem!= null);
-            boolean rhsFieldIsSet = (that.classificationSystem!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getClassificationSystem();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getClassificationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.handlingDescription!= null);
             boolean rhsFieldIsSet = (that.handlingDescription!= null);
             CharacterStringPropertyType lhsField;
@@ -184,6 +171,19 @@ public class MDSecurityConstraintsType
             rhsField = that.getHandlingDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.classification!= null);
+            boolean rhsFieldIsSet = (that.classification!= null);
+            MDClassificationCodePropertyType lhsField;
+            lhsField = this.getClassification();
+            MDClassificationCodePropertyType rhsField;
+            rhsField = that.getClassification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -202,14 +202,14 @@ public class MDSecurityConstraintsType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.classification!= null);
-            boolean rhsFieldIsSet = (that.classification!= null);
-            MDClassificationCodePropertyType lhsField;
-            lhsField = this.getClassification();
-            MDClassificationCodePropertyType rhsField;
-            rhsField = that.getClassification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
+            boolean lhsFieldIsSet = (this.classificationSystem!= null);
+            boolean rhsFieldIsSet = (that.classificationSystem!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getClassificationSystem();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getClassificationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -246,14 +246,40 @@ public class MDMediumType
         }
         final MDMediumType that = ((MDMediumType) object);
         {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
-            MDMediumNameCodePropertyType lhsField;
-            lhsField = this.getName();
-            MDMediumNameCodePropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            boolean lhsFieldIsSet = ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
+            boolean rhsFieldIsSet = ((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()));
+            List<MDMediumFormatCodePropertyType> lhsField;
+            lhsField = (((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()))?this.getMediumFormat():null);
+            List<MDMediumFormatCodePropertyType> rhsField;
+            rhsField = (((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()))?that.getMediumFormat():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.volumes!= null);
+            boolean rhsFieldIsSet = (that.volumes!= null);
+            IntegerPropertyType lhsField;
+            lhsField = this.getVolumes();
+            IntegerPropertyType rhsField;
+            rhsField = that.getVolumes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.density!= null)&&(!this.density.isEmpty()));
+            boolean rhsFieldIsSet = ((that.density!= null)&&(!that.density.isEmpty()));
+            List<RealPropertyType> lhsField;
+            lhsField = (((this.density!= null)&&(!this.density.isEmpty()))?this.getDensity():null);
+            List<RealPropertyType> rhsField;
+            rhsField = (((that.density!= null)&&(!that.density.isEmpty()))?that.getDensity():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "density", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "density", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -285,40 +311,14 @@ public class MDMediumType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.density!= null)&&(!this.density.isEmpty()));
-            boolean rhsFieldIsSet = ((that.density!= null)&&(!that.density.isEmpty()));
-            List<RealPropertyType> lhsField;
-            lhsField = (((this.density!= null)&&(!this.density.isEmpty()))?this.getDensity():null);
-            List<RealPropertyType> rhsField;
-            rhsField = (((that.density!= null)&&(!that.density.isEmpty()))?that.getDensity():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "density", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "density", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
-            boolean rhsFieldIsSet = ((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()));
-            List<MDMediumFormatCodePropertyType> lhsField;
-            lhsField = (((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()))?this.getMediumFormat():null);
-            List<MDMediumFormatCodePropertyType> rhsField;
-            rhsField = (((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()))?that.getMediumFormat():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumFormat", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.volumes!= null);
-            boolean rhsFieldIsSet = (that.volumes!= null);
-            IntegerPropertyType lhsField;
-            lhsField = this.getVolumes();
-            IntegerPropertyType rhsField;
-            rhsField = that.getVolumes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
+            boolean lhsFieldIsSet = (this.name!= null);
+            boolean rhsFieldIsSet = (that.name!= null);
+            MDMediumNameCodePropertyType lhsField;
+            lhsField = this.getName();
+            MDMediumNameCodePropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

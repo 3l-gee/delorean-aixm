@@ -148,19 +148,6 @@ public class PTLocaleType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.characterEncoding!= null);
-            boolean rhsFieldIsSet = (that.characterEncoding!= null);
-            MDCharacterSetCodePropertyType lhsField;
-            lhsField = this.getCharacterEncoding();
-            MDCharacterSetCodePropertyType rhsField;
-            rhsField = that.getCharacterEncoding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterEncoding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterEncoding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.country!= null);
             boolean rhsFieldIsSet = (that.country!= null);
             CountryPropertyType lhsField;
@@ -169,6 +156,19 @@ public class PTLocaleType
             rhsField = that.getCountry();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.characterEncoding!= null);
+            boolean rhsFieldIsSet = (that.characterEncoding!= null);
+            MDCharacterSetCodePropertyType lhsField;
+            lhsField = this.getCharacterEncoding();
+            MDCharacterSetCodePropertyType rhsField;
+            rhsField = that.getCharacterEncoding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterEncoding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterEncoding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

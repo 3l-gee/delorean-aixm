@@ -223,19 +223,6 @@ public class ArrestingGearExtensionType implements Serializable, Equals, HashCod
         }
         final ArrestingGearExtensionType that = ((ArrestingGearExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractArrestingGearExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractArrestingGearExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractArrestingGearExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractArrestingGearExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrestingGearExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrestingGearExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ArrestingGearExtensionType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractArrestingGearExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractArrestingGearExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractArrestingGearExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractArrestingGearExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractArrestingGearExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractArrestingGearExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -122,19 +122,6 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
         }
         final MDResolutionPropertyType that = ((MDResolutionPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdResolution!= null);
-            boolean rhsFieldIsSet = (that.mdResolution!= null);
-            MDResolutionType lhsField;
-            lhsField = this.getMDResolution();
-            MDResolutionType rhsField;
-            rhsField = that.getMDResolution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdResolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdResolution", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -143,6 +130,19 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdResolution!= null);
+            boolean rhsFieldIsSet = (that.mdResolution!= null);
+            MDResolutionType lhsField;
+            lhsField = this.getMDResolution();
+            MDResolutionType rhsField;
+            rhsField = that.getMDResolution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdResolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdResolution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -193,19 +193,6 @@ public class NumberPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.decimal!= null);
-            boolean rhsFieldIsSet = (that.decimal!= null);
-            BigDecimal lhsField;
-            lhsField = this.getDecimal();
-            BigDecimal rhsField;
-            rhsField = that.getDecimal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.real!= null);
             boolean rhsFieldIsSet = (that.real!= null);
             Double lhsField;
@@ -227,6 +214,19 @@ public class NumberPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.decimal!= null);
+            boolean rhsFieldIsSet = (that.decimal!= null);
+            BigDecimal lhsField;
+            lhsField = this.getDecimal();
+            BigDecimal rhsField;
+            rhsField = that.getDecimal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

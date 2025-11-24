@@ -123,19 +123,6 @@ public class MDCharacterSetCodePropertyType implements Equals, HashCode, ToStrin
         }
         final MDCharacterSetCodePropertyType that = ((MDCharacterSetCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdCharacterSetCode!= null);
-            boolean rhsFieldIsSet = (that.mdCharacterSetCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDCharacterSetCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDCharacterSetCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCharacterSetCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCharacterSetCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class MDCharacterSetCodePropertyType implements Equals, HashCode, ToStrin
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdCharacterSetCode!= null);
+            boolean rhsFieldIsSet = (that.mdCharacterSetCode!= null);
+            CodeListValueType lhsField;
+            lhsField = this.getMDCharacterSetCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDCharacterSetCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCharacterSetCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCharacterSetCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

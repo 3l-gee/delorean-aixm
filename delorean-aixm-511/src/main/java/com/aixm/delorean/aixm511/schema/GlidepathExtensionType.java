@@ -260,19 +260,6 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
         }
         final GlidepathExtensionType that = ((GlidepathExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGlidepathExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGlidepathExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,6 +268,19 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGlidepathExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGlidepathExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

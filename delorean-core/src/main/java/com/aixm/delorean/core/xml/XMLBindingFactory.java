@@ -22,9 +22,9 @@ public class XMLBindingFactory<T, X> {
         protected final Class<T> root;
         protected final Class<X> feature;
         protected final Schema schema;
-        private final SchemaFactory schemaFactory;
+        protected final SchemaFactory schemaFactory;
 
-    private XMLBindingFactory(String path, Class<T> root, Class<X> feature) {
+    public XMLBindingFactory(Class<T> root, Class<X> feature, String path) {
         this.root = root;
         this.feature = feature;
         this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);

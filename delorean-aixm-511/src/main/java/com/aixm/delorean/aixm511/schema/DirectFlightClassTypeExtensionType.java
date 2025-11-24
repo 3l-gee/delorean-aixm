@@ -260,6 +260,19 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
         }
         final DirectFlightClassTypeExtensionType that = ((DirectFlightClassTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectFlightClassExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectFlightClassExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class DirectFlightClassTypeExtensionType implements Serializable, Equals,
             rhsField = that.getAbstractDirectFlightExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectFlightClassExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectFlightClassExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectFlightClassExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectFlightClassExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectFlightClassExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectFlightClassExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
