@@ -2,7 +2,7 @@
 <schema xmlns:audit="http://www.aixm.aero/schema/5.1/extensions/audit"
 		xmlns:event="http://www.aixm.aero/schema/5.1/event"
 		xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1" targetNamespace="http://www.aixm.aero/schema/5.1/extensions/audit" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1">
-	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../../xlink/xlinks.xsd"/>
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../../../../xlink/xlink.xsd"/>
 
 	<import namespace="http://www.aixm.aero/schema/5.1" schemaLocation="../../../../AIXM_Features.xsd"/>
 	<import namespace="http://www.aixm.aero/schema/5.1/event" schemaLocation="../../../../event/Event_Features.xsd"/>

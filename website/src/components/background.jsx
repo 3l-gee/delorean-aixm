@@ -37,12 +37,12 @@ export function Background({ page, clean}) {
       const anim = el.getAnimations()[0];
       if (!anim) return;
 
-      const stages = [30, 40, 20, 10, 5, 1]; // last one is reset
+      const stages = [40, 80, 30, 10, 5, 1]; // last one is reset
       let delay = 0;
 
       stages.forEach((rate) => {
         setTimeout(() => anim.updatePlaybackRate(rate), delay);
-        delay += 300; // 1/4 sec per stage
+        delay += 100; // 1/10 sec per stage
       });
     });
   };

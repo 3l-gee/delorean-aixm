@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jaxb:bindings
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+	xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
+	xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
+	version="3.0"
+	jaxb:extensionBindingPrefixes="xjc annox hj orm">
+
+	<jaxb:bindings schemaLocation="../AIXM_Features.xsd" node="/xs:schema">
+		<jaxb:bindings node="manual">
+
+			<jaxb:globalBindings
+				fixedAttributeAsConstantProperty="true"
+				typesafeEnumBase="xs:string"
+				typesafeEnumMemberName="generateName"
+				generateIsSetMethod="true"
+				localScoping="toplevel">
+				<xjc:noValidator/>
+				<xjc:noValidatingUnmarshaller/>
+				<jaxb:serializable uid="20251104"/>
+				<jaxb:javaType
+					name="java.time.OffsetDateTime"
+					xmlType="xs:dateTime"
+					parseMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal"
+					printMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
+				<jaxb:javaType
+					name="java.time.OffsetDateTime"
+					xmlType="xs:date"
+					parseMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.unmarshal"
+					printMethod="com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.marshal"/>
+			</jaxb:globalBindings>
+
+            <hj:persistence>
+
+				<hj:default-entity>
+					<orm:inheritance strategy="JOINED"/>
+				</hj:default-entity>
+
+				<hj:default-generated-version
+						name="hjversion"
+						javaType="java.lang.Long"
+						attributeName="hjversion"
+						schemaType="xsd:long"
+						transient="true"
+						forced="true"
+						>
+						<orm:column name="hjversion"/>
+				</hj:default-generated-version>
+
+				<hj:default-generated-id name ="hjid"
+						javaType="java.lang.Long"
+						attributeName="hjid"
+						schemaType="xsd:long"
+						transient="true"
+						forced="true">
+					<orm:generated-value strategy="SEQUENCE" generator="delorean_seq_gen"/>
+					<orm:sequence-generator name="delorean_seq_gen" sequence-name="delorean_seq_gen" allocation-size="1"/>
+				</hj:default-generated-id>
+
+				<hj:default-one-to-one fetch="EAGER" join-table="false"/>
+				<hj:default-one-to-many fetch="EAGER" join-table="false"/>
+
+				<hj:default-many-to-one merge="false" fetch="EAGER">
+						<orm:cascade>
+							<orm:cascade-all/>
+						</orm:cascade>
+				</hj:default-many-to-one>
+
+				<hj:default-many-to-many merge="false" fetch="EAGER">
+						<orm:cascade>
+							<orm:cascade-all/>
+						</orm:cascade>
+				</hj:default-many-to-many>
+			</hj:persistence>
+
+            <jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
+				<jaxb:class name="AIXMPointPropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_point_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@name='Point']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmPointType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Point", required = true, type = com.aixm.delorean.aixm511.schema.PointType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.PointTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='PointType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='PointPropertyGroup']//xs:element[@name='horizontalAccuracy']">
+				<hj:embedded/>
+			</jaxb:bindings>
+
+            <jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']">
+				<jaxb:class name="AIXMElevatedPointPropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_elevatedpoint_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointPropertyType']//xs:element[@name='ElevatedPoint']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedPoint", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedPointType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedPointTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@name='extension']/xs:complexType">
+				<jaxb:class name="ElevatedPointTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedpoint_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedPointType']//xs:element[@ref='aixm:AbstractElevatedPointExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedpoint_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='elevation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='geoidUndulation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedPointPropertyGroup']//xs:element[@name='verticalDatum']">
+				<hj:embedded/>
+			</jaxb:bindings>
+
+			<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']">
+				<jaxb:class name="AIXMCurvePropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_curve_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='CurvePropertyType']//xs:element[@name='Curve']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmCurveType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Curve", required = true, type = com.aixm.delorean.aixm511.schema.CurveType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.CurveTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='CurveType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='CurvePropertyGroup']//xs:element[@name='horizontalAccuracy']">
+				<hj:embedded/>
+			</jaxb:bindings>
+
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']">
+				<jaxb:class name="AIXMElevatedCurvePropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_elevatedcurve_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurvePropertyType']//xs:element[@name='ElevatedCurve']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedCurve", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedCurveType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedCurveTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@name='extension']/xs:complexType">
+				<jaxb:class name="ElevatedCurveTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedcurve_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedCurveType']//xs:element[@ref='aixm:AbstractElevatedCurveExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedcurve_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='elevation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='geoidUndulation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedCurvePropertyGroup']//xs:element[@name='verticalDatum']">
+				<hj:embedded/>
+			</jaxb:bindings>
+
+			<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']">
+				<jaxb:class name="AIXMSurfacePropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_surface_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='SurfacePropertyType']//xs:element[@name='Surface']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmSurfaceType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "Surface", required = true, type = com.aixm.delorean.aixm511.schema.SurfaceType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.SurfaceTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='SurfaceType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='SurfacePropertyGroup']//xs:element[@name='horizontalAccuracy']">
+				<hj:embedded/>
+			</jaxb:bindings>
+
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']">
+				<jaxb:class name="AIXMElevatedSurfacePropertyType"/>
+				<hj:entity>
+					<orm:table name="aixm_elevatedsurface_pt" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfacePropertyType']//xs:element[@name='ElevatedSurface']">
+				<jaxb:javaType name="com.aixm.delorean.aixm511.gis.type.AixmElevatedSurfaceType"/>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "ElevatedSurface", required = true, type = com.aixm.delorean.aixm511.schema.ElevatedSurfaceType.class)</annox:annotate>
+				<annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.gis.adapter.ElevatedSurfaceTypeAdapter.class)</annox:annotate>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']">
+				<hj:ignored/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@name='extension']/xs:complexType">
+				<jaxb:class name="ElevatedSurfaceTypeExtension"/>
+				<hj:entity>
+					<orm:table name="elevatedsurface_ext" schema="gml"/>
+				</hj:entity>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='ElevatedSurfaceType']//xs:element[@ref='aixm:AbstractElevatedSurfaceExtension']">
+				<hj:one-to-one>
+					<orm:join-column name="abstractelevatedsurface_ext_id" referenced-column-name="hjid" />
+				</hj:one-to-one>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='elevation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='geoidUndulation']">
+				<hj:embedded/>
+			</jaxb:bindings>
+			<jaxb:bindings node="//xs:group[@name='ElevatedSurfacePropertyGroup']//xs:element[@name='verticalDatum']">
+				<hj:embedded/>
+			</jaxb:bindings>
+        
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

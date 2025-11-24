@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jaxb:bindings version="3.0"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:annox="urn:jaxb.jvnet.org:annox"
+    xmlns:hj="http://jvnet.org/hyperjaxb/jpa"
+    xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm"
+    jaxb:extensionBindingPrefixes="xjc annox hj orm">
+
+  <jaxb:bindings schemaLocation="../AIXM_AbstractGML_ObjectTypes.xsd" node="/xs:schema">
+        <jaxb:bindings node="manual">
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageBaseType']">
+                <hj:mapped-superclass/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageBaseType']//xs:element[@name='messageMetadata']">
+                <hj:one-to-one>
+                    <orm:join-column name="message_metadata_hjid" referenced-column-name="hjid" />
+                </hj:one-to-one>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMMessageType']">
+                <hj:mapped-superclass/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureBaseType']">
+                <hj:mapped-superclass/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMFeatureType']">
+                <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "AbstractAIXMFeatureType", propOrder = {"featureMetadata"})</annox:annotate>
+                <hj:entity>
+                    <orm:table name="aixm_feature" schema="aixm"/>
+                    <orm:inheritance strategy="JOINED"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMFeatureType']//xs:element[@name='approvalStatus']">
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMObjectType']">
+                <hj:entity>
+                    <orm:table name="aixm_object" schema="aixm"/>
+                    <orm:inheritance strategy="JOINED"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMPropertyType']">
+                <hj:entity>
+                    <orm:table name="aixm_property" schema="aixm"/>
+                    <orm:inheritance strategy="JOINED"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceBaseType']">
+                <hj:mapped-superclass/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractAIXMTimeSliceType']">
+                <annox:annotate target="class">@jakarta.xml.bind.annotation.XmlType(name = "AbstractAIXMTimeSliceType", propOrder = { "interpretation","sequenceNumber","correctionNumber","timeSliceMetadata","featureLifetime"})</annox:annotate>
+                <hj:entity>
+                    <orm:table name="aixm_timeslice" schema="aixm"/>
+                    <orm:inheritance strategy="JOINED"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
+                <jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+                <jaxb:property name="featureLifetime"/>
+            </jaxb:bindings>
+            <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='approvalStatus']">
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlTransient</annox:annotate>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']">
+                <hj:entity>
+                    <orm:table name="message_metadata" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']//xs:element[@name='mdMetadata']">
+                <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+                <jaxb:property name="mdMetadata"/>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">
+                <hj:entity>
+                    <orm:table name="feature_metadata" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='FeatureTimeSliceMetadataPropertyType']">
+                <hj:entity>
+                    <orm:table name="timeslice_metadata" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
+            <jaxb:bindings node="//xs:complexType[@name='AbstractExtensionType']">
+                <hj:entity>
+                    <orm:table name="aixm_extension" schema="aixm"/>
+                </hj:entity>
+            </jaxb:bindings>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

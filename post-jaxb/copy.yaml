@@ -1,0 +1,3 @@
+copy:
+  - from: codegen\post-jaxb\files\XHTMLType.java
+    to: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java

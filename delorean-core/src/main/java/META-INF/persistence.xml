@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence version="3.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <persistence-unit name="com.aixm.delorean.core.org.gml.v_3_2">
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureMemberType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType$Rows</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType$Rows$Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType.Rows.Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeSliceType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Category</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.ClothoidType$RefLocation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.CodeType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.CoordinatesType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.DynamicFeatureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.MeasureType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Quantity</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.TimePositionType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.TinType$ControlPoint</class>
+    </persistence-unit>
+</persistence>

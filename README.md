@@ -1,24 +1,17 @@
-```
- ██████╗  ███████╗ ██╗       ██████╗  ██████╗  ███████╗  █████╗  ███╗   ██╗ 
- ██╔══██╗ ██╔════╝ ██║      ██╔═══██╗ ██╔══██╗ ██╔════╝ ██╔══██╗ ████╗  ██║ 
- ██║  ██║ █████╗   ██║      ██║   ██║ ██████╔╝ █████╗   ███████║ ██╔██╗ ██║ 
- ██║  ██║ ██╔══╝   ██║      ██║   ██║ ██╔══██╗ ██╔══╝   ██╔══██║ ██║╚██╗██║ 
- ██████╔╝ ███████╗ ███████╗ ╚██████╔╝ ██║  ██║ ███████╗ ██║  ██║ ██║ ╚████║ 
- ╚═════╝  ╚══════╝ ╚══════╝  ╚═════╝  ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝ ╚═╝  ╚═══╝ 
-```                      
-
-Deloreans is an open-source tool written in Java and targeted at PostgreSQL, allowing users to create, visualize, and work with AIXM datasets. Delorean acts as a link between XML, PostgreSQL and QGIS. 
+<img src="website/src/assets/logo/delorean-aixm-logo-big-transparent.png" width="900">
+                    
+Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.
 
 ```mermaid
 mindmap
     root((Delorean))
         xml
-            load
-            export
+            unmarshal
+            marshal
             validate
         postgres
-            load
-            export
+            persist
+            extract
             view
         filter
             feature
@@ -35,15 +28,15 @@ mindmap
 ```
 
 Delorean support all features types found in aixm for the following aixm versions : 
-* [ ] 5_2 (in dev)
-* [ ] 5_1_1 (in dev)
+* [x] 5_2
+* [x] 5_1_1
 * [x] 5_1
 * [ ] 5_0
 * [ ] 4_5 
 
 ## License
 
-Delorean is licensed under the MIT License.
+Delorean is licensed under the GPLV3
 
 ## Using
 
@@ -51,21 +44,25 @@ Consult the Wiki : [Usage](https://github.com/3l-gee/delorean/wiki) / [Exemple](
 
 ## Building
 
-The build process for delorean is complicated as it relies on the aixm xsd to build the entire aixm specific code base. 
-✨ Deloreans Rube goldberg build machine ✨
-1) ```mvn clean compile -P enable-jaxb```
-2) Delete the classes :
-    *  ```src\main\java\com\aixm\delorean\core\schema\a5_1\aixm\message\Adapter1.java```
-    *  ```src\main\java\com\aixm\delorean\core\schema\a5_1\aixm\Adapter1.java - Adapter8.java```
-    *  ```src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\message\Adapter1.java```
-    *  ```src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\Adapter1.java - Adapter8.java```
-    *  ```src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java```
-3) Remove the faulty code from
-    * ```src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java [5064 - 5077]```
-4) ```python util\compilation\compilation_script.py```
-5) ```mvn clean compile```
+The build process for Delorean can be divided into two categories: schema compilation and incremental builds.
 
-Additionally, the ressources produced for QGIS and postgresql rely on codegeneration like toolkits custum made for the purpose of Delorean.
+### Building
+
+For most changes, such as bug fixes or feature updates, you can directly build the project using:
+```bash
+mvn package
+```
+
+This is the fastest and most common build process, as it does not involve regenerating the AIXM-specific codebase.
+
+#### Schema Generation
+Schema generation is required when there are changes to the AIXM XSD schema. This process is more resource-intensive and generates the entire AIXM-specific codebase. To perform schema generation, run the following commands:
+```bash
+mvn clean install -P enable-hyper-jaxb
+mvn install package
+```
+
+This step involves manual modifications to the generated classes due to limitations in the JAXB tool suite. After schema generation, inspect the generated code and apply necessary adjustments to ensure compatibility with the AIXM schema and project requirements. Document any changes for future reference.
 
 ## Documentation
 Please refer to the [wiki](https://github.com/3l-gee/delorean/wiki) for the full documentation.

@@ -14,13 +14,13 @@ export function MainPage() {
       <div className="space-y-6 flex-2">
         <div className=''> 
           <h1 className="text-4xl font-bold tracking-tight">AIXM, Made Simple</h1>
-          <h2 className="text-4xl font-bold tracking-tight">Collection, verification, dissemination and transformation of digital aeronautical information accessible to everyone.</h2>
+          <h2 className="text-4xl font-bold tracking-tight">A complete toolkit for managing AIXM aeronautical data.</h2>
         </div>
         <div className="p-[40px]"></div>
         <div className="grid grid-cols-2 items-center">
           <Button
             label="Download Delorean"
-            href="https://github.com/3l-gee/delorean/releases"
+            href="https://github.com/3l-gee/delorean-aixm/releases"
             className='main-page-button'
           />
           <span className="text-gray-500">
@@ -37,16 +37,10 @@ export function MainPage() {
   <section className="space-y-4">
     <h2 className="text-2xl font-semibold">Why Delorean?</h2>
     <p>
-      The world of aeronautical data management is in transition from paper to digital products. 
-      This transition is supported by the Aeronautical Information Exchange Model (AIXM). 
-      While AIXM provides guidance on how data should be stored and exchanged, the actual 
-      creation, manipulation, or visualization of such data remains a challenge.
-    </p>
-    <p>
-      While a range of commercial products offer based on AIXM exists, Delorean aims to fill a gap - 
-      providing an open source alternative to such tools. Delorean combines the roles of an aeronautical 
-      database schema builder, QGIS project generator, and XML transformation engine. 
-      It does all this through a simple, robust cli interface that handles your data safely and precisely.
+      The Delorean-AIXM project offers an open-source solution for managing AIXM aeronautical information datasets. 
+      Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling 
+      validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with 
+      GIS tools, web servers, feature servers, and much more.
     </p>
   </section>
 

@@ -1,368 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.aixm.delorean</groupId>
-	<artifactId>delorean</artifactId>
-	<version>0.2.0</version>
-	<name>delorean</name>
-	<url>https://github.com/3l-gee/delorean</url>
+    <modelVersion>4.0.0</modelVersion>
 
-    <repositories>
-        <repository>
-            <id>osgeo</id>
-            <name>OSGeo Release Repository</name>
-            <url>https://repo.osgeo.org/repository/release/</url>
-            <snapshots><enabled>false</enabled></snapshots>
-            <releases><enabled>true</enabled></releases>
-        </repository>
-    </repositories>
+    <groupId>com.aixm.delorean</groupId>
+    <artifactId>delorean-aixm</artifactId>
+    <version>0.2.0</version>
+    <packaging>pom</packaging>
+
+    <name>delorean-aixm</name>
+    <description>Delorean-AIXM offers an open-source solution for managing AIXM aeronautical information. Delorean-AIXM transforms your PostgreSQL database into a comprehensive aeronautical mapping database capable of handling validation, visualisation, creation, modification, merging, filtering and digital NOTAM handling. Delorean-AIXM can be integrated with GIS tools, web servers, feature servers, and much more.</description>
+    <url>https://github.com/3l-gee/delorean-aixm</url>
+    <inceptionYear>2024</inceptionYear>
+    <developers>
+        <developer>
+            <id>3l-gee</id>
+            <name>Raphaël Gerth</name>
+            <email>raphael.gerth@gmail.com</email>
+            <roles>
+                <role>project creator</role>
+            </roles>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <geotools.version>32.0</geotools.version>
-        <!-- <maven.deploy.skip>true</maven.deploy.skip> -->
-    </properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-	<dependencies>
-		<dependency>
-			<groupId>jakarta.xml.bind</groupId>
-			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>4.0.2</version>
-		</dependency>
+		<maven-min.version>3.9.0</maven-min.version>
+		<annotation.version>2.1.1</annotation.version>
+		<eclipselink.version>4.0.2</eclipselink.version>
+		<hisrc-basicjaxb.version>2.2.1</hisrc-basicjaxb.version>
+		<hisrc-hyperjaxb.version>2.2.1</hisrc-hyperjaxb.version>
+		<h2database.version>2.2.224</h2database.version>
+		<postgresql.version>42.7.3</postgresql.version>
+        <postgis.version>2025.1.1</postgis.version>
+        <hikaricp.version>7.0.2</hikaricp.version>
+        <hibernate.version>7.1.0.Final</hibernate.version>
+		<jpa-api.version>3.2.0</jpa-api.version>
+		<slf4j.version>2.0.12</slf4j.version>
+        <jts.version>1.20.0</jts.version>
+        <proj4.version>1.4.1</proj4.version>
+        <freemarker.version>2.3.34</freemarker.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+	</properties>
 
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>4.0.2</version>
-		</dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.3</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>8.0.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>6.6.1.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-spatial</artifactId>
-            <version>6.6.1.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>5.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.postgis</groupId>
-            <artifactId>postgis-jdbc</artifactId>
-            <version>2024.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.locationtech.jts</groupId>
-            <artifactId>jts-core</artifactId>
-            <version>1.20.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.locationtech.jts.io</groupId>
-            <artifactId>jts-io-common</artifactId>
-            <version>1.20.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j</artifactId>
-            <version>1.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.locationtech.proj4j</groupId>
-            <artifactId>proj4j-epsg</artifactId>
-            <version>1.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.vladmihalcea</groupId>
-            <artifactId>hibernate-types-55</artifactId>
-            <version>2.21.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.34</version>
-        </dependency>
-
-	</dependencies>
-	<build>
-		<plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>21</release>
-                    <compilerArgument>-Xlint:deprecation</compilerArgument>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <artifactSet>
-                                <includes>
-                                    <include>*:*</include>
-                                </includes>
-                            </artifactSet>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.aixm.delorean.Main</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-		</plugins>
-	</build>
-
-    <profiles>
-        <profile>
-            <id>enable-jaxb</id>
-                <build>
-                    <plugins>
-                    <plugin>
-                        <groupId>org.jvnet.jaxb</groupId>
-                        <artifactId>jaxb-maven-plugin</artifactId>
-                        <version>4.0.8</version>
-                        <configuration>
-                            <extension>true</extension>
-                            <args>
-                                <arg>-Xannotate</arg>
-                                <arg>-XremoveAnnotation</arg>
-                            </args>
-                            <plugins>
-                                <plugin>
-                                    <groupId>org.jvnet.jaxb</groupId>
-                                    <artifactId>jaxb-plugin-annotate</artifactId>
-                                    <version>4.0.8</version>
-                                </plugin>
-                            </plugins>
-                            <verbose>true</verbose>
-                        </configuration>
-                        <executions>
-                            <!-- <execution>
-                                <id>generate-aixm4_5</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm4_5/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm4_5/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution> -->
-                            <!-- <execution>
-                                <id>generate-aixm5</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm5/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm5/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution> -->
-                            <execution>
-                                <id>generate-aixm5_1</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm5_1/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm5_1/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution>
-                            <!-- <execution>
-                                <id>generate-aixm5_1e</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm5_1e/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm5_1e/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution> -->
-                            <execution>
-                                <id>generate-aixm5_1_1</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm5_1_1/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm5_1_1/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution>
-                            <!-- <execution>
-                                <id>generate-aixm5_2</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/aixm5_2/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>AIXM_BasicMessage.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/aixm5_2/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution> -->
-                            <!-- <execution>
-                                <id>generate-aixmTest</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <schemaDirectory>${project.basedir}/schema/test/aixm/message</schemaDirectory>
-                                    <schemaIncludes>
-                                        <include>feature.xsd</include>
-                                    </schemaIncludes>
-                                    <bindingDirectory>${project.basedir}/schema/test/binding</bindingDirectory>
-                                    <bindingIncludes>
-                                        <include>*.xjb</include>
-                                    </bindingIncludes>
-                                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                </configuration>
-                            </execution>-->
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.fillumina</groupId>
-                                <artifactId>krasa-jaxb-tools</artifactId>
-                                <version>2.3.3</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.jvnet.jaxb</groupId>
-                                <artifactId>jaxb-plugins</artifactId>
-                                <version>4.0.8</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.jvnet.jaxb</groupId>
-                                <artifactId>jaxb-plugin-annotate</artifactId>
-                                <version>4.0.8</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.jvnet.jaxb</groupId>
-                                <artifactId>hyperjaxb3-ejb-plugin</artifactId>
-                                <version>4.0.8</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.hibernate.orm</groupId>
-                                <artifactId>hibernate-core</artifactId>
-                                <version>6.6.13.Final</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <modules>
+        <module>post-jaxb</module>
+        <module>delorean-core</module>
+        <!-- <module>pre-jaxb</module> -->
+        <!-- <module>delorean-aixm-51</module> -->
+        <module>delorean-aixm-511</module>
+        <!-- <module>delorean-aixm-52</module> -->
+    </modules>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.aixm.delorean</groupId>
+                <artifactId>delorean-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
 </project>
