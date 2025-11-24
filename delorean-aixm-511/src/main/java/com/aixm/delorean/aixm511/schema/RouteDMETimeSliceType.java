@@ -292,7 +292,7 @@ public class RouteDMETimeSliceType
     @OneToMany(targetEntity = RouteDMEExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ROUTE_DMETIME_SLIC_0")
+    @JoinColumn
     public List<RouteDMEExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -380,32 +380,6 @@ public class RouteDMETimeSliceType
         }
         final RouteDMETimeSliceType that = ((RouteDMETimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetReferencedDME();
-            boolean rhsFieldIsSet = that.isSetReferencedDME();
-            JAXBElement<DMEPropertyType> lhsField;
-            lhsField = this.getReferencedDME();
-            JAXBElement<DMEPropertyType> rhsField;
-            rhsField = that.getReferencedDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedDME", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteDMEExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RouteDMEExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -414,19 +388,6 @@ public class RouteDMETimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApplicableRoutePortion();
-            boolean rhsFieldIsSet = that.isSetApplicableRoutePortion();
-            JAXBElement<RoutePortionPropertyType> lhsField;
-            lhsField = this.getApplicableRoutePortion();
-            JAXBElement<RoutePortionPropertyType> rhsField;
-            rhsField = that.getApplicableRoutePortion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -453,6 +414,45 @@ public class RouteDMETimeSliceType
             rhsField = that.getSatisfactory();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferencedDME();
+            boolean rhsFieldIsSet = that.isSetReferencedDME();
+            JAXBElement<DMEPropertyType> lhsField;
+            lhsField = this.getReferencedDME();
+            JAXBElement<DMEPropertyType> rhsField;
+            rhsField = that.getReferencedDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referencedDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referencedDME", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteDMEExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RouteDMEExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApplicableRoutePortion();
+            boolean rhsFieldIsSet = that.isSetApplicableRoutePortion();
+            JAXBElement<RoutePortionPropertyType> lhsField;
+            lhsField = this.getApplicableRoutePortion();
+            JAXBElement<RoutePortionPropertyType> rhsField;
+            rhsField = that.getApplicableRoutePortion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "applicableRoutePortion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "applicableRoutePortion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

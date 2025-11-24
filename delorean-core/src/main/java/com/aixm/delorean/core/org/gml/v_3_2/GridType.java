@@ -201,6 +201,19 @@ public class GridType
         }
         final GridType that = ((GridType) object);
         {
+            boolean lhsFieldIsSet = ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
+            boolean rhsFieldIsSet = ((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()))?this.getGridAxisLabels():null);
+            List<String> rhsField;
+            rhsField = (((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()))?that.getGridAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.limits!= null);
             boolean rhsFieldIsSet = (that.limits!= null);
             GridLimitsType lhsField;
@@ -209,19 +222,6 @@ public class GridType
             rhsField = that.getLimits();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "limits", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "limits", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.axisName!= null)&&(!this.axisName.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisName!= null)&&(!that.axisName.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.axisName!= null)&&(!this.axisName.isEmpty()))?this.getAxisName():null);
-            List<String> rhsField;
-            rhsField = (((that.axisName!= null)&&(!that.axisName.isEmpty()))?that.getAxisName():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,14 +240,14 @@ public class GridType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()));
+            boolean lhsFieldIsSet = ((this.axisName!= null)&&(!this.axisName.isEmpty()));
+            boolean rhsFieldIsSet = ((that.axisName!= null)&&(!that.axisName.isEmpty()));
             List<String> lhsField;
-            lhsField = (((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()))?this.getGridAxisLabels():null);
+            lhsField = (((this.axisName!= null)&&(!this.axisName.isEmpty()))?this.getAxisName():null);
             List<String> rhsField;
-            rhsField = (((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()))?that.getGridAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
+            rhsField = (((that.axisName!= null)&&(!that.axisName.isEmpty()))?that.getAxisName():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,17 +1,10 @@
 package com.aixm.delorean.core.metadata.adapter;
 
-import java.io.StringReader;
-import java.io.StringWriter;
 
 import com.aixm.delorean.core.metadata.helper.MetadataHelper;
 import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 // https://ext.eurocontrol.int/aixm_confluence/display/ACGAMD/Metadata

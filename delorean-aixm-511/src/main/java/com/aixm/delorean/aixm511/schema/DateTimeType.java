@@ -25,7 +25,7 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.w3._2001.xmlschema.Adapter1;
+
 
 
 /**
@@ -54,9 +54,10 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20251104L;
-    @XmlValue
-    @XmlJavaTypeAdapter(Adapter1 .class)
-    protected OffsetDateTime value;
+ @jakarta.xml.bind.annotation.XmlValue @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
+   protected
+    
+    OffsetDateTime value;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
 
@@ -68,7 +69,7 @@ public class DateTimeType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.Basic
     public OffsetDateTime getValue() {
         return value;
     }

@@ -260,14 +260,14 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
         }
         final StandMarkingExtensionType that = ((StandMarkingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandMarkingExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandMarkingExtension();
+            lhsField = this.getAbstractMarkingExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandMarkingExtension", rhsField);
+            rhsField = that.getAbstractMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractStandMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandMarkingExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMarkingExtension();
+            lhsField = this.getAbstractStandMarkingExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
+            rhsField = that.getAbstractStandMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

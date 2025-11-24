@@ -222,7 +222,7 @@ public class AirspaceBorderCrossingTimeSliceType
     @OneToMany(targetEntity = AirspaceBorderCrossingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_BORDER_CR_0")
+    @JoinColumn
     public List<AirspaceBorderCrossingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -297,14 +297,14 @@ public class AirspaceBorderCrossingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExitedAirspace();
-            boolean rhsFieldIsSet = that.isSetExitedAirspace();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getExitedAirspace();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getExitedAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceBorderCrossingExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceBorderCrossingExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -323,14 +323,14 @@ public class AirspaceBorderCrossingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceBorderCrossingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirspaceBorderCrossingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetExitedAirspace();
+            boolean rhsFieldIsSet = that.isSetExitedAirspace();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getExitedAirspace();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getExitedAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exitedAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exitedAirspace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

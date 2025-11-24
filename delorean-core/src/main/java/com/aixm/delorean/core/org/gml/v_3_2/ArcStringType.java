@@ -226,27 +226,14 @@ public class ArcStringType
         }
         final ArcStringType that = ((ArcStringType) object);
         {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.numArc!= null);
-            boolean rhsFieldIsSet = (that.numArc!= null);
-            BigInteger lhsField;
-            lhsField = this.getNumArc();
-            BigInteger rhsField;
-            rhsField = that.getNumArc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
+            List<JAXBElement<?>> lhsField;
+            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -265,14 +252,27 @@ public class ArcStringType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            boolean lhsFieldIsSet = (this.numArc!= null);
+            boolean rhsFieldIsSet = (that.numArc!= null);
+            BigInteger lhsField;
+            lhsField = this.getNumArc();
+            BigInteger rhsField;
+            rhsField = that.getNumArc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.interpolation!= null);
+            boolean rhsFieldIsSet = (that.interpolation!= null);
+            CurveInterpolationType lhsField;
+            lhsField = this.getInterpolation();
+            CurveInterpolationType rhsField;
+            rhsField = that.getInterpolation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

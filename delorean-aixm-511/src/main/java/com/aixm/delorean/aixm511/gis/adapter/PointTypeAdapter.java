@@ -3,7 +3,7 @@ package com.aixm.delorean.aixm511.gis.adapter;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
 import com.aixm.delorean.aixm511.gis.type.AixmPointType;
-import com.aixm.delorean.aixm511.schema.aixm.PointType;
+import com.aixm.delorean.aixm511.schema.PointType;
 
 public class PointTypeAdapter extends XmlAdapter<PointType, AixmPointType> {
     @Override

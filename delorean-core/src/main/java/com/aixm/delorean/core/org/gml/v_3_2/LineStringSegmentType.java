@@ -194,14 +194,14 @@ public class LineStringSegmentType
         }
         final LineStringSegmentType that = ((LineStringSegmentType) object);
         {
-            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            boolean lhsFieldIsSet = (this.coordinates!= null);
+            boolean rhsFieldIsSet = (that.coordinates!= null);
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,6 +220,19 @@ public class LineStringSegmentType
             }
         }
         {
+            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
+            List<JAXBElement<?>> lhsField;
+            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.interpolation!= null);
             boolean rhsFieldIsSet = (that.interpolation!= null);
             CurveInterpolationType lhsField;
@@ -228,19 +241,6 @@ public class LineStringSegmentType
             rhsField = that.getInterpolation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

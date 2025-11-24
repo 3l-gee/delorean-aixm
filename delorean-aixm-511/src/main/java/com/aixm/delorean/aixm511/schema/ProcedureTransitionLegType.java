@@ -228,7 +228,7 @@ public class ProcedureTransitionLegType
     @OneToMany(targetEntity = ProcedureTransitionLegTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_PROCEDURE_TRANSITI_1")
+    @JoinColumn
     public List<ProcedureTransitionLegTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,14 +279,14 @@ public class ProcedureTransitionLegType
         }
         final ProcedureTransitionLegType that = ((ProcedureTransitionLegType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureTransitionLegTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ProcedureTransitionLegTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,19 +305,6 @@ public class ProcedureTransitionLegType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
             boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
             JAXBElement<NoSequenceType> lhsField;
@@ -326,6 +313,19 @@ public class ProcedureTransitionLegType
             rhsField = that.getSeqNumberARINC();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureTransitionLegTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ProcedureTransitionLegTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

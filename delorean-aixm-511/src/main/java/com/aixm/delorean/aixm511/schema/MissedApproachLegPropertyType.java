@@ -2,17 +2,18 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.aixm511.org.w3.xlink.ActuateType;
-import com.aixm.delorean.aixm511.org.w3.xlink.ShowType;
-import com.aixm.delorean.aixm511.org.w3.xlink.TypeType;
+import com.aixm.delorean.core.org.w3.xlink.ActuateType;
+import com.aixm.delorean.core.org.w3.xlink.ShowType;
+import com.aixm.delorean.core.org.w3.xlink.TypeType;
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -46,8 +47,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  * <complexType name="MissedApproachLegPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -63,15 +64,13 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
 {
 
     private static final long serialVersionUID = 20251104L;
-    @XmlAttribute(name = "owns")
-    protected Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
-    public static final TypeType TYPE = TypeType.SIMPLE;
+    protected TypeType type;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
     protected String href;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
@@ -79,54 +78,17 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
     protected String arcrole;
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
-    protected String simpleLinkTitle;
+    protected String title;
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
+    @XmlAttribute(name = "owns")
+    protected Boolean owns;
     @XmlTransient
     protected Long hjid;
     @XmlTransient
     protected Long hjversion;
-
-    /**
-     * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    @Basic
-    @Column(name = "OWNS")
-    public boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setOwns(boolean value) {
-        this.owns = value;
-    }
-
-    @Transient
-    public boolean isSetOwns() {
-        return (this.owns!= null);
-    }
-
-    public void unsetOwns() {
-        this.owns = null;
-    }
 
     /**
      * Gets the value of the nilReason property.
@@ -167,7 +129,8 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
      *     {@link String }
      *     
      */
-    @Transient
+    @Basic
+    @Column(name = "REMOTE_SCHEMA")
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -187,6 +150,38 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TypeType }
+     *     
+     */
+    @ManyToOne(targetEntity = TypeType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    public TypeType getTYPE() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TypeType }
+     *     
+     */
+    public void setTYPE(TypeType value) {
+        this.type = value;
+    }
+
+    @Transient
+    public boolean isSetTYPE() {
+        return (this.type!= null);
     }
 
     /**
@@ -283,7 +278,7 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     }
 
     /**
-     * Gets the value of the simpleLinkTitle property.
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -291,26 +286,26 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
      *     
      */
     @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
-    public String getSimpleLinkTitle() {
-        return simpleLinkTitle;
+    @Column(name = "TITLE", length = 255)
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * Sets the value of the simpleLinkTitle property.
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSimpleLinkTitle(String value) {
-        this.simpleLinkTitle = value;
+    public void setTitle(String value) {
+        this.title = value;
     }
 
     @Transient
-    public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+    public boolean isSetTitle() {
+        return (this.title!= null);
     }
 
     /**
@@ -321,9 +316,9 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
      *     {@link ShowType }
      *     
      */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(targetEntity = ShowType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     public ShowType getShow() {
         return show;
     }
@@ -353,9 +348,9 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
      *     {@link ActuateType }
      *     
      */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(targetEntity = ActuateType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -375,6 +370,45 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     @Transient
     public boolean isSetActuate() {
         return (this.actuate!= null);
+    }
+
+    /**
+     * Gets the value of the owns property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    @Basic
+    @Column(name = "OWNS")
+    public boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setOwns(boolean value) {
+        this.owns = value;
+    }
+
+    @Transient
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     /**
@@ -453,53 +487,14 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
         }
         final MissedApproachLegPropertyType that = ((MissedApproachLegPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetTYPE();
+            boolean rhsFieldIsSet = that.isSetTYPE();
+            TypeType lhsField;
+            lhsField = this.getTYPE();
+            TypeType rhsField;
+            rhsField = that.getTYPE();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -518,14 +513,66 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            String lhsField;
+            lhsField = this.getTitle();
+            String rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -544,19 +591,6 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -565,6 +599,19 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -586,13 +633,6 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
             boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
@@ -604,6 +644,13 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             String theField;
             theField = this.getRemoteSchema();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "remoteSchema", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetTYPE();
+            TypeType theField;
+            theField = this.getTYPE();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -628,10 +675,10 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean theFieldIsSet = this.isSetTitle();
             String theField;
-            theField = this.getSimpleLinkTitle();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "simpleLinkTitle", theField);
+            theField = this.getTitle();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "title", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -646,6 +693,13 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             ActuateType theField;
             theField = this.getActuate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -674,12 +728,6 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = this.isSetOwns();
-            boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
-        }
-        {
             boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
@@ -690,6 +738,12 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             String theField;
             theField = this.getRemoteSchema();
             strategy.appendField(locator, this, "remoteSchema", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetTYPE();
+            TypeType theField;
+            theField = this.getTYPE();
+            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHref();
@@ -710,10 +764,10 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             strategy.appendField(locator, this, "arcrole", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean theFieldIsSet = this.isSetTitle();
             String theField;
-            theField = this.getSimpleLinkTitle();
-            strategy.appendField(locator, this, "simpleLinkTitle", buffer, theField, theFieldIsSet);
+            theField = this.getTitle();
+            strategy.appendField(locator, this, "title", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetShow();
@@ -726,6 +780,12 @@ public class MissedApproachLegPropertyType implements Serializable, Equals, Hash
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

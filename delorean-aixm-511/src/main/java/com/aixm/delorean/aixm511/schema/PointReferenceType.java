@@ -439,7 +439,7 @@ public class PointReferenceType
     @OneToMany(targetEntity = PointReferenceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_POINT_REFERENCE_TY_0")
+    @JoinColumn
     public List<PointReferenceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -542,27 +542,14 @@ public class PointReferenceType
         }
         final PointReferenceType that = ((PointReferenceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<PointReferenceTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<PointReferenceTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            JAXBElement<CodeReferenceRoleType> lhsField;
-            lhsField = this.getRole();
-            JAXBElement<CodeReferenceRoleType> rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -581,6 +568,32 @@ public class PointReferenceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            JAXBElement<CodeReferenceRoleType> lhsField;
+            lhsField = this.getRole();
+            JAXBElement<CodeReferenceRoleType> rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
+            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getFixToleranceArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getFixToleranceArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPriorFixTolerance();
             boolean rhsFieldIsSet = that.isSetPriorFixTolerance();
             JAXBElement<ValDistanceSignedType> lhsField;
@@ -589,32 +602,6 @@ public class PointReferenceType
             rhsField = that.getPriorFixTolerance();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorFixTolerance", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorFixTolerance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
-            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> lhsField;
-            lhsField = this.getPostFixTolerance();
-            JAXBElement<ValDistanceSignedType> rhsField;
-            rhsField = that.getPostFixTolerance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPoint();
-            boolean rhsFieldIsSet = that.isSetPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -633,14 +620,27 @@ public class PointReferenceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFixToleranceArea();
-            boolean rhsFieldIsSet = that.isSetFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getFixToleranceArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getFixToleranceArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fixToleranceArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fixToleranceArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetPostFixTolerance();
+            boolean rhsFieldIsSet = that.isSetPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> lhsField;
+            lhsField = this.getPostFixTolerance();
+            JAXBElement<ValDistanceSignedType> rhsField;
+            rhsField = that.getPostFixTolerance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postFixTolerance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postFixTolerance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<PointReferenceTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<PointReferenceTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

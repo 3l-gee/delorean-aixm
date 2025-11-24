@@ -226,7 +226,7 @@ public class ReflectorType
     @OneToMany(targetEntity = ReflectorTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_REFLECTOR_TYPE_HJID")
+    @JoinColumn
     public List<ReflectorTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,19 +289,6 @@ public class ReflectorType
         }
         final ReflectorType that = ((ReflectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeReflectorType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeReflectorType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ReflectorTypeExtensionType> lhsField;
@@ -323,6 +310,19 @@ public class ReflectorType
             rhsField = that.getTouchdownReflector();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchdownReflector", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchdownReflector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeReflectorType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeReflectorType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

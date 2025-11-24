@@ -9,7 +9,7 @@ import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.RingType;
-import com.aixm.delorean.core.util.HrefHelper;
+import com.aixm.delorean.core.unit.HrefHelper;
 
 public class RingGmlHelper {
     

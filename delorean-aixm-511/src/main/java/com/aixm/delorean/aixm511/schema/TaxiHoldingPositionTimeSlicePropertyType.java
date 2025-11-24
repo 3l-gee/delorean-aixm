@@ -223,19 +223,6 @@ public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, E
         }
         final TaxiHoldingPositionTimeSlicePropertyType that = ((TaxiHoldingPositionTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTaxiHoldingPositionTimeSlice();
-            boolean rhsFieldIsSet = that.isSetTaxiHoldingPositionTimeSlice();
-            TaxiHoldingPositionTimeSliceType lhsField;
-            lhsField = this.getTaxiHoldingPositionTimeSlice();
-            TaxiHoldingPositionTimeSliceType rhsField;
-            rhsField = that.getTaxiHoldingPositionTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHoldingPositionTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHoldingPositionTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class TaxiHoldingPositionTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTaxiHoldingPositionTimeSlice();
+            boolean rhsFieldIsSet = that.isSetTaxiHoldingPositionTimeSlice();
+            TaxiHoldingPositionTimeSliceType lhsField;
+            lhsField = this.getTaxiHoldingPositionTimeSlice();
+            TaxiHoldingPositionTimeSliceType rhsField;
+            rhsField = that.getTaxiHoldingPositionTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHoldingPositionTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHoldingPositionTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

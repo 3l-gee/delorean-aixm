@@ -43,8 +43,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}CompositeSolid"/>
  *         </choice>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -88,6 +88,8 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
      */
     @XmlElement(name = "CompositeSolid")
     protected CompositeSolidType compositeSolid;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -107,8 +109,6 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
 
     /**
      * Gets the value of the geometricComplex property.
@@ -213,6 +213,34 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
      */
     public void setCompositeSolid(CompositeSolidType value) {
         this.compositeSolid = value;
+    }
+
+    /**
+     * Gets the value of the owns property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public java.lang.Boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public void setOwns(java.lang.Boolean value) {
+        this.owns = value;
     }
 
     /**
@@ -435,34 +463,6 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
         this.actuate = value;
     }
 
-    /**
-     * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public java.lang.Boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public void setOwns(java.lang.Boolean value) {
-        this.owns = value;
-    }
-
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -485,92 +485,14 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
         }
         final GeometricComplexPropertyType that = ((GeometricComplexPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = (this.arcrole!= null);
+            boolean rhsFieldIsSet = (that.arcrole!= null);
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.compositeSolid!= null);
-            boolean rhsFieldIsSet = (that.compositeSolid!= null);
-            CompositeSolidType lhsField;
-            lhsField = this.getCompositeSolid();
-            CompositeSolidType rhsField;
-            rhsField = that.getCompositeSolid();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSolid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.compositeCurve!= null);
-            boolean rhsFieldIsSet = (that.compositeCurve!= null);
-            CompositeCurveType lhsField;
-            lhsField = this.getCompositeCurve();
-            CompositeCurveType rhsField;
-            rhsField = that.getCompositeCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.actuate!= null);
-            boolean rhsFieldIsSet = (that.actuate!= null);
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -589,27 +511,14 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
+            boolean lhsFieldIsSet = (this.nilReason!= null);
+            boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.compositeSurface!= null);
-            boolean rhsFieldIsSet = (that.compositeSurface!= null);
-            CompositeSurfaceType lhsField;
-            lhsField = this.getCompositeSurface();
-            CompositeSurfaceType rhsField;
-            rhsField = that.getCompositeSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSurface", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -628,14 +537,14 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
+            boolean lhsFieldIsSet = (this.remoteSchema!= null);
+            boolean rhsFieldIsSet = (that.remoteSchema!= null);
             String lhsField;
-            lhsField = this.getRole();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -654,6 +563,32 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = (this.compositeSurface!= null);
+            boolean rhsFieldIsSet = (that.compositeSurface!= null);
+            CompositeSurfaceType lhsField;
+            lhsField = this.getCompositeSurface();
+            CompositeSurfaceType rhsField;
+            rhsField = that.getCompositeSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.role!= null);
+            boolean rhsFieldIsSet = (that.role!= null);
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.geometricComplex!= null);
             boolean rhsFieldIsSet = (that.geometricComplex!= null);
             GeometricComplexType lhsField;
@@ -662,6 +597,71 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             rhsField = that.getGeometricComplex();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricComplex", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricComplex", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.compositeCurve!= null);
+            boolean rhsFieldIsSet = (that.compositeCurve!= null);
+            CompositeCurveType lhsField;
+            lhsField = this.getCompositeCurve();
+            CompositeCurveType rhsField;
+            rhsField = that.getCompositeCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeCurve", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.actuate!= null);
+            boolean rhsFieldIsSet = (that.actuate!= null);
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.compositeSolid!= null);
+            boolean rhsFieldIsSet = (that.compositeSolid!= null);
+            CompositeSolidType lhsField;
+            lhsField = this.getCompositeSolid();
+            CompositeSolidType rhsField;
+            rhsField = that.getCompositeSolid();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compositeSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compositeSolid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -708,6 +708,13 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             CompositeSolidType theField;
             theField = this.getCompositeSolid();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "compositeSolid", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = (this.owns!= null);
+            java.lang.Boolean theField;
+            theField = this.getOwns();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -773,13 +780,6 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
-        {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
         return currentHashCode;
     }
 
@@ -828,6 +828,12 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             CompositeSolidType theField;
             theField = this.getCompositeSolid();
             strategy.appendField(locator, this, "compositeSolid", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = (this.owns!= null);
+            java.lang.Boolean theField;
+            theField = this.getOwns();
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = (this.nilReason!= null);
@@ -882,12 +888,6 @@ public class GeometricComplexPropertyType implements Equals, HashCode, ToString
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

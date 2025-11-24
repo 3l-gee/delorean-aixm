@@ -260,19 +260,6 @@ public class TouchDownLiftOffLightSystemExtensionType implements Serializable, E
         }
         final TouchDownLiftOffLightSystemExtensionType that = ((TouchDownLiftOffLightSystemExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffLightSystemExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractTouchDownLiftOffLightSystemExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractTouchDownLiftOffLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffLightSystemExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
             boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class TouchDownLiftOffLightSystemExtensionType implements Serializable, E
             rhsField = that.getAbstractGroundLightSystemExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractTouchDownLiftOffLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractTouchDownLiftOffLightSystemExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractTouchDownLiftOffLightSystemExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractTouchDownLiftOffLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

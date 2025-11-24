@@ -350,7 +350,7 @@ public class TouchDownLiftOffMarkingTimeSliceType
     @OneToMany(targetEntity = TouchDownLiftOffMarkingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_TOUCH_DOWN_LIFT_OF_3")
+    @JoinColumn
     public List<TouchDownLiftOffMarkingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -439,27 +439,14 @@ public class TouchDownLiftOffMarkingTimeSliceType
         }
         final TouchDownLiftOffMarkingTimeSliceType that = ((TouchDownLiftOffMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkedTouchDownLiftOff();
-            boolean rhsFieldIsSet = that.isSetMarkedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getMarkedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getMarkedTouchDownLiftOff();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTouchDownLiftOff", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTouchDownLiftOff", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkingLocation();
-            boolean rhsFieldIsSet = that.isSetMarkingLocation();
-            JAXBElement<CodeTLOFSectionType> lhsField;
-            lhsField = this.getMarkingLocation();
-            JAXBElement<CodeTLOFSectionType> rhsField;
-            rhsField = that.getMarkingLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<MarkingElementPropertyType> lhsField;
+            lhsField = (this.isSetElement()?this.getElement():null);
+            List<MarkingElementPropertyType> rhsField;
+            rhsField = (that.isSetElement()?that.getElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -478,14 +465,27 @@ public class TouchDownLiftOffMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<MarkingElementPropertyType> lhsField;
-            lhsField = (this.isSetElement()?this.getElement():null);
-            List<MarkingElementPropertyType> rhsField;
-            rhsField = (that.isSetElement()?that.getElement():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedTouchDownLiftOff();
+            boolean rhsFieldIsSet = that.isSetMarkedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getMarkedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getMarkedTouchDownLiftOff();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTouchDownLiftOff", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTouchDownLiftOff", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -504,19 +504,6 @@ public class TouchDownLiftOffMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<TouchDownLiftOffMarkingExtensionType> lhsField;
@@ -525,6 +512,19 @@ public class TouchDownLiftOffMarkingTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingLocation();
+            boolean rhsFieldIsSet = that.isSetMarkingLocation();
+            JAXBElement<CodeTLOFSectionType> lhsField;
+            lhsField = this.getMarkingLocation();
+            JAXBElement<CodeTLOFSectionType> rhsField;
+            rhsField = that.getMarkingLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

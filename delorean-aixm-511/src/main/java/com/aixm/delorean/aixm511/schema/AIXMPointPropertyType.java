@@ -2,9 +2,8 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.gis.adapter.a5_1_1.gis.PointTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_1_1.AixmPointType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.PointType;
+import com.aixm.delorean.aixm511.gis.adapter.PointTypeAdapter;
+import com.aixm.delorean.aixm511.gis.type.AixmPointType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -63,7 +62,8 @@ public class AIXMPointPropertyType
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "point_id", referencedColumnName = "hjid")
     public AixmPointType getPoint() {
         return point;
     }

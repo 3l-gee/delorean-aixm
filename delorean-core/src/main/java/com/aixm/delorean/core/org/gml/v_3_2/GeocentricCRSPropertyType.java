@@ -339,32 +339,6 @@ public class GeocentricCRSPropertyType implements Equals, HashCode, ToString
         }
         final GeocentricCRSPropertyType that = ((GeocentricCRSPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.geocentricCRS!= null);
-            boolean rhsFieldIsSet = (that.geocentricCRS!= null);
-            GeocentricCRSType lhsField;
-            lhsField = this.getGeocentricCRS();
-            GeocentricCRSType rhsField;
-            rhsField = that.getGeocentricCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geocentricCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geocentricCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.type!= null);
             boolean rhsFieldIsSet = (that.type!= null);
             TypeType lhsField;
@@ -404,27 +378,14 @@ public class GeocentricCRSPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            boolean lhsFieldIsSet = (this.role!= null);
+            boolean rhsFieldIsSet = (that.role!= null);
             String lhsField;
-            lhsField = this.getRemoteSchema();
+            lhsField = this.getRole();
             String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -443,6 +404,19 @@ public class GeocentricCRSPropertyType implements Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = (this.geocentricCRS!= null);
+            boolean rhsFieldIsSet = (that.geocentricCRS!= null);
+            GeocentricCRSType lhsField;
+            lhsField = this.getGeocentricCRS();
+            GeocentricCRSType rhsField;
+            rhsField = that.getGeocentricCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geocentricCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geocentricCRS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.href!= null);
             boolean rhsFieldIsSet = (that.href!= null);
             String lhsField;
@@ -456,6 +430,19 @@ public class GeocentricCRSPropertyType implements Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = (this.remoteSchema!= null);
+            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
             boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
             String lhsField;
@@ -464,6 +451,19 @@ public class GeocentricCRSPropertyType implements Equals, HashCode, ToString
             rhsField = that.getSimpleLinkTitle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

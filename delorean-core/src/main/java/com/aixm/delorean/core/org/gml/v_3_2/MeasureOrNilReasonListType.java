@@ -140,19 +140,6 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
         }
         final MeasureOrNilReasonListType that = ((MeasureOrNilReasonListType) object);
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
             boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
             List<String> lhsField;
@@ -161,6 +148,19 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
             rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.uom!= null);
+            boolean rhsFieldIsSet = (that.uom!= null);
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

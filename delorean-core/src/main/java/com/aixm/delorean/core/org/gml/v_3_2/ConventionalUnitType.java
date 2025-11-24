@@ -173,19 +173,6 @@ public class ConventionalUnitType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
-            boolean rhsFieldIsSet = ((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()));
-            List<DerivationUnitTermType> lhsField;
-            lhsField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
-            List<DerivationUnitTermType> rhsField;
-            rhsField = (((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()))?that.getDerivationUnitTerm():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.conversionToPreferredUnit!= null);
             boolean rhsFieldIsSet = (that.conversionToPreferredUnit!= null);
             ConversionToPreferredUnitType lhsField;
@@ -194,6 +181,19 @@ public class ConventionalUnitType
             rhsField = that.getConversionToPreferredUnit();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "conversionToPreferredUnit", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "conversionToPreferredUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+            boolean rhsFieldIsSet = ((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()));
+            List<DerivationUnitTermType> lhsField;
+            lhsField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            List<DerivationUnitTermType> rhsField;
+            rhsField = (((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()))?that.getDerivationUnitTerm():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

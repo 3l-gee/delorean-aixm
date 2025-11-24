@@ -431,14 +431,14 @@ public class FaceOrTopoSolidPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.href!= null);
-            boolean rhsFieldIsSet = (that.href!= null);
+            boolean lhsFieldIsSet = (this.arcrole!= null);
+            boolean rhsFieldIsSet = (that.arcrole!= null);
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -457,40 +457,14 @@ public class FaceOrTopoSolidPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.actuate!= null);
-            boolean rhsFieldIsSet = (that.actuate!= null);
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.face!= null);
-            boolean rhsFieldIsSet = (that.face!= null);
-            FaceType lhsField;
-            lhsField = this.getFace();
-            FaceType rhsField;
-            rhsField = that.getFace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "face", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "face", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.topoSolid!= null);
-            boolean rhsFieldIsSet = (that.topoSolid!= null);
-            TopoSolidType lhsField;
-            lhsField = this.getTopoSolid();
-            TopoSolidType rhsField;
-            rhsField = that.getTopoSolid();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoSolid", rhsField);
+            boolean lhsFieldIsSet = (this.type!= null);
+            boolean rhsFieldIsSet = (that.type!= null);
+            TypeType lhsField;
+            lhsField = this.getType();
+            TypeType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -509,27 +483,14 @@ public class FaceOrTopoSolidPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            boolean lhsFieldIsSet = (this.face!= null);
+            boolean rhsFieldIsSet = (that.face!= null);
+            FaceType lhsField;
+            lhsField = this.getFace();
+            FaceType rhsField;
+            rhsField = that.getFace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "face", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "face", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -548,14 +509,53 @@ public class FaceOrTopoSolidPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = (this.actuate!= null);
+            boolean rhsFieldIsSet = (that.actuate!= null);
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.href!= null);
+            boolean rhsFieldIsSet = (that.href!= null);
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.remoteSchema!= null);
+            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.topoSolid!= null);
+            boolean rhsFieldIsSet = (that.topoSolid!= null);
+            TopoSolidType lhsField;
+            lhsField = this.getTopoSolid();
+            TopoSolidType rhsField;
+            rhsField = that.getTopoSolid();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoSolid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

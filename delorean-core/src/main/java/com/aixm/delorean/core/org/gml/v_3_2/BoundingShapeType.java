@@ -176,19 +176,6 @@ public class BoundingShapeType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.gmlNull!= null);
-            boolean rhsFieldIsSet = (that.gmlNull!= null);
-            String lhsField;
-            lhsField = this.getGmlNull();
-            String rhsField;
-            rhsField = that.getGmlNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.envelope!= null);
             boolean rhsFieldIsSet = (that.envelope!= null);
             JAXBElement<? extends EnvelopeType> lhsField;
@@ -197,6 +184,19 @@ public class BoundingShapeType implements Equals, HashCode, ToString
             rhsField = that.getEnvelope();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "envelope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "envelope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.gmlNull!= null);
+            boolean rhsFieldIsSet = (that.gmlNull!= null);
+            String lhsField;
+            lhsField = this.getGmlNull();
+            String rhsField;
+            rhsField = that.getGmlNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

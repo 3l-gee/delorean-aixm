@@ -123,19 +123,6 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
         }
         final DQEvaluationMethodTypeCodePropertyType that = ((DQEvaluationMethodTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.dqEvaluationMethodTypeCode!= null);
             boolean rhsFieldIsSet = (that.dqEvaluationMethodTypeCode!= null);
             CodeListValueType lhsField;
@@ -144,6 +131,19 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
             rhsField = that.getDQEvaluationMethodTypeCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqEvaluationMethodTypeCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqEvaluationMethodTypeCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.nilReason!= null);
+            boolean rhsFieldIsSet = (that.nilReason!= null);
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

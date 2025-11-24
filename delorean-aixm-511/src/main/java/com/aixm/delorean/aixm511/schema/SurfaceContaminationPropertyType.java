@@ -117,9 +117,8 @@ public class SurfaceContaminationPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractSurfaceContaminationType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "surface_contamination_id", referencedColumnName = "hjid")
     public AbstractSurfaceContaminationType getAbstractSurfaceContaminationValue() {
         if (this.getAbstractSurfaceContamination() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractSurfaceContaminationType.class, this.getAbstractSurfaceContamination());

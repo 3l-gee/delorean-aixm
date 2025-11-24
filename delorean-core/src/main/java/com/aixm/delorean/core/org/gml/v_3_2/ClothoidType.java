@@ -204,14 +204,14 @@ public class ClothoidType
         }
         final ClothoidType that = ((ClothoidType) object);
         {
-            boolean lhsFieldIsSet = (this.scaleFactor!= null);
-            boolean rhsFieldIsSet = (that.scaleFactor!= null);
-            BigDecimal lhsField;
-            lhsField = this.getScaleFactor();
-            BigDecimal rhsField;
-            rhsField = that.getScaleFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            boolean lhsFieldIsSet = (this.refLocation!= null);
+            boolean rhsFieldIsSet = (that.refLocation!= null);
+            ClothoidType.RefLocation lhsField;
+            lhsField = this.getRefLocation();
+            ClothoidType.RefLocation rhsField;
+            rhsField = that.getRefLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -225,6 +225,19 @@ public class ClothoidType
             rhsField = that.getEndParameter();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endParameter", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endParameter", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.scaleFactor!= null);
+            boolean rhsFieldIsSet = (that.scaleFactor!= null);
+            BigDecimal lhsField;
+            lhsField = this.getScaleFactor();
+            BigDecimal rhsField;
+            rhsField = that.getScaleFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -251,19 +264,6 @@ public class ClothoidType
             rhsField = that.getInterpolation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.refLocation!= null);
-            boolean rhsFieldIsSet = (that.refLocation!= null);
-            ClothoidType.RefLocation lhsField;
-            lhsField = this.getRefLocation();
-            ClothoidType.RefLocation rhsField;
-            rhsField = that.getRefLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

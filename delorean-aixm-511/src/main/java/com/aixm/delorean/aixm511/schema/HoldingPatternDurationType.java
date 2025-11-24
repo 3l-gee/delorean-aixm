@@ -192,7 +192,7 @@ public class HoldingPatternDurationType
     @OneToMany(targetEntity = HoldingPatternDurationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_HOLDING_PATTERN_DU_0")
+    @JoinColumn
     public List<HoldingPatternDurationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -244,14 +244,14 @@ public class HoldingPatternDurationType
         }
         final HoldingPatternDurationType that = ((HoldingPatternDurationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDuration();
-            boolean rhsFieldIsSet = that.isSetDuration();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getDuration();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getDuration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "duration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "duration", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingPatternDurationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<HoldingPatternDurationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -270,14 +270,14 @@ public class HoldingPatternDurationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingPatternDurationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<HoldingPatternDurationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDuration();
+            boolean rhsFieldIsSet = that.isSetDuration();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getDuration();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getDuration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "duration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "duration", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

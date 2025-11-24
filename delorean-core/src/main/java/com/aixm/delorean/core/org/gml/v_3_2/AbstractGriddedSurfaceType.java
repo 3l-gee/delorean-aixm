@@ -163,19 +163,6 @@ public abstract class AbstractGriddedSurfaceType
         }
         final AbstractGriddedSurfaceType that = ((AbstractGriddedSurfaceType) object);
         {
-            boolean lhsFieldIsSet = (this.columns!= null);
-            boolean rhsFieldIsSet = (that.columns!= null);
-            BigInteger lhsField;
-            lhsField = this.getColumns();
-            BigInteger rhsField;
-            rhsField = that.getColumns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.pointGridRows!= null);
             boolean rhsFieldIsSet = (that.pointGridRows!= null);
             AbstractGriddedSurfaceType.Rows lhsField;
@@ -184,6 +171,19 @@ public abstract class AbstractGriddedSurfaceType
             rhsField = that.getPointGridRows();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.columns!= null);
+            boolean rhsFieldIsSet = (that.columns!= null);
+            BigInteger lhsField;
+            lhsField = this.getColumns();
+            BigInteger rhsField;
+            rhsField = that.getColumns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

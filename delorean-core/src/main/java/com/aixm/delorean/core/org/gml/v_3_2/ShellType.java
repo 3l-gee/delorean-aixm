@@ -137,19 +137,6 @@ public class ShellType implements Equals, HashCode, ToString
         }
         final ShellType that = ((ShellType) object);
         {
-            boolean lhsFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()));
-            List<SurfacePropertyType> lhsField;
-            lhsField = (((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()))?this.getSurfaceMember():null);
-            List<SurfacePropertyType> rhsField;
-            rhsField = (((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()))?that.getSurfaceMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.aggregationType!= null);
             boolean rhsFieldIsSet = (that.aggregationType!= null);
             AggregationType lhsField;
@@ -158,6 +145,19 @@ public class ShellType implements Equals, HashCode, ToString
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
+            boolean rhsFieldIsSet = ((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()));
+            List<SurfacePropertyType> lhsField;
+            lhsField = (((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()))?this.getSurfaceMember():null);
+            List<SurfacePropertyType> rhsField;
+            rhsField = (((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()))?that.getSurfaceMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

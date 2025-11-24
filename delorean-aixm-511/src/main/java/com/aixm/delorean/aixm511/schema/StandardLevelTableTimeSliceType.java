@@ -225,7 +225,7 @@ public class StandardLevelTableTimeSliceType
     @OneToMany(targetEntity = StandardLevelTableExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_TAB_0")
+    @JoinColumn
     public List<StandardLevelTableExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

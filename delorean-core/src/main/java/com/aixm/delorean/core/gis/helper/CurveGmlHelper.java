@@ -21,12 +21,13 @@ import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
 import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
 import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
+import com.aixm.delorean.core.unit.AngleUom;
+import com.aixm.delorean.core.unit.DistanceUom;
+import com.aixm.delorean.core.unit.HrefHelper;
 import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
 import com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType;
 
 import com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType;
-import com.aixm.delorean.core.util.AngleUom;
-import com.aixm.delorean.core.util.DistanceUom;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -51,7 +52,6 @@ import com.aixm.delorean.core.gis.type.Circle;
 import com.aixm.delorean.core.gis.type.Geodesic;
 import com.aixm.delorean.core.gis.type.LineString;
 import com.aixm.delorean.core.gis.type.Segment;
-import com.aixm.delorean.core.util.HrefHelper;
 
 public class CurveGmlHelper {
 

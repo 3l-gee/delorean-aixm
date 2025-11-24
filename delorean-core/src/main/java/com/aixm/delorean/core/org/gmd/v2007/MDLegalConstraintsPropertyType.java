@@ -338,32 +338,6 @@ public class MDLegalConstraintsPropertyType implements Equals, HashCode, ToStrin
         }
         final MDLegalConstraintsPropertyType that = ((MDLegalConstraintsPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdLegalConstraints!= null);
-            boolean rhsFieldIsSet = (that.mdLegalConstraints!= null);
-            MDLegalConstraintsType lhsField;
-            lhsField = this.getMDLegalConstraints();
-            MDLegalConstraintsType rhsField;
-            rhsField = that.getMDLegalConstraints();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdLegalConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdLegalConstraints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.uuidref!= null);
             boolean rhsFieldIsSet = (that.uuidref!= null);
             String lhsField;
@@ -390,14 +364,27 @@ public class MDLegalConstraintsPropertyType implements Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
+            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -442,6 +429,32 @@ public class MDLegalConstraintsPropertyType implements Equals, HashCode, ToStrin
             }
         }
         {
+            boolean lhsFieldIsSet = (this.mdLegalConstraints!= null);
+            boolean rhsFieldIsSet = (that.mdLegalConstraints!= null);
+            MDLegalConstraintsType lhsField;
+            lhsField = this.getMDLegalConstraints();
+            MDLegalConstraintsType rhsField;
+            rhsField = that.getMDLegalConstraints();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdLegalConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdLegalConstraints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.arcrole!= null);
+            boolean rhsFieldIsSet = (that.arcrole!= null);
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -450,19 +463,6 @@ public class MDLegalConstraintsPropertyType implements Equals, HashCode, ToStrin
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -261,58 +261,6 @@ public class MDApplicationSchemaInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.graphicsFile!= null);
-            boolean rhsFieldIsSet = (that.graphicsFile!= null);
-            BinaryPropertyType lhsField;
-            lhsField = this.getGraphicsFile();
-            BinaryPropertyType rhsField;
-            rhsField = that.getGraphicsFile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "graphicsFile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "graphicsFile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.softwareDevelopmentFile!= null);
-            boolean rhsFieldIsSet = (that.softwareDevelopmentFile!= null);
-            BinaryPropertyType lhsField;
-            lhsField = this.getSoftwareDevelopmentFile();
-            BinaryPropertyType rhsField;
-            rhsField = that.getSoftwareDevelopmentFile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.schemaAscii!= null);
-            boolean rhsFieldIsSet = (that.schemaAscii!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSchemaAscii();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSchemaAscii();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.softwareDevelopmentFileFormat!= null);
-            boolean rhsFieldIsSet = (that.softwareDevelopmentFileFormat!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSoftwareDevelopmentFileFormat();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSoftwareDevelopmentFileFormat();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFileFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFileFormat", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.schemaLanguage!= null);
             boolean rhsFieldIsSet = (that.schemaLanguage!= null);
             CharacterStringPropertyType lhsField;
@@ -334,6 +282,58 @@ public class MDApplicationSchemaInformationType
             rhsField = that.getConstraintLanguage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "constraintLanguage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "constraintLanguage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.softwareDevelopmentFileFormat!= null);
+            boolean rhsFieldIsSet = (that.softwareDevelopmentFileFormat!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSoftwareDevelopmentFileFormat();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSoftwareDevelopmentFileFormat();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFileFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFileFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.schemaAscii!= null);
+            boolean rhsFieldIsSet = (that.schemaAscii!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSchemaAscii();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSchemaAscii();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "schemaAscii", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "schemaAscii", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.graphicsFile!= null);
+            boolean rhsFieldIsSet = (that.graphicsFile!= null);
+            BinaryPropertyType lhsField;
+            lhsField = this.getGraphicsFile();
+            BinaryPropertyType rhsField;
+            rhsField = that.getGraphicsFile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "graphicsFile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "graphicsFile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.softwareDevelopmentFile!= null);
+            boolean rhsFieldIsSet = (that.softwareDevelopmentFile!= null);
+            BinaryPropertyType lhsField;
+            lhsField = this.getSoftwareDevelopmentFile();
+            BinaryPropertyType rhsField;
+            rhsField = that.getSoftwareDevelopmentFile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "softwareDevelopmentFile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "softwareDevelopmentFile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

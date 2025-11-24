@@ -181,14 +181,14 @@ public class TimeClockType
         }
         final TimeClockType that = ((TimeClockType) object);
         {
-            boolean lhsFieldIsSet = ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
-            boolean rhsFieldIsSet = ((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()));
-            List<TimeCalendarPropertyType> lhsField;
-            lhsField = (((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()))?this.getDateBasis():null);
-            List<TimeCalendarPropertyType> rhsField;
-            rhsField = (((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()))?that.getDateBasis():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
+            boolean lhsFieldIsSet = (this.referenceEvent!= null);
+            boolean rhsFieldIsSet = (that.referenceEvent!= null);
+            StringOrRefType lhsField;
+            lhsField = this.getReferenceEvent();
+            StringOrRefType rhsField;
+            rhsField = that.getReferenceEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,14 +220,14 @@ public class TimeClockType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.referenceEvent!= null);
-            boolean rhsFieldIsSet = (that.referenceEvent!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getReferenceEvent();
-            StringOrRefType rhsField;
-            rhsField = that.getReferenceEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
+            boolean lhsFieldIsSet = ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
+            boolean rhsFieldIsSet = ((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()));
+            List<TimeCalendarPropertyType> lhsField;
+            lhsField = (((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()))?this.getDateBasis():null);
+            List<TimeCalendarPropertyType> rhsField;
+            rhsField = (((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()))?that.getDateBasis():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

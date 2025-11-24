@@ -260,14 +260,14 @@ public class ApronContaminationTypeExtensionType implements Serializable, Equals
         }
         final ApronContaminationTypeExtensionType that = ((ApronContaminationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractApronContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractApronContaminationExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractApronContaminationExtension();
+            lhsField = this.getAbstractSurfaceContaminationExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractApronContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronContaminationExtension", rhsField);
+            rhsField = that.getAbstractSurfaceContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class ApronContaminationTypeExtensionType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSurfaceContaminationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSurfaceContaminationExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractApronContaminationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractApronContaminationExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSurfaceContaminationExtension();
+            lhsField = this.getAbstractApronContaminationExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSurfaceContaminationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfaceContaminationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfaceContaminationExtension", rhsField);
+            rhsField = that.getAbstractApronContaminationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractApronContaminationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApronContaminationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

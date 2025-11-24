@@ -250,19 +250,6 @@ public class CoordinateSystemAxisType
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
-            boolean lhsFieldIsSet = (this.axisDirection!= null);
-            boolean rhsFieldIsSet = (that.axisDirection!= null);
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getAxisDirection();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getAxisDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.axisAbbrev!= null);
             boolean rhsFieldIsSet = (that.axisAbbrev!= null);
             CodeType lhsField;
@@ -271,19 +258,6 @@ public class CoordinateSystemAxisType
             rhsField = that.getAxisAbbrev();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisAbbrev", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisAbbrev", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.maximumValue!= null);
-            boolean rhsFieldIsSet = (that.maximumValue!= null);
-            Double lhsField;
-            lhsField = this.getMaximumValue();
-            Double rhsField;
-            rhsField = that.getMaximumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -302,14 +276,14 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            boolean lhsFieldIsSet = (this.axisDirection!= null);
+            boolean rhsFieldIsSet = (that.axisDirection!= null);
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getAxisDirection();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getAxisDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -323,6 +297,32 @@ public class CoordinateSystemAxisType
             rhsField = that.getRangeMeaning();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.uom!= null);
+            boolean rhsFieldIsSet = (that.uom!= null);
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.maximumValue!= null);
+            boolean rhsFieldIsSet = (that.maximumValue!= null);
+            Double lhsField;
+            lhsField = this.getMaximumValue();
+            Double rhsField;
+            rhsField = that.getMaximumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

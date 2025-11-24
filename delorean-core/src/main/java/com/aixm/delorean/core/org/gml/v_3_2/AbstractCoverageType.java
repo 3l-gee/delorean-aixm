@@ -146,19 +146,6 @@ public abstract class AbstractCoverageType
         }
         final AbstractCoverageType that = ((AbstractCoverageType) object);
         {
-            boolean lhsFieldIsSet = (this.rangeSet!= null);
-            boolean rhsFieldIsSet = (that.rangeSet!= null);
-            RangeSetType lhsField;
-            lhsField = this.getRangeSet();
-            RangeSetType rhsField;
-            rhsField = that.getRangeSet();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.domainSet!= null);
             boolean rhsFieldIsSet = (that.domainSet!= null);
             JAXBElement<DomainSetType> lhsField;
@@ -167,6 +154,19 @@ public abstract class AbstractCoverageType
             rhsField = that.getDomainSet();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainSet", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainSet", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.rangeSet!= null);
+            boolean rhsFieldIsSet = (that.rangeSet!= null);
+            RangeSetType lhsField;
+            lhsField = this.getRangeSet();
+            RangeSetType rhsField;
+            rhsField = that.getRangeSet();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeSet", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

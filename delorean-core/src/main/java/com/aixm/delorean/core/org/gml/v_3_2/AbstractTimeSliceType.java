@@ -72,7 +72,8 @@ public abstract class AbstractTimeSliceType
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.Embedded
+@jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end")) })
     public DeloreanTimeSliceType getValidTime() {
         return validTime;
     }
@@ -139,19 +140,6 @@ public abstract class AbstractTimeSliceType
         }
         final AbstractTimeSliceType that = ((AbstractTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = (this.validTime!= null);
-            boolean rhsFieldIsSet = (that.validTime!= null);
-            DeloreanTimeSliceType lhsField;
-            lhsField = this.getValidTime();
-            DeloreanTimeSliceType rhsField;
-            rhsField = that.getValidTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.dataSource!= null);
             boolean rhsFieldIsSet = (that.dataSource!= null);
             StringOrRefType lhsField;
@@ -160,6 +148,19 @@ public abstract class AbstractTimeSliceType
             rhsField = that.getDataSource();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.validTime!= null);
+            boolean rhsFieldIsSet = (that.validTime!= null);
+            DeloreanTimeSliceType lhsField;
+            lhsField = this.getValidTime();
+            DeloreanTimeSliceType rhsField;
+            rhsField = that.getValidTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

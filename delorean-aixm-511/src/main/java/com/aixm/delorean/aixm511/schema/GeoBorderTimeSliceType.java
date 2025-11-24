@@ -259,7 +259,7 @@ public class GeoBorderTimeSliceType
     @OneToMany(targetEntity = GeoBorderExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_GEO_BORDER_TIME_SL_0")
+    @JoinColumn
     public List<GeoBorderExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -335,6 +335,19 @@ public class GeoBorderTimeSliceType
         }
         final GeoBorderTimeSliceType that = ((GeoBorderTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetBorder();
+            boolean rhsFieldIsSet = that.isSetBorder();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getBorder();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getBorder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -369,19 +382,6 @@ public class GeoBorderTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBorder();
-            boolean rhsFieldIsSet = that.isSetBorder();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getBorder();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getBorder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "border", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "border", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

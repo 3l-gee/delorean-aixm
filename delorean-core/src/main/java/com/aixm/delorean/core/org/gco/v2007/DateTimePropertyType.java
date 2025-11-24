@@ -125,19 +125,6 @@ public class DateTimePropertyType implements Equals, HashCode, ToString
         }
         final DateTimePropertyType that = ((DateTimePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.dateTime!= null);
-            boolean rhsFieldIsSet = (that.dateTime!= null);
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getDateTime();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -146,6 +133,19 @@ public class DateTimePropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.dateTime!= null);
+            boolean rhsFieldIsSet = (that.dateTime!= null);
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getDateTime();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

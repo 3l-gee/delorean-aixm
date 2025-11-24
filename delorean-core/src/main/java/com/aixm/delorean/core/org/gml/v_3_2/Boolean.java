@@ -111,19 +111,6 @@ public class Boolean implements Equals, HashCode, ToString
         }
         final Boolean that = ((Boolean) object);
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            boolean lhsField;
-            lhsField = this.isValue();
-            boolean rhsField;
-            rhsField = that.isValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -132,6 +119,19 @@ public class Boolean implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            boolean lhsField;
+            lhsField = this.isValue();
+            boolean rhsField;
+            rhsField = that.isValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

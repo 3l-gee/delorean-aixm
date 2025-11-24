@@ -2,23 +2,18 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractMetadataPropertyType;
-import com.aixm.delorean.core.metadata.adapter.MDMetadataTypeAdapter;
+import com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter;
 import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
+import com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType;
 import com.fasterxml.jackson.databind.JsonNode;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
@@ -53,6 +48,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 @Entity(name = "MessageMetadataPropertyType")
 @Table(name = "message_metadata", schema = "aixm")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class MessageMetadataPropertyType
     extends AbstractMetadataPropertyType
     implements Serializable
@@ -62,10 +58,6 @@ public class MessageMetadataPropertyType
     @XmlElement(type = MDMetadataType.class, name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
     @XmlJavaTypeAdapter(MDMetadataTypeAdapter.class)
     protected JsonNode mdMetadata;
-    @XmlTransient
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * Gets the value of the mdMetadata property.
@@ -75,7 +67,8 @@ public class MessageMetadataPropertyType
      *     {@link String }
      *     
      */
-    @Transient
+@org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
+@jakarta.persistence.Column(name = "md_metadata", columnDefinition = "JSONB")
     public JsonNode getMdMetadata() {
         return mdMetadata;
     }
@@ -95,60 +88,6 @@ public class MessageMetadataPropertyType
     @Transient
     public boolean isSetMdMetadata() {
         return (this.mdMetadata!= null);
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long gethjid() {
-        return hjid;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
     }
 
     @Override

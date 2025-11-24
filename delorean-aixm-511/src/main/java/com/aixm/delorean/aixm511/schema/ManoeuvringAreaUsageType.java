@@ -355,7 +355,7 @@ public class ManoeuvringAreaUsageType
     @OneToMany(targetEntity = ManoeuvringAreaUsageTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_MANOEUVRING_AREA_U_0")
+    @JoinColumn
     public List<ManoeuvringAreaUsageTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -445,27 +445,14 @@ public class ManoeuvringAreaUsageType
         }
         final ManoeuvringAreaUsageType that = ((ManoeuvringAreaUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeOperationManoeuvringAreaType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeOperationManoeuvringAreaType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ManoeuvringAreaUsageTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ManoeuvringAreaUsageTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetPriorPermission();
+            boolean rhsFieldIsSet = that.isSetPriorPermission();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getPriorPermission();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getPriorPermission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -479,6 +466,19 @@ public class ManoeuvringAreaUsageType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ManoeuvringAreaUsageTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ManoeuvringAreaUsageTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -510,6 +510,19 @@ public class ManoeuvringAreaUsageType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeOperationManoeuvringAreaType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeOperationManoeuvringAreaType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSelection();
             boolean rhsFieldIsSet = that.isSetSelection();
             JAXBElement<ConditionCombinationPropertyType> lhsField;
@@ -518,19 +531,6 @@ public class ManoeuvringAreaUsageType
             rhsField = that.getSelection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPriorPermission();
-            boolean rhsFieldIsSet = that.isSetPriorPermission();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getPriorPermission();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getPriorPermission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "priorPermission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "priorPermission", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

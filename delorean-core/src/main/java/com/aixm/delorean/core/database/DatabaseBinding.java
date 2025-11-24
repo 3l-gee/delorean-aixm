@@ -1,23 +1,12 @@
 package com.aixm.delorean.core.database;
 
-import org.hibernate.FlushMode;
 import org.hibernate.Session;
-import org.hibernate.Filter;
-import org.hibernate.query.Query;
 import org.locationtech.jts.awt.PointShapeFactory.X;
 import org.hibernate.SessionFactory;
-import org.hibernate.StatelessSession;
 import org.hibernate.cfg.Configuration;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
-// import com.aixm.delorean.core.org.gml.v_3_2.ArcStringType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.AbstractAIXMFeatureType;
-import com.aixm.delorean.core.schema.a5_2.aixm.DMEType;
-import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSlicePropertyType;
-import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
 import org.hibernate.Transaction;
 
 import jakarta.persistence.Tuple;
@@ -25,9 +14,6 @@ import jakarta.persistence.Tuple;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,7 +23,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
-import java.util.Set;
 
 public class DatabaseBinding<T, X> {
     private final Class<T> root;

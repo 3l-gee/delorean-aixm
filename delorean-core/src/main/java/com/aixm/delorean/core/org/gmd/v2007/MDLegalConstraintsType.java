@@ -175,14 +175,14 @@ public class MDLegalConstraintsType
         }
         final MDLegalConstraintsType that = ((MDLegalConstraintsType) object);
         {
-            boolean lhsFieldIsSet = ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
-            boolean rhsFieldIsSet = ((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()))?this.getOtherConstraints():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()))?that.getOtherConstraints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
+            boolean lhsFieldIsSet = ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
+            boolean rhsFieldIsSet = ((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()));
+            List<MDRestrictionCodePropertyType> lhsField;
+            lhsField = (((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()))?this.getUseConstraints():null);
+            List<MDRestrictionCodePropertyType> rhsField;
+            rhsField = (((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()))?that.getUseConstraints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -201,14 +201,14 @@ public class MDLegalConstraintsType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
-            boolean rhsFieldIsSet = ((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()));
-            List<MDRestrictionCodePropertyType> lhsField;
-            lhsField = (((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()))?this.getUseConstraints():null);
-            List<MDRestrictionCodePropertyType> rhsField;
-            rhsField = (((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()))?that.getUseConstraints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
+            boolean lhsFieldIsSet = ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
+            boolean rhsFieldIsSet = ((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()));
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()))?this.getOtherConstraints():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()))?that.getOtherConstraints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

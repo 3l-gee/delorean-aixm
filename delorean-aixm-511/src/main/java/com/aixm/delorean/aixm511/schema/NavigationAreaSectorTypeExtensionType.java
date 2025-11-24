@@ -223,19 +223,6 @@ public class NavigationAreaSectorTypeExtensionType implements Serializable, Equa
         }
         final NavigationAreaSectorTypeExtensionType that = ((NavigationAreaSectorTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavigationAreaSectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavigationAreaSectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavigationAreaSectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavigationAreaSectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationAreaSectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationAreaSectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NavigationAreaSectorTypeExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavigationAreaSectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavigationAreaSectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavigationAreaSectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavigationAreaSectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavigationAreaSectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavigationAreaSectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

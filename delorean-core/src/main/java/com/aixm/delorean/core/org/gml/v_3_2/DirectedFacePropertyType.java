@@ -36,8 +36,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}Face"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *       <attribute name="orientation" type="{http://www.opengis.net/gml/3.2}SignType" default="+" />
  *     </restriction>
  *   </complexContent>
@@ -64,8 +64,6 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
     protected FaceType face;
     @XmlAttribute(name = "orientation")
     protected String orientation;
-    @XmlAttribute(name = "owns")
-    protected java.lang.Boolean owns;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
     @XmlAttribute(name = "remoteSchema", namespace = "http://www.opengis.net/gml/3.2")
@@ -85,6 +83,8 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
+    @XmlAttribute(name = "owns")
+    protected java.lang.Boolean owns;
 
     /**
      * gml:Face represents the 2-dimensional topology primitive.
@@ -140,34 +140,6 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
      */
     public void setOrientation(String value) {
         this.orientation = value;
-    }
-
-    /**
-     * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public java.lang.Boolean getOwns() {
-        if (owns == null) {
-            return false;
-        } else {
-            return owns;
-        }
-    }
-
-    /**
-     * Sets the value of the owns property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
-     */
-    public void setOwns(java.lang.Boolean value) {
-        this.owns = value;
     }
 
     /**
@@ -390,6 +362,34 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
         this.actuate = value;
     }
 
+    /**
+     * Gets the value of the owns property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public java.lang.Boolean getOwns() {
+        if (owns == null) {
+            return false;
+        } else {
+            return owns;
+        }
+    }
+
+    /**
+     * Sets the value of the owns property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link java.lang.Boolean }
+     *     
+     */
+    public void setOwns(java.lang.Boolean value) {
+        this.owns = value;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -412,14 +412,40 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
         }
         final DirectedFacePropertyType that = ((DirectedFacePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
+            boolean lhsFieldIsSet = (this.nilReason!= null);
+            boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.owns!= null);
+            boolean rhsFieldIsSet = (that.owns!= null);
+            java.lang.Boolean lhsField;
+            lhsField = this.getOwns();
+            java.lang.Boolean rhsField;
+            rhsField = that.getOwns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.remoteSchema!= null);
+            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -438,27 +464,14 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.face!= null);
-            boolean rhsFieldIsSet = (that.face!= null);
-            FaceType lhsField;
-            lhsField = this.getFace();
-            FaceType rhsField;
-            rhsField = that.getFace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "face", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "face", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -477,14 +490,14 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = (this.role!= null);
+            boolean rhsFieldIsSet = (that.role!= null);
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -516,6 +529,32 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             }
         }
         {
+            boolean lhsFieldIsSet = (this.face!= null);
+            boolean rhsFieldIsSet = (that.face!= null);
+            FaceType lhsField;
+            lhsField = this.getFace();
+            FaceType rhsField;
+            rhsField = that.getFace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "face", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "face", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.type!= null);
+            boolean rhsFieldIsSet = (that.type!= null);
+            TypeType lhsField;
+            lhsField = this.getType();
+            TypeType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.actuate!= null);
             boolean rhsFieldIsSet = (that.actuate!= null);
             ActuateType lhsField;
@@ -524,45 +563,6 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             rhsField = that.getActuate();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -595,13 +595,6 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             String theField;
             theField = this.getOrientation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientation", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -667,6 +660,13 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
+        {
+            boolean theFieldIsSet = (this.owns!= null);
+            java.lang.Boolean theField;
+            theField = this.getOwns();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
         return currentHashCode;
     }
 
@@ -703,12 +703,6 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             String theField;
             theField = this.getOrientation();
             strategy.appendField(locator, this, "orientation", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
-            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = (this.nilReason!= null);
@@ -763,6 +757,12 @@ public class DirectedFacePropertyType implements Equals, HashCode, ToString
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);
+        }
+        {
+            boolean theFieldIsSet = (this.owns!= null);
+            java.lang.Boolean theField;
+            theField = this.getOwns();
+            strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

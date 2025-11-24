@@ -1174,7 +1174,7 @@ public class RouteSegmentTimeSliceType
     @OneToMany(targetEntity = RouteSegmentExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ROUTE_SEGMENT_TIME_0")
+    @JoinColumn
     public List<RouteSegmentExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -1593,58 +1593,6 @@ public class RouteSegmentTimeSliceType
         }
         final RouteSegmentTimeSliceType that = ((RouteSegmentTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLevel();
-            boolean rhsFieldIsSet = that.isSetLevel();
-            JAXBElement<CodeLevelType> lhsField;
-            lhsField = this.getLevel();
-            JAXBElement<CodeLevelType> rhsField;
-            rhsField = that.getLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPathType();
-            boolean rhsFieldIsSet = that.isSetPathType();
-            JAXBElement<CodeRouteSegmentPathType> lhsField;
-            lhsField = this.getPathType();
-            JAXBElement<CodeRouteSegmentPathType> rhsField;
-            rhsField = that.getPathType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pathType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pathType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCurveExtent();
-            boolean rhsFieldIsSet = that.isSetCurveExtent();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getCurveExtent();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNavigationType();
             boolean rhsFieldIsSet = that.isSetNavigationType();
             JAXBElement<CodeRouteNavigationType> lhsField;
@@ -1653,123 +1601,6 @@ public class RouteSegmentTimeSliceType
             rhsField = that.getNavigationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navigationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navigationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReverseMagneticTrack();
-            boolean rhsFieldIsSet = that.isSetReverseMagneticTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getReverseMagneticTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getReverseMagneticTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseMagneticTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseMagneticTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMaximumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMaximumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStart();
-            boolean rhsFieldIsSet = that.isSetStart();
-            JAXBElement<EnRouteSegmentPointPropertyType> lhsField;
-            lhsField = this.getStart();
-            JAXBElement<EnRouteSegmentPointPropertyType> rhsField;
-            rhsField = that.getStart();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumObstacleClearanceAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumObstacleClearanceAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTrueTrack();
-            boolean rhsFieldIsSet = that.isSetTrueTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getTrueTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getTrueTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
-            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> lhsField;
-            lhsField = this.getRequiredNavigationPerformance();
-            JAXBElement<CodeRNPType> rhsField;
-            rhsField = that.getRequiredNavigationPerformance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
-            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getUpperLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getUpperLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1788,97 +1619,6 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
-            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
-            JAXBElement<CodeRouteDesignatorSuffixType> lhsField;
-            lhsField = this.getDesignatorSuffix();
-            JAXBElement<CodeRouteDesignatorSuffixType> rhsField;
-            rhsField = that.getDesignatorSuffix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMagneticTrack();
-            boolean rhsFieldIsSet = that.isSetMagneticTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getMagneticTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getMagneticTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticTrack", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumEnrouteAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumEnrouteAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMaximumCrossingAtEnd();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMaximumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRouteFormed();
-            boolean rhsFieldIsSet = that.isSetRouteFormed();
-            JAXBElement<RoutePropertyType> lhsField;
-            lhsField = this.getRouteFormed();
-            JAXBElement<RoutePropertyType> rhsField;
-            rhsField = that.getRouteFormed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeFormed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeFormed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEvaluationArea();
-            boolean rhsFieldIsSet = that.isSetEvaluationArea();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = this.getEvaluationArea();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = that.getEvaluationArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<RouteAvailabilityPropertyType> lhsField;
@@ -1887,19 +1627,6 @@ public class RouteSegmentTimeSliceType
             rhsField = (that.isSetAvailability()?that.getAvailability():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLength();
-            boolean rhsFieldIsSet = that.isSetLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1918,6 +1645,19 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetMinimumObstacleClearanceAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumObstacleClearanceAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumObstacleClearanceAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumObstacleClearanceAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumObstacleClearanceAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetWidthRight();
             boolean rhsFieldIsSet = that.isSetWidthRight();
             JAXBElement<ValDistanceType> lhsField;
@@ -1931,27 +1671,79 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RouteSegmentExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RouteSegmentExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetDesignatorSuffix();
+            boolean rhsFieldIsSet = that.isSetDesignatorSuffix();
+            JAXBElement<CodeRouteDesignatorSuffixType> lhsField;
+            lhsField = this.getDesignatorSuffix();
+            JAXBElement<CodeRouteDesignatorSuffixType> rhsField;
+            rhsField = that.getDesignatorSuffix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designatorSuffix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designatorSuffix", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetTrueTrack();
+            boolean rhsFieldIsSet = that.isSetTrueTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getTrueTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getTrueTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trueTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trueTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLength();
+            boolean rhsFieldIsSet = that.isSetLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "length", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "length", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumEnrouteAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumEnrouteAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMagneticTrack();
+            boolean rhsFieldIsSet = that.isSetMagneticTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getMagneticTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getMagneticTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getLowerLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1970,14 +1762,131 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetEvaluationArea();
+            boolean rhsFieldIsSet = that.isSetEvaluationArea();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = this.getEvaluationArea();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = that.getEvaluationArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            JAXBElement<CodeLevelType> lhsField;
+            lhsField = this.getLevel();
+            JAXBElement<CodeLevelType> rhsField;
+            rhsField = that.getLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMinimumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMinimumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRouteFormed();
+            boolean rhsFieldIsSet = that.isSetRouteFormed();
+            JAXBElement<RoutePropertyType> lhsField;
+            lhsField = this.getRouteFormed();
+            JAXBElement<RoutePropertyType> rhsField;
+            rhsField = that.getRouteFormed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeFormed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeFormed", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMaximumCrossingAtEnd();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMaximumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEnd", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCurveExtent();
+            boolean rhsFieldIsSet = that.isSetCurveExtent();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getCurveExtent();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveExtent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RouteSegmentExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RouteSegmentExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReverseTrueTrack();
+            boolean rhsFieldIsSet = that.isSetReverseTrueTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getReverseTrueTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getReverseTrueTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseTrueTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseTrueTrack", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReverseMagneticTrack();
+            boolean rhsFieldIsSet = that.isSetReverseMagneticTrack();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getReverseMagneticTrack();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getReverseMagneticTrack();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseMagneticTrack", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseMagneticTrack", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1996,14 +1905,105 @@ public class RouteSegmentTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetReverseTrueTrack();
-            boolean rhsFieldIsSet = that.isSetReverseTrueTrack();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getReverseTrueTrack();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getReverseTrueTrack();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reverseTrueTrack", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reverseTrueTrack", rhsField);
+            boolean lhsFieldIsSet = this.isSetPathType();
+            boolean rhsFieldIsSet = that.isSetPathType();
+            JAXBElement<CodeRouteSegmentPathType> lhsField;
+            lhsField = this.getPathType();
+            JAXBElement<CodeRouteSegmentPathType> rhsField;
+            rhsField = that.getPathType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pathType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pathType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimitReference();
+            boolean rhsFieldIsSet = that.isSetUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getUpperLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getUpperLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMaximumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMaximumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRequiredNavigationPerformance();
+            boolean rhsFieldIsSet = that.isSetRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> lhsField;
+            lhsField = this.getRequiredNavigationPerformance();
+            JAXBElement<CodeRNPType> rhsField;
+            rhsField = that.getRequiredNavigationPerformance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "requiredNavigationPerformance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "requiredNavigationPerformance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
+            JAXBElement<EnRouteSegmentPointPropertyType> lhsField;
+            lhsField = this.getStart();
+            JAXBElement<EnRouteSegmentPointPropertyType> rhsField;
+            rhsField = that.getStart();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

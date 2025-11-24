@@ -167,19 +167,6 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
-            String lhsField;
-            lhsField = this.getId();
-            String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.value!= null);
             boolean rhsFieldIsSet = (that.value!= null);
             String lhsField;
@@ -188,6 +175,19 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.id!= null);
+            boolean rhsFieldIsSet = (that.id!= null);
+            String lhsField;
+            lhsField = this.getId();
+            String rhsField;
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

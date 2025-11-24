@@ -218,32 +218,6 @@ public class TinType
         }
         final TinType that = ((TinType) object);
         {
-            boolean lhsFieldIsSet = (this.maxLength!= null);
-            boolean rhsFieldIsSet = (that.maxLength!= null);
-            LengthType lhsField;
-            lhsField = this.getMaxLength();
-            LengthType rhsField;
-            rhsField = that.getMaxLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxLength", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.controlPoint!= null);
-            boolean rhsFieldIsSet = (that.controlPoint!= null);
-            TinType.ControlPoint lhsField;
-            lhsField = this.getControlPoint();
-            TinType.ControlPoint rhsField;
-            rhsField = that.getControlPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.stopLines!= null)&&(!this.stopLines.isEmpty()));
             boolean rhsFieldIsSet = ((that.stopLines!= null)&&(!that.stopLines.isEmpty()));
             List<LineStringSegmentArrayPropertyType> lhsField;
@@ -257,6 +231,19 @@ public class TinType
             }
         }
         {
+            boolean lhsFieldIsSet = (this.maxLength!= null);
+            boolean rhsFieldIsSet = (that.maxLength!= null);
+            LengthType lhsField;
+            lhsField = this.getMaxLength();
+            LengthType rhsField;
+            rhsField = that.getMaxLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxLength", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = ((this.breakLines!= null)&&(!this.breakLines.isEmpty()));
             boolean rhsFieldIsSet = ((that.breakLines!= null)&&(!that.breakLines.isEmpty()));
             List<LineStringSegmentArrayPropertyType> lhsField;
@@ -265,6 +252,19 @@ public class TinType
             rhsField = (((that.breakLines!= null)&&(!that.breakLines.isEmpty()))?that.getBreakLines():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.controlPoint!= null);
+            boolean rhsFieldIsSet = (that.controlPoint!= null);
+            TinType.ControlPoint lhsField;
+            lhsField = this.getControlPoint();
+            TinType.ControlPoint rhsField;
+            rhsField = that.getControlPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "controlPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "controlPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -494,19 +494,6 @@ public class TinType
             }
             final TinType.ControlPoint that = ((TinType.ControlPoint) object);
             {
-                boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
-                boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
-                List<Object> lhsField;
-                lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
-                List<Object> rhsField;
-                rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
-                ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-                ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
-                if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                    return false;
-                }
-            }
-            {
                 boolean lhsFieldIsSet = (this.posList!= null);
                 boolean rhsFieldIsSet = (that.posList!= null);
                 DirectPositionListType lhsField;
@@ -515,6 +502,19 @@ public class TinType
                 rhsField = that.getPosList();
                 ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
                 ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+                if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                    return false;
+                }
+            }
+            {
+                boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
+                boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
+                List<Object> lhsField;
+                lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
+                List<Object> rhsField;
+                rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
+                ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+                ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
                 if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                     return false;
                 }

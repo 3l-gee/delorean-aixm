@@ -123,19 +123,6 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
         }
         final IntegerPropertyType that = ((IntegerPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.integer!= null);
-            boolean rhsFieldIsSet = (that.integer!= null);
-            BigInteger lhsField;
-            lhsField = this.getInteger();
-            BigInteger rhsField;
-            rhsField = that.getInteger();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.integer!= null);
+            boolean rhsFieldIsSet = (that.integer!= null);
+            BigInteger lhsField;
+            lhsField = this.getInteger();
+            BigInteger rhsField;
+            rhsField = that.getInteger();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

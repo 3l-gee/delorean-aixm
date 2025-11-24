@@ -269,14 +269,40 @@ public class MDBandType
         }
         final MDBandType that = ((MDBandType) object);
         {
-            boolean lhsFieldIsSet = (this.peakResponse!= null);
-            boolean rhsFieldIsSet = (that.peakResponse!= null);
+            boolean lhsFieldIsSet = (this.maxValue!= null);
+            boolean rhsFieldIsSet = (that.maxValue!= null);
             RealPropertyType lhsField;
-            lhsField = this.getPeakResponse();
+            lhsField = this.getMaxValue();
             RealPropertyType rhsField;
-            rhsField = that.getPeakResponse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "peakResponse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "peakResponse", rhsField);
+            rhsField = that.getMaxValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.minValue!= null);
+            boolean rhsFieldIsSet = (that.minValue!= null);
+            RealPropertyType lhsField;
+            lhsField = this.getMinValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMinValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.offset!= null);
+            boolean rhsFieldIsSet = (that.offset!= null);
+            RealPropertyType lhsField;
+            lhsField = this.getOffset();
+            RealPropertyType rhsField;
+            rhsField = that.getOffset();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -308,53 +334,14 @@ public class MDBandType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.minValue!= null);
-            boolean rhsFieldIsSet = (that.minValue!= null);
+            boolean lhsFieldIsSet = (this.peakResponse!= null);
+            boolean rhsFieldIsSet = (that.peakResponse!= null);
             RealPropertyType lhsField;
-            lhsField = this.getMinValue();
+            lhsField = this.getPeakResponse();
             RealPropertyType rhsField;
-            rhsField = that.getMinValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.bitsPerValue!= null);
-            boolean rhsFieldIsSet = (that.bitsPerValue!= null);
-            IntegerPropertyType lhsField;
-            lhsField = this.getBitsPerValue();
-            IntegerPropertyType rhsField;
-            rhsField = that.getBitsPerValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bitsPerValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bitsPerValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.offset!= null);
-            boolean rhsFieldIsSet = (that.offset!= null);
-            RealPropertyType lhsField;
-            lhsField = this.getOffset();
-            RealPropertyType rhsField;
-            rhsField = that.getOffset();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.maxValue!= null);
-            boolean rhsFieldIsSet = (that.maxValue!= null);
-            RealPropertyType lhsField;
-            lhsField = this.getMaxValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMaxValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxValue", rhsField);
+            rhsField = that.getPeakResponse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "peakResponse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "peakResponse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -368,6 +355,19 @@ public class MDBandType
             rhsField = that.getScaleFactor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.bitsPerValue!= null);
+            boolean rhsFieldIsSet = (that.bitsPerValue!= null);
+            IntegerPropertyType lhsField;
+            lhsField = this.getBitsPerValue();
+            IntegerPropertyType rhsField;
+            rhsField = that.getBitsPerValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bitsPerValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bitsPerValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

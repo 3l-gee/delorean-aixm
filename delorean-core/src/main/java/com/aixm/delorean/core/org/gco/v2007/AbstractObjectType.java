@@ -234,19 +234,6 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
         }
         final AbstractObjectType that = ((AbstractObjectType) object);
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
-            String lhsField;
-            lhsField = this.getId();
-            String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.uuid!= null);
             boolean rhsFieldIsSet = (that.uuid!= null);
             String lhsField;
@@ -255,6 +242,19 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
             rhsField = that.getUuid();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuid", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.id!= null);
+            boolean rhsFieldIsSet = (that.id!= null);
+            String lhsField;
+            lhsField = this.getId();
+            String rhsField;
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

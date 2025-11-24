@@ -218,19 +218,6 @@ public class LIProcessStepType
         }
         final LIProcessStepType that = ((LIProcessStepType) object);
         {
-            boolean lhsFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
-            boolean rhsFieldIsSet = ((that.source!= null)&&(!that.source.isEmpty()));
-            List<LISourcePropertyType> lhsField;
-            lhsField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
-            List<LISourcePropertyType> rhsField;
-            rhsField = (((that.source!= null)&&(!that.source.isEmpty()))?that.getSource():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.dateTime!= null);
             boolean rhsFieldIsSet = (that.dateTime!= null);
             DateTimePropertyType lhsField;
@@ -239,19 +226,6 @@ public class LIProcessStepType
             rhsField = that.getDateTime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.processor!= null)&&(!this.processor.isEmpty()));
-            boolean rhsFieldIsSet = ((that.processor!= null)&&(!that.processor.isEmpty()));
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (((this.processor!= null)&&(!this.processor.isEmpty()))?this.getProcessor():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (((that.processor!= null)&&(!that.processor.isEmpty()))?that.getProcessor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -278,6 +252,32 @@ public class LIProcessStepType
             rhsField = that.getRationale();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rationale", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rationale", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
+            boolean rhsFieldIsSet = ((that.source!= null)&&(!that.source.isEmpty()));
+            List<LISourcePropertyType> lhsField;
+            lhsField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            List<LISourcePropertyType> rhsField;
+            rhsField = (((that.source!= null)&&(!that.source.isEmpty()))?that.getSource():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.processor!= null)&&(!this.processor.isEmpty()));
+            boolean rhsFieldIsSet = ((that.processor!= null)&&(!that.processor.isEmpty()));
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (((this.processor!= null)&&(!this.processor.isEmpty()))?this.getProcessor():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (((that.processor!= null)&&(!that.processor.isEmpty()))?that.getProcessor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

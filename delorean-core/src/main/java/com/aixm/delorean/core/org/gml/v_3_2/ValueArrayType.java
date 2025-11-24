@@ -103,19 +103,6 @@ public class ValueArrayType
         }
         final ValueArrayType that = ((ValueArrayType) object);
         {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
-            String lhsField;
-            lhsField = this.getCodeSpace();
-            String rhsField;
-            rhsField = that.getCodeSpace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.uom!= null);
             boolean rhsFieldIsSet = (that.uom!= null);
             String lhsField;
@@ -124,6 +111,19 @@ public class ValueArrayType
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.codeSpace!= null);
+            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            String lhsField;
+            lhsField = this.getCodeSpace();
+            String rhsField;
+            rhsField = that.getCodeSpace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

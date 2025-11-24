@@ -223,19 +223,6 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
         }
         final HoldingAssessmentTimeSlicePropertyType that = ((HoldingAssessmentTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHoldingAssessmentTimeSlice();
-            boolean rhsFieldIsSet = that.isSetHoldingAssessmentTimeSlice();
-            HoldingAssessmentTimeSliceType lhsField;
-            lhsField = this.getHoldingAssessmentTimeSlice();
-            HoldingAssessmentTimeSliceType rhsField;
-            rhsField = that.getHoldingAssessmentTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingAssessmentTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingAssessmentTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class HoldingAssessmentTimeSlicePropertyType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingAssessmentTimeSlice();
+            boolean rhsFieldIsSet = that.isSetHoldingAssessmentTimeSlice();
+            HoldingAssessmentTimeSliceType lhsField;
+            lhsField = this.getHoldingAssessmentTimeSlice();
+            HoldingAssessmentTimeSliceType rhsField;
+            rhsField = that.getHoldingAssessmentTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingAssessmentTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingAssessmentTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

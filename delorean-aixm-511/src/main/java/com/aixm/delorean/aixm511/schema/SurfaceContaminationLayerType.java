@@ -282,7 +282,7 @@ public class SurfaceContaminationLayerType
     @OneToMany(targetEntity = SurfaceContaminationLayerTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SURFACE_CONTAMINAT_0")
+    @JoinColumn
     public List<SurfaceContaminationLayerTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -346,19 +346,6 @@ public class SurfaceContaminationLayerType
         }
         final SurfaceContaminationLayerType that = ((SurfaceContaminationLayerType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeContaminationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeContaminationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurfaceContaminationLayerTypeExtensionType> lhsField;
@@ -367,6 +354,19 @@ public class SurfaceContaminationLayerType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLayerOrder();
+            boolean rhsFieldIsSet = that.isSetLayerOrder();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getLayerOrder();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getLayerOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -385,14 +385,14 @@ public class SurfaceContaminationLayerType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLayerOrder();
-            boolean rhsFieldIsSet = that.isSetLayerOrder();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getLayerOrder();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getLayerOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeContaminationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeContaminationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

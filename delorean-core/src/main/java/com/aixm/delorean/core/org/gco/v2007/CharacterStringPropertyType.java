@@ -194,19 +194,6 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
         }
         final CharacterStringPropertyType that = ((CharacterStringPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.characterString!= null);
-            boolean rhsFieldIsSet = (that.characterString!= null);
-            JAXBElement<?> lhsField;
-            lhsField = this.getCharacterString();
-            JAXBElement<?> rhsField;
-            rhsField = that.getCharacterString();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterString", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterString", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -215,6 +202,19 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.characterString!= null);
+            boolean rhsFieldIsSet = (that.characterString!= null);
+            JAXBElement<?> lhsField;
+            lhsField = this.getCharacterString();
+            JAXBElement<?> rhsField;
+            rhsField = that.getCharacterString();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterString", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterString", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

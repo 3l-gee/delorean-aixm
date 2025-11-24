@@ -121,19 +121,6 @@ public class MDVectorSpatialRepresentationType
         }
         final MDVectorSpatialRepresentationType that = ((MDVectorSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = (this.topologyLevel!= null);
-            boolean rhsFieldIsSet = (that.topologyLevel!= null);
-            MDTopologyLevelCodePropertyType lhsField;
-            lhsField = this.getTopologyLevel();
-            MDTopologyLevelCodePropertyType rhsField;
-            rhsField = that.getTopologyLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topologyLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topologyLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()));
             boolean rhsFieldIsSet = ((that.geometricObjects!= null)&&(!that.geometricObjects.isEmpty()));
             List<MDGeometricObjectsPropertyType> lhsField;
@@ -142,6 +129,19 @@ public class MDVectorSpatialRepresentationType
             rhsField = (((that.geometricObjects!= null)&&(!that.geometricObjects.isEmpty()))?that.getGeometricObjects():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjects", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjects", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.topologyLevel!= null);
+            boolean rhsFieldIsSet = (that.topologyLevel!= null);
+            MDTopologyLevelCodePropertyType lhsField;
+            lhsField = this.getTopologyLevel();
+            MDTopologyLevelCodePropertyType rhsField;
+            rhsField = that.getTopologyLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topologyLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topologyLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

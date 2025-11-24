@@ -223,6 +223,8 @@ delete:
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\XHTMLTypeAnyItem.java
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\XHTMLType.java
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter8.java
+  - filePath: delorean-aixm-511\src\main\java\org\w3\_2001\xmlschema\Adapter1.java
+  - filePath: delorean-aixm-511\src\main\java\org\w3\_2001\xmlschema\Adapter2.java
 
 regex:
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\message\package-info.java
@@ -254,5 +256,5 @@ regex:
     replacement: |
 
 copy:
-  # - from: codegen\post-jaxb\files\XHTMLType.java
-  #   to: delorean\src\main\java\com\aixm\delorean\core\schema\a5_1_1\aixm\XHTMLType.java
+  - from: delorean-aixm-511\src\main\post-jaxb\XHTMLType.java
+    to: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\XHTMLType.java

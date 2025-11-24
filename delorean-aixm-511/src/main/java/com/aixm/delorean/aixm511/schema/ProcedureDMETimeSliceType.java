@@ -292,7 +292,7 @@ public class ProcedureDMETimeSliceType
     @OneToMany(targetEntity = ProcedureDMEExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_PROCEDURE_DMETIME__0")
+    @JoinColumn
     public List<ProcedureDMEExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -380,19 +380,6 @@ public class ProcedureDMETimeSliceType
         }
         final ProcedureDMETimeSliceType that = ((ProcedureDMETimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureDMEExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ProcedureDMEExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -406,6 +393,19 @@ public class ProcedureDMETimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCriticalDME();
+            boolean rhsFieldIsSet = that.isSetCriticalDME();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getCriticalDME();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getCriticalDME();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSatisfactory();
             boolean rhsFieldIsSet = that.isSetSatisfactory();
             JAXBElement<CodeYesNoType> lhsField;
@@ -414,6 +414,19 @@ public class ProcedureDMETimeSliceType
             rhsField = that.getSatisfactory();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "satisfactory", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "satisfactory", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureDMEExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ProcedureDMEExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -440,19 +453,6 @@ public class ProcedureDMETimeSliceType
             rhsField = that.getDME();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dme", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dme", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCriticalDME();
-            boolean rhsFieldIsSet = that.isSetCriticalDME();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getCriticalDME();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getCriticalDME();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalDME", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalDME", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

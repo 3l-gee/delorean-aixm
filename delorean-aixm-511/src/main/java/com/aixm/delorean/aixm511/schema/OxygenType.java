@@ -192,7 +192,7 @@ public class OxygenType
     @OneToMany(targetEntity = OxygenTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_OXYGEN_TYPE_HJID")
+    @JoinColumn
     public List<OxygenTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

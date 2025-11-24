@@ -231,19 +231,6 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.description!= null);
-            boolean rhsFieldIsSet = (that.description!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.function!= null);
             boolean rhsFieldIsSet = (that.function!= null);
             CIOnLineFunctionCodePropertyType lhsField;
@@ -257,14 +244,27 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.linkage!= null);
-            boolean rhsFieldIsSet = (that.linkage!= null);
-            URLPropertyType lhsField;
-            lhsField = this.getLinkage();
-            URLPropertyType rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
+            boolean lhsFieldIsSet = (this.name!= null);
+            boolean rhsFieldIsSet = (that.name!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.description!= null);
+            boolean rhsFieldIsSet = (that.description!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -283,14 +283,14 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            boolean lhsFieldIsSet = (this.linkage!= null);
+            boolean rhsFieldIsSet = (that.linkage!= null);
+            URLPropertyType lhsField;
+            lhsField = this.getLinkage();
+            URLPropertyType rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

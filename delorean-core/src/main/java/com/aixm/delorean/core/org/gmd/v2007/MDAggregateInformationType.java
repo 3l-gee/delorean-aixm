@@ -163,6 +163,19 @@ public class MDAggregateInformationType
         }
         final MDAggregateInformationType that = ((MDAggregateInformationType) object);
         {
+            boolean lhsFieldIsSet = (this.aggregateDataSetIdentifier!= null);
+            boolean rhsFieldIsSet = (that.aggregateDataSetIdentifier!= null);
+            MDIdentifierPropertyType lhsField;
+            lhsField = this.getAggregateDataSetIdentifier();
+            MDIdentifierPropertyType rhsField;
+            rhsField = that.getAggregateDataSetIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.aggregateDataSetName!= null);
             boolean rhsFieldIsSet = (that.aggregateDataSetName!= null);
             CICitationPropertyType lhsField;
@@ -184,19 +197,6 @@ public class MDAggregateInformationType
             rhsField = that.getInitiativeType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "initiativeType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "initiativeType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregateDataSetIdentifier!= null);
-            boolean rhsFieldIsSet = (that.aggregateDataSetIdentifier!= null);
-            MDIdentifierPropertyType lhsField;
-            lhsField = this.getAggregateDataSetIdentifier();
-            MDIdentifierPropertyType rhsField;
-            rhsField = that.getAggregateDataSetIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

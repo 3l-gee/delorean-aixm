@@ -6,7 +6,7 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.org.gml.v_3_2.PointType;
-import com.aixm.delorean.core.util.HrefHelper;
+import com.aixm.delorean.core.unit.HrefHelper;
 
 import jakarta.xml.bind.JAXBElement;
 

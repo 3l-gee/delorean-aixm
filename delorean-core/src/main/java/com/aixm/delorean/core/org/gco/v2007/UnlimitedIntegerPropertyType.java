@@ -122,19 +122,6 @@ public class UnlimitedIntegerPropertyType implements Equals, HashCode, ToString
         }
         final UnlimitedIntegerPropertyType that = ((UnlimitedIntegerPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.unlimitedInteger!= null);
-            boolean rhsFieldIsSet = (that.unlimitedInteger!= null);
-            UnlimitedIntegerType lhsField;
-            lhsField = this.getUnlimitedInteger();
-            UnlimitedIntegerType rhsField;
-            rhsField = that.getUnlimitedInteger();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unlimitedInteger", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unlimitedInteger", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -143,6 +130,19 @@ public class UnlimitedIntegerPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.unlimitedInteger!= null);
+            boolean rhsFieldIsSet = (that.unlimitedInteger!= null);
+            UnlimitedIntegerType lhsField;
+            lhsField = this.getUnlimitedInteger();
+            UnlimitedIntegerType rhsField;
+            rhsField = that.getUnlimitedInteger();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unlimitedInteger", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unlimitedInteger", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

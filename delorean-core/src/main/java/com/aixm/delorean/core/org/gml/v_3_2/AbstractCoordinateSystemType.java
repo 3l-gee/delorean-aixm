@@ -139,19 +139,6 @@ public abstract class AbstractCoordinateSystemType
         }
         final AbstractCoordinateSystemType that = ((AbstractCoordinateSystemType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.axis!= null)&&(!this.axis.isEmpty()));
             boolean rhsFieldIsSet = ((that.axis!= null)&&(!that.axis.isEmpty()));
             List<JAXBElement<CoordinateSystemAxisPropertyType>> lhsField;
@@ -160,6 +147,19 @@ public abstract class AbstractCoordinateSystemType
             rhsField = (((that.axis!= null)&&(!that.axis.isEmpty()))?that.getAxis():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axis", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.aggregationType!= null);
+            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

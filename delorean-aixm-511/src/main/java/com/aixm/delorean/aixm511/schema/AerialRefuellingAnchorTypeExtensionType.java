@@ -223,19 +223,6 @@ public class AerialRefuellingAnchorTypeExtensionType implements Serializable, Eq
         }
         final AerialRefuellingAnchorTypeExtensionType that = ((AerialRefuellingAnchorTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingAnchorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingAnchorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAerialRefuellingAnchorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAerialRefuellingAnchorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingAnchorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingAnchorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AerialRefuellingAnchorTypeExtensionType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAerialRefuellingAnchorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAerialRefuellingAnchorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAerialRefuellingAnchorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAerialRefuellingAnchorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAerialRefuellingAnchorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAerialRefuellingAnchorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

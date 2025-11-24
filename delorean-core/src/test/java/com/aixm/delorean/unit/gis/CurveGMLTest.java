@@ -19,11 +19,12 @@ import com.aixm.delorean.core.gis.type.components.GeometricType;
 import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
 
 import java.math.BigDecimal;
-import com.aixm.delorean.core.util.DistanceUom;
+
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
-import com.aixm.delorean.core.util.AngleUom;
 import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
+import com.aixm.delorean.core.unit.AngleUom;
+import com.aixm.delorean.core.unit.DistanceUom;
 
 import java.util.stream.Stream;
 

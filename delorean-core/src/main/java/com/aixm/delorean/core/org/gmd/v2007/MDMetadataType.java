@@ -1052,92 +1052,27 @@ public class MDMetadataType
         }
         final MDMetadataType that = ((MDMetadataType) object);
         {
-            boolean lhsFieldIsSet = (this.dateStamp!= null);
-            boolean rhsFieldIsSet = (that.dateStamp!= null);
-            DatePropertyType lhsField;
-            lhsField = this.getDateStamp();
-            DatePropertyType rhsField;
-            rhsField = that.getDateStamp();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateStamp", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateStamp", rhsField);
+            boolean lhsFieldIsSet = (this.metadataMaintenance!= null);
+            boolean rhsFieldIsSet = (that.metadataMaintenance!= null);
+            MDMaintenanceInformationPropertyType lhsField;
+            lhsField = this.getMetadataMaintenance();
+            MDMaintenanceInformationPropertyType rhsField;
+            rhsField = that.getMetadataMaintenance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataMaintenance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataMaintenance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.language!= null);
-            boolean rhsFieldIsSet = (that.language!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getLanguage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getLanguage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.characterSet!= null);
-            boolean rhsFieldIsSet = (that.characterSet!= null);
-            MDCharacterSetCodePropertyType lhsField;
-            lhsField = this.getCharacterSet();
-            MDCharacterSetCodePropertyType rhsField;
-            rhsField = that.getCharacterSet();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.featureType!= null)&&(!this.featureType.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureType!= null)&&(!that.featureType.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.featureType!= null)&&(!this.featureType.isEmpty()))?this.getFeatureType():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.featureType!= null)&&(!that.featureType.isEmpty()))?that.getFeatureType():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.locale!= null)&&(!this.locale.isEmpty()));
-            boolean rhsFieldIsSet = ((that.locale!= null)&&(!that.locale.isEmpty()));
-            List<PTLocalePropertyType> lhsField;
-            lhsField = (((this.locale!= null)&&(!this.locale.isEmpty()))?this.getLocale():null);
-            List<PTLocalePropertyType> rhsField;
-            rhsField = (((that.locale!= null)&&(!that.locale.isEmpty()))?that.getLocale():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.fileIdentifier!= null);
-            boolean rhsFieldIsSet = (that.fileIdentifier!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getFileIdentifier();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getFileIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileIdentifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.distributionInfo!= null);
-            boolean rhsFieldIsSet = (that.distributionInfo!= null);
-            MDDistributionPropertyType lhsField;
-            lhsField = this.getDistributionInfo();
-            MDDistributionPropertyType rhsField;
-            rhsField = that.getDistributionInfo();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionInfo", rhsField);
+            boolean lhsFieldIsSet = ((this.dataQualityInfo!= null)&&(!this.dataQualityInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.dataQualityInfo!= null)&&(!that.dataQualityInfo.isEmpty()));
+            List<DQDataQualityPropertyType> lhsField;
+            lhsField = (((this.dataQualityInfo!= null)&&(!this.dataQualityInfo.isEmpty()))?this.getDataQualityInfo():null);
+            List<DQDataQualityPropertyType> rhsField;
+            rhsField = (((that.dataQualityInfo!= null)&&(!that.dataQualityInfo.isEmpty()))?that.getDataQualityInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataQualityInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataQualityInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1156,40 +1091,14 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.propertyType!= null)&&(!this.propertyType.isEmpty()));
-            boolean rhsFieldIsSet = ((that.propertyType!= null)&&(!that.propertyType.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.propertyType!= null)&&(!this.propertyType.isEmpty()))?this.getPropertyType():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.propertyType!= null)&&(!that.propertyType.isEmpty()))?that.getPropertyType():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.describes!= null)&&(!this.describes.isEmpty()));
-            boolean rhsFieldIsSet = ((that.describes!= null)&&(!that.describes.isEmpty()));
-            List<DSDataSetPropertyType> lhsField;
-            lhsField = (((this.describes!= null)&&(!this.describes.isEmpty()))?this.getDescribes():null);
-            List<DSDataSetPropertyType> rhsField;
-            rhsField = (((that.describes!= null)&&(!that.describes.isEmpty()))?that.getDescribes():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "describes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "describes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.metadataStandardName!= null);
-            boolean rhsFieldIsSet = (that.metadataStandardName!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMetadataStandardName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMetadataStandardName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataStandardName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataStandardName", rhsField);
+            boolean lhsFieldIsSet = ((this.metadataExtensionInfo!= null)&&(!this.metadataExtensionInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.metadataExtensionInfo!= null)&&(!that.metadataExtensionInfo.isEmpty()));
+            List<MDMetadataExtensionInformationPropertyType> lhsField;
+            lhsField = (((this.metadataExtensionInfo!= null)&&(!this.metadataExtensionInfo.isEmpty()))?this.getMetadataExtensionInfo():null);
+            List<MDMetadataExtensionInformationPropertyType> rhsField;
+            rhsField = (((that.metadataExtensionInfo!= null)&&(!that.metadataExtensionInfo.isEmpty()))?that.getMetadataExtensionInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataExtensionInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataExtensionInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1208,32 +1117,6 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.series!= null)&&(!this.series.isEmpty()));
-            boolean rhsFieldIsSet = ((that.series!= null)&&(!that.series.isEmpty()));
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (((this.series!= null)&&(!this.series.isEmpty()))?this.getSeries():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (((that.series!= null)&&(!that.series.isEmpty()))?that.getSeries():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.spatialRepresentationInfo!= null)&&(!this.spatialRepresentationInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.spatialRepresentationInfo!= null)&&(!that.spatialRepresentationInfo.isEmpty()));
-            List<MDSpatialRepresentationPropertyType> lhsField;
-            lhsField = (((this.spatialRepresentationInfo!= null)&&(!this.spatialRepresentationInfo.isEmpty()))?this.getSpatialRepresentationInfo():null);
-            List<MDSpatialRepresentationPropertyType> rhsField;
-            rhsField = (((that.spatialRepresentationInfo!= null)&&(!that.spatialRepresentationInfo.isEmpty()))?that.getSpatialRepresentationInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialRepresentationInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialRepresentationInfo", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.hierarchyLevel!= null)&&(!this.hierarchyLevel.isEmpty()));
             boolean rhsFieldIsSet = ((that.hierarchyLevel!= null)&&(!that.hierarchyLevel.isEmpty()));
             List<MDScopeCodePropertyType> lhsField;
@@ -1242,19 +1125,6 @@ public class MDMetadataType
             rhsField = (((that.hierarchyLevel!= null)&&(!that.hierarchyLevel.isEmpty()))?that.getHierarchyLevel():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hierarchyLevel", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hierarchyLevel", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.contentInfo!= null)&&(!this.contentInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.contentInfo!= null)&&(!that.contentInfo.isEmpty()));
-            List<MDContentInformationPropertyType> lhsField;
-            lhsField = (((this.contentInfo!= null)&&(!this.contentInfo.isEmpty()))?this.getContentInfo():null);
-            List<MDContentInformationPropertyType> rhsField;
-            rhsField = (((that.contentInfo!= null)&&(!that.contentInfo.isEmpty()))?that.getContentInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contentInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contentInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1273,27 +1143,118 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.metadataExtensionInfo!= null)&&(!this.metadataExtensionInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.metadataExtensionInfo!= null)&&(!that.metadataExtensionInfo.isEmpty()));
-            List<MDMetadataExtensionInformationPropertyType> lhsField;
-            lhsField = (((this.metadataExtensionInfo!= null)&&(!this.metadataExtensionInfo.isEmpty()))?this.getMetadataExtensionInfo():null);
-            List<MDMetadataExtensionInformationPropertyType> rhsField;
-            rhsField = (((that.metadataExtensionInfo!= null)&&(!that.metadataExtensionInfo.isEmpty()))?that.getMetadataExtensionInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataExtensionInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataExtensionInfo", rhsField);
+            boolean lhsFieldIsSet = ((this.featureAttribute!= null)&&(!this.featureAttribute.isEmpty()));
+            boolean rhsFieldIsSet = ((that.featureAttribute!= null)&&(!that.featureAttribute.isEmpty()));
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (((this.featureAttribute!= null)&&(!this.featureAttribute.isEmpty()))?this.getFeatureAttribute():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (((that.featureAttribute!= null)&&(!that.featureAttribute.isEmpty()))?that.getFeatureAttribute():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureAttribute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureAttribute", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.hierarchyLevelName!= null)&&(!this.hierarchyLevelName.isEmpty()));
-            boolean rhsFieldIsSet = ((that.hierarchyLevelName!= null)&&(!that.hierarchyLevelName.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.hierarchyLevelName!= null)&&(!this.hierarchyLevelName.isEmpty()))?this.getHierarchyLevelName():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.hierarchyLevelName!= null)&&(!that.hierarchyLevelName.isEmpty()))?that.getHierarchyLevelName():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hierarchyLevelName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hierarchyLevelName", rhsField);
+            boolean lhsFieldIsSet = ((this.locale!= null)&&(!this.locale.isEmpty()));
+            boolean rhsFieldIsSet = ((that.locale!= null)&&(!that.locale.isEmpty()));
+            List<PTLocalePropertyType> lhsField;
+            lhsField = (((this.locale!= null)&&(!this.locale.isEmpty()))?this.getLocale():null);
+            List<PTLocalePropertyType> rhsField;
+            rhsField = (((that.locale!= null)&&(!that.locale.isEmpty()))?that.getLocale():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "locale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "locale", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.identificationInfo!= null)&&(!this.identificationInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.identificationInfo!= null)&&(!that.identificationInfo.isEmpty()));
+            List<MDIdentificationPropertyType> lhsField;
+            lhsField = (((this.identificationInfo!= null)&&(!this.identificationInfo.isEmpty()))?this.getIdentificationInfo():null);
+            List<MDIdentificationPropertyType> rhsField;
+            rhsField = (((that.identificationInfo!= null)&&(!that.identificationInfo.isEmpty()))?that.getIdentificationInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identificationInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identificationInfo", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.featureType!= null)&&(!this.featureType.isEmpty()));
+            boolean rhsFieldIsSet = ((that.featureType!= null)&&(!that.featureType.isEmpty()));
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (((this.featureType!= null)&&(!this.featureType.isEmpty()))?this.getFeatureType():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (((that.featureType!= null)&&(!that.featureType.isEmpty()))?that.getFeatureType():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.describes!= null)&&(!this.describes.isEmpty()));
+            boolean rhsFieldIsSet = ((that.describes!= null)&&(!that.describes.isEmpty()));
+            List<DSDataSetPropertyType> lhsField;
+            lhsField = (((this.describes!= null)&&(!this.describes.isEmpty()))?this.getDescribes():null);
+            List<DSDataSetPropertyType> rhsField;
+            rhsField = (((that.describes!= null)&&(!that.describes.isEmpty()))?that.getDescribes():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "describes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "describes", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.propertyType!= null)&&(!this.propertyType.isEmpty()));
+            boolean rhsFieldIsSet = ((that.propertyType!= null)&&(!that.propertyType.isEmpty()));
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (((this.propertyType!= null)&&(!this.propertyType.isEmpty()))?this.getPropertyType():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (((that.propertyType!= null)&&(!that.propertyType.isEmpty()))?that.getPropertyType():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.series!= null)&&(!this.series.isEmpty()));
+            boolean rhsFieldIsSet = ((that.series!= null)&&(!that.series.isEmpty()));
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (((this.series!= null)&&(!this.series.isEmpty()))?this.getSeries():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (((that.series!= null)&&(!that.series.isEmpty()))?that.getSeries():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.language!= null);
+            boolean rhsFieldIsSet = (that.language!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getLanguage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getLanguage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.metadataStandardName!= null);
+            boolean rhsFieldIsSet = (that.metadataStandardName!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMetadataStandardName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMetadataStandardName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataStandardName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataStandardName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1312,27 +1273,40 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.referenceSystemInfo!= null)&&(!this.referenceSystemInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.referenceSystemInfo!= null)&&(!that.referenceSystemInfo.isEmpty()));
-            List<MDReferenceSystemPropertyType> lhsField;
-            lhsField = (((this.referenceSystemInfo!= null)&&(!this.referenceSystemInfo.isEmpty()))?this.getReferenceSystemInfo():null);
-            List<MDReferenceSystemPropertyType> rhsField;
-            rhsField = (((that.referenceSystemInfo!= null)&&(!that.referenceSystemInfo.isEmpty()))?that.getReferenceSystemInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceSystemInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceSystemInfo", rhsField);
+            boolean lhsFieldIsSet = (this.dateStamp!= null);
+            boolean rhsFieldIsSet = (that.dateStamp!= null);
+            DatePropertyType lhsField;
+            lhsField = this.getDateStamp();
+            DatePropertyType rhsField;
+            rhsField = that.getDateStamp();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateStamp", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateStamp", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.metadataMaintenance!= null);
-            boolean rhsFieldIsSet = (that.metadataMaintenance!= null);
-            MDMaintenanceInformationPropertyType lhsField;
-            lhsField = this.getMetadataMaintenance();
-            MDMaintenanceInformationPropertyType rhsField;
-            rhsField = that.getMetadataMaintenance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metadataMaintenance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metadataMaintenance", rhsField);
+            boolean lhsFieldIsSet = (this.fileIdentifier!= null);
+            boolean rhsFieldIsSet = (that.fileIdentifier!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getFileIdentifier();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getFileIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileIdentifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.hierarchyLevelName!= null)&&(!this.hierarchyLevelName.isEmpty()));
+            boolean rhsFieldIsSet = ((that.hierarchyLevelName!= null)&&(!that.hierarchyLevelName.isEmpty()));
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (((this.hierarchyLevelName!= null)&&(!this.hierarchyLevelName.isEmpty()))?this.getHierarchyLevelName():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (((that.hierarchyLevelName!= null)&&(!that.hierarchyLevelName.isEmpty()))?that.getHierarchyLevelName():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "hierarchyLevelName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "hierarchyLevelName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1364,27 +1338,27 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.dataQualityInfo!= null)&&(!this.dataQualityInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.dataQualityInfo!= null)&&(!that.dataQualityInfo.isEmpty()));
-            List<DQDataQualityPropertyType> lhsField;
-            lhsField = (((this.dataQualityInfo!= null)&&(!this.dataQualityInfo.isEmpty()))?this.getDataQualityInfo():null);
-            List<DQDataQualityPropertyType> rhsField;
-            rhsField = (((that.dataQualityInfo!= null)&&(!that.dataQualityInfo.isEmpty()))?that.getDataQualityInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataQualityInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataQualityInfo", rhsField);
+            boolean lhsFieldIsSet = ((this.contentInfo!= null)&&(!this.contentInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.contentInfo!= null)&&(!that.contentInfo.isEmpty()));
+            List<MDContentInformationPropertyType> lhsField;
+            lhsField = (((this.contentInfo!= null)&&(!this.contentInfo.isEmpty()))?this.getContentInfo():null);
+            List<MDContentInformationPropertyType> rhsField;
+            rhsField = (((that.contentInfo!= null)&&(!that.contentInfo.isEmpty()))?that.getContentInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contentInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contentInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.featureAttribute!= null)&&(!this.featureAttribute.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureAttribute!= null)&&(!that.featureAttribute.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.featureAttribute!= null)&&(!this.featureAttribute.isEmpty()))?this.getFeatureAttribute():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.featureAttribute!= null)&&(!that.featureAttribute.isEmpty()))?that.getFeatureAttribute():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureAttribute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureAttribute", rhsField);
+            boolean lhsFieldIsSet = ((this.referenceSystemInfo!= null)&&(!this.referenceSystemInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.referenceSystemInfo!= null)&&(!that.referenceSystemInfo.isEmpty()));
+            List<MDReferenceSystemPropertyType> lhsField;
+            lhsField = (((this.referenceSystemInfo!= null)&&(!this.referenceSystemInfo.isEmpty()))?this.getReferenceSystemInfo():null);
+            List<MDReferenceSystemPropertyType> rhsField;
+            rhsField = (((that.referenceSystemInfo!= null)&&(!that.referenceSystemInfo.isEmpty()))?that.getReferenceSystemInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceSystemInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceSystemInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1403,14 +1377,40 @@ public class MDMetadataType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.identificationInfo!= null)&&(!this.identificationInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.identificationInfo!= null)&&(!that.identificationInfo.isEmpty()));
-            List<MDIdentificationPropertyType> lhsField;
-            lhsField = (((this.identificationInfo!= null)&&(!this.identificationInfo.isEmpty()))?this.getIdentificationInfo():null);
-            List<MDIdentificationPropertyType> rhsField;
-            rhsField = (((that.identificationInfo!= null)&&(!that.identificationInfo.isEmpty()))?that.getIdentificationInfo():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identificationInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identificationInfo", rhsField);
+            boolean lhsFieldIsSet = (this.distributionInfo!= null);
+            boolean rhsFieldIsSet = (that.distributionInfo!= null);
+            MDDistributionPropertyType lhsField;
+            lhsField = this.getDistributionInfo();
+            MDDistributionPropertyType rhsField;
+            rhsField = that.getDistributionInfo();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionInfo", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.characterSet!= null);
+            boolean rhsFieldIsSet = (that.characterSet!= null);
+            MDCharacterSetCodePropertyType lhsField;
+            lhsField = this.getCharacterSet();
+            MDCharacterSetCodePropertyType rhsField;
+            rhsField = that.getCharacterSet();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterSet", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.spatialRepresentationInfo!= null)&&(!this.spatialRepresentationInfo.isEmpty()));
+            boolean rhsFieldIsSet = ((that.spatialRepresentationInfo!= null)&&(!that.spatialRepresentationInfo.isEmpty()));
+            List<MDSpatialRepresentationPropertyType> lhsField;
+            lhsField = (((this.spatialRepresentationInfo!= null)&&(!this.spatialRepresentationInfo.isEmpty()))?this.getSpatialRepresentationInfo():null);
+            List<MDSpatialRepresentationPropertyType> rhsField;
+            rhsField = (((that.spatialRepresentationInfo!= null)&&(!that.spatialRepresentationInfo.isEmpty()))?that.getSpatialRepresentationInfo():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialRepresentationInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialRepresentationInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

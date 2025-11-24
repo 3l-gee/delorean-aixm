@@ -152,14 +152,14 @@ public class MDKeywordsType
         }
         final MDKeywordsType that = ((MDKeywordsType) object);
         {
-            boolean lhsFieldIsSet = (this.thesaurusName!= null);
-            boolean rhsFieldIsSet = (that.thesaurusName!= null);
-            CICitationPropertyType lhsField;
-            lhsField = this.getThesaurusName();
-            CICitationPropertyType rhsField;
-            rhsField = that.getThesaurusName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
+            boolean lhsFieldIsSet = ((this.keyword!= null)&&(!this.keyword.isEmpty()));
+            boolean rhsFieldIsSet = ((that.keyword!= null)&&(!that.keyword.isEmpty()));
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (((this.keyword!= null)&&(!this.keyword.isEmpty()))?this.getKeyword():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (((that.keyword!= null)&&(!that.keyword.isEmpty()))?that.getKeyword():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -178,14 +178,14 @@ public class MDKeywordsType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.keyword!= null)&&(!this.keyword.isEmpty()));
-            boolean rhsFieldIsSet = ((that.keyword!= null)&&(!that.keyword.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.keyword!= null)&&(!this.keyword.isEmpty()))?this.getKeyword():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.keyword!= null)&&(!that.keyword.isEmpty()))?that.getKeyword():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
+            boolean lhsFieldIsSet = (this.thesaurusName!= null);
+            boolean rhsFieldIsSet = (that.thesaurusName!= null);
+            CICitationPropertyType lhsField;
+            lhsField = this.getThesaurusName();
+            CICitationPropertyType rhsField;
+            rhsField = that.getThesaurusName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

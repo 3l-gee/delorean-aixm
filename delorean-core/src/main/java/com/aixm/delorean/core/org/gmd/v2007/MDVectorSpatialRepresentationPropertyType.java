@@ -338,27 +338,40 @@ public class MDVectorSpatialRepresentationPropertyType implements Equals, HashCo
         }
         final MDVectorSpatialRepresentationPropertyType that = ((MDVectorSpatialRepresentationPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = (this.arcrole!= null);
+            boolean rhsFieldIsSet = (that.arcrole!= null);
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdVectorSpatialRepresentation!= null);
+            boolean rhsFieldIsSet = (that.mdVectorSpatialRepresentation!= null);
+            MDVectorSpatialRepresentationType lhsField;
+            lhsField = this.getMDVectorSpatialRepresentation();
+            MDVectorSpatialRepresentationType rhsField;
+            rhsField = that.getMDVectorSpatialRepresentation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdVectorSpatialRepresentation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdVectorSpatialRepresentation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -390,27 +403,14 @@ public class MDVectorSpatialRepresentationPropertyType implements Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = (this.href!= null);
-            boolean rhsFieldIsSet = (that.href!= null);
+            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mdVectorSpatialRepresentation!= null);
-            boolean rhsFieldIsSet = (that.mdVectorSpatialRepresentation!= null);
-            MDVectorSpatialRepresentationType lhsField;
-            lhsField = this.getMDVectorSpatialRepresentation();
-            MDVectorSpatialRepresentationType rhsField;
-            rhsField = that.getMDVectorSpatialRepresentation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdVectorSpatialRepresentation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdVectorSpatialRepresentation", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -429,14 +429,14 @@ public class MDVectorSpatialRepresentationPropertyType implements Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
+            boolean lhsFieldIsSet = (this.href!= null);
+            boolean rhsFieldIsSet = (that.href!= null);
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getHref();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -455,14 +455,14 @@ public class MDVectorSpatialRepresentationPropertyType implements Equals, HashCo
             }
         }
         {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            boolean lhsFieldIsSet = (this.type!= null);
+            boolean rhsFieldIsSet = (that.type!= null);
+            TypeType lhsField;
+            lhsField = this.getType();
+            TypeType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

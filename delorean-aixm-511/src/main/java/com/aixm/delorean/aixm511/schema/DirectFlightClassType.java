@@ -194,7 +194,7 @@ public class DirectFlightClassType
     @OneToMany(targetEntity = DirectFlightClassTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_DIRECT_FLIGHT_CLAS_0")
+    @JoinColumn
     public List<DirectFlightClassTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -246,14 +246,14 @@ public class DirectFlightClassType
         }
         final DirectFlightClassType that = ((DirectFlightClassType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExceedLength();
+            boolean rhsFieldIsSet = that.isSetExceedLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getExceedLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getExceedLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -272,14 +272,14 @@ public class DirectFlightClassType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExceedLength();
-            boolean rhsFieldIsSet = that.isSetExceedLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getExceedLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getExceedLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -192,7 +192,7 @@ public class NitrogenType
     @OneToMany(targetEntity = NitrogenTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NITROGEN_TYPE_HJID")
+    @JoinColumn
     public List<NitrogenTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

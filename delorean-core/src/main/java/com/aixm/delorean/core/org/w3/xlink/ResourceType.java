@@ -251,19 +251,6 @@ public class ResourceType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.titleAttribute!= null);
             boolean rhsFieldIsSet = (that.titleAttribute!= null);
             String lhsField;
@@ -272,6 +259,19 @@ public class ResourceType implements Equals, HashCode, ToString
             rhsField = that.getTitleAttribute();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.type!= null);
+            boolean rhsFieldIsSet = (that.type!= null);
+            TypeType lhsField;
+            lhsField = this.getType();
+            TypeType rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -175,19 +175,6 @@ public class ObservationType
         }
         final ObservationType that = ((ObservationType) object);
         {
-            boolean lhsFieldIsSet = (this.validTime!= null);
-            boolean rhsFieldIsSet = (that.validTime!= null);
-            TimePrimitivePropertyType lhsField;
-            lhsField = this.getValidTime();
-            TimePrimitivePropertyType rhsField;
-            rhsField = that.getValidTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.using!= null);
             boolean rhsFieldIsSet = (that.using!= null);
             ProcedurePropertyType lhsField;
@@ -196,6 +183,19 @@ public class ObservationType
             rhsField = that.getUsing();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.resultOf!= null);
+            boolean rhsFieldIsSet = (that.resultOf!= null);
+            ResultType lhsField;
+            lhsField = this.getResultOf();
+            ResultType rhsField;
+            rhsField = that.getResultOf();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -214,14 +214,14 @@ public class ObservationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.resultOf!= null);
-            boolean rhsFieldIsSet = (that.resultOf!= null);
-            ResultType lhsField;
-            lhsField = this.getResultOf();
-            ResultType rhsField;
-            rhsField = that.getResultOf();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
+            boolean lhsFieldIsSet = (this.validTime!= null);
+            boolean rhsFieldIsSet = (that.validTime!= null);
+            TimePrimitivePropertyType lhsField;
+            lhsField = this.getValidTime();
+            TimePrimitivePropertyType rhsField;
+            rhsField = that.getValidTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

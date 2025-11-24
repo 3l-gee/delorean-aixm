@@ -350,7 +350,7 @@ public class StandardLevelColumnTimeSliceType
     @OneToMany(targetEntity = StandardLevelColumnExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_COL_0")
+    @JoinColumn
     public List<StandardLevelColumnExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -436,6 +436,19 @@ public class StandardLevelColumnTimeSliceType
         }
         final StandardLevelColumnTimeSliceType that = ((StandardLevelColumnTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<StandardLevelColumnExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<StandardLevelColumnExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -475,27 +488,14 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLevel();
-            boolean rhsFieldIsSet = that.isSetLevel();
-            List<StandardLevelPropertyType> lhsField;
-            lhsField = (this.isSetLevel()?this.getLevel():null);
-            List<StandardLevelPropertyType> rhsField;
-            rhsField = (that.isSetLevel()?that.getLevel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<StandardLevelColumnExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<StandardLevelColumnExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetLevelTable();
+            boolean rhsFieldIsSet = that.isSetLevelTable();
+            JAXBElement<StandardLevelTablePropertyType> lhsField;
+            lhsField = this.getLevelTable();
+            JAXBElement<StandardLevelTablePropertyType> rhsField;
+            rhsField = that.getLevelTable();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelTable", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelTable", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -514,14 +514,14 @@ public class StandardLevelColumnTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLevelTable();
-            boolean rhsFieldIsSet = that.isSetLevelTable();
-            JAXBElement<StandardLevelTablePropertyType> lhsField;
-            lhsField = this.getLevelTable();
-            JAXBElement<StandardLevelTablePropertyType> rhsField;
-            rhsField = that.getLevelTable();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelTable", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelTable", rhsField);
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            List<StandardLevelPropertyType> lhsField;
+            lhsField = (this.isSetLevel()?this.getLevel():null);
+            List<StandardLevelPropertyType> rhsField;
+            rhsField = (that.isSetLevel()?that.getLevel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

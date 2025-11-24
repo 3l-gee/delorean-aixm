@@ -179,14 +179,14 @@ public class NodeType
         }
         final NodeType that = ((NodeType) object);
         {
-            boolean lhsFieldIsSet = ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()));
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()))?this.getDirectedEdge():null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()))?that.getDirectedEdge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            boolean lhsFieldIsSet = (this.aggregationType!= null);
+            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -218,14 +218,14 @@ public class NodeType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
+            boolean rhsFieldIsSet = ((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()));
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()))?this.getDirectedEdge():null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()))?that.getDirectedEdge():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -345,19 +345,6 @@ public class ArcByCenterPointType
         }
         final ArcByCenterPointType that = ((ArcByCenterPointType) object);
         {
-            boolean lhsFieldIsSet = (this.posList!= null);
-            boolean rhsFieldIsSet = (that.posList!= null);
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.numArc!= null);
             boolean rhsFieldIsSet = (that.numArc!= null);
             BigInteger lhsField;
@@ -366,19 +353,6 @@ public class ArcByCenterPointType
             rhsField = that.getNumArc();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.radius!= null);
-            boolean rhsFieldIsSet = (that.radius!= null);
-            LengthType lhsField;
-            lhsField = this.getRadius();
-            LengthType rhsField;
-            rhsField = that.getRadius();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -397,6 +371,45 @@ public class ArcByCenterPointType
             }
         }
         {
+            boolean lhsFieldIsSet = (this.coordinates!= null);
+            boolean rhsFieldIsSet = (that.coordinates!= null);
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.radius!= null);
+            boolean rhsFieldIsSet = (that.radius!= null);
+            LengthType lhsField;
+            lhsField = this.getRadius();
+            LengthType rhsField;
+            rhsField = that.getRadius();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.pointRep!= null);
+            boolean rhsFieldIsSet = (that.pointRep!= null);
+            PointPropertyType lhsField;
+            lhsField = this.getPointRep();
+            PointPropertyType rhsField;
+            rhsField = that.getPointRep();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.interpolation!= null);
             boolean rhsFieldIsSet = (that.interpolation!= null);
             CurveInterpolationType lhsField;
@@ -410,14 +423,14 @@ public class ArcByCenterPointType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.startAngle!= null);
-            boolean rhsFieldIsSet = (that.startAngle!= null);
-            AngleType lhsField;
-            lhsField = this.getStartAngle();
-            AngleType rhsField;
-            rhsField = that.getStartAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
+            boolean lhsFieldIsSet = (this.posList!= null);
+            boolean rhsFieldIsSet = (that.posList!= null);
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -436,19 +449,6 @@ public class ArcByCenterPointType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.pointProperty!= null);
             boolean rhsFieldIsSet = (that.pointProperty!= null);
             PointPropertyType lhsField;
@@ -462,14 +462,14 @@ public class ArcByCenterPointType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.pointRep!= null);
-            boolean rhsFieldIsSet = (that.pointRep!= null);
-            PointPropertyType lhsField;
-            lhsField = this.getPointRep();
-            PointPropertyType rhsField;
-            rhsField = that.getPointRep();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
+            boolean lhsFieldIsSet = (this.startAngle!= null);
+            boolean rhsFieldIsSet = (that.startAngle!= null);
+            AngleType lhsField;
+            lhsField = this.getStartAngle();
+            AngleType rhsField;
+            rhsField = that.getStartAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

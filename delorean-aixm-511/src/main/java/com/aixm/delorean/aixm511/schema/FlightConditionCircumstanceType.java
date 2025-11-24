@@ -225,7 +225,7 @@ public class FlightConditionCircumstanceType
     @OneToMany(targetEntity = FlightConditionCircumstanceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLIGHT_CONDITION_C_0")
+    @JoinColumn
     public List<FlightConditionCircumstanceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,19 +289,6 @@ public class FlightConditionCircumstanceType
         }
         final FlightConditionCircumstanceType that = ((FlightConditionCircumstanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRelationWithLocation();
-            boolean rhsFieldIsSet = that.isSetRelationWithLocation();
-            JAXBElement<CodeLocationQualifierType> lhsField;
-            lhsField = this.getRelationWithLocation();
-            JAXBElement<CodeLocationQualifierType> rhsField;
-            rhsField = that.getRelationWithLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relationWithLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relationWithLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetReferenceLocation();
             boolean rhsFieldIsSet = that.isSetReferenceLocation();
             JAXBElement<CodeYesNoType> lhsField;
@@ -310,6 +297,19 @@ public class FlightConditionCircumstanceType
             rhsField = that.getReferenceLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -328,14 +328,14 @@ public class FlightConditionCircumstanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRelationWithLocation();
+            boolean rhsFieldIsSet = that.isSetRelationWithLocation();
+            JAXBElement<CodeLocationQualifierType> lhsField;
+            lhsField = this.getRelationWithLocation();
+            JAXBElement<CodeLocationQualifierType> rhsField;
+            rhsField = that.getRelationWithLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relationWithLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relationWithLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

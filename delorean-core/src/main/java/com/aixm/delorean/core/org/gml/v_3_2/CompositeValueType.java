@@ -156,6 +156,19 @@ public class CompositeValueType
         }
         final CompositeValueType that = ((CompositeValueType) object);
         {
+            boolean lhsFieldIsSet = (this.aggregationType!= null);
+            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
             boolean rhsFieldIsSet = ((that.valueComponent!= null)&&(!that.valueComponent.isEmpty()));
             List<ValuePropertyType> lhsField;
@@ -177,19 +190,6 @@ public class CompositeValueType
             rhsField = that.getValueComponents();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

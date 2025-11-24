@@ -223,19 +223,6 @@ public class OilTypeExtensionType implements Serializable, Equals, HashCode, ToS
         }
         final OilTypeExtensionType that = ((OilTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractOilExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOilExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOilExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOilExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOilExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOilExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class OilTypeExtensionType implements Serializable, Equals, HashCode, ToS
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractOilExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOilExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOilExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOilExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOilExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOilExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

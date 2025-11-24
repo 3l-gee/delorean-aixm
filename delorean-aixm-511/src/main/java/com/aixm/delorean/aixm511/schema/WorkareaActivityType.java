@@ -310,7 +310,7 @@ public class WorkareaActivityType
     @OneToMany(targetEntity = WorkareaActivityTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_WORKAREA_ACTIVITY__0")
+    @JoinColumn
     public List<WorkareaActivityTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -361,14 +361,14 @@ public class WorkareaActivityType
         }
         final WorkareaActivityType that = ((WorkareaActivityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<WorkareaActivityTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<WorkareaActivityTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetIsActive();
+            boolean rhsFieldIsSet = that.isSetIsActive();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsActive();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsActive();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -400,19 +400,6 @@ public class WorkareaActivityType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsActive();
-            boolean rhsFieldIsSet = that.isSetIsActive();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsActive();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsActive();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isActive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isActive", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
@@ -421,6 +408,19 @@ public class WorkareaActivityType
             rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<WorkareaActivityTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<WorkareaActivityTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

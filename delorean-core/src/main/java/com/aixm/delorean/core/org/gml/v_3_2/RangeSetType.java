@@ -268,19 +268,6 @@ public class RangeSetType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
-            boolean rhsFieldIsSet = ((that.valueArray!= null)&&(!that.valueArray.isEmpty()));
-            List<ValueArrayType> lhsField;
-            lhsField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
-            List<ValueArrayType> rhsField;
-            rhsField = (((that.valueArray!= null)&&(!that.valueArray.isEmpty()))?that.getValueArray():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
             boolean rhsFieldIsSet = ((that.abstractScalarValueList!= null)&&(!that.abstractScalarValueList.isEmpty()));
             List<JAXBElement<?>> lhsField;
@@ -289,6 +276,19 @@ public class RangeSetType implements Equals, HashCode, ToString
             rhsField = (((that.abstractScalarValueList!= null)&&(!that.abstractScalarValueList.isEmpty()))?that.getAbstractScalarValueList():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+            boolean rhsFieldIsSet = ((that.valueArray!= null)&&(!that.valueArray.isEmpty()));
+            List<ValueArrayType> lhsField;
+            lhsField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
+            List<ValueArrayType> rhsField;
+            rhsField = (((that.valueArray!= null)&&(!that.valueArray.isEmpty()))?that.getValueArray():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

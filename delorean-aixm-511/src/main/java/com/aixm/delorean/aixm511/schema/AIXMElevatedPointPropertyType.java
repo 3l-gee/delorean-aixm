@@ -2,9 +2,8 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.gis.adapter.a5_1_1.gis.ElevatedPointTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_1_1.AixmElevatedPointType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.ElevatedPointType;
+import com.aixm.delorean.aixm511.gis.adapter.ElevatedPointTypeAdapter;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -63,7 +62,8 @@ public class AIXMElevatedPointPropertyType
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "elevated_point_id", referencedColumnName = "hjid")
     public AixmElevatedPointType getElevatedPoint() {
         return elevatedPoint;
     }

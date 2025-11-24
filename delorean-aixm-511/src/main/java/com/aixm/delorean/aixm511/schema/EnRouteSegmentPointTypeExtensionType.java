@@ -273,19 +273,6 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSegmentPointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSegmentPointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class EnRouteSegmentPointTypeExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractSegmentPointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSegmentPointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractSegmentPointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractSegmentPointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSegmentPointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSegmentPointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

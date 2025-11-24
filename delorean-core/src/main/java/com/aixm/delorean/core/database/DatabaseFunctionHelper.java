@@ -13,10 +13,10 @@ import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePeriodType;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.*;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType;
-// import com.aixm.delorean.core.schema.a5_2.aixm.*;
-// import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
+// import com.aixm.delorean.core.schema.a5_1_1.aixm.*;
+// import com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.schema.a5_2.aixm.*;
+import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 
 public class DatabaseFunctionHelper {
@@ -29,10 +29,10 @@ public class DatabaseFunctionHelper {
     }
 
     public static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice A5_2HandelTimeSlice(
-            com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType basicMessageMember, 
+           BasicMessageMemberAIXMPropertyType basicMessageMember, 
             MutationFeatureTimeslice existing, 
             Session session) {
-        com.aixm.delorean.core.schema.a5_1_1.aixm.AbstractAIXMFeatureType abstractFeature = basicMessageMember.getAbstractAIXMFeatureValue(); 
+        AbstractAIXMFeatureType abstractFeature = basicMessageMember.getAbstractAIXMFeatureValue(); 
             
         //TODO : disgusting aixm garbage
         if (abstractFeature instanceof DMEType feature) {

@@ -350,7 +350,7 @@ public class RunwayMarkingTimeSliceType
     @OneToMany(targetEntity = RunwayMarkingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_RUNWAY_MARKING_TIM_0")
+    @JoinColumn
     public List<RunwayMarkingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -439,27 +439,27 @@ public class RunwayMarkingTimeSliceType
         }
         final RunwayMarkingTimeSliceType that = ((RunwayMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetElement();
-            boolean rhsFieldIsSet = that.isSetElement();
-            List<MarkingElementPropertyType> lhsField;
-            lhsField = (this.isSetElement()?this.getElement():null);
-            List<MarkingElementPropertyType> rhsField;
-            rhsField = (that.isSetElement()?that.getElement():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RunwayMarkingExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<RunwayMarkingExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkedRunway();
-            boolean rhsFieldIsSet = that.isSetMarkedRunway();
-            JAXBElement<RunwayPropertyType> lhsField;
-            lhsField = this.getMarkedRunway();
-            JAXBElement<RunwayPropertyType> rhsField;
-            rhsField = that.getMarkedRunway();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedRunway", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -473,19 +473,6 @@ public class RunwayMarkingTimeSliceType
             rhsField = that.getCondition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RunwayMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RunwayMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -517,14 +504,27 @@ public class RunwayMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<MarkingElementPropertyType> lhsField;
+            lhsField = (this.isSetElement()?this.getElement():null);
+            List<MarkingElementPropertyType> rhsField;
+            rhsField = (that.isSetElement()?that.getElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkedRunway();
+            boolean rhsFieldIsSet = that.isSetMarkedRunway();
+            JAXBElement<RunwayPropertyType> lhsField;
+            lhsField = this.getMarkedRunway();
+            JAXBElement<RunwayPropertyType> rhsField;
+            rhsField = that.getMarkedRunway();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

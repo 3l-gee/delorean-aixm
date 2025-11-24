@@ -5050,11 +5050,7 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link DeloreanTimeSliceType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "aixmValidTime")
-    @XmlJavaTypeAdapter(Adapter1 .class)
-    public JAXBElement<DeloreanTimeSliceType> createAixmValidTime(DeloreanTimeSliceType value) {
-        return new JAXBElement<>(_AixmValidTime_QNAME, DeloreanTimeSliceType.class, null, value);
-    }
+    
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}

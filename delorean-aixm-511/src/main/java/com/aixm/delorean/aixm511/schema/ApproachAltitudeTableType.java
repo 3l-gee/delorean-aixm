@@ -258,7 +258,7 @@ public class ApproachAltitudeTableType
     @OneToMany(targetEntity = ApproachAltitudeTableTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_APPROACH_ALTITUDE__0")
+    @JoinColumn
     public List<ApproachAltitudeTableTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -336,19 +336,6 @@ public class ApproachAltitudeTableType
         }
         final ApproachAltitudeTableType that = ((ApproachAltitudeTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAltitudeReference();
-            boolean rhsFieldIsSet = that.isSetAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getAltitudeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMeasurementPoint();
             boolean rhsFieldIsSet = that.isSetMeasurementPoint();
             JAXBElement<CodeProcedureDistanceType> lhsField;
@@ -357,6 +344,19 @@ public class ApproachAltitudeTableType
             rhsField = that.getMeasurementPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measurementPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measurementPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -375,14 +375,14 @@ public class ApproachAltitudeTableType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetAltitudeReference();
+            boolean rhsFieldIsSet = that.isSetAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getAltitudeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

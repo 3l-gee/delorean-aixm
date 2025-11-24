@@ -128,19 +128,6 @@ public class ConcatenatedOperationType
         }
         final ConcatenatedOperationType that = ((ConcatenatedOperationType) object);
         {
-            boolean lhsFieldIsSet = ((this.coordOperation!= null)&&(!this.coordOperation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.coordOperation!= null)&&(!that.coordOperation.isEmpty()));
-            List<JAXBElement<CoordinateOperationPropertyType>> lhsField;
-            lhsField = (((this.coordOperation!= null)&&(!this.coordOperation.isEmpty()))?this.getCoordOperation():null);
-            List<JAXBElement<CoordinateOperationPropertyType>> rhsField;
-            rhsField = (((that.coordOperation!= null)&&(!that.coordOperation.isEmpty()))?that.getCoordOperation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.aggregationType!= null);
             boolean rhsFieldIsSet = (that.aggregationType!= null);
             AggregationType lhsField;
@@ -149,6 +136,19 @@ public class ConcatenatedOperationType
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.coordOperation!= null)&&(!this.coordOperation.isEmpty()));
+            boolean rhsFieldIsSet = ((that.coordOperation!= null)&&(!that.coordOperation.isEmpty()));
+            List<JAXBElement<CoordinateOperationPropertyType>> lhsField;
+            lhsField = (((this.coordOperation!= null)&&(!this.coordOperation.isEmpty()))?this.getCoordOperation():null);
+            List<JAXBElement<CoordinateOperationPropertyType>> rhsField;
+            rhsField = (((that.coordOperation!= null)&&(!that.coordOperation.isEmpty()))?that.getCoordOperation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

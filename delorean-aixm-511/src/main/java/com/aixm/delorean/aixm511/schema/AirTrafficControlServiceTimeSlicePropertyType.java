@@ -223,19 +223,6 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
         }
         final AirTrafficControlServiceTimeSlicePropertyType that = ((AirTrafficControlServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAirTrafficControlServiceTimeSlice();
-            AirTrafficControlServiceTimeSliceType lhsField;
-            lhsField = this.getAirTrafficControlServiceTimeSlice();
-            AirTrafficControlServiceTimeSliceType rhsField;
-            rhsField = that.getAirTrafficControlServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirTrafficControlServiceTimeSlicePropertyType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirTrafficControlServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAirTrafficControlServiceTimeSlice();
+            AirTrafficControlServiceTimeSliceType lhsField;
+            lhsField = this.getAirTrafficControlServiceTimeSlice();
+            AirTrafficControlServiceTimeSliceType rhsField;
+            rhsField = that.getAirTrafficControlServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airTrafficControlServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airTrafficControlServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

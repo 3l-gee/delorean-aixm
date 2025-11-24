@@ -122,19 +122,6 @@ public class VerticalCRSType
         }
         final VerticalCRSType that = ((VerticalCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.verticalCS!= null);
-            boolean rhsFieldIsSet = (that.verticalCS!= null);
-            JAXBElement<VerticalCSPropertyType> lhsField;
-            lhsField = this.getVerticalCS();
-            JAXBElement<VerticalCSPropertyType> rhsField;
-            rhsField = that.getVerticalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.verticalDatum!= null);
             boolean rhsFieldIsSet = (that.verticalDatum!= null);
             JAXBElement<VerticalDatumPropertyType> lhsField;
@@ -143,6 +130,19 @@ public class VerticalCRSType
             rhsField = that.getVerticalDatum();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.verticalCS!= null);
+            boolean rhsFieldIsSet = (that.verticalCS!= null);
+            JAXBElement<VerticalCSPropertyType> lhsField;
+            lhsField = this.getVerticalCS();
+            JAXBElement<VerticalCSPropertyType> rhsField;
+            rhsField = that.getVerticalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

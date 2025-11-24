@@ -133,19 +133,6 @@ public class TopoCurvePropertyType implements Equals, HashCode, ToString
         }
         final TopoCurvePropertyType that = ((TopoCurvePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.topoCurve!= null);
-            boolean rhsFieldIsSet = (that.topoCurve!= null);
-            TopoCurveType lhsField;
-            lhsField = this.getTopoCurve();
-            TopoCurveType rhsField;
-            rhsField = that.getTopoCurve();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoCurve", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoCurve", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -154,6 +141,19 @@ public class TopoCurvePropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.topoCurve!= null);
+            boolean rhsFieldIsSet = (that.topoCurve!= null);
+            TopoCurveType lhsField;
+            lhsField = this.getTopoCurve();
+            TopoCurveType rhsField;
+            rhsField = that.getTopoCurve();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoCurve", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoCurve", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

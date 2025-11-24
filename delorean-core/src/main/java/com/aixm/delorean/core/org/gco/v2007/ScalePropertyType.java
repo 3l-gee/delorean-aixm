@@ -123,19 +123,6 @@ public class ScalePropertyType implements Equals, HashCode, ToString
         }
         final ScalePropertyType that = ((ScalePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.scale!= null);
-            boolean rhsFieldIsSet = (that.scale!= null);
-            ScaleType lhsField;
-            lhsField = this.getScale();
-            ScaleType rhsField;
-            rhsField = that.getScale();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scale", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scale", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class ScalePropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.scale!= null);
+            boolean rhsFieldIsSet = (that.scale!= null);
+            ScaleType lhsField;
+            lhsField = this.getScale();
+            ScaleType rhsField;
+            rhsField = that.getScale();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scale", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scale", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -228,7 +228,7 @@ public class AuthorityForSpecialNavigationStationType
     @OneToMany(targetEntity = AuthorityForSpecialNavigationStationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AUTHORITY_FOR_SPEC_0")
+    @JoinColumn
     public List<AuthorityForSpecialNavigationStationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,27 +279,14 @@ public class AuthorityForSpecialNavigationStationType
         }
         final AuthorityForSpecialNavigationStationType that = ((AuthorityForSpecialNavigationStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAuthorityRoleType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAuthorityRoleType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -318,14 +305,27 @@ public class AuthorityForSpecialNavigationStationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAuthorityRoleType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAuthorityRoleType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

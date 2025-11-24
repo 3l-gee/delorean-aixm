@@ -282,32 +282,6 @@ public abstract class AbstractCoordinateOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()));
-            boolean rhsFieldIsSet = ((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()));
-            List<CoordinateOperationAccuracy> lhsField;
-            lhsField = (((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()))?this.getCoordinateOperationAccuracy():null);
-            List<CoordinateOperationAccuracy> rhsField;
-            rhsField = (((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()))?that.getCoordinateOperationAccuracy():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.domainOfValidity!= null);
-            boolean rhsFieldIsSet = (that.domainOfValidity!= null);
-            DomainOfValidity lhsField;
-            lhsField = this.getDomainOfValidity();
-            DomainOfValidity rhsField;
-            rhsField = that.getDomainOfValidity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.operationVersion!= null);
             boolean rhsFieldIsSet = (that.operationVersion!= null);
             String lhsField;
@@ -316,6 +290,19 @@ public abstract class AbstractCoordinateOperationType
             rhsField = that.getOperationVersion();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationVersion", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationVersion", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()));
+            boolean rhsFieldIsSet = ((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()));
+            List<CoordinateOperationAccuracy> lhsField;
+            lhsField = (((this.coordinateOperationAccuracy!= null)&&(!this.coordinateOperationAccuracy.isEmpty()))?this.getCoordinateOperationAccuracy():null);
+            List<CoordinateOperationAccuracy> rhsField;
+            rhsField = (((that.coordinateOperationAccuracy!= null)&&(!that.coordinateOperationAccuracy.isEmpty()))?that.getCoordinateOperationAccuracy():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateOperationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateOperationAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -342,6 +329,19 @@ public abstract class AbstractCoordinateOperationType
             rhsField = that.getTargetCRS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "targetCRS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "targetCRS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.domainOfValidity!= null);
+            boolean rhsFieldIsSet = (that.domainOfValidity!= null);
+            DomainOfValidity lhsField;
+            lhsField = this.getDomainOfValidity();
+            DomainOfValidity rhsField;
+            rhsField = that.getDomainOfValidity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

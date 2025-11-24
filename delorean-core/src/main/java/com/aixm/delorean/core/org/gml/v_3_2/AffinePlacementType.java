@@ -197,19 +197,6 @@ public class AffinePlacementType implements Equals, HashCode, ToString
         }
         final AffinePlacementType that = ((AffinePlacementType) object);
         {
-            boolean lhsFieldIsSet = (this.location!= null);
-            boolean rhsFieldIsSet = (that.location!= null);
-            DirectPositionType lhsField;
-            lhsField = this.getLocation();
-            DirectPositionType rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.refDirection!= null)&&(!this.refDirection.isEmpty()));
             boolean rhsFieldIsSet = ((that.refDirection!= null)&&(!that.refDirection.isEmpty()));
             List<VectorType> lhsField;
@@ -218,6 +205,19 @@ public class AffinePlacementType implements Equals, HashCode, ToString
             rhsField = (((that.refDirection!= null)&&(!that.refDirection.isEmpty()))?that.getRefDirection():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.location!= null);
+            boolean rhsFieldIsSet = (that.location!= null);
+            DirectPositionType lhsField;
+            lhsField = this.getLocation();
+            DirectPositionType rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

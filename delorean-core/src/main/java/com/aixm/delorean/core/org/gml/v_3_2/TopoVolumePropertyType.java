@@ -131,19 +131,6 @@ public class TopoVolumePropertyType implements Equals, HashCode, ToString
         }
         final TopoVolumePropertyType that = ((TopoVolumePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.topoVolume!= null);
-            boolean rhsFieldIsSet = (that.topoVolume!= null);
-            TopoVolumeType lhsField;
-            lhsField = this.getTopoVolume();
-            TopoVolumeType rhsField;
-            rhsField = that.getTopoVolume();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoVolume", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoVolume", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -152,6 +139,19 @@ public class TopoVolumePropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.topoVolume!= null);
+            boolean rhsFieldIsSet = (that.topoVolume!= null);
+            TopoVolumeType lhsField;
+            lhsField = this.getTopoVolume();
+            TopoVolumeType rhsField;
+            rhsField = that.getTopoVolume();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoVolume", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoVolume", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -260,19 +260,6 @@ public class MDFeatureCatalogueDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()));
-            List<CICitationPropertyType> lhsField;
-            lhsField = (((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()))?this.getFeatureCatalogueCitation():null);
-            List<CICitationPropertyType> rhsField;
-            rhsField = (((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()))?that.getFeatureCatalogueCitation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.language!= null)&&(!this.language.isEmpty()));
             boolean rhsFieldIsSet = ((that.language!= null)&&(!that.language.isEmpty()));
             List<CharacterStringPropertyType> lhsField;
@@ -294,6 +281,19 @@ public class MDFeatureCatalogueDescriptionType
             rhsField = that.getIncludedWithDataset();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "includedWithDataset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "includedWithDataset", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
+            boolean rhsFieldIsSet = ((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()));
+            List<CICitationPropertyType> lhsField;
+            lhsField = (((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()))?this.getFeatureCatalogueCitation():null);
+            List<CICitationPropertyType> rhsField;
+            rhsField = (((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()))?that.getFeatureCatalogueCitation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

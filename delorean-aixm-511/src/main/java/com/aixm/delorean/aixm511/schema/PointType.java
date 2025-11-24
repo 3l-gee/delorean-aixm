@@ -46,7 +46,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     ElevatedPointType.class
 })
 public class PointType
-    extends com.aixm.delorean.aixm511.org.gml.v_3_2.PointType
+    extends com.aixm.delorean.core.org.gml.v_3_2.PointType
     implements Serializable
 {
 
@@ -142,19 +142,6 @@ public class PointType
         }
         final PointType that = ((PointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
-            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getHorizontalAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getHorizontalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -163,6 +150,19 @@ public class PointType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHorizontalAccuracy();
+            boolean rhsFieldIsSet = that.isSetHorizontalAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getHorizontalAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getHorizontalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "horizontalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "horizontalAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

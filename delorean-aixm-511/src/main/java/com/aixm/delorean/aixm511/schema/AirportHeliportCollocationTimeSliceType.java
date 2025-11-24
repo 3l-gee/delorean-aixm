@@ -259,7 +259,7 @@ public class AirportHeliportCollocationTimeSliceType
     @OneToMany(targetEntity = AirportHeliportCollocationExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRPORT_HELIPORT_C_0")
+    @JoinColumn
     public List<AirportHeliportCollocationExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

@@ -214,19 +214,6 @@ public abstract class AbstractDatumType
         }
         final AbstractDatumType that = ((AbstractDatumType) object);
         {
-            boolean lhsFieldIsSet = (this.anchorDefinition!= null);
-            boolean rhsFieldIsSet = (that.anchorDefinition!= null);
-            JAXBElement<CodeType> lhsField;
-            lhsField = this.getAnchorDefinition();
-            JAXBElement<CodeType> rhsField;
-            rhsField = that.getAnchorDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchorDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchorDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.domainOfValidity!= null);
             boolean rhsFieldIsSet = (that.domainOfValidity!= null);
             DomainOfValidity lhsField;
@@ -235,6 +222,19 @@ public abstract class AbstractDatumType
             rhsField = that.getDomainOfValidity();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.anchorDefinition!= null);
+            boolean rhsFieldIsSet = (that.anchorDefinition!= null);
+            JAXBElement<CodeType> lhsField;
+            lhsField = this.getAnchorDefinition();
+            JAXBElement<CodeType> rhsField;
+            rhsField = that.getAnchorDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "anchorDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "anchorDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

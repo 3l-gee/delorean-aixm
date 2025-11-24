@@ -405,7 +405,7 @@ public class OrganisationAuthorityTimeSliceType
     @OneToMany(targetEntity = OrganisationAuthorityExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ORGANISATION_AUTHO_0")
+    @JoinColumn
     public List<OrganisationAuthorityExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -495,19 +495,6 @@ public class OrganisationAuthorityTimeSliceType
         }
         final OrganisationAuthorityTimeSliceType that = ((OrganisationAuthorityTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeOrganisationDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetType();
             boolean rhsFieldIsSet = that.isSetType();
             JAXBElement<CodeOrganisationType> lhsField;
@@ -521,32 +508,6 @@ public class OrganisationAuthorityTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OrganisationAuthorityExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<OrganisationAuthorityExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<ContactInformationPropertyType> lhsField;
@@ -555,19 +516,6 @@ public class OrganisationAuthorityTimeSliceType
             rhsField = (that.isSetContact()?that.getContact():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRelatedOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetRelatedOrganisationAuthority();
-            List<OrganisationAuthorityAssociationPropertyType> lhsField;
-            lhsField = (this.isSetRelatedOrganisationAuthority()?this.getRelatedOrganisationAuthority():null);
-            List<OrganisationAuthorityAssociationPropertyType> rhsField;
-            rhsField = (that.isSetRelatedOrganisationAuthority()?that.getRelatedOrganisationAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -594,6 +542,58 @@ public class OrganisationAuthorityTimeSliceType
             rhsField = that.getMilitary();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "military", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "military", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OrganisationAuthorityExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<OrganisationAuthorityExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeOrganisationDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRelatedOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetRelatedOrganisationAuthority();
+            List<OrganisationAuthorityAssociationPropertyType> lhsField;
+            lhsField = (this.isSetRelatedOrganisationAuthority()?this.getRelatedOrganisationAuthority():null);
+            List<OrganisationAuthorityAssociationPropertyType> rhsField;
+            rhsField = (that.isSetRelatedOrganisationAuthority()?that.getRelatedOrganisationAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

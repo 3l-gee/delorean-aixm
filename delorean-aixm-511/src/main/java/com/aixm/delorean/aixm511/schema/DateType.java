@@ -25,7 +25,7 @@ import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
-import org.w3._2001.xmlschema.Adapter2;
+
 
 
 /**
@@ -54,9 +54,10 @@ public class DateType implements Serializable, Equals, HashCode, ToString
 {
 
     private static final long serialVersionUID = 20251104L;
-    @XmlValue
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    protected OffsetDateTime value;
+ @jakarta.xml.bind.annotation.XmlValue @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
+   protected
+    
+    OffsetDateTime value;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
 
@@ -68,7 +69,7 @@ public class DateType implements Serializable, Equals, HashCode, ToString
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.Basic
     public OffsetDateTime getValue() {
         return value;
     }
@@ -143,19 +144,6 @@ public class DateType implements Serializable, Equals, HashCode, ToString
         }
         final DateType that = ((DateType) object);
         {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            OffsetDateTime lhsField;
-            lhsField = this.getValue();
-            OffsetDateTime rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -164,6 +152,19 @@ public class DateType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            OffsetDateTime lhsField;
+            lhsField = this.getValue();
+            OffsetDateTime rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

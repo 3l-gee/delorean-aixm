@@ -2,10 +2,6 @@
 package com.aixm.delorean.aixm511.schema.message;
 
 import java.io.Serializable;
-import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractFeatureMemberType;
-import com.aixm.delorean.aixm511.org.w3.xlink.ActuateType;
-import com.aixm.delorean.aixm511.org.w3.xlink.ShowType;
-import com.aixm.delorean.aixm511.org.w3.xlink.TypeType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAirportGroundServiceType;
 import com.aixm.delorean.aixm511.schema.AbstractAirportHeliportProtectionAreaType;
@@ -145,28 +141,24 @@ import com.aixm.delorean.aixm511.schema.VORType;
 import com.aixm.delorean.aixm511.schema.VerticalStructureType;
 import com.aixm.delorean.aixm511.schema.VisualGlideSlopeIndicatorType;
 import com.aixm.delorean.aixm511.schema.WorkAreaType;
+import com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureMemberType;
+import com.aixm.delorean.core.org.w3.xlink.ActuateType;
+import com.aixm.delorean.core.org.w3.xlink.ShowType;
+import com.aixm.delorean.core.org.w3.xlink.TypeType;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.persistence.Version;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
@@ -220,7 +212,7 @@ public class BasicMessageMemberAIXMPropertyType
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
-    public static final TypeType TYPE = TypeType.SIMPLE;
+    protected TypeType type;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
     protected String href;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
@@ -228,15 +220,11 @@ public class BasicMessageMemberAIXMPropertyType
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
     protected String arcrole;
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
-    protected String simpleLinkTitle;
+    protected String title;
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected ActuateType actuate;
-    @XmlTransient
-    protected Long hjid;
-    @XmlTransient
-    protected Long hjversion;
 
     /**
      * Substitution head for AIXM features.
@@ -584,7 +572,8 @@ public class BasicMessageMemberAIXMPropertyType
      *     {@link String }
      *     
      */
-    @Transient
+    @Basic
+    @Column(name = "REMOTE_SCHEMA")
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -604,6 +593,38 @@ public class BasicMessageMemberAIXMPropertyType
     @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TypeType }
+     *     
+     */
+    @ManyToOne(targetEntity = TypeType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
+    public TypeType getTYPE() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TypeType }
+     *     
+     */
+    public void setTYPE(TypeType value) {
+        this.type = value;
+    }
+
+    @Transient
+    public boolean isSetTYPE() {
+        return (this.type!= null);
     }
 
     /**
@@ -700,7 +721,7 @@ public class BasicMessageMemberAIXMPropertyType
     }
 
     /**
-     * Gets the value of the simpleLinkTitle property.
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -708,26 +729,26 @@ public class BasicMessageMemberAIXMPropertyType
      *     
      */
     @Basic
-    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
-    public String getSimpleLinkTitle() {
-        return simpleLinkTitle;
+    @Column(name = "TITLE", length = 255)
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * Sets the value of the simpleLinkTitle property.
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSimpleLinkTitle(String value) {
-        this.simpleLinkTitle = value;
+    public void setTitle(String value) {
+        this.title = value;
     }
 
     @Transient
-    public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+    public boolean isSetTitle() {
+        return (this.title!= null);
     }
 
     /**
@@ -738,9 +759,9 @@ public class BasicMessageMemberAIXMPropertyType
      *     {@link ShowType }
      *     
      */
-    @Basic
-    @Column(name = "SHOW_", length = 255)
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(targetEntity = ShowType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     public ShowType getShow() {
         return show;
     }
@@ -770,9 +791,9 @@ public class BasicMessageMemberAIXMPropertyType
      *     {@link ActuateType }
      *     
      */
-    @Basic
-    @Column(name = "ACTUATE", length = 255)
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(targetEntity = ActuateType.class, cascade = {
+        CascadeType.ALL
+    }, fetch = FetchType.EAGER)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -794,60 +815,6 @@ public class BasicMessageMemberAIXMPropertyType
         return (this.actuate!= null);
     }
 
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Id
-    @Column(name = "HJID")
-    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long gethjid() {
-        return hjid;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjid(Long value) {
-        this.hjid = value;
-    }
-
-    /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    @Version
-    @Column(name = "hjversion")
-    public Long gethjversion() {
-        return hjversion;
-    }
-
-    /**
-     * 
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void sethjversion(Long value) {
-        this.hjversion = value;
-    }
-
     @Basic
     @Column(name = "ABSTRACT_AIXMFEATURE_NAME")
     public String getAbstractAIXMFeatureName() {
@@ -867,6 +834,7 @@ public class BasicMessageMemberAIXMPropertyType
     @ManyToOne(targetEntity = AbstractAIXMFeatureType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
+    @jakarta.persistence.JoinColumn(name = "feature_id", referencedColumnName = "hjid")
     public AbstractAIXMFeatureType getAbstractAIXMFeatureValue() {
         if (this.getAbstractAIXMFeature() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractAIXMFeatureType.class, this.getAbstractAIXMFeature());
@@ -894,6 +862,32 @@ public class BasicMessageMemberAIXMPropertyType
         }
         final BasicMessageMemberAIXMPropertyType that = ((BasicMessageMemberAIXMPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            String lhsField;
+            lhsField = this.getTitle();
+            String rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -902,19 +896,6 @@ public class BasicMessageMemberAIXMPropertyType
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -933,19 +914,6 @@ public class BasicMessageMemberAIXMPropertyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -954,6 +922,45 @@ public class BasicMessageMemberAIXMPropertyType
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTYPE();
+            boolean rhsFieldIsSet = that.isSetTYPE();
+            TypeType lhsField;
+            lhsField = this.getTYPE();
+            TypeType rhsField;
+            rhsField = that.getTYPE();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -972,40 +979,14 @@ public class BasicMessageMemberAIXMPropertyType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1038,6 +1019,13 @@ public class BasicMessageMemberAIXMPropertyType
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
+            boolean theFieldIsSet = this.isSetTYPE();
+            TypeType theField;
+            theField = this.getTYPE();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
+            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
+        }
+        {
             boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
@@ -1059,10 +1047,10 @@ public class BasicMessageMemberAIXMPropertyType
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean theFieldIsSet = this.isSetTitle();
             String theField;
-            theField = this.getSimpleLinkTitle();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "simpleLinkTitle", theField);
+            theField = this.getTitle();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "title", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -1104,6 +1092,12 @@ public class BasicMessageMemberAIXMPropertyType
             strategy.appendField(locator, this, "remoteSchema", buffer, theField, theFieldIsSet);
         }
         {
+            boolean theFieldIsSet = this.isSetTYPE();
+            TypeType theField;
+            theField = this.getTYPE();
+            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
+        }
+        {
             boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
@@ -1122,10 +1116,10 @@ public class BasicMessageMemberAIXMPropertyType
             strategy.appendField(locator, this, "arcrole", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean theFieldIsSet = this.isSetTitle();
             String theField;
-            theField = this.getSimpleLinkTitle();
-            strategy.appendField(locator, this, "simpleLinkTitle", buffer, theField, theFieldIsSet);
+            theField = this.getTitle();
+            strategy.appendField(locator, this, "title", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetShow();

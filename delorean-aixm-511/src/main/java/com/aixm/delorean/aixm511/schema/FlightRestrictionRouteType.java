@@ -306,7 +306,7 @@ public class FlightRestrictionRouteType
     @OneToMany(targetEntity = FlightRestrictionRouteTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLIGHT_RESTRICTION_2")
+    @JoinColumn
     public List<FlightRestrictionRouteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

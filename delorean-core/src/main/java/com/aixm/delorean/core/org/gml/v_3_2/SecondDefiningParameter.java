@@ -150,14 +150,14 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
         }
         final SecondDefiningParameter that = ((SecondDefiningParameter) object);
         {
-            boolean lhsFieldIsSet = (this.inverseFlattening!= null);
-            boolean rhsFieldIsSet = (that.inverseFlattening!= null);
-            MeasureType lhsField;
-            lhsField = this.getInverseFlattening();
-            MeasureType rhsField;
-            rhsField = that.getInverseFlattening();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
+            boolean lhsFieldIsSet = (this.isSphere!= null);
+            boolean rhsFieldIsSet = (that.isSphere!= null);
+            java.lang.Boolean lhsField;
+            lhsField = this.getIsSphere();
+            java.lang.Boolean rhsField;
+            rhsField = that.getIsSphere();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -176,14 +176,14 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.isSphere!= null);
-            boolean rhsFieldIsSet = (that.isSphere!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getIsSphere();
-            java.lang.Boolean rhsField;
-            rhsField = that.getIsSphere();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
+            boolean lhsFieldIsSet = (this.inverseFlattening!= null);
+            boolean rhsFieldIsSet = (that.inverseFlattening!= null);
+            MeasureType lhsField;
+            lhsField = this.getInverseFlattening();
+            MeasureType rhsField;
+            rhsField = that.getInverseFlattening();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

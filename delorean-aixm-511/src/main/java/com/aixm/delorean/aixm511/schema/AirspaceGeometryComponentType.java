@@ -259,7 +259,7 @@ public class AirspaceGeometryComponentType
     @OneToMany(targetEntity = AirspaceGeometryComponentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_GEOMETRY__0")
+    @JoinColumn
     public List<AirspaceGeometryComponentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -335,19 +335,6 @@ public class AirspaceGeometryComponentType
         }
         final AirspaceGeometryComponentType that = ((AirspaceGeometryComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOperation();
-            boolean rhsFieldIsSet = that.isSetOperation();
-            JAXBElement<CodeAirspaceAggregationType> lhsField;
-            lhsField = this.getOperation();
-            JAXBElement<CodeAirspaceAggregationType> rhsField;
-            rhsField = that.getOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOperationSequence();
             boolean rhsFieldIsSet = that.isSetOperationSequence();
             JAXBElement<NoSequenceType> lhsField;
@@ -361,14 +348,27 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceGeometryComponentTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AirspaceGeometryComponentTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperation();
+            boolean rhsFieldIsSet = that.isSetOperation();
+            JAXBElement<CodeAirspaceAggregationType> lhsField;
+            lhsField = this.getOperation();
+            JAXBElement<CodeAirspaceAggregationType> rhsField;
+            rhsField = that.getOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -387,14 +387,14 @@ public class AirspaceGeometryComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceGeometryComponentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirspaceGeometryComponentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

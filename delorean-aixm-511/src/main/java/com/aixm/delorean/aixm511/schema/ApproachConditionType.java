@@ -553,7 +553,7 @@ public class ApproachConditionType
     @OneToMany(targetEntity = ApproachConditionTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_APPROACH_CONDITION_0")
+    @JoinColumn
     public List<ApproachConditionTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -667,32 +667,6 @@ public class ApproachConditionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumSet();
-            boolean rhsFieldIsSet = that.isSetMinimumSet();
-            JAXBElement<MinimaPropertyType> lhsField;
-            lhsField = this.getMinimumSet();
-            JAXBElement<MinimaPropertyType> rhsField;
-            rhsField = that.getMinimumSet();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLandingArea();
-            boolean rhsFieldIsSet = that.isSetLandingArea();
-            List<LandingTakeoffAreaCollectionPropertyType> lhsField;
-            lhsField = (this.isSetLandingArea()?this.getLandingArea():null);
-            List<LandingTakeoffAreaCollectionPropertyType> rhsField;
-            rhsField = (that.isSetLandingArea()?that.getLandingArea():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAltimeter();
             boolean rhsFieldIsSet = that.isSetAltimeter();
             JAXBElement<AltimeterSourcePropertyType> lhsField;
@@ -706,19 +680,6 @@ public class ApproachConditionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignSurface();
-            boolean rhsFieldIsSet = that.isSetDesignSurface();
-            List<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = (this.isSetDesignSurface()?this.getDesignSurface():null);
-            List<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = (that.isSetDesignSurface()?that.getDesignSurface():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetClimbGradient();
             boolean rhsFieldIsSet = that.isSetClimbGradient();
             JAXBElement<ValSlopeType> lhsField;
@@ -727,6 +688,32 @@ public class ApproachConditionType
             rhsField = that.getClimbGradient();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "climbGradient", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "climbGradient", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumSet();
+            boolean rhsFieldIsSet = that.isSetMinimumSet();
+            JAXBElement<MinimaPropertyType> lhsField;
+            lhsField = this.getMinimumSet();
+            JAXBElement<MinimaPropertyType> rhsField;
+            rhsField = that.getMinimumSet();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumSet", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApproachConditionTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ApproachConditionTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -758,19 +745,6 @@ public class ApproachConditionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApproachConditionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ApproachConditionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCirclingRestriction();
             boolean rhsFieldIsSet = that.isSetCirclingRestriction();
             List<CirclingRestrictionPropertyType> lhsField;
@@ -779,6 +753,32 @@ public class ApproachConditionType
             rhsField = (that.isSetCirclingRestriction()?that.getCirclingRestriction():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "circlingRestriction", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "circlingRestriction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLandingArea();
+            boolean rhsFieldIsSet = that.isSetLandingArea();
+            List<LandingTakeoffAreaCollectionPropertyType> lhsField;
+            lhsField = (this.isSetLandingArea()?this.getLandingArea():null);
+            List<LandingTakeoffAreaCollectionPropertyType> rhsField;
+            rhsField = (that.isSetLandingArea()?that.getLandingArea():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignSurface();
+            boolean rhsFieldIsSet = that.isSetDesignSurface();
+            List<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = (this.isSetDesignSurface()?this.getDesignSurface():null);
+            List<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = (that.isSetDesignSurface()?that.getDesignSurface():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

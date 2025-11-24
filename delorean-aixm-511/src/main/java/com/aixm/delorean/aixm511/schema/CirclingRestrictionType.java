@@ -340,7 +340,7 @@ public class CirclingRestrictionType
     @OneToMany(targetEntity = CirclingRestrictionTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_CIRCLING_RESTRICTI_0")
+    @JoinColumn
     public List<CirclingRestrictionTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -402,27 +402,14 @@ public class CirclingRestrictionType
         }
         final CirclingRestrictionType that = ((CirclingRestrictionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSectorDescription();
-            boolean rhsFieldIsSet = that.isSetSectorDescription();
-            JAXBElement<CircleSectorPropertyType> lhsField;
-            lhsField = this.getSectorDescription();
-            JAXBElement<CircleSectorPropertyType> rhsField;
-            rhsField = that.getSectorDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDescription", rhsField);
+            boolean lhsFieldIsSet = this.isSetRestrictionArea();
+            boolean rhsFieldIsSet = that.isSetRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getRestrictionArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -467,14 +454,27 @@ public class CirclingRestrictionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRestrictionArea();
-            boolean rhsFieldIsSet = that.isSetRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getRestrictionArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetSectorDescription();
+            boolean rhsFieldIsSet = that.isSetSectorDescription();
+            JAXBElement<CircleSectorPropertyType> lhsField;
+            lhsField = this.getSectorDescription();
+            JAXBElement<CircleSectorPropertyType> rhsField;
+            rhsField = that.getSectorDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sectorDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sectorDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

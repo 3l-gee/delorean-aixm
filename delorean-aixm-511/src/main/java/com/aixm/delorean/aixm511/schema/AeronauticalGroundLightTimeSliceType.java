@@ -391,7 +391,7 @@ public class AeronauticalGroundLightTimeSliceType
     @OneToMany(targetEntity = AeronauticalGroundLightExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AERONAUTICAL_GROUN_0")
+    @JoinColumn
     public List<AeronauticalGroundLightExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -517,14 +517,14 @@ public class AeronauticalGroundLightTimeSliceType
         }
         final AeronauticalGroundLightTimeSliceType that = ((AeronauticalGroundLightTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,6 +538,32 @@ public class AeronauticalGroundLightTimeSliceType
             rhsField = that.getFlashing();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flashing", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flashing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStructureBeacon();
+            boolean rhsFieldIsSet = that.isSetStructureBeacon();
+            JAXBElement<VerticalStructurePropertyType> lhsField;
+            lhsField = this.getStructureBeacon();
+            JAXBElement<VerticalStructurePropertyType> rhsField;
+            rhsField = that.getStructureBeacon();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "structureBeacon", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "structureBeacon", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -569,14 +595,14 @@ public class AeronauticalGroundLightTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeGroundLightingType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeGroundLightingType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -595,19 +621,6 @@ public class AeronauticalGroundLightTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStructureBeacon();
-            boolean rhsFieldIsSet = that.isSetStructureBeacon();
-            JAXBElement<VerticalStructurePropertyType> lhsField;
-            lhsField = this.getStructureBeacon();
-            JAXBElement<VerticalStructurePropertyType> rhsField;
-            rhsField = that.getStructureBeacon();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "structureBeacon", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "structureBeacon", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AeronauticalGroundLightExtensionType> lhsField;
@@ -616,19 +629,6 @@ public class AeronauticalGroundLightTimeSliceType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeGroundLightingType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeGroundLightingType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

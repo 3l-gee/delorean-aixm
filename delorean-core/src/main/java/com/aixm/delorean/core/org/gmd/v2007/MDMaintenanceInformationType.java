@@ -301,6 +301,19 @@ public class MDMaintenanceInformationType
         }
         final MDMaintenanceInformationType that = ((MDMaintenanceInformationType) object);
         {
+            boolean lhsFieldIsSet = (this.dateOfNextUpdate!= null);
+            boolean rhsFieldIsSet = (that.dateOfNextUpdate!= null);
+            DatePropertyType lhsField;
+            lhsField = this.getDateOfNextUpdate();
+            DatePropertyType rhsField;
+            rhsField = that.getDateOfNextUpdate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateOfNextUpdate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateOfNextUpdate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = ((this.contact!= null)&&(!this.contact.isEmpty()));
             boolean rhsFieldIsSet = ((that.contact!= null)&&(!that.contact.isEmpty()));
             List<CIResponsiblePartyPropertyType> lhsField;
@@ -314,14 +327,40 @@ public class MDMaintenanceInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dateOfNextUpdate!= null);
-            boolean rhsFieldIsSet = (that.dateOfNextUpdate!= null);
-            DatePropertyType lhsField;
-            lhsField = this.getDateOfNextUpdate();
-            DatePropertyType rhsField;
-            rhsField = that.getDateOfNextUpdate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateOfNextUpdate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateOfNextUpdate", rhsField);
+            boolean lhsFieldIsSet = ((this.updateScope!= null)&&(!this.updateScope.isEmpty()));
+            boolean rhsFieldIsSet = ((that.updateScope!= null)&&(!that.updateScope.isEmpty()));
+            List<MDScopeCodePropertyType> lhsField;
+            lhsField = (((this.updateScope!= null)&&(!this.updateScope.isEmpty()))?this.getUpdateScope():null);
+            List<MDScopeCodePropertyType> rhsField;
+            rhsField = (((that.updateScope!= null)&&(!that.updateScope.isEmpty()))?that.getUpdateScope():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.updateScopeDescription!= null)&&(!this.updateScopeDescription.isEmpty()));
+            boolean rhsFieldIsSet = ((that.updateScopeDescription!= null)&&(!that.updateScopeDescription.isEmpty()));
+            List<MDScopeDescriptionPropertyType> lhsField;
+            lhsField = (((this.updateScopeDescription!= null)&&(!this.updateScopeDescription.isEmpty()))?this.getUpdateScopeDescription():null);
+            List<MDScopeDescriptionPropertyType> rhsField;
+            rhsField = (((that.updateScopeDescription!= null)&&(!that.updateScopeDescription.isEmpty()))?that.getUpdateScopeDescription():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScopeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScopeDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.maintenanceAndUpdateFrequency!= null);
+            boolean rhsFieldIsSet = (that.maintenanceAndUpdateFrequency!= null);
+            MDMaintenanceFrequencyCodePropertyType lhsField;
+            lhsField = this.getMaintenanceAndUpdateFrequency();
+            MDMaintenanceFrequencyCodePropertyType rhsField;
+            rhsField = that.getMaintenanceAndUpdateFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -348,45 +387,6 @@ public class MDMaintenanceInformationType
             rhsField = (((that.maintenanceNote!= null)&&(!that.maintenanceNote.isEmpty()))?that.getMaintenanceNote():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceNote", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.updateScope!= null)&&(!this.updateScope.isEmpty()));
-            boolean rhsFieldIsSet = ((that.updateScope!= null)&&(!that.updateScope.isEmpty()));
-            List<MDScopeCodePropertyType> lhsField;
-            lhsField = (((this.updateScope!= null)&&(!this.updateScope.isEmpty()))?this.getUpdateScope():null);
-            List<MDScopeCodePropertyType> rhsField;
-            rhsField = (((that.updateScope!= null)&&(!that.updateScope.isEmpty()))?that.getUpdateScope():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.maintenanceAndUpdateFrequency!= null);
-            boolean rhsFieldIsSet = (that.maintenanceAndUpdateFrequency!= null);
-            MDMaintenanceFrequencyCodePropertyType lhsField;
-            lhsField = this.getMaintenanceAndUpdateFrequency();
-            MDMaintenanceFrequencyCodePropertyType rhsField;
-            rhsField = that.getMaintenanceAndUpdateFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.updateScopeDescription!= null)&&(!this.updateScopeDescription.isEmpty()));
-            boolean rhsFieldIsSet = ((that.updateScopeDescription!= null)&&(!that.updateScopeDescription.isEmpty()));
-            List<MDScopeDescriptionPropertyType> lhsField;
-            lhsField = (((this.updateScopeDescription!= null)&&(!this.updateScopeDescription.isEmpty()))?this.getUpdateScopeDescription():null);
-            List<MDScopeDescriptionPropertyType> rhsField;
-            rhsField = (((that.updateScopeDescription!= null)&&(!that.updateScopeDescription.isEmpty()))?that.getUpdateScopeDescription():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScopeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScopeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

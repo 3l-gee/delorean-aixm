@@ -123,19 +123,6 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
         }
         final CIPresentationFormCodePropertyType that = ((CIPresentationFormCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.ciPresentationFormCode!= null);
-            boolean rhsFieldIsSet = (that.ciPresentationFormCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getCIPresentationFormCode();
-            CodeListValueType rhsField;
-            rhsField = that.getCIPresentationFormCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciPresentationFormCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciPresentationFormCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.ciPresentationFormCode!= null);
+            boolean rhsFieldIsSet = (that.ciPresentationFormCode!= null);
+            CodeListValueType lhsField;
+            lhsField = this.getCIPresentationFormCode();
+            CodeListValueType rhsField;
+            rhsField = that.getCIPresentationFormCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciPresentationFormCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciPresentationFormCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

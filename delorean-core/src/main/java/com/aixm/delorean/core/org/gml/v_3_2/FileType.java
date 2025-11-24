@@ -237,27 +237,14 @@ public class FileType implements Equals, HashCode, ToString
         }
         final FileType that = ((FileType) object);
         {
-            boolean lhsFieldIsSet = (this.fileName!= null);
-            boolean rhsFieldIsSet = (that.fileName!= null);
+            boolean lhsFieldIsSet = (this.fileReference!= null);
+            boolean rhsFieldIsSet = (that.fileReference!= null);
             String lhsField;
-            lhsField = this.getFileName();
+            lhsField = this.getFileReference();
             String rhsField;
-            rhsField = that.getFileName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mimeType!= null);
-            boolean rhsFieldIsSet = (that.mimeType!= null);
-            String lhsField;
-            lhsField = this.getMimeType();
-            String rhsField;
-            rhsField = that.getMimeType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mimeType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mimeType", rhsField);
+            rhsField = that.getFileReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -276,14 +263,14 @@ public class FileType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.fileReference!= null);
-            boolean rhsFieldIsSet = (that.fileReference!= null);
+            boolean lhsFieldIsSet = (this.mimeType!= null);
+            boolean rhsFieldIsSet = (that.mimeType!= null);
             String lhsField;
-            lhsField = this.getFileReference();
+            lhsField = this.getMimeType();
             String rhsField;
-            rhsField = that.getFileReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileReference", rhsField);
+            rhsField = that.getMimeType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mimeType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mimeType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -297,6 +284,19 @@ public class FileType implements Equals, HashCode, ToString
             rhsField = that.getCompression();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compression", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compression", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.fileName!= null);
+            boolean rhsFieldIsSet = (that.fileName!= null);
+            String lhsField;
+            lhsField = this.getFileName();
+            String rhsField;
+            rhsField = that.getFileName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

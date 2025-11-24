@@ -137,14 +137,14 @@ public class MDDimensionType
         }
         final MDDimensionType that = ((MDDimensionType) object);
         {
-            boolean lhsFieldIsSet = (this.dimensionName!= null);
-            boolean rhsFieldIsSet = (that.dimensionName!= null);
-            MDDimensionNameTypeCodePropertyType lhsField;
-            lhsField = this.getDimensionName();
-            MDDimensionNameTypeCodePropertyType rhsField;
-            rhsField = that.getDimensionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
+            boolean lhsFieldIsSet = (this.resolution!= null);
+            boolean rhsFieldIsSet = (that.resolution!= null);
+            MeasurePropertyType lhsField;
+            lhsField = this.getResolution();
+            MeasurePropertyType rhsField;
+            rhsField = that.getResolution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -163,14 +163,14 @@ public class MDDimensionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.resolution!= null);
-            boolean rhsFieldIsSet = (that.resolution!= null);
-            MeasurePropertyType lhsField;
-            lhsField = this.getResolution();
-            MeasurePropertyType rhsField;
-            rhsField = that.getResolution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
+            boolean lhsFieldIsSet = (this.dimensionName!= null);
+            boolean rhsFieldIsSet = (that.dimensionName!= null);
+            MDDimensionNameTypeCodePropertyType lhsField;
+            lhsField = this.getDimensionName();
+            MDDimensionNameTypeCodePropertyType rhsField;
+            rhsField = that.getDimensionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

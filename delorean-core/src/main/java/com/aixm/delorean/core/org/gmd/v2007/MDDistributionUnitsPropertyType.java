@@ -123,19 +123,6 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
         }
         final MDDistributionUnitsPropertyType that = ((MDDistributionUnitsPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdDistributionUnits!= null);
-            boolean rhsFieldIsSet = (that.mdDistributionUnits!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDDistributionUnits();
-            CodeListValueType rhsField;
-            rhsField = that.getMDDistributionUnits();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdDistributionUnits", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdDistributionUnits", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdDistributionUnits!= null);
+            boolean rhsFieldIsSet = (that.mdDistributionUnits!= null);
+            CodeListValueType lhsField;
+            lhsField = this.getMDDistributionUnits();
+            CodeListValueType rhsField;
+            rhsField = that.getMDDistributionUnits();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdDistributionUnits", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdDistributionUnits", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

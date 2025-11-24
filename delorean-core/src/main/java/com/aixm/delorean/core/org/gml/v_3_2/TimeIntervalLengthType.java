@@ -177,6 +177,19 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
         }
         final TimeIntervalLengthType that = ((TimeIntervalLengthType) object);
         {
+            boolean lhsFieldIsSet = (this.value!= null);
+            boolean rhsFieldIsSet = (that.value!= null);
+            BigDecimal lhsField;
+            lhsField = this.getValue();
+            BigDecimal rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.factor!= null);
             boolean rhsFieldIsSet = (that.factor!= null);
             BigInteger lhsField;
@@ -185,19 +198,6 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
             rhsField = that.getFactor();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.radix!= null);
-            boolean rhsFieldIsSet = (that.radix!= null);
-            BigInteger lhsField;
-            lhsField = this.getRadix();
-            BigInteger rhsField;
-            rhsField = that.getRadix();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radix", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radix", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -216,14 +216,14 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
-            BigDecimal lhsField;
-            lhsField = this.getValue();
-            BigDecimal rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            boolean lhsFieldIsSet = (this.radix!= null);
+            boolean rhsFieldIsSet = (that.radix!= null);
+            BigInteger lhsField;
+            lhsField = this.getRadix();
+            BigInteger rhsField;
+            rhsField = that.getRadix();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radix", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radix", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

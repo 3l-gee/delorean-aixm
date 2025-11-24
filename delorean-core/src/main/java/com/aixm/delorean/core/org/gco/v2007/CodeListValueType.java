@@ -177,6 +177,19 @@ public class CodeListValueType implements Equals, HashCode, ToString
         }
         final CodeListValueType that = ((CodeListValueType) object);
         {
+            boolean lhsFieldIsSet = (this.value!= null);
+            boolean rhsFieldIsSet = (that.value!= null);
+            String lhsField;
+            lhsField = this.getValue();
+            String rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.codeListValue!= null);
             boolean rhsFieldIsSet = (that.codeListValue!= null);
             String lhsField;
@@ -211,19 +224,6 @@ public class CodeListValueType implements Equals, HashCode, ToString
             rhsField = that.getCodeSpace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
-            String lhsField;
-            lhsField = this.getValue();
-            String rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

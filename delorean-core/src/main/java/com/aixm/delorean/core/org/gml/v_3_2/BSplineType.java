@@ -338,14 +338,14 @@ public class BSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.degree!= null);
-            boolean rhsFieldIsSet = (that.degree!= null);
-            BigInteger lhsField;
-            lhsField = this.getDegree();
-            BigInteger rhsField;
-            rhsField = that.getDegree();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
+            boolean lhsFieldIsSet = ((this.knot!= null)&&(!this.knot.isEmpty()));
+            boolean rhsFieldIsSet = ((that.knot!= null)&&(!that.knot.isEmpty()));
+            List<KnotPropertyType> lhsField;
+            lhsField = (((this.knot!= null)&&(!this.knot.isEmpty()))?this.getKnot():null);
+            List<KnotPropertyType> rhsField;
+            rhsField = (((that.knot!= null)&&(!that.knot.isEmpty()))?that.getKnot():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knot", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knot", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -364,19 +364,6 @@ public class BSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
             boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
             List<JAXBElement<?>> lhsField;
@@ -390,14 +377,14 @@ public class BSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.knot!= null)&&(!this.knot.isEmpty()));
-            boolean rhsFieldIsSet = ((that.knot!= null)&&(!that.knot.isEmpty()));
-            List<KnotPropertyType> lhsField;
-            lhsField = (((this.knot!= null)&&(!this.knot.isEmpty()))?this.getKnot():null);
-            List<KnotPropertyType> rhsField;
-            rhsField = (((that.knot!= null)&&(!that.knot.isEmpty()))?that.getKnot():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knot", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knot", rhsField);
+            boolean lhsFieldIsSet = (this.coordinates!= null);
+            boolean rhsFieldIsSet = (that.coordinates!= null);
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -411,6 +398,19 @@ public class BSplineType
             rhsField = that.getPosList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.degree!= null);
+            boolean rhsFieldIsSet = (that.degree!= null);
+            BigInteger lhsField;
+            lhsField = this.getDegree();
+            BigInteger rhsField;
+            rhsField = that.getDegree();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

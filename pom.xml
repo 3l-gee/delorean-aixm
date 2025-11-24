@@ -59,4 +59,14 @@
         <!-- <module>delorean-aixm-52</module> -->
     </modules>
     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.aixm.delorean</groupId>
+                <artifactId>delorean-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
 </project>

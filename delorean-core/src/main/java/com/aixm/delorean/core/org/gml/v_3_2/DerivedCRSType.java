@@ -154,14 +154,14 @@ public class DerivedCRSType
         }
         final DerivedCRSType that = ((DerivedCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.coordinateSystem!= null);
-            boolean rhsFieldIsSet = (that.coordinateSystem!= null);
-            JAXBElement<CoordinateSystemPropertyType> lhsField;
-            lhsField = this.getCoordinateSystem();
-            JAXBElement<CoordinateSystemPropertyType> rhsField;
-            rhsField = that.getCoordinateSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
+            boolean lhsFieldIsSet = (this.baseCRS!= null);
+            boolean rhsFieldIsSet = (that.baseCRS!= null);
+            SingleCRSPropertyType lhsField;
+            lhsField = this.getBaseCRS();
+            SingleCRSPropertyType rhsField;
+            rhsField = that.getBaseCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -180,14 +180,14 @@ public class DerivedCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.baseCRS!= null);
-            boolean rhsFieldIsSet = (that.baseCRS!= null);
-            SingleCRSPropertyType lhsField;
-            lhsField = this.getBaseCRS();
-            SingleCRSPropertyType rhsField;
-            rhsField = that.getBaseCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseCRS", rhsField);
+            boolean lhsFieldIsSet = (this.coordinateSystem!= null);
+            boolean rhsFieldIsSet = (that.coordinateSystem!= null);
+            JAXBElement<CoordinateSystemPropertyType> lhsField;
+            lhsField = this.getCoordinateSystem();
+            JAXBElement<CoordinateSystemPropertyType> rhsField;
+            rhsField = that.getCoordinateSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinateSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinateSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

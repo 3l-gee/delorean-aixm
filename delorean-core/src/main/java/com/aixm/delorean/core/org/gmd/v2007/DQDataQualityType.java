@@ -162,19 +162,6 @@ public class DQDataQualityType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.lineage!= null);
-            boolean rhsFieldIsSet = (that.lineage!= null);
-            LILineagePropertyType lhsField;
-            lhsField = this.getLineage();
-            LILineagePropertyType rhsField;
-            rhsField = that.getLineage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.report!= null)&&(!this.report.isEmpty()));
             boolean rhsFieldIsSet = ((that.report!= null)&&(!that.report.isEmpty()));
             List<DQElementPropertyType> lhsField;
@@ -183,6 +170,19 @@ public class DQDataQualityType
             rhsField = (((that.report!= null)&&(!that.report.isEmpty()))?that.getReport():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.lineage!= null);
+            boolean rhsFieldIsSet = (that.lineage!= null);
+            LILineagePropertyType lhsField;
+            lhsField = this.getLineage();
+            LILineagePropertyType rhsField;
+            rhsField = that.getLineage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

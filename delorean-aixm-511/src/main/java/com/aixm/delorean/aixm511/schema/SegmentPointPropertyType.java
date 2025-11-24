@@ -109,9 +109,8 @@ public class SegmentPointPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractSegmentPointType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "segment_point_id", referencedColumnName = "hjid")
     public AbstractSegmentPointType getAbstractSegmentPointValue() {
         if (this.getAbstractSegmentPoint() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractSegmentPointType.class, this.getAbstractSegmentPoint());

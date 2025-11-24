@@ -123,19 +123,6 @@ public class MDRestrictionCodePropertyType implements Equals, HashCode, ToString
         }
         final MDRestrictionCodePropertyType that = ((MDRestrictionCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdRestrictionCode!= null);
-            boolean rhsFieldIsSet = (that.mdRestrictionCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDRestrictionCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDRestrictionCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdRestrictionCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdRestrictionCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -144,6 +131,19 @@ public class MDRestrictionCodePropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.mdRestrictionCode!= null);
+            boolean rhsFieldIsSet = (that.mdRestrictionCode!= null);
+            CodeListValueType lhsField;
+            lhsField = this.getMDRestrictionCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDRestrictionCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdRestrictionCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdRestrictionCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

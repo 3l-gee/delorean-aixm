@@ -260,6 +260,19 @@ public class OnlineContactTypeExtensionType implements Serializable, Equals, Has
         }
         final OnlineContactTypeExtensionType that = ((OnlineContactTypeExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractOnlineContactExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractOnlineContactExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractOnlineContactExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractOnlineContactExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOnlineContactExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOnlineContactExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
             boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class OnlineContactTypeExtensionType implements Serializable, Equals, Has
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractOnlineContactExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractOnlineContactExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractOnlineContactExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractOnlineContactExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractOnlineContactExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractOnlineContactExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

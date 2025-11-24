@@ -124,19 +124,6 @@ public class AngleChoiceType implements Equals, HashCode, ToString
         }
         final AngleChoiceType that = ((AngleChoiceType) object);
         {
-            boolean lhsFieldIsSet = (this.dmsAngle!= null);
-            boolean rhsFieldIsSet = (that.dmsAngle!= null);
-            DMSAngleType lhsField;
-            lhsField = this.getDmsAngle();
-            DMSAngleType rhsField;
-            rhsField = that.getDmsAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.angle!= null);
             boolean rhsFieldIsSet = (that.angle!= null);
             AngleType lhsField;
@@ -145,6 +132,19 @@ public class AngleChoiceType implements Equals, HashCode, ToString
             rhsField = that.getAngle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.dmsAngle!= null);
+            boolean rhsFieldIsSet = (that.dmsAngle!= null);
+            DMSAngleType lhsField;
+            lhsField = this.getDmsAngle();
+            DMSAngleType rhsField;
+            rhsField = that.getDmsAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dmsAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dmsAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

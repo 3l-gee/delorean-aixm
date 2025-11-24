@@ -228,7 +228,7 @@ public class AirspaceVolumeDependencyType
     @OneToMany(targetEntity = AirspaceVolumeDependencyTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRSPACE_VOLUME_DE_0")
+    @JoinColumn
     public List<AirspaceVolumeDependencyTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,6 +279,32 @@ public class AirspaceVolumeDependencyType
         }
         final AirspaceVolumeDependencyType that = ((AirspaceVolumeDependencyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDependency();
+            boolean rhsFieldIsSet = that.isSetDependency();
+            JAXBElement<CodeAirspaceDependencyType> lhsField;
+            lhsField = this.getDependency();
+            JAXBElement<CodeAirspaceDependencyType> rhsField;
+            rhsField = that.getDependency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirspaceVolumeDependencyTypeExtensionType> lhsField;
@@ -300,32 +326,6 @@ public class AirspaceVolumeDependencyType
             rhsField = that.getTheAirspace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAirspace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDependency();
-            boolean rhsFieldIsSet = that.isSetDependency();
-            JAXBElement<CodeAirspaceDependencyType> lhsField;
-            lhsField = this.getDependency();
-            JAXBElement<CodeAirspaceDependencyType> rhsField;
-            rhsField = that.getDependency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

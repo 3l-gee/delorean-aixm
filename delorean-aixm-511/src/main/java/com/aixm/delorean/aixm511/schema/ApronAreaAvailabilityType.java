@@ -400,7 +400,7 @@ public class ApronAreaAvailabilityType
     @OneToMany(targetEntity = ApronAreaAvailabilityTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_APRON_AREA_AVAILAB_0")
+    @JoinColumn
     public List<ApronAreaAvailabilityTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -477,19 +477,6 @@ public class ApronAreaAvailabilityType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<ApronAreaAvailabilityTypeExtensionType> lhsField;
@@ -498,32 +485,6 @@ public class ApronAreaAvailabilityType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusAirportType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusAirportType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWarning();
-            boolean rhsFieldIsSet = that.isSetWarning();
-            JAXBElement<CodeAirportWarningType> lhsField;
-            lhsField = this.getWarning();
-            JAXBElement<CodeAirportWarningType> rhsField;
-            rhsField = that.getWarning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -542,6 +503,19 @@ public class ApronAreaAvailabilityType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetWarning();
+            boolean rhsFieldIsSet = that.isSetWarning();
+            JAXBElement<CodeAirportWarningType> lhsField;
+            lhsField = this.getWarning();
+            JAXBElement<CodeAirportWarningType> rhsField;
+            rhsField = that.getWarning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetUsage();
             boolean rhsFieldIsSet = that.isSetUsage();
             List<ApronAreaUsagePropertyType> lhsField;
@@ -550,6 +524,32 @@ public class ApronAreaAvailabilityType
             rhsField = (that.isSetUsage()?that.getUsage():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusAirportType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusAirportType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

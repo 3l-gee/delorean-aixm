@@ -224,27 +224,14 @@ public abstract class AbstractDSAggregateType
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
-            boolean lhsFieldIsSet = ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
-            boolean rhsFieldIsSet = ((that.composedOf!= null)&&(!that.composedOf.isEmpty()));
-            List<DSDataSetPropertyType> lhsField;
-            lhsField = (((this.composedOf!= null)&&(!this.composedOf.isEmpty()))?this.getComposedOf():null);
-            List<DSDataSetPropertyType> rhsField;
-            rhsField = (((that.composedOf!= null)&&(!that.composedOf.isEmpty()))?that.getComposedOf():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
-            boolean rhsFieldIsSet = ((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()));
-            List<MDMetadataPropertyType> lhsField;
-            lhsField = (((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()))?this.getSeriesMetadata():null);
-            List<MDMetadataPropertyType> rhsField;
-            rhsField = (((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()))?that.getSeriesMetadata():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
+            boolean lhsFieldIsSet = ((this.superset!= null)&&(!this.superset.isEmpty()));
+            boolean rhsFieldIsSet = ((that.superset!= null)&&(!that.superset.isEmpty()));
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (((this.superset!= null)&&(!this.superset.isEmpty()))?this.getSuperset():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (((that.superset!= null)&&(!that.superset.isEmpty()))?that.getSuperset():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -263,14 +250,27 @@ public abstract class AbstractDSAggregateType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.superset!= null)&&(!this.superset.isEmpty()));
-            boolean rhsFieldIsSet = ((that.superset!= null)&&(!that.superset.isEmpty()));
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (((this.superset!= null)&&(!this.superset.isEmpty()))?this.getSuperset():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (((that.superset!= null)&&(!that.superset.isEmpty()))?that.getSuperset():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
+            boolean lhsFieldIsSet = ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
+            boolean rhsFieldIsSet = ((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()));
+            List<MDMetadataPropertyType> lhsField;
+            lhsField = (((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()))?this.getSeriesMetadata():null);
+            List<MDMetadataPropertyType> rhsField;
+            rhsField = (((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()))?that.getSeriesMetadata():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
+            boolean rhsFieldIsSet = ((that.composedOf!= null)&&(!that.composedOf.isEmpty()));
+            List<DSDataSetPropertyType> lhsField;
+            lhsField = (((this.composedOf!= null)&&(!this.composedOf.isEmpty()))?this.getComposedOf():null);
+            List<DSDataSetPropertyType> rhsField;
+            rhsField = (((that.composedOf!= null)&&(!that.composedOf.isEmpty()))?that.getComposedOf():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

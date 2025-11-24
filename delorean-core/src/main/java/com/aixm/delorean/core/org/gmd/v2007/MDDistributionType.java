@@ -175,19 +175,6 @@ public class MDDistributionType
         }
         final MDDistributionType that = ((MDDistributionType) object);
         {
-            boolean lhsFieldIsSet = ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
-            boolean rhsFieldIsSet = ((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()));
-            List<MDFormatPropertyType> lhsField;
-            lhsField = (((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()))?this.getDistributionFormat():null);
-            List<MDFormatPropertyType> rhsField;
-            rhsField = (((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()))?that.getDistributionFormat():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionFormat", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.distributor!= null)&&(!this.distributor.isEmpty()));
             boolean rhsFieldIsSet = ((that.distributor!= null)&&(!that.distributor.isEmpty()));
             List<MDDistributorPropertyType> lhsField;
@@ -209,6 +196,19 @@ public class MDDistributionType
             rhsField = (((that.transferOptions!= null)&&(!that.transferOptions.isEmpty()))?that.getTransferOptions():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferOptions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferOptions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
+            boolean rhsFieldIsSet = ((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()));
+            List<MDFormatPropertyType> lhsField;
+            lhsField = (((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()))?this.getDistributionFormat():null);
+            List<MDFormatPropertyType> rhsField;
+            rhsField = (((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()))?that.getDistributionFormat():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionFormat", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

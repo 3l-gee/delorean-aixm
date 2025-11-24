@@ -149,19 +149,6 @@ public class DQScopeType
         }
         final DQScopeType that = ((DQScopeType) object);
         {
-            boolean lhsFieldIsSet = ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
-            boolean rhsFieldIsSet = ((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()));
-            List<MDScopeDescriptionPropertyType> lhsField;
-            lhsField = (((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()))?this.getLevelDescription():null);
-            List<MDScopeDescriptionPropertyType> rhsField;
-            rhsField = (((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()))?that.getLevelDescription():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.level!= null);
             boolean rhsFieldIsSet = (that.level!= null);
             MDScopeCodePropertyType lhsField;
@@ -170,6 +157,19 @@ public class DQScopeType
             rhsField = that.getLevel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
+            boolean rhsFieldIsSet = ((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()));
+            List<MDScopeDescriptionPropertyType> lhsField;
+            lhsField = (((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()))?this.getLevelDescription():null);
+            List<MDScopeDescriptionPropertyType> rhsField;
+            rhsField = (((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()))?that.getLevelDescription():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

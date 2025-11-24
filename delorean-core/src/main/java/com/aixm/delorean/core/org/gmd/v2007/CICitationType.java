@@ -478,14 +478,40 @@ public class CICitationType
         }
         final CICitationType that = ((CICitationType) object);
         {
-            boolean lhsFieldIsSet = (this.edition!= null);
-            boolean rhsFieldIsSet = (that.edition!= null);
+            boolean lhsFieldIsSet = ((this.citedResponsibleParty!= null)&&(!this.citedResponsibleParty.isEmpty()));
+            boolean rhsFieldIsSet = ((that.citedResponsibleParty!= null)&&(!that.citedResponsibleParty.isEmpty()));
+            List<CIResponsiblePartyPropertyType> lhsField;
+            lhsField = (((this.citedResponsibleParty!= null)&&(!this.citedResponsibleParty.isEmpty()))?this.getCitedResponsibleParty():null);
+            List<CIResponsiblePartyPropertyType> rhsField;
+            rhsField = (((that.citedResponsibleParty!= null)&&(!that.citedResponsibleParty.isEmpty()))?that.getCitedResponsibleParty():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "citedResponsibleParty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "citedResponsibleParty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.title!= null);
+            boolean rhsFieldIsSet = (that.title!= null);
             CharacterStringPropertyType lhsField;
-            lhsField = this.getEdition();
+            lhsField = this.getTitle();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getEdition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "edition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "edition", rhsField);
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.identifier!= null)&&(!this.identifier.isEmpty()));
+            boolean rhsFieldIsSet = ((that.identifier!= null)&&(!that.identifier.isEmpty()));
+            List<MDIdentifierPropertyType> lhsField;
+            lhsField = (((this.identifier!= null)&&(!this.identifier.isEmpty()))?this.getIdentifier():null);
+            List<MDIdentifierPropertyType> rhsField;
+            rhsField = (((that.identifier!= null)&&(!that.identifier.isEmpty()))?that.getIdentifier():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -517,19 +543,6 @@ public class CICitationType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.date!= null)&&(!this.date.isEmpty()));
-            boolean rhsFieldIsSet = ((that.date!= null)&&(!that.date.isEmpty()));
-            List<CIDatePropertyType> lhsField;
-            lhsField = (((this.date!= null)&&(!this.date.isEmpty()))?this.getDate():null);
-            List<CIDatePropertyType> rhsField;
-            rhsField = (((that.date!= null)&&(!that.date.isEmpty()))?that.getDate():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.alternateTitle!= null)&&(!this.alternateTitle.isEmpty()));
             boolean rhsFieldIsSet = ((that.alternateTitle!= null)&&(!that.alternateTitle.isEmpty()));
             List<CharacterStringPropertyType> lhsField;
@@ -538,84 +551,6 @@ public class CICitationType
             rhsField = (((that.alternateTitle!= null)&&(!that.alternateTitle.isEmpty()))?that.getAlternateTitle():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateTitle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.collectiveTitle!= null);
-            boolean rhsFieldIsSet = (that.collectiveTitle!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCollectiveTitle();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCollectiveTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collectiveTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collectiveTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.identifier!= null)&&(!this.identifier.isEmpty()));
-            boolean rhsFieldIsSet = ((that.identifier!= null)&&(!that.identifier.isEmpty()));
-            List<MDIdentifierPropertyType> lhsField;
-            lhsField = (((this.identifier!= null)&&(!this.identifier.isEmpty()))?this.getIdentifier():null);
-            List<MDIdentifierPropertyType> rhsField;
-            rhsField = (((that.identifier!= null)&&(!that.identifier.isEmpty()))?that.getIdentifier():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.citedResponsibleParty!= null)&&(!this.citedResponsibleParty.isEmpty()));
-            boolean rhsFieldIsSet = ((that.citedResponsibleParty!= null)&&(!that.citedResponsibleParty.isEmpty()));
-            List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (((this.citedResponsibleParty!= null)&&(!this.citedResponsibleParty.isEmpty()))?this.getCitedResponsibleParty():null);
-            List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (((that.citedResponsibleParty!= null)&&(!that.citedResponsibleParty.isEmpty()))?that.getCitedResponsibleParty():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "citedResponsibleParty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "citedResponsibleParty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.editionDate!= null);
-            boolean rhsFieldIsSet = (that.editionDate!= null);
-            DatePropertyType lhsField;
-            lhsField = this.getEditionDate();
-            DatePropertyType rhsField;
-            rhsField = that.getEditionDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "editionDate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "editionDate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.title!= null);
-            boolean rhsFieldIsSet = (that.title!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getTitle();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.isbn!= null);
-            boolean rhsFieldIsSet = (that.isbn!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getISBN();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getISBN();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isbn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isbn", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -634,6 +569,19 @@ public class CICitationType
             }
         }
         {
+            boolean lhsFieldIsSet = ((this.date!= null)&&(!this.date.isEmpty()));
+            boolean rhsFieldIsSet = ((that.date!= null)&&(!that.date.isEmpty()));
+            List<CIDatePropertyType> lhsField;
+            lhsField = (((this.date!= null)&&(!this.date.isEmpty()))?this.getDate():null);
+            List<CIDatePropertyType> rhsField;
+            rhsField = (((that.date!= null)&&(!that.date.isEmpty()))?that.getDate():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.otherCitationDetails!= null);
             boolean rhsFieldIsSet = (that.otherCitationDetails!= null);
             CharacterStringPropertyType lhsField;
@@ -642,6 +590,58 @@ public class CICitationType
             rhsField = that.getOtherCitationDetails();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherCitationDetails", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherCitationDetails", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.edition!= null);
+            boolean rhsFieldIsSet = (that.edition!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getEdition();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getEdition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "edition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "edition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.collectiveTitle!= null);
+            boolean rhsFieldIsSet = (that.collectiveTitle!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getCollectiveTitle();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getCollectiveTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collectiveTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collectiveTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.isbn!= null);
+            boolean rhsFieldIsSet = (that.isbn!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getISBN();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getISBN();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isbn", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isbn", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.editionDate!= null);
+            boolean rhsFieldIsSet = (that.editionDate!= null);
+            DatePropertyType lhsField;
+            lhsField = this.getEditionDate();
+            DatePropertyType rhsField;
+            rhsField = that.getEditionDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "editionDate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "editionDate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

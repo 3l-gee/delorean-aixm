@@ -217,14 +217,14 @@ public class MDDistributorType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.distributorFormat!= null)&&(!this.distributorFormat.isEmpty()));
-            boolean rhsFieldIsSet = ((that.distributorFormat!= null)&&(!that.distributorFormat.isEmpty()));
-            List<MDFormatPropertyType> lhsField;
-            lhsField = (((this.distributorFormat!= null)&&(!this.distributorFormat.isEmpty()))?this.getDistributorFormat():null);
-            List<MDFormatPropertyType> rhsField;
-            rhsField = (((that.distributorFormat!= null)&&(!that.distributorFormat.isEmpty()))?that.getDistributorFormat():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorFormat", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorFormat", rhsField);
+            boolean lhsFieldIsSet = ((this.distributionOrderProcess!= null)&&(!this.distributionOrderProcess.isEmpty()));
+            boolean rhsFieldIsSet = ((that.distributionOrderProcess!= null)&&(!that.distributionOrderProcess.isEmpty()));
+            List<MDStandardOrderProcessPropertyType> lhsField;
+            lhsField = (((this.distributionOrderProcess!= null)&&(!this.distributionOrderProcess.isEmpty()))?this.getDistributionOrderProcess():null);
+            List<MDStandardOrderProcessPropertyType> rhsField;
+            rhsField = (((that.distributionOrderProcess!= null)&&(!that.distributionOrderProcess.isEmpty()))?that.getDistributionOrderProcess():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionOrderProcess", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionOrderProcess", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -243,14 +243,14 @@ public class MDDistributorType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.distributionOrderProcess!= null)&&(!this.distributionOrderProcess.isEmpty()));
-            boolean rhsFieldIsSet = ((that.distributionOrderProcess!= null)&&(!that.distributionOrderProcess.isEmpty()));
-            List<MDStandardOrderProcessPropertyType> lhsField;
-            lhsField = (((this.distributionOrderProcess!= null)&&(!this.distributionOrderProcess.isEmpty()))?this.getDistributionOrderProcess():null);
-            List<MDStandardOrderProcessPropertyType> rhsField;
-            rhsField = (((that.distributionOrderProcess!= null)&&(!that.distributionOrderProcess.isEmpty()))?that.getDistributionOrderProcess():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionOrderProcess", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionOrderProcess", rhsField);
+            boolean lhsFieldIsSet = ((this.distributorFormat!= null)&&(!this.distributorFormat.isEmpty()));
+            boolean rhsFieldIsSet = ((that.distributorFormat!= null)&&(!that.distributorFormat.isEmpty()));
+            List<MDFormatPropertyType> lhsField;
+            lhsField = (((this.distributorFormat!= null)&&(!this.distributorFormat.isEmpty()))?this.getDistributorFormat():null);
+            List<MDFormatPropertyType> rhsField;
+            rhsField = (((that.distributorFormat!= null)&&(!that.distributorFormat.isEmpty()))?that.getDistributorFormat():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorFormat", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorFormat", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

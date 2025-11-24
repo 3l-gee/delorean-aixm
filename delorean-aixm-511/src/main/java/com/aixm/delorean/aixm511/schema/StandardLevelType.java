@@ -192,7 +192,7 @@ public class StandardLevelType
     @OneToMany(targetEntity = StandardLevelTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_STANDARD_LEVEL_TYP_0")
+    @JoinColumn
     public List<StandardLevelTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -244,19 +244,6 @@ public class StandardLevelType
         }
         final StandardLevelType that = ((StandardLevelType) object);
         {
-            boolean lhsFieldIsSet = this.isSetVerticalDistance();
-            boolean rhsFieldIsSet = that.isSetVerticalDistance();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getVerticalDistance();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getVerticalDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDistance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<StandardLevelTypeExtensionType> lhsField;
@@ -265,6 +252,19 @@ public class StandardLevelType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDistance();
+            boolean rhsFieldIsSet = that.isSetVerticalDistance();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getVerticalDistance();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getVerticalDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

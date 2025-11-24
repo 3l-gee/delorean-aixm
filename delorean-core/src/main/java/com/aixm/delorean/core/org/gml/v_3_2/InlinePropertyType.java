@@ -126,19 +126,6 @@ public class InlinePropertyType implements Equals, HashCode, ToString
         }
         final InlinePropertyType that = ((InlinePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.any!= null);
-            boolean rhsFieldIsSet = (that.any!= null);
-            Object lhsField;
-            lhsField = this.getAny();
-            Object rhsField;
-            rhsField = that.getAny();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "any", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "any", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.owns!= null);
             boolean rhsFieldIsSet = (that.owns!= null);
             java.lang.Boolean lhsField;
@@ -147,6 +134,19 @@ public class InlinePropertyType implements Equals, HashCode, ToString
             rhsField = that.getOwns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.any!= null);
+            boolean rhsFieldIsSet = (that.any!= null);
+            Object lhsField;
+            lhsField = this.getAny();
+            Object rhsField;
+            rhsField = that.getAny();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "any", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "any", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

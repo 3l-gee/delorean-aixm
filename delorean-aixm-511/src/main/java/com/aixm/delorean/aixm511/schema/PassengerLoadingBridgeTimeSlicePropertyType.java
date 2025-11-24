@@ -223,19 +223,6 @@ public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable
         }
         final PassengerLoadingBridgeTimeSlicePropertyType that = ((PassengerLoadingBridgeTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPassengerLoadingBridgeTimeSlice();
-            boolean rhsFieldIsSet = that.isSetPassengerLoadingBridgeTimeSlice();
-            PassengerLoadingBridgeTimeSliceType lhsField;
-            lhsField = this.getPassengerLoadingBridgeTimeSlice();
-            PassengerLoadingBridgeTimeSliceType rhsField;
-            rhsField = that.getPassengerLoadingBridgeTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengerLoadingBridgeTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengerLoadingBridgeTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class PassengerLoadingBridgeTimeSlicePropertyType implements Serializable
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPassengerLoadingBridgeTimeSlice();
+            boolean rhsFieldIsSet = that.isSetPassengerLoadingBridgeTimeSlice();
+            PassengerLoadingBridgeTimeSliceType lhsField;
+            lhsField = this.getPassengerLoadingBridgeTimeSlice();
+            PassengerLoadingBridgeTimeSliceType rhsField;
+            rhsField = that.getPassengerLoadingBridgeTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "passengerLoadingBridgeTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "passengerLoadingBridgeTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

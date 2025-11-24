@@ -346,7 +346,7 @@ public class AirportHeliportResponsibilityOrganisationType
     @OneToMany(targetEntity = AirportHeliportResponsibilityOrganisationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_AIRPORT_HELIPORT_R_0")
+    @JoinColumn
     public List<AirportHeliportResponsibilityOrganisationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -436,19 +436,6 @@ public class AirportHeliportResponsibilityOrganisationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirportHeliportResponsibilityOrganisationTypeExtensionType> lhsField;
@@ -457,6 +444,19 @@ public class AirportHeliportResponsibilityOrganisationType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

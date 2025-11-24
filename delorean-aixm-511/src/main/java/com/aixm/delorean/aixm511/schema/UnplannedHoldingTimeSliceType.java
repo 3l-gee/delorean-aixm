@@ -325,7 +325,7 @@ public class UnplannedHoldingTimeSliceType
     @OneToMany(targetEntity = UnplannedHoldingExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_UNPLANNED_HOLDING__0")
+    @JoinColumn
     public List<UnplannedHoldingExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -428,6 +428,32 @@ public class UnplannedHoldingTimeSliceType
         }
         final UnplannedHoldingTimeSliceType that = ((UnplannedHoldingTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAuthorizedAltitude();
+            boolean rhsFieldIsSet = that.isSetAuthorizedAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getAuthorizedAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getAuthorizedAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorizedAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorizedAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetControlledAirspace();
             boolean rhsFieldIsSet = that.isSetControlledAirspace();
             JAXBElement<CodeYesNoType> lhsField;
@@ -441,14 +467,27 @@ public class UnplannedHoldingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAuthorizedAltitude();
-            boolean rhsFieldIsSet = that.isSetAuthorizedAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getAuthorizedAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getAuthorizedAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorizedAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorizedAltitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
+            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
+            JAXBElement<CodeApprovalType> lhsField;
+            lhsField = this.getUnplannedHolding();
+            JAXBElement<CodeApprovalType> rhsField;
+            rhsField = that.getUnplannedHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitudeReference();
+            boolean rhsFieldIsSet = that.isSetAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getAltitudeReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getAltitudeReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,45 +514,6 @@ public class UnplannedHoldingTimeSliceType
             rhsField = that.getHoldingPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeReference();
-            boolean rhsFieldIsSet = that.isSetAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getAltitudeReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getAltitudeReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUnplannedHolding();
-            boolean rhsFieldIsSet = that.isSetUnplannedHolding();
-            JAXBElement<CodeApprovalType> lhsField;
-            lhsField = this.getUnplannedHolding();
-            JAXBElement<CodeApprovalType> rhsField;
-            rhsField = that.getUnplannedHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unplannedHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unplannedHolding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

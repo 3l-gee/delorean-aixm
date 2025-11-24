@@ -26,8 +26,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Access;
-import jakarta.persistence.AccessType;
 import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedSurfaceType")

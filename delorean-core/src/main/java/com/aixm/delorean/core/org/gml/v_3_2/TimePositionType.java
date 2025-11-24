@@ -263,19 +263,6 @@ public class TimePositionType implements Equals, HashCode, ToString
         }
         final TimePositionType that = ((TimePositionType) object);
         {
-            boolean lhsFieldIsSet = (this.indeterminatePosition!= null);
-            boolean rhsFieldIsSet = (that.indeterminatePosition!= null);
-            TimeIndeterminateValueType lhsField;
-            lhsField = this.getIndeterminatePosition();
-            TimeIndeterminateValueType rhsField;
-            rhsField = that.getIndeterminatePosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indeterminatePosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indeterminatePosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.frame!= null);
             boolean rhsFieldIsSet = (that.frame!= null);
             String lhsField;
@@ -289,19 +276,6 @@ public class TimePositionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
-            List<String> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.calendarEraName!= null);
             boolean rhsFieldIsSet = (that.calendarEraName!= null);
             String lhsField;
@@ -310,6 +284,32 @@ public class TimePositionType implements Equals, HashCode, ToString
             rhsField = that.getCalendarEraName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.indeterminatePosition!= null);
+            boolean rhsFieldIsSet = (that.indeterminatePosition!= null);
+            TimeIndeterminateValueType lhsField;
+            lhsField = this.getIndeterminatePosition();
+            TimeIndeterminateValueType rhsField;
+            rhsField = that.getIndeterminatePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indeterminatePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indeterminatePosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
+            List<String> lhsField;
+            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

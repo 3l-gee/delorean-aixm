@@ -2,7 +2,7 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractTimeSliceType;
+import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeSliceType;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

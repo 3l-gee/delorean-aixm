@@ -135,6 +135,19 @@ public class TimeCoordinateSystemType
         }
         final TimeCoordinateSystemType that = ((TimeCoordinateSystemType) object);
         {
+            boolean lhsFieldIsSet = (this.origin!= null);
+            boolean rhsFieldIsSet = (that.origin!= null);
+            TimeInstantPropertyType lhsField;
+            lhsField = this.getOrigin();
+            TimeInstantPropertyType rhsField;
+            rhsField = that.getOrigin();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.interval!= null);
             boolean rhsFieldIsSet = (that.interval!= null);
             TimeIntervalLengthType lhsField;
@@ -156,19 +169,6 @@ public class TimeCoordinateSystemType
             rhsField = that.getOriginPosition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "originPosition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "originPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.origin!= null);
-            boolean rhsFieldIsSet = (that.origin!= null);
-            TimeInstantPropertyType lhsField;
-            lhsField = this.getOrigin();
-            TimeInstantPropertyType rhsField;
-            rhsField = that.getOrigin();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

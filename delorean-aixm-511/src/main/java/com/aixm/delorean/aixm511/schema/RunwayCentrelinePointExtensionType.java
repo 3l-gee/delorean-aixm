@@ -223,19 +223,6 @@ public class RunwayCentrelinePointExtensionType implements Serializable, Equals,
         }
         final RunwayCentrelinePointExtensionType that = ((RunwayCentrelinePointExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRunwayCentrelinePointExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRunwayCentrelinePointExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRunwayCentrelinePointExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRunwayCentrelinePointExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayCentrelinePointExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayCentrelinePointExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RunwayCentrelinePointExtensionType implements Serializable, Equals,
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRunwayCentrelinePointExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRunwayCentrelinePointExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRunwayCentrelinePointExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRunwayCentrelinePointExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRunwayCentrelinePointExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRunwayCentrelinePointExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

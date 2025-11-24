@@ -166,14 +166,14 @@ public class GeodesicStringType
         }
         final GeodesicStringType that = ((GeodesicStringType) object);
         {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
+            boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
+            List<Object> lhsField;
+            lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
+            List<Object> rhsField;
+            rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -192,14 +192,14 @@ public class GeodesicStringType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
-            boolean rhsFieldIsSet = ((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()));
-            List<Object> lhsField;
-            lhsField = (((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()))?this.getGeometricPositionGroup():null);
-            List<Object> rhsField;
-            rhsField = (((that.geometricPositionGroup!= null)&&(!that.geometricPositionGroup.isEmpty()))?that.getGeometricPositionGroup():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
+            boolean lhsFieldIsSet = (this.interpolation!= null);
+            boolean rhsFieldIsSet = (that.interpolation!= null);
+            CurveInterpolationType lhsField;
+            lhsField = this.getInterpolation();
+            CurveInterpolationType rhsField;
+            rhsField = that.getInterpolation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

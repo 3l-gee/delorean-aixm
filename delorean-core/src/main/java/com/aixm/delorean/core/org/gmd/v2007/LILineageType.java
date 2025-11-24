@@ -161,19 +161,6 @@ public class LILineageType
         }
         final LILineageType that = ((LILineageType) object);
         {
-            boolean lhsFieldIsSet = ((this.processStep!= null)&&(!this.processStep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.processStep!= null)&&(!that.processStep.isEmpty()));
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (((this.processStep!= null)&&(!this.processStep.isEmpty()))?this.getProcessStep():null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (((that.processStep!= null)&&(!that.processStep.isEmpty()))?that.getProcessStep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.statement!= null);
             boolean rhsFieldIsSet = (that.statement!= null);
             CharacterStringPropertyType lhsField;
@@ -182,6 +169,19 @@ public class LILineageType
             rhsField = that.getStatement();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.processStep!= null)&&(!this.processStep.isEmpty()));
+            boolean rhsFieldIsSet = ((that.processStep!= null)&&(!that.processStep.isEmpty()));
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (((this.processStep!= null)&&(!this.processStep.isEmpty()))?this.getProcessStep():null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (((that.processStep!= null)&&(!that.processStep.isEmpty()))?that.getProcessStep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

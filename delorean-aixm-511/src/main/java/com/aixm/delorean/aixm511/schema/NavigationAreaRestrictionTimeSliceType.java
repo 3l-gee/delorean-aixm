@@ -316,7 +316,7 @@ public class NavigationAreaRestrictionTimeSliceType
     @OneToMany(targetEntity = NavigationAreaRestrictionExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NAVIGATION_AREA_RE_0")
+    @JoinColumn
     public List<NavigationAreaRestrictionExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -404,6 +404,32 @@ public class NavigationAreaRestrictionTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDesignSurface();
+            boolean rhsFieldIsSet = that.isSetDesignSurface();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = this.getDesignSurface();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = that.getDesignSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavigationAreaRestrictionExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NavigationAreaRestrictionExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSectorDefinition();
             boolean rhsFieldIsSet = that.isSetSectorDefinition();
             JAXBElement<CircleSectorPropertyType> lhsField;
@@ -425,32 +451,6 @@ public class NavigationAreaRestrictionTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavigationAreaRestrictionExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NavigationAreaRestrictionExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignSurface();
-            boolean rhsFieldIsSet = that.isSetDesignSurface();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = this.getDesignSurface();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = that.getDesignSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

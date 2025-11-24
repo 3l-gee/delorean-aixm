@@ -182,19 +182,6 @@ public class DMSAngleType implements Equals, HashCode, ToString
         }
         final DMSAngleType that = ((DMSAngleType) object);
         {
-            boolean lhsFieldIsSet = (this.decimalMinutes!= null);
-            boolean rhsFieldIsSet = (that.decimalMinutes!= null);
-            BigDecimal lhsField;
-            lhsField = this.getDecimalMinutes();
-            BigDecimal rhsField;
-            rhsField = that.getDecimalMinutes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimalMinutes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimalMinutes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.seconds!= null);
             boolean rhsFieldIsSet = (that.seconds!= null);
             BigDecimal lhsField;
@@ -229,6 +216,19 @@ public class DMSAngleType implements Equals, HashCode, ToString
             rhsField = that.getDegrees();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.decimalMinutes!= null);
+            boolean rhsFieldIsSet = (that.decimalMinutes!= null);
+            BigDecimal lhsField;
+            lhsField = this.getDecimalMinutes();
+            BigDecimal rhsField;
+            rhsField = that.getDecimalMinutes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimalMinutes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimalMinutes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

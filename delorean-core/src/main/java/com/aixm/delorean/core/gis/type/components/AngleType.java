@@ -2,7 +2,7 @@ package com.aixm.delorean.core.gis.type.components;
 
 import java.math.BigDecimal;
 
-import com.aixm.delorean.core.util.AngleUom;
+import com.aixm.delorean.core.unit.AngleUom;
 
 import jakarta.persistence.Embeddable;
 

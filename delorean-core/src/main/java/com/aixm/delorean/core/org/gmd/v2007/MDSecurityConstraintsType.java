@@ -163,27 +163,14 @@ public class MDSecurityConstraintsType
         }
         final MDSecurityConstraintsType that = ((MDSecurityConstraintsType) object);
         {
-            boolean lhsFieldIsSet = (this.classification!= null);
-            boolean rhsFieldIsSet = (that.classification!= null);
-            MDClassificationCodePropertyType lhsField;
-            lhsField = this.getClassification();
-            MDClassificationCodePropertyType rhsField;
-            rhsField = that.getClassification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.userNote!= null);
-            boolean rhsFieldIsSet = (that.userNote!= null);
+            boolean lhsFieldIsSet = (this.classificationSystem!= null);
+            boolean rhsFieldIsSet = (that.classificationSystem!= null);
             CharacterStringPropertyType lhsField;
-            lhsField = this.getUserNote();
+            lhsField = this.getClassificationSystem();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getUserNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userNote", rhsField);
+            rhsField = that.getClassificationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -202,14 +189,27 @@ public class MDSecurityConstraintsType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.classificationSystem!= null);
-            boolean rhsFieldIsSet = (that.classificationSystem!= null);
+            boolean lhsFieldIsSet = (this.userNote!= null);
+            boolean rhsFieldIsSet = (that.userNote!= null);
             CharacterStringPropertyType lhsField;
-            lhsField = this.getClassificationSystem();
+            lhsField = this.getUserNote();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getClassificationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
+            rhsField = that.getUserNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.classification!= null);
+            boolean rhsFieldIsSet = (that.classification!= null);
+            MDClassificationCodePropertyType lhsField;
+            lhsField = this.getClassification();
+            MDClassificationCodePropertyType rhsField;
+            rhsField = that.getClassification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

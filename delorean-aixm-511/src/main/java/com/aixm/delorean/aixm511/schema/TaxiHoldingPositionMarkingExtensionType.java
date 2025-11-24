@@ -260,19 +260,6 @@ public class TaxiHoldingPositionMarkingExtensionType implements Serializable, Eq
         }
         final TaxiHoldingPositionMarkingExtensionType that = ((TaxiHoldingPositionMarkingExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMarkingExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTaxiHoldingPositionMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTaxiHoldingPositionMarkingExtension();
             AbstractExtensionType lhsField;
@@ -281,6 +268,19 @@ public class TaxiHoldingPositionMarkingExtensionType implements Serializable, Eq
             rhsField = that.getAbstractTaxiHoldingPositionMarkingExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTaxiHoldingPositionMarkingExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTaxiHoldingPositionMarkingExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMarkingExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMarkingExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

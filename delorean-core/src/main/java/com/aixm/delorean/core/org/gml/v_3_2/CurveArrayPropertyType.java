@@ -148,19 +148,6 @@ public class CurveArrayPropertyType implements Equals, HashCode, ToString
         }
         final CurveArrayPropertyType that = ((CurveArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = ((this.abstractCurve!= null)&&(!this.abstractCurve.isEmpty()));
             boolean rhsFieldIsSet = ((that.abstractCurve!= null)&&(!that.abstractCurve.isEmpty()));
             List<JAXBElement<? extends AbstractCurveType>> lhsField;
@@ -169,6 +156,19 @@ public class CurveArrayPropertyType implements Equals, HashCode, ToString
             rhsField = (((that.abstractCurve!= null)&&(!that.abstractCurve.isEmpty()))?that.getAbstractCurve():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurve", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurve", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.owns!= null);
+            boolean rhsFieldIsSet = (that.owns!= null);
+            java.lang.Boolean lhsField;
+            lhsField = this.getOwns();
+            java.lang.Boolean rhsField;
+            rhsField = that.getOwns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -182,19 +182,6 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = (this.numDerivativesAtEnd!= null);
-            boolean rhsFieldIsSet = (that.numDerivativesAtEnd!= null);
-            BigInteger lhsField;
-            lhsField = this.getNumDerivativesAtEnd();
-            BigInteger rhsField;
-            rhsField = that.getNumDerivativesAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.numDerivativesAtStart!= null);
             boolean rhsFieldIsSet = (that.numDerivativesAtStart!= null);
             BigInteger lhsField;
@@ -203,6 +190,19 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
             rhsField = that.getNumDerivativesAtStart();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtStart", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtStart", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.numDerivativesAtEnd!= null);
+            boolean rhsFieldIsSet = (that.numDerivativesAtEnd!= null);
+            BigInteger lhsField;
+            lhsField = this.getNumDerivativesAtEnd();
+            BigInteger rhsField;
+            rhsField = that.getNumDerivativesAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

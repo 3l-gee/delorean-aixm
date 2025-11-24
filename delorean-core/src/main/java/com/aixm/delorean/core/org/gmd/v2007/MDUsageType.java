@@ -181,14 +181,14 @@ public class MDUsageType
         }
         final MDUsageType that = ((MDUsageType) object);
         {
-            boolean lhsFieldIsSet = (this.userDeterminedLimitations!= null);
-            boolean rhsFieldIsSet = (that.userDeterminedLimitations!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUserDeterminedLimitations();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUserDeterminedLimitations();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
+            boolean lhsFieldIsSet = (this.usageDateTime!= null);
+            boolean rhsFieldIsSet = (that.usageDateTime!= null);
+            DateTimePropertyType lhsField;
+            lhsField = this.getUsageDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getUsageDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,14 +220,14 @@ public class MDUsageType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.usageDateTime!= null);
-            boolean rhsFieldIsSet = (that.usageDateTime!= null);
-            DateTimePropertyType lhsField;
-            lhsField = this.getUsageDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getUsageDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usageDateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usageDateTime", rhsField);
+            boolean lhsFieldIsSet = (this.userDeterminedLimitations!= null);
+            boolean rhsFieldIsSet = (that.userDeterminedLimitations!= null);
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getUserDeterminedLimitations();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getUserDeterminedLimitations();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

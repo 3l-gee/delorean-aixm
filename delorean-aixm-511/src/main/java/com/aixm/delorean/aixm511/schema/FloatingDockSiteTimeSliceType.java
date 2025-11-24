@@ -189,7 +189,7 @@ public class FloatingDockSiteTimeSliceType
     @OneToMany(targetEntity = FloatingDockSiteExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_FLOATING_DOCK_SITE_0")
+    @JoinColumn
     public List<FloatingDockSiteExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

@@ -2,7 +2,7 @@ package com.aixm.delorean.aixm511.gis.adapter;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.aixm511.type.AixmElevatedPointType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType;
 import com.aixm.delorean.aixm511.schema.ElevatedPointType;
 
 public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, AixmElevatedPointType> {

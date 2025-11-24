@@ -225,7 +225,7 @@ public class NoteType
     @OneToMany(targetEntity = NoteTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_NOTE_TYPE_HJID")
+    @JoinColumn
     public List<NoteTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,19 +289,6 @@ public class NoteType
         }
         final NoteType that = ((NoteType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPropertyName();
-            boolean rhsFieldIsSet = that.isSetPropertyName();
-            JAXBElement<TextPropertyNameType> lhsField;
-            lhsField = this.getPropertyName();
-            JAXBElement<TextPropertyNameType> rhsField;
-            rhsField = that.getPropertyName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPurpose();
             boolean rhsFieldIsSet = that.isSetPurpose();
             JAXBElement<CodeNotePurposeType> lhsField;
@@ -315,19 +302,6 @@ public class NoteType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NoteTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NoteTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTranslatedNote();
             boolean rhsFieldIsSet = that.isSetTranslatedNote();
             List<LinguisticNotePropertyType> lhsField;
@@ -336,6 +310,32 @@ public class NoteType
             rhsField = (that.isSetTranslatedNote()?that.getTranslatedNote():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "translatedNote", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "translatedNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPropertyName();
+            boolean rhsFieldIsSet = that.isSetPropertyName();
+            JAXBElement<TextPropertyNameType> lhsField;
+            lhsField = this.getPropertyName();
+            JAXBElement<TextPropertyNameType> rhsField;
+            rhsField = that.getPropertyName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "propertyName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "propertyName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NoteTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NoteTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

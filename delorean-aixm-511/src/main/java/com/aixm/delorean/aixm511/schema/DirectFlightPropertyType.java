@@ -107,9 +107,8 @@ public class DirectFlightPropertyType
         }
     }
 
-    @ManyToOne(targetEntity = AbstractDirectFlightType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "direct_flight_id", referencedColumnName = "hjid")
     public AbstractDirectFlightType getAbstractDirectFlightValue() {
         if (this.getAbstractDirectFlight() instanceof JAXBElement) {
             return JAXBElementUtils.getValue(AbstractDirectFlightType.class, this.getAbstractDirectFlight());

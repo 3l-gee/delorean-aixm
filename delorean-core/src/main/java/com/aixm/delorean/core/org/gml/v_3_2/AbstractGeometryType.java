@@ -197,14 +197,14 @@ public abstract class AbstractGeometryType
         }
         final AbstractGeometryType that = ((AbstractGeometryType) object);
         {
-            boolean lhsFieldIsSet = (this.srsName!= null);
-            boolean rhsFieldIsSet = (that.srsName!= null);
-            String lhsField;
-            lhsField = this.getSrsName();
-            String rhsField;
-            rhsField = that.getSrsName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
+            boolean lhsFieldIsSet = (this.srsDimension!= null);
+            boolean rhsFieldIsSet = (that.srsDimension!= null);
+            BigInteger lhsField;
+            lhsField = this.getSrsDimension();
+            BigInteger rhsField;
+            rhsField = that.getSrsDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -223,14 +223,14 @@ public abstract class AbstractGeometryType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.srsDimension!= null);
-            boolean rhsFieldIsSet = (that.srsDimension!= null);
-            BigInteger lhsField;
-            lhsField = this.getSrsDimension();
-            BigInteger rhsField;
-            rhsField = that.getSrsDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            boolean lhsFieldIsSet = (this.srsName!= null);
+            boolean rhsFieldIsSet = (that.srsName!= null);
+            String lhsField;
+            lhsField = this.getSrsName();
+            String rhsField;
+            rhsField = that.getSrsName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

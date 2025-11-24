@@ -2,9 +2,8 @@
 package com.aixm.delorean.aixm511.schema;
 
 import java.io.Serializable;
-import com.aixm.delorean.core.gis.adapter.a5_1_1.gis.CurveTypeAdapter;
-import com.aixm.delorean.core.gis.type.a5_1_1.AixmCurveType;
-import com.aixm.delorean.core.schema.a5_1_1.aixm.CurveType;
+import com.aixm.delorean.aixm511.gis.adapter.CurveTypeAdapter;
+import com.aixm.delorean.aixm511.gis.type.AixmCurveType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -63,7 +62,8 @@ public class AIXMCurvePropertyType
      *     {@link String }
      *     
      */
-    @Transient
+@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+@jakarta.persistence.JoinColumn(name = "curve_id", referencedColumnName = "hjid")
     public AixmCurveType getCurve() {
         return curve;
     }

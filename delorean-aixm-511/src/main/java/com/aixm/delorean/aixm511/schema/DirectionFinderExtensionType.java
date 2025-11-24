@@ -260,6 +260,19 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
         }
         final DirectionFinderExtensionType that = ((DirectionFinderExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractDirectionFinderExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractDirectionFinderExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractDirectionFinderExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractDirectionFinderExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectionFinderExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectionFinderExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class DirectionFinderExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractDirectionFinderExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractDirectionFinderExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractDirectionFinderExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractDirectionFinderExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDirectionFinderExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDirectionFinderExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

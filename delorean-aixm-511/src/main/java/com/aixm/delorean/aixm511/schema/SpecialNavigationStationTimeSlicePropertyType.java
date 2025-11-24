@@ -223,19 +223,6 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
         }
         final SpecialNavigationStationTimeSlicePropertyType that = ((SpecialNavigationStationTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecialNavigationStationTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSpecialNavigationStationTimeSlice();
-            SpecialNavigationStationTimeSliceType lhsField;
-            lhsField = this.getSpecialNavigationStationTimeSlice();
-            SpecialNavigationStationTimeSliceType rhsField;
-            rhsField = that.getSpecialNavigationStationTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialNavigationStationTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSpecialNavigationStationTimeSlice();
+            SpecialNavigationStationTimeSliceType lhsField;
+            lhsField = this.getSpecialNavigationStationTimeSlice();
+            SpecialNavigationStationTimeSliceType rhsField;
+            rhsField = that.getSpecialNavigationStationTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

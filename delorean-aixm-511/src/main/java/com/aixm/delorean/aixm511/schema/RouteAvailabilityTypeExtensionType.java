@@ -260,14 +260,14 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
         }
         final RouteAvailabilityTypeExtensionType that = ((RouteAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractRouteAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRouteAvailabilityExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPropertiesWithScheduleExtension();
+            lhsField = this.getAbstractRouteAvailabilityExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPropertiesWithScheduleExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
+            rhsField = that.getAbstractRouteAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class RouteAvailabilityTypeExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRouteAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRouteAvailabilityExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractPropertiesWithScheduleExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRouteAvailabilityExtension();
+            lhsField = this.getAbstractPropertiesWithScheduleExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRouteAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRouteAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRouteAvailabilityExtension", rhsField);
+            rhsField = that.getAbstractPropertiesWithScheduleExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPropertiesWithScheduleExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPropertiesWithScheduleExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

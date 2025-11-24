@@ -248,32 +248,6 @@ public class OperationMethodType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.formulaCitation!= null);
-            boolean rhsFieldIsSet = (that.formulaCitation!= null);
-            FormulaCitation lhsField;
-            lhsField = this.getFormulaCitation();
-            FormulaCitation rhsField;
-            rhsField = that.getFormulaCitation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.parameter!= null)&&(!this.parameter.isEmpty()));
-            boolean rhsFieldIsSet = ((that.parameter!= null)&&(!that.parameter.isEmpty()));
-            List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> lhsField;
-            lhsField = (((this.parameter!= null)&&(!this.parameter.isEmpty()))?this.getParameter():null);
-            List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> rhsField;
-            rhsField = (((that.parameter!= null)&&(!that.parameter.isEmpty()))?that.getParameter():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.sourceDimensions!= null);
             boolean rhsFieldIsSet = (that.sourceDimensions!= null);
             BigInteger lhsField;
@@ -295,6 +269,32 @@ public class OperationMethodType
             rhsField = that.getTargetDimensions();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "targetDimensions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "targetDimensions", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.formulaCitation!= null);
+            boolean rhsFieldIsSet = (that.formulaCitation!= null);
+            FormulaCitation lhsField;
+            lhsField = this.getFormulaCitation();
+            FormulaCitation rhsField;
+            rhsField = that.getFormulaCitation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formulaCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formulaCitation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.parameter!= null)&&(!this.parameter.isEmpty()));
+            boolean rhsFieldIsSet = ((that.parameter!= null)&&(!that.parameter.isEmpty()));
+            List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> lhsField;
+            lhsField = (((this.parameter!= null)&&(!this.parameter.isEmpty()))?this.getParameter():null);
+            List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> rhsField;
+            rhsField = (((that.parameter!= null)&&(!that.parameter.isEmpty()))?that.getParameter():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -2,7 +2,7 @@ package com.aixm.delorean.core.gis.type.components;
 
 import java.math.BigDecimal;
 
-import com.aixm.delorean.core.util.DistanceUom;
+import com.aixm.delorean.core.unit.DistanceUom;
 
 import jakarta.persistence.Embeddable;
 

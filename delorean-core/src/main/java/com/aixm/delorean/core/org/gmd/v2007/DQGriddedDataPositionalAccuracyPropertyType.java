@@ -351,6 +351,19 @@ public class DQGriddedDataPositionalAccuracyPropertyType implements Equals, Hash
             }
         }
         {
+            boolean lhsFieldIsSet = (this.dqGriddedDataPositionalAccuracy!= null);
+            boolean rhsFieldIsSet = (that.dqGriddedDataPositionalAccuracy!= null);
+            DQGriddedDataPositionalAccuracyType lhsField;
+            lhsField = this.getDQGriddedDataPositionalAccuracy();
+            DQGriddedDataPositionalAccuracyType rhsField;
+            rhsField = that.getDQGriddedDataPositionalAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqGriddedDataPositionalAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqGriddedDataPositionalAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = (this.type!= null);
             boolean rhsFieldIsSet = (that.type!= null);
             TypeType lhsField;
@@ -377,40 +390,14 @@ public class DQGriddedDataPositionalAccuracyPropertyType implements Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dqGriddedDataPositionalAccuracy!= null);
-            boolean rhsFieldIsSet = (that.dqGriddedDataPositionalAccuracy!= null);
-            DQGriddedDataPositionalAccuracyType lhsField;
-            lhsField = this.getDQGriddedDataPositionalAccuracy();
-            DQGriddedDataPositionalAccuracyType rhsField;
-            rhsField = that.getDQGriddedDataPositionalAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqGriddedDataPositionalAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqGriddedDataPositionalAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.uuidref!= null);
-            boolean rhsFieldIsSet = (that.uuidref!= null);
+            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
             String lhsField;
-            lhsField = this.getUuidref();
+            lhsField = this.getSimpleLinkTitle();
             String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -442,14 +429,27 @@ public class DQGriddedDataPositionalAccuracyPropertyType implements Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
+            boolean lhsFieldIsSet = (this.show!= null);
+            boolean rhsFieldIsSet = (that.show!= null);
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.uuidref!= null);
+            boolean rhsFieldIsSet = (that.uuidref!= null);
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getUuidref();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

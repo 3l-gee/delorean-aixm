@@ -24,7 +24,6 @@ import jakarta.xml.bind.ValidationEventHandler;
 import jakarta.xml.bind.ValidationEventLocator;
 
 public class XMLBinding<T, X> {
-    private final String version;
     private final Class<T> root;
     private final Class<X> feature;
     private JAXBContext context;
@@ -33,9 +32,8 @@ public class XMLBinding<T, X> {
     private SchemaFactory schemaFactory;
     private Schema schema;
 
-    public XMLBinding(XMLConfig xmlConfig, Class<T> root, Class<X> feature) {
-        this.version = xmlConfig.getVersion();
-        this.schema = xmlConfig.getSchema();
+    public XMLBinding(Schema schema, Class<T> root, Class<X> feature) {
+        this.schema = schema;
         this.root = root;
         this.feature = feature;
         try {
@@ -51,10 +49,6 @@ public class XMLBinding<T, X> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public String getVersion() {
-        return this.version;
     }
 
     public Unmarshaller getUnmarshaller() {

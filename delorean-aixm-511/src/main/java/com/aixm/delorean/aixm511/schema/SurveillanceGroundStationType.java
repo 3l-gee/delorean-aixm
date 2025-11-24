@@ -228,7 +228,7 @@ public class SurveillanceGroundStationType
     @OneToMany(targetEntity = SurveillanceGroundStationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SURVEILLANCE_GROUN_0")
+    @JoinColumn
     public List<SurveillanceGroundStationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,32 +279,6 @@ public class SurveillanceGroundStationType
         }
         final SurveillanceGroundStationType that = ((SurveillanceGroundStationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheUnit();
-            boolean rhsFieldIsSet = that.isSetTheUnit();
-            UnitPropertyType lhsField;
-            lhsField = this.getTheUnit();
-            UnitPropertyType rhsField;
-            rhsField = that.getTheUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVideoMap();
-            boolean rhsFieldIsSet = that.isSetVideoMap();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getVideoMap();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getVideoMap();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -326,6 +300,32 @@ public class SurveillanceGroundStationType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVideoMap();
+            boolean rhsFieldIsSet = that.isSetVideoMap();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getVideoMap();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getVideoMap();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "videoMap", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "videoMap", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheUnit();
+            boolean rhsFieldIsSet = that.isSetTheUnit();
+            UnitPropertyType lhsField;
+            lhsField = this.getTheUnit();
+            UnitPropertyType rhsField;
+            rhsField = that.getTheUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

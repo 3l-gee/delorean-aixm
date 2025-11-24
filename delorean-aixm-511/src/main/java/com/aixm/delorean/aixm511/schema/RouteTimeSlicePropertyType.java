@@ -223,19 +223,6 @@ public class RouteTimeSlicePropertyType implements Serializable, Equals, HashCod
         }
         final RouteTimeSlicePropertyType that = ((RouteTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRouteTimeSlice();
-            boolean rhsFieldIsSet = that.isSetRouteTimeSlice();
-            RouteTimeSliceType lhsField;
-            lhsField = this.getRouteTimeSlice();
-            RouteTimeSliceType rhsField;
-            rhsField = that.getRouteTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RouteTimeSlicePropertyType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRouteTimeSlice();
+            boolean rhsFieldIsSet = that.isSetRouteTimeSlice();
+            RouteTimeSliceType lhsField;
+            lhsField = this.getRouteTimeSlice();
+            RouteTimeSliceType rhsField;
+            rhsField = that.getRouteTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "routeTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "routeTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

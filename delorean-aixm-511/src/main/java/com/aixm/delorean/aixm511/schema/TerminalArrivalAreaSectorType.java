@@ -382,7 +382,7 @@ public class TerminalArrivalAreaSectorType
     @OneToMany(targetEntity = TerminalArrivalAreaSectorTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_TERMINAL_ARRIVAL_A_1")
+    @JoinColumn
     public List<TerminalArrivalAreaSectorTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -483,14 +483,14 @@ public class TerminalArrivalAreaSectorType
         }
         final TerminalArrivalAreaSectorType that = ((TerminalArrivalAreaSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetProcedureTurnRequired();
-            boolean rhsFieldIsSet = that.isSetProcedureTurnRequired();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getProcedureTurnRequired();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getProcedureTurnRequired();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedureTurnRequired", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedureTurnRequired", rhsField);
+            boolean lhsFieldIsSet = this.isSetSignificantObstacle();
+            boolean rhsFieldIsSet = that.isSetSignificantObstacle();
+            List<ObstructionPropertyType> lhsField;
+            lhsField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
+            List<ObstructionPropertyType> rhsField;
+            rhsField = (that.isSetSignificantObstacle()?that.getSignificantObstacle():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -504,32 +504,6 @@ public class TerminalArrivalAreaSectorType
             rhsField = that.getFlyByCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flyByCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flyByCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAltitudeDescription();
-            boolean rhsFieldIsSet = that.isSetAltitudeDescription();
-            JAXBElement<CodeAltitudeUseType> lhsField;
-            lhsField = this.getAltitudeDescription();
-            JAXBElement<CodeAltitudeUseType> rhsField;
-            rhsField = that.getAltitudeDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSignificantObstacle();
-            boolean rhsFieldIsSet = that.isSetSignificantObstacle();
-            List<ObstructionPropertyType> lhsField;
-            lhsField = (this.isSetSignificantObstacle()?this.getSignificantObstacle():null);
-            List<ObstructionPropertyType> rhsField;
-            rhsField = (that.isSetSignificantObstacle()?that.getSignificantObstacle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "significantObstacle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "significantObstacle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -561,14 +535,14 @@ public class TerminalArrivalAreaSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TerminalArrivalAreaSectorTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TerminalArrivalAreaSectorTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetProcedureTurnRequired();
+            boolean rhsFieldIsSet = that.isSetProcedureTurnRequired();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getProcedureTurnRequired();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getProcedureTurnRequired();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "procedureTurnRequired", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "procedureTurnRequired", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -582,6 +556,32 @@ public class TerminalArrivalAreaSectorType
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TerminalArrivalAreaSectorTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<TerminalArrivalAreaSectorTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAltitudeDescription();
+            boolean rhsFieldIsSet = that.isSetAltitudeDescription();
+            JAXBElement<CodeAltitudeUseType> lhsField;
+            lhsField = this.getAltitudeDescription();
+            JAXBElement<CodeAltitudeUseType> rhsField;
+            rhsField = that.getAltitudeDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -156,19 +156,6 @@ public class PolygonPatchType
         }
         final PolygonPatchType that = ((PolygonPatchType) object);
         {
-            boolean lhsFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
-            boolean rhsFieldIsSet = ((that.interior!= null)&&(!that.interior.isEmpty()));
-            List<AbstractRingPropertyType> lhsField;
-            lhsField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
-            List<AbstractRingPropertyType> rhsField;
-            rhsField = (((that.interior!= null)&&(!that.interior.isEmpty()))?that.getInterior():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.exterior!= null);
             boolean rhsFieldIsSet = (that.exterior!= null);
             AbstractRingPropertyType lhsField;
@@ -190,6 +177,19 @@ public class PolygonPatchType
             rhsField = that.getInterpolation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
+            boolean rhsFieldIsSet = ((that.interior!= null)&&(!that.interior.isEmpty()));
+            List<AbstractRingPropertyType> lhsField;
+            lhsField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            List<AbstractRingPropertyType> rhsField;
+            rhsField = (((that.interior!= null)&&(!that.interior.isEmpty()))?that.getInterior():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

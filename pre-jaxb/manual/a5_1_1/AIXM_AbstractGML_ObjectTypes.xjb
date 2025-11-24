@@ -62,7 +62,7 @@
             <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='featureLifetime']">
                 <jaxb:javaType name="com.aixm.delorean.core.time.type.DeloreanTimeSliceType"/>
                 <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "featureLifetime",required = true, type = com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType.class)</annox:annotate>
-                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter.class)</annox:annotate>
                 <jaxb:property name="featureLifetime"/>
             </jaxb:bindings>
             <jaxb:bindings node="xs:complexType[@name='AbstractAIXMTimeSliceType']//xs:element[@name='approvalStatus']">
@@ -76,7 +76,7 @@
             <jaxb:bindings node="//xs:complexType[@name='MessageMetadataPropertyType']//xs:element[@name='mdMetadata']">
                 <jaxb:javaType name="com.fasterxml.jackson.databind.JsonNode"/>
                 <annox:annotate target="field">@jakarta.xml.bind.annotation.XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd", type = com.aixm.delorean.core.org.gmd.v2007.MDMetadataType.class)</annox:annotate>
-                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
+                <annox:annotate target="field">@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.metadata.adapter.MDMetadataTypeAdapter.class)</annox:annotate>
                 <jaxb:property name="mdMetadata"/>
             </jaxb:bindings>
             <jaxb:bindings node="//xs:complexType[@name='FeatureMetadataPropertyType']">

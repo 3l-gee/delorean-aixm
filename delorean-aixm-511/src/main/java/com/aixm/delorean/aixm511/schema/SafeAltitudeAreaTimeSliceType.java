@@ -505,7 +505,7 @@ public class SafeAltitudeAreaTimeSliceType
     @OneToMany(targetEntity = SafeAltitudeAreaExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_SAFE_ALTITUDE_AREA_0")
+    @JoinColumn
     public List<SafeAltitudeAreaExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -628,92 +628,14 @@ public class SafeAltitudeAreaTimeSliceType
         }
         final SafeAltitudeAreaTimeSliceType that = ((SafeAltitudeAreaTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getCentrePointAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getCentrePointAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSafeAreaType();
-            boolean rhsFieldIsSet = that.isSetSafeAreaType();
-            JAXBElement<CodeSafeAltitudeType> lhsField;
-            lhsField = this.getSafeAreaType();
-            JAXBElement<CodeSafeAltitudeType> rhsField;
-            rhsField = that.getSafeAreaType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAreaType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAreaType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getCentrePointFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getCentrePointFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AirportHeliportPropertyType> lhsField;
-            lhsField = (this.isSetLocation()?this.getLocation():null);
-            List<AirportHeliportPropertyType> rhsField;
-            rhsField = (that.isSetLocation()?that.getLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SafeAltitudeAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SafeAltitudeAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getCentrePointNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getCentrePointNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
-            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> lhsField;
-            lhsField = this.getCentrePointPosition();
-            JAXBElement<AIXMPointPropertyType> rhsField;
-            rhsField = that.getCentrePointPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getCentrePointRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getCentrePointRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -732,6 +654,19 @@ public class SafeAltitudeAreaTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetSector();
+            boolean rhsFieldIsSet = that.isSetSector();
+            List<SafeAltitudeAreaSectorPropertyType> lhsField;
+            lhsField = (this.isSetSector()?this.getSector():null);
+            List<SafeAltitudeAreaSectorPropertyType> rhsField;
+            rhsField = (that.isSetSector()?that.getSector():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -745,27 +680,92 @@ public class SafeAltitudeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentrePointRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getCentrePointRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getCentrePointRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointRunwayPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetCentrePointNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getCentrePointNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getCentrePointNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointNavaidSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSector();
-            boolean rhsFieldIsSet = that.isSetSector();
-            List<SafeAltitudeAreaSectorPropertyType> lhsField;
-            lhsField = (this.isSetSector()?this.getSector():null);
-            List<SafeAltitudeAreaSectorPropertyType> rhsField;
-            rhsField = (that.isSetSector()?that.getSector():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sector", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sector", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AirportHeliportPropertyType> lhsField;
+            lhsField = (this.isSetLocation()?this.getLocation():null);
+            List<AirportHeliportPropertyType> rhsField;
+            rhsField = (that.isSetLocation()?that.getLocation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getCentrePointFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getCentrePointFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointFixDesignatedPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointFixDesignatedPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getCentrePointAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getCentrePointAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointAirportReferencePoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointAirportReferencePoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentrePointPosition();
+            boolean rhsFieldIsSet = that.isSetCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> lhsField;
+            lhsField = this.getCentrePointPosition();
+            JAXBElement<AIXMPointPropertyType> rhsField;
+            rhsField = that.getCentrePointPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centrePointPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centrePointPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SafeAltitudeAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SafeAltitudeAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSafeAreaType();
+            boolean rhsFieldIsSet = that.isSetSafeAreaType();
+            JAXBElement<CodeSafeAltitudeType> lhsField;
+            lhsField = this.getSafeAreaType();
+            JAXBElement<CodeSafeAltitudeType> rhsField;
+            rhsField = that.getSafeAreaType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "safeAreaType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "safeAreaType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

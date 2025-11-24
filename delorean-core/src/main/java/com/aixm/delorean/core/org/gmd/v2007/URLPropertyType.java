@@ -124,19 +124,6 @@ public class URLPropertyType implements Equals, HashCode, ToString
         }
         final URLPropertyType that = ((URLPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.url!= null);
-            boolean rhsFieldIsSet = (that.url!= null);
-            String lhsField;
-            lhsField = this.getURL();
-            String rhsField;
-            rhsField = that.getURL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "url", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "url", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = (this.nilReason!= null);
             boolean rhsFieldIsSet = (that.nilReason!= null);
             String lhsField;
@@ -145,6 +132,19 @@ public class URLPropertyType implements Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = (this.url!= null);
+            boolean rhsFieldIsSet = (that.url!= null);
+            String lhsField;
+            lhsField = this.getURL();
+            String rhsField;
+            rhsField = that.getURL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "url", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "url", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

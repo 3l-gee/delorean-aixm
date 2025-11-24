@@ -282,7 +282,7 @@ public class AltimeterSourceTimeSliceType
     @OneToMany(targetEntity = AltimeterSourceExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn(name = "EXTENSION_ALTIMETER_SOURCE_T_0")
+    @JoinColumn
     public List<AltimeterSourceExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -346,27 +346,14 @@ public class AltimeterSourceTimeSliceType
         }
         final AltimeterSourceTimeSliceType that = ((AltimeterSourceTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltimeterSourceExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AltimeterSourceExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIsRemote();
-            boolean rhsFieldIsSet = that.isSetIsRemote();
+            boolean lhsFieldIsSet = this.isSetIsPrimary();
+            boolean rhsFieldIsSet = that.isSetIsPrimary();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsRemote();
+            lhsField = this.getIsPrimary();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsRemote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
+            rhsField = that.getIsPrimary();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -385,14 +372,14 @@ public class AltimeterSourceTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIsPrimary();
-            boolean rhsFieldIsSet = that.isSetIsPrimary();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getIsPrimary();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getIsPrimary();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPrimary", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPrimary", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltimeterSourceExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AltimeterSourceExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -406,6 +393,19 @@ public class AltimeterSourceTimeSliceType
             rhsField = (that.isSetAvailability()?that.getAvailability():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsRemote();
+            boolean rhsFieldIsSet = that.isSetIsRemote();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getIsRemote();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getIsRemote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isRemote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isRemote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
