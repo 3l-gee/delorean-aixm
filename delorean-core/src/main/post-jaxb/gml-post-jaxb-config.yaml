@@ -97,5 +97,10 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gts.v2007;
+  
+  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\PointPropertyType.java
+    regex: "JAXBElement<PointType>"
+    replacement: |-
+      JAXBElement<? extends PointType>
 
 copy:

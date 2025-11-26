@@ -17,16 +17,14 @@ import javax.xml.namespace.QName;
 import org.hibernate.Session;
 
 public class Container<T, X> {
-    private final QName qName;
-    private final Class<T> root;
-    private final Class<X> feature;
-    private T message;
-    private MessageType messageType;
-    public XMLBinding<T, X> xmlBinding;
-    public DatabaseBinding<T, X> databaseBinding;
-    private QgisProjectBinding publisherPRJ;
-    private QgisProjectBinding editorPRJ;
-    
+    protected String name;
+    protected final QName qName;
+    protected final Class<T> root;
+    protected final Class<X> feature;
+    protected T message;
+    protected MessageType messageType;
+    protected XMLBinding<T, X> xmlBinding;
+    protected DatabaseBinding<T, X> databaseBinding;
 
     public Container(Class<T> rootClass, Class<X> featureClass, QName qName) {
         this.root = rootClass;
@@ -34,12 +32,40 @@ public class Container<T, X> {
         this.qName = qName;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public QName getQName() {
+        return this.qName;
+    }
+
+    public Class<?> getRoot() {
+        return this.root;
+    }
+
+    public Class<?> getFeature() {
+        return this.feature;
+    }
+
     public T getMessage() {
         return this.message;
     }   
 
-    public Class<?> getRoot() {
-        return this.root;
+    public void setMessage(T message) {
+        this.message = message;
+    }
+
+    public MessageType getMessageType() {
+        return this.messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
     }
 
     public void setXmlBinding(XMLBinding<T, X> xmlBinding) {
@@ -58,22 +84,6 @@ public class Container<T, X> {
         return this.databaseBinding;
     }
 
-    public void setPublisherProject(QgisProjectBinding binding) {
-        this.publisherPRJ = binding;
-    }
-
-    public QgisProjectBinding getPublisherProject() {
-        return this.publisherPRJ;
-    }
-
-    public void setEditorProject(QgisProjectBinding binding) {
-        this.editorPRJ = binding;
-    }
-
-    public QgisProjectBinding getEditorProject() {
-        return this.editorPRJ;
-    }
-
     public void unmarshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
@@ -88,22 +98,18 @@ public class Container<T, X> {
         this.xmlBinding.marshal(this.message, path, this.root, this.qName);
     }
 
-    public void startDatabaseConnection() {
+    public void startup() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.startup();
     }
 
-    public void shutdownDatabaseConnection() {
+    public void shutdown() {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.shutdown();
-    }
-
-    public void show() {
-        recursiveShow(this.message.getClass(), this.message); 
     }
 
     public void persist() {
@@ -133,93 +139,4 @@ public class Container<T, X> {
         this.message = (T) this.databaseBinding.extract(this.root, id);
     }
 
-    public void initQGIS(){
-        if (this.databaseBinding == null) {
-            throw new RuntimeException("DatabaseBinding is not set");
-        }
-
-        this.publisherPRJ.init(databaseBinding);
-        ConsoleLogger.log(LogLevel.INFO, "QGIS project successfully initialized.");
-    }
-
-    //TODO this should be cleaned up in untility function or deleted
-    private void recursiveShow(Class<?> clazz, Object instance) {
-        System.out.println("Class: " + clazz.getName());
-        displayFields(clazz, instance);
-        displayMethods(clazz);
-        displaySuperClass(clazz, instance);
-        displayInterfaces(clazz);
-    }
-
-    private void displayFields(Class<?> clazz, Object instance) {
-        System.out.println("\nFields:");
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true); // Allow access to private fields
-            try {
-                Object value = field.get(instance);
-                System.out.println(" - " + field.getName() + " : " + field.getType().getName() + " = " + value);
-            } catch (IllegalAccessException e) {
-                System.err.println(" - Error accessing field: " + field.getName());
-            }
-        }
-    }
-
-    private void displayMethods(Class<?> clazz) {
-        System.out.println("\nMethods:");
-        Method[] methods = clazz.getDeclaredMethods();
-        for (Method method : methods) {
-            System.out.print(" - " + method.getName() + "(");
-            
-            // Print parameter types
-            Class<?>[] parameterTypes = method.getParameterTypes();
-            for (int i = 0; i < parameterTypes.length; i++) {
-                System.out.print(parameterTypes[i].getName());
-                if (i < parameterTypes.length - 1) {
-                    System.out.print(", ");
-                }
-            }
-            
-            System.out.print(") : " + method.getReturnType().getName());
-            System.out.println();
-        }
-    }
-
-    private void displaySuperClass(Class<?> clazz, Object instance) {
-        Class<?> superClass = clazz.getSuperclass();
-        if (superClass != null) {
-            System.out.println("\nSuperclass:");
-            recursiveShow(superClass, instance);
-        }
-    }
-
-    private void displayInterfaces(Class<?> clazz) {
-        Class<?>[] interfaces = clazz.getInterfaces();
-        if (interfaces.length > 0) {
-            System.out.println("\nInterfaces:");
-            for (Class<?> iface : interfaces) {
-                System.out.println(" - " + iface.getName());
-            }
-        }
-    }
-
-    // public List<?> getDbLoadReady() {
-    //     AIXMBasicMessageType test = (AIXMBasicMessageType) this.record;
-    //     List<BasicMessageMemberAIXMPropertyType> list = test.getHasMember();
-    //     List<T> res = new ArrayList<>();
-
-    //     for (BasicMessageMemberAIXMPropertyType item : list) {
-    //         // Safely cast item.getAbstractAIXMFeature().getValue() to T
-    //         T value = null;
-    //         try {
-    //             value = structure.cast(item.getAbstractAIXMFeature().getValue());
-    //         } catch (ClassCastException e) {
-    //             throw new IllegalStateException("Item value cannot be cast to type T", e);
-    //         }
-
-    //         res.add(value);
-    //     }
-
-    //     return res;
-    // }
 }

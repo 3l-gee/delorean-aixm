@@ -1,6 +1,5 @@
 package com.aixm.delorean.core.database;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
@@ -10,7 +9,6 @@ public class DatabaseBindingFactory<T, X> {
     protected String sqlPreInitPath;
     protected String sqlPostInitPath;
     protected Configuration configuration;
-    protected SessionFactory sessionFactory;
 
     public DatabaseBindingFactory(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, String configurationPath) {
         this.root = root;
@@ -27,7 +25,6 @@ public class DatabaseBindingFactory<T, X> {
             this.sqlPreInitPath, 
             this.sqlPostInitPath, 
             this.configuration, 
-            this.sessionFactory, 
             ConnectionStatus.DISCONNECTED);
     }
 }

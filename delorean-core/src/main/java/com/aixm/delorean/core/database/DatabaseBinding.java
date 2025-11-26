@@ -33,13 +33,13 @@ public class DatabaseBinding<T, X> {
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
 
-    public DatabaseBinding(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, SessionFactory sessionFactory, ConnectionStatus connectionStatus) {
+    public DatabaseBinding(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus) {
         this.root = root;
         this.feature = feature;
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
         this.configuration = configuration;
-        this.sessionFactory = sessionFactory;
+        this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
     }
     
@@ -74,44 +74,39 @@ public class DatabaseBinding<T, X> {
         return this.sessionFactory.openSession();
     }
 
-    private enum hbm2ddlEnum {
-        NONE("none"),
-        CREATE_ONLY("create-only"),
-        DROP("drop"),
-        CREATE("create"),
-        CREATE_DROP("create-drop"),
-        VALIDATE("validate"),
-        UPDATE("update");
-    
-        private final String value;
-    
-        hbm2ddlEnum(String value) {
-            this.value = value;
-        }
-    
-        public String getValue() {
-            return value;
-        }
-    
-        public static hbm2ddlEnum fromString(String value) {
-            for (hbm2ddlEnum e : hbm2ddlEnum.values()) {
-                if (e.value.equalsIgnoreCase(value)) {
-                    return e;
-                }
-            }
-            throw new IllegalArgumentException("Invalid hbm2ddl value: " + value);
-        }
-    }
-
     public void setHbm2ddl(String hbm2ddlAuto) {
-        if (hbm2ddlAuto != null) {
-            try {
-                hbm2ddlEnum hbm2ddl = hbm2ddlEnum.fromString(hbm2ddlAuto);
-                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddl.getValue());
-            } catch (IllegalArgumentException e) {            
-                ConsoleLogger.log(LogLevel.ERROR, "Invalid hbm2ddl value: " + hbm2ddlAuto, new Exception().getStackTrace()[0]);
+        switch (hbm2ddlAuto) {
+            case "create":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "create-only":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "create-drop":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "none":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "drop":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "validate":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            case "update":
+                this.configuration.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
+                break;
+
+            default:
                 System.err.println("Invalid hbm2ddl value provided: " + hbm2ddlAuto);
-            }
+                break;
         }
     }
   

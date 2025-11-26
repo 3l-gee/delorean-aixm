@@ -656,6 +656,9 @@
 		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='PointPropertyType']//xs:element[@ref='gml:Point']">
+			<jaxb:property generateElementProperty="true"/>
+		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='PointArrayPropertyType']">
 			<hj:ignored/>
 		</jaxb:bindings>
@@ -855,7 +858,17 @@
 	<jaxb:bindings schemaLocation="../gml/3.2.1/gml.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.core.org.gml.v_3_2"/>
-		</jaxb:schemaBindings>	
+		</jaxb:schemaBindings>
+		<jaxb:globalBindings 
+			fixedAttributeAsConstantProperty="true" 
+			typesafeEnumBase="xs:string" 
+			typesafeEnumMemberName="generateName" 
+			generateIsSetMethod="true" 
+			localScoping="toplevel">
+			<xjc:noValidator/>
+			<xjc:noValidatingUnmarshaller/>
+			<jaxb:serializable uid="20251104"/>
+		</jaxb:globalBindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../gml/3.2.1/gmlBase.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">

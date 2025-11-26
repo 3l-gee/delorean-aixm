@@ -4,21 +4,20 @@
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureMemberType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType$Rows</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType$Rows$Row</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractGriddedSurfaceType.Rows.Row</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeSliceType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Category</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.ClothoidType$RefLocation</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.ControlPoint</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.CoordinatesType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.DynamicFeatureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.MeasureType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.Quantity</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.RefLocation</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Row</class>
+        <class>com.aixm.delorean.core.org.gml.v_3_2.Rows</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.StringOrRefType</class>
         <class>com.aixm.delorean.core.org.gml.v_3_2.TimePositionType</class>
-        <class>com.aixm.delorean.core.org.gml.v_3_2.TinType$ControlPoint</class>
     </persistence-unit>
 </persistence>

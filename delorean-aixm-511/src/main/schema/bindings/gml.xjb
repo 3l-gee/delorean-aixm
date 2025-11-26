@@ -1,0 +1,28 @@
+<jaxb:bindings version="3.0" 
+    xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+	xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" 
+	xmlns:hj="http://jvnet.org/hyperjaxb/jpa" 
+	xmlns:orm="https://jakarta.ee/xml/ns/persistence/orm" 
+	jaxb:extensionBindingPrefixes="xjc annox hj orm">
+
+	<jaxb:bindings schemaLocation="../gml/3.2.1/gml.xsd" node="/xs:schema">
+		<!-- <jaxb:schemaBindings>
+			<jaxb:package name="com.aixm.delorean.aixm511.org.gml.v_3_2"/>
+		</jaxb:schemaBindings>	 -->
+		<jaxb:globalBindings 
+			fixedAttributeAsConstantProperty="true" 
+			typesafeEnumBase="xs:string" 
+			typesafeEnumMemberName="generateName" 
+			generateIsSetMethod="true" 
+			localScoping="toplevel">
+			<xjc:noValidator/>
+			<xjc:noValidatingUnmarshaller/>
+		</jaxb:globalBindings>
+	</jaxb:bindings>
+
+</jaxb:bindings>

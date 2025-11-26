@@ -7,31 +7,17 @@ import javax.xml.namespace.QName;
 
 public class Delorean<T, X> {
 
-    protected static Delorean<?, ?> instance;
-    protected final Class<T> root;
-    protected final Class<X> feature;
-    protected final QName qName;
-    protected final ContainerWarehouse<T, X> warehouse;
-    protected final XMLBindingFactory<T, X> xmlFactory;
-    protected final DatabaseBindingFactory<T, X> databaseFactory;
-
-    public Delorean(DeloreanConfig config) {
-        this.root = (Class<T>) config.getRoot();
-        this.feature = (Class<X>) config.getFeature();
-        this.qName = config.getQName();
-
-        this.warehouse = new ContainerWarehouse<>(this.root, this.feature, this.qName);
-        this.xmlFactory = new XMLBindingFactory<T, X>(this.root, this.feature, config.getSchemaPath());
-        this.databaseFactory = new DatabaseBindingFactory<T, X>(this.root, this.feature, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath());
+    private Delorean() {
+        // Prevent instantiation without configuration
+    }
+    
+    public static <T, X> ContainerWarehouse<T, X> initContainerWarehouse(DeloreanConfig config) {
+        Class<T> root = (Class<T>) config.getRoot();
+        Class<X> feature = (Class<X>) config.getFeature();
+        QName qName = config.getQName();
+        XMLBindingFactory<T, X> xmlFactory = new XMLBindingFactory<>(root, feature, config.getSchemaPath());
+        DatabaseBindingFactory<T, X> databaseFactory = new DatabaseBindingFactory<>(root, feature, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath());
+        return new ContainerWarehouse<>(config.getName(), root, feature, qName, xmlFactory, databaseFactory);
     }
 
-
-
-    @SuppressWarnings("unchecked")
-    public static synchronized <T, X> Delorean<T, X> getInstance(DeloreanConfig deloreanConfig) {
-        if (instance == null) {
-            instance = new Delorean<>(deloreanConfig);
-        }
-        return (Delorean<T, X>) instance;
-    }
 }
