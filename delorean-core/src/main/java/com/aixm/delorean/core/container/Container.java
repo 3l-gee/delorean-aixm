@@ -11,6 +11,8 @@ import com.aixm.delorean.core.qgis.QgisProjectBinding;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.xml.namespace.QName;
 
@@ -88,14 +90,16 @@ public class Container<T, X> {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        this.message = (T) this.xmlBinding.unmarshal(path);
+        Path pathObj = Paths.get(path);
+        this.message = (T) this.xmlBinding.unmarshal(pathObj);
     }
 
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        this.xmlBinding.marshal(this.message, path, this.root, this.qName);
+        Path pathObj = Paths.get(path);
+        this.xmlBinding.marshal(this.message, pathObj, this.root, this.qName);
     }
 
     public void startup() {

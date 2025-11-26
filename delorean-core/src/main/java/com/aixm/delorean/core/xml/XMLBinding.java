@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Path;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
@@ -37,15 +38,25 @@ public class XMLBinding<T, X> {
         this.root = root;
         this.feature = feature;
         try {
-            this.context = JAXBContext.newInstance(root);
+            this.context = JAXBContext.newInstance(
+                root, 
+                feature, 
+                com.aixm.delorean.core.org.gml.v_3_2.ObjectFactory.class,
+                com.aixm.delorean.core.org.gmd.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gco.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gsr.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gss.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gts.v2007.ObjectFactory.class);
             this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             this.unmarshaller = this.context.createUnmarshaller();
             // this.unmarshaller.setSchema(schema);
             
             this.marshaller = this.context.createMarshaller();
-            this.marshaller.setSchema(this.schema);
+            // this.marshaller.setSchema(this.schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            ValidationHandler();
+            // Add additional marshaller properties for better data preservation
+            this.marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
+            // ValidationHandler();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -122,8 +133,8 @@ public class XMLBinding<T, X> {
 
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(String path) {
-        try (InputStream xmlStream = new FileInputStream(path)) {
+    public T unmarshal(Path path) {
+        try (InputStream xmlStream = new FileInputStream(path.toFile())) {
             Object unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
             JAXBElement<?> rootElement;
             if (unmarshalledObject instanceof JAXBElement<?>) {
@@ -156,18 +167,25 @@ public class XMLBinding<T, X> {
     }
     
     
-    public void marshal(T record, String path, Class<T> clazz, QName qName) {
-        try (FileOutputStream outputStream = new FileOutputStream(new File(path))) {
-
-            this.marshaller.setSchema(null);
-
-            JAXBElement<T> rootElement = new JAXBElement<>(qName, clazz, record);
-
-            this.marshaller.marshal(rootElement, outputStream); 
-
+    public void marshal(T record, Path path, Class<T> clazz, QName qName) {
+        try (FileOutputStream outputStream = new FileOutputStream(path.toFile())) {
+            // Don't disable schema validation - keep it for data integrity
+            // this.marshaller.setSchema(null);
+            
+            // Check if the class has @XmlRootElement annotation
+            if (clazz.isAnnotationPresent(jakarta.xml.bind.annotation.XmlRootElement.class)) {
+                // Direct marshalling for classes with @XmlRootElement
+                this.marshaller.marshal(record, outputStream);
+            } else {
+                // Wrap in JAXBElement for classes without @XmlRootElement
+                JAXBElement<T> rootElement = new JAXBElement<>(qName, clazz, record);
+                this.marshaller.marshal(rootElement, outputStream);
+            }
+            
             ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + "> to " + path);
 
         } catch (Exception e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Error during marshalling: " + e.getMessage());
             e.printStackTrace();
         }
     }

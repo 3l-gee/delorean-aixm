@@ -14,7 +14,7 @@
 		<!-- <jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.aixm511.org.gml.v_3_2"/>
 		</jaxb:schemaBindings>	 -->
-		<jaxb:globalBindings 
+		<!-- <jaxb:globalBindings 
 			fixedAttributeAsConstantProperty="true" 
 			typesafeEnumBase="xs:string" 
 			typesafeEnumMemberName="generateName" 
@@ -22,7 +22,7 @@
 			localScoping="toplevel">
 			<xjc:noValidator/>
 			<xjc:noValidatingUnmarshaller/>
-		</jaxb:globalBindings>
+		</jaxb:globalBindings> -->
 	</jaxb:bindings>
 
 </jaxb:bindings>

@@ -71,7 +71,7 @@ public class DeloreanAixm511E2E {
     void loadXml(){
 
         // given 
-        String xmlPath = "delorean-aixm-511/src/test/xml/donlon-in.xml";
+        String xmlPath = "src\\test\\resources\\donlon-in.xml";
 
         // do
         warehouse.getContainerById(id).unmarshal(xmlPath);
@@ -83,7 +83,7 @@ public class DeloreanAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "delorean-aixm-511/src/test/xml/donlon-marshalled.xml";
+        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml";
 
         // do
         warehouse.getContainerById(id).marshal(xmlPath);
