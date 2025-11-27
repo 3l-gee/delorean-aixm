@@ -1,13 +1,21 @@
-package com.aixm.delorean.aixm511.time.adapter;
+package com.aixm.delorean.core.time.adapter;
+
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.aixm.delorean.core.time.helper.XMLGregorianCalendarHelper;
 
-import jakarta.xml.bind.annotation.adapters.XmlAdapter;
-import java.time.OffsetDateTime;
-import javax.xml.datatype.XMLGregorianCalendar;
-
 public class XMLGregorianCalendarAdapter extends XmlAdapter<XMLGregorianCalendar, OffsetDateTime> {
 
+    // ISO 8601 : "yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]"
     @Override
     public OffsetDateTime unmarshal(XMLGregorianCalendar value) {    
         if (value == null) {
