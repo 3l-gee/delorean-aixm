@@ -7,17 +7,17 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
-import com.aixm.delorean.core.schema.a5_2.aixm.CodeNavaidDesignatorType;
-import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
-import com.aixm.delorean.core.schema.a5_2.aixm.NoteType;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import com.aixm.delorean.util.JaxbUtil;
 
 import jakarta.xml.bind.JAXBElement;
 
+import com.aixm.delorean.aixm511.schema.CodeNavaidDesignatorType;
+import com.aixm.delorean.aixm511.schema.DMETimeSliceType;
+import com.aixm.delorean.aixm511.schema.NotePropertyType;
+import com.aixm.delorean.aixm511.schema.NoteType;
+import com.aixm.delorean.aixm511.time.helper.TemporalityHelper;
+import com.aixm.delorean.aixm511.time.type.DeloreanTimeSliceType;
 import com.aixm.delorean.util.AIXMFeatureUtil;
-import com.aixm.delorean.core.time.helper.TemporalityHelper;
 
 import java.util.stream.Stream;
 import java.util.List;

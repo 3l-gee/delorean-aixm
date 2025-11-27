@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.database;
+package com.aixm.delorean.aixm511.database;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.StatelessSession;
 import org.hibernate.Transaction;
 
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
 
 public class PersistanceHelper {
     

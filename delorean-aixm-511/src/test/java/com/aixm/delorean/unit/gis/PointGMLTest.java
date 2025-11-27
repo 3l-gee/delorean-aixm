@@ -9,17 +9,16 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.xmlunit.assertj.XmlAssert;
 
-import com.aixm.delorean.core.gis.helper.PointGmlHelper;
-import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
-import com.aixm.delorean.core.org.gml.v_3_2.PointType;
+import com.aixm.delorean.aixm511.gis.helper.PointGmlHelper;
+import com.aixm.delorean.aixm511.gis.type.Point;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.PointType;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class PointGMLTest {
 
     @BeforeAll

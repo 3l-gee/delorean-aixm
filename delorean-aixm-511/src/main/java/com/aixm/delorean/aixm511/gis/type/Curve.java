@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -18,7 +18,7 @@ import jakarta.persistence.InheritanceType;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractGMLType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractGMLType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.configuration;
+package com.aixm.delorean.aixm511.configuration;
 
 
 public enum StructureConfig {

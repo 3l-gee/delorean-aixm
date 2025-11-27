@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.Column;
@@ -11,10 +11,11 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import java.util.List;
-import java.util.ArrayList;
 
-import com.aixm.delorean.core.gis.type.components.PosList;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.gis.type.components.PosList;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+
+import java.util.ArrayList;
 
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Geodesic")

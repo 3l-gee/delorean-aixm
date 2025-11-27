@@ -1,8 +1,8 @@
-package com.aixm.delorean.core.qgis;
+package com.aixm.delorean.aixm511.qgis;
 
 import java.util.UUID;
 
-import com.aixm.delorean.core.database.DatabaseBinding;
+import com.aixm.delorean.aixm511.database.DatabaseBinding;
 
 // "dbname='demo' port=5432 key='row' srid=4326 type=Point checkPrimaryKeyUnicity='1' table=&quot;navaids_points&quot;.&quot;designatedpoint_publisher_view&quot; (geom)"
 public class PostgresLayerConfig extends LayerConfig {

@@ -1,33 +1,4 @@
-package com.aixm.delorean.core.gis.helper;
-
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractCurveSegmentType;
-import com.aixm.delorean.core.org.gml.v_3_2.AngleType;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcByBulgeType;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcByCenterPointType;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcStringByBulgeType;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcStringType;
-import com.aixm.delorean.core.org.gml.v_3_2.BSplineType;
-import com.aixm.delorean.core.org.gml.v_3_2.BezierType;
-import com.aixm.delorean.core.org.gml.v_3_2.ArcType;
-import com.aixm.delorean.core.org.gml.v_3_2.CircleByCenterPointType;
-import com.aixm.delorean.core.org.gml.v_3_2.CircleType;
-import com.aixm.delorean.core.org.gml.v_3_2.ClothoidType;
-import com.aixm.delorean.core.org.gml.v_3_2.CubicSplineType;
-import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
-import com.aixm.delorean.core.org.gml.v_3_2.GeodesicStringType;
-import com.aixm.delorean.core.org.gml.v_3_2.GeodesicType;
-import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
-import com.aixm.delorean.core.org.gml.v_3_2.LineStringSegmentType;
-import com.aixm.delorean.core.org.gml.v_3_2.OffsetCurveType;
-import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
-import com.aixm.delorean.core.unit.AngleUom;
-import com.aixm.delorean.core.unit.DistanceUom;
-import com.aixm.delorean.core.unit.HrefHelper;
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
-import com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType;
-
-import com.aixm.delorean.core.org.gml.v_3_2.CurveSegmentArrayPropertyType;
+package com.aixm.delorean.aixm511.gis.helper;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -36,22 +7,49 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.xml.namespace.QName;
 
-import com.aixm.delorean.core.gis.type.Curve;
-import com.aixm.delorean.core.gis.type.components.DistanceType;
-import com.aixm.delorean.core.gis.type.components.GeometricProperty;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.components.Pos;
-import com.aixm.delorean.core.gis.type.components.PosList;
-import com.aixm.delorean.core.gis.type.components.SegmentType;
-import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.gis.type.Arc;
-import com.aixm.delorean.core.gis.type.Circle;
-import com.aixm.delorean.core.gis.type.Geodesic;
-import com.aixm.delorean.core.gis.type.LineString;
-import com.aixm.delorean.core.gis.type.Segment;
+import com.aixm.delorean.aixm511.gis.type.Arc;
+import com.aixm.delorean.aixm511.gis.type.Circle;
+import com.aixm.delorean.aixm511.gis.type.Curve;
+import com.aixm.delorean.aixm511.gis.type.Geodesic;
+import com.aixm.delorean.aixm511.gis.type.LineString;
+import com.aixm.delorean.aixm511.gis.type.Segment;
+import com.aixm.delorean.aixm511.gis.type.components.DistanceType;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricProperty;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.components.Pos;
+import com.aixm.delorean.aixm511.gis.type.components.PosList;
+import com.aixm.delorean.aixm511.gis.type.components.SegmentType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractCurveSegmentType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AngleType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ArcByBulgeType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ArcByCenterPointType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ArcStringByBulgeType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ArcStringType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ArcType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.BSplineType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.BezierType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CircleByCenterPointType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CircleType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ClothoidType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CubicSplineType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CurvePropertyType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CurveSegmentArrayPropertyType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.DirectPositionListType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.DirectPositionType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.GeodesicStringType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.GeodesicType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.LengthType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.LineStringSegmentType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.OffsetCurveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.PointPropertyType;
+import com.aixm.delorean.aixm511.unit.AngleUom;
+import com.aixm.delorean.aixm511.unit.DistanceUom;
+import com.aixm.delorean.aixm511.unit.HrefHelper;
 
 public class CurveGmlHelper {
 
@@ -224,15 +222,15 @@ public class CurveGmlHelper {
                 resultPoint.setGeometricProperty(geometricProperty);
                 result.setGmlPoint(resultPoint);
 
-            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class) {
+                com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
-            } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getClass())) {
+            } else if (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getClass())) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
-                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+                com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
@@ -331,15 +329,15 @@ public class CurveGmlHelper {
 
                 result.setGmlPoint(resultPoint);
 
-            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+            } else if (value.getPointProperty().getPoint().getValue().getClass() == com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class) {
+                com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
 
-            } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getClass())) {
+            } else if (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class.isAssignableFrom(value.getPointProperty().getPoint().getClass())) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + value.getPointProperty().getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
-                com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
+                com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) value.getPointProperty().getPoint().getValue();
                 GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                 resultPoint.setGeometricType(GeometricType.GML);
                 result.setGmlPoint(resultPoint);
@@ -361,13 +359,13 @@ public class CurveGmlHelper {
         result.setRadius(distanceType);
 
         AngleType startAngle = value.getStartAngle();
-        com.aixm.delorean.core.gis.type.components.AngleType angleType = new com.aixm.delorean.core.gis.type.components.AngleType();
+        com.aixm.delorean.aixm511.gis.type.components.AngleType angleType = new com.aixm.delorean.aixm511.gis.type.components.AngleType();
         angleType.setValue(new BigDecimal(startAngle.getValue()));
         angleType.setUom(AngleUom.fromSymbol(startAngle.getUom()));
         result.setStartAngle(angleType);
 
         AngleType endAngle = value.getEndAngle();
-        com.aixm.delorean.core.gis.type.components.AngleType endAngleType = new com.aixm.delorean.core.gis.type.components.AngleType();
+        com.aixm.delorean.aixm511.gis.type.components.AngleType endAngleType = new com.aixm.delorean.aixm511.gis.type.components.AngleType();
         endAngleType.setValue(new BigDecimal(endAngle.getValue()));
         endAngleType.setUom(AngleUom.fromSymbol(endAngle.getUom()));
         result.setEndAngle(endAngleType);
@@ -439,17 +437,17 @@ public class CurveGmlHelper {
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
-                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class) {
+                        com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
 
-                    } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getClass())) {
+                    } else if (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getClass())) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. It will be converted to <gml:PointType>.");
-                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                        com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
@@ -537,16 +535,16 @@ public class CurveGmlHelper {
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
-                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.PointType.class) {
-                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                    } else if (pointPropertyObj.getPoint().getValue().getClass() == com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class) {
+                        com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);
                         result.getGmlPoint().add(resultPoint);
 
-                    } else if (com.aixm.delorean.core.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getClass())) {
+                    } else if (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType.class.isAssignableFrom(pointPropertyObj.getPoint().getClass())) {
                         ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + pointPropertyObj.getPoint().getClass().getName() + "> in <gml:ArcByCenterPointType>. it will be converted to <gml:PointType>.");
-                        com.aixm.delorean.core.org.gml.v_3_2.PointType point = (com.aixm.delorean.core.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
+                        com.aixm.delorean.aixm511.org.gml.v_3_2.PointType point = (com.aixm.delorean.aixm511.org.gml.v_3_2.PointType) pointPropertyObj.getPoint().getValue();
                         GmlPointType resultPoint = PointGmlHelper.parseGMLPoint(point, GmlPointType.class, geometrySrsName);
                         resultPoint.setGeometricType(GeometricType.GML);
                         resultPoint.setIndex(index);

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.xml;
+package com.aixm.delorean.aixm511.xml;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
@@ -9,8 +9,8 @@ import javax.xml.validation.SchemaFactory;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
 
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
 
 import java.io.InputStream;
 import java.io.Reader;

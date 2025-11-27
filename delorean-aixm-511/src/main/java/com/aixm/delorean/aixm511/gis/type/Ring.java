@@ -1,9 +1,9 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlCurveType;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

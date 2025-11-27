@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.qgis;
+package com.aixm.delorean.aixm511.qgis;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Console;
@@ -25,10 +25,10 @@ import java.time.format.DateTimeFormatter;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.aixm.delorean.core.database.DatabaseBinding;
-import com.aixm.delorean.core.database.DatabaseConfig;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.aixm511.database.DatabaseBinding;
+import com.aixm.delorean.aixm511.database.DatabaseConfig;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
 
 import freemarker.template.Configuration;
 import freemarker.template.MalformedTemplateNameException;

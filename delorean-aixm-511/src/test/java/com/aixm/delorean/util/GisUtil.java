@@ -2,29 +2,29 @@ package com.aixm.delorean.util;
 
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.Arc;
-import com.aixm.delorean.core.gis.type.Geodesic;
-import com.aixm.delorean.core.gis.type.LineString;
-import com.aixm.delorean.core.gis.type.Ring;
-import com.aixm.delorean.core.gis.type.Segment;
-import com.aixm.delorean.core.gis.type.a5_2.AixmCurveType;
-import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedCurveType;
-import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedPointType;
-import com.aixm.delorean.core.gis.type.a5_2.AixmPointType;
-import com.aixm.delorean.core.gis.type.a5_2.AixmSurfaceType;
-import com.aixm.delorean.core.gis.type.a5_2.AixmElevatedSurfaceType;
-import com.aixm.delorean.core.gis.type.Circle;
-import com.aixm.delorean.core.gis.type.components.AngleType;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.components.DistanceType;
-import com.aixm.delorean.core.gis.type.components.GeometricProperty;
-import com.aixm.delorean.core.gis.type.components.HrefType;
-import com.aixm.delorean.core.gis.type.components.Pos;
-import com.aixm.delorean.core.gis.type.components.PosList;
-import com.aixm.delorean.core.gis.type.components.SegmentType;
-import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
-import com.aixm.delorean.core.gis.type.gml.GmlSurfaceType;
+import com.aixm.delorean.aixm511.gis.type.Arc;
+import com.aixm.delorean.aixm511.gis.type.Circle;
+import com.aixm.delorean.aixm511.gis.type.Geodesic;
+import com.aixm.delorean.aixm511.gis.type.LineString;
+import com.aixm.delorean.aixm511.gis.type.Ring;
+import com.aixm.delorean.aixm511.gis.type.Segment;
+import com.aixm.delorean.aixm511.gis.type.AixmCurveType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedPointType;
+import com.aixm.delorean.aixm511.gis.type.AixmElevatedSurfaceType;
+import com.aixm.delorean.aixm511.gis.type.AixmPointType;
+import com.aixm.delorean.aixm511.gis.type.AixmSurfaceType;
+import com.aixm.delorean.aixm511.gis.type.components.AngleType;
+import com.aixm.delorean.aixm511.gis.type.components.DistanceType;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricProperty;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.components.HrefType;
+import com.aixm.delorean.aixm511.gis.type.components.Pos;
+import com.aixm.delorean.aixm511.gis.type.components.PosList;
+import com.aixm.delorean.aixm511.gis.type.components.SegmentType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlSurfaceType;
 
 
 public class GisUtil {

@@ -1,9 +1,6 @@
-package com.aixm.delorean.core.time.helper;
+package com.aixm.delorean.aixm511.time.helper;
 
 import java.util.ArrayList;
-
-import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
-import com.aixm.delorean.core.schema.a5_2.aixm.AbstractAIXMTimeSliceType;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -11,6 +8,9 @@ import java.lang.reflect.Field;
 
 import java.util.List;
 import java.util.Objects;
+
+import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
+import com.aixm.delorean.aixm511.schema.DMETimeSliceType;
 
 public class TemporalityHelper {
 

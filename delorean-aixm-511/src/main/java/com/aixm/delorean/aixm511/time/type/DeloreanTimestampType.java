@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.time.type;
+package com.aixm.delorean.aixm511.time.type;
 
 import java.time.LocalDateTime;
 

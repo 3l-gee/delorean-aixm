@@ -1,12 +1,12 @@
-package com.aixm.delorean.core.gis.helper;
+package com.aixm.delorean.aixm511.gis.helper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionListType;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.DirectPositionListType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.DirectPositionType;
 
 public class DirectPositionHelper {
 

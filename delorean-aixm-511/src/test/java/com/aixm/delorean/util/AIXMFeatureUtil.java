@@ -1,13 +1,14 @@
 package com.aixm.delorean.util;
 
-import com.aixm.delorean.core.org.gml.v_3_2.CodeWithAuthorityType;
-import com.aixm.delorean.core.schema.a5_2.aixm.DMETimeSliceType;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-import com.aixm.delorean.core.schema.a5_2.aixm.CodeNavaidDesignatorType;
-import com.aixm.delorean.core.schema.a5_2.aixm.TextNameType;
-import com.aixm.delorean.core.schema.a5_2.aixm.NotePropertyType;
-
 import java.util.List;
+
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CodeWithAuthorityType;
+import com.aixm.delorean.aixm511.schema.CodeNavaidDesignatorType;
+import com.aixm.delorean.aixm511.schema.DMETimeSliceType;
+import com.aixm.delorean.aixm511.schema.NotePropertyType;
+import com.aixm.delorean.aixm511.schema.TextNameType;
+import com.aixm.delorean.aixm511.time.type.DeloreanTimeSliceType;
+
 import jakarta.xml.bind.JAXBElement;
 
 

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.database;
+package com.aixm.delorean.aixm511.database;
 
 import org.hibernate.cfg.Configuration;
 

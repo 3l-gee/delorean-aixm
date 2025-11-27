@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AttributeOverrides;
@@ -13,8 +13,8 @@ import jakarta.persistence.Table;
 
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.components.DistanceType;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.gis.type.components.DistanceType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
 
 @Access(jakarta.persistence.AccessType.PROPERTY)
 @Entity(name = "Circle")

@@ -1,8 +1,8 @@
-package com.aixm.delorean.core.gis.type.components;
+package com.aixm.delorean.aixm511.gis.type.components;
 
 import java.math.BigDecimal;
 
-import com.aixm.delorean.core.unit.AngleUom;
+import com.aixm.delorean.aixm511.unit.AngleUom;
 
 import jakarta.persistence.Embeddable;
 

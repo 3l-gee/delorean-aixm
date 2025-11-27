@@ -1,9 +1,10 @@
-package com.aixm.delorean.core;
+package com.aixm.delorean.aixm511;
 
-import com.aixm.delorean.core.container.ContainerWarehouse;
-import com.aixm.delorean.core.database.DatabaseBindingFactory;
-import com.aixm.delorean.core.xml.XMLBindingFactory;
 import javax.xml.namespace.QName;
+
+import com.aixm.delorean.aixm511.container.ContainerWarehouse;
+import com.aixm.delorean.aixm511.database.DatabaseBindingFactory;
+import com.aixm.delorean.aixm511.xml.XMLBindingFactory;
 
 public class Delorean<T, X> {
 

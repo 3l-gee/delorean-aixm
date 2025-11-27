@@ -4,7 +4,8 @@ import java.util.List;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import org.w3c.dom.Element;
-import com.aixm.delorean.core.xhtml.helper.XHTMLHelper;
+
+import com.aixm.delorean.aixm511.xhtml.helper.XHTMLHelper;
 
 public class XHTMLTypeAdapter extends XmlAdapter<List<Element>, String> {
 

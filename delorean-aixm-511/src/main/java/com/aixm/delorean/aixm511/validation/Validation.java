@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.validation;
+package com.aixm.delorean.aixm511.validation;
 
 public final class Validation {
     private Validation() {

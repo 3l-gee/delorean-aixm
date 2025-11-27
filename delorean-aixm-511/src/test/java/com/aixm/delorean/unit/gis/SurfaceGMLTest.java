@@ -9,17 +9,16 @@ import org.xmlunit.assertj.XmlAssert;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
-import com.aixm.delorean.core.gis.type.Surface;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.gml.GmlSurfaceType;
-import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
+import com.aixm.delorean.aixm511.gis.helper.SurfaceGmlHelper;
+import com.aixm.delorean.aixm511.gis.type.Surface;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlSurfaceType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.SurfaceType;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class SurfaceGMLTest {
 
     @BeforeAll

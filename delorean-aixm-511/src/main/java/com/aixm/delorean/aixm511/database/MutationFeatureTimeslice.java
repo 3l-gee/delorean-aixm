@@ -1,9 +1,9 @@
-package com.aixm.delorean.core.database;
+package com.aixm.delorean.aixm511.database;
 
 import org.hibernate.Session;
 import org.hibernate.StatelessSession;
 
-import com.aixm.delorean.core.database.DatabaseFunctionHelper.TimeSliceAction;
+import com.aixm.delorean.aixm511.database.DatabaseFunctionHelper.TimeSliceAction;
 
 import java.lang.reflect.Method;
 import java.time.Instant;

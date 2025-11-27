@@ -1,6 +1,6 @@
 package com.aixm.delorean.aixm511.gis.adapter;
 
-import com.aixm.delorean.core.gis.helper.SurfaceGmlHelper;
+import com.aixm.delorean.aixm511.gis.helper.SurfaceGmlHelper;
 import com.aixm.delorean.aixm511.gis.type.AixmSurfaceType;
 import com.aixm.delorean.aixm511.schema.SurfaceType;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;

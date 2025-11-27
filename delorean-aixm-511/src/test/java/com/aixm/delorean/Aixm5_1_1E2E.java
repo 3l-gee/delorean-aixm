@@ -1,157 +1,163 @@
-// package com.aixm.delorean;
+package com.aixm.delorean;
 
-// import org.junit.jupiter.api.*;
+import org.jboss.jandex.Main;
+import org.junit.jupiter.api.*;
 
-// import com.aixm.delorean.core.configuration.StructureConfig;
-// import com.aixm.delorean.core.database.DatabaseBinding;
-// import com.aixm.delorean.core.database.DatabaseConfig;
-// import com.aixm.delorean.core.schema.a5_1_1.aixm.message.AIXMBasicMessageType;
-// import com.aixm.delorean.core.xml.XMLBinding;
-// import com.aixm.delorean.core.xml.XMLConfig;
-// import com.aixm.delorean.core.container.ContainerFactory;
+import com.aixm.delorean.aixm511.Delorean;
+import com.aixm.delorean.aixm511.DeloreanConfig;
+import com.aixm.delorean.aixm511.container.ContainerWarehouse;
 
-// import static org.assertj.core.api.Assertions.*;
+import com.aixm.delorean.aixm511.configuration.StructureConfig;
+import com.aixm.delorean.aixm511.database.DatabaseBinding;
+import com.aixm.delorean.aixm511.database.DatabaseConfig;
+import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
+import com.aixm.delorean.aixm511.xml.XMLBinding;
+import com.aixm.delorean.aixm511.xml.XMLConfig;
 
-// import java.util.Scanner;
+import static org.assertj.core.api.Assertions.*;
 
-// @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-// @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// public class Aixm5_1_1E2E {
+import java.util.Scanner;
 
-//     private Main app;
-//     private Scanner scanner;
-//     private String containerID;
+import javax.xml.validation.SchemaFactory;
 
-//     @BeforeAll
-//     void setUp() {
-//         org.assertj.core.api.Assertions.setMaxStackTraceElementsDisplayed(0);
-//         app = new Main();
-//     }
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class Aixm5_1_1E2E {
 
-//     @Test
-//     @Order(10)
-//     void container() {
+    String id;
+    ContainerWarehouse<?,?> warehouse;
 
-//         // given
-//         StructureConfig strctConfig = StructureConfig.AIXM_5_1_1;
+    @Test
+    @Order(10)
+    void configDeloreanCore() {
 
-//         // do
-//         app.containerWarehouse.createNewContainer(ContainerFactory.createContainer(strctConfig));
-//         containerID = app.containerWarehouse.getLastContainerId();
+        // given
+        DeloreanConfig config = new DeloreanConfig(
+            "AIXM 5.1.1",
+            com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class,
+            com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
+            com.aixm.delorean.aixm511.schema.message.ObjectFactory.class,
+            com.aixm.delorean.aixm511.schema.ObjectFactory.class,
+            new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
+            "schema/message/AIXM_BasicMessage.xsd",
+            "/postgrsql/pre-init.sql",
+            "/postgrsql//post-init.sql",
+            "/hibernate/hibernate.cfg.xml"
+        );
 
-//         // check that 
-//         // id is created
-//         assertThat(containerID).isNotNull();
+        // do
+        warehouse = Delorean.initContainerWarehouse(config);
 
-//         // container is in the warehouse
-//         assertThat(app.containerWarehouse.getIds()).contains(containerID);
+        // container is successfully created
+        assertThat(warehouse).isNotNull();
 
-//         // the container is of the right structure
-//         assertThat(app.containerWarehouse.getContainer(containerID).getRoot()).isEqualTo(AIXMBasicMessageType.class);
-//     }
+        // warehouse contains one container
+        assertThat(warehouse.getLastUsedContainer()).isNotNull();
+        assertThat(warehouse.getLastUsedContainerId()).isNotNull();
+        id = warehouse.getLastUsedContainerId();
 
-//     @Test
-//     @Order(20)
-//     void xmlBinding() {
+        // container is searchable by its id
+        assertThat(warehouse.getContainerById(id)).isEqualTo(warehouse.getLastUsedContainer());
 
-//         // given
-//         XMLConfig xmlConfig = XMLConfig.AIXM_5_1_1;
-//         StructureConfig strctConfig = StructureConfig.AIXM_5_1_1;
+        // container is correctly configured
+        assertThat(warehouse.getLastUsedContainer().getRoot()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
+        assertThat(warehouse.getLastUsedContainer().getFeature()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
 
-//         // do
-//         app.containerWarehouse.getContainer(containerID).setXmlBinding(xmlConfig);
+        // container has XML binding
+        XMLBinding<?,?> xmlBinding = warehouse.getLastUsedContainer().getXmlBinding();
+        assertThat(xmlBinding).isNotNull();
 
-//         // check that
-//         // the generated jaxb marshaller is of the right structure
-//         assertThat(app.containerWarehouse.getContainer(containerID).xmlBinding.getMarshaller().getSchema()).isEqualTo(xmlConfig.getSchema());
+        // ciontainer has Database binding
+        DatabaseBinding<?,?> dbBinding = warehouse.getLastUsedContainer().getDatabaseBinding();
+        assertThat(dbBinding).isNotNull();
+    }
 
-//         // the generated jaxb unmarshaller is of the right structure
-//         assertThat(app.containerWarehouse.getContainer(containerID).xmlBinding.getMarshaller().getSchema()).isEqualTo(xmlConfig.getSchema());
-//     }
+    @Test
+    @Order(20)
+    void loadXml(){
 
-//     @Test
-//     @Order(30)
-//     void loadXml() {
+        // given 
+        String xmlPath = "src\\test\\resources\\donlon-in.xml";
 
-//         // given
-//         String xmlPath = "src/test/xml/a5_1_1/donlon-in.xml";
+        // do
+        warehouse.getContainerById(id).unmarshal(xmlPath);
 
-//         // do
-//         app.containerWarehouse.getContainer(containerID).unmarshal(xmlPath);
-//     }
+    }
 
-//     @Test
-//     @Order(40)
-//     void extractMarshalledXml() {
+    @Test
+    @Order(30)
+    void extractMarshalledXml() {
 
-//         // given
-//         String xmlPath = "src/test/xml/a5_1_1/donlon-marshalled.xml";
+        // given
+        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml";
 
-//         // do
-//         app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
-//     }
-
-//     @Test
-//     @Order(50)
-//     void databaseBinding() {
-
-//         // given
-//         DatabaseConfig dbConfig = DatabaseConfig.AIXM_5_1_1;
-
-//         // do
-//         app.containerWarehouse.getContainer(containerID).setDatabaseBinding(dbConfig);
-//         app.containerWarehouse.getContainer(containerID).databaseBinding.setUrl("jdbc:postgresql://localhost:5432/aixm_5_1_1");
-//         app.containerWarehouse.getContainer(containerID).databaseBinding.setUsername("postgres");
-//         app.containerWarehouse.getContainer(containerID).databaseBinding.setPassword("postgres");
-//         app.containerWarehouse.getContainer(containerID).databaseBinding.setHbm2ddl("create");
-
-//         // check that 
-//         // the dbconfig is of the right dbconfig 
-//         // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
-
-//     }
-
-//     @Test
-//     @Order(60)
-//     void databaseStartup() {
-
-//         // do
-//         app.containerWarehouse.getContainer(containerID).startDatabaseConnection();
-
-//         // check that 
-//     }
-
-//     @Test
-//     @Order(70)
-//     void databasePersist() {
-
-//         // do
-//         app.containerWarehouse.getContainer(containerID).persist();
-
-//         // check that 
-//     }
+        // do
+        warehouse.getContainerById(id).marshal(xmlPath);
+    }
 
 
-//     @Test
-//     @Order(80)
-//     void databaseExtract() {
 
-//         // do
-//         app.containerWarehouse.getContainer(containerID).extract(1);
+    // @Test
+    // @Order(50)
+    // void databaseBinding() {
 
-//         // check that
-//     }
+    //     // given
+    //     DatabaseConfig dbConfig = DatabaseConfig.AIXM_5_1_1;
 
-//     @Test
-//     @Order(90)
-//     void extractExtractedXml() {
+    //     // do
+    //     app.containerWarehouse.getContainer(containerID).setDatabaseBinding(dbConfig);
+    //     app.containerWarehouse.getContainer(containerID).databaseBinding.setUrl("jdbc:postgresql://localhost:5432/aixm_5_1_1");
+    //     app.containerWarehouse.getContainer(containerID).databaseBinding.setUsername("postgres");
+    //     app.containerWarehouse.getContainer(containerID).databaseBinding.setPassword("postgres");
+    //     app.containerWarehouse.getContainer(containerID).databaseBinding.setHbm2ddl("create");
 
-//         // given
-//         String xmlPath = "src/test/xml/a5_1_1/donlon-extract.xml";
+    //     // check that 
+    //     // the dbconfig is of the right dbconfig 
+    //     // assertThat(app.containerWarehouse.getContainer(containerID).databaseBinding).isEqualTo(dbConfig);
 
-//         // do
-//         app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
-//     } 
+    // }
+
+    // @Test
+    // @Order(60)
+    // void databaseStartup() {
+
+    //     // do
+    //     app.containerWarehouse.getContainer(containerID).startDatabaseConnection();
+
+    //     // check that 
+    // }
+
+    // @Test
+    // @Order(70)
+    // void databasePersist() {
+
+    //     // do
+    //     app.containerWarehouse.getContainer(containerID).persist();
+
+    //     // check that 
+    // }
 
 
-// }
+    // @Test
+    // @Order(80)
+    // void databaseExtract() {
+
+    //     // do
+    //     app.containerWarehouse.getContainer(containerID).extract(1);
+
+    //     // check that
+    // }
+
+    // @Test
+    // @Order(90)
+    // void extractExtractedXml() {
+
+    //     // given
+    //     String xmlPath = "src/test/xml/a5_1_1/donlon-extract.xml";
+
+    //     // do
+    //     app.containerWarehouse.getContainer(containerID).marshal(xmlPath);
+    // } 
+
+
+}

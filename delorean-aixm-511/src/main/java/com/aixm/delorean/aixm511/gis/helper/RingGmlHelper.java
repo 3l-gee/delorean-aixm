@@ -1,15 +1,15 @@
-package com.aixm.delorean.core.gis.helper;
+package com.aixm.delorean.aixm511.gis.helper;
 
-import com.aixm.delorean.core.gis.type.Ring;
-import com.aixm.delorean.core.gis.type.components.GeometricProperty;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.org.gml.v_3_2.CompositeCurveType;
-import com.aixm.delorean.core.org.gml.v_3_2.OrientableCurveType;
-import com.aixm.delorean.core.org.gml.v_3_2.RingType;
-import com.aixm.delorean.core.unit.HrefHelper;
+import com.aixm.delorean.aixm511.gis.type.Ring;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricProperty;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CompositeCurveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.OrientableCurveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.RingType;
+import com.aixm.delorean.aixm511.unit.HrefHelper;
 
 public class RingGmlHelper {
     
@@ -30,7 +30,7 @@ public class RingGmlHelper {
 
         // C. curveMember parsing
         Long curveIndex = 0L;
-        for (com.aixm.delorean.core.org.gml.v_3_2.CurvePropertyType curve : ring.getCurveMember()) {
+        for (com.aixm.delorean.aixm511.org.gml.v_3_2.CurvePropertyType curve : ring.getCurveMember()) {
             if (curve.getAbstractCurve() == null && curve.getHref() == null) {
                 throw new IllegalArgumentException("<gml:CurvePropertyType> Either href or AbstractCurve must be set.");
 
@@ -46,8 +46,8 @@ public class RingGmlHelper {
                 resultCurve.setIndex(curveIndex);
                 result.getGmlCurve().add(resultCurve);
 
-            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.core.org.gml.v_3_2.CurveType.class) {
-                com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
+            } else if (curve.getAbstractCurve().getValue().getClass() == com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType.class) {
+                com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
                 parsed.setGeometricType(GeometricType.GML);
@@ -59,9 +59,9 @@ public class RingGmlHelper {
             } else if (curve.getAbstractCurve().getValue().getClass() == OrientableCurveType.class) {
                 throw new IllegalArgumentException("Delorean does not (yet) support OrientableCurveType.");
 
-            } else if ( com.aixm.delorean.core.org.gml.v_3_2.CurveType.class.isAssignableFrom(curve.getAbstractCurve().getValue().getClass())) {
+            } else if ( com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType.class.isAssignableFrom(curve.getAbstractCurve().getValue().getClass())) {
                 ConsoleLogger.log(LogLevel.WARN,"Delorean does not support <" + curve.getAbstractCurve().getValue().getClass().getName() + "> in <gml:RingType>. It will be converted to <gml:CurveType>.");
-                com.aixm.delorean.core.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.core.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
+                com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType curveType = (com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType) curve.getAbstractCurve().getValue();
                 GmlCurveType parsed = CurveGmlHelper.parseGMLCurve(curveType, GmlCurveType.class, parentSrsName);
                 parsed.setIndex(curveIndex);
                 parsed.setGeometricType(GeometricType.GML);

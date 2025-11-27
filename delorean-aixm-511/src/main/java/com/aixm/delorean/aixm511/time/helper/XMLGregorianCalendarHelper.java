@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.time.helper;
+package com.aixm.delorean.aixm511.time.helper;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;

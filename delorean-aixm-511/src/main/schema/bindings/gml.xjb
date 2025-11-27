@@ -859,16 +859,6 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="com.aixm.delorean.aixm511.org.gml.v_3_2"/>
 		</jaxb:schemaBindings>
-		<jaxb:globalBindings 
-			fixedAttributeAsConstantProperty="true" 
-			typesafeEnumBase="xs:string" 
-			typesafeEnumMemberName="generateName" 
-			generateIsSetMethod="true" 
-			localScoping="toplevel">
-			<xjc:noValidator/>
-			<xjc:noValidatingUnmarshaller/>
-			<jaxb:serializable uid="20251104"/>
-		</jaxb:globalBindings>
 	</jaxb:bindings>
 	<jaxb:bindings schemaLocation="../gml/3.2.1/gmlBase.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='AbstractGMLType']">

@@ -47,85 +47,85 @@ public class DeloreanAixm511E2E {
             mar.marshal(message, new File("src/test/resources/donlon-marshalled.xml"));
     }
     
-    // @Test
-    // @Order(10)
-    // void configDeloreanCore() {
+    @Test
+    @Order(10)
+    void configDeloreanCore() {
 
 
-    //     try {
-    //         JAXBContext context = JAXBContext.newInstance(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
-    //         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    //         Unmarshaller unmarshaller = context.createUnmarshaller();
-    //         Marshaller marshaller = context.createMarshaller();
-    //         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-    //         marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
+        try {
+            JAXBContext context = JAXBContext.newInstance(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
+            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-    //     // given
-    //     DeloreanConfig config = new DeloreanConfig(
-    //         "AIXM 5.1.1",
-    //         com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class,
-    //         com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
-    //         com.aixm.delorean.aixm511.schema.message.ObjectFactory.class,
-    //         com.aixm.delorean.aixm511.schema.ObjectFactory.class,
-    //         new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
-    //         "schema/message/AIXM_BasicMessage.xsd",
-    //         "/postgrsql/pre-init.sql",
-    //         "/postgrsql//post-init.sql",
-    //         "/hibernate/hibernate.cfg.xml"
-    //     );
+        // given
+        DeloreanConfig config = new DeloreanConfig(
+            "AIXM 5.1.1",
+            com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class,
+            com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
+            com.aixm.delorean.aixm511.schema.message.ObjectFactory.class,
+            com.aixm.delorean.aixm511.schema.ObjectFactory.class,
+            new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
+            "schema/message/AIXM_BasicMessage.xsd",
+            "/postgrsql/pre-init.sql",
+            "/postgrsql//post-init.sql",
+            "/hibernate/hibernate.cfg.xml"
+        );
 
-    //     // do
-    //     warehouse = Delorean.initContainerWarehouse(config);
+        // do
+        warehouse = Delorean.initContainerWarehouse(config);
 
-    //     // container is successfully created
-    //     assertThat(warehouse).isNotNull();
+        // container is successfully created
+        assertThat(warehouse).isNotNull();
 
-    //     // warehouse contains one container
-    //     assertThat(warehouse.getLastUsedContainer()).isNotNull();
-    //     assertThat(warehouse.getLastUsedContainerId()).isNotNull();
-    //     id = warehouse.getLastUsedContainerId();
+        // warehouse contains one container
+        assertThat(warehouse.getLastUsedContainer()).isNotNull();
+        assertThat(warehouse.getLastUsedContainerId()).isNotNull();
+        id = warehouse.getLastUsedContainerId();
 
-    //     // container is searchable by its id
-    //     assertThat(warehouse.getContainerById(id)).isEqualTo(warehouse.getLastUsedContainer());
+        // container is searchable by its id
+        assertThat(warehouse.getContainerById(id)).isEqualTo(warehouse.getLastUsedContainer());
 
-    //     // container is correctly configured
-    //     assertThat(warehouse.getLastUsedContainer().getRoot()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
-    //     assertThat(warehouse.getLastUsedContainer().getFeature()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
+        // container is correctly configured
+        assertThat(warehouse.getLastUsedContainer().getRoot()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
+        assertThat(warehouse.getLastUsedContainer().getFeature()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
 
-    //     // container has XML binding
-    //     XMLBinding<?,?> xmlBinding = warehouse.getLastUsedContainer().getXmlBinding();
-    //     assertThat(xmlBinding).isNotNull();
+        // container has XML binding
+        XMLBinding<?,?> xmlBinding = warehouse.getLastUsedContainer().getXmlBinding();
+        assertThat(xmlBinding).isNotNull();
 
-    //     // ciontainer has Database binding
-    //     DatabaseBinding<?,?> dbBinding = warehouse.getLastUsedContainer().getDatabaseBinding();
-    //     assertThat(dbBinding).isNotNull();
-    // }
+        // ciontainer has Database binding
+        DatabaseBinding<?,?> dbBinding = warehouse.getLastUsedContainer().getDatabaseBinding();
+        assertThat(dbBinding).isNotNull();
+    }
     
-    // @Test
-    // @Order(20)
-    // void loadXml(){
+    @Test
+    @Order(20)
+    void loadXml(){
 
-    //     // given 
-    //     String xmlPath = "src\\test\\resources\\donlon-in.xml";
+        // given 
+        String xmlPath = "src\\test\\resources\\donlon-in.xml";
 
-    //     // do
-    //     warehouse.getContainerById(id).unmarshal(xmlPath);
+        // do
+        warehouse.getContainerById(id).unmarshal(xmlPath);
 
-    // }
+    }
 
-    // @Test
-    // @Order(30)
-    // void extractMarshalledXml() {
+    @Test
+    @Order(30)
+    void extractMarshalledXml() {
 
-    //     // given
-    //     String xmlPath = "src\\test\\resources\\donlon-marshalled.xml";
+        // given
+        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml";
 
-    //     // do
-    //     warehouse.getContainerById(id).marshal(xmlPath);
-    // }
+        // do
+        warehouse.getContainerById(id).marshal(xmlPath);
+    }
 
     // @Test
     // @Order(40)

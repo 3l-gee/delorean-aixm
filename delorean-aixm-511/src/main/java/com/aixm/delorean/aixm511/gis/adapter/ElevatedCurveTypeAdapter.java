@@ -1,7 +1,8 @@
 package com.aixm.delorean.aixm511.gis.adapter;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
-import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
+
+import com.aixm.delorean.aixm511.gis.helper.CurveGmlHelper;
 import com.aixm.delorean.aixm511.gis.type.AixmElevatedCurveType;
 import com.aixm.delorean.aixm511.schema.ElevatedCurveType;
 

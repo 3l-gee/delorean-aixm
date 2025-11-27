@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.time.type;
+package com.aixm.delorean.aixm511.time.type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

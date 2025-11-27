@@ -1,8 +1,8 @@
-package com.aixm.delorean.core.qgis;
+package com.aixm.delorean.aixm511.qgis;
 
 import java.util.List;
 
-import com.aixm.delorean.core.database.DatabaseBinding;
+import com.aixm.delorean.aixm511.database.DatabaseBinding;
 
 public class ProjectConfig {
     private String templatePath;

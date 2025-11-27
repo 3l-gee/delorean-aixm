@@ -26,7 +26,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmSurfaceType")
 @Table(name = "aixm_surface", schema = "gml")
-public class AixmSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable {
+public class AixmSurfaceType extends com.aixm.delorean.aixm511.gis.type.Surface implements java.io.Serializable {
 
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;

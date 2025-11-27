@@ -1,8 +1,8 @@
-package com.aixm.delorean.core.time.adapter;
+package com.aixm.delorean.aixm511.time.adapter;
 
-import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
-import com.aixm.delorean.core.time.helper.TimeSliceHelper;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePrimitivePropertyType;
+import com.aixm.delorean.aixm511.time.helper.TimeSliceHelper;
+import com.aixm.delorean.aixm511.time.type.DeloreanTimeSliceType;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 

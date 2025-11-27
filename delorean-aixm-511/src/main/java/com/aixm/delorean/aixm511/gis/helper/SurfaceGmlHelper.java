@@ -1,22 +1,22 @@
-package com.aixm.delorean.core.gis.helper;
-
-import com.aixm.delorean.core.gis.type.Ring;
-import com.aixm.delorean.core.gis.type.Surface;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractRingPropertyType;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractSurfacePatchType;
-import com.aixm.delorean.core.org.gml.v_3_2.ConeType;
-import com.aixm.delorean.core.org.gml.v_3_2.CylinderType;
-import com.aixm.delorean.core.org.gml.v_3_2.LinearRingType;
-import com.aixm.delorean.core.org.gml.v_3_2.PolygonPatchType;
-import com.aixm.delorean.core.org.gml.v_3_2.RectangleType;
-import com.aixm.delorean.core.org.gml.v_3_2.RingType;
-import com.aixm.delorean.core.org.gml.v_3_2.SphereType;
-import com.aixm.delorean.core.org.gml.v_3_2.SurfacePatchArrayPropertyType;
-import com.aixm.delorean.core.org.gml.v_3_2.SurfaceType;
-import com.aixm.delorean.core.org.gml.v_3_2.TriangleType;
+package com.aixm.delorean.aixm511.gis.helper;
 
 import jakarta.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
+
+import com.aixm.delorean.aixm511.gis.type.Ring;
+import com.aixm.delorean.aixm511.gis.type.Surface;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractRingPropertyType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractSurfacePatchType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.ConeType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CylinderType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.LinearRingType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.PolygonPatchType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.RectangleType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.RingType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.SphereType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.SurfacePatchArrayPropertyType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.SurfaceType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TriangleType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,23 +1,21 @@
-package com.aixm.delorean.core.database;
+package com.aixm.delorean.aixm511.database;
 
 import java.util.Map;
 
 import org.hibernate.Session;
 
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractTimePrimitiveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePeriodType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePositionType;
+import com.aixm.delorean.aixm511.schema.*;
+import com.aixm.delorean.aixm511.schema.message.*;
+import com.aixm.delorean.aixm511.time.type.DeloreanTimeSliceType;
+
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
 import java.util.List;
-
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimePeriodType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
-// import com.aixm.delorean.core.schema.a5_1_1.aixm.*;
-// import com.aixm.delorean.core.schema.a5_1_1.aixm.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.core.schema.a5_2.aixm.*;
-import com.aixm.delorean.core.schema.a5_2.aixm.message.BasicMessageMemberAIXMPropertyType;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 
 public class DatabaseFunctionHelper {
 

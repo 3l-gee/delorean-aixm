@@ -377,10 +377,10 @@
             </build>
         </profile>-->
         <profile>
-            <id>jaxb-core</id>
+            <id>jaxb-511</id>
             <build>
                 <plugins>
-                    <!-- HiSrc HyperJAXB Code Generation for GML 3.2.1 -->
+                    <!-- HiSrc HyperJAXB Code Generation for AIXM 5.1.1 -->
                     <plugin>
                         <groupId>org.patrodyne.jvnet</groupId>
                         <artifactId>hisrc-hyperjaxb-maven-plugin</artifactId>
@@ -394,7 +394,7 @@
                         </dependencies>
                         <executions>
                             <execution>
-                                <id>generate gml bindings</id>
+                                <id>generate aixm 5.1.1 bindings</id>
                                 <phase>generate-sources</phase>
                                 <goals>
                                     <goal>generate</goal>
@@ -402,8 +402,7 @@
                                 <configuration>
                                     <noFileHeader>true</noFileHeader>
                                     <extension>true</extension>
-                                    <episode>true</episode>
-                                    <schemaDirectory>${project.basedir}/src/main/schema</schemaDirectory>
+                                    <schemaDirectory>${project.basedir}/src/main/schema/message</schemaDirectory>
                                     <schemaIncludes>
                                         <include>AIXM_BasicMessage.xsd</include>
                                     </schemaIncludes>

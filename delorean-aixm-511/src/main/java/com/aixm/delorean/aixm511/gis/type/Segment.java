@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -8,9 +8,9 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.SequenceGenerator;
 
-import com.aixm.delorean.core.gis.type.components.SegmentType;
-
 import java.util.List;
+
+import com.aixm.delorean.aixm511.gis.type.components.SegmentType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;

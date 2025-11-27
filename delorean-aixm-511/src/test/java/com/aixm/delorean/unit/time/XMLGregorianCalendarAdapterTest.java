@@ -12,6 +12,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeParseException;
 
+import com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter;
 import com.aixm.delorean.util.JaxbUtil;
 import com.aixm.delorean.util.XMLGregorianCalendarWrapper;
 
@@ -19,7 +20,6 @@ import java.util.stream.Stream;
 import jakarta.xml.bind.UnmarshalException;
 
 import javax.xml.datatype.XMLGregorianCalendar;
-import com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter;
 
 
 public class XMLGregorianCalendarAdapterTest {

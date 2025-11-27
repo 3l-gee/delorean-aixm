@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.xml;
+package com.aixm.delorean.aixm511.xml;
 
 import java.io.Console;
 import java.io.File;
@@ -12,11 +12,11 @@ import javax.xml.namespace.QName;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
-import com.aixm.delorean.core.gis.type.Curve;
-import com.aixm.delorean.core.gis.type.Surface;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractFeatureType;    
+import com.aixm.delorean.aixm511.gis.type.Curve;
+import com.aixm.delorean.aixm511.gis.type.Surface;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractFeatureType;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBElement;

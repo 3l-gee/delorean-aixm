@@ -1,8 +1,8 @@
-package com.aixm.delorean.core.metadata.adapter;
+package com.aixm.delorean.aixm511.metadata.adapter;
 
 
-import com.aixm.delorean.core.metadata.helper.MetadataHelper;
-import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
+import com.aixm.delorean.aixm511.metadata.helper.MetadataHelper;
+import com.aixm.delorean.aixm511.org.gmd.v2007.MDMetadataType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;

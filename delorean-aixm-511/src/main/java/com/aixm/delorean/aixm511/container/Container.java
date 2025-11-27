@@ -1,13 +1,4 @@
-package com.aixm.delorean.core.container;
-
-import com.aixm.delorean.core.xml.XMLBinding;
-import com.aixm.delorean.core.xml.XMLConfig;
-import com.aixm.delorean.core.Delorean;
-import com.aixm.delorean.core.database.DatabaseBinding;
-import com.aixm.delorean.core.database.DatabaseConfig;
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.qgis.QgisProjectBinding;
+package com.aixm.delorean.aixm511.container;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -17,6 +8,15 @@ import java.nio.file.Paths;
 import javax.xml.namespace.QName;
 
 import org.hibernate.Session;
+
+import com.aixm.delorean.aixm511.Delorean;
+import com.aixm.delorean.aixm511.database.DatabaseBinding;
+import com.aixm.delorean.aixm511.database.DatabaseConfig;
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.qgis.QgisProjectBinding;
+import com.aixm.delorean.aixm511.xml.XMLBinding;
+import com.aixm.delorean.aixm511.xml.XMLConfig;
 
 public class Container<T, X> {
     protected String name;

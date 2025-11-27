@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.helper;
+package com.aixm.delorean.aixm511.gis.helper;
 
 import java.util.Map;
 import java.util.regex.Matcher;

@@ -1,11 +1,11 @@
-package com.aixm.delorean.core.gis.type.gml;
+package com.aixm.delorean.aixm511.gis.type.gml;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.components.GeometricProperty;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.Segment;
+import com.aixm.delorean.aixm511.gis.type.Segment;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricProperty;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
 
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
@@ -18,7 +18,7 @@ import jakarta.persistence.AccessType;
 
 @Entity(name = "GmlCurveType")
 @Table(name = "gml_curve", schema = "gml")
-public class GmlCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable{
+public class GmlCurveType extends com.aixm.delorean.aixm511.gis.type.Curve implements java.io.Serializable{
     
     private static final long serialVersionUID = 20250910L;
     protected Long index;

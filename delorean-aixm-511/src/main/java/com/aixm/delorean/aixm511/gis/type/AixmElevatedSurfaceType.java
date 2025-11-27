@@ -30,7 +30,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedSurfaceType")
 @Table(name = "aixm_elevated_surface", schema = "gml")
-public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Surface implements java.io.Serializable{
+public class AixmElevatedSurfaceType extends com.aixm.delorean.aixm511.gis.type.Surface implements java.io.Serializable{
     
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;

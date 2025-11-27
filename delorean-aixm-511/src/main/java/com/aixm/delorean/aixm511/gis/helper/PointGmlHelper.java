@@ -1,21 +1,20 @@
-package com.aixm.delorean.core.gis.helper;
+package com.aixm.delorean.aixm511.gis.helper;
 
 import java.lang.IllegalArgumentException;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
-import com.aixm.delorean.core.org.gml.v_3_2.PointType;
-import com.aixm.delorean.core.unit.HrefHelper;
+import com.aixm.delorean.aixm511.gis.type.Point;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.components.Pos;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.DirectPositionType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.PointPropertyType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.PointType;
+import com.aixm.delorean.aixm511.unit.HrefHelper;
 
 import jakarta.xml.bind.JAXBElement;
-
-import com.aixm.delorean.core.org.gml.v_3_2.DirectPositionType;
-import com.aixm.delorean.core.org.gml.v_3_2.PointPropertyType;
-import com.aixm.delorean.core.gis.type.Point;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.components.Pos;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
 
 public class PointGmlHelper {
 

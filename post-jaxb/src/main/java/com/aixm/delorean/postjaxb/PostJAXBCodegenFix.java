@@ -234,6 +234,8 @@ public class PostJAXBCodegenFix {
                 if (!newContent.equals(content)) {
                     Files.writeString(filePath, newContent);
                     successful++;
+                } else {
+                    System.out.println("[ERROR] No changes made for regex in file: " + filePath);
                 }
             } catch (IOException e) {
                 System.err.println("[ERROR] Regex change failed for " + filePath + ": " + e.getMessage());

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.database;
+package com.aixm.delorean.aixm511.database;
 
 public enum ConnectionStatus {
     CONNECTED,

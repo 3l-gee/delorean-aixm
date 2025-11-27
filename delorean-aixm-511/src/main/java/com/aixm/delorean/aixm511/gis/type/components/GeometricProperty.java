@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.gis.type.components;
+package com.aixm.delorean.aixm511.gis.type.components;
 
 import jakarta.persistence.Embeddable;
 

@@ -263,7 +263,7 @@ delete:
 regex:
 # Changes for GML 3.2 below
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java
-    regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\(Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
+    regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\((?:[\w\.]+\.)?Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
     replacement: |
 
   - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
@@ -328,11 +328,6 @@ regex:
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
       package com.aixm.delorean.core.org.gts.v2007;
-  
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\PointPropertyType.java
-    regex: "JAXBElement<PointType>"
-    replacement: |-
-      JAXBElement<? extends PointType>
 
 # Changes for AIXM 5.1.1 below
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\message\package-info.java

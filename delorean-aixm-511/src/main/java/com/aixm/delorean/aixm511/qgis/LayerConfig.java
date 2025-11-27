@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.qgis;
+package com.aixm.delorean.aixm511.qgis;
 
 import java.util.UUID;
 

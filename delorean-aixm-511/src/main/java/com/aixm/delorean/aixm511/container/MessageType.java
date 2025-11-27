@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.container;
+package com.aixm.delorean.aixm511.container;
 
 public enum MessageType {
     BASELINE,

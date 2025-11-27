@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.container;
+package com.aixm.delorean.aixm511.container;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,8 @@ import java.util.UUID;
 
 import javax.xml.namespace.QName;
 
-import com.aixm.delorean.core.database.DatabaseBindingFactory;
-import com.aixm.delorean.core.xml.XMLBindingFactory;
+import com.aixm.delorean.aixm511.database.DatabaseBindingFactory;
+import com.aixm.delorean.aixm511.xml.XMLBindingFactory;
 
 public class ContainerWarehouse<T, X> {
     protected String name;

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.log;
+package com.aixm.delorean.aixm511.log;
 
 public class ConsoleLogger implements Logger {
     private static ConsoleLogger instance;

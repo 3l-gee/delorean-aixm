@@ -1,7 +1,7 @@
 change:
 # Changes for GML 3.2 below
   - where: 
-      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractTimeSliceType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\AbstractTimeSliceType.java
       method: getValidTime 
     updates:
       - old: Transient
@@ -11,7 +11,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\AbstractGMLType.java
       method: getDescription 
     updates:
       - old: AttributeOverrides
@@ -20,7 +20,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\AbstractGMLType.java
       method: getIdentifier 
     updates:
       - old:
@@ -126,7 +126,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 
@@ -147,7 +147,7 @@ change:
       - old: XmlJavaTypeAdapter
         new: [
           '@jakarta.xml.bind.annotation.XmlValue',
-          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)'
+          '@jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.aixm511.time.adapter.XMLGregorianCalendarAdapter.class)'
         ]
 
   - where: 
@@ -244,7 +244,7 @@ change:
 
 delete:
 # Changes for GML 3.2 below
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\Adapter1.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\Adapter1.java
 
 # Changes for AIXM 5.1.1 below
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\Adapter1.java
@@ -262,11 +262,11 @@ delete:
 
 regex:
 # Changes for GML 3.2 below
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\ObjectFactory.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\ObjectFactory.java
     regex: '(?s)@XmlElementDecl\(namespace\s*=\s*\"http://www\.opengis\.net/gml/3\.2\",\s*name\s*=\s*\"aixmValidTime\"\)\s*@XmlJavaTypeAdapter\(Adapter1\s*\.class\)\s*public\s+JAXBElement<DeloreanTimeSliceType>\s+createAixmValidTime\s*\(\s*DeloreanTimeSliceType\s+value\s*\)\s*\{.*?\}'
     replacement: |
 
-  - filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gco\v2007\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gco\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -274,9 +274,9 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gco", namespaceURI = "http://www.isotc211.org/2005/gco")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gco.v2007;
+      package com.aixm.delorean.aixm511.org.gco.v2007;
 
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gmd\v2007\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gmd\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -284,9 +284,9 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gmd", namespaceURI = "http://www.isotc211.org/2005/gmd")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gmd.v2007;
+      package com.aixm.delorean.aixm511.org.gmd.v2007;
 
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -297,9 +297,9 @@ regex:
         },
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gml.v_3_2;
+      package com.aixm.delorean.aixm511.org.gml.v_3_2;
 
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gsr\v2007\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gsr\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -307,9 +307,9 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gsr", namespaceURI = "http://www.isotc211.org/2005/gsr")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gsr.v2007;
+      package com.aixm.delorean.aixm511.org.gsr.v2007;
 
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gss\v2007\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gss\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -317,9 +317,9 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gss", namespaceURI = "http://www.isotc211.org/2005/gss")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gss.v2007;
+      package com.aixm.delorean.aixm511.org.gss.v2007;
       
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gts\v2007\package-info.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gts\v2007\package-info.java
     regex: "(?s)^.*$"
     replacement: |
       @jakarta.xml.bind.annotation.XmlSchema(
@@ -327,9 +327,9 @@ regex:
         xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "gts", namespaceURI = "http://www.isotc211.org/2005/gts")},
         elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.org.gts.v2007;
+      package com.aixm.delorean.aixm511.org.gts.v2007;
   
-  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\PointPropertyType.java
+  - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\org\gml\v_3_2\PointPropertyType.java
     regex: "JAXBElement<PointType>"
     replacement: |-
       JAXBElement<? extends PointType>
@@ -343,7 +343,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.1.1/message")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.schema.a5_1_1.aixm.message;
+      package com.aixm.delorean.aixm511.schema.a5_1_1.aixm.message;
 
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\package-info.java
     regex: "(?s)^.*$"
@@ -353,7 +353,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.1.1")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.schema.a5_1_1.aixm;
+      package com.aixm.delorean.aixm511.schema.a5_1_1.aixm;
 
   # - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateTimeType.java
   #   regex: import org.w3._2001.xmlschema.Adapter1;

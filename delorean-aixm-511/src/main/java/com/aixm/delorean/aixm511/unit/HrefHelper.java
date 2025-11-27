@@ -1,9 +1,9 @@
-package com.aixm.delorean.core.unit;
-
-import com.aixm.delorean.core.gis.type.components.HrefType;
-import com.aixm.delorean.core.gis.type.components.GeometricProperty;
+package com.aixm.delorean.aixm511.unit;
 
 import java.util.regex.Pattern;
+
+import com.aixm.delorean.aixm511.gis.type.components.GeometricProperty;
+import com.aixm.delorean.aixm511.gis.type.components.HrefType;
 
 public class HrefHelper {
 

@@ -1,4 +1,4 @@
-package com.aixm.delorean.core;
+package com.aixm.delorean.aixm511;
 
 import javax.xml.namespace.QName;
 

@@ -30,7 +30,7 @@ import jakarta.xml.bind.JAXBElement;
 
 @Entity(name = "AixmElevatedCurveType")
 @Table(name = "aixm_elevated_curve", schema = "gml")
-public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve implements java.io.Serializable {
+public class AixmElevatedCurveType extends com.aixm.delorean.aixm511.gis.type.Curve implements java.io.Serializable {
         
     private static final long serialVersionUID = 20250910L;
     protected JAXBElement<ValDistanceVerticalType> elevation;

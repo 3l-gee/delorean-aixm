@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.time.adapter;
+package com.aixm.delorean.aixm511.time.adapter;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDateTime;
@@ -11,7 +11,7 @@ import javax.xml.datatype.DatatypeConstants;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import com.aixm.delorean.core.time.helper.XMLGregorianCalendarHelper;
+import com.aixm.delorean.aixm511.time.helper.XMLGregorianCalendarHelper;
 
 public class XMLGregorianCalendarAdapter extends XmlAdapter<XMLGregorianCalendar, OffsetDateTime> {
 

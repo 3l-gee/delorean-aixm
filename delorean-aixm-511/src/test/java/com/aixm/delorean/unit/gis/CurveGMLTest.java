@@ -9,25 +9,23 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.xmlunit.assertj.XmlAssert;
 
-import com.aixm.delorean.core.gis.helper.CurveGmlHelper;
-import com.aixm.delorean.core.gis.type.Curve;
-import com.aixm.delorean.core.gis.type.components.DistanceType;
-import com.aixm.delorean.core.gis.type.components.AngleType;
-import com.aixm.delorean.core.gis.type.components.HrefType;
-import com.aixm.delorean.core.gis.type.components.GeometricType;
-import com.aixm.delorean.core.gis.type.gml.GmlCurveType;
-
 import java.math.BigDecimal;
 
+import com.aixm.delorean.aixm511.gis.helper.CurveGmlHelper;
+import com.aixm.delorean.aixm511.gis.type.Curve;
+import com.aixm.delorean.aixm511.gis.type.components.AngleType;
+import com.aixm.delorean.aixm511.gis.type.components.DistanceType;
+import com.aixm.delorean.aixm511.gis.type.components.GeometricType;
+import com.aixm.delorean.aixm511.gis.type.components.HrefType;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlCurveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.CurveType;
+import com.aixm.delorean.aixm511.unit.AngleUom;
+import com.aixm.delorean.aixm511.unit.DistanceUom;
 import com.aixm.delorean.util.GisUtil;
 import com.aixm.delorean.util.JaxbUtil;
-import com.aixm.delorean.core.org.gml.v_3_2.CurveType;
-import com.aixm.delorean.core.unit.AngleUom;
-import com.aixm.delorean.core.unit.DistanceUom;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class CurveGMLTest {
 
     @BeforeAll

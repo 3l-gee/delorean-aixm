@@ -1,18 +1,4 @@
-package com.aixm.delorean.core.time.helper;
-
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeGeometricPrimitiveType;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimePrimitiveType;
-import com.aixm.delorean.core.org.gml.v_3_2.AbstractTimeTopologyPrimitiveType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimeEdgeType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimeInstantType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimeNodeType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimePeriodType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimePositionType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-import com.aixm.delorean.core.org.gml.v_3_2.TimeIndeterminateValueType;
+package com.aixm.delorean.aixm511.time.helper;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -20,6 +6,20 @@ import java.time.Instant;
 import java.time.format.DateTimeParseException;
 
 import javax.xml.namespace.QName;
+
+import com.aixm.delorean.aixm511.log.ConsoleLogger;
+import com.aixm.delorean.aixm511.log.LogLevel;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractTimeGeometricPrimitiveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractTimePrimitiveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.AbstractTimeTopologyPrimitiveType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimeEdgeType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimeIndeterminateValueType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimeInstantType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimeNodeType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePeriodType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePositionType;
+import com.aixm.delorean.aixm511.org.gml.v_3_2.TimePrimitivePropertyType;
+import com.aixm.delorean.aixm511.time.type.DeloreanTimeSliceType;
 
 public class TimeSliceHelper {
 

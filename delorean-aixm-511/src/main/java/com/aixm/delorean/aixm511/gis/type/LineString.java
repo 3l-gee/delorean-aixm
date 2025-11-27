@@ -1,10 +1,10 @@
-package com.aixm.delorean.core.gis.type;
+package com.aixm.delorean.aixm511.gis.type;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aixm.delorean.core.gis.type.components.PosList;
-import com.aixm.delorean.core.gis.type.gml.GmlPointType;
+import com.aixm.delorean.aixm511.gis.type.components.PosList;
+import com.aixm.delorean.aixm511.gis.type.gml.GmlPointType;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AttributeOverrides;

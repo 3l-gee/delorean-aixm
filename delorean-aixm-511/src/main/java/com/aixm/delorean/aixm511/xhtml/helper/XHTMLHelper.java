@@ -1,4 +1,4 @@
-package com.aixm.delorean.core.xhtml.helper;
+package com.aixm.delorean.aixm511.xhtml.helper;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 import org.w3c.dom.*;
