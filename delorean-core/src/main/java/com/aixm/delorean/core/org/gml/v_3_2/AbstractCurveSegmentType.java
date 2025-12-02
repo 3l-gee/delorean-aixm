@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -53,9 +54,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     ClothoidType.class,
     GeodesicStringType.class
 })
-public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToString
+public abstract class AbstractCurveSegmentType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "numDerivativesAtStart")
     protected BigInteger numDerivativesAtStart;
     @XmlAttribute(name = "numDerivativesAtEnd")
@@ -91,6 +93,10 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
         this.numDerivativesAtStart = value;
     }
 
+    public boolean isSetNumDerivativesAtStart() {
+        return (this.numDerivativesAtStart!= null);
+    }
+
     /**
      * Gets the value of the numDerivativesAtEnd property.
      * 
@@ -117,6 +123,10 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
      */
     public void setNumDerivativesAtEnd(BigInteger value) {
         this.numDerivativesAtEnd = value;
+    }
+
+    public boolean isSetNumDerivativesAtEnd() {
+        return (this.numDerivativesAtEnd!= null);
     }
 
     /**
@@ -147,6 +157,10 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
         this.numDerivativeInterior = value;
     }
 
+    public boolean isSetNumDerivativeInterior() {
+        return (this.numDerivativeInterior!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -169,8 +183,21 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
         }
         final AbstractCurveSegmentType that = ((AbstractCurveSegmentType) object);
         {
-            boolean lhsFieldIsSet = (this.numDerivativesAtEnd!= null);
-            boolean rhsFieldIsSet = (that.numDerivativesAtEnd!= null);
+            boolean lhsFieldIsSet = this.isSetNumDerivativeInterior();
+            boolean rhsFieldIsSet = that.isSetNumDerivativeInterior();
+            BigInteger lhsField;
+            lhsField = this.getNumDerivativeInterior();
+            BigInteger rhsField;
+            rhsField = that.getNumDerivativeInterior();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativeInterior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativeInterior", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNumDerivativesAtEnd();
+            boolean rhsFieldIsSet = that.isSetNumDerivativesAtEnd();
             BigInteger lhsField;
             lhsField = this.getNumDerivativesAtEnd();
             BigInteger rhsField;
@@ -182,27 +209,14 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
             }
         }
         {
-            boolean lhsFieldIsSet = (this.numDerivativesAtStart!= null);
-            boolean rhsFieldIsSet = (that.numDerivativesAtStart!= null);
+            boolean lhsFieldIsSet = this.isSetNumDerivativesAtStart();
+            boolean rhsFieldIsSet = that.isSetNumDerivativesAtStart();
             BigInteger lhsField;
             lhsField = this.getNumDerivativesAtStart();
             BigInteger rhsField;
             rhsField = that.getNumDerivativesAtStart();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativesAtStart", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativesAtStart", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.numDerivativeInterior!= null);
-            boolean rhsFieldIsSet = (that.numDerivativeInterior!= null);
-            BigInteger lhsField;
-            lhsField = this.getNumDerivativeInterior();
-            BigInteger rhsField;
-            rhsField = that.getNumDerivativeInterior();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numDerivativeInterior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numDerivativeInterior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -224,21 +238,21 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.numDerivativesAtStart!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativesAtStart();
             BigInteger theField;
             theField = this.getNumDerivativesAtStart();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "numDerivativesAtStart", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.numDerivativesAtEnd!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativesAtEnd();
             BigInteger theField;
             theField = this.getNumDerivativesAtEnd();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "numDerivativesAtEnd", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.numDerivativeInterior!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativeInterior();
             BigInteger theField;
             theField = this.getNumDerivativeInterior();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "numDerivativeInterior", theField);
@@ -270,19 +284,19 @@ public abstract class AbstractCurveSegmentType implements Equals, HashCode, ToSt
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.numDerivativesAtStart!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativesAtStart();
             BigInteger theField;
             theField = this.getNumDerivativesAtStart();
             strategy.appendField(locator, this, "numDerivativesAtStart", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.numDerivativesAtEnd!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativesAtEnd();
             BigInteger theField;
             theField = this.getNumDerivativesAtEnd();
             strategy.appendField(locator, this, "numDerivativesAtEnd", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.numDerivativeInterior!= null);
+            boolean theFieldIsSet = this.isSetNumDerivativeInterior();
             BigInteger theField;
             theField = this.getNumDerivativeInterior();
             strategy.appendField(locator, this, "numDerivativeInterior", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -33,8 +34,10 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @XmlType(name = "DS_Association_Type")
 public class DSAssociationType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
 
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {

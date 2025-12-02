@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -49,9 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SolidArrayPropertyType", propOrder = {
     "abstractSolid"
 })
-public class SolidArrayPropertyType implements Equals, HashCode, ToString
+public class SolidArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractSolid", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractSolidType>> abstractSolid;
     @XmlAttribute(name = "owns")
@@ -96,6 +98,14 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
         this.abstractSolid = abstractSolid;
     }
 
+    public boolean isSetAbstractSolid() {
+        return ((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()));
+    }
+
+    public void unsetAbstractSolid() {
+        this.abstractSolid = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -104,7 +114,7 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -120,8 +130,16 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -146,27 +164,27 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
         }
         final SolidArrayPropertyType that = ((SolidArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractSolid();
+            boolean rhsFieldIsSet = that.isSetAbstractSolid();
+            List<JAXBElement<? extends AbstractSolidType>> lhsField;
+            lhsField = (this.isSetAbstractSolid()?this.getAbstractSolid():null);
+            List<JAXBElement<? extends AbstractSolidType>> rhsField;
+            rhsField = (that.isSetAbstractSolid()?that.getAbstractSolid():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSolid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractSolid!= null)&&(!that.abstractSolid.isEmpty()));
-            List<JAXBElement<? extends AbstractSolidType>> lhsField;
-            lhsField = (((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()))?this.getAbstractSolid():null);
-            List<JAXBElement<? extends AbstractSolidType>> rhsField;
-            rhsField = (((that.abstractSolid!= null)&&(!that.abstractSolid.isEmpty()))?that.getAbstractSolid():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSolid", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -188,16 +206,16 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSolid();
             List<JAXBElement<? extends AbstractSolidType>> theField;
-            theField = (((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()))?this.getAbstractSolid():null);
+            theField = (this.isSetAbstractSolid()?this.getAbstractSolid():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSolid", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -227,15 +245,15 @@ public class SolidArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSolid();
             List<JAXBElement<? extends AbstractSolidType>> theField;
-            theField = (((this.abstractSolid!= null)&&(!this.abstractSolid.isEmpty()))?this.getAbstractSolid():null);
+            theField = (this.isSetAbstractSolid()?this.getAbstractSolid():null);
             strategy.appendField(locator, this, "abstractSolid", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeReferenceSystemType
     extends DefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected String domainOfValidity;
 
@@ -73,6 +76,10 @@ public class TimeReferenceSystemType
         this.domainOfValidity = value;
     }
 
+    public boolean isSetDomainOfValidity() {
+        return (this.domainOfValidity!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -86,8 +93,8 @@ public class TimeReferenceSystemType
         }
         final TimeReferenceSystemType that = ((TimeReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = (this.domainOfValidity!= null);
-            boolean rhsFieldIsSet = (that.domainOfValidity!= null);
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
             String lhsField;
             lhsField = this.getDomainOfValidity();
             String rhsField;
@@ -105,7 +112,7 @@ public class TimeReferenceSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.domainOfValidity!= null);
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             String theField;
             theField = this.getDomainOfValidity();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainOfValidity", theField);
@@ -118,7 +125,7 @@ public class TimeReferenceSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.domainOfValidity!= null);
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             String theField;
             theField = this.getDomainOfValidity();
             strategy.appendField(locator, this, "domainOfValidity", buffer, theField, theFieldIsSet);

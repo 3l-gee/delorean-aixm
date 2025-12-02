@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -52,9 +53,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DegreesType", propOrder = {
     "value"
 })
-public class DegreesType implements Equals, HashCode, ToString
+public class DegreesType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected int value;
     @XmlAttribute(name = "direction")
@@ -74,6 +76,10 @@ public class DegreesType implements Equals, HashCode, ToString
      */
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public boolean isSetValue() {
+        return true;
     }
 
     /**
@@ -100,6 +106,10 @@ public class DegreesType implements Equals, HashCode, ToString
         this.direction = value;
     }
 
+    public boolean isSetDirection() {
+        return (this.direction!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -122,19 +132,6 @@ public class DegreesType implements Equals, HashCode, ToString
         }
         final DegreesType that = ((DegreesType) object);
         {
-            boolean lhsFieldIsSet = (this.direction!= null);
-            boolean rhsFieldIsSet = (that.direction!= null);
-            String lhsField;
-            lhsField = this.getDirection();
-            String rhsField;
-            rhsField = that.getDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             int lhsField;
@@ -143,6 +140,19 @@ public class DegreesType implements Equals, HashCode, ToString
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
+            String lhsField;
+            lhsField = this.getDirection();
+            String rhsField;
+            rhsField = that.getDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "direction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "direction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -171,7 +181,7 @@ public class DegreesType implements Equals, HashCode, ToString
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.direction!= null);
+            boolean theFieldIsSet = this.isSetDirection();
             String theField;
             theField = this.getDirection();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "direction", theField);
@@ -209,7 +219,7 @@ public class DegreesType implements Equals, HashCode, ToString
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.direction!= null);
+            boolean theFieldIsSet = this.isSetDirection();
             String theField;
             theField = this.getDirection();
             strategy.appendField(locator, this, "direction", buffer, theField, theFieldIsSet);

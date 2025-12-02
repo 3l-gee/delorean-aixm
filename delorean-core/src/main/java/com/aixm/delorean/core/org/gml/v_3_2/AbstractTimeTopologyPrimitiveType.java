@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractTimeTopologyPrimitiveType
     extends AbstractTimePrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected ReferenceType complex;
 
     /**
@@ -69,6 +72,10 @@ public abstract class AbstractTimeTopologyPrimitiveType
         this.complex = value;
     }
 
+    public boolean isSetComplex() {
+        return (this.complex!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -82,8 +89,8 @@ public abstract class AbstractTimeTopologyPrimitiveType
         }
         final AbstractTimeTopologyPrimitiveType that = ((AbstractTimeTopologyPrimitiveType) object);
         {
-            boolean lhsFieldIsSet = (this.complex!= null);
-            boolean rhsFieldIsSet = (that.complex!= null);
+            boolean lhsFieldIsSet = this.isSetComplex();
+            boolean rhsFieldIsSet = that.isSetComplex();
             ReferenceType lhsField;
             lhsField = this.getComplex();
             ReferenceType rhsField;
@@ -101,7 +108,7 @@ public abstract class AbstractTimeTopologyPrimitiveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.complex!= null);
+            boolean theFieldIsSet = this.isSetComplex();
             ReferenceType theField;
             theField = this.getComplex();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "complex", theField);
@@ -114,7 +121,7 @@ public abstract class AbstractTimeTopologyPrimitiveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.complex!= null);
+            boolean theFieldIsSet = this.isSetComplex();
             ReferenceType theField;
             theField = this.getComplex();
             strategy.appendField(locator, this, "complex", buffer, theField, theFieldIsSet);

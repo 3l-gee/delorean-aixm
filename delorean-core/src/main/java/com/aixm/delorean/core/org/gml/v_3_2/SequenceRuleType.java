@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,13 +47,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SequenceRuleType", propOrder = {
     "value"
 })
-public class SequenceRuleType implements Equals, HashCode, ToString
+public class SequenceRuleType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected SequenceRuleEnumeration value;
     @XmlAttribute(name = "order")
-    protected String order;
+    protected IncrementOrder order;
     @XmlAttribute
     protected List<String> axisOrder;
 
@@ -80,15 +82,19 @@ public class SequenceRuleType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the order property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link IncrementOrder }
      *     
      */
-    public String getOrder() {
+    public IncrementOrder getOrder() {
         return order;
     }
 
@@ -97,11 +103,15 @@ public class SequenceRuleType implements Equals, HashCode, ToString
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link IncrementOrder }
      *     
      */
-    public void setOrder(String value) {
+    public void setOrder(IncrementOrder value) {
         this.order = value;
+    }
+
+    public boolean isSetOrder() {
+        return (this.order!= null);
     }
 
     /**
@@ -141,6 +151,14 @@ public class SequenceRuleType implements Equals, HashCode, ToString
         this.axisOrder = axisOrder;
     }
 
+    public boolean isSetAxisOrder() {
+        return ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
+    }
+
+    public void unsetAxisOrder() {
+        this.axisOrder = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -163,8 +181,8 @@ public class SequenceRuleType implements Equals, HashCode, ToString
         }
         final SequenceRuleType that = ((SequenceRuleType) object);
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             SequenceRuleEnumeration lhsField;
             lhsField = this.getValue();
             SequenceRuleEnumeration rhsField;
@@ -176,11 +194,11 @@ public class SequenceRuleType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.order!= null);
-            boolean rhsFieldIsSet = (that.order!= null);
-            String lhsField;
+            boolean lhsFieldIsSet = this.isSetOrder();
+            boolean rhsFieldIsSet = that.isSetOrder();
+            IncrementOrder lhsField;
             lhsField = this.getOrder();
-            String rhsField;
+            IncrementOrder rhsField;
             rhsField = that.getOrder();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
@@ -189,12 +207,12 @@ public class SequenceRuleType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAxisOrder();
+            boolean rhsFieldIsSet = that.isSetAxisOrder();
             List<String> lhsField;
-            lhsField = (((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()))?this.getAxisOrder():null);
+            lhsField = (this.isSetAxisOrder()?this.getAxisOrder():null);
             List<String> rhsField;
-            rhsField = (((that.axisOrder!= null)&&(!that.axisOrder.isEmpty()))?that.getAxisOrder():null);
+            rhsField = (that.isSetAxisOrder()?that.getAxisOrder():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisOrder", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisOrder", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -218,23 +236,23 @@ public class SequenceRuleType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             SequenceRuleEnumeration theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.order!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrder();
+            IncrementOrder theField;
             theField = this.getOrder();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "order", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisOrder();
             List<String> theField;
-            theField = (((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()))?this.getAxisOrder():null);
+            theField = (this.isSetAxisOrder()?this.getAxisOrder():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisOrder", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -264,21 +282,21 @@ public class SequenceRuleType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             SequenceRuleEnumeration theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.order!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrder();
+            IncrementOrder theField;
             theField = this.getOrder();
             strategy.appendField(locator, this, "order", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisOrder();
             List<String> theField;
-            theField = (((this.axisOrder!= null)&&(!this.axisOrder.isEmpty()))?this.getAxisOrder():null);
+            theField = (this.isSetAxisOrder()?this.getAxisOrder():null);
             strategy.appendField(locator, this, "axisOrder", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -33,8 +34,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "PriorityLocationPropertyType")
 public class PriorityLocationPropertyType
     extends LocationPropertyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "priority")
     protected String priority;
 
@@ -62,6 +65,10 @@ public class PriorityLocationPropertyType
         this.priority = value;
     }
 
+    public boolean isSetPriority() {
+        return (this.priority!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -75,8 +82,8 @@ public class PriorityLocationPropertyType
         }
         final PriorityLocationPropertyType that = ((PriorityLocationPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.priority!= null);
-            boolean rhsFieldIsSet = (that.priority!= null);
+            boolean lhsFieldIsSet = this.isSetPriority();
+            boolean rhsFieldIsSet = that.isSetPriority();
             String lhsField;
             lhsField = this.getPriority();
             String rhsField;
@@ -94,7 +101,7 @@ public class PriorityLocationPropertyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.priority!= null);
+            boolean theFieldIsSet = this.isSetPriority();
             String theField;
             theField = this.getPriority();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "priority", theField);
@@ -107,7 +114,7 @@ public class PriorityLocationPropertyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.priority!= null);
+            boolean theFieldIsSet = this.isSetPriority();
             String theField;
             theField = this.getPriority();
             strategy.appendField(locator, this, "priority", buffer, theField, theFieldIsSet);

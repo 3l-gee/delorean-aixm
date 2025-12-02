@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ImageDatumType
     extends AbstractDatumType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:pixelInCell is a specification of the way an image grid is associated with the image data attributes. The required codeSpace attribute shall reference a source of information specifying the values and meanings of all the allowed string values for this property.
      * 
@@ -71,6 +74,10 @@ public class ImageDatumType
         this.pixelInCell = value;
     }
 
+    public boolean isSetPixelInCell() {
+        return (this.pixelInCell!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -84,8 +91,8 @@ public class ImageDatumType
         }
         final ImageDatumType that = ((ImageDatumType) object);
         {
-            boolean lhsFieldIsSet = (this.pixelInCell!= null);
-            boolean rhsFieldIsSet = (that.pixelInCell!= null);
+            boolean lhsFieldIsSet = this.isSetPixelInCell();
+            boolean rhsFieldIsSet = that.isSetPixelInCell();
             CodeWithAuthorityType lhsField;
             lhsField = this.getPixelInCell();
             CodeWithAuthorityType rhsField;
@@ -103,7 +110,7 @@ public class ImageDatumType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.pixelInCell!= null);
+            boolean theFieldIsSet = this.isSetPixelInCell();
             CodeWithAuthorityType theField;
             theField = this.getPixelInCell();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pixelInCell", theField);
@@ -116,7 +123,7 @@ public class ImageDatumType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.pixelInCell!= null);
+            boolean theFieldIsSet = this.isSetPixelInCell();
             CodeWithAuthorityType theField;
             theField = this.getPixelInCell();
             strategy.appendField(locator, this, "pixelInCell", buffer, theField, theFieldIsSet);

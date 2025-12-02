@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AbstractGeneralParameterValuePropertyType", propOrder = {
     "abstractGeneralParameterValue"
 })
-public class AbstractGeneralParameterValuePropertyType implements Equals, HashCode, ToString
+public class AbstractGeneralParameterValuePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:AbstractGeneralParameterValue is an abstract parameter value or group of parameter values.
      * This abstract complexType is expected to be extended and restricted for well-known operation methods with many instances, in Application Schemas that define operation-method-specialized element names and contents. Specific parameter value elements are directly contained in concrete subtypes, not in this abstract type. All concrete types derived from this type shall extend this type to include one "...Value" element with an appropriate type, which should be one of the element types allowed in the ParameterValueType. In addition, all derived concrete types shall extend this type to include a "operationParameter" property element that references one element substitutable for the "OperationParameter" object element.
@@ -86,6 +88,10 @@ public class AbstractGeneralParameterValuePropertyType implements Equals, HashCo
         this.abstractGeneralParameterValue = value;
     }
 
+    public boolean isSetAbstractGeneralParameterValue() {
+        return (this.abstractGeneralParameterValue!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -108,8 +114,8 @@ public class AbstractGeneralParameterValuePropertyType implements Equals, HashCo
         }
         final AbstractGeneralParameterValuePropertyType that = ((AbstractGeneralParameterValuePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.abstractGeneralParameterValue!= null);
-            boolean rhsFieldIsSet = (that.abstractGeneralParameterValue!= null);
+            boolean lhsFieldIsSet = this.isSetAbstractGeneralParameterValue();
+            boolean rhsFieldIsSet = that.isSetAbstractGeneralParameterValue();
             JAXBElement<? extends AbstractGeneralParameterValueType> lhsField;
             lhsField = this.getAbstractGeneralParameterValue();
             JAXBElement<? extends AbstractGeneralParameterValueType> rhsField;
@@ -137,7 +143,7 @@ public class AbstractGeneralParameterValuePropertyType implements Equals, HashCo
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.abstractGeneralParameterValue!= null);
+            boolean theFieldIsSet = this.isSetAbstractGeneralParameterValue();
             JAXBElement<? extends AbstractGeneralParameterValueType> theField;
             theField = this.getAbstractGeneralParameterValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGeneralParameterValue", theField);
@@ -169,7 +175,7 @@ public class AbstractGeneralParameterValuePropertyType implements Equals, HashCo
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.abstractGeneralParameterValue!= null);
+            boolean theFieldIsSet = this.isSetAbstractGeneralParameterValue();
             JAXBElement<? extends AbstractGeneralParameterValueType> theField;
             theField = this.getAbstractGeneralParameterValue();
             strategy.appendField(locator, this, "abstractGeneralParameterValue", buffer, theField, theFieldIsSet);

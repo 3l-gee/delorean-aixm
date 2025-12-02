@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiSolidType
     extends AbstractGeometricAggregateType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<SolidPropertyType> solidMember;
     /**
      * This property element contains a list of solids. The order of the elements is significant and shall be preserved when processing the array.
@@ -86,6 +89,14 @@ public class MultiSolidType
         this.solidMember = solidMember;
     }
 
+    public boolean isSetSolidMember() {
+        return ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+    }
+
+    public void unsetSolidMember() {
+        this.solidMember = null;
+    }
+
     /**
      * This property element contains a list of solids. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -111,6 +122,10 @@ public class MultiSolidType
         this.solidMembers = value;
     }
 
+    public boolean isSetSolidMembers() {
+        return (this.solidMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,8 +139,8 @@ public class MultiSolidType
         }
         final MultiSolidType that = ((MultiSolidType) object);
         {
-            boolean lhsFieldIsSet = (this.solidMembers!= null);
-            boolean rhsFieldIsSet = (that.solidMembers!= null);
+            boolean lhsFieldIsSet = this.isSetSolidMembers();
+            boolean rhsFieldIsSet = that.isSetSolidMembers();
             SolidArrayPropertyType lhsField;
             lhsField = this.getSolidMembers();
             SolidArrayPropertyType rhsField;
@@ -137,12 +152,12 @@ public class MultiSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.solidMember!= null)&&(!that.solidMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetSolidMember();
+            boolean rhsFieldIsSet = that.isSetSolidMember();
             List<SolidPropertyType> lhsField;
-            lhsField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            lhsField = (this.isSetSolidMember()?this.getSolidMember():null);
             List<SolidPropertyType> rhsField;
-            rhsField = (((that.solidMember!= null)&&(!that.solidMember.isEmpty()))?that.getSolidMember():null);
+            rhsField = (that.isSetSolidMember()?that.getSolidMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -156,14 +171,14 @@ public class MultiSolidType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSolidMember();
             List<SolidPropertyType> theField;
-            theField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            theField = (this.isSetSolidMember()?this.getSolidMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "solidMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.solidMembers!= null);
+            boolean theFieldIsSet = this.isSetSolidMembers();
             SolidArrayPropertyType theField;
             theField = this.getSolidMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "solidMembers", theField);
@@ -176,13 +191,13 @@ public class MultiSolidType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSolidMember();
             List<SolidPropertyType> theField;
-            theField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            theField = (this.isSetSolidMember()?this.getSolidMember():null);
             strategy.appendField(locator, this, "solidMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.solidMembers!= null);
+            boolean theFieldIsSet = this.isSetSolidMembers();
             SolidArrayPropertyType theField;
             theField = this.getSolidMembers();
             strategy.appendField(locator, this, "solidMembers", buffer, theField, theFieldIsSet);

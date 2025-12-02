@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -50,8 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class LIProcessStepType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CharacterStringPropertyType description;
     protected CharacterStringPropertyType rationale;
@@ -83,6 +86,10 @@ public class LIProcessStepType
         this.description = value;
     }
 
+    public boolean isSetDescription() {
+        return (this.description!= null);
+    }
+
     /**
      * Gets the value of the rationale property.
      * 
@@ -107,6 +114,10 @@ public class LIProcessStepType
         this.rationale = value;
     }
 
+    public boolean isSetRationale() {
+        return (this.rationale!= null);
+    }
+
     /**
      * Gets the value of the dateTime property.
      * 
@@ -129,6 +140,10 @@ public class LIProcessStepType
      */
     public void setDateTime(DateTimePropertyType value) {
         this.dateTime = value;
+    }
+
+    public boolean isSetDateTime() {
+        return (this.dateTime!= null);
     }
 
     /**
@@ -168,6 +183,14 @@ public class LIProcessStepType
         this.processor = processor;
     }
 
+    public boolean isSetProcessor() {
+        return ((this.processor!= null)&&(!this.processor.isEmpty()));
+    }
+
+    public void unsetProcessor() {
+        this.processor = null;
+    }
+
     /**
      * Gets the value of the source property.
      * 
@@ -205,6 +228,14 @@ public class LIProcessStepType
         this.source = source;
     }
 
+    public boolean isSetSource() {
+        return ((this.source!= null)&&(!this.source.isEmpty()));
+    }
+
+    public void unsetSource() {
+        this.source = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -218,21 +249,8 @@ public class LIProcessStepType
         }
         final LIProcessStepType that = ((LIProcessStepType) object);
         {
-            boolean lhsFieldIsSet = (this.dateTime!= null);
-            boolean rhsFieldIsSet = (that.dateTime!= null);
-            DateTimePropertyType lhsField;
-            lhsField = this.getDateTime();
-            DateTimePropertyType rhsField;
-            rhsField = that.getDateTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.rationale!= null);
-            boolean rhsFieldIsSet = (that.rationale!= null);
+            boolean lhsFieldIsSet = this.isSetRationale();
+            boolean rhsFieldIsSet = that.isSetRationale();
             CharacterStringPropertyType lhsField;
             lhsField = this.getRationale();
             CharacterStringPropertyType rhsField;
@@ -244,12 +262,12 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.processor!= null)&&(!this.processor.isEmpty()));
-            boolean rhsFieldIsSet = ((that.processor!= null)&&(!that.processor.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetProcessor();
+            boolean rhsFieldIsSet = that.isSetProcessor();
             List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (((this.processor!= null)&&(!this.processor.isEmpty()))?this.getProcessor():null);
+            lhsField = (this.isSetProcessor()?this.getProcessor():null);
             List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (((that.processor!= null)&&(!that.processor.isEmpty()))?that.getProcessor():null);
+            rhsField = (that.isSetProcessor()?that.getProcessor():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processor", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -257,8 +275,8 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.description!= null);
-            boolean rhsFieldIsSet = (that.description!= null);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDescription();
             CharacterStringPropertyType rhsField;
@@ -270,12 +288,25 @@ public class LIProcessStepType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
-            boolean rhsFieldIsSet = ((that.source!= null)&&(!that.source.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
+            DateTimePropertyType lhsField;
+            lhsField = this.getDateTime();
+            DateTimePropertyType rhsField;
+            rhsField = that.getDateTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSource();
+            boolean rhsFieldIsSet = that.isSetSource();
             List<LISourcePropertyType> lhsField;
-            lhsField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            lhsField = (this.isSetSource()?this.getSource():null);
             List<LISourcePropertyType> rhsField;
-            rhsField = (((that.source!= null)&&(!that.source.isEmpty()))?that.getSource():null);
+            rhsField = (that.isSetSource()?that.getSource():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -289,37 +320,37 @@ public class LIProcessStepType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "description", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rationale!= null);
+            boolean theFieldIsSet = this.isSetRationale();
             CharacterStringPropertyType theField;
             theField = this.getRationale();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "rationale", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateTime!= null);
+            boolean theFieldIsSet = this.isSetDateTime();
             DateTimePropertyType theField;
             theField = this.getDateTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.processor!= null)&&(!this.processor.isEmpty()));
+            boolean theFieldIsSet = this.isSetProcessor();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (((this.processor!= null)&&(!this.processor.isEmpty()))?this.getProcessor():null);
+            theField = (this.isSetProcessor()?this.getProcessor():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "processor", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
+            boolean theFieldIsSet = this.isSetSource();
             List<LISourcePropertyType> theField;
-            theField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            theField = (this.isSetSource()?this.getSource():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "source", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -330,33 +361,33 @@ public class LIProcessStepType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             strategy.appendField(locator, this, "description", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rationale!= null);
+            boolean theFieldIsSet = this.isSetRationale();
             CharacterStringPropertyType theField;
             theField = this.getRationale();
             strategy.appendField(locator, this, "rationale", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateTime!= null);
+            boolean theFieldIsSet = this.isSetDateTime();
             DateTimePropertyType theField;
             theField = this.getDateTime();
             strategy.appendField(locator, this, "dateTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.processor!= null)&&(!this.processor.isEmpty()));
+            boolean theFieldIsSet = this.isSetProcessor();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (((this.processor!= null)&&(!this.processor.isEmpty()))?this.getProcessor():null);
+            theField = (this.isSetProcessor()?this.getProcessor():null);
             strategy.appendField(locator, this, "processor", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
+            boolean theFieldIsSet = this.isSetSource();
             List<LISourcePropertyType> theField;
-            theField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            theField = (this.isSetSource()?this.getSource():null);
             strategy.appendField(locator, this, "source", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PolygonPatchType
     extends AbstractSurfacePatchType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
      * 
@@ -51,7 +54,7 @@ public class PolygonPatchType
     protected AbstractRingPropertyType exterior;
     protected List<AbstractRingPropertyType> interior;
     @XmlAttribute(name = "interpolation")
-    protected SurfaceInterpolationType interpolation;
+    public static final SurfaceInterpolationType INTERPOLATION = SurfaceInterpolationType.PLANAR;
 
     /**
      * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
@@ -76,6 +79,10 @@ public class PolygonPatchType
      */
     public void setExterior(AbstractRingPropertyType value) {
         this.exterior = value;
+    }
+
+    public boolean isSetExterior() {
+        return (this.exterior!= null);
     }
 
     /**
@@ -115,32 +122,12 @@ public class PolygonPatchType
         this.interior = interior;
     }
 
-    /**
-     * Gets the value of the interpolation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SurfaceInterpolationType }
-     *     
-     */
-    public SurfaceInterpolationType getInterpolation() {
-        if (interpolation == null) {
-            return SurfaceInterpolationType.PLANAR;
-        } else {
-            return interpolation;
-        }
+    public boolean isSetInterior() {
+        return ((this.interior!= null)&&(!this.interior.isEmpty()));
     }
 
-    /**
-     * Sets the value of the interpolation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SurfaceInterpolationType }
-     *     
-     */
-    public void setInterpolation(SurfaceInterpolationType value) {
-        this.interpolation = value;
+    public void unsetInterior() {
+        this.interior = null;
     }
 
     @Override
@@ -156,8 +143,8 @@ public class PolygonPatchType
         }
         final PolygonPatchType that = ((PolygonPatchType) object);
         {
-            boolean lhsFieldIsSet = (this.exterior!= null);
-            boolean rhsFieldIsSet = (that.exterior!= null);
+            boolean lhsFieldIsSet = this.isSetExterior();
+            boolean rhsFieldIsSet = that.isSetExterior();
             AbstractRingPropertyType lhsField;
             lhsField = this.getExterior();
             AbstractRingPropertyType rhsField;
@@ -169,27 +156,14 @@ public class PolygonPatchType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
-            boolean rhsFieldIsSet = ((that.interior!= null)&&(!that.interior.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetInterior();
+            boolean rhsFieldIsSet = that.isSetInterior();
             List<AbstractRingPropertyType> lhsField;
-            lhsField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            lhsField = (this.isSetInterior()?this.getInterior():null);
             List<AbstractRingPropertyType> rhsField;
-            rhsField = (((that.interior!= null)&&(!that.interior.isEmpty()))?that.getInterior():null);
+            rhsField = (that.isSetInterior()?that.getInterior():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            SurfaceInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            SurfaceInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -201,24 +175,17 @@ public class PolygonPatchType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             AbstractRingPropertyType theField;
             theField = this.getExterior();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "exterior", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
+            boolean theFieldIsSet = this.isSetInterior();
             List<AbstractRingPropertyType> theField;
-            theField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            theField = (this.isSetInterior()?this.getInterior():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interior", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            SurfaceInterpolationType theField;
-            theField = this.getInterpolation();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpolation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -228,22 +195,16 @@ public class PolygonPatchType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             AbstractRingPropertyType theField;
             theField = this.getExterior();
             strategy.appendField(locator, this, "exterior", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
+            boolean theFieldIsSet = this.isSetInterior();
             List<AbstractRingPropertyType> theField;
-            theField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            theField = (this.isSetInterior()?this.getInterior():null);
             strategy.appendField(locator, this, "interior", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            SurfaceInterpolationType theField;
-            theField = this.getInterpolation();
-            strategy.appendField(locator, this, "interpolation", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

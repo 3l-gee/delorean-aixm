@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CompoundCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "componentReferenceSystem", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<SingleCRSPropertyType>> componentReferenceSystem;
     @XmlAttribute(name = "aggregationType")
@@ -87,6 +90,14 @@ public class CompoundCRSType
         this.componentReferenceSystem = componentReferenceSystem;
     }
 
+    public boolean isSetComponentReferenceSystem() {
+        return ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
+    }
+
+    public void unsetComponentReferenceSystem() {
+        this.componentReferenceSystem = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -111,6 +122,10 @@ public class CompoundCRSType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,8 +139,8 @@ public class CompoundCRSType
         }
         final CompoundCRSType that = ((CompoundCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -137,12 +152,12 @@ public class CompoundCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
-            boolean rhsFieldIsSet = ((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetComponentReferenceSystem();
+            boolean rhsFieldIsSet = that.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> lhsField;
-            lhsField = (((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()))?this.getComponentReferenceSystem():null);
+            lhsField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
             List<JAXBElement<SingleCRSPropertyType>> rhsField;
-            rhsField = (((that.componentReferenceSystem!= null)&&(!that.componentReferenceSystem.isEmpty()))?that.getComponentReferenceSystem():null);
+            rhsField = (that.isSetComponentReferenceSystem()?that.getComponentReferenceSystem():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "componentReferenceSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "componentReferenceSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -156,14 +171,14 @@ public class CompoundCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
+            boolean theFieldIsSet = this.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> theField;
-            theField = (((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()))?this.getComponentReferenceSystem():null);
+            theField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "componentReferenceSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -176,13 +191,13 @@ public class CompoundCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
+            boolean theFieldIsSet = this.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> theField;
-            theField = (((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()))?this.getComponentReferenceSystem():null);
+            theField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
             strategy.appendField(locator, this, "componentReferenceSystem", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -48,8 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class GeodeticCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:ellipsoidalCS is an association role to the ellipsoidal coordinate system used by this CRS.
      * 
@@ -102,6 +105,10 @@ public class GeodeticCRSType
         this.ellipsoidalCS = value;
     }
 
+    public boolean isSetEllipsoidalCS() {
+        return (this.ellipsoidalCS!= null);
+    }
+
     /**
      * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
      * 
@@ -127,6 +134,10 @@ public class GeodeticCRSType
      */
     public void setCartesianCS(JAXBElement<CartesianCSPropertyType> value) {
         this.cartesianCS = value;
+    }
+
+    public boolean isSetCartesianCS() {
+        return (this.cartesianCS!= null);
     }
 
     /**
@@ -156,6 +167,10 @@ public class GeodeticCRSType
         this.sphericalCS = value;
     }
 
+    public boolean isSetSphericalCS() {
+        return (this.sphericalCS!= null);
+    }
+
     /**
      * gml:geodeticDatum is an association role to the geodetic datum used by this CRS.
      * 
@@ -183,6 +198,10 @@ public class GeodeticCRSType
         this.geodeticDatum = value;
     }
 
+    public boolean isSetGeodeticDatum() {
+        return (this.geodeticDatum!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -196,8 +215,8 @@ public class GeodeticCRSType
         }
         final GeodeticCRSType that = ((GeodeticCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.ellipsoidalCS!= null);
-            boolean rhsFieldIsSet = (that.ellipsoidalCS!= null);
+            boolean lhsFieldIsSet = this.isSetEllipsoidalCS();
+            boolean rhsFieldIsSet = that.isSetEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> lhsField;
             lhsField = this.getEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> rhsField;
@@ -209,8 +228,8 @@ public class GeodeticCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.sphericalCS!= null);
-            boolean rhsFieldIsSet = (that.sphericalCS!= null);
+            boolean lhsFieldIsSet = this.isSetSphericalCS();
+            boolean rhsFieldIsSet = that.isSetSphericalCS();
             JAXBElement<SphericalCSPropertyType> lhsField;
             lhsField = this.getSphericalCS();
             JAXBElement<SphericalCSPropertyType> rhsField;
@@ -222,8 +241,8 @@ public class GeodeticCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.geodeticDatum!= null);
-            boolean rhsFieldIsSet = (that.geodeticDatum!= null);
+            boolean lhsFieldIsSet = this.isSetGeodeticDatum();
+            boolean rhsFieldIsSet = that.isSetGeodeticDatum();
             JAXBElement<GeodeticDatumPropertyType> lhsField;
             lhsField = this.getGeodeticDatum();
             JAXBElement<GeodeticDatumPropertyType> rhsField;
@@ -235,8 +254,8 @@ public class GeodeticCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.cartesianCS!= null);
-            boolean rhsFieldIsSet = (that.cartesianCS!= null);
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> lhsField;
             lhsField = this.getCartesianCS();
             JAXBElement<CartesianCSPropertyType> rhsField;
@@ -254,28 +273,28 @@ public class GeodeticCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.ellipsoidalCS!= null);
+            boolean theFieldIsSet = this.isSetEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> theField;
             theField = this.getEllipsoidalCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ellipsoidalCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cartesianCS!= null);
+            boolean theFieldIsSet = this.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> theField;
             theField = this.getCartesianCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "cartesianCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sphericalCS!= null);
+            boolean theFieldIsSet = this.isSetSphericalCS();
             JAXBElement<SphericalCSPropertyType> theField;
             theField = this.getSphericalCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sphericalCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geodeticDatum!= null);
+            boolean theFieldIsSet = this.isSetGeodeticDatum();
             JAXBElement<GeodeticDatumPropertyType> theField;
             theField = this.getGeodeticDatum();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geodeticDatum", theField);
@@ -288,25 +307,25 @@ public class GeodeticCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.ellipsoidalCS!= null);
+            boolean theFieldIsSet = this.isSetEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> theField;
             theField = this.getEllipsoidalCS();
             strategy.appendField(locator, this, "ellipsoidalCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cartesianCS!= null);
+            boolean theFieldIsSet = this.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> theField;
             theField = this.getCartesianCS();
             strategy.appendField(locator, this, "cartesianCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sphericalCS!= null);
+            boolean theFieldIsSet = this.isSetSphericalCS();
             JAXBElement<SphericalCSPropertyType> theField;
             theField = this.getSphericalCS();
             strategy.appendField(locator, this, "sphericalCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geodeticDatum!= null);
+            boolean theFieldIsSet = this.isSetGeodeticDatum();
             JAXBElement<GeodeticDatumPropertyType> theField;
             theField = this.getGeodeticDatum();
             strategy.appendField(locator, this, "geodeticDatum", buffer, theField, theFieldIsSet);

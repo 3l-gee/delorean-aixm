@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDIdentifierType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CICitationPropertyType authority;
     @XmlElement(required = true)
     protected CharacterStringPropertyType code;
@@ -75,6 +78,10 @@ public class MDIdentifierType
         this.authority = value;
     }
 
+    public boolean isSetAuthority() {
+        return (this.authority!= null);
+    }
+
     /**
      * Gets the value of the code property.
      * 
@@ -99,6 +106,10 @@ public class MDIdentifierType
         this.code = value;
     }
 
+    public boolean isSetCode() {
+        return (this.code!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -112,27 +123,27 @@ public class MDIdentifierType
         }
         final MDIdentifierType that = ((MDIdentifierType) object);
         {
-            boolean lhsFieldIsSet = (this.authority!= null);
-            boolean rhsFieldIsSet = (that.authority!= null);
-            CICitationPropertyType lhsField;
-            lhsField = this.getAuthority();
-            CICitationPropertyType rhsField;
-            rhsField = that.getAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.code!= null);
-            boolean rhsFieldIsSet = (that.code!= null);
+            boolean lhsFieldIsSet = this.isSetCode();
+            boolean rhsFieldIsSet = that.isSetCode();
             CharacterStringPropertyType lhsField;
             lhsField = this.getCode();
             CharacterStringPropertyType rhsField;
             rhsField = that.getCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "code", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "code", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAuthority();
+            boolean rhsFieldIsSet = that.isSetAuthority();
+            CICitationPropertyType lhsField;
+            lhsField = this.getAuthority();
+            CICitationPropertyType rhsField;
+            rhsField = that.getAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -144,14 +155,14 @@ public class MDIdentifierType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.authority!= null);
+            boolean theFieldIsSet = this.isSetAuthority();
             CICitationPropertyType theField;
             theField = this.getAuthority();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "authority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.code!= null);
+            boolean theFieldIsSet = this.isSetCode();
             CharacterStringPropertyType theField;
             theField = this.getCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "code", theField);
@@ -164,13 +175,13 @@ public class MDIdentifierType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.authority!= null);
+            boolean theFieldIsSet = this.isSetAuthority();
             CICitationPropertyType theField;
             theField = this.getAuthority();
             strategy.appendField(locator, this, "authority", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.code!= null);
+            boolean theFieldIsSet = this.isSetCode();
             CharacterStringPropertyType theField;
             theField = this.getCode();
             strategy.appendField(locator, this, "code", buffer, theField, theFieldIsSet);

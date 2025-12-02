@@ -27,7 +27,6 @@ import com.aixm.delorean.core.unit.DistanceUom;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class CurveGMLTest {
 
     @BeforeAll
@@ -50,7 +49,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c1",
                     null,
                     null,
@@ -73,7 +72,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c2",
                     null,
                     null,
@@ -97,7 +96,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c3",
                     null,
                     null,
@@ -105,7 +104,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -115,7 +114,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ), 
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             GisUtil.pos(
@@ -138,7 +137,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c4",
                     null,
                     null,
@@ -146,7 +145,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -156,7 +155,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             null,
@@ -187,7 +186,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c5", 
                     null,
                     null,
@@ -202,7 +201,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         1L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -212,7 +211,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             GisUtil.pos(
@@ -244,14 +243,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c6", 
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             GisUtil.pos(
@@ -288,14 +287,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c7", 
                     null, 
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null, 
                             null, 
                             null,
@@ -334,14 +333,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c8",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null, 
                             null, 
                             null,
@@ -380,14 +379,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c9",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null, 
                             null, 
                             null,
@@ -424,14 +423,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c10", 
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             GisUtil.pos(
@@ -458,14 +457,14 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c11", 
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             null,
@@ -493,7 +492,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c12",
                     null,
                     null,
@@ -516,7 +515,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c13",
                     null,
                     null,
@@ -539,7 +538,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c14",
                     null,
                     null,
@@ -568,14 +567,14 @@ public class CurveGMLTest {
                         </gml:CircleByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""",
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c15",
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "c15",
                             null,
                             GisUtil.pos(
@@ -599,23 +598,22 @@ public class CurveGMLTest {
                     <gml:segments>
                         <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
                             <gml:pointProperty>
-                                <aixm:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c16">
+                                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c16">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
-                                    <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
-                                </aixm:Point>
+                                </gml:Point>
                             </gml:pointProperty>
                             <gml:radius uom="KM">5.0</gml:radius>
                         </gml:CircleByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""",
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c16",
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "c16",
                             null,
                             GisUtil.pos(
@@ -639,23 +637,22 @@ public class CurveGMLTest {
                     <gml:segments>
                         <gml:CircleByCenterPoint numArc="1" interpolation="circularArcCenterPointWithRadius">
                             <gml:pointProperty>
-                                <aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c17">
+                                <gml:Point srsName="urn:ogc:def:crs:EPSG::4326" gml:id="c17">
                                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
-                                    <aixm:horizontalAccuracy uom="M">1</aixm:horizontalAccuracy>
-                                </aixm:ElevatedPoint>
+                                </gml:Point>
                             </gml:pointProperty>
                             <gml:radius uom="KM">5.0</gml:radius>
                         </gml:CircleByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""",
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c17",
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "c17",
                             null,
                             GisUtil.pos(
@@ -682,7 +679,7 @@ public class CurveGMLTest {
                     </gml:segments>
                 </gml:Curve>
                 """,
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c18",
                     null,
                     null,
@@ -690,7 +687,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -700,7 +697,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             null,
@@ -726,14 +723,14 @@ public class CurveGMLTest {
                         </gml:CircleByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""",
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c19",
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             GisUtil.pos(
@@ -763,14 +760,14 @@ public class CurveGMLTest {
                         </gml:ArcByCenterPoint>
                     </gml:segments>
                 </gml:Curve>""",
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "c20",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             GisUtil.pos(
@@ -818,7 +815,7 @@ public class CurveGMLTest {
     static Stream<Arguments> MarshallValidGMLCurve() {
         return Stream.of(
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m1",
                     null,
                     null,
@@ -842,7 +839,7 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, LineStringSegment lat lon order
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m2",
                     null,
                     null,
@@ -866,14 +863,14 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, GeodesicString lat lon order
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m3",
                     null,
                     null,
                     null,
                     GisUtil.circle(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             GisUtil.pos(
@@ -901,14 +898,14 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, CircleByCenterPoint lat lon order
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m4",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -946,14 +943,14 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, ArcByCenterPoint lat lon order
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m5",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "m5",
                             null,
                             GisUtil.pos(
@@ -995,14 +992,14 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, ArcByCenterPoint with pointProperty lat lon order
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m6",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             null,
@@ -1042,14 +1039,14 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, ArcByCenterPoint with pointProperty as reference
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m7",
                     null,
                     null,
                     null,
                     GisUtil.arc(
                         0L,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             null,
                             null,
@@ -1089,7 +1086,7 @@ public class CurveGMLTest {
                 </gml:Curve>""" 
             ), // Standard urn case, EPSG:4326, ArcByCenterPoint with pointProperty as XML reference
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m8",
                     null,
                     null,
@@ -1114,7 +1111,7 @@ public class CurveGMLTest {
                 </gml:Curve>"""
             ),
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m9",
                     null,
                     null,
@@ -1122,7 +1119,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -1132,7 +1129,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             GisUtil.pos(
@@ -1142,7 +1139,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             2L,
                             GisUtil.pos(
@@ -1168,7 +1165,7 @@ public class CurveGMLTest {
                 </gml:Curve>"""
             ),
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m10",
                     null,
                     null,
@@ -1176,7 +1173,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "m10",
                             0L,
                             GisUtil.pos(
@@ -1186,7 +1183,7 @@ public class CurveGMLTest {
                             GeometricType.GML,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "m10",
                             1L,
                             GisUtil.pos(
@@ -1196,7 +1193,7 @@ public class CurveGMLTest {
                             GeometricType.GML,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             "m10",
                             2L,
                             GisUtil.pos(
@@ -1460,14 +1457,14 @@ public class CurveGMLTest {
                 (GmlCurveType) null
             ), // null AIXMCurveType
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     null, 
                     null, 
                     null, 
                     null)
             ), // empty AIXMCurveType
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m3",
                     null,
                     null,
@@ -1482,7 +1479,7 @@ public class CurveGMLTest {
                 )
             ), // missing srsName in posList
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m4",
                     null,
                     null,
@@ -1490,7 +1487,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -1500,7 +1497,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             GisUtil.pos(
@@ -1514,7 +1511,7 @@ public class CurveGMLTest {
                 )
             ), // missing srsName in pos
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m5",
                     null,
                     null,
@@ -1522,7 +1519,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             GisUtil.pos(
@@ -1532,7 +1529,7 @@ public class CurveGMLTest {
                             GeometricType.POS,
                             null
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             GisUtil.pos(
@@ -1546,7 +1543,7 @@ public class CurveGMLTest {
                 )
             ), // missing srsName in pos
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m6",
                     null,
                     null,
@@ -1554,7 +1551,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             null,
@@ -1566,7 +1563,7 @@ public class CurveGMLTest {
                                 null
                             )
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             null,
@@ -1582,7 +1579,7 @@ public class CurveGMLTest {
                 )
             ), // missing srsName in reference
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m7",
                     null,
                     null,
@@ -1590,7 +1587,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             null,
@@ -1602,7 +1599,7 @@ public class CurveGMLTest {
                                 "4326"
                             )
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             null,
@@ -1618,7 +1615,7 @@ public class CurveGMLTest {
                 )
             ), // missing srsName in reference
             Arguments.of(
-                GisUtil.curveObj(
+                GisUtil.GMLCurve(
                     "m8",
                     null,
                     null,
@@ -1626,7 +1623,7 @@ public class CurveGMLTest {
                     GisUtil.line(
                         0L,
                         null,
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             0L,
                             null,
@@ -1638,7 +1635,7 @@ public class CurveGMLTest {
                                 "4326"
                             )
                         ),
-                        GisUtil.pointObj(
+                        GisUtil.GMLPoint(
                             null,
                             1L,
                             null,

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DQ_EvaluationMethodTypeCode_PropertyType", propOrder = {
     "dqEvaluationMethodTypeCode"
 })
-public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode, ToString
+public class DQEvaluationMethodTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DQ_EvaluationMethodTypeCode")
     protected CodeListValueType dqEvaluationMethodTypeCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
         this.dqEvaluationMethodTypeCode = value;
     }
 
+    public boolean isSetDQEvaluationMethodTypeCode() {
+        return (this.dqEvaluationMethodTypeCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,8 +133,8 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
         }
         final DQEvaluationMethodTypeCodePropertyType that = ((DQEvaluationMethodTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -136,8 +146,8 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dqEvaluationMethodTypeCode!= null);
-            boolean rhsFieldIsSet = (that.dqEvaluationMethodTypeCode!= null);
+            boolean lhsFieldIsSet = this.isSetDQEvaluationMethodTypeCode();
+            boolean rhsFieldIsSet = that.isSetDQEvaluationMethodTypeCode();
             CodeListValueType lhsField;
             lhsField = this.getDQEvaluationMethodTypeCode();
             CodeListValueType rhsField;
@@ -165,14 +175,14 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.dqEvaluationMethodTypeCode!= null);
+            boolean theFieldIsSet = this.isSetDQEvaluationMethodTypeCode();
             CodeListValueType theField;
             theField = this.getDQEvaluationMethodTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dqEvaluationMethodTypeCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class DQEvaluationMethodTypeCodePropertyType implements Equals, HashCode,
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.dqEvaluationMethodTypeCode!= null);
+            boolean theFieldIsSet = this.isSetDQEvaluationMethodTypeCode();
             CodeListValueType theField;
             theField = this.getDQEvaluationMethodTypeCode();
             strategy.appendField(locator, this, "dqEvaluationMethodTypeCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

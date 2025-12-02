@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,8 +61,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CubicSplineType
     extends AbstractCurveSegmentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRefs({
         @XmlElementRef(name = "pos", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
         @XmlElementRef(name = "pointProperty", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
@@ -75,9 +78,9 @@ public class CubicSplineType
     @XmlElement(required = true)
     protected VectorType vectorAtEnd;
     @XmlAttribute(name = "interpolation")
-    protected CurveInterpolationType interpolation;
+    public static final CurveInterpolationType INTERPOLATION = CurveInterpolationType.CUBIC_SPLINE;
     @XmlAttribute(name = "degree")
-    protected BigInteger degree;
+    public static final BigInteger DEGREE = new BigInteger("3");
 
     /**
      * Gets the value of the posOrPointPropertyOrPointRep property.
@@ -118,6 +121,14 @@ public class CubicSplineType
         this.posOrPointPropertyOrPointRep = posOrPointPropertyOrPointRep;
     }
 
+    public boolean isSetPosOrPointPropertyOrPointRep() {
+        return ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+    }
+
+    public void unsetPosOrPointPropertyOrPointRep() {
+        this.posOrPointPropertyOrPointRep = null;
+    }
+
     /**
      * Gets the value of the posList property.
      * 
@@ -140,6 +151,10 @@ public class CubicSplineType
      */
     public void setPosList(DirectPositionListType value) {
         this.posList = value;
+    }
+
+    public boolean isSetPosList() {
+        return (this.posList!= null);
     }
 
     /**
@@ -166,6 +181,10 @@ public class CubicSplineType
         this.coordinates = value;
     }
 
+    public boolean isSetCoordinates() {
+        return (this.coordinates!= null);
+    }
+
     /**
      * Gets the value of the vectorAtStart property.
      * 
@@ -188,6 +207,10 @@ public class CubicSplineType
      */
     public void setVectorAtStart(VectorType value) {
         this.vectorAtStart = value;
+    }
+
+    public boolean isSetVectorAtStart() {
+        return (this.vectorAtStart!= null);
     }
 
     /**
@@ -214,60 +237,8 @@ public class CubicSplineType
         this.vectorAtEnd = value;
     }
 
-    /**
-     * Gets the value of the interpolation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CurveInterpolationType }
-     *     
-     */
-    public CurveInterpolationType getInterpolation() {
-        if (interpolation == null) {
-            return CurveInterpolationType.CUBIC_SPLINE;
-        } else {
-            return interpolation;
-        }
-    }
-
-    /**
-     * Sets the value of the interpolation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CurveInterpolationType }
-     *     
-     */
-    public void setInterpolation(CurveInterpolationType value) {
-        this.interpolation = value;
-    }
-
-    /**
-     * Gets the value of the degree property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getDegree() {
-        if (degree == null) {
-            return new BigInteger("3");
-        } else {
-            return degree;
-        }
-    }
-
-    /**
-     * Sets the value of the degree property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setDegree(BigInteger value) {
-        this.degree = value;
+    public boolean isSetVectorAtEnd() {
+        return (this.vectorAtEnd!= null);
     }
 
     @Override
@@ -283,8 +254,21 @@ public class CubicSplineType
         }
         final CubicSplineType that = ((CubicSplineType) object);
         {
-            boolean lhsFieldIsSet = (this.vectorAtEnd!= null);
-            boolean rhsFieldIsSet = (that.vectorAtEnd!= null);
+            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
+            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetPosOrPointPropertyOrPointRep()?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVectorAtEnd();
+            boolean rhsFieldIsSet = that.isSetVectorAtEnd();
             VectorType lhsField;
             lhsField = this.getVectorAtEnd();
             VectorType rhsField;
@@ -296,21 +280,8 @@ public class CubicSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.vectorAtStart!= null);
-            boolean rhsFieldIsSet = (that.vectorAtStart!= null);
+            boolean lhsFieldIsSet = this.isSetVectorAtStart();
+            boolean rhsFieldIsSet = that.isSetVectorAtStart();
             VectorType lhsField;
             lhsField = this.getVectorAtStart();
             VectorType rhsField;
@@ -322,34 +293,8 @@ public class CubicSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.degree!= null);
-            boolean rhsFieldIsSet = (that.degree!= null);
-            BigInteger lhsField;
-            lhsField = this.getDegree();
-            BigInteger rhsField;
-            rhsField = that.getDegree();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
             CoordinatesType lhsField;
             lhsField = this.getCoordinates();
             CoordinatesType rhsField;
@@ -361,8 +306,8 @@ public class CubicSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.posList!= null);
-            boolean rhsFieldIsSet = (that.posList!= null);
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
             lhsField = this.getPosList();
             DirectPositionListType rhsField;
@@ -380,52 +325,38 @@ public class CubicSplineType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posOrPointPropertyOrPointRep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coordinates", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.vectorAtStart!= null);
+            boolean theFieldIsSet = this.isSetVectorAtStart();
             VectorType theField;
             theField = this.getVectorAtStart();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "vectorAtStart", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.vectorAtEnd!= null);
+            boolean theFieldIsSet = this.isSetVectorAtEnd();
             VectorType theField;
             theField = this.getVectorAtEnd();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "vectorAtEnd", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            CurveInterpolationType theField;
-            theField = this.getInterpolation();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpolation", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.degree!= null);
-            BigInteger theField;
-            theField = this.getDegree();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "degree", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -435,46 +366,34 @@ public class CubicSplineType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             strategy.appendField(locator, this, "posOrPointPropertyOrPointRep", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             strategy.appendField(locator, this, "posList", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             strategy.appendField(locator, this, "coordinates", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.vectorAtStart!= null);
+            boolean theFieldIsSet = this.isSetVectorAtStart();
             VectorType theField;
             theField = this.getVectorAtStart();
             strategy.appendField(locator, this, "vectorAtStart", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.vectorAtEnd!= null);
+            boolean theFieldIsSet = this.isSetVectorAtEnd();
             VectorType theField;
             theField = this.getVectorAtEnd();
             strategy.appendField(locator, this, "vectorAtEnd", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            CurveInterpolationType theField;
-            theField = this.getInterpolation();
-            strategy.appendField(locator, this, "interpolation", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.degree!= null);
-            BigInteger theField;
-            theField = this.getDegree();
-            strategy.appendField(locator, this, "degree", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

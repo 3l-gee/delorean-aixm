@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiPointType
     extends AbstractGeometricAggregateType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<PointPropertyType> pointMember;
     /**
      * This property element contains a list of points. The order of the elements is significant and shall be preserved when processing the array.
@@ -86,6 +89,14 @@ public class MultiPointType
         this.pointMember = pointMember;
     }
 
+    public boolean isSetPointMember() {
+        return ((this.pointMember!= null)&&(!this.pointMember.isEmpty()));
+    }
+
+    public void unsetPointMember() {
+        this.pointMember = null;
+    }
+
     /**
      * This property element contains a list of points. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -111,6 +122,10 @@ public class MultiPointType
         this.pointMembers = value;
     }
 
+    public boolean isSetPointMembers() {
+        return (this.pointMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,12 +139,12 @@ public class MultiPointType
         }
         final MultiPointType that = ((MultiPointType) object);
         {
-            boolean lhsFieldIsSet = ((this.pointMember!= null)&&(!this.pointMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.pointMember!= null)&&(!that.pointMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPointMember();
+            boolean rhsFieldIsSet = that.isSetPointMember();
             List<PointPropertyType> lhsField;
-            lhsField = (((this.pointMember!= null)&&(!this.pointMember.isEmpty()))?this.getPointMember():null);
+            lhsField = (this.isSetPointMember()?this.getPointMember():null);
             List<PointPropertyType> rhsField;
-            rhsField = (((that.pointMember!= null)&&(!that.pointMember.isEmpty()))?that.getPointMember():null);
+            rhsField = (that.isSetPointMember()?that.getPointMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -137,8 +152,8 @@ public class MultiPointType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.pointMembers!= null);
-            boolean rhsFieldIsSet = (that.pointMembers!= null);
+            boolean lhsFieldIsSet = this.isSetPointMembers();
+            boolean rhsFieldIsSet = that.isSetPointMembers();
             PointArrayPropertyType lhsField;
             lhsField = this.getPointMembers();
             PointArrayPropertyType rhsField;
@@ -156,14 +171,14 @@ public class MultiPointType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.pointMember!= null)&&(!this.pointMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetPointMember();
             List<PointPropertyType> theField;
-            theField = (((this.pointMember!= null)&&(!this.pointMember.isEmpty()))?this.getPointMember():null);
+            theField = (this.isSetPointMember()?this.getPointMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pointMembers!= null);
+            boolean theFieldIsSet = this.isSetPointMembers();
             PointArrayPropertyType theField;
             theField = this.getPointMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointMembers", theField);
@@ -176,13 +191,13 @@ public class MultiPointType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.pointMember!= null)&&(!this.pointMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetPointMember();
             List<PointPropertyType> theField;
-            theField = (((this.pointMember!= null)&&(!this.pointMember.isEmpty()))?this.getPointMember():null);
+            theField = (this.isSetPointMember()?this.getPointMember():null);
             strategy.appendField(locator, this, "pointMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pointMembers!= null);
+            boolean theFieldIsSet = this.isSetPointMembers();
             PointArrayPropertyType theField;
             theField = this.getPointMembers();
             strategy.appendField(locator, this, "pointMembers", buffer, theField, theFieldIsSet);

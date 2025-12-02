@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "InlinePropertyType", propOrder = {
     "any"
 })
-public class InlinePropertyType implements Equals, HashCode, ToString
+public class InlinePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAnyElement(lax = true)
     protected Object any;
     @XmlAttribute(name = "owns")
@@ -76,6 +78,10 @@ public class InlinePropertyType implements Equals, HashCode, ToString
         this.any = value;
     }
 
+    public boolean isSetAny() {
+        return (this.any!= null);
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -84,7 +90,7 @@ public class InlinePropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -100,8 +106,16 @@ public class InlinePropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -126,27 +140,27 @@ public class InlinePropertyType implements Equals, HashCode, ToString
         }
         final InlinePropertyType that = ((InlinePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.any!= null);
-            boolean rhsFieldIsSet = (that.any!= null);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAny();
+            boolean rhsFieldIsSet = that.isSetAny();
             Object lhsField;
             lhsField = this.getAny();
             Object rhsField;
             rhsField = that.getAny();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "any", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "any", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -168,16 +182,16 @@ public class InlinePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.any!= null);
+            boolean theFieldIsSet = this.isSetAny();
             Object theField;
             theField = this.getAny();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "any", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -207,15 +221,15 @@ public class InlinePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.any!= null);
+            boolean theFieldIsSet = this.isSetAny();
             Object theField;
             theField = this.getAny();
             strategy.appendField(locator, this, "any", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

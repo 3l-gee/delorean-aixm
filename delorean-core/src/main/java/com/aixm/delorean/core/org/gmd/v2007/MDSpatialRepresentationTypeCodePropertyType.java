@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_SpatialRepresentationTypeCode_PropertyType", propOrder = {
     "mdSpatialRepresentationTypeCode"
 })
-public class MDSpatialRepresentationTypeCodePropertyType implements Equals, HashCode, ToString
+public class MDSpatialRepresentationTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_SpatialRepresentationTypeCode")
     protected CodeListValueType mdSpatialRepresentationTypeCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDSpatialRepresentationTypeCodePropertyType implements Equals, Hash
         this.mdSpatialRepresentationTypeCode = value;
     }
 
+    public boolean isSetMDSpatialRepresentationTypeCode() {
+        return (this.mdSpatialRepresentationTypeCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDSpatialRepresentationTypeCodePropertyType implements Equals, Hash
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDSpatialRepresentationTypeCodePropertyType implements Equals, Hash
         }
         final MDSpatialRepresentationTypeCodePropertyType that = ((MDSpatialRepresentationTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdSpatialRepresentationTypeCode!= null);
-            boolean rhsFieldIsSet = (that.mdSpatialRepresentationTypeCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDSpatialRepresentationTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDSpatialRepresentationTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdSpatialRepresentationTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdSpatialRepresentationTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDSpatialRepresentationTypeCode();
+            boolean rhsFieldIsSet = that.isSetMDSpatialRepresentationTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDSpatialRepresentationTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDSpatialRepresentationTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdSpatialRepresentationTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdSpatialRepresentationTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDSpatialRepresentationTypeCodePropertyType implements Equals, Hash
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdSpatialRepresentationTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDSpatialRepresentationTypeCode();
             CodeListValueType theField;
             theField = this.getMDSpatialRepresentationTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdSpatialRepresentationTypeCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDSpatialRepresentationTypeCodePropertyType implements Equals, Hash
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdSpatialRepresentationTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDSpatialRepresentationTypeCode();
             CodeListValueType theField;
             theField = this.getMDSpatialRepresentationTypeCode();
             strategy.appendField(locator, this, "mdSpatialRepresentationTypeCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

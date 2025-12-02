@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "c",
     "d"
 })
-public class FormulaType implements Equals, HashCode, ToString
+public class FormulaType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected Double a;
     protected double b;
     protected double c;
@@ -79,6 +81,10 @@ public class FormulaType implements Equals, HashCode, ToString
         this.a = value;
     }
 
+    public boolean isSetA() {
+        return (this.a!= null);
+    }
+
     /**
      * Gets the value of the b property.
      * 
@@ -95,6 +101,10 @@ public class FormulaType implements Equals, HashCode, ToString
         this.b = value;
     }
 
+    public boolean isSetB() {
+        return true;
+    }
+
     /**
      * Gets the value of the c property.
      * 
@@ -109,6 +119,10 @@ public class FormulaType implements Equals, HashCode, ToString
      */
     public void setC(double value) {
         this.c = value;
+    }
+
+    public boolean isSetC() {
+        return true;
     }
 
     /**
@@ -135,6 +149,10 @@ public class FormulaType implements Equals, HashCode, ToString
         this.d = value;
     }
 
+    public boolean isSetD() {
+        return (this.d!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -157,19 +175,6 @@ public class FormulaType implements Equals, HashCode, ToString
         }
         final FormulaType that = ((FormulaType) object);
         {
-            boolean lhsFieldIsSet = (this.a!= null);
-            boolean rhsFieldIsSet = (that.a!= null);
-            Double lhsField;
-            lhsField = this.getA();
-            Double rhsField;
-            rhsField = that.getA();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "a", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "a", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
@@ -178,6 +183,19 @@ public class FormulaType implements Equals, HashCode, ToString
             rhsField = that.getC();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetA();
+            boolean rhsFieldIsSet = that.isSetA();
+            Double lhsField;
+            lhsField = this.getA();
+            Double rhsField;
+            rhsField = that.getA();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "a", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "a", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -196,8 +214,8 @@ public class FormulaType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.d!= null);
-            boolean rhsFieldIsSet = (that.d!= null);
+            boolean lhsFieldIsSet = this.isSetD();
+            boolean rhsFieldIsSet = that.isSetD();
             Double lhsField;
             lhsField = this.getD();
             Double rhsField;
@@ -225,7 +243,7 @@ public class FormulaType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.a!= null);
+            boolean theFieldIsSet = this.isSetA();
             Double theField;
             theField = this.getA();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "a", theField);
@@ -246,7 +264,7 @@ public class FormulaType implements Equals, HashCode, ToString
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.d!= null);
+            boolean theFieldIsSet = this.isSetD();
             Double theField;
             theField = this.getD();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "d", theField);
@@ -278,7 +296,7 @@ public class FormulaType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.a!= null);
+            boolean theFieldIsSet = this.isSetA();
             Double theField;
             theField = this.getA();
             strategy.appendField(locator, this, "a", buffer, theField, theFieldIsSet);
@@ -296,7 +314,7 @@ public class FormulaType implements Equals, HashCode, ToString
             strategy.appendField(locator, this, "c", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.d!= null);
+            boolean theFieldIsSet = this.isSetD();
             Double theField;
             theField = this.getD();
             strategy.appendField(locator, this, "d", buffer, theField, theFieldIsSet);

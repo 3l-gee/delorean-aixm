@@ -265,7 +265,7 @@ public class LandingTakeoffAreaCollectionType
     @OneToMany(targetEntity = LandingTakeoffAreaCollectionTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_LANDING_TAKEOFF_AR_0")
     public List<LandingTakeoffAreaCollectionTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -303,14 +303,14 @@ public class LandingTakeoffAreaCollectionType
         }
         final LandingTakeoffAreaCollectionType that = ((LandingTakeoffAreaCollectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRunway();
+            boolean rhsFieldIsSet = that.isSetRunway();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunway()?this.getRunway():null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunway()?that.getRunway():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -329,19 +329,6 @@ public class LandingTakeoffAreaCollectionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRunway();
-            boolean rhsFieldIsSet = that.isSetRunway();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunway()?this.getRunway():null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunway()?that.getRunway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<LandingTakeoffAreaCollectionTypeExtensionType> lhsField;
@@ -350,6 +337,19 @@ public class LandingTakeoffAreaCollectionType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

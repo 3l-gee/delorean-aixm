@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -50,9 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MetaDataPropertyType", propOrder = {
     "abstractMetaData"
 })
-public class MetaDataPropertyType implements Equals, HashCode, ToString
+public class MetaDataPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractMetaData", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractMetaDataType> abstractMetaData;
     @XmlAttribute(name = "about")
@@ -64,7 +66,7 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.SIMPLE;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
     protected String href;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
@@ -104,6 +106,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.abstractMetaData = value;
     }
 
+    public boolean isSetAbstractMetaData() {
+        return (this.abstractMetaData!= null);
+    }
+
     /**
      * Gets the value of the about property.
      * 
@@ -126,6 +132,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
      */
     public void setAbout(String value) {
         this.about = value;
+    }
+
+    public boolean isSetAbout() {
+        return (this.about!= null);
     }
 
     /**
@@ -152,6 +162,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     /**
      * Gets the value of the remoteSchema property.
      * 
@@ -176,32 +190,8 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.remoteSchema = value;
     }
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    public TypeType getType() {
-        if (type == null) {
-            return TypeType.SIMPLE;
-        } else {
-            return type;
-        }
-    }
-
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setType(TypeType value) {
-        this.type = value;
+    public boolean isSetRemoteSchema() {
+        return (this.remoteSchema!= null);
     }
 
     /**
@@ -228,6 +218,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.href = value;
     }
 
+    public boolean isSetHref() {
+        return (this.href!= null);
+    }
+
     /**
      * Gets the value of the role property.
      * 
@@ -250,6 +244,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
      */
     public void setRole(String value) {
         this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
     }
 
     /**
@@ -276,6 +274,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.arcrole = value;
     }
 
+    public boolean isSetArcrole() {
+        return (this.arcrole!= null);
+    }
+
     /**
      * Gets the value of the simpleLinkTitle property.
      * 
@@ -298,6 +300,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
+    }
+
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
@@ -324,6 +330,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.show = value;
     }
 
+    public boolean isSetShow() {
+        return (this.show!= null);
+    }
+
     /**
      * Gets the value of the actuate property.
      * 
@@ -348,6 +358,10 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         this.actuate = value;
     }
 
+    public boolean isSetActuate() {
+        return (this.actuate!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -370,21 +384,8 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
         }
         final MetaDataPropertyType that = ((MetaDataPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.about!= null);
-            boolean rhsFieldIsSet = (that.about!= null);
-            String lhsField;
-            lhsField = this.getAbout();
-            String rhsField;
-            rhsField = that.getAbout();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "about", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "about", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.abstractMetaData!= null);
-            boolean rhsFieldIsSet = (that.abstractMetaData!= null);
+            boolean lhsFieldIsSet = this.isSetAbstractMetaData();
+            boolean rhsFieldIsSet = that.isSetAbstractMetaData();
             JAXBElement<? extends AbstractMetaDataType> lhsField;
             lhsField = this.getAbstractMetaData();
             JAXBElement<? extends AbstractMetaDataType> rhsField;
@@ -396,8 +397,8 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -409,21 +410,8 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
             lhsField = this.getRole();
             String rhsField;
@@ -435,47 +423,8 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.href!= null);
-            boolean rhsFieldIsSet = (that.href!= null);
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
             lhsField = this.getRemoteSchema();
             String rhsField;
@@ -487,27 +436,79 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.actuate!= null);
-            boolean rhsFieldIsSet = (that.actuate!= null);
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
             ShowType lhsField;
             lhsField = this.getShow();
             ShowType rhsField;
             rhsField = that.getShow();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbout();
+            boolean rhsFieldIsSet = that.isSetAbout();
+            String lhsField;
+            lhsField = this.getAbout();
+            String rhsField;
+            rhsField = that.getAbout();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "about", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "about", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -529,77 +530,70 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.abstractMetaData!= null);
+            boolean theFieldIsSet = this.isSetAbstractMetaData();
             JAXBElement<? extends AbstractMetaDataType> theField;
             theField = this.getAbstractMetaData();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractMetaData", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.about!= null);
+            boolean theFieldIsSet = this.isSetAbout();
             String theField;
             theField = this.getAbout();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "about", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.remoteSchema!= null);
+            boolean theFieldIsSet = this.isSetRemoteSchema();
             String theField;
             theField = this.getRemoteSchema();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "remoteSchema", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.href!= null);
+            boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "href", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "role", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.arcrole!= null);
+            boolean theFieldIsSet = this.isSetArcrole();
             String theField;
             theField = this.getArcrole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "arcrole", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
             theField = this.getSimpleLinkTitle();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "simpleLinkTitle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.show!= null);
+            boolean theFieldIsSet = this.isSetShow();
             ShowType theField;
             theField = this.getShow();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "show", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.actuate!= null);
+            boolean theFieldIsSet = this.isSetActuate();
             ActuateType theField;
             theField = this.getActuate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
@@ -631,67 +625,61 @@ public class MetaDataPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.abstractMetaData!= null);
+            boolean theFieldIsSet = this.isSetAbstractMetaData();
             JAXBElement<? extends AbstractMetaDataType> theField;
             theField = this.getAbstractMetaData();
             strategy.appendField(locator, this, "abstractMetaData", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.about!= null);
+            boolean theFieldIsSet = this.isSetAbout();
             String theField;
             theField = this.getAbout();
             strategy.appendField(locator, this, "about", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.remoteSchema!= null);
+            boolean theFieldIsSet = this.isSetRemoteSchema();
             String theField;
             theField = this.getRemoteSchema();
             strategy.appendField(locator, this, "remoteSchema", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.href!= null);
+            boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
             strategy.appendField(locator, this, "href", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             strategy.appendField(locator, this, "role", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.arcrole!= null);
+            boolean theFieldIsSet = this.isSetArcrole();
             String theField;
             theField = this.getArcrole();
             strategy.appendField(locator, this, "arcrole", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
             theField = this.getSimpleLinkTitle();
             strategy.appendField(locator, this, "simpleLinkTitle", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.show!= null);
+            boolean theFieldIsSet = this.isSetShow();
             ShowType theField;
             theField = this.getShow();
             strategy.appendField(locator, this, "show", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.actuate!= null);
+            boolean theFieldIsSet = this.isSetActuate();
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);

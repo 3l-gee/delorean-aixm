@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_ScopeDescription_PropertyType", propOrder = {
     "mdScopeDescription"
 })
-public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToString
+public class MDScopeDescriptionPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_ScopeDescription")
     protected MDScopeDescriptionType mdScopeDescription;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -76,6 +78,10 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
         this.mdScopeDescription = value;
     }
 
+    public boolean isSetMDScopeDescription() {
+        return (this.mdScopeDescription!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -100,6 +106,10 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -122,8 +132,8 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
         }
         final MDScopeDescriptionPropertyType that = ((MDScopeDescriptionPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdScopeDescription!= null);
-            boolean rhsFieldIsSet = (that.mdScopeDescription!= null);
+            boolean lhsFieldIsSet = this.isSetMDScopeDescription();
+            boolean rhsFieldIsSet = that.isSetMDScopeDescription();
             MDScopeDescriptionType lhsField;
             lhsField = this.getMDScopeDescription();
             MDScopeDescriptionType rhsField;
@@ -135,8 +145,8 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -164,14 +174,14 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdScopeDescription!= null);
+            boolean theFieldIsSet = this.isSetMDScopeDescription();
             MDScopeDescriptionType theField;
             theField = this.getMDScopeDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdScopeDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -203,13 +213,13 @@ public class MDScopeDescriptionPropertyType implements Equals, HashCode, ToStrin
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdScopeDescription!= null);
+            boolean theFieldIsSet = this.isSetMDScopeDescription();
             MDScopeDescriptionType theField;
             theField = this.getMDScopeDescription();
             strategy.appendField(locator, this, "mdScopeDescription", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

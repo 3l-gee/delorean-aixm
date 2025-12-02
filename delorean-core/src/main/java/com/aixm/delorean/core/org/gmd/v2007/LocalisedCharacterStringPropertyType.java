@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.ObjectReferencePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -38,8 +39,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class LocalisedCharacterStringPropertyType
     extends ObjectReferencePropertyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LocalisedCharacterString")
     protected LocalisedCharacterStringType localisedCharacterString;
 
@@ -67,6 +70,10 @@ public class LocalisedCharacterStringPropertyType
         this.localisedCharacterString = value;
     }
 
+    public boolean isSetLocalisedCharacterString() {
+        return (this.localisedCharacterString!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -80,8 +87,8 @@ public class LocalisedCharacterStringPropertyType
         }
         final LocalisedCharacterStringPropertyType that = ((LocalisedCharacterStringPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.localisedCharacterString!= null);
-            boolean rhsFieldIsSet = (that.localisedCharacterString!= null);
+            boolean lhsFieldIsSet = this.isSetLocalisedCharacterString();
+            boolean rhsFieldIsSet = that.isSetLocalisedCharacterString();
             LocalisedCharacterStringType lhsField;
             lhsField = this.getLocalisedCharacterString();
             LocalisedCharacterStringType rhsField;
@@ -99,7 +106,7 @@ public class LocalisedCharacterStringPropertyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.localisedCharacterString!= null);
+            boolean theFieldIsSet = this.isSetLocalisedCharacterString();
             LocalisedCharacterStringType theField;
             theField = this.getLocalisedCharacterString();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "localisedCharacterString", theField);
@@ -112,7 +119,7 @@ public class LocalisedCharacterStringPropertyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.localisedCharacterString!= null);
+            boolean theFieldIsSet = this.isSetLocalisedCharacterString();
             LocalisedCharacterStringType theField;
             theField = this.getLocalisedCharacterString();
             strategy.appendField(locator, this, "localisedCharacterString", buffer, theField, theFieldIsSet);

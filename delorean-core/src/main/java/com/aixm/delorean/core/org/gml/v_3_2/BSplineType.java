@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,8 +67,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class BSplineType
     extends AbstractCurveSegmentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRefs({
         @XmlElementRef(name = "pos", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
         @XmlElementRef(name = "pointProperty", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
@@ -127,6 +130,14 @@ public class BSplineType
         this.posOrPointPropertyOrPointRep = posOrPointPropertyOrPointRep;
     }
 
+    public boolean isSetPosOrPointPropertyOrPointRep() {
+        return ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+    }
+
+    public void unsetPosOrPointPropertyOrPointRep() {
+        this.posOrPointPropertyOrPointRep = null;
+    }
+
     /**
      * Gets the value of the posList property.
      * 
@@ -149,6 +160,10 @@ public class BSplineType
      */
     public void setPosList(DirectPositionListType value) {
         this.posList = value;
+    }
+
+    public boolean isSetPosList() {
+        return (this.posList!= null);
     }
 
     /**
@@ -175,6 +190,10 @@ public class BSplineType
         this.coordinates = value;
     }
 
+    public boolean isSetCoordinates() {
+        return (this.coordinates!= null);
+    }
+
     /**
      * Gets the value of the degree property.
      * 
@@ -197,6 +216,10 @@ public class BSplineType
      */
     public void setDegree(BigInteger value) {
         this.degree = value;
+    }
+
+    public boolean isSetDegree() {
+        return (this.degree!= null);
     }
 
     /**
@@ -236,6 +259,14 @@ public class BSplineType
         this.knot = knot;
     }
 
+    public boolean isSetKnot() {
+        return ((this.knot!= null)&&(!this.knot.isEmpty()));
+    }
+
+    public void unsetKnot() {
+        this.knot = null;
+    }
+
     /**
      * Gets the value of the interpolation property.
      * 
@@ -264,6 +295,10 @@ public class BSplineType
         this.interpolation = value;
     }
 
+    public boolean isSetInterpolation() {
+        return (this.interpolation!= null);
+    }
+
     /**
      * Gets the value of the isPolynomial property.
      * 
@@ -272,7 +307,7 @@ public class BSplineType
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getIsPolynomial() {
+    public boolean getIsPolynomial() {
         return isPolynomial;
     }
 
@@ -284,8 +319,16 @@ public class BSplineType
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setIsPolynomial(java.lang.Boolean value) {
+    public void setIsPolynomial(boolean value) {
         this.isPolynomial = value;
+    }
+
+    public boolean isSetIsPolynomial() {
+        return (this.isPolynomial!= null);
+    }
+
+    public void unsetIsPolynomial() {
+        this.isPolynomial = null;
     }
 
     /**
@@ -312,6 +355,10 @@ public class BSplineType
         this.knotType = value;
     }
 
+    public boolean isSetKnotType() {
+        return (this.knotType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -325,60 +372,8 @@ public class BSplineType
         }
         final BSplineType that = ((BSplineType) object);
         {
-            boolean lhsFieldIsSet = (this.knotType!= null);
-            boolean rhsFieldIsSet = (that.knotType!= null);
-            KnotTypesType lhsField;
-            lhsField = this.getKnotType();
-            KnotTypesType rhsField;
-            rhsField = that.getKnotType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.knot!= null)&&(!this.knot.isEmpty()));
-            boolean rhsFieldIsSet = ((that.knot!= null)&&(!that.knot.isEmpty()));
-            List<KnotPropertyType> lhsField;
-            lhsField = (((this.knot!= null)&&(!this.knot.isEmpty()))?this.getKnot():null);
-            List<KnotPropertyType> rhsField;
-            rhsField = (((that.knot!= null)&&(!that.knot.isEmpty()))?that.getKnot():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knot", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knot", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
             CoordinatesType lhsField;
             lhsField = this.getCoordinates();
             CoordinatesType rhsField;
@@ -390,21 +385,34 @@ public class BSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.isPolynomial!= null);
-            boolean rhsFieldIsSet = (that.isPolynomial!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getIsPolynomial();
-            java.lang.Boolean rhsField;
-            rhsField = that.getIsPolynomial();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
+            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
+            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetPosOrPointPropertyOrPointRep()?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.posList!= null);
-            boolean rhsFieldIsSet = (that.posList!= null);
+            boolean lhsFieldIsSet = this.isSetKnotType();
+            boolean rhsFieldIsSet = that.isSetKnotType();
+            KnotTypesType lhsField;
+            lhsField = this.getKnotType();
+            KnotTypesType rhsField;
+            rhsField = that.getKnotType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knotType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knotType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
             lhsField = this.getPosList();
             DirectPositionListType rhsField;
@@ -416,14 +424,53 @@ public class BSplineType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.degree!= null);
-            boolean rhsFieldIsSet = (that.degree!= null);
+            boolean lhsFieldIsSet = this.isSetDegree();
+            boolean rhsFieldIsSet = that.isSetDegree();
             BigInteger lhsField;
             lhsField = this.getDegree();
             BigInteger rhsField;
             rhsField = that.getDegree();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degree", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degree", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterpolation();
+            boolean rhsFieldIsSet = that.isSetInterpolation();
+            CurveInterpolationType lhsField;
+            lhsField = this.getInterpolation();
+            CurveInterpolationType rhsField;
+            rhsField = that.getInterpolation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetKnot();
+            boolean rhsFieldIsSet = that.isSetKnot();
+            List<KnotPropertyType> lhsField;
+            lhsField = (this.isSetKnot()?this.getKnot():null);
+            List<KnotPropertyType> rhsField;
+            rhsField = (that.isSetKnot()?that.getKnot():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "knot", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "knot", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsPolynomial();
+            boolean rhsFieldIsSet = that.isSetIsPolynomial();
+            boolean lhsField;
+            lhsField = (this.isSetIsPolynomial()?this.getIsPolynomial():false);
+            boolean rhsField;
+            rhsField = (that.isSetIsPolynomial()?that.getIsPolynomial():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isPolynomial", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isPolynomial", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -435,56 +482,56 @@ public class BSplineType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posOrPointPropertyOrPointRep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coordinates", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.degree!= null);
+            boolean theFieldIsSet = this.isSetDegree();
             BigInteger theField;
             theField = this.getDegree();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "degree", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.knot!= null)&&(!this.knot.isEmpty()));
+            boolean theFieldIsSet = this.isSetKnot();
             List<KnotPropertyType> theField;
-            theField = (((this.knot!= null)&&(!this.knot.isEmpty()))?this.getKnot():null);
+            theField = (this.isSetKnot()?this.getKnot():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "knot", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interpolation!= null);
+            boolean theFieldIsSet = this.isSetInterpolation();
             CurveInterpolationType theField;
             theField = this.getInterpolation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpolation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isPolynomial!= null);
-            java.lang.Boolean theField;
-            theField = this.getIsPolynomial();
+            boolean theFieldIsSet = this.isSetIsPolynomial();
+            boolean theField;
+            theField = (this.isSetIsPolynomial()?this.getIsPolynomial():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isPolynomial", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.knotType!= null);
+            boolean theFieldIsSet = this.isSetKnotType();
             KnotTypesType theField;
             theField = this.getKnotType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "knotType", theField);
@@ -497,49 +544,49 @@ public class BSplineType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             strategy.appendField(locator, this, "posOrPointPropertyOrPointRep", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             strategy.appendField(locator, this, "posList", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             strategy.appendField(locator, this, "coordinates", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.degree!= null);
+            boolean theFieldIsSet = this.isSetDegree();
             BigInteger theField;
             theField = this.getDegree();
             strategy.appendField(locator, this, "degree", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.knot!= null)&&(!this.knot.isEmpty()));
+            boolean theFieldIsSet = this.isSetKnot();
             List<KnotPropertyType> theField;
-            theField = (((this.knot!= null)&&(!this.knot.isEmpty()))?this.getKnot():null);
+            theField = (this.isSetKnot()?this.getKnot():null);
             strategy.appendField(locator, this, "knot", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interpolation!= null);
+            boolean theFieldIsSet = this.isSetInterpolation();
             CurveInterpolationType theField;
             theField = this.getInterpolation();
             strategy.appendField(locator, this, "interpolation", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isPolynomial!= null);
-            java.lang.Boolean theField;
-            theField = this.getIsPolynomial();
+            boolean theFieldIsSet = this.isSetIsPolynomial();
+            boolean theField;
+            theField = (this.isSetIsPolynomial()?this.getIsPolynomial():false);
             strategy.appendField(locator, this, "isPolynomial", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.knotType!= null);
+            boolean theFieldIsSet = this.isSetKnotType();
             KnotTypesType theField;
             theField = this.getKnotType();
             strategy.appendField(locator, this, "knotType", buffer, theField, theFieldIsSet);

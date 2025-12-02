@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractGeometricAggregateType
     extends AbstractGeometryType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "aggregationType")
     protected AggregationType aggregationType;
 
@@ -70,6 +73,10 @@ public abstract class AbstractGeometricAggregateType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -83,8 +90,8 @@ public abstract class AbstractGeometricAggregateType
         }
         final AbstractGeometricAggregateType that = ((AbstractGeometricAggregateType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -102,7 +109,7 @@ public abstract class AbstractGeometricAggregateType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -115,7 +122,7 @@ public abstract class AbstractGeometricAggregateType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

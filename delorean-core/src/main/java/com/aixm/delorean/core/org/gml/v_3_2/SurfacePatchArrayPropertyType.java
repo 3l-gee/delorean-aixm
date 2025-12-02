@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SurfacePatchArrayPropertyType", propOrder = {
     "abstractSurfacePatch"
 })
-public class SurfacePatchArrayPropertyType implements Equals, HashCode, ToString
+public class SurfacePatchArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractSurfacePatch", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractSurfacePatchType>> abstractSurfacePatch;
 
@@ -98,6 +100,14 @@ public class SurfacePatchArrayPropertyType implements Equals, HashCode, ToString
         this.abstractSurfacePatch = abstractSurfacePatch;
     }
 
+    public boolean isSetAbstractSurfacePatch() {
+        return ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
+    }
+
+    public void unsetAbstractSurfacePatch() {
+        this.abstractSurfacePatch = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -120,12 +130,12 @@ public class SurfacePatchArrayPropertyType implements Equals, HashCode, ToString
         }
         final SurfacePatchArrayPropertyType that = ((SurfacePatchArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractSurfacePatch!= null)&&(!that.abstractSurfacePatch.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAbstractSurfacePatch();
+            boolean rhsFieldIsSet = that.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> lhsField;
-            lhsField = (((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()))?this.getAbstractSurfacePatch():null);
+            lhsField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
             List<JAXBElement<? extends AbstractSurfacePatchType>> rhsField;
-            rhsField = (((that.abstractSurfacePatch!= null)&&(!that.abstractSurfacePatch.isEmpty()))?that.getAbstractSurfacePatch():null);
+            rhsField = (that.isSetAbstractSurfacePatch()?that.getAbstractSurfacePatch():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfacePatch", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfacePatch", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -149,9 +159,9 @@ public class SurfacePatchArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> theField;
-            theField = (((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()))?this.getAbstractSurfacePatch():null);
+            theField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurfacePatch", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -181,9 +191,9 @@ public class SurfacePatchArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> theField;
-            theField = (((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()))?this.getAbstractSurfacePatch():null);
+            theField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
             strategy.appendField(locator, this, "abstractSurfacePatch", buffer, theField, theFieldIsSet);
         }
         return buffer;

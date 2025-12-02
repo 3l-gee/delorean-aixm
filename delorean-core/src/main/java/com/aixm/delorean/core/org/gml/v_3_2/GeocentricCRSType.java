@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class GeocentricCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CartesianCSPropertyType usesCartesianCS;
     protected SphericalCSPropertyType usesSphericalCS;
     @XmlElement(required = true)
@@ -74,6 +77,10 @@ public class GeocentricCRSType
         this.usesCartesianCS = value;
     }
 
+    public boolean isSetUsesCartesianCS() {
+        return (this.usesCartesianCS!= null);
+    }
+
     /**
      * Gets the value of the usesSphericalCS property.
      * 
@@ -96,6 +103,10 @@ public class GeocentricCRSType
      */
     public void setUsesSphericalCS(SphericalCSPropertyType value) {
         this.usesSphericalCS = value;
+    }
+
+    public boolean isSetUsesSphericalCS() {
+        return (this.usesSphericalCS!= null);
     }
 
     /**
@@ -122,6 +133,10 @@ public class GeocentricCRSType
         this.usesGeodeticDatum = value;
     }
 
+    public boolean isSetUsesGeodeticDatum() {
+        return (this.usesGeodeticDatum!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -135,8 +150,21 @@ public class GeocentricCRSType
         }
         final GeocentricCRSType that = ((GeocentricCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.usesCartesianCS!= null);
-            boolean rhsFieldIsSet = (that.usesCartesianCS!= null);
+            boolean lhsFieldIsSet = this.isSetUsesGeodeticDatum();
+            boolean rhsFieldIsSet = that.isSetUsesGeodeticDatum();
+            GeodeticDatumPropertyType lhsField;
+            lhsField = this.getUsesGeodeticDatum();
+            GeodeticDatumPropertyType rhsField;
+            rhsField = that.getUsesGeodeticDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesGeodeticDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesGeodeticDatum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesCartesianCS();
+            boolean rhsFieldIsSet = that.isSetUsesCartesianCS();
             CartesianCSPropertyType lhsField;
             lhsField = this.getUsesCartesianCS();
             CartesianCSPropertyType rhsField;
@@ -148,27 +176,14 @@ public class GeocentricCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.usesSphericalCS!= null);
-            boolean rhsFieldIsSet = (that.usesSphericalCS!= null);
+            boolean lhsFieldIsSet = this.isSetUsesSphericalCS();
+            boolean rhsFieldIsSet = that.isSetUsesSphericalCS();
             SphericalCSPropertyType lhsField;
             lhsField = this.getUsesSphericalCS();
             SphericalCSPropertyType rhsField;
             rhsField = that.getUsesSphericalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesSphericalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesSphericalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.usesGeodeticDatum!= null);
-            boolean rhsFieldIsSet = (that.usesGeodeticDatum!= null);
-            GeodeticDatumPropertyType lhsField;
-            lhsField = this.getUsesGeodeticDatum();
-            GeodeticDatumPropertyType rhsField;
-            rhsField = that.getUsesGeodeticDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesGeodeticDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesGeodeticDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -180,21 +195,21 @@ public class GeocentricCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.usesCartesianCS!= null);
+            boolean theFieldIsSet = this.isSetUsesCartesianCS();
             CartesianCSPropertyType theField;
             theField = this.getUsesCartesianCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "usesCartesianCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesSphericalCS!= null);
+            boolean theFieldIsSet = this.isSetUsesSphericalCS();
             SphericalCSPropertyType theField;
             theField = this.getUsesSphericalCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "usesSphericalCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesGeodeticDatum!= null);
+            boolean theFieldIsSet = this.isSetUsesGeodeticDatum();
             GeodeticDatumPropertyType theField;
             theField = this.getUsesGeodeticDatum();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "usesGeodeticDatum", theField);
@@ -207,19 +222,19 @@ public class GeocentricCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.usesCartesianCS!= null);
+            boolean theFieldIsSet = this.isSetUsesCartesianCS();
             CartesianCSPropertyType theField;
             theField = this.getUsesCartesianCS();
             strategy.appendField(locator, this, "usesCartesianCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesSphericalCS!= null);
+            boolean theFieldIsSet = this.isSetUsesSphericalCS();
             SphericalCSPropertyType theField;
             theField = this.getUsesSphericalCS();
             strategy.appendField(locator, this, "usesSphericalCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesGeodeticDatum!= null);
+            boolean theFieldIsSet = this.isSetUsesGeodeticDatum();
             GeodeticDatumPropertyType theField;
             theField = this.getUsesGeodeticDatum();
             strategy.appendField(locator, this, "usesGeodeticDatum", buffer, theField, theFieldIsSet);

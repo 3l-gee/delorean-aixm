@@ -1,9 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -55,9 +57,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "value"
 })
 @Embeddable
-public class CoordinatesType implements Equals, HashCode, ToString
+public class CoordinatesType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected String value;
     @XmlAttribute(name = "decimal")
@@ -93,6 +96,11 @@ public class CoordinatesType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    @Transient
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the decimal property.
      * 
@@ -121,6 +129,11 @@ public class CoordinatesType implements Equals, HashCode, ToString
      */
     public void setDecimal(String value) {
         this.decimal = value;
+    }
+
+    @Transient
+    public boolean isSetDecimal() {
+        return (this.decimal!= null);
     }
 
     /**
@@ -153,6 +166,11 @@ public class CoordinatesType implements Equals, HashCode, ToString
         this.cs = value;
     }
 
+    @Transient
+    public boolean isSetCs() {
+        return (this.cs!= null);
+    }
+
     /**
      * Gets the value of the ts property.
      * 
@@ -183,6 +201,11 @@ public class CoordinatesType implements Equals, HashCode, ToString
         this.ts = value;
     }
 
+    @Transient
+    public boolean isSetTs() {
+        return (this.ts!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -205,34 +228,8 @@ public class CoordinatesType implements Equals, HashCode, ToString
         }
         final CoordinatesType that = ((CoordinatesType) object);
         {
-            boolean lhsFieldIsSet = (this.cs!= null);
-            boolean rhsFieldIsSet = (that.cs!= null);
-            String lhsField;
-            lhsField = this.getCs();
-            String rhsField;
-            rhsField = that.getCs();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.decimal!= null);
-            boolean rhsFieldIsSet = (that.decimal!= null);
-            String lhsField;
-            lhsField = this.getDecimal();
-            String rhsField;
-            rhsField = that.getDecimal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.ts!= null);
-            boolean rhsFieldIsSet = (that.ts!= null);
+            boolean lhsFieldIsSet = this.isSetTs();
+            boolean rhsFieldIsSet = that.isSetTs();
             String lhsField;
             lhsField = this.getTs();
             String rhsField;
@@ -244,14 +241,40 @@ public class CoordinatesType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             String lhsField;
             lhsField = this.getValue();
             String rhsField;
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCs();
+            boolean rhsFieldIsSet = that.isSetCs();
+            String lhsField;
+            lhsField = this.getCs();
+            String rhsField;
+            rhsField = that.getCs();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cs", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cs", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDecimal();
+            boolean rhsFieldIsSet = that.isSetDecimal();
+            String lhsField;
+            lhsField = this.getDecimal();
+            String rhsField;
+            rhsField = that.getDecimal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "decimal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "decimal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -273,28 +296,28 @@ public class CoordinatesType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimal!= null);
+            boolean theFieldIsSet = this.isSetDecimal();
             String theField;
             theField = this.getDecimal();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "decimal", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cs!= null);
+            boolean theFieldIsSet = this.isSetCs();
             String theField;
             theField = this.getCs();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "cs", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.ts!= null);
+            boolean theFieldIsSet = this.isSetTs();
             String theField;
             theField = this.getTs();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ts", theField);
@@ -326,25 +349,25 @@ public class CoordinatesType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimal!= null);
+            boolean theFieldIsSet = this.isSetDecimal();
             String theField;
             theField = this.getDecimal();
             strategy.appendField(locator, this, "decimal", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cs!= null);
+            boolean theFieldIsSet = this.isSetCs();
             String theField;
             theField = this.getCs();
             strategy.appendField(locator, this, "cs", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.ts!= null);
+            boolean theFieldIsSet = this.isSetTs();
             String theField;
             theField = this.getTs();
             strategy.appendField(locator, this, "ts", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -57,8 +58,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @MappedSuperclass
 public abstract class AbstractFeatureType
     extends AbstractGMLType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * This property describes the minimum bounding box or rectangle that encloses the entire feature.
      * 
@@ -94,6 +97,11 @@ public abstract class AbstractFeatureType
         this.boundedBy = value;
     }
 
+    @Transient
+    public boolean isSetBoundedBy() {
+        return (this.boundedBy!= null);
+    }
+
     /**
      * Gets the value of the location property.
      * 
@@ -121,6 +129,11 @@ public abstract class AbstractFeatureType
         this.location = value;
     }
 
+    @Transient
+    public boolean isSetLocation() {
+        return (this.location!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -134,8 +147,8 @@ public abstract class AbstractFeatureType
         }
         final AbstractFeatureType that = ((AbstractFeatureType) object);
         {
-            boolean lhsFieldIsSet = (this.boundedBy!= null);
-            boolean rhsFieldIsSet = (that.boundedBy!= null);
+            boolean lhsFieldIsSet = this.isSetBoundedBy();
+            boolean rhsFieldIsSet = that.isSetBoundedBy();
             BoundingShapeType lhsField;
             lhsField = this.getBoundedBy();
             BoundingShapeType rhsField;
@@ -147,8 +160,8 @@ public abstract class AbstractFeatureType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.location!= null);
-            boolean rhsFieldIsSet = (that.location!= null);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<? extends LocationPropertyType> lhsField;
             lhsField = this.getLocation();
             JAXBElement<? extends LocationPropertyType> rhsField;
@@ -166,14 +179,14 @@ public abstract class AbstractFeatureType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.boundedBy!= null);
+            boolean theFieldIsSet = this.isSetBoundedBy();
             BoundingShapeType theField;
             theField = this.getBoundedBy();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "boundedBy", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.location!= null);
+            boolean theFieldIsSet = this.isSetLocation();
             JAXBElement<? extends LocationPropertyType> theField;
             theField = this.getLocation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "location", theField);
@@ -186,13 +199,13 @@ public abstract class AbstractFeatureType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.boundedBy!= null);
+            boolean theFieldIsSet = this.isSetBoundedBy();
             BoundingShapeType theField;
             theField = this.getBoundedBy();
             strategy.appendField(locator, this, "boundedBy", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.location!= null);
+            boolean theFieldIsSet = this.isSetLocation();
             JAXBElement<? extends LocationPropertyType> theField;
             theField = this.getLocation();
             strategy.appendField(locator, this, "location", buffer, theField, theFieldIsSet);

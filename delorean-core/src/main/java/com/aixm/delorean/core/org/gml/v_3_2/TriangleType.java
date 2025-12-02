@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TriangleType
     extends AbstractSurfacePatchType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
      * 
@@ -48,7 +51,7 @@ public class TriangleType
     @XmlElement(required = true)
     protected AbstractRingPropertyType exterior;
     @XmlAttribute(name = "interpolation")
-    protected SurfaceInterpolationType interpolation;
+    public static final SurfaceInterpolationType INTERPOLATION = SurfaceInterpolationType.PLANAR;
 
     /**
      * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
@@ -75,32 +78,8 @@ public class TriangleType
         this.exterior = value;
     }
 
-    /**
-     * Gets the value of the interpolation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SurfaceInterpolationType }
-     *     
-     */
-    public SurfaceInterpolationType getInterpolation() {
-        if (interpolation == null) {
-            return SurfaceInterpolationType.PLANAR;
-        } else {
-            return interpolation;
-        }
-    }
-
-    /**
-     * Sets the value of the interpolation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SurfaceInterpolationType }
-     *     
-     */
-    public void setInterpolation(SurfaceInterpolationType value) {
-        this.interpolation = value;
+    public boolean isSetExterior() {
+        return (this.exterior!= null);
     }
 
     @Override
@@ -116,21 +95,8 @@ public class TriangleType
         }
         final TriangleType that = ((TriangleType) object);
         {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            SurfaceInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            SurfaceInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.exterior!= null);
-            boolean rhsFieldIsSet = (that.exterior!= null);
+            boolean lhsFieldIsSet = this.isSetExterior();
+            boolean rhsFieldIsSet = that.isSetExterior();
             AbstractRingPropertyType lhsField;
             lhsField = this.getExterior();
             AbstractRingPropertyType rhsField;
@@ -148,17 +114,10 @@ public class TriangleType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             AbstractRingPropertyType theField;
             theField = this.getExterior();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "exterior", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            SurfaceInterpolationType theField;
-            theField = this.getInterpolation();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpolation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -168,16 +127,10 @@ public class TriangleType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             AbstractRingPropertyType theField;
             theField = this.getExterior();
             strategy.appendField(locator, this, "exterior", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            SurfaceInterpolationType theField;
-            theField = this.getInterpolation();
-            strategy.appendField(locator, this, "interpolation", buffer, theField, theFieldIsSet);
         }
         return buffer;
     }

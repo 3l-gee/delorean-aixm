@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     DerivationUnitTermType.class,
     ConversionToPreferredUnitType.class
 })
-public class UnitOfMeasureType implements Equals, HashCode, ToString
+public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "uom", required = true)
     protected String uom;
 
@@ -75,6 +77,10 @@ public class UnitOfMeasureType implements Equals, HashCode, ToString
         this.uom = value;
     }
 
+    public boolean isSetUom() {
+        return (this.uom!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -97,8 +103,8 @@ public class UnitOfMeasureType implements Equals, HashCode, ToString
         }
         final UnitOfMeasureType that = ((UnitOfMeasureType) object);
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
             lhsField = this.getUom();
             String rhsField;
@@ -126,7 +132,7 @@ public class UnitOfMeasureType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uom", theField);
@@ -158,7 +164,7 @@ public class UnitOfMeasureType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             strategy.appendField(locator, this, "uom", buffer, theField, theFieldIsSet);

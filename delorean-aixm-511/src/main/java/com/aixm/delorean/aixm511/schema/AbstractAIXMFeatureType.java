@@ -7,11 +7,16 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -152,6 +157,10 @@ public abstract class AbstractAIXMFeatureType
     protected FeatureMetadataPropertyType featureMetadata;
     @XmlTransient
     protected String approvalStatus;
+    @XmlTransient
+    protected Long hjid;
+    @XmlTransient
+    protected Long hjversion;
 
     /**
      * Gets the value of the featureMetadata property.
@@ -215,6 +224,60 @@ public abstract class AbstractAIXMFeatureType
         return (this.approvalStatus!= null);
     }
 
+    /**
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Id
+    @Column(name = "HJID")
+    @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
+    public Long gethjid() {
+        return hjid;
+    }
+
+    /**
+     * 
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void sethjid(Long value) {
+        this.hjid = value;
+    }
+
+    /**
+     * 
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    @Version
+    @Column(name = "hjversion")
+    public Long gethjversion() {
+        return hjversion;
+    }
+
+    /**
+     * 
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void sethjversion(Long value) {
+        this.hjversion = value;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -228,19 +291,6 @@ public abstract class AbstractAIXMFeatureType
         }
         final AbstractAIXMFeatureType that = ((AbstractAIXMFeatureType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFeatureMetadata();
-            boolean rhsFieldIsSet = that.isSetFeatureMetadata();
-            FeatureMetadataPropertyType lhsField;
-            lhsField = this.getFeatureMetadata();
-            FeatureMetadataPropertyType rhsField;
-            rhsField = that.getFeatureMetadata();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetApprovalStatus();
             boolean rhsFieldIsSet = that.isSetApprovalStatus();
             String lhsField;
@@ -249,6 +299,19 @@ public abstract class AbstractAIXMFeatureType
             rhsField = that.getApprovalStatus();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatureMetadata();
+            boolean rhsFieldIsSet = that.isSetFeatureMetadata();
+            FeatureMetadataPropertyType lhsField;
+            lhsField = this.getFeatureMetadata();
+            FeatureMetadataPropertyType rhsField;
+            rhsField = that.getFeatureMetadata();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMetadata", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

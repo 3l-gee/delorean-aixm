@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeCalendarEraType
     extends DefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected StringOrRefType referenceEvent;
     @XmlElement(required = true)
@@ -79,6 +82,10 @@ public class TimeCalendarEraType
         this.referenceEvent = value;
     }
 
+    public boolean isSetReferenceEvent() {
+        return (this.referenceEvent!= null);
+    }
+
     /**
      * Gets the value of the referenceDate property.
      * 
@@ -101,6 +108,10 @@ public class TimeCalendarEraType
      */
     public void setReferenceDate(String value) {
         this.referenceDate = value;
+    }
+
+    public boolean isSetReferenceDate() {
+        return (this.referenceDate!= null);
     }
 
     /**
@@ -127,6 +138,10 @@ public class TimeCalendarEraType
         this.julianReference = value;
     }
 
+    public boolean isSetJulianReference() {
+        return (this.julianReference!= null);
+    }
+
     /**
      * Gets the value of the epochOfUse property.
      * 
@@ -151,6 +166,10 @@ public class TimeCalendarEraType
         this.epochOfUse = value;
     }
 
+    public boolean isSetEpochOfUse() {
+        return (this.epochOfUse!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -164,34 +183,21 @@ public class TimeCalendarEraType
         }
         final TimeCalendarEraType that = ((TimeCalendarEraType) object);
         {
-            boolean lhsFieldIsSet = (this.referenceEvent!= null);
-            boolean rhsFieldIsSet = (that.referenceEvent!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getReferenceEvent();
-            StringOrRefType rhsField;
-            rhsField = that.getReferenceEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
+            boolean lhsFieldIsSet = this.isSetEpochOfUse();
+            boolean rhsFieldIsSet = that.isSetEpochOfUse();
+            TimePeriodPropertyType lhsField;
+            lhsField = this.getEpochOfUse();
+            TimePeriodPropertyType rhsField;
+            rhsField = that.getEpochOfUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.julianReference!= null);
-            boolean rhsFieldIsSet = (that.julianReference!= null);
-            BigDecimal lhsField;
-            lhsField = this.getJulianReference();
-            BigDecimal rhsField;
-            rhsField = that.getJulianReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.referenceDate!= null);
-            boolean rhsFieldIsSet = (that.referenceDate!= null);
+            boolean lhsFieldIsSet = this.isSetReferenceDate();
+            boolean rhsFieldIsSet = that.isSetReferenceDate();
             String lhsField;
             lhsField = this.getReferenceDate();
             String rhsField;
@@ -203,14 +209,27 @@ public class TimeCalendarEraType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.epochOfUse!= null);
-            boolean rhsFieldIsSet = (that.epochOfUse!= null);
-            TimePeriodPropertyType lhsField;
-            lhsField = this.getEpochOfUse();
-            TimePeriodPropertyType rhsField;
-            rhsField = that.getEpochOfUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "epochOfUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "epochOfUse", rhsField);
+            boolean lhsFieldIsSet = this.isSetJulianReference();
+            boolean rhsFieldIsSet = that.isSetJulianReference();
+            BigDecimal lhsField;
+            lhsField = this.getJulianReference();
+            BigDecimal rhsField;
+            rhsField = that.getJulianReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "julianReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "julianReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceEvent();
+            boolean rhsFieldIsSet = that.isSetReferenceEvent();
+            StringOrRefType lhsField;
+            lhsField = this.getReferenceEvent();
+            StringOrRefType rhsField;
+            rhsField = that.getReferenceEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -222,28 +241,28 @@ public class TimeCalendarEraType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.referenceEvent!= null);
+            boolean theFieldIsSet = this.isSetReferenceEvent();
             StringOrRefType theField;
             theField = this.getReferenceEvent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceEvent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.referenceDate!= null);
+            boolean theFieldIsSet = this.isSetReferenceDate();
             String theField;
             theField = this.getReferenceDate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceDate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.julianReference!= null);
+            boolean theFieldIsSet = this.isSetJulianReference();
             BigDecimal theField;
             theField = this.getJulianReference();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "julianReference", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.epochOfUse!= null);
+            boolean theFieldIsSet = this.isSetEpochOfUse();
             TimePeriodPropertyType theField;
             theField = this.getEpochOfUse();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "epochOfUse", theField);
@@ -256,25 +275,25 @@ public class TimeCalendarEraType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.referenceEvent!= null);
+            boolean theFieldIsSet = this.isSetReferenceEvent();
             StringOrRefType theField;
             theField = this.getReferenceEvent();
             strategy.appendField(locator, this, "referenceEvent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.referenceDate!= null);
+            boolean theFieldIsSet = this.isSetReferenceDate();
             String theField;
             theField = this.getReferenceDate();
             strategy.appendField(locator, this, "referenceDate", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.julianReference!= null);
+            boolean theFieldIsSet = this.isSetJulianReference();
             BigDecimal theField;
             theField = this.getJulianReference();
             strategy.appendField(locator, this, "julianReference", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.epochOfUse!= null);
+            boolean theFieldIsSet = this.isSetEpochOfUse();
             TimePeriodPropertyType theField;
             theField = this.getEpochOfUse();
             strategy.appendField(locator, this, "epochOfUse", buffer, theField, theFieldIsSet);

@@ -282,7 +282,7 @@ public class SurfaceContaminationLayerType
     @OneToMany(targetEntity = SurfaceContaminationLayerTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_SURFACE_CONTAMINAT_0")
     public List<SurfaceContaminationLayerTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -372,6 +372,19 @@ public class SurfaceContaminationLayerType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = (this.isSetExtent()?this.getExtent():null);
+            List<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = (that.isSetExtent()?that.getExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<SurfaceContaminationLayerTypeExtensionType> lhsField;
@@ -393,19 +406,6 @@ public class SurfaceContaminationLayerType
             rhsField = that.getLayerOrder();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layerOrder", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layerOrder", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = (this.isSetExtent()?this.getExtent():null);
-            List<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = (that.isSetExtent()?that.getExtent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

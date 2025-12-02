@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -50,9 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "decimal",
     "integer"
 })
-public class NumberPropertyType implements Equals, HashCode, ToString
+public class NumberPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Real")
     protected Double real;
     @XmlElement(name = "Decimal")
@@ -86,6 +88,10 @@ public class NumberPropertyType implements Equals, HashCode, ToString
         this.real = value;
     }
 
+    public boolean isSetReal() {
+        return (this.real!= null);
+    }
+
     /**
      * Gets the value of the decimal property.
      * 
@@ -108,6 +114,10 @@ public class NumberPropertyType implements Equals, HashCode, ToString
      */
     public void setDecimal(BigDecimal value) {
         this.decimal = value;
+    }
+
+    public boolean isSetDecimal() {
+        return (this.decimal!= null);
     }
 
     /**
@@ -134,6 +144,10 @@ public class NumberPropertyType implements Equals, HashCode, ToString
         this.integer = value;
     }
 
+    public boolean isSetInteger() {
+        return (this.integer!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -158,6 +172,10 @@ public class NumberPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -180,34 +198,8 @@ public class NumberPropertyType implements Equals, HashCode, ToString
         }
         final NumberPropertyType that = ((NumberPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.integer!= null);
-            boolean rhsFieldIsSet = (that.integer!= null);
-            BigInteger lhsField;
-            lhsField = this.getInteger();
-            BigInteger rhsField;
-            rhsField = that.getInteger();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.real!= null);
-            boolean rhsFieldIsSet = (that.real!= null);
-            Double lhsField;
-            lhsField = this.getReal();
-            Double rhsField;
-            rhsField = that.getReal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -219,8 +211,34 @@ public class NumberPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.decimal!= null);
-            boolean rhsFieldIsSet = (that.decimal!= null);
+            boolean lhsFieldIsSet = this.isSetReal();
+            boolean rhsFieldIsSet = that.isSetReal();
+            Double lhsField;
+            lhsField = this.getReal();
+            Double rhsField;
+            rhsField = that.getReal();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "real", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "real", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInteger();
+            boolean rhsFieldIsSet = that.isSetInteger();
+            BigInteger lhsField;
+            lhsField = this.getInteger();
+            BigInteger rhsField;
+            rhsField = that.getInteger();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "integer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "integer", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDecimal();
+            boolean rhsFieldIsSet = that.isSetDecimal();
             BigDecimal lhsField;
             lhsField = this.getDecimal();
             BigDecimal rhsField;
@@ -248,28 +266,28 @@ public class NumberPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.real!= null);
+            boolean theFieldIsSet = this.isSetReal();
             Double theField;
             theField = this.getReal();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "real", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimal!= null);
+            boolean theFieldIsSet = this.isSetDecimal();
             BigDecimal theField;
             theField = this.getDecimal();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "decimal", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.integer!= null);
+            boolean theFieldIsSet = this.isSetInteger();
             BigInteger theField;
             theField = this.getInteger();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "integer", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -301,25 +319,25 @@ public class NumberPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.real!= null);
+            boolean theFieldIsSet = this.isSetReal();
             Double theField;
             theField = this.getReal();
             strategy.appendField(locator, this, "real", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimal!= null);
+            boolean theFieldIsSet = this.isSetDecimal();
             BigDecimal theField;
             theField = this.getDecimal();
             strategy.appendField(locator, this, "decimal", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.integer!= null);
+            boolean theFieldIsSet = this.isSetInteger();
             BigInteger theField;
             theField = this.getInteger();
             strategy.appendField(locator, this, "integer", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

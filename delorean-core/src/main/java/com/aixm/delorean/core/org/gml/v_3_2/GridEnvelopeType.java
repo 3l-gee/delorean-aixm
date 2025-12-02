@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "low",
     "high"
 })
-public class GridEnvelopeType implements Equals, HashCode, ToString
+public class GridEnvelopeType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlList
     @XmlElement(required = true)
     protected List<BigInteger> low;
@@ -95,6 +97,14 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
         this.low = low;
     }
 
+    public boolean isSetLow() {
+        return ((this.low!= null)&&(!this.low.isEmpty()));
+    }
+
+    public void unsetLow() {
+        this.low = null;
+    }
+
     /**
      * Gets the value of the high property.
      * 
@@ -132,6 +142,14 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
         this.high = high;
     }
 
+    public boolean isSetHigh() {
+        return ((this.high!= null)&&(!this.high.isEmpty()));
+    }
+
+    public void unsetHigh() {
+        this.high = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -154,27 +172,27 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
         }
         final GridEnvelopeType that = ((GridEnvelopeType) object);
         {
-            boolean lhsFieldIsSet = ((this.low!= null)&&(!this.low.isEmpty()));
-            boolean rhsFieldIsSet = ((that.low!= null)&&(!that.low.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetHigh();
+            boolean rhsFieldIsSet = that.isSetHigh();
             List<BigInteger> lhsField;
-            lhsField = (((this.low!= null)&&(!this.low.isEmpty()))?this.getLow():null);
+            lhsField = (this.isSetHigh()?this.getHigh():null);
             List<BigInteger> rhsField;
-            rhsField = (((that.low!= null)&&(!that.low.isEmpty()))?that.getLow():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "low", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "low", rhsField);
+            rhsField = (that.isSetHigh()?that.getHigh():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.high!= null)&&(!this.high.isEmpty()));
-            boolean rhsFieldIsSet = ((that.high!= null)&&(!that.high.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetLow();
+            boolean rhsFieldIsSet = that.isSetLow();
             List<BigInteger> lhsField;
-            lhsField = (((this.high!= null)&&(!this.high.isEmpty()))?this.getHigh():null);
+            lhsField = (this.isSetLow()?this.getLow():null);
             List<BigInteger> rhsField;
-            rhsField = (((that.high!= null)&&(!that.high.isEmpty()))?that.getHigh():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
+            rhsField = (that.isSetLow()?that.getLow():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "low", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "low", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -196,16 +214,16 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.low!= null)&&(!this.low.isEmpty()));
+            boolean theFieldIsSet = this.isSetLow();
             List<BigInteger> theField;
-            theField = (((this.low!= null)&&(!this.low.isEmpty()))?this.getLow():null);
+            theField = (this.isSetLow()?this.getLow():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "low", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.high!= null)&&(!this.high.isEmpty()));
+            boolean theFieldIsSet = this.isSetHigh();
             List<BigInteger> theField;
-            theField = (((this.high!= null)&&(!this.high.isEmpty()))?this.getHigh():null);
+            theField = (this.isSetHigh()?this.getHigh():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "high", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -235,15 +253,15 @@ public class GridEnvelopeType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.low!= null)&&(!this.low.isEmpty()));
+            boolean theFieldIsSet = this.isSetLow();
             List<BigInteger> theField;
-            theField = (((this.low!= null)&&(!this.low.isEmpty()))?this.getLow():null);
+            theField = (this.isSetLow()?this.getLow():null);
             strategy.appendField(locator, this, "low", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.high!= null)&&(!this.high.isEmpty()));
+            boolean theFieldIsSet = this.isSetHigh();
             List<BigInteger> theField;
-            theField = (((this.high!= null)&&(!this.high.isEmpty()))?this.getHigh():null);
+            theField = (this.isSetHigh()?this.getHigh():null);
             strategy.appendField(locator, this, "high", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractGeneralOperationParameterType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:minimumOccurs is the minimum number of times that values for this parameter group or parameter are required. If this attribute is omitted, the minimum number shall be one.
      * 
@@ -77,6 +80,10 @@ public abstract class AbstractGeneralOperationParameterType
         this.minimumOccurs = value;
     }
 
+    public boolean isSetMinimumOccurs() {
+        return (this.minimumOccurs!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -90,8 +97,8 @@ public abstract class AbstractGeneralOperationParameterType
         }
         final AbstractGeneralOperationParameterType that = ((AbstractGeneralOperationParameterType) object);
         {
-            boolean lhsFieldIsSet = (this.minimumOccurs!= null);
-            boolean rhsFieldIsSet = (that.minimumOccurs!= null);
+            boolean lhsFieldIsSet = this.isSetMinimumOccurs();
+            boolean rhsFieldIsSet = that.isSetMinimumOccurs();
             BigInteger lhsField;
             lhsField = this.getMinimumOccurs();
             BigInteger rhsField;
@@ -109,7 +116,7 @@ public abstract class AbstractGeneralOperationParameterType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.minimumOccurs!= null);
+            boolean theFieldIsSet = this.isSetMinimumOccurs();
             BigInteger theField;
             theField = this.getMinimumOccurs();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumOccurs", theField);
@@ -122,7 +129,7 @@ public abstract class AbstractGeneralOperationParameterType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.minimumOccurs!= null);
+            boolean theFieldIsSet = this.isSetMinimumOccurs();
             BigInteger theField;
             theField = this.getMinimumOccurs();
             strategy.appendField(locator, this, "minimumOccurs", buffer, theField, theFieldIsSet);

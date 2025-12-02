@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DefinitionProxyType
     extends DefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected ReferenceType definitionRef;
 
@@ -66,6 +69,10 @@ public class DefinitionProxyType
         this.definitionRef = value;
     }
 
+    public boolean isSetDefinitionRef() {
+        return (this.definitionRef!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -79,8 +86,8 @@ public class DefinitionProxyType
         }
         final DefinitionProxyType that = ((DefinitionProxyType) object);
         {
-            boolean lhsFieldIsSet = (this.definitionRef!= null);
-            boolean rhsFieldIsSet = (that.definitionRef!= null);
+            boolean lhsFieldIsSet = this.isSetDefinitionRef();
+            boolean rhsFieldIsSet = that.isSetDefinitionRef();
             ReferenceType lhsField;
             lhsField = this.getDefinitionRef();
             ReferenceType rhsField;
@@ -98,7 +105,7 @@ public class DefinitionProxyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.definitionRef!= null);
+            boolean theFieldIsSet = this.isSetDefinitionRef();
             ReferenceType theField;
             theField = this.getDefinitionRef();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "definitionRef", theField);
@@ -111,7 +118,7 @@ public class DefinitionProxyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.definitionRef!= null);
+            boolean theFieldIsSet = this.isSetDefinitionRef();
             ReferenceType theField;
             theField = this.getDefinitionRef();
             strategy.appendField(locator, this, "definitionRef", buffer, theField, theFieldIsSet);

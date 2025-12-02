@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_CellGeometryCode_PropertyType", propOrder = {
     "mdCellGeometryCode"
 })
-public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToString
+public class MDCellGeometryCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_CellGeometryCode")
     protected CodeListValueType mdCellGeometryCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToStrin
         this.mdCellGeometryCode = value;
     }
 
+    public boolean isSetMDCellGeometryCode() {
+        return (this.mdCellGeometryCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToStrin
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToStrin
         }
         final MDCellGeometryCodePropertyType that = ((MDCellGeometryCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdCellGeometryCode!= null);
-            boolean rhsFieldIsSet = (that.mdCellGeometryCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDCellGeometryCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDCellGeometryCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCellGeometryCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCellGeometryCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDCellGeometryCode();
+            boolean rhsFieldIsSet = that.isSetMDCellGeometryCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDCellGeometryCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDCellGeometryCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCellGeometryCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCellGeometryCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToStrin
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdCellGeometryCode!= null);
+            boolean theFieldIsSet = this.isSetMDCellGeometryCode();
             CodeListValueType theField;
             theField = this.getMDCellGeometryCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdCellGeometryCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDCellGeometryCodePropertyType implements Equals, HashCode, ToStrin
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdCellGeometryCode!= null);
+            boolean theFieldIsSet = this.isSetMDCellGeometryCode();
             CodeListValueType theField;
             theField = this.getMDCellGeometryCode();
             strategy.appendField(locator, this, "mdCellGeometryCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

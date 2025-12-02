@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +52,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DirectPositionListType", propOrder = {
     "value"
 })
-public class DirectPositionListType implements Equals, HashCode, ToString
+public class DirectPositionListType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected List<Double> value;
     @XmlAttribute(name = "count")
@@ -107,6 +109,14 @@ public class DirectPositionListType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
+    }
+
     /**
      * Gets the value of the count property.
      * 
@@ -129,6 +139,10 @@ public class DirectPositionListType implements Equals, HashCode, ToString
      */
     public void setCount(BigInteger value) {
         this.count = value;
+    }
+
+    public boolean isSetCount() {
+        return (this.count!= null);
     }
 
     /**
@@ -155,6 +169,10 @@ public class DirectPositionListType implements Equals, HashCode, ToString
         this.srsName = value;
     }
 
+    public boolean isSetSrsName() {
+        return (this.srsName!= null);
+    }
+
     /**
      * Gets the value of the srsDimension property.
      * 
@@ -177,6 +195,10 @@ public class DirectPositionListType implements Equals, HashCode, ToString
      */
     public void setSrsDimension(BigInteger value) {
         this.srsDimension = value;
+    }
+
+    public boolean isSetSrsDimension() {
+        return (this.srsDimension!= null);
     }
 
     /**
@@ -216,6 +238,14 @@ public class DirectPositionListType implements Equals, HashCode, ToString
         this.axisLabels = axisLabels;
     }
 
+    public boolean isSetAxisLabels() {
+        return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+    }
+
+    public void unsetAxisLabels() {
+        this.axisLabels = null;
+    }
+
     /**
      * Gets the value of the uomLabels property.
      * 
@@ -253,6 +283,14 @@ public class DirectPositionListType implements Equals, HashCode, ToString
         this.uomLabels = uomLabels;
     }
 
+    public boolean isSetUomLabels() {
+        return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+    }
+
+    public void unsetUomLabels() {
+        this.uomLabels = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -275,12 +313,12 @@ public class DirectPositionListType implements Equals, HashCode, ToString
         }
         final DirectPositionListType that = ((DirectPositionListType) object);
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             List<Double> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            lhsField = (this.isSetValue()?this.getValue():null);
             List<Double> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
+            rhsField = (that.isSetValue()?that.getValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -288,47 +326,8 @@ public class DirectPositionListType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.srsName!= null);
-            boolean rhsFieldIsSet = (that.srsName!= null);
-            String lhsField;
-            lhsField = this.getSrsName();
-            String rhsField;
-            rhsField = that.getSrsName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.uomLabels!= null)&&(!that.uomLabels.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
-            List<String> rhsField;
-            rhsField = (((that.uomLabels!= null)&&(!that.uomLabels.isEmpty()))?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.srsDimension!= null);
-            boolean rhsFieldIsSet = (that.srsDimension!= null);
-            BigInteger lhsField;
-            lhsField = this.getSrsDimension();
-            BigInteger rhsField;
-            rhsField = that.getSrsDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.count!= null);
-            boolean rhsFieldIsSet = (that.count!= null);
+            boolean lhsFieldIsSet = this.isSetCount();
+            boolean rhsFieldIsSet = that.isSetCount();
             BigInteger lhsField;
             lhsField = this.getCount();
             BigInteger rhsField;
@@ -340,14 +339,53 @@ public class DirectPositionListType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisLabels!= null)&&(!that.axisLabels.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
             List<String> lhsField;
-            lhsField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             List<String> rhsField;
-            rhsField = (((that.axisLabels!= null)&&(!that.axisLabels.isEmpty()))?that.getAxisLabels():null);
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrsName();
+            boolean rhsFieldIsSet = that.isSetSrsName();
+            String lhsField;
+            lhsField = this.getSrsName();
+            String rhsField;
+            rhsField = that.getSrsName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrsDimension();
+            boolean rhsFieldIsSet = that.isSetSrsDimension();
+            BigInteger lhsField;
+            lhsField = this.getSrsDimension();
+            BigInteger rhsField;
+            rhsField = that.getSrsDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -369,44 +407,44 @@ public class DirectPositionListType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<Double> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.count!= null);
+            boolean theFieldIsSet = this.isSetCount();
             BigInteger theField;
             theField = this.getCount();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "count", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsName!= null);
+            boolean theFieldIsSet = this.isSetSrsName();
             String theField;
             theField = this.getSrsName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "srsName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsDimension!= null);
+            boolean theFieldIsSet = this.isSetSrsDimension();
             BigInteger theField;
             theField = this.getSrsDimension();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "srsDimension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uomLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -436,39 +474,39 @@ public class DirectPositionListType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<Double> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.count!= null);
+            boolean theFieldIsSet = this.isSetCount();
             BigInteger theField;
             theField = this.getCount();
             strategy.appendField(locator, this, "count", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsName!= null);
+            boolean theFieldIsSet = this.isSetSrsName();
             String theField;
             theField = this.getSrsName();
             strategy.appendField(locator, this, "srsName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsDimension!= null);
+            boolean theFieldIsSet = this.isSetSrsDimension();
             BigInteger theField;
             theField = this.getSrsDimension();
             strategy.appendField(locator, this, "srsDimension", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             strategy.appendField(locator, this, "axisLabels", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             strategy.appendField(locator, this, "uomLabels", buffer, theField, theFieldIsSet);
         }
         return buffer;

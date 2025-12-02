@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gmd.v2007.LocalisedCharacterStringType;
 import com.aixm.delorean.core.org.gmd.v2007.MDObligationCodeType;
 import com.aixm.delorean.core.org.gmd.v2007.MDPixelOrientationCodeType;
@@ -54,9 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     PTFreeTextPropertyType.class
 })
-public class CharacterStringPropertyType implements Equals, HashCode, ToString
+public class CharacterStringPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "CharacterString", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
     protected JAXBElement<?> characterString;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -148,6 +150,10 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
         this.characterString = value;
     }
 
+    public boolean isSetCharacterString() {
+        return (this.characterString!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -172,6 +178,10 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -194,8 +204,8 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
         }
         final CharacterStringPropertyType that = ((CharacterStringPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -207,8 +217,8 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.characterString!= null);
-            boolean rhsFieldIsSet = (that.characterString!= null);
+            boolean lhsFieldIsSet = this.isSetCharacterString();
+            boolean rhsFieldIsSet = that.isSetCharacterString();
             JAXBElement<?> lhsField;
             lhsField = this.getCharacterString();
             JAXBElement<?> rhsField;
@@ -236,14 +246,14 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.characterString!= null);
+            boolean theFieldIsSet = this.isSetCharacterString();
             JAXBElement<?> theField;
             theField = this.getCharacterString();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "characterString", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -275,13 +285,13 @@ public class CharacterStringPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.characterString!= null);
+            boolean theFieldIsSet = this.isSetCharacterString();
             JAXBElement<?> theField;
             theField = this.getCharacterString();
             strategy.appendField(locator, this, "characterString", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

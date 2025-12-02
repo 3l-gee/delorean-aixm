@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.w3.xlink;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -51,9 +52,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "extended", propOrder = {
     "extendedModel"
 })
-public class Extended implements Equals, HashCode, ToString
+public class Extended implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElements({
         @XmlElement(name = "title", type = TitleEltType.class),
         @XmlElement(name = "resource", type = ResourceType.class),
@@ -62,7 +64,7 @@ public class Extended implements Equals, HashCode, ToString
     })
     protected List<Object> extendedModel;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.EXTENDED;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
     protected String role;
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
@@ -108,32 +110,12 @@ public class Extended implements Equals, HashCode, ToString
         this.extendedModel = extendedModel;
     }
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    public TypeType getType() {
-        if (type == null) {
-            return TypeType.EXTENDED;
-        } else {
-            return type;
-        }
+    public boolean isSetExtendedModel() {
+        return ((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()));
     }
 
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setType(TypeType value) {
-        this.type = value;
+    public void unsetExtendedModel() {
+        this.extendedModel = null;
     }
 
     /**
@@ -160,6 +142,10 @@ public class Extended implements Equals, HashCode, ToString
         this.role = value;
     }
 
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
     /**
      * Gets the value of the titleAttribute property.
      * 
@@ -184,6 +170,10 @@ public class Extended implements Equals, HashCode, ToString
         this.titleAttribute = value;
     }
 
+    public boolean isSetTitleAttribute() {
+        return (this.titleAttribute!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -206,8 +196,21 @@ public class Extended implements Equals, HashCode, ToString
         }
         final Extended that = ((Extended) object);
         {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
+            boolean lhsFieldIsSet = this.isSetExtendedModel();
+            boolean rhsFieldIsSet = that.isSetExtendedModel();
+            List<Object> lhsField;
+            lhsField = (this.isSetExtendedModel()?this.getExtendedModel():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetExtendedModel()?that.getExtendedModel():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedModel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedModel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
             lhsField = this.getRole();
             String rhsField;
@@ -219,40 +222,14 @@ public class Extended implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.titleAttribute!= null);
-            boolean rhsFieldIsSet = (that.titleAttribute!= null);
+            boolean lhsFieldIsSet = this.isSetTitleAttribute();
+            boolean rhsFieldIsSet = that.isSetTitleAttribute();
             String lhsField;
             lhsField = this.getTitleAttribute();
             String rhsField;
             rhsField = that.getTitleAttribute();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()));
-            boolean rhsFieldIsSet = ((that.extendedModel!= null)&&(!that.extendedModel.isEmpty()));
-            List<Object> lhsField;
-            lhsField = (((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()))?this.getExtendedModel():null);
-            List<Object> rhsField;
-            rhsField = (((that.extendedModel!= null)&&(!that.extendedModel.isEmpty()))?that.getExtendedModel():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedModel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedModel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,28 +251,21 @@ public class Extended implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()));
+            boolean theFieldIsSet = this.isSetExtendedModel();
             List<Object> theField;
-            theField = (((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()))?this.getExtendedModel():null);
+            theField = (this.isSetExtendedModel()?this.getExtendedModel():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extendedModel", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "role", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.titleAttribute!= null);
+            boolean theFieldIsSet = this.isSetTitleAttribute();
             String theField;
             theField = this.getTitleAttribute();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "titleAttribute", theField);
@@ -327,25 +297,19 @@ public class Extended implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()));
+            boolean theFieldIsSet = this.isSetExtendedModel();
             List<Object> theField;
-            theField = (((this.extendedModel!= null)&&(!this.extendedModel.isEmpty()))?this.getExtendedModel():null);
+            theField = (this.isSetExtendedModel()?this.getExtendedModel():null);
             strategy.appendField(locator, this, "extendedModel", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             strategy.appendField(locator, this, "role", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.titleAttribute!= null);
+            boolean theFieldIsSet = this.isSetTitleAttribute();
             String theField;
             theField = this.getTitleAttribute();
             strategy.appendField(locator, this, "titleAttribute", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDQElementType;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDQResultType;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDSAggregateType;
@@ -153,9 +154,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     MultiplicityType.class,
     MultiplicityRangeType.class
 })
-public abstract class AbstractObjectType implements Equals, HashCode, ToString
+public abstract class AbstractObjectType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -188,6 +190,10 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
         this.id = value;
     }
 
+    public boolean isSetId() {
+        return (this.id!= null);
+    }
+
     /**
      * Gets the value of the uuid property.
      * 
@@ -212,6 +218,10 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
         this.uuid = value;
     }
 
+    public boolean isSetUuid() {
+        return (this.uuid!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -234,27 +244,27 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
         }
         final AbstractObjectType that = ((AbstractObjectType) object);
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
-            String lhsField;
-            lhsField = this.getId();
-            String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.uuid!= null);
-            boolean rhsFieldIsSet = (that.uuid!= null);
+            boolean lhsFieldIsSet = this.isSetUuid();
+            boolean rhsFieldIsSet = that.isSetUuid();
             String lhsField;
             lhsField = this.getUuid();
             String rhsField;
             rhsField = that.getUuid();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuid", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
+            String lhsField;
+            lhsField = this.getId();
+            String rhsField;
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -276,14 +286,14 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "id", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uuid!= null);
+            boolean theFieldIsSet = this.isSetUuid();
             String theField;
             theField = this.getUuid();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uuid", theField);
@@ -315,13 +325,13 @@ public abstract class AbstractObjectType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             strategy.appendField(locator, this, "id", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uuid!= null);
+            boolean theFieldIsSet = this.isSetUuid();
             String theField;
             theField = this.getUuid();
             strategy.appendField(locator, this, "uuid", buffer, theField, theFieldIsSet);

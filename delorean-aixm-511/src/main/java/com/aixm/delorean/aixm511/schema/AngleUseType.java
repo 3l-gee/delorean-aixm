@@ -228,7 +228,7 @@ public class AngleUseType
     @OneToMany(targetEntity = AngleUseTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_ANGLE_USE_TYPE_HJID")
     public List<AngleUseTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,32 +279,6 @@ public class AngleUseType
         }
         final AngleUseType that = ((AngleUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheAngleIndication();
-            boolean rhsFieldIsSet = that.isSetTheAngleIndication();
-            AngleIndicationPropertyType lhsField;
-            lhsField = this.getTheAngleIndication();
-            AngleIndicationPropertyType rhsField;
-            rhsField = that.getTheAngleIndication();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAngleIndication", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAngleIndication", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
             boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
             JAXBElement<CodeYesNoType> lhsField;
@@ -326,6 +300,32 @@ public class AngleUseType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheAngleIndication();
+            boolean rhsFieldIsSet = that.isSetTheAngleIndication();
+            AngleIndicationPropertyType lhsField;
+            lhsField = this.getTheAngleIndication();
+            AngleIndicationPropertyType rhsField;
+            rhsField = that.getTheAngleIndication();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theAngleIndication", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theAngleIndication", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

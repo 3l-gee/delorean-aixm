@@ -49,14 +49,14 @@ public class XMLBinding<T, X> {
                 com.aixm.delorean.core.org.gts.v2007.ObjectFactory.class);
             this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             this.unmarshaller = this.context.createUnmarshaller();
-            // this.unmarshaller.setSchema(schema);
             
+            // this.unmarshaller.setSchema(schema);
             this.marshaller = this.context.createMarshaller();
             // this.marshaller.setSchema(this.schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             // Add additional marshaller properties for better data preservation
             this.marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
-            // ValidationHandler();
+            ValidationHandler();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,7 +72,6 @@ public class XMLBinding<T, X> {
 
     private void ValidationHandler() {
         try {
-            this.unmarshaller.setSchema(this.schema);
             this.unmarshaller.setEventHandler(new ValidationEventHandler() {
                 @Override
                 public boolean handleEvent(ValidationEvent event) {
@@ -169,18 +168,8 @@ public class XMLBinding<T, X> {
     
     public void marshal(T record, Path path, Class<T> clazz, QName qName) {
         try (FileOutputStream outputStream = new FileOutputStream(path.toFile())) {
-            // Don't disable schema validation - keep it for data integrity
-            // this.marshaller.setSchema(null);
-            
-            // Check if the class has @XmlRootElement annotation
-            if (clazz.isAnnotationPresent(jakarta.xml.bind.annotation.XmlRootElement.class)) {
-                // Direct marshalling for classes with @XmlRootElement
-                this.marshaller.marshal(record, outputStream);
-            } else {
-                // Wrap in JAXBElement for classes without @XmlRootElement
-                JAXBElement<T> rootElement = new JAXBElement<>(qName, clazz, record);
-                this.marshaller.marshal(rootElement, outputStream);
-            }
+            JAXBElement<T> rootElement = new JAXBElement<>(qName, this.root, record);
+            this.marshaller.marshal(rootElement, outputStream);
             
             ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + "> to " + path);
 

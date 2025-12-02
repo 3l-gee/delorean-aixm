@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDMetadataExtensionInformationType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CIOnlineResourcePropertyType extensionOnLineResource;
     protected List<MDExtendedElementInformationPropertyType> extendedElementInformation;
 
@@ -70,6 +73,10 @@ public class MDMetadataExtensionInformationType
      */
     public void setExtensionOnLineResource(CIOnlineResourcePropertyType value) {
         this.extensionOnLineResource = value;
+    }
+
+    public boolean isSetExtensionOnLineResource() {
+        return (this.extensionOnLineResource!= null);
     }
 
     /**
@@ -109,6 +116,14 @@ public class MDMetadataExtensionInformationType
         this.extendedElementInformation = extendedElementInformation;
     }
 
+    public boolean isSetExtendedElementInformation() {
+        return ((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()));
+    }
+
+    public void unsetExtendedElementInformation() {
+        this.extendedElementInformation = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +137,27 @@ public class MDMetadataExtensionInformationType
         }
         final MDMetadataExtensionInformationType that = ((MDMetadataExtensionInformationType) object);
         {
-            boolean lhsFieldIsSet = (this.extensionOnLineResource!= null);
-            boolean rhsFieldIsSet = (that.extensionOnLineResource!= null);
+            boolean lhsFieldIsSet = this.isSetExtendedElementInformation();
+            boolean rhsFieldIsSet = that.isSetExtendedElementInformation();
+            List<MDExtendedElementInformationPropertyType> lhsField;
+            lhsField = (this.isSetExtendedElementInformation()?this.getExtendedElementInformation():null);
+            List<MDExtendedElementInformationPropertyType> rhsField;
+            rhsField = (that.isSetExtendedElementInformation()?that.getExtendedElementInformation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedElementInformation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedElementInformation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtensionOnLineResource();
+            boolean rhsFieldIsSet = that.isSetExtensionOnLineResource();
             CIOnlineResourcePropertyType lhsField;
             lhsField = this.getExtensionOnLineResource();
             CIOnlineResourcePropertyType rhsField;
             rhsField = that.getExtensionOnLineResource();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extensionOnLineResource", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extensionOnLineResource", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.extendedElementInformation!= null)&&(!that.extendedElementInformation.isEmpty()));
-            List<MDExtendedElementInformationPropertyType> lhsField;
-            lhsField = (((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()))?this.getExtendedElementInformation():null);
-            List<MDExtendedElementInformationPropertyType> rhsField;
-            rhsField = (((that.extendedElementInformation!= null)&&(!that.extendedElementInformation.isEmpty()))?that.getExtendedElementInformation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedElementInformation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedElementInformation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,16 +169,16 @@ public class MDMetadataExtensionInformationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.extensionOnLineResource!= null);
+            boolean theFieldIsSet = this.isSetExtensionOnLineResource();
             CIOnlineResourcePropertyType theField;
             theField = this.getExtensionOnLineResource();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extensionOnLineResource", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()));
+            boolean theFieldIsSet = this.isSetExtendedElementInformation();
             List<MDExtendedElementInformationPropertyType> theField;
-            theField = (((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()))?this.getExtendedElementInformation():null);
+            theField = (this.isSetExtendedElementInformation()?this.getExtendedElementInformation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extendedElementInformation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -174,15 +189,15 @@ public class MDMetadataExtensionInformationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.extensionOnLineResource!= null);
+            boolean theFieldIsSet = this.isSetExtensionOnLineResource();
             CIOnlineResourcePropertyType theField;
             theField = this.getExtensionOnLineResource();
             strategy.appendField(locator, this, "extensionOnLineResource", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()));
+            boolean theFieldIsSet = this.isSetExtendedElementInformation();
             List<MDExtendedElementInformationPropertyType> theField;
-            theField = (((this.extendedElementInformation!= null)&&(!this.extendedElementInformation.isEmpty()))?this.getExtendedElementInformation():null);
+            theField = (this.isSetExtendedElementInformation()?this.getExtendedElementInformation():null);
             strategy.appendField(locator, this, "extendedElementInformation", buffer, theField, theFieldIsSet);
         }
         return buffer;

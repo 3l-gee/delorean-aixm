@@ -228,7 +228,7 @@ public class AirspaceVolumeDependencyType
     @OneToMany(targetEntity = AirspaceVolumeDependencyTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_AIRSPACE_VOLUME_DE_0")
     public List<AirspaceVolumeDependencyTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

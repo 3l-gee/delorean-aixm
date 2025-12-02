@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CITelephoneType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<CharacterStringPropertyType> voice;
     protected List<CharacterStringPropertyType> facsimile;
 
@@ -86,6 +89,14 @@ public class CITelephoneType
         this.voice = voice;
     }
 
+    public boolean isSetVoice() {
+        return ((this.voice!= null)&&(!this.voice.isEmpty()));
+    }
+
+    public void unsetVoice() {
+        this.voice = null;
+    }
+
     /**
      * Gets the value of the facsimile property.
      * 
@@ -123,6 +134,14 @@ public class CITelephoneType
         this.facsimile = facsimile;
     }
 
+    public boolean isSetFacsimile() {
+        return ((this.facsimile!= null)&&(!this.facsimile.isEmpty()));
+    }
+
+    public void unsetFacsimile() {
+        this.facsimile = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -136,12 +155,12 @@ public class CITelephoneType
         }
         final CITelephoneType that = ((CITelephoneType) object);
         {
-            boolean lhsFieldIsSet = ((this.facsimile!= null)&&(!this.facsimile.isEmpty()));
-            boolean rhsFieldIsSet = ((that.facsimile!= null)&&(!that.facsimile.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetFacsimile();
+            boolean rhsFieldIsSet = that.isSetFacsimile();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.facsimile!= null)&&(!this.facsimile.isEmpty()))?this.getFacsimile():null);
+            lhsField = (this.isSetFacsimile()?this.getFacsimile():null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.facsimile!= null)&&(!that.facsimile.isEmpty()))?that.getFacsimile():null);
+            rhsField = (that.isSetFacsimile()?that.getFacsimile():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -149,12 +168,12 @@ public class CITelephoneType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.voice!= null)&&(!this.voice.isEmpty()));
-            boolean rhsFieldIsSet = ((that.voice!= null)&&(!that.voice.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetVoice();
+            boolean rhsFieldIsSet = that.isSetVoice();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.voice!= null)&&(!this.voice.isEmpty()))?this.getVoice():null);
+            lhsField = (this.isSetVoice()?this.getVoice():null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.voice!= null)&&(!that.voice.isEmpty()))?that.getVoice():null);
+            rhsField = (that.isSetVoice()?that.getVoice():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -168,16 +187,16 @@ public class CITelephoneType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.voice!= null)&&(!this.voice.isEmpty()));
+            boolean theFieldIsSet = this.isSetVoice();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.voice!= null)&&(!this.voice.isEmpty()))?this.getVoice():null);
+            theField = (this.isSetVoice()?this.getVoice():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "voice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.facsimile!= null)&&(!this.facsimile.isEmpty()));
+            boolean theFieldIsSet = this.isSetFacsimile();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.facsimile!= null)&&(!this.facsimile.isEmpty()))?this.getFacsimile():null);
+            theField = (this.isSetFacsimile()?this.getFacsimile():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "facsimile", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -188,15 +207,15 @@ public class CITelephoneType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.voice!= null)&&(!this.voice.isEmpty()));
+            boolean theFieldIsSet = this.isSetVoice();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.voice!= null)&&(!this.voice.isEmpty()))?this.getVoice():null);
+            theField = (this.isSetVoice()?this.getVoice():null);
             strategy.appendField(locator, this, "voice", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.facsimile!= null)&&(!this.facsimile.isEmpty()));
+            boolean theFieldIsSet = this.isSetFacsimile();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.facsimile!= null)&&(!this.facsimile.isEmpty()))?this.getFacsimile():null);
+            theField = (this.isSetFacsimile()?this.getFacsimile():null);
             strategy.appendField(locator, this, "facsimile", buffer, theField, theFieldIsSet);
         }
         return buffer;

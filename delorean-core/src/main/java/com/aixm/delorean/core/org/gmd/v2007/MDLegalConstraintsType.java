@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDLegalConstraintsType
     extends MDConstraintsType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<MDRestrictionCodePropertyType> accessConstraints;
     protected List<MDRestrictionCodePropertyType> useConstraints;
     protected List<CharacterStringPropertyType> otherConstraints;
@@ -88,6 +91,14 @@ public class MDLegalConstraintsType
         this.accessConstraints = accessConstraints;
     }
 
+    public boolean isSetAccessConstraints() {
+        return ((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()));
+    }
+
+    public void unsetAccessConstraints() {
+        this.accessConstraints = null;
+    }
+
     /**
      * Gets the value of the useConstraints property.
      * 
@@ -123,6 +134,14 @@ public class MDLegalConstraintsType
      */
     public void setUseConstraints(List<MDRestrictionCodePropertyType> useConstraints) {
         this.useConstraints = useConstraints;
+    }
+
+    public boolean isSetUseConstraints() {
+        return ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
+    }
+
+    public void unsetUseConstraints() {
+        this.useConstraints = null;
     }
 
     /**
@@ -162,6 +181,14 @@ public class MDLegalConstraintsType
         this.otherConstraints = otherConstraints;
     }
 
+    public boolean isSetOtherConstraints() {
+        return ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
+    }
+
+    public void unsetOtherConstraints() {
+        this.otherConstraints = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -175,12 +202,25 @@ public class MDLegalConstraintsType
         }
         final MDLegalConstraintsType that = ((MDLegalConstraintsType) object);
         {
-            boolean lhsFieldIsSet = ((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()));
-            boolean rhsFieldIsSet = ((that.accessConstraints!= null)&&(!that.accessConstraints.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetOtherConstraints();
+            boolean rhsFieldIsSet = that.isSetOtherConstraints();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetOtherConstraints()?this.getOtherConstraints():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetOtherConstraints()?that.getOtherConstraints():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAccessConstraints();
+            boolean rhsFieldIsSet = that.isSetAccessConstraints();
             List<MDRestrictionCodePropertyType> lhsField;
-            lhsField = (((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()))?this.getAccessConstraints():null);
+            lhsField = (this.isSetAccessConstraints()?this.getAccessConstraints():null);
             List<MDRestrictionCodePropertyType> rhsField;
-            rhsField = (((that.accessConstraints!= null)&&(!that.accessConstraints.isEmpty()))?that.getAccessConstraints():null);
+            rhsField = (that.isSetAccessConstraints()?that.getAccessConstraints():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "accessConstraints", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "accessConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -188,27 +228,14 @@ public class MDLegalConstraintsType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
-            boolean rhsFieldIsSet = ((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetUseConstraints();
+            boolean rhsFieldIsSet = that.isSetUseConstraints();
             List<MDRestrictionCodePropertyType> lhsField;
-            lhsField = (((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()))?this.getUseConstraints():null);
+            lhsField = (this.isSetUseConstraints()?this.getUseConstraints():null);
             List<MDRestrictionCodePropertyType> rhsField;
-            rhsField = (((that.useConstraints!= null)&&(!that.useConstraints.isEmpty()))?that.getUseConstraints():null);
+            rhsField = (that.isSetUseConstraints()?that.getUseConstraints():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useConstraints", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useConstraints", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
-            boolean rhsFieldIsSet = ((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()))?this.getOtherConstraints():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.otherConstraints!= null)&&(!that.otherConstraints.isEmpty()))?that.getOtherConstraints():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "otherConstraints", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "otherConstraints", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -220,23 +247,23 @@ public class MDLegalConstraintsType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetAccessConstraints();
             List<MDRestrictionCodePropertyType> theField;
-            theField = (((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()))?this.getAccessConstraints():null);
+            theField = (this.isSetAccessConstraints()?this.getAccessConstraints():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "accessConstraints", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetUseConstraints();
             List<MDRestrictionCodePropertyType> theField;
-            theField = (((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()))?this.getUseConstraints():null);
+            theField = (this.isSetUseConstraints()?this.getUseConstraints():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "useConstraints", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetOtherConstraints();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()))?this.getOtherConstraints():null);
+            theField = (this.isSetOtherConstraints()?this.getOtherConstraints():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "otherConstraints", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -247,21 +274,21 @@ public class MDLegalConstraintsType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetAccessConstraints();
             List<MDRestrictionCodePropertyType> theField;
-            theField = (((this.accessConstraints!= null)&&(!this.accessConstraints.isEmpty()))?this.getAccessConstraints():null);
+            theField = (this.isSetAccessConstraints()?this.getAccessConstraints():null);
             strategy.appendField(locator, this, "accessConstraints", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetUseConstraints();
             List<MDRestrictionCodePropertyType> theField;
-            theField = (((this.useConstraints!= null)&&(!this.useConstraints.isEmpty()))?this.getUseConstraints():null);
+            theField = (this.isSetUseConstraints()?this.getUseConstraints():null);
             strategy.appendField(locator, this, "useConstraints", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()));
+            boolean theFieldIsSet = this.isSetOtherConstraints();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.otherConstraints!= null)&&(!this.otherConstraints.isEmpty()))?this.getOtherConstraints():null);
+            theField = (this.isSetOtherConstraints()?this.getOtherConstraints():null);
             strategy.appendField(locator, this, "otherConstraints", buffer, theField, theFieldIsSet);
         }
         return buffer;

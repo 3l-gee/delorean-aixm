@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_PixelOrientationCode_PropertyType", propOrder = {
     "mdPixelOrientationCode"
 })
-public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToString
+public class MDPixelOrientationCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_PixelOrientationCode")
     @XmlSchemaType(name = "string")
     protected MDPixelOrientationCodeType mdPixelOrientationCode;
@@ -78,6 +80,10 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
         this.mdPixelOrientationCode = value;
     }
 
+    public boolean isSetMDPixelOrientationCode() {
+        return (this.mdPixelOrientationCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -102,6 +108,10 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -124,8 +134,8 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
         }
         final MDPixelOrientationCodePropertyType that = ((MDPixelOrientationCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -137,8 +147,8 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = (this.mdPixelOrientationCode!= null);
-            boolean rhsFieldIsSet = (that.mdPixelOrientationCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDPixelOrientationCode();
+            boolean rhsFieldIsSet = that.isSetMDPixelOrientationCode();
             MDPixelOrientationCodeType lhsField;
             lhsField = this.getMDPixelOrientationCode();
             MDPixelOrientationCodeType rhsField;
@@ -166,14 +176,14 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdPixelOrientationCode!= null);
+            boolean theFieldIsSet = this.isSetMDPixelOrientationCode();
             MDPixelOrientationCodeType theField;
             theField = this.getMDPixelOrientationCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdPixelOrientationCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -205,13 +215,13 @@ public class MDPixelOrientationCodePropertyType implements Equals, HashCode, ToS
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdPixelOrientationCode!= null);
+            boolean theFieldIsSet = this.isSetMDPixelOrientationCode();
             MDPixelOrientationCodeType theField;
             theField = this.getMDPixelOrientationCode();
             strategy.appendField(locator, this, "mdPixelOrientationCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "LineStringSegmentArrayPropertyType", propOrder = {
     "lineStringSegment"
 })
-public class LineStringSegmentArrayPropertyType implements Equals, HashCode, ToString
+public class LineStringSegmentArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LineStringSegment")
     protected List<LineStringSegmentType> lineStringSegment;
 
@@ -89,6 +91,14 @@ public class LineStringSegmentArrayPropertyType implements Equals, HashCode, ToS
         this.lineStringSegment = lineStringSegment;
     }
 
+    public boolean isSetLineStringSegment() {
+        return ((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()));
+    }
+
+    public void unsetLineStringSegment() {
+        this.lineStringSegment = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -111,12 +121,12 @@ public class LineStringSegmentArrayPropertyType implements Equals, HashCode, ToS
         }
         final LineStringSegmentArrayPropertyType that = ((LineStringSegmentArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()));
-            boolean rhsFieldIsSet = ((that.lineStringSegment!= null)&&(!that.lineStringSegment.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetLineStringSegment();
+            boolean rhsFieldIsSet = that.isSetLineStringSegment();
             List<LineStringSegmentType> lhsField;
-            lhsField = (((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()))?this.getLineStringSegment():null);
+            lhsField = (this.isSetLineStringSegment()?this.getLineStringSegment():null);
             List<LineStringSegmentType> rhsField;
-            rhsField = (((that.lineStringSegment!= null)&&(!that.lineStringSegment.isEmpty()))?that.getLineStringSegment():null);
+            rhsField = (that.isSetLineStringSegment()?that.getLineStringSegment():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineStringSegment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineStringSegment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -140,9 +150,9 @@ public class LineStringSegmentArrayPropertyType implements Equals, HashCode, ToS
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()));
+            boolean theFieldIsSet = this.isSetLineStringSegment();
             List<LineStringSegmentType> theField;
-            theField = (((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()))?this.getLineStringSegment():null);
+            theField = (this.isSetLineStringSegment()?this.getLineStringSegment():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lineStringSegment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -172,9 +182,9 @@ public class LineStringSegmentArrayPropertyType implements Equals, HashCode, ToS
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()));
+            boolean theFieldIsSet = this.isSetLineStringSegment();
             List<LineStringSegmentType> theField;
-            theField = (((this.lineStringSegment!= null)&&(!this.lineStringSegment.isEmpty()))?this.getLineStringSegment():null);
+            theField = (this.isSetLineStringSegment()?this.getLineStringSegment():null);
             strategy.appendField(locator, this, "lineStringSegment", buffer, theField, theFieldIsSet);
         }
         return buffer;

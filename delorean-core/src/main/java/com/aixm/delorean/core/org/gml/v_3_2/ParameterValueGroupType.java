@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ParameterValueGroupType
     extends AbstractGeneralParameterValueType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "parameterValue", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<AbstractGeneralParameterValuePropertyType>> parameterValue;
     /**
@@ -92,6 +95,14 @@ public class ParameterValueGroupType
         this.parameterValue = parameterValue;
     }
 
+    public boolean isSetParameterValue() {
+        return ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+    }
+
+    public void unsetParameterValue() {
+        this.parameterValue = null;
+    }
+
     /**
      * gml:group is an association role to the operation parameter group for which this element provides parameter values.
      * 
@@ -119,6 +130,10 @@ public class ParameterValueGroupType
         this.group = value;
     }
 
+    public boolean isSetGroup() {
+        return (this.group!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -132,27 +147,27 @@ public class ParameterValueGroupType
         }
         final ParameterValueGroupType that = ((ParameterValueGroupType) object);
         {
-            boolean lhsFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
-            boolean rhsFieldIsSet = ((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()));
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
-            lhsField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
-            rhsField = (((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()))?that.getParameterValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.group!= null);
-            boolean rhsFieldIsSet = (that.group!= null);
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
             JAXBElement<OperationParameterGroupPropertyType> lhsField;
             lhsField = this.getGroup();
             JAXBElement<OperationParameterGroupPropertyType> rhsField;
             rhsField = that.getGroup();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetParameterValue();
+            boolean rhsFieldIsSet = that.isSetParameterValue();
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
+            lhsField = (this.isSetParameterValue()?this.getParameterValue():null);
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
+            rhsField = (that.isSetParameterValue()?that.getParameterValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -164,14 +179,14 @@ public class ParameterValueGroupType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameterValue();
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> theField;
-            theField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
+            theField = (this.isSetParameterValue()?this.getParameterValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "parameterValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.group!= null);
+            boolean theFieldIsSet = this.isSetGroup();
             JAXBElement<OperationParameterGroupPropertyType> theField;
             theField = this.getGroup();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "group", theField);
@@ -184,13 +199,13 @@ public class ParameterValueGroupType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameterValue();
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> theField;
-            theField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
+            theField = (this.isSetParameterValue()?this.getParameterValue():null);
             strategy.appendField(locator, this, "parameterValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.group!= null);
+            boolean theFieldIsSet = this.isSetGroup();
             JAXBElement<OperationParameterGroupPropertyType> theField;
             theField = this.getGroup();
             strategy.appendField(locator, this, "group", buffer, theField, theFieldIsSet);

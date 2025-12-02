@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,9 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "PointArrayPropertyType", propOrder = {
     "point"
 })
-public class PointArrayPropertyType implements Equals, HashCode, ToString
+public class PointArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Point")
     protected List<PointType> point;
     @XmlAttribute(name = "owns")
@@ -93,6 +95,14 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
         this.point = point;
     }
 
+    public boolean isSetPoint() {
+        return ((this.point!= null)&&(!this.point.isEmpty()));
+    }
+
+    public void unsetPoint() {
+        this.point = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -101,7 +111,7 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -117,8 +127,16 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -143,12 +161,12 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
         }
         final PointArrayPropertyType that = ((PointArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -156,12 +174,12 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.point!= null)&&(!this.point.isEmpty()));
-            boolean rhsFieldIsSet = ((that.point!= null)&&(!that.point.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPoint();
+            boolean rhsFieldIsSet = that.isSetPoint();
             List<PointType> lhsField;
-            lhsField = (((this.point!= null)&&(!this.point.isEmpty()))?this.getPoint():null);
+            lhsField = (this.isSetPoint()?this.getPoint():null);
             List<PointType> rhsField;
-            rhsField = (((that.point!= null)&&(!that.point.isEmpty()))?that.getPoint():null);
+            rhsField = (that.isSetPoint()?that.getPoint():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "point", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "point", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -185,16 +203,16 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.point!= null)&&(!this.point.isEmpty()));
+            boolean theFieldIsSet = this.isSetPoint();
             List<PointType> theField;
-            theField = (((this.point!= null)&&(!this.point.isEmpty()))?this.getPoint():null);
+            theField = (this.isSetPoint()?this.getPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "point", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -224,15 +242,15 @@ public class PointArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.point!= null)&&(!this.point.isEmpty()));
+            boolean theFieldIsSet = this.isSetPoint();
             List<PointType> theField;
-            theField = (((this.point!= null)&&(!this.point.isEmpty()))?this.getPoint():null);
+            theField = (this.isSetPoint()?this.getPoint():null);
             strategy.appendField(locator, this, "point", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

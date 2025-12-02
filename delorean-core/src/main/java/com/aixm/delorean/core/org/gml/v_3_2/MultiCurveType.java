@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiCurveType
     extends AbstractGeometricAggregateType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<CurvePropertyType> curveMember;
     /**
      * This property element contains a list of curves. The order of the elements is significant and shall be preserved when processing the array.
@@ -86,6 +89,14 @@ public class MultiCurveType
         this.curveMember = curveMember;
     }
 
+    public boolean isSetCurveMember() {
+        return ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+    }
+
+    public void unsetCurveMember() {
+        this.curveMember = null;
+    }
+
     /**
      * This property element contains a list of curves. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -111,6 +122,10 @@ public class MultiCurveType
         this.curveMembers = value;
     }
 
+    public boolean isSetCurveMembers() {
+        return (this.curveMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,27 +139,27 @@ public class MultiCurveType
         }
         final MultiCurveType that = ((MultiCurveType) object);
         {
-            boolean lhsFieldIsSet = (this.curveMembers!= null);
-            boolean rhsFieldIsSet = (that.curveMembers!= null);
+            boolean lhsFieldIsSet = this.isSetCurveMember();
+            boolean rhsFieldIsSet = that.isSetCurveMember();
+            List<CurvePropertyType> lhsField;
+            lhsField = (this.isSetCurveMember()?this.getCurveMember():null);
+            List<CurvePropertyType> rhsField;
+            rhsField = (that.isSetCurveMember()?that.getCurveMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCurveMembers();
+            boolean rhsFieldIsSet = that.isSetCurveMembers();
             CurveArrayPropertyType lhsField;
             lhsField = this.getCurveMembers();
             CurveArrayPropertyType rhsField;
             rhsField = that.getCurveMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMembers", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMembers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.curveMember!= null)&&(!that.curveMember.isEmpty()));
-            List<CurvePropertyType> lhsField;
-            lhsField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
-            List<CurvePropertyType> rhsField;
-            rhsField = (((that.curveMember!= null)&&(!that.curveMember.isEmpty()))?that.getCurveMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -156,14 +171,14 @@ public class MultiCurveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
+            theField = (this.isSetCurveMember()?this.getCurveMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curveMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.curveMembers!= null);
+            boolean theFieldIsSet = this.isSetCurveMembers();
             CurveArrayPropertyType theField;
             theField = this.getCurveMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curveMembers", theField);
@@ -176,13 +191,13 @@ public class MultiCurveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
+            theField = (this.isSetCurveMember()?this.getCurveMember():null);
             strategy.appendField(locator, this, "curveMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.curveMembers!= null);
+            boolean theFieldIsSet = this.isSetCurveMembers();
             CurveArrayPropertyType theField;
             theField = this.getCurveMembers();
             strategy.appendField(locator, this, "curveMembers", buffer, theField, theFieldIsSet);

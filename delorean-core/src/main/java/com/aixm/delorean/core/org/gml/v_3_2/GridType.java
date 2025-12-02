@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class GridType
     extends AbstractGeometryType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected GridLimitsType limits;
     @XmlList
@@ -88,6 +91,10 @@ public class GridType
      */
     public void setLimits(GridLimitsType value) {
         this.limits = value;
+    }
+
+    public boolean isSetLimits() {
+        return (this.limits!= null);
     }
 
     /**
@@ -127,6 +134,14 @@ public class GridType
         this.gridAxisLabels = gridAxisLabels;
     }
 
+    public boolean isSetGridAxisLabels() {
+        return ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
+    }
+
+    public void unsetGridAxisLabels() {
+        this.gridAxisLabels = null;
+    }
+
     /**
      * Gets the value of the axisName property.
      * 
@@ -164,6 +179,14 @@ public class GridType
         this.axisName = axisName;
     }
 
+    public boolean isSetAxisName() {
+        return ((this.axisName!= null)&&(!this.axisName.isEmpty()));
+    }
+
+    public void unsetAxisName() {
+        this.axisName = null;
+    }
+
     /**
      * Gets the value of the dimension property.
      * 
@@ -188,6 +211,10 @@ public class GridType
         this.dimension = value;
     }
 
+    public boolean isSetDimension() {
+        return (this.dimension!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -201,8 +228,8 @@ public class GridType
         }
         final GridType that = ((GridType) object);
         {
-            boolean lhsFieldIsSet = (this.limits!= null);
-            boolean rhsFieldIsSet = (that.limits!= null);
+            boolean lhsFieldIsSet = this.isSetLimits();
+            boolean rhsFieldIsSet = that.isSetLimits();
             GridLimitsType lhsField;
             lhsField = this.getLimits();
             GridLimitsType rhsField;
@@ -214,12 +241,12 @@ public class GridType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetGridAxisLabels();
+            boolean rhsFieldIsSet = that.isSetGridAxisLabels();
             List<String> lhsField;
-            lhsField = (((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()))?this.getGridAxisLabels():null);
+            lhsField = (this.isSetGridAxisLabels()?this.getGridAxisLabels():null);
             List<String> rhsField;
-            rhsField = (((that.gridAxisLabels!= null)&&(!that.gridAxisLabels.isEmpty()))?that.getGridAxisLabels():null);
+            rhsField = (that.isSetGridAxisLabels()?that.getGridAxisLabels():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -227,12 +254,12 @@ public class GridType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.axisName!= null)&&(!this.axisName.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisName!= null)&&(!that.axisName.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAxisName();
+            boolean rhsFieldIsSet = that.isSetAxisName();
             List<String> lhsField;
-            lhsField = (((this.axisName!= null)&&(!this.axisName.isEmpty()))?this.getAxisName():null);
+            lhsField = (this.isSetAxisName()?this.getAxisName():null);
             List<String> rhsField;
-            rhsField = (((that.axisName!= null)&&(!that.axisName.isEmpty()))?that.getAxisName():null);
+            rhsField = (that.isSetAxisName()?that.getAxisName():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -240,8 +267,8 @@ public class GridType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dimension!= null);
-            boolean rhsFieldIsSet = (that.dimension!= null);
+            boolean lhsFieldIsSet = this.isSetDimension();
+            boolean rhsFieldIsSet = that.isSetDimension();
             BigInteger lhsField;
             lhsField = this.getDimension();
             BigInteger rhsField;
@@ -259,28 +286,28 @@ public class GridType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.limits!= null);
+            boolean theFieldIsSet = this.isSetLimits();
             GridLimitsType theField;
             theField = this.getLimits();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "limits", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetGridAxisLabels();
             List<String> theField;
-            theField = (((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()))?this.getGridAxisLabels():null);
+            theField = (this.isSetGridAxisLabels()?this.getGridAxisLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "gridAxisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisName!= null)&&(!this.axisName.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisName();
             List<String> theField;
-            theField = (((this.axisName!= null)&&(!this.axisName.isEmpty()))?this.getAxisName():null);
+            theField = (this.isSetAxisName()?this.getAxisName():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dimension!= null);
+            boolean theFieldIsSet = this.isSetDimension();
             BigInteger theField;
             theField = this.getDimension();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dimension", theField);
@@ -293,25 +320,25 @@ public class GridType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.limits!= null);
+            boolean theFieldIsSet = this.isSetLimits();
             GridLimitsType theField;
             theField = this.getLimits();
             strategy.appendField(locator, this, "limits", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetGridAxisLabels();
             List<String> theField;
-            theField = (((this.gridAxisLabels!= null)&&(!this.gridAxisLabels.isEmpty()))?this.getGridAxisLabels():null);
+            theField = (this.isSetGridAxisLabels()?this.getGridAxisLabels():null);
             strategy.appendField(locator, this, "gridAxisLabels", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisName!= null)&&(!this.axisName.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisName();
             List<String> theField;
-            theField = (((this.axisName!= null)&&(!this.axisName.isEmpty()))?this.getAxisName():null);
+            theField = (this.isSetAxisName()?this.getAxisName():null);
             strategy.appendField(locator, this, "axisName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dimension!= null);
+            boolean theFieldIsSet = this.isSetDimension();
             BigInteger theField;
             theField = this.getDimension();
             strategy.appendField(locator, this, "dimension", buffer, theField, theFieldIsSet);

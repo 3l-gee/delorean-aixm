@@ -235,7 +235,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "message", namespaceURI = "http://www.aixm.aero/schema/5.1.1/message")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.schema.a5_1_1.aixm.message;
+      package com.aixm.delorean.aixm511.schema.message;
 
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\package-info.java
     regex: "(?s)^.*$"
@@ -245,7 +245,7 @@ regex:
           xmlns = {@jakarta.xml.bind.annotation.XmlNs(prefix = "aixm", namespaceURI = "http://www.aixm.aero/schema/5.1.1")},
           elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED
       )
-      package com.aixm.delorean.core.schema.a5_1_1.aixm;
+      package com.aixm.delorean.aixm511.schema;
 
   - filePath: delorean-aixm-511\src\main\java\com\aixm\delorean\aixm511\schema\DateTimeType.java
     regex: import org.w3._2001.xmlschema.Adapter1;

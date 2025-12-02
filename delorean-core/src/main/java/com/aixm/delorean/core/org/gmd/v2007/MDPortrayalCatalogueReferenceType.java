@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDPortrayalCatalogueReferenceType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<CICitationPropertyType> portrayalCatalogueCitation;
 
@@ -84,6 +87,14 @@ public class MDPortrayalCatalogueReferenceType
         this.portrayalCatalogueCitation = portrayalCatalogueCitation;
     }
 
+    public boolean isSetPortrayalCatalogueCitation() {
+        return ((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()));
+    }
+
+    public void unsetPortrayalCatalogueCitation() {
+        this.portrayalCatalogueCitation = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -97,12 +108,12 @@ public class MDPortrayalCatalogueReferenceType
         }
         final MDPortrayalCatalogueReferenceType that = ((MDPortrayalCatalogueReferenceType) object);
         {
-            boolean lhsFieldIsSet = ((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.portrayalCatalogueCitation!= null)&&(!that.portrayalCatalogueCitation.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPortrayalCatalogueCitation();
+            boolean rhsFieldIsSet = that.isSetPortrayalCatalogueCitation();
             List<CICitationPropertyType> lhsField;
-            lhsField = (((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()))?this.getPortrayalCatalogueCitation():null);
+            lhsField = (this.isSetPortrayalCatalogueCitation()?this.getPortrayalCatalogueCitation():null);
             List<CICitationPropertyType> rhsField;
-            rhsField = (((that.portrayalCatalogueCitation!= null)&&(!that.portrayalCatalogueCitation.isEmpty()))?that.getPortrayalCatalogueCitation():null);
+            rhsField = (that.isSetPortrayalCatalogueCitation()?that.getPortrayalCatalogueCitation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "portrayalCatalogueCitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "portrayalCatalogueCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -116,9 +127,9 @@ public class MDPortrayalCatalogueReferenceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetPortrayalCatalogueCitation();
             List<CICitationPropertyType> theField;
-            theField = (((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()))?this.getPortrayalCatalogueCitation():null);
+            theField = (this.isSetPortrayalCatalogueCitation()?this.getPortrayalCatalogueCitation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "portrayalCatalogueCitation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -129,9 +140,9 @@ public class MDPortrayalCatalogueReferenceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetPortrayalCatalogueCitation();
             List<CICitationPropertyType> theField;
-            theField = (((this.portrayalCatalogueCitation!= null)&&(!this.portrayalCatalogueCitation.isEmpty()))?this.getPortrayalCatalogueCitation():null);
+            theField = (this.isSetPortrayalCatalogueCitation()?this.getPortrayalCatalogueCitation():null);
             strategy.appendField(locator, this, "portrayalCatalogueCitation", buffer, theField, theFieldIsSet);
         }
         return buffer;

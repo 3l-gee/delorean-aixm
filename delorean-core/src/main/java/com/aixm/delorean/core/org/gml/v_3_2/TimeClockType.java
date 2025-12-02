@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeClockType
     extends TimeReferenceSystemType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected StringOrRefType referenceEvent;
     @XmlElement(required = true)
@@ -83,6 +86,10 @@ public class TimeClockType
         this.referenceEvent = value;
     }
 
+    public boolean isSetReferenceEvent() {
+        return (this.referenceEvent!= null);
+    }
+
     /**
      * Gets the value of the referenceTime property.
      * 
@@ -107,6 +114,10 @@ public class TimeClockType
         this.referenceTime = value;
     }
 
+    public boolean isSetReferenceTime() {
+        return (this.referenceTime!= null);
+    }
+
     /**
      * Gets the value of the utcReference property.
      * 
@@ -129,6 +140,10 @@ public class TimeClockType
      */
     public void setUtcReference(XMLGregorianCalendar value) {
         this.utcReference = value;
+    }
+
+    public boolean isSetUtcReference() {
+        return (this.utcReference!= null);
     }
 
     /**
@@ -168,6 +183,14 @@ public class TimeClockType
         this.dateBasis = dateBasis;
     }
 
+    public boolean isSetDateBasis() {
+        return ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
+    }
+
+    public void unsetDateBasis() {
+        this.dateBasis = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -181,34 +204,8 @@ public class TimeClockType
         }
         final TimeClockType that = ((TimeClockType) object);
         {
-            boolean lhsFieldIsSet = (this.referenceTime!= null);
-            boolean rhsFieldIsSet = (that.referenceTime!= null);
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getReferenceTime();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getReferenceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.referenceEvent!= null);
-            boolean rhsFieldIsSet = (that.referenceEvent!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getReferenceEvent();
-            StringOrRefType rhsField;
-            rhsField = that.getReferenceEvent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.utcReference!= null);
-            boolean rhsFieldIsSet = (that.utcReference!= null);
+            boolean lhsFieldIsSet = this.isSetUtcReference();
+            boolean rhsFieldIsSet = that.isSetUtcReference();
             XMLGregorianCalendar lhsField;
             lhsField = this.getUtcReference();
             XMLGregorianCalendar rhsField;
@@ -220,12 +217,38 @@ public class TimeClockType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
-            boolean rhsFieldIsSet = ((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetReferenceTime();
+            boolean rhsFieldIsSet = that.isSetReferenceTime();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getReferenceTime();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getReferenceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceTime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceEvent();
+            boolean rhsFieldIsSet = that.isSetReferenceEvent();
+            StringOrRefType lhsField;
+            lhsField = this.getReferenceEvent();
+            StringOrRefType rhsField;
+            rhsField = that.getReferenceEvent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceEvent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceEvent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateBasis();
+            boolean rhsFieldIsSet = that.isSetDateBasis();
             List<TimeCalendarPropertyType> lhsField;
-            lhsField = (((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()))?this.getDateBasis():null);
+            lhsField = (this.isSetDateBasis()?this.getDateBasis():null);
             List<TimeCalendarPropertyType> rhsField;
-            rhsField = (((that.dateBasis!= null)&&(!that.dateBasis.isEmpty()))?that.getDateBasis():null);
+            rhsField = (that.isSetDateBasis()?that.getDateBasis():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateBasis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateBasis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -239,30 +262,30 @@ public class TimeClockType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.referenceEvent!= null);
+            boolean theFieldIsSet = this.isSetReferenceEvent();
             StringOrRefType theField;
             theField = this.getReferenceEvent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceEvent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.referenceTime!= null);
+            boolean theFieldIsSet = this.isSetReferenceTime();
             XMLGregorianCalendar theField;
             theField = this.getReferenceTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.utcReference!= null);
+            boolean theFieldIsSet = this.isSetUtcReference();
             XMLGregorianCalendar theField;
             theField = this.getUtcReference();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "utcReference", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
+            boolean theFieldIsSet = this.isSetDateBasis();
             List<TimeCalendarPropertyType> theField;
-            theField = (((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()))?this.getDateBasis():null);
+            theField = (this.isSetDateBasis()?this.getDateBasis():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateBasis", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -273,27 +296,27 @@ public class TimeClockType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.referenceEvent!= null);
+            boolean theFieldIsSet = this.isSetReferenceEvent();
             StringOrRefType theField;
             theField = this.getReferenceEvent();
             strategy.appendField(locator, this, "referenceEvent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.referenceTime!= null);
+            boolean theFieldIsSet = this.isSetReferenceTime();
             XMLGregorianCalendar theField;
             theField = this.getReferenceTime();
             strategy.appendField(locator, this, "referenceTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.utcReference!= null);
+            boolean theFieldIsSet = this.isSetUtcReference();
             XMLGregorianCalendar theField;
             theField = this.getUtcReference();
             strategy.appendField(locator, this, "utcReference", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()));
+            boolean theFieldIsSet = this.isSetDateBasis();
             List<TimeCalendarPropertyType> theField;
-            theField = (((this.dateBasis!= null)&&(!this.dateBasis.isEmpty()))?this.getDateBasis():null);
+            theField = (this.isSetDateBasis()?this.getDateBasis():null);
             strategy.appendField(locator, this, "dateBasis", buffer, theField, theFieldIsSet);
         }
         return buffer;

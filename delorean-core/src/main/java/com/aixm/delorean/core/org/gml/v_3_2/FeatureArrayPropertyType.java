@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "FeatureArrayPropertyType", propOrder = {
     "abstractFeature"
 })
-public class FeatureArrayPropertyType implements Equals, HashCode, ToString
+public class FeatureArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractFeature", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractFeatureType>> abstractFeature;
 
@@ -104,6 +106,14 @@ public class FeatureArrayPropertyType implements Equals, HashCode, ToString
         this.abstractFeature = abstractFeature;
     }
 
+    public boolean isSetAbstractFeature() {
+        return ((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()));
+    }
+
+    public void unsetAbstractFeature() {
+        this.abstractFeature = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -126,12 +136,12 @@ public class FeatureArrayPropertyType implements Equals, HashCode, ToString
         }
         final FeatureArrayPropertyType that = ((FeatureArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractFeature!= null)&&(!that.abstractFeature.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAbstractFeature();
+            boolean rhsFieldIsSet = that.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> lhsField;
-            lhsField = (((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()))?this.getAbstractFeature():null);
+            lhsField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
             List<JAXBElement<? extends AbstractFeatureType>> rhsField;
-            rhsField = (((that.abstractFeature!= null)&&(!that.abstractFeature.isEmpty()))?that.getAbstractFeature():null);
+            rhsField = (that.isSetAbstractFeature()?that.getAbstractFeature():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFeature", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFeature", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -155,9 +165,9 @@ public class FeatureArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> theField;
-            theField = (((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()))?this.getAbstractFeature():null);
+            theField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractFeature", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -187,9 +197,9 @@ public class FeatureArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> theField;
-            theField = (((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()))?this.getAbstractFeature():null);
+            theField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
             strategy.appendField(locator, this, "abstractFeature", buffer, theField, theFieldIsSet);
         }
         return buffer;

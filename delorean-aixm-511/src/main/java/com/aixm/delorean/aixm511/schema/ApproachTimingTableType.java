@@ -291,7 +291,7 @@ public class ApproachTimingTableType
     @OneToMany(targetEntity = ApproachTimingTableTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_APPROACH_TIMING_TA_0")
     public List<ApproachTimingTableTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -383,40 +383,14 @@ public class ApproachTimingTableType
         }
         final ApproachTimingTableType that = ((ApproachTimingTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getEndingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getEndingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTime();
-            boolean rhsFieldIsSet = that.isSetTime();
-            JAXBElement<ValDurationType> lhsField;
-            lhsField = this.getTime();
-            JAXBElement<ValDurationType> rhsField;
-            rhsField = that.getTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeed();
+            boolean rhsFieldIsSet = that.isSetSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -435,14 +409,14 @@ public class ApproachTimingTableType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeed();
-            boolean rhsFieldIsSet = that.isSetSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -456,6 +430,32 @@ public class ApproachTimingTableType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTime();
+            boolean rhsFieldIsSet = that.isSetTime();
+            JAXBElement<ValDurationType> lhsField;
+            lhsField = this.getTime();
+            JAXBElement<ValDurationType> rhsField;
+            rhsField = that.getTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "time", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "time", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getEndingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getEndingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endingMeasurementPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

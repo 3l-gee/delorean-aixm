@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PTFreeTextType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<LocalisedCharacterStringPropertyType> textGroup;
 
@@ -82,6 +85,14 @@ public class PTFreeTextType
         this.textGroup = textGroup;
     }
 
+    public boolean isSetTextGroup() {
+        return ((this.textGroup!= null)&&(!this.textGroup.isEmpty()));
+    }
+
+    public void unsetTextGroup() {
+        this.textGroup = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -95,12 +106,12 @@ public class PTFreeTextType
         }
         final PTFreeTextType that = ((PTFreeTextType) object);
         {
-            boolean lhsFieldIsSet = ((this.textGroup!= null)&&(!this.textGroup.isEmpty()));
-            boolean rhsFieldIsSet = ((that.textGroup!= null)&&(!that.textGroup.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetTextGroup();
+            boolean rhsFieldIsSet = that.isSetTextGroup();
             List<LocalisedCharacterStringPropertyType> lhsField;
-            lhsField = (((this.textGroup!= null)&&(!this.textGroup.isEmpty()))?this.getTextGroup():null);
+            lhsField = (this.isSetTextGroup()?this.getTextGroup():null);
             List<LocalisedCharacterStringPropertyType> rhsField;
-            rhsField = (((that.textGroup!= null)&&(!that.textGroup.isEmpty()))?that.getTextGroup():null);
+            rhsField = (that.isSetTextGroup()?that.getTextGroup():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "textGroup", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "textGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -114,9 +125,9 @@ public class PTFreeTextType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.textGroup!= null)&&(!this.textGroup.isEmpty()));
+            boolean theFieldIsSet = this.isSetTextGroup();
             List<LocalisedCharacterStringPropertyType> theField;
-            theField = (((this.textGroup!= null)&&(!this.textGroup.isEmpty()))?this.getTextGroup():null);
+            theField = (this.isSetTextGroup()?this.getTextGroup():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "textGroup", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -127,9 +138,9 @@ public class PTFreeTextType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.textGroup!= null)&&(!this.textGroup.isEmpty()));
+            boolean theFieldIsSet = this.isSetTextGroup();
             List<LocalisedCharacterStringPropertyType> theField;
-            theField = (((this.textGroup!= null)&&(!this.textGroup.isEmpty()))?this.getTextGroup():null);
+            theField = (this.isSetTextGroup()?this.getTextGroup():null);
             strategy.appendField(locator, this, "textGroup", buffer, theField, theFieldIsSet);
         }
         return buffer;

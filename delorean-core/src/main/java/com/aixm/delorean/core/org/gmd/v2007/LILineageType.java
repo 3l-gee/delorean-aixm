@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class LILineageType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType statement;
     protected List<LIProcessStepPropertyType> processStep;
     protected List<LISourcePropertyType> source;
@@ -72,6 +75,10 @@ public class LILineageType
      */
     public void setStatement(CharacterStringPropertyType value) {
         this.statement = value;
+    }
+
+    public boolean isSetStatement() {
+        return (this.statement!= null);
     }
 
     /**
@@ -111,6 +118,14 @@ public class LILineageType
         this.processStep = processStep;
     }
 
+    public boolean isSetProcessStep() {
+        return ((this.processStep!= null)&&(!this.processStep.isEmpty()));
+    }
+
+    public void unsetProcessStep() {
+        this.processStep = null;
+    }
+
     /**
      * Gets the value of the source property.
      * 
@@ -148,6 +163,14 @@ public class LILineageType
         this.source = source;
     }
 
+    public boolean isSetSource() {
+        return ((this.source!= null)&&(!this.source.isEmpty()));
+    }
+
+    public void unsetSource() {
+        this.source = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -161,8 +184,8 @@ public class LILineageType
         }
         final LILineageType that = ((LILineageType) object);
         {
-            boolean lhsFieldIsSet = (this.statement!= null);
-            boolean rhsFieldIsSet = (that.statement!= null);
+            boolean lhsFieldIsSet = this.isSetStatement();
+            boolean rhsFieldIsSet = that.isSetStatement();
             CharacterStringPropertyType lhsField;
             lhsField = this.getStatement();
             CharacterStringPropertyType rhsField;
@@ -174,27 +197,27 @@ public class LILineageType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.processStep!= null)&&(!this.processStep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.processStep!= null)&&(!that.processStep.isEmpty()));
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (((this.processStep!= null)&&(!this.processStep.isEmpty()))?this.getProcessStep():null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (((that.processStep!= null)&&(!that.processStep.isEmpty()))?that.getProcessStep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
+            boolean lhsFieldIsSet = this.isSetSource();
+            boolean rhsFieldIsSet = that.isSetSource();
+            List<LISourcePropertyType> lhsField;
+            lhsField = (this.isSetSource()?this.getSource():null);
+            List<LISourcePropertyType> rhsField;
+            rhsField = (that.isSetSource()?that.getSource():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
-            boolean rhsFieldIsSet = ((that.source!= null)&&(!that.source.isEmpty()));
-            List<LISourcePropertyType> lhsField;
-            lhsField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
-            List<LISourcePropertyType> rhsField;
-            rhsField = (((that.source!= null)&&(!that.source.isEmpty()))?that.getSource():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "source", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "source", rhsField);
+            boolean lhsFieldIsSet = this.isSetProcessStep();
+            boolean rhsFieldIsSet = that.isSetProcessStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetProcessStep()?this.getProcessStep():null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetProcessStep()?that.getProcessStep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -206,23 +229,23 @@ public class LILineageType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.statement!= null);
+            boolean theFieldIsSet = this.isSetStatement();
             CharacterStringPropertyType theField;
             theField = this.getStatement();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "statement", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.processStep!= null)&&(!this.processStep.isEmpty()));
+            boolean theFieldIsSet = this.isSetProcessStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (((this.processStep!= null)&&(!this.processStep.isEmpty()))?this.getProcessStep():null);
+            theField = (this.isSetProcessStep()?this.getProcessStep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "processStep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
+            boolean theFieldIsSet = this.isSetSource();
             List<LISourcePropertyType> theField;
-            theField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            theField = (this.isSetSource()?this.getSource():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "source", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -233,21 +256,21 @@ public class LILineageType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.statement!= null);
+            boolean theFieldIsSet = this.isSetStatement();
             CharacterStringPropertyType theField;
             theField = this.getStatement();
             strategy.appendField(locator, this, "statement", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.processStep!= null)&&(!this.processStep.isEmpty()));
+            boolean theFieldIsSet = this.isSetProcessStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (((this.processStep!= null)&&(!this.processStep.isEmpty()))?this.getProcessStep():null);
+            theField = (this.isSetProcessStep()?this.getProcessStep():null);
             strategy.appendField(locator, this, "processStep", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.source!= null)&&(!this.source.isEmpty()));
+            boolean theFieldIsSet = this.isSetSource();
             List<LISourcePropertyType> theField;
-            theField = (((this.source!= null)&&(!this.source.isEmpty()))?this.getSource():null);
+            theField = (this.isSetSource()?this.getSource():null);
             strategy.appendField(locator, this, "source", buffer, theField, theFieldIsSet);
         }
         return buffer;

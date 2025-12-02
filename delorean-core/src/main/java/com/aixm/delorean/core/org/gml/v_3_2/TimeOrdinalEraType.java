@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,8 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeOrdinalEraType
     extends DefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<RelatedTimeType> relatedTime;
     protected TimeNodePropertyType start;
     protected TimeNodePropertyType end;
@@ -94,6 +97,14 @@ public class TimeOrdinalEraType
         this.relatedTime = relatedTime;
     }
 
+    public boolean isSetRelatedTime() {
+        return ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+    }
+
+    public void unsetRelatedTime() {
+        this.relatedTime = null;
+    }
+
     /**
      * Gets the value of the start property.
      * 
@@ -116,6 +127,10 @@ public class TimeOrdinalEraType
      */
     public void setStart(TimeNodePropertyType value) {
         this.start = value;
+    }
+
+    public boolean isSetStart() {
+        return (this.start!= null);
     }
 
     /**
@@ -142,6 +157,10 @@ public class TimeOrdinalEraType
         this.end = value;
     }
 
+    public boolean isSetEnd() {
+        return (this.end!= null);
+    }
+
     /**
      * Gets the value of the extent property.
      * 
@@ -164,6 +183,10 @@ public class TimeOrdinalEraType
      */
     public void setExtent(TimePeriodPropertyType value) {
         this.extent = value;
+    }
+
+    public boolean isSetExtent() {
+        return (this.extent!= null);
     }
 
     /**
@@ -203,6 +226,14 @@ public class TimeOrdinalEraType
         this.member = member;
     }
 
+    public boolean isSetMember() {
+        return ((this.member!= null)&&(!this.member.isEmpty()));
+    }
+
+    public void unsetMember() {
+        this.member = null;
+    }
+
     /**
      * Gets the value of the group property.
      * 
@@ -227,6 +258,10 @@ public class TimeOrdinalEraType
         this.group = value;
     }
 
+    public boolean isSetGroup() {
+        return (this.group!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -240,47 +275,21 @@ public class TimeOrdinalEraType
         }
         final TimeOrdinalEraType that = ((TimeOrdinalEraType) object);
         {
-            boolean lhsFieldIsSet = ((this.member!= null)&&(!this.member.isEmpty()));
-            boolean rhsFieldIsSet = ((that.member!= null)&&(!that.member.isEmpty()));
-            List<TimeOrdinalEraPropertyType> lhsField;
-            lhsField = (((this.member!= null)&&(!this.member.isEmpty()))?this.getMember():null);
-            List<TimeOrdinalEraPropertyType> rhsField;
-            rhsField = (((that.member!= null)&&(!that.member.isEmpty()))?that.getMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
+            boolean lhsFieldIsSet = this.isSetRelatedTime();
+            boolean rhsFieldIsSet = that.isSetRelatedTime();
+            List<RelatedTimeType> lhsField;
+            lhsField = (this.isSetRelatedTime()?this.getRelatedTime():null);
+            List<RelatedTimeType> rhsField;
+            rhsField = (that.isSetRelatedTime()?that.getRelatedTime():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.group!= null);
-            boolean rhsFieldIsSet = (that.group!= null);
-            ReferenceType lhsField;
-            lhsField = this.getGroup();
-            ReferenceType rhsField;
-            rhsField = that.getGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.extent!= null);
-            boolean rhsFieldIsSet = (that.extent!= null);
-            TimePeriodPropertyType lhsField;
-            lhsField = this.getExtent();
-            TimePeriodPropertyType rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.start!= null);
-            boolean rhsFieldIsSet = (that.start!= null);
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
             TimeNodePropertyType lhsField;
             lhsField = this.getStart();
             TimeNodePropertyType rhsField;
@@ -292,27 +301,53 @@ public class TimeOrdinalEraType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
-            boolean rhsFieldIsSet = ((that.relatedTime!= null)&&(!that.relatedTime.isEmpty()));
-            List<RelatedTimeType> lhsField;
-            lhsField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
-            List<RelatedTimeType> rhsField;
-            rhsField = (((that.relatedTime!= null)&&(!that.relatedTime.isEmpty()))?that.getRelatedTime():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            TimePeriodPropertyType lhsField;
+            lhsField = this.getExtent();
+            TimePeriodPropertyType rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.end!= null);
-            boolean rhsFieldIsSet = (that.end!= null);
+            boolean lhsFieldIsSet = this.isSetMember();
+            boolean rhsFieldIsSet = that.isSetMember();
+            List<TimeOrdinalEraPropertyType> lhsField;
+            lhsField = (this.isSetMember()?this.getMember():null);
+            List<TimeOrdinalEraPropertyType> rhsField;
+            rhsField = (that.isSetMember()?that.getMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEnd();
+            boolean rhsFieldIsSet = that.isSetEnd();
             TimeNodePropertyType lhsField;
             lhsField = this.getEnd();
             TimeNodePropertyType rhsField;
             rhsField = that.getEnd();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGroup();
+            boolean rhsFieldIsSet = that.isSetGroup();
+            ReferenceType lhsField;
+            lhsField = this.getGroup();
+            ReferenceType rhsField;
+            rhsField = that.getGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -324,42 +359,42 @@ public class TimeOrdinalEraType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+            boolean theFieldIsSet = this.isSetRelatedTime();
             List<RelatedTimeType> theField;
-            theField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
+            theField = (this.isSetRelatedTime()?this.getRelatedTime():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "relatedTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.start!= null);
+            boolean theFieldIsSet = this.isSetStart();
             TimeNodePropertyType theField;
             theField = this.getStart();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "start", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.end!= null);
+            boolean theFieldIsSet = this.isSetEnd();
             TimeNodePropertyType theField;
             theField = this.getEnd();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "end", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             TimePeriodPropertyType theField;
             theField = this.getExtent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.member!= null)&&(!this.member.isEmpty()));
+            boolean theFieldIsSet = this.isSetMember();
             List<TimeOrdinalEraPropertyType> theField;
-            theField = (((this.member!= null)&&(!this.member.isEmpty()))?this.getMember():null);
+            theField = (this.isSetMember()?this.getMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "member", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.group!= null);
+            boolean theFieldIsSet = this.isSetGroup();
             ReferenceType theField;
             theField = this.getGroup();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "group", theField);
@@ -372,37 +407,37 @@ public class TimeOrdinalEraType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+            boolean theFieldIsSet = this.isSetRelatedTime();
             List<RelatedTimeType> theField;
-            theField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
+            theField = (this.isSetRelatedTime()?this.getRelatedTime():null);
             strategy.appendField(locator, this, "relatedTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.start!= null);
+            boolean theFieldIsSet = this.isSetStart();
             TimeNodePropertyType theField;
             theField = this.getStart();
             strategy.appendField(locator, this, "start", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.end!= null);
+            boolean theFieldIsSet = this.isSetEnd();
             TimeNodePropertyType theField;
             theField = this.getEnd();
             strategy.appendField(locator, this, "end", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             TimePeriodPropertyType theField;
             theField = this.getExtent();
             strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.member!= null)&&(!this.member.isEmpty()));
+            boolean theFieldIsSet = this.isSetMember();
             List<TimeOrdinalEraPropertyType> theField;
-            theField = (((this.member!= null)&&(!this.member.isEmpty()))?this.getMember():null);
+            theField = (this.isSetMember()?this.getMember():null);
             strategy.appendField(locator, this, "member", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.group!= null);
+            boolean theFieldIsSet = this.isSetGroup();
             ReferenceType theField;
             theField = this.getGroup();
             strategy.appendField(locator, this, "group", buffer, theField, theFieldIsSet);

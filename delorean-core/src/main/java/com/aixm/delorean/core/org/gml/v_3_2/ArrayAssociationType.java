@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ArrayAssociationType", propOrder = {
     "abstractObject"
 })
-public class ArrayAssociationType implements Equals, HashCode, ToString
+public class ArrayAssociationType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractObject", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<?>> abstractObject;
     @XmlAttribute(name = "owns")
@@ -270,6 +272,14 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
         this.abstractObject = abstractObject;
     }
 
+    public boolean isSetAbstractObject() {
+        return ((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()));
+    }
+
+    public void unsetAbstractObject() {
+        this.abstractObject = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -278,7 +288,7 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -294,8 +304,16 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -320,27 +338,27 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
         }
         final ArrayAssociationType that = ((ArrayAssociationType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractObject!= null)&&(!that.abstractObject.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()))?this.getAbstractObject():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.abstractObject!= null)&&(!that.abstractObject.isEmpty()))?that.getAbstractObject():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObject", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObject", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractObject();
+            boolean rhsFieldIsSet = that.isSetAbstractObject();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetAbstractObject()?this.getAbstractObject():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetAbstractObject()?that.getAbstractObject():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractObject", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractObject", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -362,16 +380,16 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractObject();
             List<JAXBElement<?>> theField;
-            theField = (((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()))?this.getAbstractObject():null);
+            theField = (this.isSetAbstractObject()?this.getAbstractObject():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractObject", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -401,15 +419,15 @@ public class ArrayAssociationType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractObject();
             List<JAXBElement<?>> theField;
-            theField = (((this.abstractObject!= null)&&(!this.abstractObject.isEmpty()))?this.getAbstractObject():null);
+            theField = (this.isSetAbstractObject()?this.getAbstractObject():null);
             strategy.appendField(locator, this, "abstractObject", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.BooleanPropertyType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DQConformanceResultType
     extends AbstractDQResultType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CICitationPropertyType specification;
     @XmlElement(required = true)
@@ -78,6 +81,10 @@ public class DQConformanceResultType
         this.specification = value;
     }
 
+    public boolean isSetSpecification() {
+        return (this.specification!= null);
+    }
+
     /**
      * Gets the value of the explanation property.
      * 
@@ -100,6 +107,10 @@ public class DQConformanceResultType
      */
     public void setExplanation(CharacterStringPropertyType value) {
         this.explanation = value;
+    }
+
+    public boolean isSetExplanation() {
+        return (this.explanation!= null);
     }
 
     /**
@@ -126,6 +137,10 @@ public class DQConformanceResultType
         this.pass = value;
     }
 
+    public boolean isSetPass() {
+        return (this.pass!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -139,8 +154,21 @@ public class DQConformanceResultType
         }
         final DQConformanceResultType that = ((DQConformanceResultType) object);
         {
-            boolean lhsFieldIsSet = (this.specification!= null);
-            boolean rhsFieldIsSet = (that.specification!= null);
+            boolean lhsFieldIsSet = this.isSetPass();
+            boolean rhsFieldIsSet = that.isSetPass();
+            BooleanPropertyType lhsField;
+            lhsField = this.getPass();
+            BooleanPropertyType rhsField;
+            rhsField = that.getPass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecification();
+            boolean rhsFieldIsSet = that.isSetSpecification();
             CICitationPropertyType lhsField;
             lhsField = this.getSpecification();
             CICitationPropertyType rhsField;
@@ -152,27 +180,14 @@ public class DQConformanceResultType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.explanation!= null);
-            boolean rhsFieldIsSet = (that.explanation!= null);
+            boolean lhsFieldIsSet = this.isSetExplanation();
+            boolean rhsFieldIsSet = that.isSetExplanation();
             CharacterStringPropertyType lhsField;
             lhsField = this.getExplanation();
             CharacterStringPropertyType rhsField;
             rhsField = that.getExplanation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "explanation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "explanation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.pass!= null);
-            boolean rhsFieldIsSet = (that.pass!= null);
-            BooleanPropertyType lhsField;
-            lhsField = this.getPass();
-            BooleanPropertyType rhsField;
-            rhsField = that.getPass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -184,21 +199,21 @@ public class DQConformanceResultType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.specification!= null);
+            boolean theFieldIsSet = this.isSetSpecification();
             CICitationPropertyType theField;
             theField = this.getSpecification();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specification", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.explanation!= null);
+            boolean theFieldIsSet = this.isSetExplanation();
             CharacterStringPropertyType theField;
             theField = this.getExplanation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "explanation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pass!= null);
+            boolean theFieldIsSet = this.isSetPass();
             BooleanPropertyType theField;
             theField = this.getPass();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pass", theField);
@@ -211,19 +226,19 @@ public class DQConformanceResultType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.specification!= null);
+            boolean theFieldIsSet = this.isSetSpecification();
             CICitationPropertyType theField;
             theField = this.getSpecification();
             strategy.appendField(locator, this, "specification", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.explanation!= null);
+            boolean theFieldIsSet = this.isSetExplanation();
             CharacterStringPropertyType theField;
             theField = this.getExplanation();
             strategy.appendField(locator, this, "explanation", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pass!= null);
+            boolean theFieldIsSet = this.isSetPass();
             BooleanPropertyType theField;
             theField = this.getPass();
             strategy.appendField(locator, this, "pass", buffer, theField, theFieldIsSet);

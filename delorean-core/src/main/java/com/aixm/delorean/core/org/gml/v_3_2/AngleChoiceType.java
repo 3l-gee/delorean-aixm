@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -43,9 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "angle",
     "dmsAngle"
 })
-public class AngleChoiceType implements Equals, HashCode, ToString
+public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The gml:angle property element is used to record the value of an angle quantity as a single number, with its units.
      * 
@@ -78,6 +80,10 @@ public class AngleChoiceType implements Equals, HashCode, ToString
         this.angle = value;
     }
 
+    public boolean isSetAngle() {
+        return (this.angle!= null);
+    }
+
     /**
      * Gets the value of the dmsAngle property.
      * 
@@ -102,6 +108,10 @@ public class AngleChoiceType implements Equals, HashCode, ToString
         this.dmsAngle = value;
     }
 
+    public boolean isSetDmsAngle() {
+        return (this.dmsAngle!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -124,8 +134,8 @@ public class AngleChoiceType implements Equals, HashCode, ToString
         }
         final AngleChoiceType that = ((AngleChoiceType) object);
         {
-            boolean lhsFieldIsSet = (this.angle!= null);
-            boolean rhsFieldIsSet = (that.angle!= null);
+            boolean lhsFieldIsSet = this.isSetAngle();
+            boolean rhsFieldIsSet = that.isSetAngle();
             AngleType lhsField;
             lhsField = this.getAngle();
             AngleType rhsField;
@@ -137,8 +147,8 @@ public class AngleChoiceType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dmsAngle!= null);
-            boolean rhsFieldIsSet = (that.dmsAngle!= null);
+            boolean lhsFieldIsSet = this.isSetDmsAngle();
+            boolean rhsFieldIsSet = that.isSetDmsAngle();
             DMSAngleType lhsField;
             lhsField = this.getDmsAngle();
             DMSAngleType rhsField;
@@ -166,14 +176,14 @@ public class AngleChoiceType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.angle!= null);
+            boolean theFieldIsSet = this.isSetAngle();
             AngleType theField;
             theField = this.getAngle();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "angle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dmsAngle!= null);
+            boolean theFieldIsSet = this.isSetDmsAngle();
             DMSAngleType theField;
             theField = this.getDmsAngle();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dmsAngle", theField);
@@ -205,13 +215,13 @@ public class AngleChoiceType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.angle!= null);
+            boolean theFieldIsSet = this.isSetAngle();
             AngleType theField;
             theField = this.getAngle();
             strategy.appendField(locator, this, "angle", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dmsAngle!= null);
+            boolean theFieldIsSet = this.isSetDmsAngle();
             DMSAngleType theField;
             theField = this.getDmsAngle();
             strategy.appendField(locator, this, "dmsAngle", buffer, theField, theFieldIsSet);

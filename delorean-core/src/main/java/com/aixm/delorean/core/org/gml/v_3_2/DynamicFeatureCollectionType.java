@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DynamicFeatureCollectionType
     extends DynamicFeatureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected DynamicFeatureMemberType dynamicMembers;
 
@@ -66,6 +69,10 @@ public class DynamicFeatureCollectionType
         this.dynamicMembers = value;
     }
 
+    public boolean isSetDynamicMembers() {
+        return (this.dynamicMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -79,8 +86,8 @@ public class DynamicFeatureCollectionType
         }
         final DynamicFeatureCollectionType that = ((DynamicFeatureCollectionType) object);
         {
-            boolean lhsFieldIsSet = (this.dynamicMembers!= null);
-            boolean rhsFieldIsSet = (that.dynamicMembers!= null);
+            boolean lhsFieldIsSet = this.isSetDynamicMembers();
+            boolean rhsFieldIsSet = that.isSetDynamicMembers();
             DynamicFeatureMemberType lhsField;
             lhsField = this.getDynamicMembers();
             DynamicFeatureMemberType rhsField;
@@ -98,7 +105,7 @@ public class DynamicFeatureCollectionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.dynamicMembers!= null);
+            boolean theFieldIsSet = this.isSetDynamicMembers();
             DynamicFeatureMemberType theField;
             theField = this.getDynamicMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dynamicMembers", theField);
@@ -111,7 +118,7 @@ public class DynamicFeatureCollectionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.dynamicMembers!= null);
+            boolean theFieldIsSet = this.isSetDynamicMembers();
             DynamicFeatureMemberType theField;
             theField = this.getDynamicMembers();
             strategy.appendField(locator, this, "dynamicMembers", buffer, theField, theFieldIsSet);

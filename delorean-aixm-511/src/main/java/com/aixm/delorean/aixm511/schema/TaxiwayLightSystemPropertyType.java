@@ -6,14 +6,13 @@ import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -72,7 +71,7 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.SIMPLE;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
     protected String href;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
@@ -80,7 +79,7 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
     protected String arcrole;
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
-    protected String title;
+    protected String simpleLinkTitle;
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
     protected ShowType show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
@@ -168,8 +167,7 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
      *     {@link String }
      *     
      */
-    @Basic
-    @Column(name = "REMOTE_SCHEMA")
+    @Transient
     public String getRemoteSchema() {
         return remoteSchema;
     }
@@ -189,38 +187,6 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
     @Transient
     public boolean isSetRemoteSchema() {
         return (this.remoteSchema!= null);
-    }
-
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    @ManyToOne(targetEntity = TypeType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
-    public TypeType getTYPE() {
-        return type;
-    }
-
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setTYPE(TypeType value) {
-        this.type = value;
-    }
-
-    @Transient
-    public boolean isSetTYPE() {
-        return (this.type!= null);
     }
 
     /**
@@ -317,7 +283,7 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
     }
 
     /**
-     * Gets the value of the title property.
+     * Gets the value of the simpleLinkTitle property.
      * 
      * @return
      *     possible object is
@@ -325,26 +291,26 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
      *     
      */
     @Basic
-    @Column(name = "TITLE", length = 255)
-    public String getTitle() {
-        return title;
+    @Column(name = "SIMPLE_LINK_TITLE", length = 255)
+    public String getSimpleLinkTitle() {
+        return simpleLinkTitle;
     }
 
     /**
-     * Sets the value of the title property.
+     * Sets the value of the simpleLinkTitle property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTitle(String value) {
-        this.title = value;
+    public void setSimpleLinkTitle(String value) {
+        this.simpleLinkTitle = value;
     }
 
     @Transient
-    public boolean isSetTitle() {
-        return (this.title!= null);
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
@@ -355,9 +321,9 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
      *     {@link ShowType }
      *     
      */
-    @ManyToOne(targetEntity = ShowType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @Basic
+    @Column(name = "SHOW_", length = 255)
+    @Enumerated(EnumType.STRING)
     public ShowType getShow() {
         return show;
     }
@@ -387,9 +353,9 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
      *     {@link ActuateType }
      *     
      */
-    @ManyToOne(targetEntity = ActuateType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @Basic
+    @Column(name = "ACTUATE", length = 255)
+    @Enumerated(EnumType.STRING)
     public ActuateType getActuate() {
         return actuate;
     }
@@ -487,6 +453,19 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
         }
         final TaxiwayLightSystemPropertyType that = ((TaxiwayLightSystemPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -495,32 +474,6 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            String lhsField;
-            lhsField = this.getTitle();
-            String rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -539,40 +492,14 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTYPE();
-            boolean rhsFieldIsSet = that.isSetTYPE();
-            TypeType lhsField;
-            lhsField = this.getTYPE();
-            TypeType rhsField;
-            rhsField = that.getTYPE();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -591,14 +518,40 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -654,13 +607,6 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetTYPE();
-            TypeType theField;
-            theField = this.getTYPE();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
             boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
@@ -682,10 +628,10 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetTitle();
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
-            theField = this.getTitle();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "title", theField);
+            theField = this.getSimpleLinkTitle();
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "simpleLinkTitle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -746,12 +692,6 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             strategy.appendField(locator, this, "remoteSchema", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetTYPE();
-            TypeType theField;
-            theField = this.getTYPE();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
             boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
@@ -770,10 +710,10 @@ public class TaxiwayLightSystemPropertyType implements Serializable, Equals, Has
             strategy.appendField(locator, this, "arcrole", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = this.isSetTitle();
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
-            theField = this.getTitle();
-            strategy.appendField(locator, this, "title", buffer, theField, theFieldIsSet);
+            theField = this.getSimpleLinkTitle();
+            strategy.appendField(locator, this, "simpleLinkTitle", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetShow();

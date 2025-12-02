@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TopoSurfacePropertyType", propOrder = {
     "topoSurface"
 })
-public class TopoSurfacePropertyType implements Equals, HashCode, ToString
+public class TopoSurfacePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:TopoSurface represents a homogeneous topological expression, a set of directed faces, which if realised are isomorphic to a geometric surface primitive. The intended use of gml:TopoSurface is to appear within a surface feature to express the structural and possibly geometric relationships of this surface feature to other features via the shared face definitions.
      * 
@@ -81,6 +83,10 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
         this.topoSurface = value;
     }
 
+    public boolean isSetTopoSurface() {
+        return (this.topoSurface!= null);
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -89,7 +95,7 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -105,8 +111,16 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -131,27 +145,27 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
         }
         final TopoSurfacePropertyType that = ((TopoSurfacePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.topoSurface!= null);
-            boolean rhsFieldIsSet = (that.topoSurface!= null);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTopoSurface();
+            boolean rhsFieldIsSet = that.isSetTopoSurface();
             TopoSurfaceType lhsField;
             lhsField = this.getTopoSurface();
             TopoSurfaceType rhsField;
             rhsField = that.getTopoSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -173,16 +187,16 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.topoSurface!= null);
+            boolean theFieldIsSet = this.isSetTopoSurface();
             TopoSurfaceType theField;
             theField = this.getTopoSurface();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topoSurface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -212,15 +226,15 @@ public class TopoSurfacePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.topoSurface!= null);
+            boolean theFieldIsSet = this.isSetTopoSurface();
             TopoSurfaceType theField;
             theField = this.getTopoSurface();
             strategy.appendField(locator, this, "topoSurface", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

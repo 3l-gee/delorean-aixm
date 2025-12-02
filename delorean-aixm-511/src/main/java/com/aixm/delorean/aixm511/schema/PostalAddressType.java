@@ -442,7 +442,7 @@ public class PostalAddressType
     @OneToMany(targetEntity = PostalAddressTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_POSTAL_ADDRESS_TYP_0")
     public List<PostalAddressTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -545,14 +545,27 @@ public class PostalAddressType
         }
         final PostalAddressType that = ((PostalAddressType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
-            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
             JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAdministrativeArea();
+            lhsField = this.getCountry();
             JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAdministrativeArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -566,32 +579,6 @@ public class PostalAddressType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
-            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
-            JAXBElement<TextAddressType> lhsField;
-            lhsField = this.getDeliveryPoint();
-            JAXBElement<TextAddressType> rhsField;
-            rhsField = that.getDeliveryPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCity();
-            boolean rhsFieldIsSet = that.isSetCity();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getCity();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getCity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -623,27 +610,40 @@ public class PostalAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCountry();
-            boolean rhsFieldIsSet = that.isSetCountry();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getCountry();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
+            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
+            JAXBElement<TextAddressType> lhsField;
+            lhsField = this.getDeliveryPoint();
+            JAXBElement<TextAddressType> rhsField;
+            rhsField = that.getDeliveryPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
+            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAdministrativeArea();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAdministrativeArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCity();
+            boolean rhsFieldIsSet = that.isSetCity();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getCity();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getCity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DerivedCRSType
     extends AbstractGeneralDerivedCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:baseCRS is an association role to the coordinate reference system used by this derived CRS.
      * 
@@ -89,6 +92,10 @@ public class DerivedCRSType
         this.baseCRS = value;
     }
 
+    public boolean isSetBaseCRS() {
+        return (this.baseCRS!= null);
+    }
+
     /**
      * The gml:derivedCRSType property describes the type of a derived coordinate reference system. The required codeSpace attribute shall reference a source of information specifying the values and meanings of all the allowed string values for this property.
      * 
@@ -112,6 +119,10 @@ public class DerivedCRSType
      */
     public void setDerivedCRSType(CodeWithAuthorityType value) {
         this.derivedCRSType = value;
+    }
+
+    public boolean isSetDerivedCRSType() {
+        return (this.derivedCRSType!= null);
     }
 
     /**
@@ -141,6 +152,10 @@ public class DerivedCRSType
         this.coordinateSystem = value;
     }
 
+    public boolean isSetCoordinateSystem() {
+        return (this.coordinateSystem!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -154,21 +169,8 @@ public class DerivedCRSType
         }
         final DerivedCRSType that = ((DerivedCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.derivedCRSType!= null);
-            boolean rhsFieldIsSet = (that.derivedCRSType!= null);
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getDerivedCRSType();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getDerivedCRSType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivedCRSType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivedCRSType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordinateSystem!= null);
-            boolean rhsFieldIsSet = (that.coordinateSystem!= null);
+            boolean lhsFieldIsSet = this.isSetCoordinateSystem();
+            boolean rhsFieldIsSet = that.isSetCoordinateSystem();
             JAXBElement<CoordinateSystemPropertyType> lhsField;
             lhsField = this.getCoordinateSystem();
             JAXBElement<CoordinateSystemPropertyType> rhsField;
@@ -180,8 +182,21 @@ public class DerivedCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.baseCRS!= null);
-            boolean rhsFieldIsSet = (that.baseCRS!= null);
+            boolean lhsFieldIsSet = this.isSetDerivedCRSType();
+            boolean rhsFieldIsSet = that.isSetDerivedCRSType();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getDerivedCRSType();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getDerivedCRSType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivedCRSType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivedCRSType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseCRS();
+            boolean rhsFieldIsSet = that.isSetBaseCRS();
             SingleCRSPropertyType lhsField;
             lhsField = this.getBaseCRS();
             SingleCRSPropertyType rhsField;
@@ -199,21 +214,21 @@ public class DerivedCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.baseCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseCRS();
             SingleCRSPropertyType theField;
             theField = this.getBaseCRS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "baseCRS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.derivedCRSType!= null);
+            boolean theFieldIsSet = this.isSetDerivedCRSType();
             CodeWithAuthorityType theField;
             theField = this.getDerivedCRSType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "derivedCRSType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinateSystem!= null);
+            boolean theFieldIsSet = this.isSetCoordinateSystem();
             JAXBElement<CoordinateSystemPropertyType> theField;
             theField = this.getCoordinateSystem();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coordinateSystem", theField);
@@ -226,19 +241,19 @@ public class DerivedCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.baseCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseCRS();
             SingleCRSPropertyType theField;
             theField = this.getBaseCRS();
             strategy.appendField(locator, this, "baseCRS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.derivedCRSType!= null);
+            boolean theFieldIsSet = this.isSetDerivedCRSType();
             CodeWithAuthorityType theField;
             theField = this.getDerivedCRSType();
             strategy.appendField(locator, this, "derivedCRSType", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinateSystem!= null);
+            boolean theFieldIsSet = this.isSetCoordinateSystem();
             JAXBElement<CoordinateSystemPropertyType> theField;
             theField = this.getCoordinateSystem();
             strategy.appendField(locator, this, "coordinateSystem", buffer, theField, theFieldIsSet);

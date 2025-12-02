@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class TimeTopologyComplexType
     extends AbstractTimeComplexType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<TimeTopologyPrimitivePropertyType> primitive;
 
@@ -81,6 +84,14 @@ public abstract class TimeTopologyComplexType
         this.primitive = primitive;
     }
 
+    public boolean isSetPrimitive() {
+        return ((this.primitive!= null)&&(!this.primitive.isEmpty()));
+    }
+
+    public void unsetPrimitive() {
+        this.primitive = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -94,12 +105,12 @@ public abstract class TimeTopologyComplexType
         }
         final TimeTopologyComplexType that = ((TimeTopologyComplexType) object);
         {
-            boolean lhsFieldIsSet = ((this.primitive!= null)&&(!this.primitive.isEmpty()));
-            boolean rhsFieldIsSet = ((that.primitive!= null)&&(!that.primitive.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPrimitive();
+            boolean rhsFieldIsSet = that.isSetPrimitive();
             List<TimeTopologyPrimitivePropertyType> lhsField;
-            lhsField = (((this.primitive!= null)&&(!this.primitive.isEmpty()))?this.getPrimitive():null);
+            lhsField = (this.isSetPrimitive()?this.getPrimitive():null);
             List<TimeTopologyPrimitivePropertyType> rhsField;
-            rhsField = (((that.primitive!= null)&&(!that.primitive.isEmpty()))?that.getPrimitive():null);
+            rhsField = (that.isSetPrimitive()?that.getPrimitive():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primitive", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primitive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -113,9 +124,9 @@ public abstract class TimeTopologyComplexType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.primitive!= null)&&(!this.primitive.isEmpty()));
+            boolean theFieldIsSet = this.isSetPrimitive();
             List<TimeTopologyPrimitivePropertyType> theField;
-            theField = (((this.primitive!= null)&&(!this.primitive.isEmpty()))?this.getPrimitive():null);
+            theField = (this.isSetPrimitive()?this.getPrimitive():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "primitive", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -126,9 +137,9 @@ public abstract class TimeTopologyComplexType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.primitive!= null)&&(!this.primitive.isEmpty()));
+            boolean theFieldIsSet = this.isSetPrimitive();
             List<TimeTopologyPrimitivePropertyType> theField;
-            theField = (((this.primitive!= null)&&(!this.primitive.isEmpty()))?this.getPrimitive():null);
+            theField = (this.isSetPrimitive()?this.getPrimitive():null);
             strategy.appendField(locator, this, "primitive", buffer, theField, theFieldIsSet);
         }
         return buffer;

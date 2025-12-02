@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Embeddable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -35,8 +36,10 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 @Embeddable
 public class CodeWithAuthorityType
     extends CodeType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
 
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {

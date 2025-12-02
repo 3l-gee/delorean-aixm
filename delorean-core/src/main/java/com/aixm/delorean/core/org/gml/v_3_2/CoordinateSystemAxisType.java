@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CoordinateSystemAxisType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:axisAbbrev is the abbreviation used for this coordinate system axis; this abbreviation is also used to identify the coordinates in the coordinate tuple. The codeSpace attribute may reference a source of more information on a set of standardized abbreviations, or on this abbreviation.
      * 
@@ -110,6 +113,10 @@ public class CoordinateSystemAxisType
         this.axisAbbrev = value;
     }
 
+    public boolean isSetAxisAbbrev() {
+        return (this.axisAbbrev!= null);
+    }
+
     /**
      * gml:axisDirection is the direction of this coordinate system axis (or in the case of Cartesian projected coordinates, the direction of this coordinate system axis at the origin).
      * Within any set of coordinate system axes, only one of each pair of terms may be used. For earth-fixed CRSs, this direction is often approximate and intended to provide a human interpretable meaning to the axis. When a geodetic datum is used, the precise directions of the axes may therefore vary slightly from this approximate direction.
@@ -137,6 +144,10 @@ public class CoordinateSystemAxisType
         this.axisDirection = value;
     }
 
+    public boolean isSetAxisDirection() {
+        return (this.axisDirection!= null);
+    }
+
     /**
      * The gml:minimumValue and gml:maximumValue properties allow the specification of minimum and maximum value normally allowed for this axis, in the unit of measure for the axis. For a continuous angular axis such as longitude, the values wrap-around at this value. Also, values beyond this minimum/maximum can be used for specified purposes, such as in a bounding box. A value of minus infinity shall be allowed for the gml:minimumValue element, a value of plus infiniy for the gml:maximumValue element. If these elements are omitted, the value is unspecified.
      * 
@@ -160,6 +171,10 @@ public class CoordinateSystemAxisType
      */
     public void setMinimumValue(Double value) {
         this.minimumValue = value;
+    }
+
+    public boolean isSetMinimumValue() {
+        return (this.minimumValue!= null);
     }
 
     /**
@@ -187,6 +202,10 @@ public class CoordinateSystemAxisType
         this.maximumValue = value;
     }
 
+    public boolean isSetMaximumValue() {
+        return (this.maximumValue!= null);
+    }
+
     /**
      * gml:rangeMeaning describes the meaning of axis value range specified by gml:minimumValue and gml:maximumValue. This element shall be omitted when both gml:minimumValue and gml:maximumValue are omitted. This element should be included when gml:minimumValue and/or gml:maximumValue are included. If this element is omitted when the gml:minimumValue and/or gml:maximumValue are included, the meaning is unspecified. The codeSpace attribute shall reference a source of information specifying the values and meanings of all the allowed string values for this property.
      * 
@@ -210,6 +229,10 @@ public class CoordinateSystemAxisType
      */
     public void setRangeMeaning(CodeWithAuthorityType value) {
         this.rangeMeaning = value;
+    }
+
+    public boolean isSetRangeMeaning() {
+        return (this.rangeMeaning!= null);
     }
 
     /**
@@ -237,6 +260,10 @@ public class CoordinateSystemAxisType
         this.uom = value;
     }
 
+    public boolean isSetUom() {
+        return (this.uom!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -250,8 +277,8 @@ public class CoordinateSystemAxisType
         }
         final CoordinateSystemAxisType that = ((CoordinateSystemAxisType) object);
         {
-            boolean lhsFieldIsSet = (this.axisAbbrev!= null);
-            boolean rhsFieldIsSet = (that.axisAbbrev!= null);
+            boolean lhsFieldIsSet = this.isSetAxisAbbrev();
+            boolean rhsFieldIsSet = that.isSetAxisAbbrev();
             CodeType lhsField;
             lhsField = this.getAxisAbbrev();
             CodeType rhsField;
@@ -263,47 +290,21 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
-            String lhsField;
-            lhsField = this.getUom();
-            String rhsField;
-            rhsField = that.getUom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.axisDirection!= null);
-            boolean rhsFieldIsSet = (that.axisDirection!= null);
+            boolean lhsFieldIsSet = this.isSetRangeMeaning();
+            boolean rhsFieldIsSet = that.isSetRangeMeaning();
             CodeWithAuthorityType lhsField;
-            lhsField = this.getAxisDirection();
+            lhsField = this.getRangeMeaning();
             CodeWithAuthorityType rhsField;
-            rhsField = that.getAxisDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
+            rhsField = that.getRangeMeaning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.maximumValue!= null);
-            boolean rhsFieldIsSet = (that.maximumValue!= null);
-            Double lhsField;
-            lhsField = this.getMaximumValue();
-            Double rhsField;
-            rhsField = that.getMaximumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.minimumValue!= null);
-            boolean rhsFieldIsSet = (that.minimumValue!= null);
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
             Double lhsField;
             lhsField = this.getMinimumValue();
             Double rhsField;
@@ -315,14 +316,40 @@ public class CoordinateSystemAxisType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.rangeMeaning!= null);
-            boolean rhsFieldIsSet = (that.rangeMeaning!= null);
+            boolean lhsFieldIsSet = this.isSetMaximumValue();
+            boolean rhsFieldIsSet = that.isSetMaximumValue();
+            Double lhsField;
+            lhsField = this.getMaximumValue();
+            Double rhsField;
+            rhsField = that.getMaximumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisDirection();
+            boolean rhsFieldIsSet = that.isSetAxisDirection();
             CodeWithAuthorityType lhsField;
-            lhsField = this.getRangeMeaning();
+            lhsField = this.getAxisDirection();
             CodeWithAuthorityType rhsField;
-            rhsField = that.getRangeMeaning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeMeaning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeMeaning", rhsField);
+            rhsField = that.getAxisDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
+            String lhsField;
+            lhsField = this.getUom();
+            String rhsField;
+            rhsField = that.getUom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -334,42 +361,42 @@ public class CoordinateSystemAxisType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.axisAbbrev!= null);
+            boolean theFieldIsSet = this.isSetAxisAbbrev();
             CodeType theField;
             theField = this.getAxisAbbrev();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisAbbrev", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.axisDirection!= null);
+            boolean theFieldIsSet = this.isSetAxisDirection();
             CodeWithAuthorityType theField;
             theField = this.getAxisDirection();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisDirection", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.minimumValue!= null);
+            boolean theFieldIsSet = this.isSetMinimumValue();
             Double theField;
             theField = this.getMinimumValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.maximumValue!= null);
+            boolean theFieldIsSet = this.isSetMaximumValue();
             Double theField;
             theField = this.getMaximumValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "maximumValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rangeMeaning!= null);
+            boolean theFieldIsSet = this.isSetRangeMeaning();
             CodeWithAuthorityType theField;
             theField = this.getRangeMeaning();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "rangeMeaning", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uom", theField);
@@ -382,37 +409,37 @@ public class CoordinateSystemAxisType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.axisAbbrev!= null);
+            boolean theFieldIsSet = this.isSetAxisAbbrev();
             CodeType theField;
             theField = this.getAxisAbbrev();
             strategy.appendField(locator, this, "axisAbbrev", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.axisDirection!= null);
+            boolean theFieldIsSet = this.isSetAxisDirection();
             CodeWithAuthorityType theField;
             theField = this.getAxisDirection();
             strategy.appendField(locator, this, "axisDirection", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.minimumValue!= null);
+            boolean theFieldIsSet = this.isSetMinimumValue();
             Double theField;
             theField = this.getMinimumValue();
             strategy.appendField(locator, this, "minimumValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.maximumValue!= null);
+            boolean theFieldIsSet = this.isSetMaximumValue();
             Double theField;
             theField = this.getMaximumValue();
             strategy.appendField(locator, this, "maximumValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rangeMeaning!= null);
+            boolean theFieldIsSet = this.isSetRangeMeaning();
             CodeWithAuthorityType theField;
             theField = this.getRangeMeaning();
             strategy.appendField(locator, this, "rangeMeaning", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             strategy.appendField(locator, this, "uom", buffer, theField, theFieldIsSet);

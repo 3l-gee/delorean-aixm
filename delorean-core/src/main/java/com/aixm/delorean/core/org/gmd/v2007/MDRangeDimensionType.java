@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import com.aixm.delorean.core.org.gco.v2007.MemberNamePropertyType;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDRangeDimensionType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected MemberNamePropertyType sequenceIdentifier;
     protected CharacterStringPropertyType descriptor;
 
@@ -76,6 +79,10 @@ public class MDRangeDimensionType
         this.sequenceIdentifier = value;
     }
 
+    public boolean isSetSequenceIdentifier() {
+        return (this.sequenceIdentifier!= null);
+    }
+
     /**
      * Gets the value of the descriptor property.
      * 
@@ -100,6 +107,10 @@ public class MDRangeDimensionType
         this.descriptor = value;
     }
 
+    public boolean isSetDescriptor() {
+        return (this.descriptor!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -113,8 +124,8 @@ public class MDRangeDimensionType
         }
         final MDRangeDimensionType that = ((MDRangeDimensionType) object);
         {
-            boolean lhsFieldIsSet = (this.descriptor!= null);
-            boolean rhsFieldIsSet = (that.descriptor!= null);
+            boolean lhsFieldIsSet = this.isSetDescriptor();
+            boolean rhsFieldIsSet = that.isSetDescriptor();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDescriptor();
             CharacterStringPropertyType rhsField;
@@ -126,8 +137,8 @@ public class MDRangeDimensionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.sequenceIdentifier!= null);
-            boolean rhsFieldIsSet = (that.sequenceIdentifier!= null);
+            boolean lhsFieldIsSet = this.isSetSequenceIdentifier();
+            boolean rhsFieldIsSet = that.isSetSequenceIdentifier();
             MemberNamePropertyType lhsField;
             lhsField = this.getSequenceIdentifier();
             MemberNamePropertyType rhsField;
@@ -145,14 +156,14 @@ public class MDRangeDimensionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.sequenceIdentifier!= null);
+            boolean theFieldIsSet = this.isSetSequenceIdentifier();
             MemberNamePropertyType theField;
             theField = this.getSequenceIdentifier();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sequenceIdentifier", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.descriptor!= null);
+            boolean theFieldIsSet = this.isSetDescriptor();
             CharacterStringPropertyType theField;
             theField = this.getDescriptor();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "descriptor", theField);
@@ -165,13 +176,13 @@ public class MDRangeDimensionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.sequenceIdentifier!= null);
+            boolean theFieldIsSet = this.isSetSequenceIdentifier();
             MemberNamePropertyType theField;
             theField = this.getSequenceIdentifier();
             strategy.appendField(locator, this, "sequenceIdentifier", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.descriptor!= null);
+            boolean theFieldIsSet = this.isSetDescriptor();
             CharacterStringPropertyType theField;
             theField = this.getDescriptor();
             strategy.appendField(locator, this, "descriptor", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -54,8 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDMediumType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected MDMediumNameCodePropertyType name;
     protected List<RealPropertyType> density;
     protected CharacterStringPropertyType densityUnits;
@@ -85,6 +88,10 @@ public class MDMediumType
      */
     public void setName(MDMediumNameCodePropertyType value) {
         this.name = value;
+    }
+
+    public boolean isSetName() {
+        return (this.name!= null);
     }
 
     /**
@@ -124,6 +131,14 @@ public class MDMediumType
         this.density = density;
     }
 
+    public boolean isSetDensity() {
+        return ((this.density!= null)&&(!this.density.isEmpty()));
+    }
+
+    public void unsetDensity() {
+        this.density = null;
+    }
+
     /**
      * Gets the value of the densityUnits property.
      * 
@@ -148,6 +163,10 @@ public class MDMediumType
         this.densityUnits = value;
     }
 
+    public boolean isSetDensityUnits() {
+        return (this.densityUnits!= null);
+    }
+
     /**
      * Gets the value of the volumes property.
      * 
@@ -170,6 +189,10 @@ public class MDMediumType
      */
     public void setVolumes(IntegerPropertyType value) {
         this.volumes = value;
+    }
+
+    public boolean isSetVolumes() {
+        return (this.volumes!= null);
     }
 
     /**
@@ -209,6 +232,14 @@ public class MDMediumType
         this.mediumFormat = mediumFormat;
     }
 
+    public boolean isSetMediumFormat() {
+        return ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
+    }
+
+    public void unsetMediumFormat() {
+        this.mediumFormat = null;
+    }
+
     /**
      * Gets the value of the mediumNote property.
      * 
@@ -233,6 +264,10 @@ public class MDMediumType
         this.mediumNote = value;
     }
 
+    public boolean isSetMediumNote() {
+        return (this.mediumNote!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -246,12 +281,12 @@ public class MDMediumType
         }
         final MDMediumType that = ((MDMediumType) object);
         {
-            boolean lhsFieldIsSet = ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
-            boolean rhsFieldIsSet = ((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetMediumFormat();
+            boolean rhsFieldIsSet = that.isSetMediumFormat();
             List<MDMediumFormatCodePropertyType> lhsField;
-            lhsField = (((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()))?this.getMediumFormat():null);
+            lhsField = (this.isSetMediumFormat()?this.getMediumFormat():null);
             List<MDMediumFormatCodePropertyType> rhsField;
-            rhsField = (((that.mediumFormat!= null)&&(!that.mediumFormat.isEmpty()))?that.getMediumFormat():null);
+            rhsField = (that.isSetMediumFormat()?that.getMediumFormat():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumFormat", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumFormat", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -259,25 +294,25 @@ public class MDMediumType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.volumes!= null);
-            boolean rhsFieldIsSet = (that.volumes!= null);
-            IntegerPropertyType lhsField;
-            lhsField = this.getVolumes();
-            IntegerPropertyType rhsField;
-            rhsField = that.getVolumes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            MDMediumNameCodePropertyType lhsField;
+            lhsField = this.getName();
+            MDMediumNameCodePropertyType rhsField;
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.density!= null)&&(!this.density.isEmpty()));
-            boolean rhsFieldIsSet = ((that.density!= null)&&(!that.density.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDensity();
+            boolean rhsFieldIsSet = that.isSetDensity();
             List<RealPropertyType> lhsField;
-            lhsField = (((this.density!= null)&&(!this.density.isEmpty()))?this.getDensity():null);
+            lhsField = (this.isSetDensity()?this.getDensity():null);
             List<RealPropertyType> rhsField;
-            rhsField = (((that.density!= null)&&(!that.density.isEmpty()))?that.getDensity():null);
+            rhsField = (that.isSetDensity()?that.getDensity():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "density", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "density", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -285,21 +320,8 @@ public class MDMediumType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.mediumNote!= null);
-            boolean rhsFieldIsSet = (that.mediumNote!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMediumNote();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMediumNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.densityUnits!= null);
-            boolean rhsFieldIsSet = (that.densityUnits!= null);
+            boolean lhsFieldIsSet = this.isSetDensityUnits();
+            boolean rhsFieldIsSet = that.isSetDensityUnits();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDensityUnits();
             CharacterStringPropertyType rhsField;
@@ -311,14 +333,27 @@ public class MDMediumType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
-            MDMediumNameCodePropertyType lhsField;
-            lhsField = this.getName();
-            MDMediumNameCodePropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            boolean lhsFieldIsSet = this.isSetMediumNote();
+            boolean rhsFieldIsSet = that.isSetMediumNote();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMediumNote();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMediumNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVolumes();
+            boolean rhsFieldIsSet = that.isSetVolumes();
+            IntegerPropertyType lhsField;
+            lhsField = this.getVolumes();
+            IntegerPropertyType rhsField;
+            rhsField = that.getVolumes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -330,42 +365,42 @@ public class MDMediumType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             MDMediumNameCodePropertyType theField;
             theField = this.getName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "name", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.density!= null)&&(!this.density.isEmpty()));
+            boolean theFieldIsSet = this.isSetDensity();
             List<RealPropertyType> theField;
-            theField = (((this.density!= null)&&(!this.density.isEmpty()))?this.getDensity():null);
+            theField = (this.isSetDensity()?this.getDensity():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "density", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.densityUnits!= null);
+            boolean theFieldIsSet = this.isSetDensityUnits();
             CharacterStringPropertyType theField;
             theField = this.getDensityUnits();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "densityUnits", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.volumes!= null);
+            boolean theFieldIsSet = this.isSetVolumes();
             IntegerPropertyType theField;
             theField = this.getVolumes();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "volumes", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
+            boolean theFieldIsSet = this.isSetMediumFormat();
             List<MDMediumFormatCodePropertyType> theField;
-            theField = (((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()))?this.getMediumFormat():null);
+            theField = (this.isSetMediumFormat()?this.getMediumFormat():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mediumFormat", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.mediumNote!= null);
+            boolean theFieldIsSet = this.isSetMediumNote();
             CharacterStringPropertyType theField;
             theField = this.getMediumNote();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mediumNote", theField);
@@ -378,37 +413,37 @@ public class MDMediumType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             MDMediumNameCodePropertyType theField;
             theField = this.getName();
             strategy.appendField(locator, this, "name", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.density!= null)&&(!this.density.isEmpty()));
+            boolean theFieldIsSet = this.isSetDensity();
             List<RealPropertyType> theField;
-            theField = (((this.density!= null)&&(!this.density.isEmpty()))?this.getDensity():null);
+            theField = (this.isSetDensity()?this.getDensity():null);
             strategy.appendField(locator, this, "density", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.densityUnits!= null);
+            boolean theFieldIsSet = this.isSetDensityUnits();
             CharacterStringPropertyType theField;
             theField = this.getDensityUnits();
             strategy.appendField(locator, this, "densityUnits", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.volumes!= null);
+            boolean theFieldIsSet = this.isSetVolumes();
             IntegerPropertyType theField;
             theField = this.getVolumes();
             strategy.appendField(locator, this, "volumes", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()));
+            boolean theFieldIsSet = this.isSetMediumFormat();
             List<MDMediumFormatCodePropertyType> theField;
-            theField = (((this.mediumFormat!= null)&&(!this.mediumFormat.isEmpty()))?this.getMediumFormat():null);
+            theField = (this.isSetMediumFormat()?this.getMediumFormat():null);
             strategy.appendField(locator, this, "mediumFormat", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.mediumNote!= null);
+            boolean theFieldIsSet = this.isSetMediumNote();
             CharacterStringPropertyType theField;
             theField = this.getMediumNote();
             strategy.appendField(locator, this, "mediumNote", buffer, theField, theFieldIsSet);

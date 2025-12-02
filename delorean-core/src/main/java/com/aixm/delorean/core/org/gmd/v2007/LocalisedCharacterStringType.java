@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "LocalisedCharacterString_Type", propOrder = {
     "value"
 })
-public class LocalisedCharacterStringType implements Equals, HashCode, ToString
+public class LocalisedCharacterStringType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected String value;
     @XmlAttribute(name = "id")
@@ -84,6 +86,10 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the id property.
      * 
@@ -106,6 +112,10 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
      */
     public void setId(String value) {
         this.id = value;
+    }
+
+    public boolean isSetId() {
+        return (this.id!= null);
     }
 
     /**
@@ -132,6 +142,10 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
         this.locale = value;
     }
 
+    public boolean isSetLocale() {
+        return (this.locale!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -154,8 +168,21 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
         }
         final LocalisedCharacterStringType that = ((LocalisedCharacterStringType) object);
         {
-            boolean lhsFieldIsSet = (this.locale!= null);
-            boolean rhsFieldIsSet = (that.locale!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            String lhsField;
+            lhsField = this.getValue();
+            String rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocale();
+            boolean rhsFieldIsSet = that.isSetLocale();
             String lhsField;
             lhsField = this.getLocale();
             String rhsField;
@@ -167,27 +194,14 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
             String lhsField;
             lhsField = this.getId();
             String rhsField;
             rhsField = that.getId();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
-            String lhsField;
-            lhsField = this.getValue();
-            String rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -209,21 +223,21 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "id", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.locale!= null);
+            boolean theFieldIsSet = this.isSetLocale();
             String theField;
             theField = this.getLocale();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "locale", theField);
@@ -255,19 +269,19 @@ public class LocalisedCharacterStringType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             strategy.appendField(locator, this, "id", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.locale!= null);
+            boolean theFieldIsSet = this.isSetLocale();
             String theField;
             theField = this.getLocale();
             strategy.appendField(locator, this, "locale", buffer, theField, theFieldIsSet);

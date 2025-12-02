@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -36,8 +37,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DiscreteCoverageType
     extends AbstractCoverageType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The gml:coverageFunction property describes the mapping function from the domain to the range of the coverage.
      * The value of the CoverageFunction is one of gml:CoverageMappingRule and gml:GridFunction.
@@ -73,6 +76,10 @@ public class DiscreteCoverageType
         this.coverageFunction = value;
     }
 
+    public boolean isSetCoverageFunction() {
+        return (this.coverageFunction!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -86,8 +93,8 @@ public class DiscreteCoverageType
         }
         final DiscreteCoverageType that = ((DiscreteCoverageType) object);
         {
-            boolean lhsFieldIsSet = (this.coverageFunction!= null);
-            boolean rhsFieldIsSet = (that.coverageFunction!= null);
+            boolean lhsFieldIsSet = this.isSetCoverageFunction();
+            boolean rhsFieldIsSet = that.isSetCoverageFunction();
             CoverageFunctionType lhsField;
             lhsField = this.getCoverageFunction();
             CoverageFunctionType rhsField;
@@ -105,7 +112,7 @@ public class DiscreteCoverageType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.coverageFunction!= null);
+            boolean theFieldIsSet = this.isSetCoverageFunction();
             CoverageFunctionType theField;
             theField = this.getCoverageFunction();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coverageFunction", theField);
@@ -118,7 +125,7 @@ public class DiscreteCoverageType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.coverageFunction!= null);
+            boolean theFieldIsSet = this.isSetCoverageFunction();
             CoverageFunctionType theField;
             theField = this.getCoverageFunction();
             strategy.appendField(locator, this, "coverageFunction", buffer, theField, theFieldIsSet);

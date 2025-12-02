@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiplicityType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<MultiplicityRangePropertyType> range;
 
@@ -83,6 +86,14 @@ public class MultiplicityType
         this.range = range;
     }
 
+    public boolean isSetRange() {
+        return ((this.range!= null)&&(!this.range.isEmpty()));
+    }
+
+    public void unsetRange() {
+        this.range = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -96,12 +107,12 @@ public class MultiplicityType
         }
         final MultiplicityType that = ((MultiplicityType) object);
         {
-            boolean lhsFieldIsSet = ((this.range!= null)&&(!this.range.isEmpty()));
-            boolean rhsFieldIsSet = ((that.range!= null)&&(!that.range.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetRange();
+            boolean rhsFieldIsSet = that.isSetRange();
             List<MultiplicityRangePropertyType> lhsField;
-            lhsField = (((this.range!= null)&&(!this.range.isEmpty()))?this.getRange():null);
+            lhsField = (this.isSetRange()?this.getRange():null);
             List<MultiplicityRangePropertyType> rhsField;
-            rhsField = (((that.range!= null)&&(!that.range.isEmpty()))?that.getRange():null);
+            rhsField = (that.isSetRange()?that.getRange():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "range", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "range", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -115,9 +126,9 @@ public class MultiplicityType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.range!= null)&&(!this.range.isEmpty()));
+            boolean theFieldIsSet = this.isSetRange();
             List<MultiplicityRangePropertyType> theField;
-            theField = (((this.range!= null)&&(!this.range.isEmpty()))?this.getRange():null);
+            theField = (this.isSetRange()?this.getRange():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "range", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -128,9 +139,9 @@ public class MultiplicityType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.range!= null)&&(!this.range.isEmpty()));
+            boolean theFieldIsSet = this.isSetRange();
             List<MultiplicityRangePropertyType> theField;
-            theField = (((this.range!= null)&&(!this.range.isEmpty()))?this.getRange():null);
+            theField = (this.isSetRange()?this.getRange():null);
             strategy.appendField(locator, this, "range", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class SolidType
     extends AbstractSolidType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected ShellPropertyType exterior;
     protected List<ShellPropertyType> interior;
 
@@ -67,6 +70,10 @@ public class SolidType
      */
     public void setExterior(ShellPropertyType value) {
         this.exterior = value;
+    }
+
+    public boolean isSetExterior() {
+        return (this.exterior!= null);
     }
 
     /**
@@ -106,6 +113,14 @@ public class SolidType
         this.interior = interior;
     }
 
+    public boolean isSetInterior() {
+        return ((this.interior!= null)&&(!this.interior.isEmpty()));
+    }
+
+    public void unsetInterior() {
+        this.interior = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -119,27 +134,27 @@ public class SolidType
         }
         final SolidType that = ((SolidType) object);
         {
-            boolean lhsFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
-            boolean rhsFieldIsSet = ((that.interior!= null)&&(!that.interior.isEmpty()));
-            List<ShellPropertyType> lhsField;
-            lhsField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
-            List<ShellPropertyType> rhsField;
-            rhsField = (((that.interior!= null)&&(!that.interior.isEmpty()))?that.getInterior():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.exterior!= null);
-            boolean rhsFieldIsSet = (that.exterior!= null);
+            boolean lhsFieldIsSet = this.isSetExterior();
+            boolean rhsFieldIsSet = that.isSetExterior();
             ShellPropertyType lhsField;
             lhsField = this.getExterior();
             ShellPropertyType rhsField;
             rhsField = that.getExterior();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterior();
+            boolean rhsFieldIsSet = that.isSetInterior();
+            List<ShellPropertyType> lhsField;
+            lhsField = (this.isSetInterior()?this.getInterior():null);
+            List<ShellPropertyType> rhsField;
+            rhsField = (that.isSetInterior()?that.getInterior():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -151,16 +166,16 @@ public class SolidType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             ShellPropertyType theField;
             theField = this.getExterior();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "exterior", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
+            boolean theFieldIsSet = this.isSetInterior();
             List<ShellPropertyType> theField;
-            theField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            theField = (this.isSetInterior()?this.getInterior():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interior", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -171,15 +186,15 @@ public class SolidType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.exterior!= null);
+            boolean theFieldIsSet = this.isSetExterior();
             ShellPropertyType theField;
             theField = this.getExterior();
             strategy.appendField(locator, this, "exterior", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.interior!= null)&&(!this.interior.isEmpty()));
+            boolean theFieldIsSet = this.isSetInterior();
             List<ShellPropertyType> theField;
-            theField = (((this.interior!= null)&&(!this.interior.isEmpty()))?this.getInterior():null);
+            theField = (this.isSetInterior()?this.getInterior():null);
             strategy.appendField(locator, this, "interior", buffer, theField, theFieldIsSet);
         }
         return buffer;

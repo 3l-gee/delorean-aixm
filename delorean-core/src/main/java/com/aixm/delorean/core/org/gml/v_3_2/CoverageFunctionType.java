@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "coverageMappingRule",
     "gridFunction"
 })
-public class CoverageFunctionType implements Equals, HashCode, ToString
+public class CoverageFunctionType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MappingRule")
     protected StringOrRefType mappingRule;
     /**
@@ -91,6 +93,10 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
         this.mappingRule = value;
     }
 
+    public boolean isSetMappingRule() {
+        return (this.mappingRule!= null);
+    }
+
     /**
      * gml:CoverageMappingRule provides a formal or informal description of the coverage function.
      * The mapping rule may be defined as an in-line string (gml:ruleDefinition) or via a remote reference through xlink:href (gml:ruleReference).  
@@ -116,6 +122,10 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
      */
     public void setCoverageMappingRule(MappingRuleType value) {
         this.coverageMappingRule = value;
+    }
+
+    public boolean isSetCoverageMappingRule() {
+        return (this.coverageMappingRule!= null);
     }
 
     /**
@@ -144,6 +154,10 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
         this.gridFunction = value;
     }
 
+    public boolean isSetGridFunction() {
+        return (this.gridFunction!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -166,21 +180,8 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
         }
         final CoverageFunctionType that = ((CoverageFunctionType) object);
         {
-            boolean lhsFieldIsSet = (this.coverageMappingRule!= null);
-            boolean rhsFieldIsSet = (that.coverageMappingRule!= null);
-            MappingRuleType lhsField;
-            lhsField = this.getCoverageMappingRule();
-            MappingRuleType rhsField;
-            rhsField = that.getCoverageMappingRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.gridFunction!= null);
-            boolean rhsFieldIsSet = (that.gridFunction!= null);
+            boolean lhsFieldIsSet = this.isSetGridFunction();
+            boolean rhsFieldIsSet = that.isSetGridFunction();
             GridFunctionType lhsField;
             lhsField = this.getGridFunction();
             GridFunctionType rhsField;
@@ -192,8 +193,21 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.mappingRule!= null);
-            boolean rhsFieldIsSet = (that.mappingRule!= null);
+            boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
+            boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
+            MappingRuleType lhsField;
+            lhsField = this.getCoverageMappingRule();
+            MappingRuleType rhsField;
+            rhsField = that.getCoverageMappingRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMappingRule();
+            boolean rhsFieldIsSet = that.isSetMappingRule();
             StringOrRefType lhsField;
             lhsField = this.getMappingRule();
             StringOrRefType rhsField;
@@ -221,21 +235,21 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mappingRule!= null);
+            boolean theFieldIsSet = this.isSetMappingRule();
             StringOrRefType theField;
             theField = this.getMappingRule();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mappingRule", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coverageMappingRule!= null);
+            boolean theFieldIsSet = this.isSetCoverageMappingRule();
             MappingRuleType theField;
             theField = this.getCoverageMappingRule();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coverageMappingRule", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.gridFunction!= null);
+            boolean theFieldIsSet = this.isSetGridFunction();
             GridFunctionType theField;
             theField = this.getGridFunction();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "gridFunction", theField);
@@ -267,19 +281,19 @@ public class CoverageFunctionType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mappingRule!= null);
+            boolean theFieldIsSet = this.isSetMappingRule();
             StringOrRefType theField;
             theField = this.getMappingRule();
             strategy.appendField(locator, this, "mappingRule", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coverageMappingRule!= null);
+            boolean theFieldIsSet = this.isSetCoverageMappingRule();
             MappingRuleType theField;
             theField = this.getCoverageMappingRule();
             strategy.appendField(locator, this, "coverageMappingRule", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.gridFunction!= null);
+            boolean theFieldIsSet = this.isSetGridFunction();
             GridFunctionType theField;
             theField = this.getGridFunction();
             strategy.appendField(locator, this, "gridFunction", buffer, theField, theFieldIsSet);

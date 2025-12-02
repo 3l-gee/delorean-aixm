@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.CodeType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ScopedName_PropertyType", propOrder = {
     "scopedName"
 })
-public class ScopedNamePropertyType implements Equals, HashCode, ToString
+public class ScopedNamePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ScopedName")
     protected CodeType scopedName;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class ScopedNamePropertyType implements Equals, HashCode, ToString
         this.scopedName = value;
     }
 
+    public boolean isSetScopedName() {
+        return (this.scopedName!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class ScopedNamePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class ScopedNamePropertyType implements Equals, HashCode, ToString
         }
         final ScopedNamePropertyType that = ((ScopedNamePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.scopedName!= null);
-            boolean rhsFieldIsSet = (that.scopedName!= null);
-            CodeType lhsField;
-            lhsField = this.getScopedName();
-            CodeType rhsField;
-            rhsField = that.getScopedName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scopedName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scopedName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetScopedName();
+            boolean rhsFieldIsSet = that.isSetScopedName();
+            CodeType lhsField;
+            lhsField = this.getScopedName();
+            CodeType rhsField;
+            rhsField = that.getScopedName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scopedName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scopedName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class ScopedNamePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.scopedName!= null);
+            boolean theFieldIsSet = this.isSetScopedName();
             CodeType theField;
             theField = this.getScopedName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "scopedName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class ScopedNamePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.scopedName!= null);
+            boolean theFieldIsSet = this.isSetScopedName();
             CodeType theField;
             theField = this.getScopedName();
             strategy.appendField(locator, this, "scopedName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

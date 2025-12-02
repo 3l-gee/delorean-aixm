@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "Boolean_PropertyType", propOrder = {
     "booleanValue"
 })
-public class BooleanPropertyType implements Equals, HashCode, ToString
+public class BooleanPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Boolean")
     protected Boolean booleanValue;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -76,6 +78,10 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
         this.booleanValue = value;
     }
 
+    public boolean isSetBooleanValue() {
+        return (this.booleanValue!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -100,6 +106,10 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -122,8 +132,8 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
         }
         final BooleanPropertyType that = ((BooleanPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -135,8 +145,8 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.booleanValue!= null);
-            boolean rhsFieldIsSet = (that.booleanValue!= null);
+            boolean lhsFieldIsSet = this.isSetBooleanValue();
+            boolean rhsFieldIsSet = that.isSetBooleanValue();
             Boolean lhsField;
             lhsField = this.getBooleanValue();
             Boolean rhsField;
@@ -164,14 +174,14 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.booleanValue!= null);
+            boolean theFieldIsSet = this.isSetBooleanValue();
             Boolean theField;
             theField = this.getBooleanValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "booleanValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -203,13 +213,13 @@ public class BooleanPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.booleanValue!= null);
+            boolean theFieldIsSet = this.isSetBooleanValue();
             Boolean theField;
             theField = this.getBooleanValue();
             strategy.appendField(locator, this, "booleanValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

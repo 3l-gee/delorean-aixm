@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PTLocaleType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected LanguageCodePropertyType languageCode;
     protected CountryPropertyType country;
@@ -74,6 +77,10 @@ public class PTLocaleType
         this.languageCode = value;
     }
 
+    public boolean isSetLanguageCode() {
+        return (this.languageCode!= null);
+    }
+
     /**
      * Gets the value of the country property.
      * 
@@ -96,6 +103,10 @@ public class PTLocaleType
      */
     public void setCountry(CountryPropertyType value) {
         this.country = value;
+    }
+
+    public boolean isSetCountry() {
+        return (this.country!= null);
     }
 
     /**
@@ -122,6 +133,10 @@ public class PTLocaleType
         this.characterEncoding = value;
     }
 
+    public boolean isSetCharacterEncoding() {
+        return (this.characterEncoding!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -135,21 +150,8 @@ public class PTLocaleType
         }
         final PTLocaleType that = ((PTLocaleType) object);
         {
-            boolean lhsFieldIsSet = (this.languageCode!= null);
-            boolean rhsFieldIsSet = (that.languageCode!= null);
-            LanguageCodePropertyType lhsField;
-            lhsField = this.getLanguageCode();
-            LanguageCodePropertyType rhsField;
-            rhsField = that.getLanguageCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "languageCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "languageCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.country!= null);
-            boolean rhsFieldIsSet = (that.country!= null);
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
             CountryPropertyType lhsField;
             lhsField = this.getCountry();
             CountryPropertyType rhsField;
@@ -161,8 +163,21 @@ public class PTLocaleType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.characterEncoding!= null);
-            boolean rhsFieldIsSet = (that.characterEncoding!= null);
+            boolean lhsFieldIsSet = this.isSetLanguageCode();
+            boolean rhsFieldIsSet = that.isSetLanguageCode();
+            LanguageCodePropertyType lhsField;
+            lhsField = this.getLanguageCode();
+            LanguageCodePropertyType rhsField;
+            rhsField = that.getLanguageCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "languageCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "languageCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCharacterEncoding();
+            boolean rhsFieldIsSet = that.isSetCharacterEncoding();
             MDCharacterSetCodePropertyType lhsField;
             lhsField = this.getCharacterEncoding();
             MDCharacterSetCodePropertyType rhsField;
@@ -180,21 +195,21 @@ public class PTLocaleType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.languageCode!= null);
+            boolean theFieldIsSet = this.isSetLanguageCode();
             LanguageCodePropertyType theField;
             theField = this.getLanguageCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "languageCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.country!= null);
+            boolean theFieldIsSet = this.isSetCountry();
             CountryPropertyType theField;
             theField = this.getCountry();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "country", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.characterEncoding!= null);
+            boolean theFieldIsSet = this.isSetCharacterEncoding();
             MDCharacterSetCodePropertyType theField;
             theField = this.getCharacterEncoding();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "characterEncoding", theField);
@@ -207,19 +222,19 @@ public class PTLocaleType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.languageCode!= null);
+            boolean theFieldIsSet = this.isSetLanguageCode();
             LanguageCodePropertyType theField;
             theField = this.getLanguageCode();
             strategy.appendField(locator, this, "languageCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.country!= null);
+            boolean theFieldIsSet = this.isSetCountry();
             CountryPropertyType theField;
             theField = this.getCountry();
             strategy.appendField(locator, this, "country", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.characterEncoding!= null);
+            boolean theFieldIsSet = this.isSetCharacterEncoding();
             MDCharacterSetCodePropertyType theField;
             theField = this.getCharacterEncoding();
             strategy.appendField(locator, this, "characterEncoding", buffer, theField, theFieldIsSet);

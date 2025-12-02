@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -57,8 +58,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractDatumType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The gml:domainOfValidity property implements an association role to an EX_Extent object as encoded in ISO/TS 19139, either referencing or containing the definition of that extent.
      * 
@@ -108,6 +111,10 @@ public abstract class AbstractDatumType
         this.domainOfValidity = value;
     }
 
+    public boolean isSetDomainOfValidity() {
+        return (this.domainOfValidity!= null);
+    }
+
     /**
      * The gml:scope property provides a description of the usage, or limitations of usage, for which this CRS-related object is valid. If unknown, enter "not known".Gets the value of the scope property.
      * 
@@ -145,6 +152,14 @@ public abstract class AbstractDatumType
         this.scope = scope;
     }
 
+    public boolean isSetScope() {
+        return ((this.scope!= null)&&(!this.scope.isEmpty()));
+    }
+
+    public void unsetScope() {
+        this.scope = null;
+    }
+
     /**
      * gml:anchorDefinition is a description, possibly including coordinates, of the definition used to anchor the datum to the Earth. Also known as the "origin", especially for engineering and image datums. The codeSpace attribute may be used to reference a source of more detailed on this point or surface, or on a set of such descriptions.
      * -	For a geodetic datum, this point is also known as the fundamental point, which is traditionally the point where the relationship between geoid and ellipsoid is defined. In some cases, the "fundamental point" may consist of a number of points. In those cases, the parameters defining the geoid/ellipsoid relationship have been averaged for these points, and the averages adopted as the datum definition.
@@ -176,6 +191,10 @@ public abstract class AbstractDatumType
         this.anchorDefinition = value;
     }
 
+    public boolean isSetAnchorDefinition() {
+        return (this.anchorDefinition!= null);
+    }
+
     /**
      * gml:realizationEpoch is the time after which this datum definition is valid. See ISO 19111 Table 32 for details.
      * 
@@ -201,6 +220,10 @@ public abstract class AbstractDatumType
         this.realizationEpoch = value;
     }
 
+    public boolean isSetRealizationEpoch() {
+        return (this.realizationEpoch!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -214,21 +237,8 @@ public abstract class AbstractDatumType
         }
         final AbstractDatumType that = ((AbstractDatumType) object);
         {
-            boolean lhsFieldIsSet = (this.realizationEpoch!= null);
-            boolean rhsFieldIsSet = (that.realizationEpoch!= null);
-            XMLGregorianCalendar lhsField;
-            lhsField = this.getRealizationEpoch();
-            XMLGregorianCalendar rhsField;
-            rhsField = that.getRealizationEpoch();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "realizationEpoch", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "realizationEpoch", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.anchorDefinition!= null);
-            boolean rhsFieldIsSet = (that.anchorDefinition!= null);
+            boolean lhsFieldIsSet = this.isSetAnchorDefinition();
+            boolean rhsFieldIsSet = that.isSetAnchorDefinition();
             JAXBElement<CodeType> lhsField;
             lhsField = this.getAnchorDefinition();
             JAXBElement<CodeType> rhsField;
@@ -240,8 +250,8 @@ public abstract class AbstractDatumType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.domainOfValidity!= null);
-            boolean rhsFieldIsSet = (that.domainOfValidity!= null);
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
             DomainOfValidity lhsField;
             lhsField = this.getDomainOfValidity();
             DomainOfValidity rhsField;
@@ -253,12 +263,25 @@ public abstract class AbstractDatumType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
-            boolean rhsFieldIsSet = ((that.scope!= null)&&(!that.scope.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetRealizationEpoch();
+            boolean rhsFieldIsSet = that.isSetRealizationEpoch();
+            XMLGregorianCalendar lhsField;
+            lhsField = this.getRealizationEpoch();
+            XMLGregorianCalendar rhsField;
+            rhsField = that.getRealizationEpoch();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "realizationEpoch", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "realizationEpoch", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetScope();
+            boolean rhsFieldIsSet = that.isSetScope();
             List<String> lhsField;
-            lhsField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            lhsField = (this.isSetScope()?this.getScope():null);
             List<String> rhsField;
-            rhsField = (((that.scope!= null)&&(!that.scope.isEmpty()))?that.getScope():null);
+            rhsField = (that.isSetScope()?that.getScope():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -272,28 +295,28 @@ public abstract class AbstractDatumType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.domainOfValidity!= null);
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             DomainOfValidity theField;
             theField = this.getDomainOfValidity();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainOfValidity", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
+            boolean theFieldIsSet = this.isSetScope();
             List<String> theField;
-            theField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            theField = (this.isSetScope()?this.getScope():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "scope", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.anchorDefinition!= null);
+            boolean theFieldIsSet = this.isSetAnchorDefinition();
             JAXBElement<CodeType> theField;
             theField = this.getAnchorDefinition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "anchorDefinition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.realizationEpoch!= null);
+            boolean theFieldIsSet = this.isSetRealizationEpoch();
             XMLGregorianCalendar theField;
             theField = this.getRealizationEpoch();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "realizationEpoch", theField);
@@ -306,25 +329,25 @@ public abstract class AbstractDatumType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.domainOfValidity!= null);
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             DomainOfValidity theField;
             theField = this.getDomainOfValidity();
             strategy.appendField(locator, this, "domainOfValidity", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
+            boolean theFieldIsSet = this.isSetScope();
             List<String> theField;
-            theField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            theField = (this.isSetScope()?this.getScope():null);
             strategy.appendField(locator, this, "scope", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.anchorDefinition!= null);
+            boolean theFieldIsSet = this.isSetAnchorDefinition();
             JAXBElement<CodeType> theField;
             theField = this.getAnchorDefinition();
             strategy.appendField(locator, this, "anchorDefinition", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.realizationEpoch!= null);
+            boolean theFieldIsSet = this.isSetRealizationEpoch();
             XMLGregorianCalendar theField;
             theField = this.getRealizationEpoch();
             strategy.appendField(locator, this, "realizationEpoch", buffer, theField, theFieldIsSet);

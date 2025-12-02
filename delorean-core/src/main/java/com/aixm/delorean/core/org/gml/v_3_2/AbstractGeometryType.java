@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractGeometryType
     extends AbstractGMLType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "srsName")
     @XmlSchemaType(name = "anyURI")
     protected String srsName;
@@ -86,6 +89,10 @@ public abstract class AbstractGeometryType
         this.srsName = value;
     }
 
+    public boolean isSetSrsName() {
+        return (this.srsName!= null);
+    }
+
     /**
      * Gets the value of the srsDimension property.
      * 
@@ -108,6 +115,10 @@ public abstract class AbstractGeometryType
      */
     public void setSrsDimension(BigInteger value) {
         this.srsDimension = value;
+    }
+
+    public boolean isSetSrsDimension() {
+        return (this.srsDimension!= null);
     }
 
     /**
@@ -147,6 +158,14 @@ public abstract class AbstractGeometryType
         this.axisLabels = axisLabels;
     }
 
+    public boolean isSetAxisLabels() {
+        return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+    }
+
+    public void unsetAxisLabels() {
+        this.axisLabels = null;
+    }
+
     /**
      * Gets the value of the uomLabels property.
      * 
@@ -184,6 +203,14 @@ public abstract class AbstractGeometryType
         this.uomLabels = uomLabels;
     }
 
+    public boolean isSetUomLabels() {
+        return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+    }
+
+    public void unsetUomLabels() {
+        this.uomLabels = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -197,21 +224,21 @@ public abstract class AbstractGeometryType
         }
         final AbstractGeometryType that = ((AbstractGeometryType) object);
         {
-            boolean lhsFieldIsSet = (this.srsDimension!= null);
-            boolean rhsFieldIsSet = (that.srsDimension!= null);
-            BigInteger lhsField;
-            lhsField = this.getSrsDimension();
-            BigInteger rhsField;
-            rhsField = that.getSrsDimension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.srsName!= null);
-            boolean rhsFieldIsSet = (that.srsName!= null);
+            boolean lhsFieldIsSet = this.isSetSrsName();
+            boolean rhsFieldIsSet = that.isSetSrsName();
             String lhsField;
             lhsField = this.getSrsName();
             String rhsField;
@@ -223,27 +250,27 @@ public abstract class AbstractGeometryType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.uomLabels!= null)&&(!that.uomLabels.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
-            List<String> rhsField;
-            rhsField = (((that.uomLabels!= null)&&(!that.uomLabels.isEmpty()))?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            boolean lhsFieldIsSet = this.isSetSrsDimension();
+            boolean rhsFieldIsSet = that.isSetSrsDimension();
+            BigInteger lhsField;
+            lhsField = this.getSrsDimension();
+            BigInteger rhsField;
+            rhsField = that.getSrsDimension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axisLabels!= null)&&(!that.axisLabels.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
             List<String> lhsField;
-            lhsField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
             List<String> rhsField;
-            rhsField = (((that.axisLabels!= null)&&(!that.axisLabels.isEmpty()))?that.getAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -255,30 +282,30 @@ public abstract class AbstractGeometryType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.srsName!= null);
+            boolean theFieldIsSet = this.isSetSrsName();
             String theField;
             theField = this.getSrsName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "srsName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsDimension!= null);
+            boolean theFieldIsSet = this.isSetSrsDimension();
             BigInteger theField;
             theField = this.getSrsDimension();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "srsDimension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uomLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -289,27 +316,27 @@ public abstract class AbstractGeometryType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.srsName!= null);
+            boolean theFieldIsSet = this.isSetSrsName();
             String theField;
             theField = this.getSrsName();
             strategy.appendField(locator, this, "srsName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.srsDimension!= null);
+            boolean theFieldIsSet = this.isSetSrsDimension();
             BigInteger theField;
             theField = this.getSrsDimension();
             strategy.appendField(locator, this, "srsDimension", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()))?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
             strategy.appendField(locator, this, "axisLabels", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+            boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()))?this.getUomLabels():null);
+            theField = (this.isSetUomLabels()?this.getUomLabels():null);
             strategy.appendField(locator, this, "uomLabels", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -343,7 +343,7 @@ public class TelephoneContactType
     @OneToMany(targetEntity = TelephoneContactTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_TELEPHONE_CONTACT__0")
     public List<TelephoneContactTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -407,19 +407,6 @@ public class TelephoneContactType
         }
         final TelephoneContactType that = ((TelephoneContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFacsimile();
-            boolean rhsFieldIsSet = that.isSetFacsimile();
-            JAXBElement<TextPhoneType> lhsField;
-            lhsField = this.getFacsimile();
-            JAXBElement<TextPhoneType> rhsField;
-            rhsField = that.getFacsimile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTimeInterval();
             boolean rhsFieldIsSet = that.isSetTimeInterval();
             List<TimesheetPropertyType> lhsField;
@@ -428,6 +415,19 @@ public class TelephoneContactType
             rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -446,6 +446,19 @@ public class TelephoneContactType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFacsimile();
+            boolean rhsFieldIsSet = that.isSetFacsimile();
+            JAXBElement<TextPhoneType> lhsField;
+            lhsField = this.getFacsimile();
+            JAXBElement<TextPhoneType> rhsField;
+            rhsField = that.getFacsimile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetVoice();
             boolean rhsFieldIsSet = that.isSetVoice();
             JAXBElement<TextPhoneType> lhsField;
@@ -454,19 +467,6 @@ public class TelephoneContactType
             rhsField = that.getVoice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

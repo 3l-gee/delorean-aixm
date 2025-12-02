@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -49,8 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ObservationType
     extends AbstractFeatureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:validTime is a convenience property element.
      * 
@@ -88,6 +91,10 @@ public class ObservationType
         this.validTime = value;
     }
 
+    public boolean isSetValidTime() {
+        return (this.validTime!= null);
+    }
+
     /**
      * Gets the value of the using property.
      * 
@@ -110,6 +117,10 @@ public class ObservationType
      */
     public void setUsing(ProcedurePropertyType value) {
         this.using = value;
+    }
+
+    public boolean isSetUsing() {
+        return (this.using!= null);
     }
 
     /**
@@ -138,6 +149,10 @@ public class ObservationType
         this.target = value;
     }
 
+    public boolean isSetTarget() {
+        return (this.target!= null);
+    }
+
     /**
      * Gets the value of the resultOf property.
      * 
@@ -162,6 +177,10 @@ public class ObservationType
         this.resultOf = value;
     }
 
+    public boolean isSetResultOf() {
+        return (this.resultOf!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -175,21 +194,21 @@ public class ObservationType
         }
         final ObservationType that = ((ObservationType) object);
         {
-            boolean lhsFieldIsSet = (this.resultOf!= null);
-            boolean rhsFieldIsSet = (that.resultOf!= null);
-            ResultType lhsField;
-            lhsField = this.getResultOf();
-            ResultType rhsField;
-            rhsField = that.getResultOf();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
+            boolean lhsFieldIsSet = this.isSetUsing();
+            boolean rhsFieldIsSet = that.isSetUsing();
+            ProcedurePropertyType lhsField;
+            lhsField = this.getUsing();
+            ProcedurePropertyType rhsField;
+            rhsField = that.getUsing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.validTime!= null);
-            boolean rhsFieldIsSet = (that.validTime!= null);
+            boolean lhsFieldIsSet = this.isSetValidTime();
+            boolean rhsFieldIsSet = that.isSetValidTime();
             TimePrimitivePropertyType lhsField;
             lhsField = this.getValidTime();
             TimePrimitivePropertyType rhsField;
@@ -201,8 +220,8 @@ public class ObservationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.target!= null);
-            boolean rhsFieldIsSet = (that.target!= null);
+            boolean lhsFieldIsSet = this.isSetTarget();
+            boolean rhsFieldIsSet = that.isSetTarget();
             JAXBElement<TargetPropertyType> lhsField;
             lhsField = this.getTarget();
             JAXBElement<TargetPropertyType> rhsField;
@@ -214,14 +233,14 @@ public class ObservationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.using!= null);
-            boolean rhsFieldIsSet = (that.using!= null);
-            ProcedurePropertyType lhsField;
-            lhsField = this.getUsing();
-            ProcedurePropertyType rhsField;
-            rhsField = that.getUsing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "using", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "using", rhsField);
+            boolean lhsFieldIsSet = this.isSetResultOf();
+            boolean rhsFieldIsSet = that.isSetResultOf();
+            ResultType lhsField;
+            lhsField = this.getResultOf();
+            ResultType rhsField;
+            rhsField = that.getResultOf();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resultOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resultOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -233,28 +252,28 @@ public class ObservationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             TimePrimitivePropertyType theField;
             theField = this.getValidTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "validTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.using!= null);
+            boolean theFieldIsSet = this.isSetUsing();
             ProcedurePropertyType theField;
             theField = this.getUsing();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "using", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.target!= null);
+            boolean theFieldIsSet = this.isSetTarget();
             JAXBElement<TargetPropertyType> theField;
             theField = this.getTarget();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "target", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.resultOf!= null);
+            boolean theFieldIsSet = this.isSetResultOf();
             ResultType theField;
             theField = this.getResultOf();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "resultOf", theField);
@@ -267,25 +286,25 @@ public class ObservationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             TimePrimitivePropertyType theField;
             theField = this.getValidTime();
             strategy.appendField(locator, this, "validTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.using!= null);
+            boolean theFieldIsSet = this.isSetUsing();
             ProcedurePropertyType theField;
             theField = this.getUsing();
             strategy.appendField(locator, this, "using", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.target!= null);
+            boolean theFieldIsSet = this.isSetTarget();
             JAXBElement<TargetPropertyType> theField;
             theField = this.getTarget();
             strategy.appendField(locator, this, "target", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.resultOf!= null);
+            boolean theFieldIsSet = this.isSetResultOf();
             ResultType theField;
             theField = this.getResultOf();
             strategy.appendField(locator, this, "resultOf", buffer, theField, theFieldIsSet);

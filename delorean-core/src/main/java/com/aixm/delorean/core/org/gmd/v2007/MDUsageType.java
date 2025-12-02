@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -50,8 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDUsageType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CharacterStringPropertyType specificUsage;
     protected DateTimePropertyType usageDateTime;
@@ -83,6 +86,10 @@ public class MDUsageType
         this.specificUsage = value;
     }
 
+    public boolean isSetSpecificUsage() {
+        return (this.specificUsage!= null);
+    }
+
     /**
      * Gets the value of the usageDateTime property.
      * 
@@ -107,6 +114,10 @@ public class MDUsageType
         this.usageDateTime = value;
     }
 
+    public boolean isSetUsageDateTime() {
+        return (this.usageDateTime!= null);
+    }
+
     /**
      * Gets the value of the userDeterminedLimitations property.
      * 
@@ -129,6 +140,10 @@ public class MDUsageType
      */
     public void setUserDeterminedLimitations(CharacterStringPropertyType value) {
         this.userDeterminedLimitations = value;
+    }
+
+    public boolean isSetUserDeterminedLimitations() {
+        return (this.userDeterminedLimitations!= null);
     }
 
     /**
@@ -168,6 +183,14 @@ public class MDUsageType
         this.userContactInfo = userContactInfo;
     }
 
+    public boolean isSetUserContactInfo() {
+        return ((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()));
+    }
+
+    public void unsetUserContactInfo() {
+        this.userContactInfo = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -181,21 +204,8 @@ public class MDUsageType
         }
         final MDUsageType that = ((MDUsageType) object);
         {
-            boolean lhsFieldIsSet = (this.userDeterminedLimitations!= null);
-            boolean rhsFieldIsSet = (that.userDeterminedLimitations!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUserDeterminedLimitations();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUserDeterminedLimitations();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.specificUsage!= null);
-            boolean rhsFieldIsSet = (that.specificUsage!= null);
+            boolean lhsFieldIsSet = this.isSetSpecificUsage();
+            boolean rhsFieldIsSet = that.isSetSpecificUsage();
             CharacterStringPropertyType lhsField;
             lhsField = this.getSpecificUsage();
             CharacterStringPropertyType rhsField;
@@ -207,8 +217,21 @@ public class MDUsageType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.usageDateTime!= null);
-            boolean rhsFieldIsSet = (that.usageDateTime!= null);
+            boolean lhsFieldIsSet = this.isSetUserDeterminedLimitations();
+            boolean rhsFieldIsSet = that.isSetUserDeterminedLimitations();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getUserDeterminedLimitations();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getUserDeterminedLimitations();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDeterminedLimitations", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDeterminedLimitations", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsageDateTime();
+            boolean rhsFieldIsSet = that.isSetUsageDateTime();
             DateTimePropertyType lhsField;
             lhsField = this.getUsageDateTime();
             DateTimePropertyType rhsField;
@@ -220,12 +243,12 @@ public class MDUsageType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()));
-            boolean rhsFieldIsSet = ((that.userContactInfo!= null)&&(!that.userContactInfo.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetUserContactInfo();
+            boolean rhsFieldIsSet = that.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()))?this.getUserContactInfo():null);
+            lhsField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (((that.userContactInfo!= null)&&(!that.userContactInfo.isEmpty()))?that.getUserContactInfo():null);
+            rhsField = (that.isSetUserContactInfo()?that.getUserContactInfo():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -239,30 +262,30 @@ public class MDUsageType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.specificUsage!= null);
+            boolean theFieldIsSet = this.isSetSpecificUsage();
             CharacterStringPropertyType theField;
             theField = this.getSpecificUsage();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specificUsage", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usageDateTime!= null);
+            boolean theFieldIsSet = this.isSetUsageDateTime();
             DateTimePropertyType theField;
             theField = this.getUsageDateTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "usageDateTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.userDeterminedLimitations!= null);
+            boolean theFieldIsSet = this.isSetUserDeterminedLimitations();
             CharacterStringPropertyType theField;
             theField = this.getUserDeterminedLimitations();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "userDeterminedLimitations", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()));
+            boolean theFieldIsSet = this.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()))?this.getUserContactInfo():null);
+            theField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "userContactInfo", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -273,27 +296,27 @@ public class MDUsageType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.specificUsage!= null);
+            boolean theFieldIsSet = this.isSetSpecificUsage();
             CharacterStringPropertyType theField;
             theField = this.getSpecificUsage();
             strategy.appendField(locator, this, "specificUsage", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usageDateTime!= null);
+            boolean theFieldIsSet = this.isSetUsageDateTime();
             DateTimePropertyType theField;
             theField = this.getUsageDateTime();
             strategy.appendField(locator, this, "usageDateTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.userDeterminedLimitations!= null);
+            boolean theFieldIsSet = this.isSetUserDeterminedLimitations();
             CharacterStringPropertyType theField;
             theField = this.getUserDeterminedLimitations();
             strategy.appendField(locator, this, "userDeterminedLimitations", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()));
+            boolean theFieldIsSet = this.isSetUserContactInfo();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (((this.userContactInfo!= null)&&(!this.userContactInfo.isEmpty()))?this.getUserContactInfo():null);
+            theField = (this.isSetUserContactInfo()?this.getUserContactInfo():null);
             strategy.appendField(locator, this, "userContactInfo", buffer, theField, theFieldIsSet);
         }
         return buffer;

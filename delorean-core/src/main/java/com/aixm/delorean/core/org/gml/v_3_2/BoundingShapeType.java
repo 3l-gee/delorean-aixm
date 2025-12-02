@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -50,9 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "envelope",
     "gmlNull"
 })
-public class BoundingShapeType implements Equals, HashCode, ToString
+public class BoundingShapeType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * Envelope defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct position is the "lower corner" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within the envelope), the second one the "upper corner" (a coordinate position consisting of all the maximal ordinates for each dimension for all points within the envelope).
      * The use of the properties "coordinates" and "pos" has been deprecated. The explicitly named properties "lowerCorner" and "upperCorner" shall be used instead.
@@ -93,6 +95,10 @@ public class BoundingShapeType implements Equals, HashCode, ToString
         this.envelope = value;
     }
 
+    public boolean isSetEnvelope() {
+        return (this.envelope!= null);
+    }
+
     /**
      * Gets the value of the gmlNull property.
      * 
@@ -115,6 +121,10 @@ public class BoundingShapeType implements Equals, HashCode, ToString
      */
     public void setGmlNull(String value) {
         this.gmlNull = value;
+    }
+
+    public boolean isSetGmlNull() {
+        return (this.gmlNull!= null);
     }
 
     /**
@@ -141,6 +151,10 @@ public class BoundingShapeType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -163,8 +177,21 @@ public class BoundingShapeType implements Equals, HashCode, ToString
         }
         final BoundingShapeType that = ((BoundingShapeType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetGmlNull();
+            boolean rhsFieldIsSet = that.isSetGmlNull();
+            String lhsField;
+            lhsField = this.getGmlNull();
+            String rhsField;
+            rhsField = that.getGmlNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -176,27 +203,14 @@ public class BoundingShapeType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.envelope!= null);
-            boolean rhsFieldIsSet = (that.envelope!= null);
+            boolean lhsFieldIsSet = this.isSetEnvelope();
+            boolean rhsFieldIsSet = that.isSetEnvelope();
             JAXBElement<? extends EnvelopeType> lhsField;
             lhsField = this.getEnvelope();
             JAXBElement<? extends EnvelopeType> rhsField;
             rhsField = that.getEnvelope();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "envelope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "envelope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.gmlNull!= null);
-            boolean rhsFieldIsSet = (that.gmlNull!= null);
-            String lhsField;
-            lhsField = this.getGmlNull();
-            String rhsField;
-            rhsField = that.getGmlNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -218,21 +232,21 @@ public class BoundingShapeType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.envelope!= null);
+            boolean theFieldIsSet = this.isSetEnvelope();
             JAXBElement<? extends EnvelopeType> theField;
             theField = this.getEnvelope();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "envelope", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.gmlNull!= null);
+            boolean theFieldIsSet = this.isSetGmlNull();
             String theField;
             theField = this.getGmlNull();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "gmlNull", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -264,19 +278,19 @@ public class BoundingShapeType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.envelope!= null);
+            boolean theFieldIsSet = this.isSetEnvelope();
             JAXBElement<? extends EnvelopeType> theField;
             theField = this.getEnvelope();
             strategy.appendField(locator, this, "envelope", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.gmlNull!= null);
+            boolean theFieldIsSet = this.isSetGmlNull();
             String theField;
             theField = this.getGmlNull();
             strategy.appendField(locator, this, "gmlNull", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

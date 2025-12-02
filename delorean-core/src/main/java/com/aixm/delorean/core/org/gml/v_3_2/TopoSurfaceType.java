@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TopoSurfaceType
     extends AbstractTopologyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<DirectedFacePropertyType> directedFace;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class TopoSurfaceType
         this.directedFace = directedFace;
     }
 
+    public boolean isSetDirectedFace() {
+        return ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+    }
+
+    public void unsetDirectedFace() {
+        this.directedFace = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class TopoSurfaceType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,8 +137,8 @@ public class TopoSurfaceType
         }
         final TopoSurfaceType that = ((TopoSurfaceType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -135,12 +150,12 @@ public class TopoSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedFace!= null)&&(!that.directedFace.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
             List<DirectedFacePropertyType> lhsField;
-            lhsField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             List<DirectedFacePropertyType> rhsField;
-            rhsField = (((that.directedFace!= null)&&(!that.directedFace.isEmpty()))?that.getDirectedFace():null);
+            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -154,14 +169,14 @@ public class TopoSurfaceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedFace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class TopoSurfaceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             strategy.appendField(locator, this, "directedFace", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

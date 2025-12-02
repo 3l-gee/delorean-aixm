@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -50,8 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TopoComplexType
     extends AbstractTopologyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The property elements gml:subComplex, gml:superComplex and gml:maximalComplex provide an encoding for relationships between topology complexes as described for gml:TopoComplex above.
      * 
@@ -96,6 +99,10 @@ public class TopoComplexType
         this.maximalComplex = value;
     }
 
+    public boolean isSetMaximalComplex() {
+        return (this.maximalComplex!= null);
+    }
+
     /**
      * The property elements gml:subComplex, gml:superComplex and gml:maximalComplex provide an encoding for relationships between topology complexes as described for gml:TopoComplex above.Gets the value of the superComplex property.
      * 
@@ -131,6 +138,14 @@ public class TopoComplexType
      */
     public void setSuperComplex(List<TopoComplexPropertyType> superComplex) {
         this.superComplex = superComplex;
+    }
+
+    public boolean isSetSuperComplex() {
+        return ((this.superComplex!= null)&&(!this.superComplex.isEmpty()));
+    }
+
+    public void unsetSuperComplex() {
+        this.superComplex = null;
     }
 
     /**
@@ -170,6 +185,14 @@ public class TopoComplexType
         this.subComplex = subComplex;
     }
 
+    public boolean isSetSubComplex() {
+        return ((this.subComplex!= null)&&(!this.subComplex.isEmpty()));
+    }
+
+    public void unsetSubComplex() {
+        this.subComplex = null;
+    }
+
     /**
      * The gml:topoPrimitiveMember property element encodes for the relationship between a topology complex and a single topology primitive.Gets the value of the topoPrimitiveMember property.
      * 
@@ -207,6 +230,14 @@ public class TopoComplexType
         this.topoPrimitiveMember = topoPrimitiveMember;
     }
 
+    public boolean isSetTopoPrimitiveMember() {
+        return ((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()));
+    }
+
+    public void unsetTopoPrimitiveMember() {
+        this.topoPrimitiveMember = null;
+    }
+
     /**
      * The gml:topoPrimitiveMembers property element encodes the relationship between a topology complex and an arbitrary number of topology primitives.
      * 
@@ -232,6 +263,10 @@ public class TopoComplexType
         this.topoPrimitiveMembers = value;
     }
 
+    public boolean isSetTopoPrimitiveMembers() {
+        return (this.topoPrimitiveMembers!= null);
+    }
+
     /**
      * Gets the value of the isMaximal property.
      * 
@@ -240,7 +275,7 @@ public class TopoComplexType
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getIsMaximal() {
+    public boolean getIsMaximal() {
         if (isMaximal == null) {
             return false;
         } else {
@@ -256,8 +291,16 @@ public class TopoComplexType
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setIsMaximal(java.lang.Boolean value) {
+    public void setIsMaximal(boolean value) {
         this.isMaximal = value;
+    }
+
+    public boolean isSetIsMaximal() {
+        return (this.isMaximal!= null);
+    }
+
+    public void unsetIsMaximal() {
+        this.isMaximal = null;
     }
 
     /**
@@ -284,6 +327,10 @@ public class TopoComplexType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -297,34 +344,8 @@ public class TopoComplexType
         }
         final TopoComplexType that = ((TopoComplexType) object);
         {
-            boolean lhsFieldIsSet = (this.maximalComplex!= null);
-            boolean rhsFieldIsSet = (that.maximalComplex!= null);
-            TopoComplexPropertyType lhsField;
-            lhsField = this.getMaximalComplex();
-            TopoComplexPropertyType rhsField;
-            rhsField = that.getMaximalComplex();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximalComplex", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximalComplex", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.superComplex!= null)&&(!this.superComplex.isEmpty()));
-            boolean rhsFieldIsSet = ((that.superComplex!= null)&&(!that.superComplex.isEmpty()));
-            List<TopoComplexPropertyType> lhsField;
-            lhsField = (((this.superComplex!= null)&&(!this.superComplex.isEmpty()))?this.getSuperComplex():null);
-            List<TopoComplexPropertyType> rhsField;
-            rhsField = (((that.superComplex!= null)&&(!that.superComplex.isEmpty()))?that.getSuperComplex():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superComplex", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superComplex", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.topoPrimitiveMembers!= null);
-            boolean rhsFieldIsSet = (that.topoPrimitiveMembers!= null);
+            boolean lhsFieldIsSet = this.isSetTopoPrimitiveMembers();
+            boolean rhsFieldIsSet = that.isSetTopoPrimitiveMembers();
             TopoPrimitiveArrayAssociationType lhsField;
             lhsField = this.getTopoPrimitiveMembers();
             TopoPrimitiveArrayAssociationType rhsField;
@@ -336,12 +357,12 @@ public class TopoComplexType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.topoPrimitiveMember!= null)&&(!that.topoPrimitiveMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetTopoPrimitiveMember();
+            boolean rhsFieldIsSet = that.isSetTopoPrimitiveMember();
             List<TopoPrimitiveMemberType> lhsField;
-            lhsField = (((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()))?this.getTopoPrimitiveMember():null);
+            lhsField = (this.isSetTopoPrimitiveMember()?this.getTopoPrimitiveMember():null);
             List<TopoPrimitiveMemberType> rhsField;
-            rhsField = (((that.topoPrimitiveMember!= null)&&(!that.topoPrimitiveMember.isEmpty()))?that.getTopoPrimitiveMember():null);
+            rhsField = (that.isSetTopoPrimitiveMember()?that.getTopoPrimitiveMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topoPrimitiveMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topoPrimitiveMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -349,12 +370,25 @@ public class TopoComplexType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.isMaximal!= null);
-            boolean rhsFieldIsSet = (that.isMaximal!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getIsMaximal();
-            java.lang.Boolean rhsField;
-            rhsField = that.getIsMaximal();
+            boolean lhsFieldIsSet = this.isSetSubComplex();
+            boolean rhsFieldIsSet = that.isSetSubComplex();
+            List<TopoComplexPropertyType> lhsField;
+            lhsField = (this.isSetSubComplex()?this.getSubComplex():null);
+            List<TopoComplexPropertyType> rhsField;
+            rhsField = (that.isSetSubComplex()?that.getSubComplex():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subComplex", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subComplex", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsMaximal();
+            boolean rhsFieldIsSet = that.isSetIsMaximal();
+            boolean lhsField;
+            lhsField = (this.isSetIsMaximal()?this.getIsMaximal():false);
+            boolean rhsField;
+            rhsField = (that.isSetIsMaximal()?that.getIsMaximal():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isMaximal", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isMaximal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -362,8 +396,21 @@ public class TopoComplexType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetSuperComplex();
+            boolean rhsFieldIsSet = that.isSetSuperComplex();
+            List<TopoComplexPropertyType> lhsField;
+            lhsField = (this.isSetSuperComplex()?this.getSuperComplex():null);
+            List<TopoComplexPropertyType> rhsField;
+            rhsField = (that.isSetSuperComplex()?that.getSuperComplex():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superComplex", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superComplex", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -375,14 +422,14 @@ public class TopoComplexType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.subComplex!= null)&&(!this.subComplex.isEmpty()));
-            boolean rhsFieldIsSet = ((that.subComplex!= null)&&(!that.subComplex.isEmpty()));
-            List<TopoComplexPropertyType> lhsField;
-            lhsField = (((this.subComplex!= null)&&(!this.subComplex.isEmpty()))?this.getSubComplex():null);
-            List<TopoComplexPropertyType> rhsField;
-            rhsField = (((that.subComplex!= null)&&(!that.subComplex.isEmpty()))?that.getSubComplex():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subComplex", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subComplex", rhsField);
+            boolean lhsFieldIsSet = this.isSetMaximalComplex();
+            boolean rhsFieldIsSet = that.isSetMaximalComplex();
+            TopoComplexPropertyType lhsField;
+            lhsField = this.getMaximalComplex();
+            TopoComplexPropertyType rhsField;
+            rhsField = that.getMaximalComplex();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximalComplex", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximalComplex", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -394,49 +441,49 @@ public class TopoComplexType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.maximalComplex!= null);
+            boolean theFieldIsSet = this.isSetMaximalComplex();
             TopoComplexPropertyType theField;
             theField = this.getMaximalComplex();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "maximalComplex", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.superComplex!= null)&&(!this.superComplex.isEmpty()));
+            boolean theFieldIsSet = this.isSetSuperComplex();
             List<TopoComplexPropertyType> theField;
-            theField = (((this.superComplex!= null)&&(!this.superComplex.isEmpty()))?this.getSuperComplex():null);
+            theField = (this.isSetSuperComplex()?this.getSuperComplex():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "superComplex", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.subComplex!= null)&&(!this.subComplex.isEmpty()));
+            boolean theFieldIsSet = this.isSetSubComplex();
             List<TopoComplexPropertyType> theField;
-            theField = (((this.subComplex!= null)&&(!this.subComplex.isEmpty()))?this.getSubComplex():null);
+            theField = (this.isSetSubComplex()?this.getSubComplex():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "subComplex", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetTopoPrimitiveMember();
             List<TopoPrimitiveMemberType> theField;
-            theField = (((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()))?this.getTopoPrimitiveMember():null);
+            theField = (this.isSetTopoPrimitiveMember()?this.getTopoPrimitiveMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topoPrimitiveMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.topoPrimitiveMembers!= null);
+            boolean theFieldIsSet = this.isSetTopoPrimitiveMembers();
             TopoPrimitiveArrayAssociationType theField;
             theField = this.getTopoPrimitiveMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topoPrimitiveMembers", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isMaximal!= null);
-            java.lang.Boolean theField;
-            theField = this.getIsMaximal();
+            boolean theFieldIsSet = this.isSetIsMaximal();
+            boolean theField;
+            theField = (this.isSetIsMaximal()?this.getIsMaximal():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isMaximal", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -449,43 +496,43 @@ public class TopoComplexType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.maximalComplex!= null);
+            boolean theFieldIsSet = this.isSetMaximalComplex();
             TopoComplexPropertyType theField;
             theField = this.getMaximalComplex();
             strategy.appendField(locator, this, "maximalComplex", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.superComplex!= null)&&(!this.superComplex.isEmpty()));
+            boolean theFieldIsSet = this.isSetSuperComplex();
             List<TopoComplexPropertyType> theField;
-            theField = (((this.superComplex!= null)&&(!this.superComplex.isEmpty()))?this.getSuperComplex():null);
+            theField = (this.isSetSuperComplex()?this.getSuperComplex():null);
             strategy.appendField(locator, this, "superComplex", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.subComplex!= null)&&(!this.subComplex.isEmpty()));
+            boolean theFieldIsSet = this.isSetSubComplex();
             List<TopoComplexPropertyType> theField;
-            theField = (((this.subComplex!= null)&&(!this.subComplex.isEmpty()))?this.getSubComplex():null);
+            theField = (this.isSetSubComplex()?this.getSubComplex():null);
             strategy.appendField(locator, this, "subComplex", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetTopoPrimitiveMember();
             List<TopoPrimitiveMemberType> theField;
-            theField = (((this.topoPrimitiveMember!= null)&&(!this.topoPrimitiveMember.isEmpty()))?this.getTopoPrimitiveMember():null);
+            theField = (this.isSetTopoPrimitiveMember()?this.getTopoPrimitiveMember():null);
             strategy.appendField(locator, this, "topoPrimitiveMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.topoPrimitiveMembers!= null);
+            boolean theFieldIsSet = this.isSetTopoPrimitiveMembers();
             TopoPrimitiveArrayAssociationType theField;
             theField = this.getTopoPrimitiveMembers();
             strategy.appendField(locator, this, "topoPrimitiveMembers", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isMaximal!= null);
-            java.lang.Boolean theField;
-            theField = this.getIsMaximal();
+            boolean theFieldIsSet = this.isSetIsMaximal();
+            boolean theField;
+            theField = (this.isSetIsMaximal()?this.getIsMaximal():false);
             strategy.appendField(locator, this, "isMaximal", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

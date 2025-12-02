@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDReferenceSystemType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected RSIdentifierPropertyType referenceSystemIdentifier;
 
     /**
@@ -65,6 +68,10 @@ public class MDReferenceSystemType
         this.referenceSystemIdentifier = value;
     }
 
+    public boolean isSetReferenceSystemIdentifier() {
+        return (this.referenceSystemIdentifier!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -78,8 +85,8 @@ public class MDReferenceSystemType
         }
         final MDReferenceSystemType that = ((MDReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = (this.referenceSystemIdentifier!= null);
-            boolean rhsFieldIsSet = (that.referenceSystemIdentifier!= null);
+            boolean lhsFieldIsSet = this.isSetReferenceSystemIdentifier();
+            boolean rhsFieldIsSet = that.isSetReferenceSystemIdentifier();
             RSIdentifierPropertyType lhsField;
             lhsField = this.getReferenceSystemIdentifier();
             RSIdentifierPropertyType rhsField;
@@ -97,7 +104,7 @@ public class MDReferenceSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.referenceSystemIdentifier!= null);
+            boolean theFieldIsSet = this.isSetReferenceSystemIdentifier();
             RSIdentifierPropertyType theField;
             theField = this.getReferenceSystemIdentifier();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceSystemIdentifier", theField);
@@ -110,7 +117,7 @@ public class MDReferenceSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.referenceSystemIdentifier!= null);
+            boolean theFieldIsSet = this.isSetReferenceSystemIdentifier();
             RSIdentifierPropertyType theField;
             theField = this.getReferenceSystemIdentifier();
             strategy.appendField(locator, this, "referenceSystemIdentifier", buffer, theField, theFieldIsSet);

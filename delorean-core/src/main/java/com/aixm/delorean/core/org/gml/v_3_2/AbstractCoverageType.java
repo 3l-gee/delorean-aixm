@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -48,8 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractCoverageType
     extends AbstractFeatureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The gml:domainSet property element describes the spatio-temporal region of interest, within which the coverage is defined. Its content model is given by gml:DomainSetType.
      * The value of the domain is thus a choice between a gml:AbstractGeometry and a gml:AbstractTimeObject.  In the instance these abstract elements will normally be substituted by a geometry complex or temporal complex, to represent spatial coverages and time-series, respectively.  
@@ -106,6 +109,10 @@ public abstract class AbstractCoverageType
         this.domainSet = value;
     }
 
+    public boolean isSetDomainSet() {
+        return (this.domainSet!= null);
+    }
+
     /**
      * The gml:rangeSet property element contains the values of the coverage (sometimes called the attribute values).  Its content model is given by gml:RangeSetType.
      * This content model supports a structural description of the range.  The semantic information describing the range set is embedded using a uniform method, as part of the explicit values, or as a template value accompanying the representation using gml:DataBlock and gml:File.
@@ -133,6 +140,10 @@ public abstract class AbstractCoverageType
         this.rangeSet = value;
     }
 
+    public boolean isSetRangeSet() {
+        return (this.rangeSet!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -146,27 +157,27 @@ public abstract class AbstractCoverageType
         }
         final AbstractCoverageType that = ((AbstractCoverageType) object);
         {
-            boolean lhsFieldIsSet = (this.domainSet!= null);
-            boolean rhsFieldIsSet = (that.domainSet!= null);
-            JAXBElement<DomainSetType> lhsField;
-            lhsField = this.getDomainSet();
-            JAXBElement<DomainSetType> rhsField;
-            rhsField = that.getDomainSet();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainSet", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.rangeSet!= null);
-            boolean rhsFieldIsSet = (that.rangeSet!= null);
+            boolean lhsFieldIsSet = this.isSetRangeSet();
+            boolean rhsFieldIsSet = that.isSetRangeSet();
             RangeSetType lhsField;
             lhsField = this.getRangeSet();
             RangeSetType rhsField;
             rhsField = that.getRangeSet();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeSet", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeSet", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDomainSet();
+            boolean rhsFieldIsSet = that.isSetDomainSet();
+            JAXBElement<DomainSetType> lhsField;
+            lhsField = this.getDomainSet();
+            JAXBElement<DomainSetType> rhsField;
+            rhsField = that.getDomainSet();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainSet", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -178,14 +189,14 @@ public abstract class AbstractCoverageType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.domainSet!= null);
+            boolean theFieldIsSet = this.isSetDomainSet();
             JAXBElement<DomainSetType> theField;
             theField = this.getDomainSet();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainSet", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rangeSet!= null);
+            boolean theFieldIsSet = this.isSetRangeSet();
             RangeSetType theField;
             theField = this.getRangeSet();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "rangeSet", theField);
@@ -198,13 +209,13 @@ public abstract class AbstractCoverageType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.domainSet!= null);
+            boolean theFieldIsSet = this.isSetDomainSet();
             JAXBElement<DomainSetType> theField;
             theField = this.getDomainSet();
             strategy.appendField(locator, this, "domainSet", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.rangeSet!= null);
+            boolean theFieldIsSet = this.isSetRangeSet();
             RangeSetType theField;
             theField = this.getRangeSet();
             strategy.appendField(locator, this, "rangeSet", buffer, theField, theFieldIsSet);

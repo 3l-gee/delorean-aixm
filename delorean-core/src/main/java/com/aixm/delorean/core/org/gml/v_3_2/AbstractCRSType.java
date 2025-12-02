@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -53,8 +54,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractCRSType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<DomainOfValidity> domainOfValidity;
     @XmlElement(required = true)
     protected List<String> scope;
@@ -96,6 +99,14 @@ public abstract class AbstractCRSType
         this.domainOfValidity = domainOfValidity;
     }
 
+    public boolean isSetDomainOfValidity() {
+        return ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+    }
+
+    public void unsetDomainOfValidity() {
+        this.domainOfValidity = null;
+    }
+
     /**
      * The gml:scope property provides a description of the usage, or limitations of usage, for which this CRS-related object is valid. If unknown, enter "not known".Gets the value of the scope property.
      * 
@@ -133,6 +144,14 @@ public abstract class AbstractCRSType
         this.scope = scope;
     }
 
+    public boolean isSetScope() {
+        return ((this.scope!= null)&&(!this.scope.isEmpty()));
+    }
+
+    public void unsetScope() {
+        this.scope = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -146,27 +165,27 @@ public abstract class AbstractCRSType
         }
         final AbstractCRSType that = ((AbstractCRSType) object);
         {
-            boolean lhsFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
-            boolean rhsFieldIsSet = ((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()));
-            List<DomainOfValidity> lhsField;
-            lhsField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
-            List<DomainOfValidity> rhsField;
-            rhsField = (((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()))?that.getDomainOfValidity():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
+            boolean lhsFieldIsSet = this.isSetScope();
+            boolean rhsFieldIsSet = that.isSetScope();
+            List<String> lhsField;
+            lhsField = (this.isSetScope()?this.getScope():null);
+            List<String> rhsField;
+            rhsField = (that.isSetScope()?that.getScope():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
-            boolean rhsFieldIsSet = ((that.scope!= null)&&(!that.scope.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
-            List<String> rhsField;
-            rhsField = (((that.scope!= null)&&(!that.scope.isEmpty()))?that.getScope():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
+            List<DomainOfValidity> lhsField;
+            lhsField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
+            List<DomainOfValidity> rhsField;
+            rhsField = (that.isSetDomainOfValidity()?that.getDomainOfValidity():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -178,16 +197,16 @@ public abstract class AbstractCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<DomainOfValidity> theField;
-            theField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainOfValidity", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
+            boolean theFieldIsSet = this.isSetScope();
             List<String> theField;
-            theField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            theField = (this.isSetScope()?this.getScope():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "scope", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -198,15 +217,15 @@ public abstract class AbstractCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<DomainOfValidity> theField;
-            theField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
             strategy.appendField(locator, this, "domainOfValidity", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.scope!= null)&&(!this.scope.isEmpty()));
+            boolean theFieldIsSet = this.isSetScope();
             List<String> theField;
-            theField = (((this.scope!= null)&&(!this.scope.isEmpty()))?this.getScope():null);
+            theField = (this.isSetScope()?this.getScope():null);
             strategy.appendField(locator, this, "scope", buffer, theField, theFieldIsSet);
         }
         return buffer;

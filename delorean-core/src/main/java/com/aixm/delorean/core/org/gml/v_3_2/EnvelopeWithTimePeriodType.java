@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EnvelopeWithTimePeriodType
     extends EnvelopeType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected TimePositionType beginPosition;
     @XmlElement(required = true)
@@ -76,6 +79,10 @@ public class EnvelopeWithTimePeriodType
         this.beginPosition = value;
     }
 
+    public boolean isSetBeginPosition() {
+        return (this.beginPosition!= null);
+    }
+
     /**
      * Gets the value of the endPosition property.
      * 
@@ -98,6 +105,10 @@ public class EnvelopeWithTimePeriodType
      */
     public void setEndPosition(TimePositionType value) {
         this.endPosition = value;
+    }
+
+    public boolean isSetEndPosition() {
+        return (this.endPosition!= null);
     }
 
     /**
@@ -128,6 +139,10 @@ public class EnvelopeWithTimePeriodType
         this.frame = value;
     }
 
+    public boolean isSetFrame() {
+        return (this.frame!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -141,8 +156,8 @@ public class EnvelopeWithTimePeriodType
         }
         final EnvelopeWithTimePeriodType that = ((EnvelopeWithTimePeriodType) object);
         {
-            boolean lhsFieldIsSet = (this.beginPosition!= null);
-            boolean rhsFieldIsSet = (that.beginPosition!= null);
+            boolean lhsFieldIsSet = this.isSetBeginPosition();
+            boolean rhsFieldIsSet = that.isSetBeginPosition();
             TimePositionType lhsField;
             lhsField = this.getBeginPosition();
             TimePositionType rhsField;
@@ -154,27 +169,27 @@ public class EnvelopeWithTimePeriodType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.endPosition!= null);
-            boolean rhsFieldIsSet = (that.endPosition!= null);
-            TimePositionType lhsField;
-            lhsField = this.getEndPosition();
-            TimePositionType rhsField;
-            rhsField = that.getEndPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.frame!= null);
-            boolean rhsFieldIsSet = (that.frame!= null);
+            boolean lhsFieldIsSet = this.isSetFrame();
+            boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
             lhsField = this.getFrame();
             String rhsField;
             rhsField = that.getFrame();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEndPosition();
+            boolean rhsFieldIsSet = that.isSetEndPosition();
+            TimePositionType lhsField;
+            lhsField = this.getEndPosition();
+            TimePositionType rhsField;
+            rhsField = that.getEndPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -186,21 +201,21 @@ public class EnvelopeWithTimePeriodType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.beginPosition!= null);
+            boolean theFieldIsSet = this.isSetBeginPosition();
             TimePositionType theField;
             theField = this.getBeginPosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "beginPosition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.endPosition!= null);
+            boolean theFieldIsSet = this.isSetEndPosition();
             TimePositionType theField;
             theField = this.getEndPosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "endPosition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "frame", theField);
@@ -213,19 +228,19 @@ public class EnvelopeWithTimePeriodType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.beginPosition!= null);
+            boolean theFieldIsSet = this.isSetBeginPosition();
             TimePositionType theField;
             theField = this.getBeginPosition();
             strategy.appendField(locator, this, "beginPosition", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.endPosition!= null);
+            boolean theFieldIsSet = this.isSetEndPosition();
             TimePositionType theField;
             theField = this.getEndPosition();
             strategy.appendField(locator, this, "endPosition", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             strategy.appendField(locator, this, "frame", buffer, theField, theFieldIsSet);

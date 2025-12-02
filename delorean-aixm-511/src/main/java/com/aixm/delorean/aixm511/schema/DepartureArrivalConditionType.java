@@ -358,7 +358,7 @@ public class DepartureArrivalConditionType
     @OneToMany(targetEntity = DepartureArrivalConditionTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_DEPARTURE_ARRIVAL__0")
     public List<DepartureArrivalConditionTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -476,40 +476,14 @@ public class DepartureArrivalConditionType
         }
         final DepartureArrivalConditionType that = ((DepartureArrivalConditionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumCrossingAtEndReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
             JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumEnrouteAltitude();
+            lhsField = this.getMinimumCrossingAtEnd();
             JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumEnrouteAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
+            rhsField = that.getMinimumCrossingAtEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -528,6 +502,19 @@ public class DepartureArrivalConditionType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<DepartureArrivalConditionTypeExtensionType> lhsField;
@@ -541,14 +528,27 @@ public class DepartureArrivalConditionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEnd();
-            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEnd();
+            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMaximumCrossingAtEndReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMaximumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumEnrouteAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumEnrouteAltitude();
             JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumCrossingAtEnd();
+            lhsField = this.getMinimumEnrouteAltitude();
             JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumCrossingAtEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEnd", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEnd", rhsField);
+            rhsField = that.getMinimumEnrouteAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumEnrouteAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumEnrouteAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -567,14 +567,14 @@ public class DepartureArrivalConditionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMaximumCrossingAtEndReference();
-            boolean rhsFieldIsSet = that.isSetMaximumCrossingAtEndReference();
+            boolean lhsFieldIsSet = this.isSetMinimumCrossingAtEndReference();
+            boolean rhsFieldIsSet = that.isSetMinimumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMaximumCrossingAtEndReference();
+            lhsField = this.getMinimumCrossingAtEndReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMaximumCrossingAtEndReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumCrossingAtEndReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumCrossingAtEndReference", rhsField);
+            rhsField = that.getMinimumCrossingAtEndReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumCrossingAtEndReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumCrossingAtEndReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

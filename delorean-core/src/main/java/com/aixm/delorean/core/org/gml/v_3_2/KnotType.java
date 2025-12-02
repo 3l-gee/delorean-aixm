@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -48,9 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "multiplicity",
     "weight"
 })
-public class KnotType implements Equals, HashCode, ToString
+public class KnotType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected double value;
     @XmlElement(required = true)
     @XmlSchemaType(name = "nonNegativeInteger")
@@ -71,6 +73,10 @@ public class KnotType implements Equals, HashCode, ToString
      */
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public boolean isSetValue() {
+        return true;
     }
 
     /**
@@ -97,6 +103,10 @@ public class KnotType implements Equals, HashCode, ToString
         this.multiplicity = value;
     }
 
+    public boolean isSetMultiplicity() {
+        return (this.multiplicity!= null);
+    }
+
     /**
      * Gets the value of the weight property.
      * 
@@ -111,6 +121,10 @@ public class KnotType implements Equals, HashCode, ToString
      */
     public void setWeight(double value) {
         this.weight = value;
+    }
+
+    public boolean isSetWeight() {
+        return true;
     }
 
     @Override
@@ -138,19 +152,6 @@ public class KnotType implements Equals, HashCode, ToString
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
-            lhsField = this.getWeight();
-            double rhsField;
-            rhsField = that.getWeight();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
             lhsField = this.getValue();
             double rhsField;
             rhsField = that.getValue();
@@ -161,8 +162,21 @@ public class KnotType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.multiplicity!= null);
-            boolean rhsFieldIsSet = (that.multiplicity!= null);
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getWeight();
+            double rhsField;
+            rhsField = that.getWeight();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "weight", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "weight", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMultiplicity();
+            boolean rhsFieldIsSet = that.isSetMultiplicity();
             BigInteger lhsField;
             lhsField = this.getMultiplicity();
             BigInteger rhsField;
@@ -197,7 +211,7 @@ public class KnotType implements Equals, HashCode, ToString
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.multiplicity!= null);
+            boolean theFieldIsSet = this.isSetMultiplicity();
             BigInteger theField;
             theField = this.getMultiplicity();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "multiplicity", theField);
@@ -242,7 +256,7 @@ public class KnotType implements Equals, HashCode, ToString
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.multiplicity!= null);
+            boolean theFieldIsSet = this.isSetMultiplicity();
             BigInteger theField;
             theField = this.getMultiplicity();
             strategy.appendField(locator, this, "multiplicity", buffer, theField, theFieldIsSet);

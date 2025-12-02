@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TopoPointType
     extends AbstractTopologyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A gml:directedNode property element describes the boundary of topology edges and is used in the support of topological point features via the gml:TopoPoint expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included node is used: start ("-") or end ("+") node.
      * 
@@ -71,6 +74,10 @@ public class TopoPointType
         this.directedNode = value;
     }
 
+    public boolean isSetDirectedNode() {
+        return (this.directedNode!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -84,8 +91,8 @@ public class TopoPointType
         }
         final TopoPointType that = ((TopoPointType) object);
         {
-            boolean lhsFieldIsSet = (this.directedNode!= null);
-            boolean rhsFieldIsSet = (that.directedNode!= null);
+            boolean lhsFieldIsSet = this.isSetDirectedNode();
+            boolean rhsFieldIsSet = that.isSetDirectedNode();
             DirectedNodePropertyType lhsField;
             lhsField = this.getDirectedNode();
             DirectedNodePropertyType rhsField;
@@ -103,7 +110,7 @@ public class TopoPointType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.directedNode!= null);
+            boolean theFieldIsSet = this.isSetDirectedNode();
             DirectedNodePropertyType theField;
             theField = this.getDirectedNode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedNode", theField);
@@ -116,7 +123,7 @@ public class TopoPointType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.directedNode!= null);
+            boolean theFieldIsSet = this.isSetDirectedNode();
             DirectedNodePropertyType theField;
             theField = this.getDirectedNode();
             strategy.appendField(locator, this, "directedNode", buffer, theField, theFieldIsSet);

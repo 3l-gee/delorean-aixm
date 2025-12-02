@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TypeNameType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CharacterStringPropertyType aName;
 
@@ -68,6 +71,10 @@ public class TypeNameType
         this.aName = value;
     }
 
+    public boolean isSetAName() {
+        return (this.aName!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -81,8 +88,8 @@ public class TypeNameType
         }
         final TypeNameType that = ((TypeNameType) object);
         {
-            boolean lhsFieldIsSet = (this.aName!= null);
-            boolean rhsFieldIsSet = (that.aName!= null);
+            boolean lhsFieldIsSet = this.isSetAName();
+            boolean rhsFieldIsSet = that.isSetAName();
             CharacterStringPropertyType lhsField;
             lhsField = this.getAName();
             CharacterStringPropertyType rhsField;
@@ -100,7 +107,7 @@ public class TypeNameType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.aName!= null);
+            boolean theFieldIsSet = this.isSetAName();
             CharacterStringPropertyType theField;
             theField = this.getAName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aName", theField);
@@ -113,7 +120,7 @@ public class TypeNameType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.aName!= null);
+            boolean theFieldIsSet = this.isSetAName();
             CharacterStringPropertyType theField;
             theField = this.getAName();
             strategy.appendField(locator, this, "aName", buffer, theField, theFieldIsSet);

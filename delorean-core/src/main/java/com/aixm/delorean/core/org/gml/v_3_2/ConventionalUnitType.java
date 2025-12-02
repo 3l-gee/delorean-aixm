@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ConventionalUnitType
     extends UnitDefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
      * 
@@ -83,6 +86,10 @@ public class ConventionalUnitType
         this.conversionToPreferredUnit = value;
     }
 
+    public boolean isSetConversionToPreferredUnit() {
+        return (this.conversionToPreferredUnit!= null);
+    }
+
     /**
      * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
      * 
@@ -106,6 +113,10 @@ public class ConventionalUnitType
      */
     public void setRoughConversionToPreferredUnit(ConversionToPreferredUnitType value) {
         this.roughConversionToPreferredUnit = value;
+    }
+
+    public boolean isSetRoughConversionToPreferredUnit() {
+        return (this.roughConversionToPreferredUnit!= null);
     }
 
     /**
@@ -147,6 +158,14 @@ public class ConventionalUnitType
         this.derivationUnitTerm = derivationUnitTerm;
     }
 
+    public boolean isSetDerivationUnitTerm() {
+        return ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+    }
+
+    public void unsetDerivationUnitTerm() {
+        this.derivationUnitTerm = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -160,21 +179,8 @@ public class ConventionalUnitType
         }
         final ConventionalUnitType that = ((ConventionalUnitType) object);
         {
-            boolean lhsFieldIsSet = (this.roughConversionToPreferredUnit!= null);
-            boolean rhsFieldIsSet = (that.roughConversionToPreferredUnit!= null);
-            ConversionToPreferredUnitType lhsField;
-            lhsField = this.getRoughConversionToPreferredUnit();
-            ConversionToPreferredUnitType rhsField;
-            rhsField = that.getRoughConversionToPreferredUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roughConversionToPreferredUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.conversionToPreferredUnit!= null);
-            boolean rhsFieldIsSet = (that.conversionToPreferredUnit!= null);
+            boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
+            boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
             ConversionToPreferredUnitType lhsField;
             lhsField = this.getConversionToPreferredUnit();
             ConversionToPreferredUnitType rhsField;
@@ -186,12 +192,25 @@ public class ConventionalUnitType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
-            boolean rhsFieldIsSet = ((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetRoughConversionToPreferredUnit();
+            boolean rhsFieldIsSet = that.isSetRoughConversionToPreferredUnit();
+            ConversionToPreferredUnitType lhsField;
+            lhsField = this.getRoughConversionToPreferredUnit();
+            ConversionToPreferredUnitType rhsField;
+            rhsField = that.getRoughConversionToPreferredUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roughConversionToPreferredUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDerivationUnitTerm();
+            boolean rhsFieldIsSet = that.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> lhsField;
-            lhsField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            lhsField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             List<DerivationUnitTermType> rhsField;
-            rhsField = (((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()))?that.getDerivationUnitTerm():null);
+            rhsField = (that.isSetDerivationUnitTerm()?that.getDerivationUnitTerm():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -205,23 +224,23 @@ public class ConventionalUnitType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.conversionToPreferredUnit!= null);
+            boolean theFieldIsSet = this.isSetConversionToPreferredUnit();
             ConversionToPreferredUnitType theField;
             theField = this.getConversionToPreferredUnit();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "conversionToPreferredUnit", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.roughConversionToPreferredUnit!= null);
+            boolean theFieldIsSet = this.isSetRoughConversionToPreferredUnit();
             ConversionToPreferredUnitType theField;
             theField = this.getRoughConversionToPreferredUnit();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "roughConversionToPreferredUnit", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+            boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "derivationUnitTerm", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -232,21 +251,21 @@ public class ConventionalUnitType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.conversionToPreferredUnit!= null);
+            boolean theFieldIsSet = this.isSetConversionToPreferredUnit();
             ConversionToPreferredUnitType theField;
             theField = this.getConversionToPreferredUnit();
             strategy.appendField(locator, this, "conversionToPreferredUnit", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.roughConversionToPreferredUnit!= null);
+            boolean theFieldIsSet = this.isSetRoughConversionToPreferredUnit();
             ConversionToPreferredUnitType theField;
             theField = this.getRoughConversionToPreferredUnit();
             strategy.appendField(locator, this, "roughConversionToPreferredUnit", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+            boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             strategy.appendField(locator, this, "derivationUnitTerm", buffer, theField, theFieldIsSet);
         }
         return buffer;

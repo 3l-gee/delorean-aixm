@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import jakarta.persistence.AttributeOverride;
@@ -53,8 +54,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @MappedSuperclass
 public abstract class AbstractTimeSliceType
     extends AbstractGMLType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "validTime", required = true, type = TimePrimitivePropertyType.class)
     @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
     protected DeloreanTimeSliceType validTime;
@@ -90,6 +93,11 @@ public abstract class AbstractTimeSliceType
         this.validTime = value;
     }
 
+    @Transient
+    public boolean isSetValidTime() {
+        return (this.validTime!= null);
+    }
+
     /**
      * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference property that indicates the source of the temporal data. The remote link attributes of the gml:dataSource element have been deprecated along with its current type.
      * 
@@ -102,7 +110,6 @@ public abstract class AbstractTimeSliceType
     @AttributeOverrides({
         @AttributeOverride(name = "value", column = @Column(name = "DATA_SOURCE_VALUE", length = 255)),
         @AttributeOverride(name = "nilReason", column = @Column(name = "DATA_SOURCE_NIL_REASON", length = 255)),
-        @AttributeOverride(name = "type", column = @Column(name = "DATA_SOURCE_TYPE", length = 255)),
         @AttributeOverride(name = "href", column = @Column(name = "DATA_SOURCE_HREF")),
         @AttributeOverride(name = "role", column = @Column(name = "DATA_SOURCE_ROLE")),
         @AttributeOverride(name = "arcrole", column = @Column(name = "DATA_SOURCE_ARCROLE")),
@@ -127,6 +134,11 @@ public abstract class AbstractTimeSliceType
         this.dataSource = value;
     }
 
+    @Transient
+    public boolean isSetDataSource() {
+        return (this.dataSource!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -140,27 +152,27 @@ public abstract class AbstractTimeSliceType
         }
         final AbstractTimeSliceType that = ((AbstractTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = (this.validTime!= null);
-            boolean rhsFieldIsSet = (that.validTime!= null);
-            DeloreanTimeSliceType lhsField;
-            lhsField = this.getValidTime();
-            DeloreanTimeSliceType rhsField;
-            rhsField = that.getValidTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.dataSource!= null);
-            boolean rhsFieldIsSet = (that.dataSource!= null);
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
             StringOrRefType lhsField;
             lhsField = this.getDataSource();
             StringOrRefType rhsField;
             rhsField = that.getDataSource();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValidTime();
+            boolean rhsFieldIsSet = that.isSetValidTime();
+            DeloreanTimeSliceType lhsField;
+            lhsField = this.getValidTime();
+            DeloreanTimeSliceType rhsField;
+            rhsField = that.getValidTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "validTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "validTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -172,14 +184,14 @@ public abstract class AbstractTimeSliceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             DeloreanTimeSliceType theField;
             theField = this.getValidTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "validTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSource!= null);
+            boolean theFieldIsSet = this.isSetDataSource();
             StringOrRefType theField;
             theField = this.getDataSource();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dataSource", theField);
@@ -192,13 +204,13 @@ public abstract class AbstractTimeSliceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             DeloreanTimeSliceType theField;
             theField = this.getValidTime();
             strategy.appendField(locator, this, "validTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSource!= null);
+            boolean theFieldIsSet = this.isSetDataSource();
             StringOrRefType theField;
             theField = this.getDataSource();
             strategy.appendField(locator, this, "dataSource", buffer, theField, theFieldIsSet);

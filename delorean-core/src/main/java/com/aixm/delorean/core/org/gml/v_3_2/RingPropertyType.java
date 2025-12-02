@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RingPropertyType", propOrder = {
     "ring"
 })
-public class RingPropertyType implements Equals, HashCode, ToString
+public class RingPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A ring is used to represent a single connected component of a surface boundary as specified in ISO 19107:2003, 6.3.6.
      * Every gml:curveMember references or contains one curve, i.e. any element which is substitutable for gml:AbstractCurve. In the context of a ring, the curves describe the boundary of the surface. The sequence of curves shall be contiguous and connected in a cycle.
@@ -83,6 +85,10 @@ public class RingPropertyType implements Equals, HashCode, ToString
         this.ring = value;
     }
 
+    public boolean isSetRing() {
+        return (this.ring!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -105,8 +111,8 @@ public class RingPropertyType implements Equals, HashCode, ToString
         }
         final RingPropertyType that = ((RingPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.ring!= null);
-            boolean rhsFieldIsSet = (that.ring!= null);
+            boolean lhsFieldIsSet = this.isSetRing();
+            boolean rhsFieldIsSet = that.isSetRing();
             RingType lhsField;
             lhsField = this.getRing();
             RingType rhsField;
@@ -134,7 +140,7 @@ public class RingPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.ring!= null);
+            boolean theFieldIsSet = this.isSetRing();
             RingType theField;
             theField = this.getRing();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ring", theField);
@@ -166,7 +172,7 @@ public class RingPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.ring!= null);
+            boolean theFieldIsSet = this.isSetRing();
             RingType theField;
             theField = this.getRing();
             strategy.appendField(locator, this, "ring", buffer, theField, theFieldIsSet);

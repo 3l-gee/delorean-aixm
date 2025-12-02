@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TopoSolidType
     extends AbstractTopoPrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<NodeOrEdgePropertyType> isolated;
     @XmlElement(required = true)
     protected List<DirectedFacePropertyType> directedFace;
@@ -102,6 +105,14 @@ public class TopoSolidType
         this.isolated = isolated;
     }
 
+    public boolean isSetIsolated() {
+        return ((this.isolated!= null)&&(!this.isolated.isEmpty()));
+    }
+
+    public void unsetIsolated() {
+        this.isolated = null;
+    }
+
     /**
      * The gml:directedFace property element describes the boundary of topology solids, in the coBoundary of topology edges and is used in the support of surface features via the gml:TopoSurface expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included face is used i.e. inward or outward with respect to the surface normal in any geometric realisation.Gets the value of the directedFace property.
      * 
@@ -139,6 +150,14 @@ public class TopoSolidType
         this.directedFace = directedFace;
     }
 
+    public boolean isSetDirectedFace() {
+        return ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+    }
+
+    public void unsetDirectedFace() {
+        this.directedFace = null;
+    }
+
     /**
      * This property element either references a solid via the XLink-attributes or contains the solid element. solidProperty is the predefined property which may be used by GML Application Schemas whenever a GML feature has a property with a value that is substitutable for AbstractSolid.
      * 
@@ -164,6 +183,10 @@ public class TopoSolidType
         this.solidProperty = value;
     }
 
+    public boolean isSetSolidProperty() {
+        return (this.solidProperty!= null);
+    }
+
     /**
      * A gml:TopoSolid must indicate whether it is a universal topo-solid or not, to ensure a lossless topology representation as defined by Kuijpers, et. al. (see OGC 05-102 Topology IPR). The optional universal attribute of type boolean is used to indicate this and the default is fault. NOTE The universal topo-solid is normally not part of any feature, and is used to represent the unbounded portion of the data set. Its interior boundary (it has no exterior boundary) would normally be considered the exterior boundary of the data set.
      * 
@@ -172,7 +195,7 @@ public class TopoSolidType
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getUniversal() {
+    public boolean getUniversal() {
         if (universal == null) {
             return false;
         } else {
@@ -189,8 +212,16 @@ public class TopoSolidType
      *     
      * @see #getUniversal()
      */
-    public void setUniversal(java.lang.Boolean value) {
+    public void setUniversal(boolean value) {
         this.universal = value;
+    }
+
+    public boolean isSetUniversal() {
+        return (this.universal!= null);
+    }
+
+    public void unsetUniversal() {
+        this.universal = null;
     }
 
     /**
@@ -217,6 +248,10 @@ public class TopoSolidType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -230,8 +265,8 @@ public class TopoSolidType
         }
         final TopoSolidType that = ((TopoSolidType) object);
         {
-            boolean lhsFieldIsSet = (this.solidProperty!= null);
-            boolean rhsFieldIsSet = (that.solidProperty!= null);
+            boolean lhsFieldIsSet = this.isSetSolidProperty();
+            boolean rhsFieldIsSet = that.isSetSolidProperty();
             SolidPropertyType lhsField;
             lhsField = this.getSolidProperty();
             SolidPropertyType rhsField;
@@ -243,12 +278,25 @@ public class TopoSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.isolated!= null)&&(!this.isolated.isEmpty()));
-            boolean rhsFieldIsSet = ((that.isolated!= null)&&(!that.isolated.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetUniversal();
+            boolean rhsFieldIsSet = that.isSetUniversal();
+            boolean lhsField;
+            lhsField = (this.isSetUniversal()?this.getUniversal():false);
+            boolean rhsField;
+            rhsField = (that.isSetUniversal()?that.getUniversal():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsolated();
+            boolean rhsFieldIsSet = that.isSetIsolated();
             List<NodeOrEdgePropertyType> lhsField;
-            lhsField = (((this.isolated!= null)&&(!this.isolated.isEmpty()))?this.getIsolated():null);
+            lhsField = (this.isSetIsolated()?this.getIsolated():null);
             List<NodeOrEdgePropertyType> rhsField;
-            rhsField = (((that.isolated!= null)&&(!that.isolated.isEmpty()))?that.getIsolated():null);
+            rhsField = (that.isSetIsolated()?that.getIsolated():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isolated", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isolated", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -256,21 +304,8 @@ public class TopoSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedFace!= null)&&(!that.directedFace.isEmpty()));
-            List<DirectedFacePropertyType> lhsField;
-            lhsField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
-            List<DirectedFacePropertyType> rhsField;
-            rhsField = (((that.directedFace!= null)&&(!that.directedFace.isEmpty()))?that.getDirectedFace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -282,14 +317,14 @@ public class TopoSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.universal!= null);
-            boolean rhsFieldIsSet = (that.universal!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getUniversal();
-            java.lang.Boolean rhsField;
-            rhsField = that.getUniversal();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
+            List<DirectedFacePropertyType> lhsField;
+            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
+            List<DirectedFacePropertyType> rhsField;
+            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -301,35 +336,35 @@ public class TopoSolidType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.isolated!= null)&&(!this.isolated.isEmpty()));
+            boolean theFieldIsSet = this.isSetIsolated();
             List<NodeOrEdgePropertyType> theField;
-            theField = (((this.isolated!= null)&&(!this.isolated.isEmpty()))?this.getIsolated():null);
+            theField = (this.isSetIsolated()?this.getIsolated():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isolated", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedFace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.solidProperty!= null);
+            boolean theFieldIsSet = this.isSetSolidProperty();
             SolidPropertyType theField;
             theField = this.getSolidProperty();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "solidProperty", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.universal!= null);
-            java.lang.Boolean theField;
-            theField = this.getUniversal();
+            boolean theFieldIsSet = this.isSetUniversal();
+            boolean theField;
+            theField = (this.isSetUniversal()?this.getUniversal():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "universal", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -342,31 +377,31 @@ public class TopoSolidType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.isolated!= null)&&(!this.isolated.isEmpty()));
+            boolean theFieldIsSet = this.isSetIsolated();
             List<NodeOrEdgePropertyType> theField;
-            theField = (((this.isolated!= null)&&(!this.isolated.isEmpty()))?this.getIsolated():null);
+            theField = (this.isSetIsolated()?this.getIsolated():null);
             strategy.appendField(locator, this, "isolated", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             strategy.appendField(locator, this, "directedFace", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.solidProperty!= null);
+            boolean theFieldIsSet = this.isSetSolidProperty();
             SolidPropertyType theField;
             theField = this.getSolidProperty();
             strategy.appendField(locator, this, "solidProperty", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.universal!= null);
-            java.lang.Boolean theField;
-            theField = this.getUniversal();
+            boolean theFieldIsSet = this.isSetUniversal();
+            boolean theField;
+            theField = (this.isSetUniversal()?this.getUniversal():false);
             strategy.appendField(locator, this, "universal", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

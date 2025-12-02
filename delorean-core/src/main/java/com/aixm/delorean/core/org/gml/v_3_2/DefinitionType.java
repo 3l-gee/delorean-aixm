@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DefinitionType
     extends DefinitionBaseType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected String remarks;
 
     /**
@@ -74,6 +77,10 @@ public class DefinitionType
         this.remarks = value;
     }
 
+    public boolean isSetRemarks() {
+        return (this.remarks!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -87,8 +94,8 @@ public class DefinitionType
         }
         final DefinitionType that = ((DefinitionType) object);
         {
-            boolean lhsFieldIsSet = (this.remarks!= null);
-            boolean rhsFieldIsSet = (that.remarks!= null);
+            boolean lhsFieldIsSet = this.isSetRemarks();
+            boolean rhsFieldIsSet = that.isSetRemarks();
             String lhsField;
             lhsField = this.getRemarks();
             String rhsField;
@@ -106,7 +113,7 @@ public class DefinitionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.remarks!= null);
+            boolean theFieldIsSet = this.isSetRemarks();
             String theField;
             theField = this.getRemarks();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "remarks", theField);
@@ -119,7 +126,7 @@ public class DefinitionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.remarks!= null);
+            boolean theFieldIsSet = this.isSetRemarks();
             String theField;
             theField = this.getRemarks();
             strategy.appendField(locator, this, "remarks", buffer, theField, theFieldIsSet);

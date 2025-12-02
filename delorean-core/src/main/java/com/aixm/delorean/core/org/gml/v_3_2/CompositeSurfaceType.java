@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CompositeSurfaceType
     extends AbstractSurfaceType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<SurfacePropertyType> surfaceMember;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class CompositeSurfaceType
         this.surfaceMember = surfaceMember;
     }
 
+    public boolean isSetSurfaceMember() {
+        return ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
+    }
+
+    public void unsetSurfaceMember() {
+        this.surfaceMember = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class CompositeSurfaceType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +137,27 @@ public class CompositeSurfaceType
         }
         final CompositeSurfaceType that = ((CompositeSurfaceType) object);
         {
-            boolean lhsFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()));
-            List<SurfacePropertyType> lhsField;
-            lhsField = (((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()))?this.getSurfaceMember():null);
-            List<SurfacePropertyType> rhsField;
-            rhsField = (((that.surfaceMember!= null)&&(!that.surfaceMember.isEmpty()))?that.getSurfaceMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceMember();
+            boolean rhsFieldIsSet = that.isSetSurfaceMember();
+            List<SurfacePropertyType> lhsField;
+            lhsField = (this.isSetSurfaceMember()?this.getSurfaceMember():null);
+            List<SurfacePropertyType> rhsField;
+            rhsField = (that.isSetSurfaceMember()?that.getSurfaceMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,14 +169,14 @@ public class CompositeSurfaceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSurfaceMember();
             List<SurfacePropertyType> theField;
-            theField = (((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()))?this.getSurfaceMember():null);
+            theField = (this.isSetSurfaceMember()?this.getSurfaceMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "surfaceMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class CompositeSurfaceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSurfaceMember();
             List<SurfacePropertyType> theField;
-            theField = (((this.surfaceMember!= null)&&(!this.surfaceMember.isEmpty()))?this.getSurfaceMember():null);
+            theField = (this.isSetSurfaceMember()?this.getSurfaceMember():null);
             strategy.appendField(locator, this, "surfaceMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

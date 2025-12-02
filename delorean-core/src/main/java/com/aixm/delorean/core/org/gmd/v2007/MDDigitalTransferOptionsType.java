@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -49,8 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDDigitalTransferOptionsType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType unitsOfDistribution;
     protected RealPropertyType transferSize;
     protected List<CIOnlineResourcePropertyType> onLine;
@@ -80,6 +83,10 @@ public class MDDigitalTransferOptionsType
         this.unitsOfDistribution = value;
     }
 
+    public boolean isSetUnitsOfDistribution() {
+        return (this.unitsOfDistribution!= null);
+    }
+
     /**
      * Gets the value of the transferSize property.
      * 
@@ -102,6 +109,10 @@ public class MDDigitalTransferOptionsType
      */
     public void setTransferSize(RealPropertyType value) {
         this.transferSize = value;
+    }
+
+    public boolean isSetTransferSize() {
+        return (this.transferSize!= null);
     }
 
     /**
@@ -141,6 +152,14 @@ public class MDDigitalTransferOptionsType
         this.onLine = onLine;
     }
 
+    public boolean isSetOnLine() {
+        return ((this.onLine!= null)&&(!this.onLine.isEmpty()));
+    }
+
+    public void unsetOnLine() {
+        this.onLine = null;
+    }
+
     /**
      * Gets the value of the offLine property.
      * 
@@ -165,6 +184,10 @@ public class MDDigitalTransferOptionsType
         this.offLine = value;
     }
 
+    public boolean isSetOffLine() {
+        return (this.offLine!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -178,8 +201,21 @@ public class MDDigitalTransferOptionsType
         }
         final MDDigitalTransferOptionsType that = ((MDDigitalTransferOptionsType) object);
         {
-            boolean lhsFieldIsSet = (this.offLine!= null);
-            boolean rhsFieldIsSet = (that.offLine!= null);
+            boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
+            boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getUnitsOfDistribution();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getUnitsOfDistribution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitsOfDistribution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitsOfDistribution", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOffLine();
+            boolean rhsFieldIsSet = that.isSetOffLine();
             MDMediumPropertyType lhsField;
             lhsField = this.getOffLine();
             MDMediumPropertyType rhsField;
@@ -191,8 +227,8 @@ public class MDDigitalTransferOptionsType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.transferSize!= null);
-            boolean rhsFieldIsSet = (that.transferSize!= null);
+            boolean lhsFieldIsSet = this.isSetTransferSize();
+            boolean rhsFieldIsSet = that.isSetTransferSize();
             RealPropertyType lhsField;
             lhsField = this.getTransferSize();
             RealPropertyType rhsField;
@@ -204,27 +240,14 @@ public class MDDigitalTransferOptionsType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.onLine!= null)&&(!this.onLine.isEmpty()));
-            boolean rhsFieldIsSet = ((that.onLine!= null)&&(!that.onLine.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetOnLine();
+            boolean rhsFieldIsSet = that.isSetOnLine();
             List<CIOnlineResourcePropertyType> lhsField;
-            lhsField = (((this.onLine!= null)&&(!this.onLine.isEmpty()))?this.getOnLine():null);
+            lhsField = (this.isSetOnLine()?this.getOnLine():null);
             List<CIOnlineResourcePropertyType> rhsField;
-            rhsField = (((that.onLine!= null)&&(!that.onLine.isEmpty()))?that.getOnLine():null);
+            rhsField = (that.isSetOnLine()?that.getOnLine():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.unitsOfDistribution!= null);
-            boolean rhsFieldIsSet = (that.unitsOfDistribution!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUnitsOfDistribution();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUnitsOfDistribution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitsOfDistribution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitsOfDistribution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -236,28 +259,28 @@ public class MDDigitalTransferOptionsType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.unitsOfDistribution!= null);
+            boolean theFieldIsSet = this.isSetUnitsOfDistribution();
             CharacterStringPropertyType theField;
             theField = this.getUnitsOfDistribution();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "unitsOfDistribution", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.transferSize!= null);
+            boolean theFieldIsSet = this.isSetTransferSize();
             RealPropertyType theField;
             theField = this.getTransferSize();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "transferSize", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.onLine!= null)&&(!this.onLine.isEmpty()));
+            boolean theFieldIsSet = this.isSetOnLine();
             List<CIOnlineResourcePropertyType> theField;
-            theField = (((this.onLine!= null)&&(!this.onLine.isEmpty()))?this.getOnLine():null);
+            theField = (this.isSetOnLine()?this.getOnLine():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "onLine", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.offLine!= null);
+            boolean theFieldIsSet = this.isSetOffLine();
             MDMediumPropertyType theField;
             theField = this.getOffLine();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "offLine", theField);
@@ -270,25 +293,25 @@ public class MDDigitalTransferOptionsType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.unitsOfDistribution!= null);
+            boolean theFieldIsSet = this.isSetUnitsOfDistribution();
             CharacterStringPropertyType theField;
             theField = this.getUnitsOfDistribution();
             strategy.appendField(locator, this, "unitsOfDistribution", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.transferSize!= null);
+            boolean theFieldIsSet = this.isSetTransferSize();
             RealPropertyType theField;
             theField = this.getTransferSize();
             strategy.appendField(locator, this, "transferSize", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.onLine!= null)&&(!this.onLine.isEmpty()));
+            boolean theFieldIsSet = this.isSetOnLine();
             List<CIOnlineResourcePropertyType> theField;
-            theField = (((this.onLine!= null)&&(!this.onLine.isEmpty()))?this.getOnLine():null);
+            theField = (this.isSetOnLine()?this.getOnLine():null);
             strategy.appendField(locator, this, "onLine", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.offLine!= null);
+            boolean theFieldIsSet = this.isSetOffLine();
             MDMediumPropertyType theField;
             theField = this.getOffLine();
             strategy.appendField(locator, this, "offLine", buffer, theField, theFieldIsSet);

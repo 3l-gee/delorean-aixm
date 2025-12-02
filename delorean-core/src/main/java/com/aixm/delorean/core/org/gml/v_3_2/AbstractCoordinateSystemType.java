@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -57,8 +58,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractCoordinateSystemType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "axis", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<CoordinateSystemAxisPropertyType>> axis;
     @XmlAttribute(name = "aggregationType")
@@ -102,6 +105,14 @@ public abstract class AbstractCoordinateSystemType
         this.axis = axis;
     }
 
+    public boolean isSetAxis() {
+        return ((this.axis!= null)&&(!this.axis.isEmpty()));
+    }
+
+    public void unsetAxis() {
+        this.axis = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -126,6 +137,10 @@ public abstract class AbstractCoordinateSystemType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -139,12 +154,12 @@ public abstract class AbstractCoordinateSystemType
         }
         final AbstractCoordinateSystemType that = ((AbstractCoordinateSystemType) object);
         {
-            boolean lhsFieldIsSet = ((this.axis!= null)&&(!this.axis.isEmpty()));
-            boolean rhsFieldIsSet = ((that.axis!= null)&&(!that.axis.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAxis();
+            boolean rhsFieldIsSet = that.isSetAxis();
             List<JAXBElement<CoordinateSystemAxisPropertyType>> lhsField;
-            lhsField = (((this.axis!= null)&&(!this.axis.isEmpty()))?this.getAxis():null);
+            lhsField = (this.isSetAxis()?this.getAxis():null);
             List<JAXBElement<CoordinateSystemAxisPropertyType>> rhsField;
-            rhsField = (((that.axis!= null)&&(!that.axis.isEmpty()))?that.getAxis():null);
+            rhsField = (that.isSetAxis()?that.getAxis():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axis", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -152,8 +167,8 @@ public abstract class AbstractCoordinateSystemType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -171,14 +186,14 @@ public abstract class AbstractCoordinateSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.axis!= null)&&(!this.axis.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxis();
             List<JAXBElement<CoordinateSystemAxisPropertyType>> theField;
-            theField = (((this.axis!= null)&&(!this.axis.isEmpty()))?this.getAxis():null);
+            theField = (this.isSetAxis()?this.getAxis():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axis", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -191,13 +206,13 @@ public abstract class AbstractCoordinateSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.axis!= null)&&(!this.axis.isEmpty()));
+            boolean theFieldIsSet = this.isSetAxis();
             List<JAXBElement<CoordinateSystemAxisPropertyType>> theField;
-            theField = (((this.axis!= null)&&(!this.axis.isEmpty()))?this.getAxis():null);
+            theField = (this.isSetAxis()?this.getAxis():null);
             strategy.appendField(locator, this, "axis", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

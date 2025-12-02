@@ -225,7 +225,7 @@ public class CallsignDetailType
     @OneToMany(targetEntity = CallsignDetailTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_CALLSIGN_DETAIL_TY_0")
     public List<CallsignDetailTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,6 +289,19 @@ public class CallsignDetailType
         }
         final CallsignDetailType that = ((CallsignDetailType) object);
         {
+            boolean lhsFieldIsSet = this.isSetLanguage();
+            boolean rhsFieldIsSet = that.isSetLanguage();
+            JAXBElement<CodeLanguageType> lhsField;
+            lhsField = this.getLanguage();
+            JAXBElement<CodeLanguageType> rhsField;
+            rhsField = that.getLanguage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -310,19 +323,6 @@ public class CallsignDetailType
             rhsField = that.getCallSign();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "callSign", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "callSign", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLanguage();
-            boolean rhsFieldIsSet = that.isSetLanguage();
-            JAXBElement<CodeLanguageType> lhsField;
-            lhsField = this.getLanguage();
-            JAXBElement<CodeLanguageType> rhsField;
-            rhsField = that.getLanguage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

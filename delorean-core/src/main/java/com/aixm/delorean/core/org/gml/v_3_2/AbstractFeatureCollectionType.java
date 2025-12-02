@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractFeatureCollectionType
     extends AbstractFeatureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<FeaturePropertyType> featureMember;
     protected FeatureArrayPropertyType featureMembers;
 
@@ -86,6 +89,14 @@ public abstract class AbstractFeatureCollectionType
         this.featureMember = featureMember;
     }
 
+    public boolean isSetFeatureMember() {
+        return ((this.featureMember!= null)&&(!this.featureMember.isEmpty()));
+    }
+
+    public void unsetFeatureMember() {
+        this.featureMember = null;
+    }
+
     /**
      * Gets the value of the featureMembers property.
      * 
@@ -110,6 +121,10 @@ public abstract class AbstractFeatureCollectionType
         this.featureMembers = value;
     }
 
+    public boolean isSetFeatureMembers() {
+        return (this.featureMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -123,8 +138,8 @@ public abstract class AbstractFeatureCollectionType
         }
         final AbstractFeatureCollectionType that = ((AbstractFeatureCollectionType) object);
         {
-            boolean lhsFieldIsSet = (this.featureMembers!= null);
-            boolean rhsFieldIsSet = (that.featureMembers!= null);
+            boolean lhsFieldIsSet = this.isSetFeatureMembers();
+            boolean rhsFieldIsSet = that.isSetFeatureMembers();
             FeatureArrayPropertyType lhsField;
             lhsField = this.getFeatureMembers();
             FeatureArrayPropertyType rhsField;
@@ -136,12 +151,12 @@ public abstract class AbstractFeatureCollectionType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.featureMember!= null)&&(!this.featureMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureMember!= null)&&(!that.featureMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetFeatureMember();
+            boolean rhsFieldIsSet = that.isSetFeatureMember();
             List<FeaturePropertyType> lhsField;
-            lhsField = (((this.featureMember!= null)&&(!this.featureMember.isEmpty()))?this.getFeatureMember():null);
+            lhsField = (this.isSetFeatureMember()?this.getFeatureMember():null);
             List<FeaturePropertyType> rhsField;
-            rhsField = (((that.featureMember!= null)&&(!that.featureMember.isEmpty()))?that.getFeatureMember():null);
+            rhsField = (that.isSetFeatureMember()?that.getFeatureMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -155,14 +170,14 @@ public abstract class AbstractFeatureCollectionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.featureMember!= null)&&(!this.featureMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureMember();
             List<FeaturePropertyType> theField;
-            theField = (((this.featureMember!= null)&&(!this.featureMember.isEmpty()))?this.getFeatureMember():null);
+            theField = (this.isSetFeatureMember()?this.getFeatureMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.featureMembers!= null);
+            boolean theFieldIsSet = this.isSetFeatureMembers();
             FeatureArrayPropertyType theField;
             theField = this.getFeatureMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureMembers", theField);
@@ -175,13 +190,13 @@ public abstract class AbstractFeatureCollectionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.featureMember!= null)&&(!this.featureMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureMember();
             List<FeaturePropertyType> theField;
-            theField = (((this.featureMember!= null)&&(!this.featureMember.isEmpty()))?this.getFeatureMember():null);
+            theField = (this.isSetFeatureMember()?this.getFeatureMember():null);
             strategy.appendField(locator, this, "featureMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.featureMembers!= null);
+            boolean theFieldIsSet = this.isSetFeatureMembers();
             FeatureArrayPropertyType theField;
             theField = this.getFeatureMembers();
             strategy.appendField(locator, this, "featureMembers", buffer, theField, theFieldIsSet);

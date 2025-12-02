@@ -228,7 +228,7 @@ public class RadarComponentType
     @OneToMany(targetEntity = RadarComponentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_RADAR_COMPONENT_TY_0")
     public List<RadarComponentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,6 +279,19 @@ public class RadarComponentType
         }
         final RadarComponentType that = ((RadarComponentType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
+            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
+            RadarEquipmentPropertyType lhsField;
+            lhsField = this.getTheRadarEquipment();
+            RadarEquipmentPropertyType rhsField;
+            rhsField = that.getTheRadarEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCollocationGroup();
             boolean rhsFieldIsSet = that.isSetCollocationGroup();
             JAXBElement<NoSequenceType> lhsField;
@@ -300,19 +313,6 @@ public class RadarComponentType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheRadarEquipment();
-            boolean rhsFieldIsSet = that.isSetTheRadarEquipment();
-            RadarEquipmentPropertyType lhsField;
-            lhsField = this.getTheRadarEquipment();
-            RadarEquipmentPropertyType rhsField;
-            rhsField = that.getTheRadarEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theRadarEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theRadarEquipment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

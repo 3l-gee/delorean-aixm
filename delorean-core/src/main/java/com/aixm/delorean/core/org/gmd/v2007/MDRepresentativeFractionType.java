@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.IntegerPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDRepresentativeFractionType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected IntegerPropertyType denominator;
 
@@ -68,6 +71,10 @@ public class MDRepresentativeFractionType
         this.denominator = value;
     }
 
+    public boolean isSetDenominator() {
+        return (this.denominator!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -81,8 +88,8 @@ public class MDRepresentativeFractionType
         }
         final MDRepresentativeFractionType that = ((MDRepresentativeFractionType) object);
         {
-            boolean lhsFieldIsSet = (this.denominator!= null);
-            boolean rhsFieldIsSet = (that.denominator!= null);
+            boolean lhsFieldIsSet = this.isSetDenominator();
+            boolean rhsFieldIsSet = that.isSetDenominator();
             IntegerPropertyType lhsField;
             lhsField = this.getDenominator();
             IntegerPropertyType rhsField;
@@ -100,7 +107,7 @@ public class MDRepresentativeFractionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.denominator!= null);
+            boolean theFieldIsSet = this.isSetDenominator();
             IntegerPropertyType theField;
             theField = this.getDenominator();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "denominator", theField);
@@ -113,7 +120,7 @@ public class MDRepresentativeFractionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.denominator!= null);
+            boolean theFieldIsSet = this.isSetDenominator();
             IntegerPropertyType theField;
             theField = this.getDenominator();
             strategy.appendField(locator, this, "denominator", buffer, theField, theFieldIsSet);

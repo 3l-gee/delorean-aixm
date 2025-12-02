@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_TopicCategoryCode_PropertyType", propOrder = {
     "mdTopicCategoryCode"
 })
-public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToString
+public class MDTopicCategoryCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_TopicCategoryCode")
     @XmlSchemaType(name = "string")
     protected MDTopicCategoryCodeType mdTopicCategoryCode;
@@ -78,6 +80,10 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
         this.mdTopicCategoryCode = value;
     }
 
+    public boolean isSetMDTopicCategoryCode() {
+        return (this.mdTopicCategoryCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -102,6 +108,10 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -124,27 +134,27 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
         }
         final MDTopicCategoryCodePropertyType that = ((MDTopicCategoryCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mdTopicCategoryCode!= null);
-            boolean rhsFieldIsSet = (that.mdTopicCategoryCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDTopicCategoryCode();
+            boolean rhsFieldIsSet = that.isSetMDTopicCategoryCode();
             MDTopicCategoryCodeType lhsField;
             lhsField = this.getMDTopicCategoryCode();
             MDTopicCategoryCodeType rhsField;
             rhsField = that.getMDTopicCategoryCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopicCategoryCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopicCategoryCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -166,14 +176,14 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdTopicCategoryCode!= null);
+            boolean theFieldIsSet = this.isSetMDTopicCategoryCode();
             MDTopicCategoryCodeType theField;
             theField = this.getMDTopicCategoryCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdTopicCategoryCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -205,13 +215,13 @@ public class MDTopicCategoryCodePropertyType implements Equals, HashCode, ToStri
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdTopicCategoryCode!= null);
+            boolean theFieldIsSet = this.isSetMDTopicCategoryCode();
             MDTopicCategoryCodeType theField;
             theField = this.getMDTopicCategoryCode();
             strategy.appendField(locator, this, "mdTopicCategoryCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

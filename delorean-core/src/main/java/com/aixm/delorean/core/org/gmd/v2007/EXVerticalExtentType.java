@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.RealPropertyType;
 import com.aixm.delorean.core.org.gsr.v2007.SCCRSPropertyType;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXVerticalExtentType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected RealPropertyType minimumValue;
     @XmlElement(required = true)
@@ -79,6 +82,10 @@ public class EXVerticalExtentType
         this.minimumValue = value;
     }
 
+    public boolean isSetMinimumValue() {
+        return (this.minimumValue!= null);
+    }
+
     /**
      * Gets the value of the maximumValue property.
      * 
@@ -101,6 +108,10 @@ public class EXVerticalExtentType
      */
     public void setMaximumValue(RealPropertyType value) {
         this.maximumValue = value;
+    }
+
+    public boolean isSetMaximumValue() {
+        return (this.maximumValue!= null);
     }
 
     /**
@@ -127,6 +138,10 @@ public class EXVerticalExtentType
         this.verticalCRS = value;
     }
 
+    public boolean isSetVerticalCRS() {
+        return (this.verticalCRS!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -140,21 +155,8 @@ public class EXVerticalExtentType
         }
         final EXVerticalExtentType that = ((EXVerticalExtentType) object);
         {
-            boolean lhsFieldIsSet = (this.maximumValue!= null);
-            boolean rhsFieldIsSet = (that.maximumValue!= null);
-            RealPropertyType lhsField;
-            lhsField = this.getMaximumValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMaximumValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.minimumValue!= null);
-            boolean rhsFieldIsSet = (that.minimumValue!= null);
+            boolean lhsFieldIsSet = this.isSetMinimumValue();
+            boolean rhsFieldIsSet = that.isSetMinimumValue();
             RealPropertyType lhsField;
             lhsField = this.getMinimumValue();
             RealPropertyType rhsField;
@@ -166,8 +168,21 @@ public class EXVerticalExtentType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.verticalCRS!= null);
-            boolean rhsFieldIsSet = (that.verticalCRS!= null);
+            boolean lhsFieldIsSet = this.isSetMaximumValue();
+            boolean rhsFieldIsSet = that.isSetMaximumValue();
+            RealPropertyType lhsField;
+            lhsField = this.getMaximumValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMaximumValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalCRS();
+            boolean rhsFieldIsSet = that.isSetVerticalCRS();
             SCCRSPropertyType lhsField;
             lhsField = this.getVerticalCRS();
             SCCRSPropertyType rhsField;
@@ -185,21 +200,21 @@ public class EXVerticalExtentType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.minimumValue!= null);
+            boolean theFieldIsSet = this.isSetMinimumValue();
             RealPropertyType theField;
             theField = this.getMinimumValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minimumValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.maximumValue!= null);
+            boolean theFieldIsSet = this.isSetMaximumValue();
             RealPropertyType theField;
             theField = this.getMaximumValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "maximumValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.verticalCRS!= null);
+            boolean theFieldIsSet = this.isSetVerticalCRS();
             SCCRSPropertyType theField;
             theField = this.getVerticalCRS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "verticalCRS", theField);
@@ -212,19 +227,19 @@ public class EXVerticalExtentType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.minimumValue!= null);
+            boolean theFieldIsSet = this.isSetMinimumValue();
             RealPropertyType theField;
             theField = this.getMinimumValue();
             strategy.appendField(locator, this, "minimumValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.maximumValue!= null);
+            boolean theFieldIsSet = this.isSetMaximumValue();
             RealPropertyType theField;
             theField = this.getMaximumValue();
             strategy.appendField(locator, this, "maximumValue", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.verticalCRS!= null);
+            boolean theFieldIsSet = this.isSetVerticalCRS();
             SCCRSPropertyType theField;
             theField = this.getVerticalCRS();
             strategy.appendField(locator, this, "verticalCRS", buffer, theField, theFieldIsSet);

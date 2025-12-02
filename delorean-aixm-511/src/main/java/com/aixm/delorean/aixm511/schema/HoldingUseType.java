@@ -327,7 +327,7 @@ public class HoldingUseType
     @OneToMany(targetEntity = HoldingUseTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_HOLDING_USE_TYPE_H_0")
     public List<HoldingUseTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -418,14 +418,14 @@ public class HoldingUseType
         }
         final HoldingUseType that = ((HoldingUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetHoldingUse();
-            boolean rhsFieldIsSet = that.isSetHoldingUse();
-            JAXBElement<CodeHoldingUseType> lhsField;
-            lhsField = this.getHoldingUse();
-            JAXBElement<CodeHoldingUseType> rhsField;
-            rhsField = that.getHoldingUse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
+            boolean lhsFieldIsSet = this.isSetInstructedAltitude();
+            boolean rhsFieldIsSet = that.isSetInstructedAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getInstructedAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getInstructedAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructedAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructedAltitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -457,19 +457,6 @@ public class HoldingUseType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInstructedAltitude();
-            boolean rhsFieldIsSet = that.isSetInstructedAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getInstructedAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getInstructedAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instructedAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instructedAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheHoldingPattern();
             boolean rhsFieldIsSet = that.isSetTheHoldingPattern();
             HoldingPatternPropertyType lhsField;
@@ -491,6 +478,19 @@ public class HoldingUseType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHoldingUse();
+            boolean rhsFieldIsSet = that.isSetHoldingUse();
+            JAXBElement<CodeHoldingUseType> lhsField;
+            lhsField = this.getHoldingUse();
+            JAXBElement<CodeHoldingUseType> rhsField;
+            rhsField = that.getHoldingUse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingUse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingUse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

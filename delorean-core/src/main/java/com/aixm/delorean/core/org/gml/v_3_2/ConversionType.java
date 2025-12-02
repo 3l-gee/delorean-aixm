@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ConversionType
     extends AbstractGeneralConversionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:method is an association role to the operation method used by a coordinate operation.
      * 
@@ -78,6 +81,10 @@ public class ConversionType
      */
     public void setMethod(JAXBElement<OperationMethodPropertyType> value) {
         this.method = value;
+    }
+
+    public boolean isSetMethod() {
+        return (this.method!= null);
     }
 
     /**
@@ -119,6 +126,14 @@ public class ConversionType
         this.parameterValue = parameterValue;
     }
 
+    public boolean isSetParameterValue() {
+        return ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+    }
+
+    public void unsetParameterValue() {
+        this.parameterValue = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -132,27 +147,27 @@ public class ConversionType
         }
         final ConversionType that = ((ConversionType) object);
         {
-            boolean lhsFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
-            boolean rhsFieldIsSet = ((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()));
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
-            lhsField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
-            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
-            rhsField = (((that.parameterValue!= null)&&(!that.parameterValue.isEmpty()))?that.getParameterValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.method!= null);
-            boolean rhsFieldIsSet = (that.method!= null);
+            boolean lhsFieldIsSet = this.isSetMethod();
+            boolean rhsFieldIsSet = that.isSetMethod();
             JAXBElement<OperationMethodPropertyType> lhsField;
             lhsField = this.getMethod();
             JAXBElement<OperationMethodPropertyType> rhsField;
             rhsField = that.getMethod();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "method", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "method", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetParameterValue();
+            boolean rhsFieldIsSet = that.isSetParameterValue();
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> lhsField;
+            lhsField = (this.isSetParameterValue()?this.getParameterValue():null);
+            List<JAXBElement<AbstractGeneralParameterValuePropertyType>> rhsField;
+            rhsField = (that.isSetParameterValue()?that.getParameterValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameterValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameterValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -164,16 +179,16 @@ public class ConversionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.method!= null);
+            boolean theFieldIsSet = this.isSetMethod();
             JAXBElement<OperationMethodPropertyType> theField;
             theField = this.getMethod();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "method", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameterValue();
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> theField;
-            theField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
+            theField = (this.isSetParameterValue()?this.getParameterValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "parameterValue", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -184,15 +199,15 @@ public class ConversionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.method!= null);
+            boolean theFieldIsSet = this.isSetMethod();
             JAXBElement<OperationMethodPropertyType> theField;
             theField = this.getMethod();
             strategy.appendField(locator, this, "method", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameterValue();
             List<JAXBElement<AbstractGeneralParameterValuePropertyType>> theField;
-            theField = (((this.parameterValue!= null)&&(!this.parameterValue.isEmpty()))?this.getParameterValue():null);
+            theField = (this.isSetParameterValue()?this.getParameterValue():null);
             strategy.appendField(locator, this, "parameterValue", buffer, theField, theFieldIsSet);
         }
         return buffer;

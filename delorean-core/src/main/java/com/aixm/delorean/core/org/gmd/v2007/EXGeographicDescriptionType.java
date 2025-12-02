@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXGeographicDescriptionType
     extends AbstractEXGeographicExtentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected MDIdentifierPropertyType geographicIdentifier;
 
@@ -66,6 +69,10 @@ public class EXGeographicDescriptionType
         this.geographicIdentifier = value;
     }
 
+    public boolean isSetGeographicIdentifier() {
+        return (this.geographicIdentifier!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -79,8 +86,8 @@ public class EXGeographicDescriptionType
         }
         final EXGeographicDescriptionType that = ((EXGeographicDescriptionType) object);
         {
-            boolean lhsFieldIsSet = (this.geographicIdentifier!= null);
-            boolean rhsFieldIsSet = (that.geographicIdentifier!= null);
+            boolean lhsFieldIsSet = this.isSetGeographicIdentifier();
+            boolean rhsFieldIsSet = that.isSetGeographicIdentifier();
             MDIdentifierPropertyType lhsField;
             lhsField = this.getGeographicIdentifier();
             MDIdentifierPropertyType rhsField;
@@ -98,7 +105,7 @@ public class EXGeographicDescriptionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.geographicIdentifier!= null);
+            boolean theFieldIsSet = this.isSetGeographicIdentifier();
             MDIdentifierPropertyType theField;
             theField = this.getGeographicIdentifier();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geographicIdentifier", theField);
@@ -111,7 +118,7 @@ public class EXGeographicDescriptionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.geographicIdentifier!= null);
+            boolean theFieldIsSet = this.isSetGeographicIdentifier();
             MDIdentifierPropertyType theField;
             theField = this.getGeographicIdentifier();
             strategy.appendField(locator, this, "geographicIdentifier", buffer, theField, theFieldIsSet);

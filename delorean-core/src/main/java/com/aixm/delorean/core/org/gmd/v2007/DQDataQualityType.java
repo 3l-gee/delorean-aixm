@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DQDataQualityType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected DQScopePropertyType scope;
     protected List<DQElementPropertyType> report;
@@ -73,6 +76,10 @@ public class DQDataQualityType
      */
     public void setScope(DQScopePropertyType value) {
         this.scope = value;
+    }
+
+    public boolean isSetScope() {
+        return (this.scope!= null);
     }
 
     /**
@@ -112,6 +119,14 @@ public class DQDataQualityType
         this.report = report;
     }
 
+    public boolean isSetReport() {
+        return ((this.report!= null)&&(!this.report.isEmpty()));
+    }
+
+    public void unsetReport() {
+        this.report = null;
+    }
+
     /**
      * Gets the value of the lineage property.
      * 
@@ -136,6 +151,10 @@ public class DQDataQualityType
         this.lineage = value;
     }
 
+    public boolean isSetLineage() {
+        return (this.lineage!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -149,25 +168,25 @@ public class DQDataQualityType
         }
         final DQDataQualityType that = ((DQDataQualityType) object);
         {
-            boolean lhsFieldIsSet = (this.scope!= null);
-            boolean rhsFieldIsSet = (that.scope!= null);
-            DQScopePropertyType lhsField;
-            lhsField = this.getScope();
-            DQScopePropertyType rhsField;
-            rhsField = that.getScope();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
+            boolean lhsFieldIsSet = this.isSetLineage();
+            boolean rhsFieldIsSet = that.isSetLineage();
+            LILineagePropertyType lhsField;
+            lhsField = this.getLineage();
+            LILineagePropertyType rhsField;
+            rhsField = that.getLineage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.report!= null)&&(!this.report.isEmpty()));
-            boolean rhsFieldIsSet = ((that.report!= null)&&(!that.report.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetReport();
+            boolean rhsFieldIsSet = that.isSetReport();
             List<DQElementPropertyType> lhsField;
-            lhsField = (((this.report!= null)&&(!this.report.isEmpty()))?this.getReport():null);
+            lhsField = (this.isSetReport()?this.getReport():null);
             List<DQElementPropertyType> rhsField;
-            rhsField = (((that.report!= null)&&(!that.report.isEmpty()))?that.getReport():null);
+            rhsField = (that.isSetReport()?that.getReport():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "report", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "report", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -175,14 +194,14 @@ public class DQDataQualityType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.lineage!= null);
-            boolean rhsFieldIsSet = (that.lineage!= null);
-            LILineagePropertyType lhsField;
-            lhsField = this.getLineage();
-            LILineagePropertyType rhsField;
-            rhsField = that.getLineage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lineage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lineage", rhsField);
+            boolean lhsFieldIsSet = this.isSetScope();
+            boolean rhsFieldIsSet = that.isSetScope();
+            DQScopePropertyType lhsField;
+            lhsField = this.getScope();
+            DQScopePropertyType rhsField;
+            rhsField = that.getScope();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scope", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -194,21 +213,21 @@ public class DQDataQualityType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.scope!= null);
+            boolean theFieldIsSet = this.isSetScope();
             DQScopePropertyType theField;
             theField = this.getScope();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "scope", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.report!= null)&&(!this.report.isEmpty()));
+            boolean theFieldIsSet = this.isSetReport();
             List<DQElementPropertyType> theField;
-            theField = (((this.report!= null)&&(!this.report.isEmpty()))?this.getReport():null);
+            theField = (this.isSetReport()?this.getReport():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "report", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.lineage!= null);
+            boolean theFieldIsSet = this.isSetLineage();
             LILineagePropertyType theField;
             theField = this.getLineage();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lineage", theField);
@@ -221,19 +240,19 @@ public class DQDataQualityType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.scope!= null);
+            boolean theFieldIsSet = this.isSetScope();
             DQScopePropertyType theField;
             theField = this.getScope();
             strategy.appendField(locator, this, "scope", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.report!= null)&&(!this.report.isEmpty()));
+            boolean theFieldIsSet = this.isSetReport();
             List<DQElementPropertyType> theField;
-            theField = (((this.report!= null)&&(!this.report.isEmpty()))?this.getReport():null);
+            theField = (this.isSetReport()?this.getReport():null);
             strategy.appendField(locator, this, "report", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.lineage!= null);
+            boolean theFieldIsSet = this.isSetLineage();
             LILineagePropertyType theField;
             theField = this.getLineage();
             strategy.appendField(locator, this, "lineage", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDConstraintsType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<CharacterStringPropertyType> useLimitation;
 
     /**
@@ -88,6 +91,14 @@ public class MDConstraintsType
         this.useLimitation = useLimitation;
     }
 
+    public boolean isSetUseLimitation() {
+        return ((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()));
+    }
+
+    public void unsetUseLimitation() {
+        this.useLimitation = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -101,12 +112,12 @@ public class MDConstraintsType
         }
         final MDConstraintsType that = ((MDConstraintsType) object);
         {
-            boolean lhsFieldIsSet = ((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.useLimitation!= null)&&(!that.useLimitation.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetUseLimitation();
+            boolean rhsFieldIsSet = that.isSetUseLimitation();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()))?this.getUseLimitation():null);
+            lhsField = (this.isSetUseLimitation()?this.getUseLimitation():null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.useLimitation!= null)&&(!that.useLimitation.isEmpty()))?that.getUseLimitation():null);
+            rhsField = (that.isSetUseLimitation()?that.getUseLimitation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "useLimitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "useLimitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -120,9 +131,9 @@ public class MDConstraintsType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetUseLimitation();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()))?this.getUseLimitation():null);
+            theField = (this.isSetUseLimitation()?this.getUseLimitation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "useLimitation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -133,9 +144,9 @@ public class MDConstraintsType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetUseLimitation();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.useLimitation!= null)&&(!this.useLimitation.isEmpty()))?this.getUseLimitation():null);
+            theField = (this.isSetUseLimitation()?this.getUseLimitation():null);
             strategy.appendField(locator, this, "useLimitation", buffer, theField, theFieldIsSet);
         }
         return buffer;

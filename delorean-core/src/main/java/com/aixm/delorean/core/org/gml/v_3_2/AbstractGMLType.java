@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.AttributeOverride;
@@ -73,9 +74,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     AbstractFeatureType.class
 })
 @MappedSuperclass
-public abstract class AbstractGMLType implements Equals, HashCode, ToString
+public abstract class AbstractGMLType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<MetaDataPropertyType> metaDataProperty;
     protected StringOrRefType description;
     protected ReferenceType descriptionReference;
@@ -129,6 +131,15 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
         this.metaDataProperty = metaDataProperty;
     }
 
+    @Transient
+    public boolean isSetMetaDataProperty() {
+        return ((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()));
+    }
+
+    public void unsetMetaDataProperty() {
+        this.metaDataProperty = null;
+    }
+
     /**
      * Gets the value of the description property.
      * 
@@ -153,6 +164,11 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
      */
     public void setDescription(StringOrRefType value) {
         this.description = value;
+    }
+
+    @Transient
+    public boolean isSetDescription() {
+        return (this.description!= null);
     }
 
     /**
@@ -180,6 +196,11 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
         this.descriptionReference = value;
     }
 
+    @Transient
+    public boolean isSetDescriptionReference() {
+        return (this.descriptionReference!= null);
+    }
+
     /**
      * Gets the value of the identifier property.
      * 
@@ -203,6 +224,11 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
      */
     public void setIdentifier(CodeWithAuthorityType value) {
         this.identifier = value;
+    }
+
+    @Transient
+    public boolean isSetIdentifier() {
+        return (this.identifier!= null);
     }
 
     /**
@@ -243,6 +269,15 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
         this.name = name;
     }
 
+    @Transient
+    public boolean isSetName() {
+        return ((this.name!= null)&&(!this.name.isEmpty()));
+    }
+
+    public void unsetName() {
+        this.name = null;
+    }
+
     /**
      * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
      * 
@@ -270,6 +305,11 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
         this.id = value;
     }
 
+    @Transient
+    public boolean isSetId() {
+        return (this.id!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -292,47 +332,8 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
         }
         final AbstractGMLType that = ((AbstractGMLType) object);
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
-            String lhsField;
-            lhsField = this.getId();
-            String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.name!= null)&&(!this.name.isEmpty()));
-            boolean rhsFieldIsSet = ((that.name!= null)&&(!that.name.isEmpty()));
-            List<CodeType> lhsField;
-            lhsField = (((this.name!= null)&&(!this.name.isEmpty()))?this.getName():null);
-            List<CodeType> rhsField;
-            rhsField = (((that.name!= null)&&(!that.name.isEmpty()))?that.getName():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.description!= null);
-            boolean rhsFieldIsSet = (that.description!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getDescription();
-            StringOrRefType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.identifier!= null);
-            boolean rhsFieldIsSet = (that.identifier!= null);
+            boolean lhsFieldIsSet = this.isSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetIdentifier();
             CodeWithAuthorityType lhsField;
             lhsField = this.getIdentifier();
             CodeWithAuthorityType rhsField;
@@ -344,12 +345,25 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()));
-            boolean rhsFieldIsSet = ((that.metaDataProperty!= null)&&(!that.metaDataProperty.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
+            String lhsField;
+            lhsField = this.getId();
+            String rhsField;
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMetaDataProperty();
+            boolean rhsFieldIsSet = that.isSetMetaDataProperty();
             List<MetaDataPropertyType> lhsField;
-            lhsField = (((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()))?this.getMetaDataProperty():null);
+            lhsField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
             List<MetaDataPropertyType> rhsField;
-            rhsField = (((that.metaDataProperty!= null)&&(!that.metaDataProperty.isEmpty()))?that.getMetaDataProperty():null);
+            rhsField = (that.isSetMetaDataProperty()?that.getMetaDataProperty():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metaDataProperty", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metaDataProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -357,8 +371,34 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.descriptionReference!= null);
-            boolean rhsFieldIsSet = (that.descriptionReference!= null);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            StringOrRefType lhsField;
+            lhsField = this.getDescription();
+            StringOrRefType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            List<CodeType> lhsField;
+            lhsField = (this.isSetName()?this.getName():null);
+            List<CodeType> rhsField;
+            rhsField = (that.isSetName()?that.getName():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDescriptionReference();
+            boolean rhsFieldIsSet = that.isSetDescriptionReference();
             ReferenceType lhsField;
             lhsField = this.getDescriptionReference();
             ReferenceType rhsField;
@@ -386,42 +426,42 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()));
+            boolean theFieldIsSet = this.isSetMetaDataProperty();
             List<MetaDataPropertyType> theField;
-            theField = (((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()))?this.getMetaDataProperty():null);
+            theField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "metaDataProperty", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             StringOrRefType theField;
             theField = this.getDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "description", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.descriptionReference!= null);
+            boolean theFieldIsSet = this.isSetDescriptionReference();
             ReferenceType theField;
             theField = this.getDescriptionReference();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "descriptionReference", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.identifier!= null);
+            boolean theFieldIsSet = this.isSetIdentifier();
             CodeWithAuthorityType theField;
             theField = this.getIdentifier();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "identifier", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.name!= null)&&(!this.name.isEmpty()));
+            boolean theFieldIsSet = this.isSetName();
             List<CodeType> theField;
-            theField = (((this.name!= null)&&(!this.name.isEmpty()))?this.getName():null);
+            theField = (this.isSetName()?this.getName():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "name", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "id", theField);
@@ -453,37 +493,37 @@ public abstract class AbstractGMLType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()));
+            boolean theFieldIsSet = this.isSetMetaDataProperty();
             List<MetaDataPropertyType> theField;
-            theField = (((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()))?this.getMetaDataProperty():null);
+            theField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
             strategy.appendField(locator, this, "metaDataProperty", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             StringOrRefType theField;
             theField = this.getDescription();
             strategy.appendField(locator, this, "description", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.descriptionReference!= null);
+            boolean theFieldIsSet = this.isSetDescriptionReference();
             ReferenceType theField;
             theField = this.getDescriptionReference();
             strategy.appendField(locator, this, "descriptionReference", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.identifier!= null);
+            boolean theFieldIsSet = this.isSetIdentifier();
             CodeWithAuthorityType theField;
             theField = this.getIdentifier();
             strategy.appendField(locator, this, "identifier", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.name!= null)&&(!this.name.isEmpty()));
+            boolean theFieldIsSet = this.isSetName();
             List<CodeType> theField;
-            theField = (((this.name!= null)&&(!this.name.isEmpty()))?this.getName():null);
+            theField = (this.isSetName()?this.getName():null);
             strategy.appendField(locator, this, "name", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             strategy.appendField(locator, this, "id", buffer, theField, theFieldIsSet);

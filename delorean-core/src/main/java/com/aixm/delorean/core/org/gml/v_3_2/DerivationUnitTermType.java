@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -34,8 +35,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DerivationUnitTermType")
 public class DerivationUnitTermType
     extends UnitOfMeasureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "exponent")
     protected BigInteger exponent;
 
@@ -63,6 +66,10 @@ public class DerivationUnitTermType
         this.exponent = value;
     }
 
+    public boolean isSetExponent() {
+        return (this.exponent!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -76,8 +83,8 @@ public class DerivationUnitTermType
         }
         final DerivationUnitTermType that = ((DerivationUnitTermType) object);
         {
-            boolean lhsFieldIsSet = (this.exponent!= null);
-            boolean rhsFieldIsSet = (that.exponent!= null);
+            boolean lhsFieldIsSet = this.isSetExponent();
+            boolean rhsFieldIsSet = that.isSetExponent();
             BigInteger lhsField;
             lhsField = this.getExponent();
             BigInteger rhsField;
@@ -95,7 +102,7 @@ public class DerivationUnitTermType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.exponent!= null);
+            boolean theFieldIsSet = this.isSetExponent();
             BigInteger theField;
             theField = this.getExponent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "exponent", theField);
@@ -108,7 +115,7 @@ public class DerivationUnitTermType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.exponent!= null);
+            boolean theFieldIsSet = this.isSetExponent();
             BigInteger theField;
             theField = this.getExponent();
             strategy.appendField(locator, this, "exponent", buffer, theField, theFieldIsSet);

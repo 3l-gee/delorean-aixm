@@ -1,20 +1,14 @@
-package com.aixm.delorean.aixm511;
+package com.aixm.delorean.aixm511.integration;
 
 import org.junit.jupiter.api.*;
 
 import com.aixm.delorean.core.DeloreanConfig;
 import com.aixm.delorean.core.Delorean;
 import com.aixm.delorean.core.container.ContainerWarehouse;
-import com.aixm.delorean.core.configuration.StructureConfig;
 import com.aixm.delorean.core.database.DatabaseBinding;
-import com.aixm.delorean.core.database.DatabaseConfig;
-import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.core.xml.XMLBinding;
-import com.aixm.delorean.core.xml.XMLConfig;
 
 import static org.assertj.core.api.Assertions.*;
-
-import java.util.Scanner;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -34,9 +28,9 @@ public class DeloreanAixm511E2E {
             com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
             new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
             "schema/message/AIXM_BasicMessage.xsd",
-            "/postgrsql/pre-init.sql",
-            "/postgrsql//post-init.sql",
-            "/hibernate/hibernate.cfg.xml"
+            "postgrsql/pre-init.sql",
+            "postgrsql/post-init.sql",
+            "hibernate/hibernate.cfg.xml"
         );
 
         // do
@@ -83,7 +77,7 @@ public class DeloreanAixm511E2E {
     void extractMarshalledXml() {
 
         // given
-        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml";
+        String xmlPath = "src\\test\\resources\\donlon-marshalled.xml.log";
 
         // do
         warehouse.getContainerById(id).marshal(xmlPath);
@@ -109,7 +103,7 @@ public class DeloreanAixm511E2E {
     }
 
     @Test
-    @Order(40)
+    @Order(50)
     void persisteData() {
 
         // given
@@ -124,7 +118,7 @@ public class DeloreanAixm511E2E {
     }
 
     @Test
-    @Order(50)
+    @Order(60)
     void databaseExtract() {
 
         // do
@@ -135,11 +129,11 @@ public class DeloreanAixm511E2E {
 
 
     @Test
-    @Order(60)
+    @Order(70)
     void extractExtractedXml() {
 
         // given
-        String xmlPath = "delorean-aixm-511/src/test/xml/donlon-extracted.xml";
+        String xmlPath = "src\\test\\resources\\donlon-extracted.xml.log";
 
         // do
         warehouse.getContainerById(id).marshal(xmlPath);

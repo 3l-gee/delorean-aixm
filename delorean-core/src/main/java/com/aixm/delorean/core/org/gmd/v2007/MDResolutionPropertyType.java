@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_Resolution_PropertyType", propOrder = {
     "mdResolution"
 })
-public class MDResolutionPropertyType implements Equals, HashCode, ToString
+public class MDResolutionPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_Resolution")
     protected MDResolutionType mdResolution;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -76,6 +78,10 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
         this.mdResolution = value;
     }
 
+    public boolean isSetMDResolution() {
+        return (this.mdResolution!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -100,6 +106,10 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -122,27 +132,27 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
         }
         final MDResolutionPropertyType that = ((MDResolutionPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mdResolution!= null);
-            boolean rhsFieldIsSet = (that.mdResolution!= null);
+            boolean lhsFieldIsSet = this.isSetMDResolution();
+            boolean rhsFieldIsSet = that.isSetMDResolution();
             MDResolutionType lhsField;
             lhsField = this.getMDResolution();
             MDResolutionType rhsField;
             rhsField = that.getMDResolution();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdResolution", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdResolution", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -164,14 +174,14 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdResolution!= null);
+            boolean theFieldIsSet = this.isSetMDResolution();
             MDResolutionType theField;
             theField = this.getMDResolution();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdResolution", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -203,13 +213,13 @@ public class MDResolutionPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdResolution!= null);
+            boolean theFieldIsSet = this.isSetMDResolution();
             MDResolutionType theField;
             theField = this.getMDResolution();
             strategy.appendField(locator, this, "mdResolution", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

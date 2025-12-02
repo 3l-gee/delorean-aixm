@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -52,8 +53,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CIAddressType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<CharacterStringPropertyType> deliveryPoint;
     protected CharacterStringPropertyType city;
     protected CharacterStringPropertyType administrativeArea;
@@ -98,6 +101,14 @@ public class CIAddressType
         this.deliveryPoint = deliveryPoint;
     }
 
+    public boolean isSetDeliveryPoint() {
+        return ((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()));
+    }
+
+    public void unsetDeliveryPoint() {
+        this.deliveryPoint = null;
+    }
+
     /**
      * Gets the value of the city property.
      * 
@@ -120,6 +131,10 @@ public class CIAddressType
      */
     public void setCity(CharacterStringPropertyType value) {
         this.city = value;
+    }
+
+    public boolean isSetCity() {
+        return (this.city!= null);
     }
 
     /**
@@ -146,6 +161,10 @@ public class CIAddressType
         this.administrativeArea = value;
     }
 
+    public boolean isSetAdministrativeArea() {
+        return (this.administrativeArea!= null);
+    }
+
     /**
      * Gets the value of the postalCode property.
      * 
@@ -170,6 +189,10 @@ public class CIAddressType
         this.postalCode = value;
     }
 
+    public boolean isSetPostalCode() {
+        return (this.postalCode!= null);
+    }
+
     /**
      * Gets the value of the country property.
      * 
@@ -192,6 +215,10 @@ public class CIAddressType
      */
     public void setCountry(CharacterStringPropertyType value) {
         this.country = value;
+    }
+
+    public boolean isSetCountry() {
+        return (this.country!= null);
     }
 
     /**
@@ -231,6 +258,14 @@ public class CIAddressType
         this.electronicMailAddress = electronicMailAddress;
     }
 
+    public boolean isSetElectronicMailAddress() {
+        return ((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()));
+    }
+
+    public void unsetElectronicMailAddress() {
+        this.electronicMailAddress = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -244,34 +279,8 @@ public class CIAddressType
         }
         final CIAddressType that = ((CIAddressType) object);
         {
-            boolean lhsFieldIsSet = ((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()));
-            boolean rhsFieldIsSet = ((that.deliveryPoint!= null)&&(!that.deliveryPoint.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()))?this.getDeliveryPoint():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.deliveryPoint!= null)&&(!that.deliveryPoint.isEmpty()))?that.getDeliveryPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.country!= null);
-            boolean rhsFieldIsSet = (that.country!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCountry();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCountry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.city!= null);
-            boolean rhsFieldIsSet = (that.city!= null);
+            boolean lhsFieldIsSet = this.isSetCity();
+            boolean rhsFieldIsSet = that.isSetCity();
             CharacterStringPropertyType lhsField;
             lhsField = this.getCity();
             CharacterStringPropertyType rhsField;
@@ -283,8 +292,21 @@ public class CIAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.postalCode!= null);
-            boolean rhsFieldIsSet = (that.postalCode!= null);
+            boolean lhsFieldIsSet = this.isSetDeliveryPoint();
+            boolean rhsFieldIsSet = that.isSetDeliveryPoint();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetDeliveryPoint()?that.getDeliveryPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "deliveryPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "deliveryPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPostalCode();
+            boolean rhsFieldIsSet = that.isSetPostalCode();
             CharacterStringPropertyType lhsField;
             lhsField = this.getPostalCode();
             CharacterStringPropertyType rhsField;
@@ -296,8 +318,21 @@ public class CIAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.administrativeArea!= null);
-            boolean rhsFieldIsSet = (that.administrativeArea!= null);
+            boolean lhsFieldIsSet = this.isSetCountry();
+            boolean rhsFieldIsSet = that.isSetCountry();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getCountry();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getCountry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "country", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "country", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
+            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
             CharacterStringPropertyType lhsField;
             lhsField = this.getAdministrativeArea();
             CharacterStringPropertyType rhsField;
@@ -309,12 +344,12 @@ public class CIAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()));
-            boolean rhsFieldIsSet = ((that.electronicMailAddress!= null)&&(!that.electronicMailAddress.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetElectronicMailAddress();
+            boolean rhsFieldIsSet = that.isSetElectronicMailAddress();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()))?this.getElectronicMailAddress():null);
+            lhsField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.electronicMailAddress!= null)&&(!that.electronicMailAddress.isEmpty()))?that.getElectronicMailAddress():null);
+            rhsField = (that.isSetElectronicMailAddress()?that.getElectronicMailAddress():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "electronicMailAddress", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "electronicMailAddress", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -328,44 +363,44 @@ public class CIAddressType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()));
+            boolean theFieldIsSet = this.isSetDeliveryPoint();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()))?this.getDeliveryPoint():null);
+            theField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "deliveryPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.city!= null);
+            boolean theFieldIsSet = this.isSetCity();
             CharacterStringPropertyType theField;
             theField = this.getCity();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "city", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.administrativeArea!= null);
+            boolean theFieldIsSet = this.isSetAdministrativeArea();
             CharacterStringPropertyType theField;
             theField = this.getAdministrativeArea();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "administrativeArea", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.postalCode!= null);
+            boolean theFieldIsSet = this.isSetPostalCode();
             CharacterStringPropertyType theField;
             theField = this.getPostalCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "postalCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.country!= null);
+            boolean theFieldIsSet = this.isSetCountry();
             CharacterStringPropertyType theField;
             theField = this.getCountry();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "country", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()));
+            boolean theFieldIsSet = this.isSetElectronicMailAddress();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()))?this.getElectronicMailAddress():null);
+            theField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "electronicMailAddress", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -376,39 +411,39 @@ public class CIAddressType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()));
+            boolean theFieldIsSet = this.isSetDeliveryPoint();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.deliveryPoint!= null)&&(!this.deliveryPoint.isEmpty()))?this.getDeliveryPoint():null);
+            theField = (this.isSetDeliveryPoint()?this.getDeliveryPoint():null);
             strategy.appendField(locator, this, "deliveryPoint", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.city!= null);
+            boolean theFieldIsSet = this.isSetCity();
             CharacterStringPropertyType theField;
             theField = this.getCity();
             strategy.appendField(locator, this, "city", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.administrativeArea!= null);
+            boolean theFieldIsSet = this.isSetAdministrativeArea();
             CharacterStringPropertyType theField;
             theField = this.getAdministrativeArea();
             strategy.appendField(locator, this, "administrativeArea", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.postalCode!= null);
+            boolean theFieldIsSet = this.isSetPostalCode();
             CharacterStringPropertyType theField;
             theField = this.getPostalCode();
             strategy.appendField(locator, this, "postalCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.country!= null);
+            boolean theFieldIsSet = this.isSetCountry();
             CharacterStringPropertyType theField;
             theField = this.getCountry();
             strategy.appendField(locator, this, "country", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()));
+            boolean theFieldIsSet = this.isSetElectronicMailAddress();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.electronicMailAddress!= null)&&(!this.electronicMailAddress.isEmpty()))?this.getElectronicMailAddress():null);
+            theField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
             strategy.appendField(locator, this, "electronicMailAddress", buffer, theField, theFieldIsSet);
         }
         return buffer;

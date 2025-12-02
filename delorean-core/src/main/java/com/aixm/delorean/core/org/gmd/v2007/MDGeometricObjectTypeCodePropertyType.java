@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_GeometricObjectTypeCode_PropertyType", propOrder = {
     "mdGeometricObjectTypeCode"
 })
-public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, ToString
+public class MDGeometricObjectTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_GeometricObjectTypeCode")
     protected CodeListValueType mdGeometricObjectTypeCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, 
         this.mdGeometricObjectTypeCode = value;
     }
 
+    public boolean isSetMDGeometricObjectTypeCode() {
+        return (this.mdGeometricObjectTypeCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, 
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, 
         }
         final MDGeometricObjectTypeCodePropertyType that = ((MDGeometricObjectTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdGeometricObjectTypeCode!= null);
-            boolean rhsFieldIsSet = (that.mdGeometricObjectTypeCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDGeometricObjectTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDGeometricObjectTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdGeometricObjectTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdGeometricObjectTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDGeometricObjectTypeCode();
+            boolean rhsFieldIsSet = that.isSetMDGeometricObjectTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDGeometricObjectTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDGeometricObjectTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdGeometricObjectTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdGeometricObjectTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, 
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdGeometricObjectTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDGeometricObjectTypeCode();
             CodeListValueType theField;
             theField = this.getMDGeometricObjectTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdGeometricObjectTypeCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDGeometricObjectTypeCodePropertyType implements Equals, HashCode, 
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdGeometricObjectTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDGeometricObjectTypeCode();
             CodeListValueType theField;
             theField = this.getMDGeometricObjectTypeCode();
             strategy.appendField(locator, this, "mdGeometricObjectTypeCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

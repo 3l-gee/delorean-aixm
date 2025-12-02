@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeInstantType
     extends AbstractTimeGeometricPrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * This element is used directly as a property of gml:TimeInstant (see 15.2.2.3), and may also be used in application schemas.
      * 
@@ -71,6 +74,10 @@ public class TimeInstantType
         this.timePosition = value;
     }
 
+    public boolean isSetTimePosition() {
+        return (this.timePosition!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -84,8 +91,8 @@ public class TimeInstantType
         }
         final TimeInstantType that = ((TimeInstantType) object);
         {
-            boolean lhsFieldIsSet = (this.timePosition!= null);
-            boolean rhsFieldIsSet = (that.timePosition!= null);
+            boolean lhsFieldIsSet = this.isSetTimePosition();
+            boolean rhsFieldIsSet = that.isSetTimePosition();
             TimePositionType lhsField;
             lhsField = this.getTimePosition();
             TimePositionType rhsField;
@@ -103,7 +110,7 @@ public class TimeInstantType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.timePosition!= null);
+            boolean theFieldIsSet = this.isSetTimePosition();
             TimePositionType theField;
             theField = this.getTimePosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timePosition", theField);
@@ -116,7 +123,7 @@ public class TimeInstantType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.timePosition!= null);
+            boolean theFieldIsSet = this.isSetTimePosition();
             TimePositionType theField;
             theField = this.getTimePosition();
             strategy.appendField(locator, this, "timePosition", buffer, theField, theFieldIsSet);

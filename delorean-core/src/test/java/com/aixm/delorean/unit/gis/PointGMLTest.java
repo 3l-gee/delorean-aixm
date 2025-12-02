@@ -19,7 +19,6 @@ import com.aixm.delorean.util.JaxbUtil;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class PointGMLTest {
 
     @BeforeAll
@@ -38,7 +37,7 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p1",
                 null,
                 GisUtil.pos(
@@ -55,7 +54,7 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p2",
                 null,
                 GisUtil.pos(
@@ -72,7 +71,7 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p3",
                 null,
                 GisUtil.pos(
@@ -89,7 +88,7 @@ public class PointGMLTest {
                     <gml:pos>52.51630693440871 13.377717264214601</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p4",
                 null,
                 GisUtil.pos(
@@ -106,7 +105,7 @@ public class PointGMLTest {
                     <gml:pos>13.377717264214601 52.51630693440871</gml:pos>
                 </gml:Point>
             """,
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p5",
                 null,
                 GisUtil.pos(
@@ -139,7 +138,7 @@ public class PointGMLTest {
     static Stream<Arguments> PrintValidGMLPoints() {
     return Stream.of(
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p1",
                 null,
                 GisUtil.pos(
@@ -156,7 +155,7 @@ public class PointGMLTest {
             </gml:Point>"""
         ),
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p2",
                 null,
                 GisUtil.pos(
@@ -252,7 +251,7 @@ public class PointGMLTest {
         ), // null  AIXMPointType
 
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p1",
                 null,
                 null,
@@ -262,7 +261,7 @@ public class PointGMLTest {
         ), // Empty AIXMPointType
 
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p3",
                 null,
                 GisUtil.pos(
@@ -275,7 +274,7 @@ public class PointGMLTest {
         ), // missing wkt
 
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p4",
                 null,
                 GisUtil.pos(
@@ -288,7 +287,7 @@ public class PointGMLTest {
         ), // malformed wkt
 
         Arguments.of(
-             GisUtil.pointObj(
+             GisUtil.GMLPoint(
                 "p5",
                 null,
                 GisUtil.pos(
@@ -301,7 +300,7 @@ public class PointGMLTest {
         ), // missing srs
 
         Arguments.of(
-            GisUtil.pointObj(
+            GisUtil.GMLPoint(
                 "p6",
                 null,
                 GisUtil.pos(

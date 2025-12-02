@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class GeodeticDatumType
     extends AbstractDatumType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:primeMeridian is an association role to the prime meridian used by this geodetic datum.
      * 
@@ -82,6 +85,10 @@ public class GeodeticDatumType
         this.primeMeridian = value;
     }
 
+    public boolean isSetPrimeMeridian() {
+        return (this.primeMeridian!= null);
+    }
+
     /**
      * gml:ellipsoid is an association role to the ellipsoid used by this geodetic datum.
      * 
@@ -109,6 +116,10 @@ public class GeodeticDatumType
         this.ellipsoid = value;
     }
 
+    public boolean isSetEllipsoid() {
+        return (this.ellipsoid!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +133,27 @@ public class GeodeticDatumType
         }
         final GeodeticDatumType that = ((GeodeticDatumType) object);
         {
-            boolean lhsFieldIsSet = (this.ellipsoid!= null);
-            boolean rhsFieldIsSet = (that.ellipsoid!= null);
-            JAXBElement<EllipsoidPropertyType> lhsField;
-            lhsField = this.getEllipsoid();
-            JAXBElement<EllipsoidPropertyType> rhsField;
-            rhsField = that.getEllipsoid();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.primeMeridian!= null);
-            boolean rhsFieldIsSet = (that.primeMeridian!= null);
+            boolean lhsFieldIsSet = this.isSetPrimeMeridian();
+            boolean rhsFieldIsSet = that.isSetPrimeMeridian();
             JAXBElement<PrimeMeridianPropertyType> lhsField;
             lhsField = this.getPrimeMeridian();
             JAXBElement<PrimeMeridianPropertyType> rhsField;
             rhsField = that.getPrimeMeridian();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primeMeridian", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primeMeridian", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetEllipsoid();
+            boolean rhsFieldIsSet = that.isSetEllipsoid();
+            JAXBElement<EllipsoidPropertyType> lhsField;
+            lhsField = this.getEllipsoid();
+            JAXBElement<EllipsoidPropertyType> rhsField;
+            rhsField = that.getEllipsoid();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,14 +165,14 @@ public class GeodeticDatumType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.primeMeridian!= null);
+            boolean theFieldIsSet = this.isSetPrimeMeridian();
             JAXBElement<PrimeMeridianPropertyType> theField;
             theField = this.getPrimeMeridian();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "primeMeridian", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.ellipsoid!= null);
+            boolean theFieldIsSet = this.isSetEllipsoid();
             JAXBElement<EllipsoidPropertyType> theField;
             theField = this.getEllipsoid();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ellipsoid", theField);
@@ -174,13 +185,13 @@ public class GeodeticDatumType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.primeMeridian!= null);
+            boolean theFieldIsSet = this.isSetPrimeMeridian();
             JAXBElement<PrimeMeridianPropertyType> theField;
             theField = this.getPrimeMeridian();
             strategy.appendField(locator, this, "primeMeridian", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.ellipsoid!= null);
+            boolean theFieldIsSet = this.isSetEllipsoid();
             JAXBElement<EllipsoidPropertyType> theField;
             theField = this.getEllipsoid();
             strategy.appendField(locator, this, "ellipsoid", buffer, theField, theFieldIsSet);

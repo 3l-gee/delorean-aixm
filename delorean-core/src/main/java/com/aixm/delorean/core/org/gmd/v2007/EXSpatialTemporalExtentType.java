@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXSpatialTemporalExtentType
     extends EXTemporalExtentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<EXGeographicExtentPropertyType> spatialExtent;
 
@@ -83,6 +86,14 @@ public class EXSpatialTemporalExtentType
         this.spatialExtent = spatialExtent;
     }
 
+    public boolean isSetSpatialExtent() {
+        return ((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()));
+    }
+
+    public void unsetSpatialExtent() {
+        this.spatialExtent = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -96,12 +107,12 @@ public class EXSpatialTemporalExtentType
         }
         final EXSpatialTemporalExtentType that = ((EXSpatialTemporalExtentType) object);
         {
-            boolean lhsFieldIsSet = ((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()));
-            boolean rhsFieldIsSet = ((that.spatialExtent!= null)&&(!that.spatialExtent.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetSpatialExtent();
+            boolean rhsFieldIsSet = that.isSetSpatialExtent();
             List<EXGeographicExtentPropertyType> lhsField;
-            lhsField = (((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()))?this.getSpatialExtent():null);
+            lhsField = (this.isSetSpatialExtent()?this.getSpatialExtent():null);
             List<EXGeographicExtentPropertyType> rhsField;
-            rhsField = (((that.spatialExtent!= null)&&(!that.spatialExtent.isEmpty()))?that.getSpatialExtent():null);
+            rhsField = (that.isSetSpatialExtent()?that.getSpatialExtent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialExtent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -115,9 +126,9 @@ public class EXSpatialTemporalExtentType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()));
+            boolean theFieldIsSet = this.isSetSpatialExtent();
             List<EXGeographicExtentPropertyType> theField;
-            theField = (((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()))?this.getSpatialExtent():null);
+            theField = (this.isSetSpatialExtent()?this.getSpatialExtent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "spatialExtent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -128,9 +139,9 @@ public class EXSpatialTemporalExtentType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()));
+            boolean theFieldIsSet = this.isSetSpatialExtent();
             List<EXGeographicExtentPropertyType> theField;
-            theField = (((this.spatialExtent!= null)&&(!this.spatialExtent.isEmpty()))?this.getSpatialExtent():null);
+            theField = (this.isSetSpatialExtent()?this.getSpatialExtent():null);
             strategy.appendField(locator, this, "spatialExtent", buffer, theField, theFieldIsSet);
         }
         return buffer;

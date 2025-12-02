@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiplicityRangeType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected IntegerPropertyType lower;
     @XmlElement(required = true)
@@ -72,6 +75,10 @@ public class MultiplicityRangeType
         this.lower = value;
     }
 
+    public boolean isSetLower() {
+        return (this.lower!= null);
+    }
+
     /**
      * Gets the value of the upper property.
      * 
@@ -96,6 +103,10 @@ public class MultiplicityRangeType
         this.upper = value;
     }
 
+    public boolean isSetUpper() {
+        return (this.upper!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -109,27 +120,27 @@ public class MultiplicityRangeType
         }
         final MultiplicityRangeType that = ((MultiplicityRangeType) object);
         {
-            boolean lhsFieldIsSet = (this.lower!= null);
-            boolean rhsFieldIsSet = (that.lower!= null);
-            IntegerPropertyType lhsField;
-            lhsField = this.getLower();
-            IntegerPropertyType rhsField;
-            rhsField = that.getLower();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lower", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lower", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.upper!= null);
-            boolean rhsFieldIsSet = (that.upper!= null);
+            boolean lhsFieldIsSet = this.isSetUpper();
+            boolean rhsFieldIsSet = that.isSetUpper();
             UnlimitedIntegerPropertyType lhsField;
             lhsField = this.getUpper();
             UnlimitedIntegerPropertyType rhsField;
             rhsField = that.getUpper();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upper", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upper", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLower();
+            boolean rhsFieldIsSet = that.isSetLower();
+            IntegerPropertyType lhsField;
+            lhsField = this.getLower();
+            IntegerPropertyType rhsField;
+            rhsField = that.getLower();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lower", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lower", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -141,14 +152,14 @@ public class MultiplicityRangeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.lower!= null);
+            boolean theFieldIsSet = this.isSetLower();
             IntegerPropertyType theField;
             theField = this.getLower();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lower", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.upper!= null);
+            boolean theFieldIsSet = this.isSetUpper();
             UnlimitedIntegerPropertyType theField;
             theField = this.getUpper();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "upper", theField);
@@ -161,13 +172,13 @@ public class MultiplicityRangeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.lower!= null);
+            boolean theFieldIsSet = this.isSetLower();
             IntegerPropertyType theField;
             theField = this.getLower();
             strategy.appendField(locator, this, "lower", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.upper!= null);
+            boolean theFieldIsSet = this.isSetUpper();
             UnlimitedIntegerPropertyType theField;
             theField = this.getUpper();
             strategy.appendField(locator, this, "upper", buffer, theField, theFieldIsSet);

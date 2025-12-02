@@ -223,19 +223,6 @@ public class NavaidTimeSlicePropertyType implements Serializable, Equals, HashCo
         }
         final NavaidTimeSlicePropertyType that = ((NavaidTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNavaidTimeSlice();
-            boolean rhsFieldIsSet = that.isSetNavaidTimeSlice();
-            NavaidTimeSliceType lhsField;
-            lhsField = this.getNavaidTimeSlice();
-            NavaidTimeSliceType rhsField;
-            rhsField = that.getNavaidTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NavaidTimeSlicePropertyType implements Serializable, Equals, HashCo
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNavaidTimeSlice();
+            boolean rhsFieldIsSet = that.isSetNavaidTimeSlice();
+            NavaidTimeSliceType lhsField;
+            lhsField = this.getNavaidTimeSlice();
+            NavaidTimeSliceType rhsField;
+            rhsField = that.getNavaidTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "navaidTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "navaidTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

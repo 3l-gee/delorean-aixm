@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class OrientableCurveType
     extends AbstractCurveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The property baseCurve references or contains the base curve, i.e. it either references the base curve via the XLink-attributes or contains the curve element. A curve element is any element which is substitutable for AbstractCurve. The base curve has positive orientation.
      * 
@@ -48,7 +51,7 @@ public class OrientableCurveType
     @XmlElement(required = true)
     protected CurvePropertyType baseCurve;
     @XmlAttribute(name = "orientation")
-    protected String orientation;
+    protected SignType orientation;
 
     /**
      * The property baseCurve references or contains the base curve, i.e. it either references the base curve via the XLink-attributes or contains the curve element. A curve element is any element which is substitutable for AbstractCurve. The base curve has positive orientation.
@@ -75,17 +78,21 @@ public class OrientableCurveType
         this.baseCurve = value;
     }
 
+    public boolean isSetBaseCurve() {
+        return (this.baseCurve!= null);
+    }
+
     /**
      * Gets the value of the orientation property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link SignType }
      *     
      */
-    public String getOrientation() {
+    public SignType getOrientation() {
         if (orientation == null) {
-            return "+";
+            return SignType.VALUE_2;
         } else {
             return orientation;
         }
@@ -96,11 +103,15 @@ public class OrientableCurveType
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link SignType }
      *     
      */
-    public void setOrientation(String value) {
+    public void setOrientation(SignType value) {
         this.orientation = value;
+    }
+
+    public boolean isSetOrientation() {
+        return (this.orientation!= null);
     }
 
     @Override
@@ -116,8 +127,8 @@ public class OrientableCurveType
         }
         final OrientableCurveType that = ((OrientableCurveType) object);
         {
-            boolean lhsFieldIsSet = (this.baseCurve!= null);
-            boolean rhsFieldIsSet = (that.baseCurve!= null);
+            boolean lhsFieldIsSet = this.isSetBaseCurve();
+            boolean rhsFieldIsSet = that.isSetBaseCurve();
             CurvePropertyType lhsField;
             lhsField = this.getBaseCurve();
             CurvePropertyType rhsField;
@@ -129,11 +140,11 @@ public class OrientableCurveType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.orientation!= null);
-            boolean rhsFieldIsSet = (that.orientation!= null);
-            String lhsField;
+            boolean lhsFieldIsSet = this.isSetOrientation();
+            boolean rhsFieldIsSet = that.isSetOrientation();
+            SignType lhsField;
             lhsField = this.getOrientation();
-            String rhsField;
+            SignType rhsField;
             rhsField = that.getOrientation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
@@ -148,15 +159,15 @@ public class OrientableCurveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.baseCurve!= null);
+            boolean theFieldIsSet = this.isSetBaseCurve();
             CurvePropertyType theField;
             theField = this.getBaseCurve();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "baseCurve", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.orientation!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrientation();
+            SignType theField;
             theField = this.getOrientation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -168,14 +179,14 @@ public class OrientableCurveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.baseCurve!= null);
+            boolean theFieldIsSet = this.isSetBaseCurve();
             CurvePropertyType theField;
             theField = this.getBaseCurve();
             strategy.appendField(locator, this, "baseCurve", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.orientation!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrientation();
+            SignType theField;
             theField = this.getOrientation();
             strategy.appendField(locator, this, "orientation", buffer, theField, theFieldIsSet);
         }

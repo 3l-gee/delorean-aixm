@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.CodeType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "LocalName_PropertyType", propOrder = {
     "localName"
 })
-public class LocalNamePropertyType implements Equals, HashCode, ToString
+public class LocalNamePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "LocalName")
     protected CodeType localName;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
         this.localName = value;
     }
 
+    public boolean isSetLocalName() {
+        return (this.localName!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,8 +133,8 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
         }
         final LocalNamePropertyType that = ((LocalNamePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -136,8 +146,8 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.localName!= null);
-            boolean rhsFieldIsSet = (that.localName!= null);
+            boolean lhsFieldIsSet = this.isSetLocalName();
+            boolean rhsFieldIsSet = that.isSetLocalName();
             CodeType lhsField;
             lhsField = this.getLocalName();
             CodeType rhsField;
@@ -165,14 +175,14 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.localName!= null);
+            boolean theFieldIsSet = this.isSetLocalName();
             CodeType theField;
             theField = this.getLocalName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "localName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class LocalNamePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.localName!= null);
+            boolean theFieldIsSet = this.isSetLocalName();
             CodeType theField;
             theField = this.getLocalName();
             strategy.appendField(locator, this, "localName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

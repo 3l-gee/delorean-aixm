@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDKeywordsType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<CharacterStringPropertyType> keyword;
     protected MDKeywordTypeCodePropertyType type;
@@ -91,6 +94,14 @@ public class MDKeywordsType
         this.keyword = keyword;
     }
 
+    public boolean isSetKeyword() {
+        return ((this.keyword!= null)&&(!this.keyword.isEmpty()));
+    }
+
+    public void unsetKeyword() {
+        this.keyword = null;
+    }
+
     /**
      * Gets the value of the type property.
      * 
@@ -113,6 +124,10 @@ public class MDKeywordsType
      */
     public void setType(MDKeywordTypeCodePropertyType value) {
         this.type = value;
+    }
+
+    public boolean isSetType() {
+        return (this.type!= null);
     }
 
     /**
@@ -139,6 +154,10 @@ public class MDKeywordsType
         this.thesaurusName = value;
     }
 
+    public boolean isSetThesaurusName() {
+        return (this.thesaurusName!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -152,12 +171,12 @@ public class MDKeywordsType
         }
         final MDKeywordsType that = ((MDKeywordsType) object);
         {
-            boolean lhsFieldIsSet = ((this.keyword!= null)&&(!this.keyword.isEmpty()));
-            boolean rhsFieldIsSet = ((that.keyword!= null)&&(!that.keyword.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetKeyword();
+            boolean rhsFieldIsSet = that.isSetKeyword();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.keyword!= null)&&(!this.keyword.isEmpty()))?this.getKeyword():null);
+            lhsField = (this.isSetKeyword()?this.getKeyword():null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.keyword!= null)&&(!that.keyword.isEmpty()))?that.getKeyword():null);
+            rhsField = (that.isSetKeyword()?that.getKeyword():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "keyword", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "keyword", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -165,27 +184,27 @@ public class MDKeywordsType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.thesaurusName!= null);
-            boolean rhsFieldIsSet = (that.thesaurusName!= null);
-            CICitationPropertyType lhsField;
-            lhsField = this.getThesaurusName();
-            CICitationPropertyType rhsField;
-            rhsField = that.getThesaurusName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
             MDKeywordTypeCodePropertyType lhsField;
             lhsField = this.getType();
             MDKeywordTypeCodePropertyType rhsField;
             rhsField = that.getType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetThesaurusName();
+            boolean rhsFieldIsSet = that.isSetThesaurusName();
+            CICitationPropertyType lhsField;
+            lhsField = this.getThesaurusName();
+            CICitationPropertyType rhsField;
+            rhsField = that.getThesaurusName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "thesaurusName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "thesaurusName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -197,21 +216,21 @@ public class MDKeywordsType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.keyword!= null)&&(!this.keyword.isEmpty()));
+            boolean theFieldIsSet = this.isSetKeyword();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.keyword!= null)&&(!this.keyword.isEmpty()))?this.getKeyword():null);
+            theField = (this.isSetKeyword()?this.getKeyword():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "keyword", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
+            boolean theFieldIsSet = this.isSetType();
             MDKeywordTypeCodePropertyType theField;
             theField = this.getType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.thesaurusName!= null);
+            boolean theFieldIsSet = this.isSetThesaurusName();
             CICitationPropertyType theField;
             theField = this.getThesaurusName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "thesaurusName", theField);
@@ -224,19 +243,19 @@ public class MDKeywordsType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.keyword!= null)&&(!this.keyword.isEmpty()));
+            boolean theFieldIsSet = this.isSetKeyword();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.keyword!= null)&&(!this.keyword.isEmpty()))?this.getKeyword():null);
+            theField = (this.isSetKeyword()?this.getKeyword():null);
             strategy.appendField(locator, this, "keyword", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
+            boolean theFieldIsSet = this.isSetType();
             MDKeywordTypeCodePropertyType theField;
             theField = this.getType();
             strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.thesaurusName!= null);
+            boolean theFieldIsSet = this.isSetThesaurusName();
             CICitationPropertyType theField;
             theField = this.getThesaurusName();
             strategy.appendField(locator, this, "thesaurusName", buffer, theField, theFieldIsSet);

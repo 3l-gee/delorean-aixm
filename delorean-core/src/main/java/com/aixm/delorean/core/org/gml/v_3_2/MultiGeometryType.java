@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MultiGeometryType
     extends AbstractGeometricAggregateType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<GeometryPropertyType> geometryMember;
     /**
      * This property element contains a list of geometry elements. The order of the elements is significant and shall be preserved when processing the array.
@@ -86,6 +89,14 @@ public class MultiGeometryType
         this.geometryMember = geometryMember;
     }
 
+    public boolean isSetGeometryMember() {
+        return ((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()));
+    }
+
+    public void unsetGeometryMember() {
+        this.geometryMember = null;
+    }
+
     /**
      * This property element contains a list of geometry elements. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -111,6 +122,10 @@ public class MultiGeometryType
         this.geometryMembers = value;
     }
 
+    public boolean isSetGeometryMembers() {
+        return (this.geometryMembers!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,27 +139,27 @@ public class MultiGeometryType
         }
         final MultiGeometryType that = ((MultiGeometryType) object);
         {
-            boolean lhsFieldIsSet = ((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.geometryMember!= null)&&(!that.geometryMember.isEmpty()));
-            List<GeometryPropertyType> lhsField;
-            lhsField = (((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()))?this.getGeometryMember():null);
-            List<GeometryPropertyType> rhsField;
-            rhsField = (((that.geometryMember!= null)&&(!that.geometryMember.isEmpty()))?that.getGeometryMember():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMember", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMember", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.geometryMembers!= null);
-            boolean rhsFieldIsSet = (that.geometryMembers!= null);
+            boolean lhsFieldIsSet = this.isSetGeometryMembers();
+            boolean rhsFieldIsSet = that.isSetGeometryMembers();
             GeometryArrayPropertyType lhsField;
             lhsField = this.getGeometryMembers();
             GeometryArrayPropertyType rhsField;
             rhsField = that.getGeometryMembers();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMembers", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMembers", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometryMember();
+            boolean rhsFieldIsSet = that.isSetGeometryMember();
+            List<GeometryPropertyType> lhsField;
+            lhsField = (this.isSetGeometryMember()?this.getGeometryMember():null);
+            List<GeometryPropertyType> rhsField;
+            rhsField = (that.isSetGeometryMember()?that.getGeometryMember():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometryMember", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometryMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -156,14 +171,14 @@ public class MultiGeometryType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeometryMember();
             List<GeometryPropertyType> theField;
-            theField = (((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()))?this.getGeometryMember():null);
+            theField = (this.isSetGeometryMember()?this.getGeometryMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometryMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geometryMembers!= null);
+            boolean theFieldIsSet = this.isSetGeometryMembers();
             GeometryArrayPropertyType theField;
             theField = this.getGeometryMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometryMembers", theField);
@@ -176,13 +191,13 @@ public class MultiGeometryType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeometryMember();
             List<GeometryPropertyType> theField;
-            theField = (((this.geometryMember!= null)&&(!this.geometryMember.isEmpty()))?this.getGeometryMember():null);
+            theField = (this.isSetGeometryMember()?this.getGeometryMember():null);
             strategy.appendField(locator, this, "geometryMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geometryMembers!= null);
+            boolean theFieldIsSet = this.isSetGeometryMembers();
             GeometryArrayPropertyType theField;
             theField = this.getGeometryMembers();
             strategy.appendField(locator, this, "geometryMembers", buffer, theField, theFieldIsSet);

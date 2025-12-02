@@ -48,7 +48,7 @@ public class XMLBindingFactory<T, X> {
         return new XMLBinding<>(this.getSchema(), this.getRoot(), this.getFeature());
 
     }
-
+    
     private Schema getSchemaFromPath(String path, SchemaFactory schemaFactory) {
 
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -51,9 +52,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CoordinateOperationPropertyType", propOrder = {
     "abstractCoordinateOperation"
 })
-public class CoordinateOperationPropertyType implements Equals, HashCode, ToString
+public class CoordinateOperationPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:AbstractCoordinateOperation is a mathematical operation on coordinates that transforms or converts coordinates to another coordinate reference system. Many but not all coordinate operations (from CRS A to CRS B) also uniquely define the inverse operation (from CRS B to CRS A). In some cases, the operation method algorithm for the inverse operation is the same as for the forward algorithm, but the signs of some operation parameter values shall be reversed. In other cases, different algorithms are required for the forward and inverse operations, but the same operation parameter values are used. If (some) entirely different parameter values are needed, a different coordinate operation shall be defined.
      * The optional coordinateOperationAccuracy property elements provide estimates of the impact of this coordinate operation on point position accuracy.
@@ -67,7 +69,7 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
     @XmlSchemaType(name = "anyURI")
     protected String remoteSchema;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.SIMPLE;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
     protected String href;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
@@ -123,6 +125,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.abstractCoordinateOperation = value;
     }
 
+    public boolean isSetAbstractCoordinateOperation() {
+        return (this.abstractCoordinateOperation!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -145,6 +151,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
      */
     public void setNilReason(String value) {
         this.nilReason = value;
+    }
+
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
     }
 
     /**
@@ -171,32 +181,8 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.remoteSchema = value;
     }
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    public TypeType getType() {
-        if (type == null) {
-            return TypeType.SIMPLE;
-        } else {
-            return type;
-        }
-    }
-
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setType(TypeType value) {
-        this.type = value;
+    public boolean isSetRemoteSchema() {
+        return (this.remoteSchema!= null);
     }
 
     /**
@@ -223,6 +209,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.href = value;
     }
 
+    public boolean isSetHref() {
+        return (this.href!= null);
+    }
+
     /**
      * Gets the value of the role property.
      * 
@@ -245,6 +235,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
      */
     public void setRole(String value) {
         this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
     }
 
     /**
@@ -271,6 +265,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.arcrole = value;
     }
 
+    public boolean isSetArcrole() {
+        return (this.arcrole!= null);
+    }
+
     /**
      * Gets the value of the simpleLinkTitle property.
      * 
@@ -293,6 +291,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
+    }
+
+    public boolean isSetSimpleLinkTitle() {
+        return (this.simpleLinkTitle!= null);
     }
 
     /**
@@ -319,6 +321,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.show = value;
     }
 
+    public boolean isSetShow() {
+        return (this.show!= null);
+    }
+
     /**
      * Gets the value of the actuate property.
      * 
@@ -343,6 +349,10 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         this.actuate = value;
     }
 
+    public boolean isSetActuate() {
+        return (this.actuate!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -365,47 +375,8 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
         }
         final CoordinateOperationPropertyType that = ((CoordinateOperationPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.arcrole!= null);
-            boolean rhsFieldIsSet = (that.arcrole!= null);
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.remoteSchema!= null);
-            boolean rhsFieldIsSet = (that.remoteSchema!= null);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
             lhsField = this.getRemoteSchema();
             String rhsField;
@@ -417,8 +388,8 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = (this.href!= null);
-            boolean rhsFieldIsSet = (that.href!= null);
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
             lhsField = this.getHref();
             String rhsField;
@@ -430,8 +401,21 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = (this.simpleLinkTitle!= null);
-            boolean rhsFieldIsSet = (that.simpleLinkTitle!= null);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
             lhsField = this.getSimpleLinkTitle();
             String rhsField;
@@ -443,34 +427,21 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = (this.actuate!= null);
-            boolean rhsFieldIsSet = (that.actuate!= null);
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractCoordinateOperation();
+            boolean rhsFieldIsSet = that.isSetAbstractCoordinateOperation();
+            JAXBElement<? extends AbstractCoordinateOperationType> lhsField;
+            lhsField = this.getAbstractCoordinateOperation();
+            JAXBElement<? extends AbstractCoordinateOperationType> rhsField;
+            rhsField = that.getAbstractCoordinateOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCoordinateOperation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCoordinateOperation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.show!= null);
-            boolean rhsFieldIsSet = (that.show!= null);
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -482,14 +453,40 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = (this.abstractCoordinateOperation!= null);
-            boolean rhsFieldIsSet = (that.abstractCoordinateOperation!= null);
-            JAXBElement<? extends AbstractCoordinateOperationType> lhsField;
-            lhsField = this.getAbstractCoordinateOperation();
-            JAXBElement<? extends AbstractCoordinateOperationType> rhsField;
-            rhsField = that.getAbstractCoordinateOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCoordinateOperation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCoordinateOperation", rhsField);
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,70 +508,63 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.abstractCoordinateOperation!= null);
+            boolean theFieldIsSet = this.isSetAbstractCoordinateOperation();
             JAXBElement<? extends AbstractCoordinateOperationType> theField;
             theField = this.getAbstractCoordinateOperation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractCoordinateOperation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.remoteSchema!= null);
+            boolean theFieldIsSet = this.isSetRemoteSchema();
             String theField;
             theField = this.getRemoteSchema();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "remoteSchema", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.href!= null);
+            boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "href", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "role", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.arcrole!= null);
+            boolean theFieldIsSet = this.isSetArcrole();
             String theField;
             theField = this.getArcrole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "arcrole", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
             theField = this.getSimpleLinkTitle();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "simpleLinkTitle", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.show!= null);
+            boolean theFieldIsSet = this.isSetShow();
             ShowType theField;
             theField = this.getShow();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "show", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.actuate!= null);
+            boolean theFieldIsSet = this.isSetActuate();
             ActuateType theField;
             theField = this.getActuate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "actuate", theField);
@@ -606,61 +596,55 @@ public class CoordinateOperationPropertyType implements Equals, HashCode, ToStri
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.abstractCoordinateOperation!= null);
+            boolean theFieldIsSet = this.isSetAbstractCoordinateOperation();
             JAXBElement<? extends AbstractCoordinateOperationType> theField;
             theField = this.getAbstractCoordinateOperation();
             strategy.appendField(locator, this, "abstractCoordinateOperation", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.remoteSchema!= null);
+            boolean theFieldIsSet = this.isSetRemoteSchema();
             String theField;
             theField = this.getRemoteSchema();
             strategy.appendField(locator, this, "remoteSchema", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.href!= null);
+            boolean theFieldIsSet = this.isSetHref();
             String theField;
             theField = this.getHref();
             strategy.appendField(locator, this, "href", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             strategy.appendField(locator, this, "role", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.arcrole!= null);
+            boolean theFieldIsSet = this.isSetArcrole();
             String theField;
             theField = this.getArcrole();
             strategy.appendField(locator, this, "arcrole", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.simpleLinkTitle!= null);
+            boolean theFieldIsSet = this.isSetSimpleLinkTitle();
             String theField;
             theField = this.getSimpleLinkTitle();
             strategy.appendField(locator, this, "simpleLinkTitle", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.show!= null);
+            boolean theFieldIsSet = this.isSetShow();
             ShowType theField;
             theField = this.getShow();
             strategy.appendField(locator, this, "show", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.actuate!= null);
+            boolean theFieldIsSet = this.isSetActuate();
             ActuateType theField;
             theField = this.getActuate();
             strategy.appendField(locator, this, "actuate", buffer, theField, theFieldIsSet);

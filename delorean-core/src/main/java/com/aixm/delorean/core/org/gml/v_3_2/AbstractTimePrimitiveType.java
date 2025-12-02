@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractTimePrimitiveType
     extends AbstractTimeObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<RelatedTimeType> relatedTime;
 
     /**
@@ -84,6 +87,14 @@ public abstract class AbstractTimePrimitiveType
         this.relatedTime = relatedTime;
     }
 
+    public boolean isSetRelatedTime() {
+        return ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+    }
+
+    public void unsetRelatedTime() {
+        this.relatedTime = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -97,12 +108,12 @@ public abstract class AbstractTimePrimitiveType
         }
         final AbstractTimePrimitiveType that = ((AbstractTimePrimitiveType) object);
         {
-            boolean lhsFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
-            boolean rhsFieldIsSet = ((that.relatedTime!= null)&&(!that.relatedTime.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetRelatedTime();
+            boolean rhsFieldIsSet = that.isSetRelatedTime();
             List<RelatedTimeType> lhsField;
-            lhsField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
+            lhsField = (this.isSetRelatedTime()?this.getRelatedTime():null);
             List<RelatedTimeType> rhsField;
-            rhsField = (((that.relatedTime!= null)&&(!that.relatedTime.isEmpty()))?that.getRelatedTime():null);
+            rhsField = (that.isSetRelatedTime()?that.getRelatedTime():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "relatedTime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "relatedTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -116,9 +127,9 @@ public abstract class AbstractTimePrimitiveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+            boolean theFieldIsSet = this.isSetRelatedTime();
             List<RelatedTimeType> theField;
-            theField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
+            theField = (this.isSetRelatedTime()?this.getRelatedTime():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "relatedTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -129,9 +140,9 @@ public abstract class AbstractTimePrimitiveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()));
+            boolean theFieldIsSet = this.isSetRelatedTime();
             List<RelatedTimeType> theField;
-            theField = (((this.relatedTime!= null)&&(!this.relatedTime.isEmpty()))?this.getRelatedTime():null);
+            theField = (this.isSetRelatedTime()?this.getRelatedTime():null);
             strategy.appendField(locator, this, "relatedTime", buffer, theField, theFieldIsSet);
         }
         return buffer;

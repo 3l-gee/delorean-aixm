@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDVectorSpatialRepresentationType
     extends AbstractMDSpatialRepresentationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected MDTopologyLevelCodePropertyType topologyLevel;
     protected List<MDGeometricObjectsPropertyType> geometricObjects;
 
@@ -69,6 +72,10 @@ public class MDVectorSpatialRepresentationType
      */
     public void setTopologyLevel(MDTopologyLevelCodePropertyType value) {
         this.topologyLevel = value;
+    }
+
+    public boolean isSetTopologyLevel() {
+        return (this.topologyLevel!= null);
     }
 
     /**
@@ -108,6 +115,14 @@ public class MDVectorSpatialRepresentationType
         this.geometricObjects = geometricObjects;
     }
 
+    public boolean isSetGeometricObjects() {
+        return ((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()));
+    }
+
+    public void unsetGeometricObjects() {
+        this.geometricObjects = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -121,8 +136,8 @@ public class MDVectorSpatialRepresentationType
         }
         final MDVectorSpatialRepresentationType that = ((MDVectorSpatialRepresentationType) object);
         {
-            boolean lhsFieldIsSet = (this.topologyLevel!= null);
-            boolean rhsFieldIsSet = (that.topologyLevel!= null);
+            boolean lhsFieldIsSet = this.isSetTopologyLevel();
+            boolean rhsFieldIsSet = that.isSetTopologyLevel();
             MDTopologyLevelCodePropertyType lhsField;
             lhsField = this.getTopologyLevel();
             MDTopologyLevelCodePropertyType rhsField;
@@ -134,12 +149,12 @@ public class MDVectorSpatialRepresentationType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()));
-            boolean rhsFieldIsSet = ((that.geometricObjects!= null)&&(!that.geometricObjects.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetGeometricObjects();
+            boolean rhsFieldIsSet = that.isSetGeometricObjects();
             List<MDGeometricObjectsPropertyType> lhsField;
-            lhsField = (((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()))?this.getGeometricObjects():null);
+            lhsField = (this.isSetGeometricObjects()?this.getGeometricObjects():null);
             List<MDGeometricObjectsPropertyType> rhsField;
-            rhsField = (((that.geometricObjects!= null)&&(!that.geometricObjects.isEmpty()))?that.getGeometricObjects():null);
+            rhsField = (that.isSetGeometricObjects()?that.getGeometricObjects():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjects", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjects", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -153,16 +168,16 @@ public class MDVectorSpatialRepresentationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.topologyLevel!= null);
+            boolean theFieldIsSet = this.isSetTopologyLevel();
             MDTopologyLevelCodePropertyType theField;
             theField = this.getTopologyLevel();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topologyLevel", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeometricObjects();
             List<MDGeometricObjectsPropertyType> theField;
-            theField = (((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()))?this.getGeometricObjects():null);
+            theField = (this.isSetGeometricObjects()?this.getGeometricObjects():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometricObjects", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -173,15 +188,15 @@ public class MDVectorSpatialRepresentationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.topologyLevel!= null);
+            boolean theFieldIsSet = this.isSetTopologyLevel();
             MDTopologyLevelCodePropertyType theField;
             theField = this.getTopologyLevel();
             strategy.appendField(locator, this, "topologyLevel", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeometricObjects();
             List<MDGeometricObjectsPropertyType> theField;
-            theField = (((this.geometricObjects!= null)&&(!this.geometricObjects.isEmpty()))?this.getGeometricObjects():null);
+            theField = (this.isSetGeometricObjects()?this.getGeometricObjects():null);
             strategy.appendField(locator, this, "geometricObjects", buffer, theField, theFieldIsSet);
         }
         return buffer;

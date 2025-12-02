@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PassThroughOperationType
     extends AbstractCoordinateOperationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<BigInteger> modifiedCoordinate;
     /**
@@ -96,6 +99,14 @@ public class PassThroughOperationType
         this.modifiedCoordinate = modifiedCoordinate;
     }
 
+    public boolean isSetModifiedCoordinate() {
+        return ((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()));
+    }
+
+    public void unsetModifiedCoordinate() {
+        this.modifiedCoordinate = null;
+    }
+
     /**
      * gml:coordOperation is an association role to a coordinate operation.
      * 
@@ -125,6 +136,10 @@ public class PassThroughOperationType
         this.coordOperation = value;
     }
 
+    public boolean isSetCoordOperation() {
+        return (this.coordOperation!= null);
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -149,6 +164,10 @@ public class PassThroughOperationType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -162,21 +181,8 @@ public class PassThroughOperationType
         }
         final PassThroughOperationType that = ((PassThroughOperationType) object);
         {
-            boolean lhsFieldIsSet = ((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()));
-            boolean rhsFieldIsSet = ((that.modifiedCoordinate!= null)&&(!that.modifiedCoordinate.isEmpty()));
-            List<BigInteger> lhsField;
-            lhsField = (((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()))?this.getModifiedCoordinate():null);
-            List<BigInteger> rhsField;
-            rhsField = (((that.modifiedCoordinate!= null)&&(!that.modifiedCoordinate.isEmpty()))?that.getModifiedCoordinate():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "modifiedCoordinate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "modifiedCoordinate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordOperation!= null);
-            boolean rhsFieldIsSet = (that.coordOperation!= null);
+            boolean lhsFieldIsSet = this.isSetCoordOperation();
+            boolean rhsFieldIsSet = that.isSetCoordOperation();
             JAXBElement<CoordinateOperationPropertyType> lhsField;
             lhsField = this.getCoordOperation();
             JAXBElement<CoordinateOperationPropertyType> rhsField;
@@ -188,8 +194,21 @@ public class PassThroughOperationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetModifiedCoordinate();
+            boolean rhsFieldIsSet = that.isSetModifiedCoordinate();
+            List<BigInteger> lhsField;
+            lhsField = (this.isSetModifiedCoordinate()?this.getModifiedCoordinate():null);
+            List<BigInteger> rhsField;
+            rhsField = (that.isSetModifiedCoordinate()?that.getModifiedCoordinate():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "modifiedCoordinate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "modifiedCoordinate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -207,21 +226,21 @@ public class PassThroughOperationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()));
+            boolean theFieldIsSet = this.isSetModifiedCoordinate();
             List<BigInteger> theField;
-            theField = (((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()))?this.getModifiedCoordinate():null);
+            theField = (this.isSetModifiedCoordinate()?this.getModifiedCoordinate():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "modifiedCoordinate", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordOperation!= null);
+            boolean theFieldIsSet = this.isSetCoordOperation();
             JAXBElement<CoordinateOperationPropertyType> theField;
             theField = this.getCoordOperation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coordOperation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -234,19 +253,19 @@ public class PassThroughOperationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()));
+            boolean theFieldIsSet = this.isSetModifiedCoordinate();
             List<BigInteger> theField;
-            theField = (((this.modifiedCoordinate!= null)&&(!this.modifiedCoordinate.isEmpty()))?this.getModifiedCoordinate():null);
+            theField = (this.isSetModifiedCoordinate()?this.getModifiedCoordinate():null);
             strategy.appendField(locator, this, "modifiedCoordinate", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordOperation!= null);
+            boolean theFieldIsSet = this.isSetCoordOperation();
             JAXBElement<CoordinateOperationPropertyType> theField;
             theField = this.getCoordOperation();
             strategy.appendField(locator, this, "coordOperation", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_TopologyLevelCode_PropertyType", propOrder = {
     "mdTopologyLevelCode"
 })
-public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToString
+public class MDTopologyLevelCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_TopologyLevelCode")
     protected CodeListValueType mdTopologyLevelCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
         this.mdTopologyLevelCode = value;
     }
 
+    public boolean isSetMDTopologyLevelCode() {
+        return (this.mdTopologyLevelCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
         }
         final MDTopologyLevelCodePropertyType that = ((MDTopologyLevelCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mdTopologyLevelCode!= null);
-            boolean rhsFieldIsSet = (that.mdTopologyLevelCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDTopologyLevelCode();
+            boolean rhsFieldIsSet = that.isSetMDTopologyLevelCode();
             CodeListValueType lhsField;
             lhsField = this.getMDTopologyLevelCode();
             CodeListValueType rhsField;
             rhsField = that.getMDTopologyLevelCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdTopologyLevelCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdTopologyLevelCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdTopologyLevelCode!= null);
+            boolean theFieldIsSet = this.isSetMDTopologyLevelCode();
             CodeListValueType theField;
             theField = this.getMDTopologyLevelCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdTopologyLevelCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDTopologyLevelCodePropertyType implements Equals, HashCode, ToStri
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdTopologyLevelCode!= null);
+            boolean theFieldIsSet = this.isSetMDTopologyLevelCode();
             CodeListValueType theField;
             theField = this.getMDTopologyLevelCode();
             strategy.appendField(locator, this, "mdTopologyLevelCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

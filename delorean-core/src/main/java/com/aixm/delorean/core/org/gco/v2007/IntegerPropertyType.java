@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "Integer_PropertyType", propOrder = {
     "integer"
 })
-public class IntegerPropertyType implements Equals, HashCode, ToString
+public class IntegerPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Integer")
     protected BigInteger integer;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
         this.integer = value;
     }
 
+    public boolean isSetInteger() {
+        return (this.integer!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,8 +133,8 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
         }
         final IntegerPropertyType that = ((IntegerPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -136,8 +146,8 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.integer!= null);
-            boolean rhsFieldIsSet = (that.integer!= null);
+            boolean lhsFieldIsSet = this.isSetInteger();
+            boolean rhsFieldIsSet = that.isSetInteger();
             BigInteger lhsField;
             lhsField = this.getInteger();
             BigInteger rhsField;
@@ -165,14 +175,14 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.integer!= null);
+            boolean theFieldIsSet = this.isSetInteger();
             BigInteger theField;
             theField = this.getInteger();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "integer", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class IntegerPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.integer!= null);
+            boolean theFieldIsSet = this.isSetInteger();
             BigInteger theField;
             theField = this.getInteger();
             strategy.appendField(locator, this, "integer", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

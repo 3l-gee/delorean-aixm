@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.CodeType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "GenericName_PropertyType", propOrder = {
     "abstractGenericName"
 })
-public class GenericNamePropertyType implements Equals, HashCode, ToString
+public class GenericNamePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractGenericName", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
     protected JAXBElement<CodeType> abstractGenericName;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -82,6 +84,10 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
         this.abstractGenericName = value;
     }
 
+    public boolean isSetAbstractGenericName() {
+        return (this.abstractGenericName!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -106,6 +112,10 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -128,8 +138,8 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
         }
         final GenericNamePropertyType that = ((GenericNamePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -141,8 +151,8 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.abstractGenericName!= null);
-            boolean rhsFieldIsSet = (that.abstractGenericName!= null);
+            boolean lhsFieldIsSet = this.isSetAbstractGenericName();
+            boolean rhsFieldIsSet = that.isSetAbstractGenericName();
             JAXBElement<CodeType> lhsField;
             lhsField = this.getAbstractGenericName();
             JAXBElement<CodeType> rhsField;
@@ -170,14 +180,14 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.abstractGenericName!= null);
+            boolean theFieldIsSet = this.isSetAbstractGenericName();
             JAXBElement<CodeType> theField;
             theField = this.getAbstractGenericName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGenericName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -209,13 +219,13 @@ public class GenericNamePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.abstractGenericName!= null);
+            boolean theFieldIsSet = this.isSetAbstractGenericName();
             JAXBElement<CodeType> theField;
             theField = this.getAbstractGenericName();
             strategy.appendField(locator, this, "abstractGenericName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.JAXBElement;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @MappedSuperclass
 public class DynamicFeatureType
     extends AbstractFeatureType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected TimePrimitivePropertyType validTime;
     @XmlElementRef(name = "history", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<HistoryPropertyType> history;
@@ -79,6 +82,11 @@ public class DynamicFeatureType
         this.validTime = value;
     }
 
+    @Transient
+    public boolean isSetValidTime() {
+        return (this.validTime!= null);
+    }
+
     /**
      * Gets the value of the history property.
      * 
@@ -106,6 +114,11 @@ public class DynamicFeatureType
         this.history = value;
     }
 
+    @Transient
+    public boolean isSetHistory() {
+        return (this.history!= null);
+    }
+
     /**
      * Gets the value of the dataSource property.
      * 
@@ -129,6 +142,11 @@ public class DynamicFeatureType
      */
     public void setDataSource(StringOrRefType value) {
         this.dataSource = value;
+    }
+
+    @Transient
+    public boolean isSetDataSource() {
+        return (this.dataSource!= null);
     }
 
     /**
@@ -156,6 +174,11 @@ public class DynamicFeatureType
         this.dataSourceReference = value;
     }
 
+    @Transient
+    public boolean isSetDataSourceReference() {
+        return (this.dataSourceReference!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -169,21 +192,8 @@ public class DynamicFeatureType
         }
         final DynamicFeatureType that = ((DynamicFeatureType) object);
         {
-            boolean lhsFieldIsSet = (this.dataSourceReference!= null);
-            boolean rhsFieldIsSet = (that.dataSourceReference!= null);
-            ReferenceType lhsField;
-            lhsField = this.getDataSourceReference();
-            ReferenceType rhsField;
-            rhsField = that.getDataSourceReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.validTime!= null);
-            boolean rhsFieldIsSet = (that.validTime!= null);
+            boolean lhsFieldIsSet = this.isSetValidTime();
+            boolean rhsFieldIsSet = that.isSetValidTime();
             TimePrimitivePropertyType lhsField;
             lhsField = this.getValidTime();
             TimePrimitivePropertyType rhsField;
@@ -195,27 +205,40 @@ public class DynamicFeatureType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dataSource!= null);
-            boolean rhsFieldIsSet = (that.dataSource!= null);
-            StringOrRefType lhsField;
-            lhsField = this.getDataSource();
-            StringOrRefType rhsField;
-            rhsField = that.getDataSource();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.history!= null);
-            boolean rhsFieldIsSet = (that.history!= null);
+            boolean lhsFieldIsSet = this.isSetHistory();
+            boolean rhsFieldIsSet = that.isSetHistory();
             JAXBElement<HistoryPropertyType> lhsField;
             lhsField = this.getHistory();
             JAXBElement<HistoryPropertyType> rhsField;
             rhsField = that.getHistory();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "history", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "history", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataSourceReference();
+            boolean rhsFieldIsSet = that.isSetDataSourceReference();
+            ReferenceType lhsField;
+            lhsField = this.getDataSourceReference();
+            ReferenceType rhsField;
+            rhsField = that.getDataSourceReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSourceReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSourceReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataSource();
+            boolean rhsFieldIsSet = that.isSetDataSource();
+            StringOrRefType lhsField;
+            lhsField = this.getDataSource();
+            StringOrRefType rhsField;
+            rhsField = that.getDataSource();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataSource", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataSource", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -227,28 +250,28 @@ public class DynamicFeatureType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             TimePrimitivePropertyType theField;
             theField = this.getValidTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "validTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.history!= null);
+            boolean theFieldIsSet = this.isSetHistory();
             JAXBElement<HistoryPropertyType> theField;
             theField = this.getHistory();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "history", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSource!= null);
+            boolean theFieldIsSet = this.isSetDataSource();
             StringOrRefType theField;
             theField = this.getDataSource();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dataSource", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSourceReference!= null);
+            boolean theFieldIsSet = this.isSetDataSourceReference();
             ReferenceType theField;
             theField = this.getDataSourceReference();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dataSourceReference", theField);
@@ -261,25 +284,25 @@ public class DynamicFeatureType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.validTime!= null);
+            boolean theFieldIsSet = this.isSetValidTime();
             TimePrimitivePropertyType theField;
             theField = this.getValidTime();
             strategy.appendField(locator, this, "validTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.history!= null);
+            boolean theFieldIsSet = this.isSetHistory();
             JAXBElement<HistoryPropertyType> theField;
             theField = this.getHistory();
             strategy.appendField(locator, this, "history", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSource!= null);
+            boolean theFieldIsSet = this.isSetDataSource();
             StringOrRefType theField;
             theField = this.getDataSource();
             strategy.appendField(locator, this, "dataSource", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataSourceReference!= null);
+            boolean theFieldIsSet = this.isSetDataSourceReference();
             ReferenceType theField;
             theField = this.getDataSourceReference();
             strategy.appendField(locator, this, "dataSourceReference", buffer, theField, theFieldIsSet);

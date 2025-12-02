@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -49,9 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     QuantityExtentType.class
 })
-public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
+public class MeasureOrNilReasonListType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected List<String> value;
     @XmlAttribute(name = "uom", required = true)
@@ -94,6 +96,14 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
+    }
+
     /**
      * Gets the value of the uom property.
      * 
@@ -118,6 +128,10 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
         this.uom = value;
     }
 
+    public boolean isSetUom() {
+        return (this.uom!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -140,27 +154,27 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
         }
         final MeasureOrNilReasonListType that = ((MeasureOrNilReasonListType) object);
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<String> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
             lhsField = this.getUom();
             String rhsField;
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
-            List<String> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -182,14 +196,14 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uom", theField);
@@ -221,13 +235,13 @@ public class MeasureOrNilReasonListType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             strategy.appendField(locator, this, "uom", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -41,9 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "", propOrder = {
     "value"
 })
-public class Boolean implements Equals, HashCode, ToString
+public class Boolean implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected boolean value;
     @XmlAttribute(name = "nilReason")
@@ -63,6 +65,10 @@ public class Boolean implements Equals, HashCode, ToString
      */
     public void setValue(boolean value) {
         this.value = value;
+    }
+
+    public boolean isSetValue() {
+        return true;
     }
 
     /**
@@ -87,6 +93,10 @@ public class Boolean implements Equals, HashCode, ToString
      */
     public void setNilReason(String value) {
         this.nilReason = value;
+    }
+
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
     }
 
     @Override
@@ -124,8 +134,8 @@ public class Boolean implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -160,7 +170,7 @@ public class Boolean implements Equals, HashCode, ToString
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -198,7 +208,7 @@ public class Boolean implements Equals, HashCode, ToString
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

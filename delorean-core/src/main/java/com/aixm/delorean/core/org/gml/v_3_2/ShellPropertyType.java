@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ShellPropertyType", propOrder = {
     "shell"
 })
-public class ShellPropertyType implements Equals, HashCode, ToString
+public class ShellPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A shell is used to represent a single connected component of a solid boundary as specified in ISO 19107:2003, 6.3.8.
      * Every gml:surfaceMember references or contains one surface, i.e. any element which is substitutable for gml:AbstractSurface. In the context of a shell, the surfaces describe the boundary of the solid. 
@@ -83,6 +85,10 @@ public class ShellPropertyType implements Equals, HashCode, ToString
         this.shell = value;
     }
 
+    public boolean isSetShell() {
+        return (this.shell!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -105,8 +111,8 @@ public class ShellPropertyType implements Equals, HashCode, ToString
         }
         final ShellPropertyType that = ((ShellPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.shell!= null);
-            boolean rhsFieldIsSet = (that.shell!= null);
+            boolean lhsFieldIsSet = this.isSetShell();
+            boolean rhsFieldIsSet = that.isSetShell();
             ShellType lhsField;
             lhsField = this.getShell();
             ShellType rhsField;
@@ -134,7 +140,7 @@ public class ShellPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.shell!= null);
+            boolean theFieldIsSet = this.isSetShell();
             ShellType theField;
             theField = this.getShell();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "shell", theField);
@@ -166,7 +172,7 @@ public class ShellPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.shell!= null);
+            boolean theFieldIsSet = this.isSetShell();
             ShellType theField;
             theField = this.getShell();
             strategy.appendField(locator, this, "shell", buffer, theField, theFieldIsSet);

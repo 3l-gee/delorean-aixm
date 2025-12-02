@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AbstractRingPropertyType", propOrder = {
     "abstractRing"
 })
-public class AbstractRingPropertyType implements Equals, HashCode, ToString
+public class AbstractRingPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * An abstraction of a ring to support surface boundaries of different complexity.
      * The AbstractRing element is the abstract head of the substituition group for all closed boundaries of a surface patch.
@@ -86,6 +88,10 @@ public class AbstractRingPropertyType implements Equals, HashCode, ToString
         this.abstractRing = value;
     }
 
+    public boolean isSetAbstractRing() {
+        return (this.abstractRing!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -108,8 +114,8 @@ public class AbstractRingPropertyType implements Equals, HashCode, ToString
         }
         final AbstractRingPropertyType that = ((AbstractRingPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.abstractRing!= null);
-            boolean rhsFieldIsSet = (that.abstractRing!= null);
+            boolean lhsFieldIsSet = this.isSetAbstractRing();
+            boolean rhsFieldIsSet = that.isSetAbstractRing();
             JAXBElement<? extends AbstractRingType> lhsField;
             lhsField = this.getAbstractRing();
             JAXBElement<? extends AbstractRingType> rhsField;
@@ -137,7 +143,7 @@ public class AbstractRingPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.abstractRing!= null);
+            boolean theFieldIsSet = this.isSetAbstractRing();
             JAXBElement<? extends AbstractRingType> theField;
             theField = this.getAbstractRing();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractRing", theField);
@@ -169,7 +175,7 @@ public class AbstractRingPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.abstractRing!= null);
+            boolean theFieldIsSet = this.isSetAbstractRing();
             JAXBElement<? extends AbstractRingType> theField;
             theField = this.getAbstractRing();
             strategy.appendField(locator, this, "abstractRing", buffer, theField, theFieldIsSet);

@@ -510,36 +510,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TinType }
-     * 
-     * @return
-     *     the new instance of {@link TinType }
-     */
-    public TinType createTinType() {
-        return new TinType();
-    }
-
-    /**
-     * Create an instance of {@link AbstractGriddedSurfaceType.Rows }
-     * 
-     * @return
-     *     the new instance of {@link AbstractGriddedSurfaceType.Rows }
-     */
-    public AbstractGriddedSurfaceType.Rows createAbstractGriddedSurfaceTypeRows() {
-        return new AbstractGriddedSurfaceType.Rows();
-    }
-
-    /**
-     * Create an instance of {@link ClothoidType }
-     * 
-     * @return
-     *     the new instance of {@link ClothoidType }
-     */
-    public ClothoidType createClothoidType() {
-        return new ClothoidType();
-    }
-
-    /**
      * Create an instance of {@link AssociationRoleType }
      * 
      * @return
@@ -1000,6 +970,16 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ClothoidType }
+     * 
+     * @return
+     *     the new instance of {@link ClothoidType }
+     */
+    public ClothoidType createClothoidType() {
+        return new ClothoidType();
+    }
+
+    /**
      * Create an instance of {@link GeodesicStringType }
      * 
      * @return
@@ -1117,6 +1097,16 @@ public class ObjectFactory {
      */
     public SphereType createSphereType() {
         return new SphereType();
+    }
+
+    /**
+     * Create an instance of {@link TinType }
+     * 
+     * @return
+     *     the new instance of {@link TinType }
+     */
+    public TinType createTinType() {
+        return new TinType();
     }
 
     /**
@@ -3570,33 +3560,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TinType.ControlPoint }
+     * Create an instance of {@link ControlPoint }
      * 
      * @return
-     *     the new instance of {@link TinType.ControlPoint }
+     *     the new instance of {@link ControlPoint }
      */
-    public TinType.ControlPoint createTinTypeControlPoint() {
-        return new TinType.ControlPoint();
+    public ControlPoint createControlPoint() {
+        return new ControlPoint();
     }
 
     /**
-     * Create an instance of {@link AbstractGriddedSurfaceType.Rows.Row }
+     * Create an instance of {@link Rows }
      * 
      * @return
-     *     the new instance of {@link AbstractGriddedSurfaceType.Rows.Row }
+     *     the new instance of {@link Rows }
      */
-    public AbstractGriddedSurfaceType.Rows.Row createAbstractGriddedSurfaceTypeRowsRow() {
-        return new AbstractGriddedSurfaceType.Rows.Row();
+    public Rows createRows() {
+        return new Rows();
     }
 
     /**
-     * Create an instance of {@link ClothoidType.RefLocation }
+     * Create an instance of {@link Row }
      * 
      * @return
-     *     the new instance of {@link ClothoidType.RefLocation }
+     *     the new instance of {@link Row }
      */
-    public ClothoidType.RefLocation createClothoidTypeRefLocation() {
-        return new ClothoidType.RefLocation();
+    public Row createRow() {
+        return new Row();
+    }
+
+    /**
+     * Create an instance of {@link RefLocation }
+     * 
+     * @return
+     *     the new instance of {@link RefLocation }
+     */
+    public RefLocation createRefLocation() {
+        return new RefLocation();
     }
 
     /**

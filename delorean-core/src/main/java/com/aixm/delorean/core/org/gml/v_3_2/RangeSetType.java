@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -52,9 +53,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "dataBlock",
     "file"
 })
-public class RangeSetType implements Equals, HashCode, ToString
+public class RangeSetType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ValueArray")
     protected List<ValueArrayType> valueArray;
     @XmlElementRef(name = "AbstractScalarValueList", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -121,6 +123,14 @@ public class RangeSetType implements Equals, HashCode, ToString
         this.valueArray = valueArray;
     }
 
+    public boolean isSetValueArray() {
+        return ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+    }
+
+    public void unsetValueArray() {
+        this.valueArray = null;
+    }
+
     /**
      * gml:AbstractScalarValueList is an abstract element which acts as the head of a substitution group which contains gml:BooleanList, gml:CategoryList, gml:CountList and gml:QuantityList, and (transitively) the elements in their substitution groups.Gets the value of the abstractScalarValueList property.
      * 
@@ -162,6 +172,14 @@ public class RangeSetType implements Equals, HashCode, ToString
         this.abstractScalarValueList = abstractScalarValueList;
     }
 
+    public boolean isSetAbstractScalarValueList() {
+        return ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
+    }
+
+    public void unsetAbstractScalarValueList() {
+        this.abstractScalarValueList = null;
+    }
+
     /**
      * gml:DataBlock describes the Range as a block of text encoded values similar to a Common Separated Value (CSV) representation.
      * The range set parameterization is described by the property gml:rangeParameters.
@@ -186,6 +204,10 @@ public class RangeSetType implements Equals, HashCode, ToString
      */
     public void setDataBlock(DataBlockType value) {
         this.dataBlock = value;
+    }
+
+    public boolean isSetDataBlock() {
+        return (this.dataBlock!= null);
     }
 
     /**
@@ -220,6 +242,10 @@ public class RangeSetType implements Equals, HashCode, ToString
         this.file = value;
     }
 
+    public boolean isSetFile() {
+        return (this.file!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -242,38 +268,12 @@ public class RangeSetType implements Equals, HashCode, ToString
         }
         final RangeSetType that = ((RangeSetType) object);
         {
-            boolean lhsFieldIsSet = (this.file!= null);
-            boolean rhsFieldIsSet = (that.file!= null);
-            FileType lhsField;
-            lhsField = this.getFile();
-            FileType rhsField;
-            rhsField = that.getFile();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "file", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "file", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
-            boolean rhsFieldIsSet = ((that.valueArray!= null)&&(!that.valueArray.isEmpty()));
-            List<ValueArrayType> lhsField;
-            lhsField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
-            List<ValueArrayType> rhsField;
-            rhsField = (((that.valueArray!= null)&&(!that.valueArray.isEmpty()))?that.getValueArray():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractScalarValueList!= null)&&(!that.abstractScalarValueList.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAbstractScalarValueList();
+            boolean rhsFieldIsSet = that.isSetAbstractScalarValueList();
             List<JAXBElement<?>> lhsField;
-            lhsField = (((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()))?this.getAbstractScalarValueList():null);
+            lhsField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
             List<JAXBElement<?>> rhsField;
-            rhsField = (((that.abstractScalarValueList!= null)&&(!that.abstractScalarValueList.isEmpty()))?that.getAbstractScalarValueList():null);
+            rhsField = (that.isSetAbstractScalarValueList()?that.getAbstractScalarValueList():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -281,14 +281,40 @@ public class RangeSetType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dataBlock!= null);
-            boolean rhsFieldIsSet = (that.dataBlock!= null);
+            boolean lhsFieldIsSet = this.isSetValueArray();
+            boolean rhsFieldIsSet = that.isSetValueArray();
+            List<ValueArrayType> lhsField;
+            lhsField = (this.isSetValueArray()?this.getValueArray():null);
+            List<ValueArrayType> rhsField;
+            rhsField = (that.isSetValueArray()?that.getValueArray():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataBlock();
+            boolean rhsFieldIsSet = that.isSetDataBlock();
             DataBlockType lhsField;
             lhsField = this.getDataBlock();
             DataBlockType rhsField;
             rhsField = that.getDataBlock();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFile();
+            boolean rhsFieldIsSet = that.isSetFile();
+            FileType lhsField;
+            lhsField = this.getFile();
+            FileType rhsField;
+            rhsField = that.getFile();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "file", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "file", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -310,28 +336,28 @@ public class RangeSetType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+            boolean theFieldIsSet = this.isSetValueArray();
             List<ValueArrayType> theField;
-            theField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
+            theField = (this.isSetValueArray()?this.getValueArray():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "valueArray", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractScalarValueList();
             List<JAXBElement<?>> theField;
-            theField = (((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()))?this.getAbstractScalarValueList():null);
+            theField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractScalarValueList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataBlock!= null);
+            boolean theFieldIsSet = this.isSetDataBlock();
             DataBlockType theField;
             theField = this.getDataBlock();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dataBlock", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.file!= null);
+            boolean theFieldIsSet = this.isSetFile();
             FileType theField;
             theField = this.getFile();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "file", theField);
@@ -363,25 +389,25 @@ public class RangeSetType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+            boolean theFieldIsSet = this.isSetValueArray();
             List<ValueArrayType> theField;
-            theField = (((this.valueArray!= null)&&(!this.valueArray.isEmpty()))?this.getValueArray():null);
+            theField = (this.isSetValueArray()?this.getValueArray():null);
             strategy.appendField(locator, this, "valueArray", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractScalarValueList();
             List<JAXBElement<?>> theField;
-            theField = (((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()))?this.getAbstractScalarValueList():null);
+            theField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
             strategy.appendField(locator, this, "abstractScalarValueList", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataBlock!= null);
+            boolean theFieldIsSet = this.isSetDataBlock();
             DataBlockType theField;
             theField = this.getDataBlock();
             strategy.appendField(locator, this, "dataBlock", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.file!= null);
+            boolean theFieldIsSet = this.isSetFile();
             FileType theField;
             theField = this.getFile();
             strategy.appendField(locator, this, "file", buffer, theField, theFieldIsSet);

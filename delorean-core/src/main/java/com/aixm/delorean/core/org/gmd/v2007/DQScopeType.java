@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DQScopeType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected MDScopeCodePropertyType level;
     protected EXExtentPropertyType extent;
@@ -75,6 +78,10 @@ public class DQScopeType
         this.level = value;
     }
 
+    public boolean isSetLevel() {
+        return (this.level!= null);
+    }
+
     /**
      * Gets the value of the extent property.
      * 
@@ -97,6 +104,10 @@ public class DQScopeType
      */
     public void setExtent(EXExtentPropertyType value) {
         this.extent = value;
+    }
+
+    public boolean isSetExtent() {
+        return (this.extent!= null);
     }
 
     /**
@@ -136,6 +147,14 @@ public class DQScopeType
         this.levelDescription = levelDescription;
     }
 
+    public boolean isSetLevelDescription() {
+        return ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
+    }
+
+    public void unsetLevelDescription() {
+        this.levelDescription = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -149,12 +168,25 @@ public class DQScopeType
         }
         final DQScopeType that = ((DQScopeType) object);
         {
-            boolean lhsFieldIsSet = ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
-            boolean rhsFieldIsSet = ((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            MDScopeCodePropertyType lhsField;
+            lhsField = this.getLevel();
+            MDScopeCodePropertyType rhsField;
+            rhsField = that.getLevel();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLevelDescription();
+            boolean rhsFieldIsSet = that.isSetLevelDescription();
             List<MDScopeDescriptionPropertyType> lhsField;
-            lhsField = (((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()))?this.getLevelDescription():null);
+            lhsField = (this.isSetLevelDescription()?this.getLevelDescription():null);
             List<MDScopeDescriptionPropertyType> rhsField;
-            rhsField = (((that.levelDescription!= null)&&(!that.levelDescription.isEmpty()))?that.getLevelDescription():null);
+            rhsField = (that.isSetLevelDescription()?that.getLevelDescription():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "levelDescription", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "levelDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -162,27 +194,14 @@ public class DQScopeType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.extent!= null);
-            boolean rhsFieldIsSet = (that.extent!= null);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
             EXExtentPropertyType lhsField;
             lhsField = this.getExtent();
             EXExtentPropertyType rhsField;
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.level!= null);
-            boolean rhsFieldIsSet = (that.level!= null);
-            MDScopeCodePropertyType lhsField;
-            lhsField = this.getLevel();
-            MDScopeCodePropertyType rhsField;
-            rhsField = that.getLevel();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -194,23 +213,23 @@ public class DQScopeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.level!= null);
+            boolean theFieldIsSet = this.isSetLevel();
             MDScopeCodePropertyType theField;
             theField = this.getLevel();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "level", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             EXExtentPropertyType theField;
             theField = this.getExtent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
+            boolean theFieldIsSet = this.isSetLevelDescription();
             List<MDScopeDescriptionPropertyType> theField;
-            theField = (((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()))?this.getLevelDescription():null);
+            theField = (this.isSetLevelDescription()?this.getLevelDescription():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "levelDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -221,21 +240,21 @@ public class DQScopeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.level!= null);
+            boolean theFieldIsSet = this.isSetLevel();
             MDScopeCodePropertyType theField;
             theField = this.getLevel();
             strategy.appendField(locator, this, "level", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             EXExtentPropertyType theField;
             theField = this.getExtent();
             strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()));
+            boolean theFieldIsSet = this.isSetLevelDescription();
             List<MDScopeDescriptionPropertyType> theField;
-            theField = (((this.levelDescription!= null)&&(!this.levelDescription.isEmpty()))?this.getLevelDescription():null);
+            theField = (this.isSetLevelDescription()?this.getLevelDescription():null);
             strategy.appendField(locator, this, "levelDescription", buffer, theField, theFieldIsSet);
         }
         return buffer;

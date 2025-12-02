@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PrimeMeridianType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:greenwichLongitude is the longitude of the prime meridian measured from the Greenwich meridian, positive eastward. If the value of the prime meridian "name" is "Greenwich" then the value of greenwichLongitude shall be 0 degrees.
      * 
@@ -71,6 +74,10 @@ public class PrimeMeridianType
         this.greenwichLongitude = value;
     }
 
+    public boolean isSetGreenwichLongitude() {
+        return (this.greenwichLongitude!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -84,8 +91,8 @@ public class PrimeMeridianType
         }
         final PrimeMeridianType that = ((PrimeMeridianType) object);
         {
-            boolean lhsFieldIsSet = (this.greenwichLongitude!= null);
-            boolean rhsFieldIsSet = (that.greenwichLongitude!= null);
+            boolean lhsFieldIsSet = this.isSetGreenwichLongitude();
+            boolean rhsFieldIsSet = that.isSetGreenwichLongitude();
             AngleType lhsField;
             lhsField = this.getGreenwichLongitude();
             AngleType rhsField;
@@ -103,7 +110,7 @@ public class PrimeMeridianType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.greenwichLongitude!= null);
+            boolean theFieldIsSet = this.isSetGreenwichLongitude();
             AngleType theField;
             theField = this.getGreenwichLongitude();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "greenwichLongitude", theField);
@@ -116,7 +123,7 @@ public class PrimeMeridianType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.greenwichLongitude!= null);
+            boolean theFieldIsSet = this.isSetGreenwichLongitude();
             AngleType theField;
             theField = this.getGreenwichLongitude();
             strategy.appendField(locator, this, "greenwichLongitude", buffer, theField, theFieldIsSet);

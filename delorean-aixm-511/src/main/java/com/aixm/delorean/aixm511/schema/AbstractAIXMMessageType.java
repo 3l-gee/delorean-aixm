@@ -4,9 +4,10 @@ package com.aixm.delorean.aixm511.schema;
 import java.io.Serializable;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.core.org.gml.v_3_2.AggregationType;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -61,9 +62,9 @@ public abstract class AbstractAIXMMessageType
      *     {@link AggregationType }
      *     
      */
-    @ManyToOne(targetEntity = AggregationType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @Basic
+    @Column(name = "AGGREGATION_TYPE", length = 255)
+    @Enumerated(EnumType.STRING)
     public AggregationType getAggregationType() {
         return aggregationType;
     }

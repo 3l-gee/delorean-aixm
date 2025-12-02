@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CurveType
     extends AbstractCurveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * This property element contains a list of curve segments. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -71,6 +74,10 @@ public class CurveType
         this.segments = value;
     }
 
+    public boolean isSetSegments() {
+        return (this.segments!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -84,8 +91,8 @@ public class CurveType
         }
         final CurveType that = ((CurveType) object);
         {
-            boolean lhsFieldIsSet = (this.segments!= null);
-            boolean rhsFieldIsSet = (that.segments!= null);
+            boolean lhsFieldIsSet = this.isSetSegments();
+            boolean rhsFieldIsSet = that.isSetSegments();
             CurveSegmentArrayPropertyType lhsField;
             lhsField = this.getSegments();
             CurveSegmentArrayPropertyType rhsField;
@@ -103,7 +110,7 @@ public class CurveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.segments!= null);
+            boolean theFieldIsSet = this.isSetSegments();
             CurveSegmentArrayPropertyType theField;
             theField = this.getSegments();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "segments", theField);
@@ -116,7 +123,7 @@ public class CurveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.segments!= null);
+            boolean theFieldIsSet = this.isSetSegments();
             CurveSegmentArrayPropertyType theField;
             theField = this.getSegments();
             strategy.appendField(locator, this, "segments", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -54,8 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractDSAggregateType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<DSDataSetPropertyType> composedOf;
     @XmlElement(required = true)
@@ -100,6 +103,14 @@ public abstract class AbstractDSAggregateType
         this.composedOf = composedOf;
     }
 
+    public boolean isSetComposedOf() {
+        return ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
+    }
+
+    public void unsetComposedOf() {
+        this.composedOf = null;
+    }
+
     /**
      * Gets the value of the seriesMetadata property.
      * 
@@ -135,6 +146,14 @@ public abstract class AbstractDSAggregateType
      */
     public void setSeriesMetadata(List<MDMetadataPropertyType> seriesMetadata) {
         this.seriesMetadata = seriesMetadata;
+    }
+
+    public boolean isSetSeriesMetadata() {
+        return ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
+    }
+
+    public void unsetSeriesMetadata() {
+        this.seriesMetadata = null;
     }
 
     /**
@@ -174,6 +193,14 @@ public abstract class AbstractDSAggregateType
         this.subset = subset;
     }
 
+    public boolean isSetSubset() {
+        return ((this.subset!= null)&&(!this.subset.isEmpty()));
+    }
+
+    public void unsetSubset() {
+        this.subset = null;
+    }
+
     /**
      * Gets the value of the superset property.
      * 
@@ -211,6 +238,14 @@ public abstract class AbstractDSAggregateType
         this.superset = superset;
     }
 
+    public boolean isSetSuperset() {
+        return ((this.superset!= null)&&(!this.superset.isEmpty()));
+    }
+
+    public void unsetSuperset() {
+        this.superset = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -224,38 +259,12 @@ public abstract class AbstractDSAggregateType
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
-            boolean lhsFieldIsSet = ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
-            boolean rhsFieldIsSet = ((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()));
-            List<MDMetadataPropertyType> lhsField;
-            lhsField = (((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()))?this.getSeriesMetadata():null);
-            List<MDMetadataPropertyType> rhsField;
-            rhsField = (((that.seriesMetadata!= null)&&(!that.seriesMetadata.isEmpty()))?that.getSeriesMetadata():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
-            boolean rhsFieldIsSet = ((that.composedOf!= null)&&(!that.composedOf.isEmpty()));
-            List<DSDataSetPropertyType> lhsField;
-            lhsField = (((this.composedOf!= null)&&(!this.composedOf.isEmpty()))?this.getComposedOf():null);
-            List<DSDataSetPropertyType> rhsField;
-            rhsField = (((that.composedOf!= null)&&(!that.composedOf.isEmpty()))?that.getComposedOf():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.subset!= null)&&(!this.subset.isEmpty()));
-            boolean rhsFieldIsSet = ((that.subset!= null)&&(!that.subset.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetSubset();
+            boolean rhsFieldIsSet = that.isSetSubset();
             List<DSAggregatePropertyType> lhsField;
-            lhsField = (((this.subset!= null)&&(!this.subset.isEmpty()))?this.getSubset():null);
+            lhsField = (this.isSetSubset()?this.getSubset():null);
             List<DSAggregatePropertyType> rhsField;
-            rhsField = (((that.subset!= null)&&(!that.subset.isEmpty()))?that.getSubset():null);
+            rhsField = (that.isSetSubset()?that.getSubset():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -263,14 +272,40 @@ public abstract class AbstractDSAggregateType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.superset!= null)&&(!this.superset.isEmpty()));
-            boolean rhsFieldIsSet = ((that.superset!= null)&&(!that.superset.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetSeriesMetadata();
+            boolean rhsFieldIsSet = that.isSetSeriesMetadata();
+            List<MDMetadataPropertyType> lhsField;
+            lhsField = (this.isSetSeriesMetadata()?this.getSeriesMetadata():null);
+            List<MDMetadataPropertyType> rhsField;
+            rhsField = (that.isSetSeriesMetadata()?that.getSeriesMetadata():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seriesMetadata", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seriesMetadata", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSuperset();
+            boolean rhsFieldIsSet = that.isSetSuperset();
             List<DSAggregatePropertyType> lhsField;
-            lhsField = (((this.superset!= null)&&(!this.superset.isEmpty()))?this.getSuperset():null);
+            lhsField = (this.isSetSuperset()?this.getSuperset():null);
             List<DSAggregatePropertyType> rhsField;
-            rhsField = (((that.superset!= null)&&(!that.superset.isEmpty()))?that.getSuperset():null);
+            rhsField = (that.isSetSuperset()?that.getSuperset():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "superset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "superset", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetComposedOf();
+            boolean rhsFieldIsSet = that.isSetComposedOf();
+            List<DSDataSetPropertyType> lhsField;
+            lhsField = (this.isSetComposedOf()?this.getComposedOf():null);
+            List<DSDataSetPropertyType> rhsField;
+            rhsField = (that.isSetComposedOf()?that.getComposedOf():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -282,30 +317,30 @@ public abstract class AbstractDSAggregateType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
+            boolean theFieldIsSet = this.isSetComposedOf();
             List<DSDataSetPropertyType> theField;
-            theField = (((this.composedOf!= null)&&(!this.composedOf.isEmpty()))?this.getComposedOf():null);
+            theField = (this.isSetComposedOf()?this.getComposedOf():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "composedOf", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
+            boolean theFieldIsSet = this.isSetSeriesMetadata();
             List<MDMetadataPropertyType> theField;
-            theField = (((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()))?this.getSeriesMetadata():null);
+            theField = (this.isSetSeriesMetadata()?this.getSeriesMetadata():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "seriesMetadata", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.subset!= null)&&(!this.subset.isEmpty()));
+            boolean theFieldIsSet = this.isSetSubset();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.subset!= null)&&(!this.subset.isEmpty()))?this.getSubset():null);
+            theField = (this.isSetSubset()?this.getSubset():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "subset", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.superset!= null)&&(!this.superset.isEmpty()));
+            boolean theFieldIsSet = this.isSetSuperset();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.superset!= null)&&(!this.superset.isEmpty()))?this.getSuperset():null);
+            theField = (this.isSetSuperset()?this.getSuperset():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "superset", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -316,27 +351,27 @@ public abstract class AbstractDSAggregateType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.composedOf!= null)&&(!this.composedOf.isEmpty()));
+            boolean theFieldIsSet = this.isSetComposedOf();
             List<DSDataSetPropertyType> theField;
-            theField = (((this.composedOf!= null)&&(!this.composedOf.isEmpty()))?this.getComposedOf():null);
+            theField = (this.isSetComposedOf()?this.getComposedOf():null);
             strategy.appendField(locator, this, "composedOf", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()));
+            boolean theFieldIsSet = this.isSetSeriesMetadata();
             List<MDMetadataPropertyType> theField;
-            theField = (((this.seriesMetadata!= null)&&(!this.seriesMetadata.isEmpty()))?this.getSeriesMetadata():null);
+            theField = (this.isSetSeriesMetadata()?this.getSeriesMetadata():null);
             strategy.appendField(locator, this, "seriesMetadata", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.subset!= null)&&(!this.subset.isEmpty()));
+            boolean theFieldIsSet = this.isSetSubset();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.subset!= null)&&(!this.subset.isEmpty()))?this.getSubset():null);
+            theField = (this.isSetSubset()?this.getSubset():null);
             strategy.appendField(locator, this, "subset", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.superset!= null)&&(!this.superset.isEmpty()));
+            boolean theFieldIsSet = this.isSetSuperset();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.superset!= null)&&(!this.superset.isEmpty()))?this.getSuperset():null);
+            theField = (this.isSetSuperset()?this.getSuperset():null);
             strategy.appendField(locator, this, "superset", buffer, theField, theFieldIsSet);
         }
         return buffer;

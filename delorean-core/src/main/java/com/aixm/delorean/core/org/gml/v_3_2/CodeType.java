@@ -1,9 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -54,9 +56,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     Category.class
 })
 @Embeddable
-public class CodeType implements Equals, HashCode, ToString
+public class CodeType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected String value;
     @XmlAttribute(name = "codeSpace")
@@ -89,6 +92,11 @@ public class CodeType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    @Transient
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the codeSpace property.
      * 
@@ -115,6 +123,11 @@ public class CodeType implements Equals, HashCode, ToString
         this.codeSpace = value;
     }
 
+    @Transient
+    public boolean isSetCodeSpace() {
+        return (this.codeSpace!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -137,8 +150,8 @@ public class CodeType implements Equals, HashCode, ToString
         }
         final CodeType that = ((CodeType) object);
         {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
             String lhsField;
             lhsField = this.getCodeSpace();
             String rhsField;
@@ -150,8 +163,8 @@ public class CodeType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             String lhsField;
             lhsField = this.getValue();
             String rhsField;
@@ -179,14 +192,14 @@ public class CodeType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "codeSpace", theField);
@@ -218,13 +231,13 @@ public class CodeType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             strategy.appendField(locator, this, "codeSpace", buffer, theField, theFieldIsSet);

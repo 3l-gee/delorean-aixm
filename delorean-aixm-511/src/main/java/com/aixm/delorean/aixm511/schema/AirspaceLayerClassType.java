@@ -367,7 +367,7 @@ public class AirspaceLayerClassType
     @OneToMany(targetEntity = AirspaceLayerClassTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_AIRSPACE_LAYER_CLA_0")
     public List<AirspaceLayerClassTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -418,27 +418,14 @@ public class AirspaceLayerClassType
         }
         final AirspaceLayerClassType that = ((AirspaceLayerClassType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClassification();
-            boolean rhsFieldIsSet = that.isSetClassification();
-            JAXBElement<CodeAirspaceClassificationType> lhsField;
-            lhsField = this.getClassification();
-            JAXBElement<CodeAirspaceClassificationType> rhsField;
-            rhsField = that.getClassification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -457,27 +444,14 @@ public class AirspaceLayerClassType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
-            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
-            List<AirspaceLayerPropertyType> lhsField;
-            lhsField = (this.isSetAssociatedLevels()?this.getAssociatedLevels():null);
-            List<AirspaceLayerPropertyType> rhsField;
-            rhsField = (that.isSetAssociatedLevels()?that.getAssociatedLevels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -491,6 +465,32 @@ public class AirspaceLayerClassType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAssociatedLevels();
+            boolean rhsFieldIsSet = that.isSetAssociatedLevels();
+            List<AirspaceLayerPropertyType> lhsField;
+            lhsField = (this.isSetAssociatedLevels()?this.getAssociatedLevels():null);
+            List<AirspaceLayerPropertyType> rhsField;
+            rhsField = (that.isSetAssociatedLevels()?that.getAssociatedLevels():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedLevels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedLevels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClassification();
+            boolean rhsFieldIsSet = that.isSetClassification();
+            JAXBElement<CodeAirspaceClassificationType> lhsField;
+            lhsField = this.getClassification();
+            JAXBElement<CodeAirspaceClassificationType> rhsField;
+            rhsField = that.getClassification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classification", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

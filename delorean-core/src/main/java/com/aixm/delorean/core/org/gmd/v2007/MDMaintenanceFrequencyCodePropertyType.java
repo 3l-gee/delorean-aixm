@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_MaintenanceFrequencyCode_PropertyType", propOrder = {
     "mdMaintenanceFrequencyCode"
 })
-public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode, ToString
+public class MDMaintenanceFrequencyCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_MaintenanceFrequencyCode")
     protected CodeListValueType mdMaintenanceFrequencyCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode,
         this.mdMaintenanceFrequencyCode = value;
     }
 
+    public boolean isSetMDMaintenanceFrequencyCode() {
+        return (this.mdMaintenanceFrequencyCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode,
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode,
         }
         final MDMaintenanceFrequencyCodePropertyType that = ((MDMaintenanceFrequencyCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.mdMaintenanceFrequencyCode!= null);
-            boolean rhsFieldIsSet = (that.mdMaintenanceFrequencyCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDMaintenanceFrequencyCode();
+            boolean rhsFieldIsSet = that.isSetMDMaintenanceFrequencyCode();
             CodeListValueType lhsField;
             lhsField = this.getMDMaintenanceFrequencyCode();
             CodeListValueType rhsField;
             rhsField = that.getMDMaintenanceFrequencyCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdMaintenanceFrequencyCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdMaintenanceFrequencyCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode,
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdMaintenanceFrequencyCode!= null);
+            boolean theFieldIsSet = this.isSetMDMaintenanceFrequencyCode();
             CodeListValueType theField;
             theField = this.getMDMaintenanceFrequencyCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdMaintenanceFrequencyCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDMaintenanceFrequencyCodePropertyType implements Equals, HashCode,
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdMaintenanceFrequencyCode!= null);
+            boolean theFieldIsSet = this.isSetMDMaintenanceFrequencyCode();
             CodeListValueType theField;
             theField = this.getMDMaintenanceFrequencyCode();
             strategy.appendField(locator, this, "mdMaintenanceFrequencyCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

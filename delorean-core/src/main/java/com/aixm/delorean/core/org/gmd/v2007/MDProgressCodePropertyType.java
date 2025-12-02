@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_ProgressCode_PropertyType", propOrder = {
     "mdProgressCode"
 })
-public class MDProgressCodePropertyType implements Equals, HashCode, ToString
+public class MDProgressCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_ProgressCode")
     protected CodeListValueType mdProgressCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDProgressCodePropertyType implements Equals, HashCode, ToString
         this.mdProgressCode = value;
     }
 
+    public boolean isSetMDProgressCode() {
+        return (this.mdProgressCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDProgressCodePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class MDProgressCodePropertyType implements Equals, HashCode, ToString
         }
         final MDProgressCodePropertyType that = ((MDProgressCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdProgressCode!= null);
-            boolean rhsFieldIsSet = (that.mdProgressCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getMDProgressCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDProgressCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdProgressCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdProgressCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDProgressCode();
+            boolean rhsFieldIsSet = that.isSetMDProgressCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDProgressCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDProgressCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdProgressCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdProgressCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class MDProgressCodePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdProgressCode!= null);
+            boolean theFieldIsSet = this.isSetMDProgressCode();
             CodeListValueType theField;
             theField = this.getMDProgressCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdProgressCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDProgressCodePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdProgressCode!= null);
+            boolean theFieldIsSet = this.isSetMDProgressCode();
             CodeListValueType theField;
             theField = this.getMDProgressCode();
             strategy.appendField(locator, this, "mdProgressCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

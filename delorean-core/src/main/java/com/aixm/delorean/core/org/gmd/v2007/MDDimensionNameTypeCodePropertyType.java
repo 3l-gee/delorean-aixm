@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_DimensionNameTypeCode_PropertyType", propOrder = {
     "mdDimensionNameTypeCode"
 })
-public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, ToString
+public class MDDimensionNameTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_DimensionNameTypeCode")
     protected CodeListValueType mdDimensionNameTypeCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
         this.mdDimensionNameTypeCode = value;
     }
 
+    public boolean isSetMDDimensionNameTypeCode() {
+        return (this.mdDimensionNameTypeCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,8 +133,8 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
         }
         final MDDimensionNameTypeCodePropertyType that = ((MDDimensionNameTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdDimensionNameTypeCode!= null);
-            boolean rhsFieldIsSet = (that.mdDimensionNameTypeCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDDimensionNameTypeCode();
+            boolean rhsFieldIsSet = that.isSetMDDimensionNameTypeCode();
             CodeListValueType lhsField;
             lhsField = this.getMDDimensionNameTypeCode();
             CodeListValueType rhsField;
@@ -136,8 +146,8 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -165,14 +175,14 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdDimensionNameTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDDimensionNameTypeCode();
             CodeListValueType theField;
             theField = this.getMDDimensionNameTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdDimensionNameTypeCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDDimensionNameTypeCodePropertyType implements Equals, HashCode, To
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdDimensionNameTypeCode!= null);
+            boolean theFieldIsSet = this.isSetMDDimensionNameTypeCode();
             CodeListValueType theField;
             theField = this.getMDDimensionNameTypeCode();
             strategy.appendField(locator, this, "mdDimensionNameTypeCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

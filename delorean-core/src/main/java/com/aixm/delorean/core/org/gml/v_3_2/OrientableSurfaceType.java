@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class OrientableSurfaceType
     extends AbstractSurfaceType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The property baseSurface references or contains the base surface. The property baseSurface either references the base surface via the XLink-attributes or contains the surface element. A surface element is any element which is substitutable for gml:AbstractSurface. The base surface has positive orientation.
      * 
@@ -48,7 +51,7 @@ public class OrientableSurfaceType
     @XmlElement(required = true)
     protected SurfacePropertyType baseSurface;
     @XmlAttribute(name = "orientation")
-    protected String orientation;
+    protected SignType orientation;
 
     /**
      * The property baseSurface references or contains the base surface. The property baseSurface either references the base surface via the XLink-attributes or contains the surface element. A surface element is any element which is substitutable for gml:AbstractSurface. The base surface has positive orientation.
@@ -75,17 +78,21 @@ public class OrientableSurfaceType
         this.baseSurface = value;
     }
 
+    public boolean isSetBaseSurface() {
+        return (this.baseSurface!= null);
+    }
+
     /**
      * Gets the value of the orientation property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link SignType }
      *     
      */
-    public String getOrientation() {
+    public SignType getOrientation() {
         if (orientation == null) {
-            return "+";
+            return SignType.VALUE_2;
         } else {
             return orientation;
         }
@@ -96,11 +103,15 @@ public class OrientableSurfaceType
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link SignType }
      *     
      */
-    public void setOrientation(String value) {
+    public void setOrientation(SignType value) {
         this.orientation = value;
+    }
+
+    public boolean isSetOrientation() {
+        return (this.orientation!= null);
     }
 
     @Override
@@ -116,8 +127,8 @@ public class OrientableSurfaceType
         }
         final OrientableSurfaceType that = ((OrientableSurfaceType) object);
         {
-            boolean lhsFieldIsSet = (this.baseSurface!= null);
-            boolean rhsFieldIsSet = (that.baseSurface!= null);
+            boolean lhsFieldIsSet = this.isSetBaseSurface();
+            boolean rhsFieldIsSet = that.isSetBaseSurface();
             SurfacePropertyType lhsField;
             lhsField = this.getBaseSurface();
             SurfacePropertyType rhsField;
@@ -129,11 +140,11 @@ public class OrientableSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.orientation!= null);
-            boolean rhsFieldIsSet = (that.orientation!= null);
-            String lhsField;
+            boolean lhsFieldIsSet = this.isSetOrientation();
+            boolean rhsFieldIsSet = that.isSetOrientation();
+            SignType lhsField;
             lhsField = this.getOrientation();
-            String rhsField;
+            SignType rhsField;
             rhsField = that.getOrientation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
@@ -148,15 +159,15 @@ public class OrientableSurfaceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.baseSurface!= null);
+            boolean theFieldIsSet = this.isSetBaseSurface();
             SurfacePropertyType theField;
             theField = this.getBaseSurface();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "baseSurface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.orientation!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrientation();
+            SignType theField;
             theField = this.getOrientation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "orientation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
@@ -168,14 +179,14 @@ public class OrientableSurfaceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.baseSurface!= null);
+            boolean theFieldIsSet = this.isSetBaseSurface();
             SurfacePropertyType theField;
             theField = this.getBaseSurface();
             strategy.appendField(locator, this, "baseSurface", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.orientation!= null);
-            String theField;
+            boolean theFieldIsSet = this.isSetOrientation();
+            SignType theField;
             theField = this.getOrientation();
             strategy.appendField(locator, this, "orientation", buffer, theField, theFieldIsSet);
         }

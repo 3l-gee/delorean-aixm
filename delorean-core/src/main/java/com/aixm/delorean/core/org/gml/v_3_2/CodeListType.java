@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CodeListType", propOrder = {
     "value"
 })
-public class CodeListType implements Equals, HashCode, ToString
+public class CodeListType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected List<String> value;
     @XmlAttribute(name = "codeSpace")
@@ -92,6 +94,14 @@ public class CodeListType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
+    }
+
     /**
      * Gets the value of the codeSpace property.
      * 
@@ -116,6 +126,10 @@ public class CodeListType implements Equals, HashCode, ToString
         this.codeSpace = value;
     }
 
+    public boolean isSetCodeSpace() {
+        return (this.codeSpace!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -138,8 +152,8 @@ public class CodeListType implements Equals, HashCode, ToString
         }
         final CodeListType that = ((CodeListType) object);
         {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
             String lhsField;
             lhsField = this.getCodeSpace();
             String rhsField;
@@ -151,12 +165,12 @@ public class CodeListType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             List<String> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            lhsField = (this.isSetValue()?this.getValue():null);
             List<String> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
+            rhsField = (that.isSetValue()?that.getValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -180,14 +194,14 @@ public class CodeListType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "codeSpace", theField);
@@ -219,13 +233,13 @@ public class CodeListType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             strategy.appendField(locator, this, "codeSpace", buffer, theField, theFieldIsSet);

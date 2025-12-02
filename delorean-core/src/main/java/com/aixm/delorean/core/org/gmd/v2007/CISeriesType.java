@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CISeriesType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType name;
     protected CharacterStringPropertyType issueIdentification;
     protected CharacterStringPropertyType page;
@@ -72,6 +75,10 @@ public class CISeriesType
         this.name = value;
     }
 
+    public boolean isSetName() {
+        return (this.name!= null);
+    }
+
     /**
      * Gets the value of the issueIdentification property.
      * 
@@ -94,6 +101,10 @@ public class CISeriesType
      */
     public void setIssueIdentification(CharacterStringPropertyType value) {
         this.issueIdentification = value;
+    }
+
+    public boolean isSetIssueIdentification() {
+        return (this.issueIdentification!= null);
     }
 
     /**
@@ -120,6 +131,10 @@ public class CISeriesType
         this.page = value;
     }
 
+    public boolean isSetPage() {
+        return (this.page!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -133,8 +148,8 @@ public class CISeriesType
         }
         final CISeriesType that = ((CISeriesType) object);
         {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
             lhsField = this.getName();
             CharacterStringPropertyType rhsField;
@@ -146,8 +161,8 @@ public class CISeriesType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.issueIdentification!= null);
-            boolean rhsFieldIsSet = (that.issueIdentification!= null);
+            boolean lhsFieldIsSet = this.isSetIssueIdentification();
+            boolean rhsFieldIsSet = that.isSetIssueIdentification();
             CharacterStringPropertyType lhsField;
             lhsField = this.getIssueIdentification();
             CharacterStringPropertyType rhsField;
@@ -159,8 +174,8 @@ public class CISeriesType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.page!= null);
-            boolean rhsFieldIsSet = (that.page!= null);
+            boolean lhsFieldIsSet = this.isSetPage();
+            boolean rhsFieldIsSet = that.isSetPage();
             CharacterStringPropertyType lhsField;
             lhsField = this.getPage();
             CharacterStringPropertyType rhsField;
@@ -178,21 +193,21 @@ public class CISeriesType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             CharacterStringPropertyType theField;
             theField = this.getName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "name", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.issueIdentification!= null);
+            boolean theFieldIsSet = this.isSetIssueIdentification();
             CharacterStringPropertyType theField;
             theField = this.getIssueIdentification();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "issueIdentification", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.page!= null);
+            boolean theFieldIsSet = this.isSetPage();
             CharacterStringPropertyType theField;
             theField = this.getPage();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "page", theField);
@@ -205,19 +220,19 @@ public class CISeriesType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             CharacterStringPropertyType theField;
             theField = this.getName();
             strategy.appendField(locator, this, "name", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.issueIdentification!= null);
+            boolean theFieldIsSet = this.isSetIssueIdentification();
             CharacterStringPropertyType theField;
             theField = this.getIssueIdentification();
             strategy.appendField(locator, this, "issueIdentification", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.page!= null);
+            boolean theFieldIsSet = this.isSetPage();
             CharacterStringPropertyType theField;
             theField = this.getPage();
             strategy.appendField(locator, this, "page", buffer, theField, theFieldIsSet);

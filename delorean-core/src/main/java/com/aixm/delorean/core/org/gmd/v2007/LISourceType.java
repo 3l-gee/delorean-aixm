@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -50,8 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class LISourceType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType description;
     protected MDRepresentativeFractionPropertyType scaleDenominator;
     protected MDReferenceSystemPropertyType sourceReferenceSystem;
@@ -83,6 +86,10 @@ public class LISourceType
         this.description = value;
     }
 
+    public boolean isSetDescription() {
+        return (this.description!= null);
+    }
+
     /**
      * Gets the value of the scaleDenominator property.
      * 
@@ -105,6 +112,10 @@ public class LISourceType
      */
     public void setScaleDenominator(MDRepresentativeFractionPropertyType value) {
         this.scaleDenominator = value;
+    }
+
+    public boolean isSetScaleDenominator() {
+        return (this.scaleDenominator!= null);
     }
 
     /**
@@ -131,6 +142,10 @@ public class LISourceType
         this.sourceReferenceSystem = value;
     }
 
+    public boolean isSetSourceReferenceSystem() {
+        return (this.sourceReferenceSystem!= null);
+    }
+
     /**
      * Gets the value of the sourceCitation property.
      * 
@@ -153,6 +168,10 @@ public class LISourceType
      */
     public void setSourceCitation(CICitationPropertyType value) {
         this.sourceCitation = value;
+    }
+
+    public boolean isSetSourceCitation() {
+        return (this.sourceCitation!= null);
     }
 
     /**
@@ -192,6 +211,14 @@ public class LISourceType
         this.sourceExtent = sourceExtent;
     }
 
+    public boolean isSetSourceExtent() {
+        return ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
+    }
+
+    public void unsetSourceExtent() {
+        this.sourceExtent = null;
+    }
+
     /**
      * Gets the value of the sourceStep property.
      * 
@@ -229,6 +256,14 @@ public class LISourceType
         this.sourceStep = sourceStep;
     }
 
+    public boolean isSetSourceStep() {
+        return ((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()));
+    }
+
+    public void unsetSourceStep() {
+        this.sourceStep = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -242,21 +277,21 @@ public class LISourceType
         }
         final LISourceType that = ((LISourceType) object);
         {
-            boolean lhsFieldIsSet = ((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.sourceStep!= null)&&(!that.sourceStep.isEmpty()));
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()))?this.getSourceStep():null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (((that.sourceStep!= null)&&(!that.sourceStep.isEmpty()))?that.getSourceStep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
+            boolean lhsFieldIsSet = this.isSetSourceExtent();
+            boolean rhsFieldIsSet = that.isSetSourceExtent();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetSourceExtent()?this.getSourceExtent():null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetSourceExtent()?that.getSourceExtent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.description!= null);
-            boolean rhsFieldIsSet = (that.description!= null);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDescription();
             CharacterStringPropertyType rhsField;
@@ -268,8 +303,21 @@ public class LISourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.sourceReferenceSystem!= null);
-            boolean rhsFieldIsSet = (that.sourceReferenceSystem!= null);
+            boolean lhsFieldIsSet = this.isSetScaleDenominator();
+            boolean rhsFieldIsSet = that.isSetScaleDenominator();
+            MDRepresentativeFractionPropertyType lhsField;
+            lhsField = this.getScaleDenominator();
+            MDRepresentativeFractionPropertyType rhsField;
+            rhsField = that.getScaleDenominator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSourceReferenceSystem();
+            boolean rhsFieldIsSet = that.isSetSourceReferenceSystem();
             MDReferenceSystemPropertyType lhsField;
             lhsField = this.getSourceReferenceSystem();
             MDReferenceSystemPropertyType rhsField;
@@ -281,40 +329,27 @@ public class LISourceType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.sourceCitation!= null);
-            boolean rhsFieldIsSet = (that.sourceCitation!= null);
+            boolean lhsFieldIsSet = this.isSetSourceStep();
+            boolean rhsFieldIsSet = that.isSetSourceStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetSourceStep()?this.getSourceStep():null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetSourceStep()?that.getSourceStep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceStep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSourceCitation();
+            boolean rhsFieldIsSet = that.isSetSourceCitation();
             CICitationPropertyType lhsField;
             lhsField = this.getSourceCitation();
             CICitationPropertyType rhsField;
             rhsField = that.getSourceCitation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceCitation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceCitation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
-            boolean rhsFieldIsSet = ((that.sourceExtent!= null)&&(!that.sourceExtent.isEmpty()));
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()))?this.getSourceExtent():null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (((that.sourceExtent!= null)&&(!that.sourceExtent.isEmpty()))?that.getSourceExtent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sourceExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sourceExtent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.scaleDenominator!= null);
-            boolean rhsFieldIsSet = (that.scaleDenominator!= null);
-            MDRepresentativeFractionPropertyType lhsField;
-            lhsField = this.getScaleDenominator();
-            MDRepresentativeFractionPropertyType rhsField;
-            rhsField = that.getScaleDenominator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleDenominator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleDenominator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -326,44 +361,44 @@ public class LISourceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "description", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.scaleDenominator!= null);
+            boolean theFieldIsSet = this.isSetScaleDenominator();
             MDRepresentativeFractionPropertyType theField;
             theField = this.getScaleDenominator();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "scaleDenominator", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sourceReferenceSystem!= null);
+            boolean theFieldIsSet = this.isSetSourceReferenceSystem();
             MDReferenceSystemPropertyType theField;
             theField = this.getSourceReferenceSystem();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceReferenceSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sourceCitation!= null);
+            boolean theFieldIsSet = this.isSetSourceCitation();
             CICitationPropertyType theField;
             theField = this.getSourceCitation();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceCitation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
+            boolean theFieldIsSet = this.isSetSourceExtent();
             List<EXExtentPropertyType> theField;
-            theField = (((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()))?this.getSourceExtent():null);
+            theField = (this.isSetSourceExtent()?this.getSourceExtent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceExtent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()));
+            boolean theFieldIsSet = this.isSetSourceStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()))?this.getSourceStep():null);
+            theField = (this.isSetSourceStep()?this.getSourceStep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sourceStep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -374,39 +409,39 @@ public class LISourceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             strategy.appendField(locator, this, "description", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.scaleDenominator!= null);
+            boolean theFieldIsSet = this.isSetScaleDenominator();
             MDRepresentativeFractionPropertyType theField;
             theField = this.getScaleDenominator();
             strategy.appendField(locator, this, "scaleDenominator", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sourceReferenceSystem!= null);
+            boolean theFieldIsSet = this.isSetSourceReferenceSystem();
             MDReferenceSystemPropertyType theField;
             theField = this.getSourceReferenceSystem();
             strategy.appendField(locator, this, "sourceReferenceSystem", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.sourceCitation!= null);
+            boolean theFieldIsSet = this.isSetSourceCitation();
             CICitationPropertyType theField;
             theField = this.getSourceCitation();
             strategy.appendField(locator, this, "sourceCitation", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()));
+            boolean theFieldIsSet = this.isSetSourceExtent();
             List<EXExtentPropertyType> theField;
-            theField = (((this.sourceExtent!= null)&&(!this.sourceExtent.isEmpty()))?this.getSourceExtent():null);
+            theField = (this.isSetSourceExtent()?this.getSourceExtent():null);
             strategy.appendField(locator, this, "sourceExtent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()));
+            boolean theFieldIsSet = this.isSetSourceStep();
             List<LIProcessStepPropertyType> theField;
-            theField = (((this.sourceStep!= null)&&(!this.sourceStep.isEmpty()))?this.getSourceStep():null);
+            theField = (this.isSetSourceStep()?this.getSourceStep():null);
             strategy.appendField(locator, this, "sourceStep", buffer, theField, theFieldIsSet);
         }
         return buffer;

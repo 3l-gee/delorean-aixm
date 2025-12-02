@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -42,9 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "IndirectEntryType", propOrder = {
     "definitionProxy"
 })
-public class IndirectEntryType implements Equals, HashCode, ToString
+public class IndirectEntryType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DefinitionProxy", required = true)
     protected DefinitionProxyType definitionProxy;
 
@@ -72,6 +74,10 @@ public class IndirectEntryType implements Equals, HashCode, ToString
         this.definitionProxy = value;
     }
 
+    public boolean isSetDefinitionProxy() {
+        return (this.definitionProxy!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -94,8 +100,8 @@ public class IndirectEntryType implements Equals, HashCode, ToString
         }
         final IndirectEntryType that = ((IndirectEntryType) object);
         {
-            boolean lhsFieldIsSet = (this.definitionProxy!= null);
-            boolean rhsFieldIsSet = (that.definitionProxy!= null);
+            boolean lhsFieldIsSet = this.isSetDefinitionProxy();
+            boolean rhsFieldIsSet = that.isSetDefinitionProxy();
             DefinitionProxyType lhsField;
             lhsField = this.getDefinitionProxy();
             DefinitionProxyType rhsField;
@@ -123,7 +129,7 @@ public class IndirectEntryType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.definitionProxy!= null);
+            boolean theFieldIsSet = this.isSetDefinitionProxy();
             DefinitionProxyType theField;
             theField = this.getDefinitionProxy();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "definitionProxy", theField);
@@ -155,7 +161,7 @@ public class IndirectEntryType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.definitionProxy!= null);
+            boolean theFieldIsSet = this.isSetDefinitionProxy();
             DefinitionProxyType theField;
             theField = this.getDefinitionProxy();
             strategy.appendField(locator, this, "definitionProxy", buffer, theField, theFieldIsSet);

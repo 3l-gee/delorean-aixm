@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EllipsoidType
     extends IdentifiedObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:semiMajorAxis specifies the length of the semi-major axis of the ellipsoid, with its units. Uses the MeasureType with the restriction that the unit of measure referenced by uom must be suitable for a length, such as metres or feet.
      * 
@@ -81,6 +84,10 @@ public class EllipsoidType
         this.semiMajorAxis = value;
     }
 
+    public boolean isSetSemiMajorAxis() {
+        return (this.semiMajorAxis!= null);
+    }
+
     /**
      * gml:secondDefiningParameter is a property containing the definition of the second parameter that defines the shape of an ellipsoid. An ellipsoid requires two defining parameters: semi-major axis and inverse flattening or semi-major axis and semi-minor axis. When the reference body is a sphere rather than an ellipsoid, only a single defining parameter is required, namely the radius of the sphere; in that case, the semi-major axis "degenerates" into the radius of the sphere.
      * The inverseFlattening element contains the inverse flattening value of the ellipsoid. This value is a scale factor (or ratio). It uses gml:LengthType with the restriction that the unit of measure referenced by the uom attribute must be suitable for a scale factor, such as percent, permil, or parts-per-million.
@@ -108,6 +115,10 @@ public class EllipsoidType
         this.secondDefiningParameterPropertyElement = value;
     }
 
+    public boolean isSetSecondDefiningParameterPropertyElement() {
+        return (this.secondDefiningParameterPropertyElement!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -121,8 +132,8 @@ public class EllipsoidType
         }
         final EllipsoidType that = ((EllipsoidType) object);
         {
-            boolean lhsFieldIsSet = (this.semiMajorAxis!= null);
-            boolean rhsFieldIsSet = (that.semiMajorAxis!= null);
+            boolean lhsFieldIsSet = this.isSetSemiMajorAxis();
+            boolean rhsFieldIsSet = that.isSetSemiMajorAxis();
             MeasureType lhsField;
             lhsField = this.getSemiMajorAxis();
             MeasureType rhsField;
@@ -134,8 +145,8 @@ public class EllipsoidType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.secondDefiningParameterPropertyElement!= null);
-            boolean rhsFieldIsSet = (that.secondDefiningParameterPropertyElement!= null);
+            boolean lhsFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
+            boolean rhsFieldIsSet = that.isSetSecondDefiningParameterPropertyElement();
             SecondDefiningParameterPropertyElement lhsField;
             lhsField = this.getSecondDefiningParameterPropertyElement();
             SecondDefiningParameterPropertyElement rhsField;
@@ -153,14 +164,14 @@ public class EllipsoidType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.semiMajorAxis!= null);
+            boolean theFieldIsSet = this.isSetSemiMajorAxis();
             MeasureType theField;
             theField = this.getSemiMajorAxis();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "semiMajorAxis", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.secondDefiningParameterPropertyElement!= null);
+            boolean theFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
             SecondDefiningParameterPropertyElement theField;
             theField = this.getSecondDefiningParameterPropertyElement();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "secondDefiningParameterPropertyElement", theField);
@@ -173,13 +184,13 @@ public class EllipsoidType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.semiMajorAxis!= null);
+            boolean theFieldIsSet = this.isSetSemiMajorAxis();
             MeasureType theField;
             theField = this.getSemiMajorAxis();
             strategy.appendField(locator, this, "semiMajorAxis", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.secondDefiningParameterPropertyElement!= null);
+            boolean theFieldIsSet = this.isSetSecondDefiningParameterPropertyElement();
             SecondDefiningParameterPropertyElement theField;
             theField = this.getSecondDefiningParameterPropertyElement();
             strategy.appendField(locator, this, "secondDefiningParameterPropertyElement", buffer, theField, theFieldIsSet);

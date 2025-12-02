@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CompositeCurveType
     extends AbstractCurveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<CurvePropertyType> curveMember;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class CompositeCurveType
         this.curveMember = curveMember;
     }
 
+    public boolean isSetCurveMember() {
+        return ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+    }
+
+    public void unsetCurveMember() {
+        this.curveMember = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class CompositeCurveType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,12 +137,12 @@ public class CompositeCurveType
         }
         final CompositeCurveType that = ((CompositeCurveType) object);
         {
-            boolean lhsFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.curveMember!= null)&&(!that.curveMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetCurveMember();
+            boolean rhsFieldIsSet = that.isSetCurveMember();
             List<CurvePropertyType> lhsField;
-            lhsField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
+            lhsField = (this.isSetCurveMember()?this.getCurveMember():null);
             List<CurvePropertyType> rhsField;
-            rhsField = (((that.curveMember!= null)&&(!that.curveMember.isEmpty()))?that.getCurveMember():null);
+            rhsField = (that.isSetCurveMember()?that.getCurveMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -135,8 +150,8 @@ public class CompositeCurveType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -154,14 +169,14 @@ public class CompositeCurveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
+            theField = (this.isSetCurveMember()?this.getCurveMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curveMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class CompositeCurveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (((this.curveMember!= null)&&(!this.curveMember.isEmpty()))?this.getCurveMember():null);
+            theField = (this.isSetCurveMember()?this.getCurveMember():null);
             strategy.appendField(locator, this, "curveMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

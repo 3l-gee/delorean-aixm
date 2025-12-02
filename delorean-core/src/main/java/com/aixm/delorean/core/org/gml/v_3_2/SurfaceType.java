@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class SurfaceType
     extends AbstractSurfaceType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The patches property element contains the sequence of surface patches. The order of the elements is significant and shall be preserved when processing the array.
      * 
@@ -80,6 +83,10 @@ public class SurfaceType
         this.patches = value;
     }
 
+    public boolean isSetPatches() {
+        return (this.patches!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -93,8 +100,8 @@ public class SurfaceType
         }
         final SurfaceType that = ((SurfaceType) object);
         {
-            boolean lhsFieldIsSet = (this.patches!= null);
-            boolean rhsFieldIsSet = (that.patches!= null);
+            boolean lhsFieldIsSet = this.isSetPatches();
+            boolean rhsFieldIsSet = that.isSetPatches();
             JAXBElement<SurfacePatchArrayPropertyType> lhsField;
             lhsField = this.getPatches();
             JAXBElement<SurfacePatchArrayPropertyType> rhsField;
@@ -112,7 +119,7 @@ public class SurfaceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.patches!= null);
+            boolean theFieldIsSet = this.isSetPatches();
             JAXBElement<SurfacePatchArrayPropertyType> theField;
             theField = this.getPatches();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "patches", theField);
@@ -125,7 +132,7 @@ public class SurfaceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.patches!= null);
+            boolean theFieldIsSet = this.isSetPatches();
             JAXBElement<SurfacePatchArrayPropertyType> theField;
             theField = this.getPatches();
             strategy.appendField(locator, this, "patches", buffer, theField, theFieldIsSet);

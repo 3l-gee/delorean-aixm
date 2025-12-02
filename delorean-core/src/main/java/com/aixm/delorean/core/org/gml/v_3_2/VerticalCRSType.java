@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -40,8 +41,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class VerticalCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:verticalCS is an association role to the vertical coordinate system used by this CRS.
      * 
@@ -82,6 +85,10 @@ public class VerticalCRSType
         this.verticalCS = value;
     }
 
+    public boolean isSetVerticalCS() {
+        return (this.verticalCS!= null);
+    }
+
     /**
      * gml:verticalDatum is an association role to the vertical datum used by this CRS.
      * 
@@ -109,6 +116,10 @@ public class VerticalCRSType
         this.verticalDatum = value;
     }
 
+    public boolean isSetVerticalDatum() {
+        return (this.verticalDatum!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +133,27 @@ public class VerticalCRSType
         }
         final VerticalCRSType that = ((VerticalCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.verticalDatum!= null);
-            boolean rhsFieldIsSet = (that.verticalDatum!= null);
-            JAXBElement<VerticalDatumPropertyType> lhsField;
-            lhsField = this.getVerticalDatum();
-            JAXBElement<VerticalDatumPropertyType> rhsField;
-            rhsField = that.getVerticalDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.verticalCS!= null);
-            boolean rhsFieldIsSet = (that.verticalCS!= null);
+            boolean lhsFieldIsSet = this.isSetVerticalCS();
+            boolean rhsFieldIsSet = that.isSetVerticalCS();
             JAXBElement<VerticalCSPropertyType> lhsField;
             lhsField = this.getVerticalCS();
             JAXBElement<VerticalCSPropertyType> rhsField;
             rhsField = that.getVerticalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVerticalDatum();
+            boolean rhsFieldIsSet = that.isSetVerticalDatum();
+            JAXBElement<VerticalDatumPropertyType> lhsField;
+            lhsField = this.getVerticalDatum();
+            JAXBElement<VerticalDatumPropertyType> rhsField;
+            rhsField = that.getVerticalDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,14 +165,14 @@ public class VerticalCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.verticalCS!= null);
+            boolean theFieldIsSet = this.isSetVerticalCS();
             JAXBElement<VerticalCSPropertyType> theField;
             theField = this.getVerticalCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "verticalCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.verticalDatum!= null);
+            boolean theFieldIsSet = this.isSetVerticalDatum();
             JAXBElement<VerticalDatumPropertyType> theField;
             theField = this.getVerticalDatum();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "verticalDatum", theField);
@@ -174,13 +185,13 @@ public class VerticalCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.verticalCS!= null);
+            boolean theFieldIsSet = this.isSetVerticalCS();
             JAXBElement<VerticalCSPropertyType> theField;
             theField = this.getVerticalCS();
             strategy.appendField(locator, this, "verticalCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.verticalDatum!= null);
+            boolean theFieldIsSet = this.isSetVerticalDatum();
             JAXBElement<VerticalDatumPropertyType> theField;
             theField = this.getVerticalDatum();
             strategy.appendField(locator, this, "verticalDatum", buffer, theField, theFieldIsSet);

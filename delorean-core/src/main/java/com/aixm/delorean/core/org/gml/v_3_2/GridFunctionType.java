@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "sequenceRule",
     "startPoint"
 })
-public class GridFunctionType implements Equals, HashCode, ToString
+public class GridFunctionType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected SequenceRuleType sequenceRule;
     @XmlList
     protected List<BigInteger> startPoint;
@@ -76,6 +78,10 @@ public class GridFunctionType implements Equals, HashCode, ToString
      */
     public void setSequenceRule(SequenceRuleType value) {
         this.sequenceRule = value;
+    }
+
+    public boolean isSetSequenceRule() {
+        return (this.sequenceRule!= null);
     }
 
     /**
@@ -115,6 +121,14 @@ public class GridFunctionType implements Equals, HashCode, ToString
         this.startPoint = startPoint;
     }
 
+    public boolean isSetStartPoint() {
+        return ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
+    }
+
+    public void unsetStartPoint() {
+        this.startPoint = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -137,27 +151,27 @@ public class GridFunctionType implements Equals, HashCode, ToString
         }
         final GridFunctionType that = ((GridFunctionType) object);
         {
-            boolean lhsFieldIsSet = (this.sequenceRule!= null);
-            boolean rhsFieldIsSet = (that.sequenceRule!= null);
+            boolean lhsFieldIsSet = this.isSetStartPoint();
+            boolean rhsFieldIsSet = that.isSetStartPoint();
+            List<BigInteger> lhsField;
+            lhsField = (this.isSetStartPoint()?this.getStartPoint():null);
+            List<BigInteger> rhsField;
+            rhsField = (that.isSetStartPoint()?that.getStartPoint():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSequenceRule();
+            boolean rhsFieldIsSet = that.isSetSequenceRule();
             SequenceRuleType lhsField;
             lhsField = this.getSequenceRule();
             SequenceRuleType rhsField;
             rhsField = that.getSequenceRule();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sequenceRule", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sequenceRule", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
-            boolean rhsFieldIsSet = ((that.startPoint!= null)&&(!that.startPoint.isEmpty()));
-            List<BigInteger> lhsField;
-            lhsField = (((this.startPoint!= null)&&(!this.startPoint.isEmpty()))?this.getStartPoint():null);
-            List<BigInteger> rhsField;
-            rhsField = (((that.startPoint!= null)&&(!that.startPoint.isEmpty()))?that.getStartPoint():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -179,16 +193,16 @@ public class GridFunctionType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.sequenceRule!= null);
+            boolean theFieldIsSet = this.isSetSequenceRule();
             SequenceRuleType theField;
             theField = this.getSequenceRule();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "sequenceRule", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
+            boolean theFieldIsSet = this.isSetStartPoint();
             List<BigInteger> theField;
-            theField = (((this.startPoint!= null)&&(!this.startPoint.isEmpty()))?this.getStartPoint():null);
+            theField = (this.isSetStartPoint()?this.getStartPoint():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "startPoint", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -218,15 +232,15 @@ public class GridFunctionType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.sequenceRule!= null);
+            boolean theFieldIsSet = this.isSetSequenceRule();
             SequenceRuleType theField;
             theField = this.getSequenceRule();
             strategy.appendField(locator, this, "sequenceRule", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.startPoint!= null)&&(!this.startPoint.isEmpty()));
+            boolean theFieldIsSet = this.isSetStartPoint();
             List<BigInteger> theField;
-            theField = (((this.startPoint!= null)&&(!this.startPoint.isEmpty()))?this.getStartPoint():null);
+            theField = (this.isSetStartPoint()?this.getStartPoint():null);
             strategy.appendField(locator, this, "startPoint", buffer, theField, theFieldIsSet);
         }
         return buffer;

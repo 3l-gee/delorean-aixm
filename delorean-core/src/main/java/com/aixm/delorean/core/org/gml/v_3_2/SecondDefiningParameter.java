@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -48,9 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "isSphere"
 })
 @XmlRootElement(name = "SecondDefiningParameter")
-public class SecondDefiningParameter implements Equals, HashCode, ToString
+public class SecondDefiningParameter implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected MeasureType inverseFlattening;
     protected LengthType semiMinorAxis;
     @XmlElement(defaultValue = "true")
@@ -80,6 +82,10 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
         this.inverseFlattening = value;
     }
 
+    public boolean isSetInverseFlattening() {
+        return (this.inverseFlattening!= null);
+    }
+
     /**
      * Gets the value of the semiMinorAxis property.
      * 
@@ -102,6 +108,10 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
      */
     public void setSemiMinorAxis(LengthType value) {
         this.semiMinorAxis = value;
+    }
+
+    public boolean isSetSemiMinorAxis() {
+        return (this.semiMinorAxis!= null);
     }
 
     /**
@@ -128,6 +138,10 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
         this.isSphere = value;
     }
 
+    public boolean isSetIsSphere() {
+        return (this.isSphere!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -150,21 +164,8 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
         }
         final SecondDefiningParameter that = ((SecondDefiningParameter) object);
         {
-            boolean lhsFieldIsSet = (this.isSphere!= null);
-            boolean rhsFieldIsSet = (that.isSphere!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getIsSphere();
-            java.lang.Boolean rhsField;
-            rhsField = that.getIsSphere();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.inverseFlattening!= null);
-            boolean rhsFieldIsSet = (that.inverseFlattening!= null);
+            boolean lhsFieldIsSet = this.isSetInverseFlattening();
+            boolean rhsFieldIsSet = that.isSetInverseFlattening();
             MeasureType lhsField;
             lhsField = this.getInverseFlattening();
             MeasureType rhsField;
@@ -176,14 +177,27 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.semiMinorAxis!= null);
-            boolean rhsFieldIsSet = (that.semiMinorAxis!= null);
+            boolean lhsFieldIsSet = this.isSetSemiMinorAxis();
+            boolean rhsFieldIsSet = that.isSetSemiMinorAxis();
             LengthType lhsField;
             lhsField = this.getSemiMinorAxis();
             LengthType rhsField;
             rhsField = that.getSemiMinorAxis();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIsSphere();
+            boolean rhsFieldIsSet = that.isSetIsSphere();
+            java.lang.Boolean lhsField;
+            lhsField = this.getIsSphere();
+            java.lang.Boolean rhsField;
+            rhsField = that.getIsSphere();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isSphere", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isSphere", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -205,21 +219,21 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.inverseFlattening!= null);
+            boolean theFieldIsSet = this.isSetInverseFlattening();
             MeasureType theField;
             theField = this.getInverseFlattening();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "inverseFlattening", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.semiMinorAxis!= null);
+            boolean theFieldIsSet = this.isSetSemiMinorAxis();
             LengthType theField;
             theField = this.getSemiMinorAxis();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "semiMinorAxis", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isSphere!= null);
+            boolean theFieldIsSet = this.isSetIsSphere();
             java.lang.Boolean theField;
             theField = this.getIsSphere();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isSphere", theField);
@@ -251,19 +265,19 @@ public class SecondDefiningParameter implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.inverseFlattening!= null);
+            boolean theFieldIsSet = this.isSetInverseFlattening();
             MeasureType theField;
             theField = this.getInverseFlattening();
             strategy.appendField(locator, this, "inverseFlattening", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.semiMinorAxis!= null);
+            boolean theFieldIsSet = this.isSetSemiMinorAxis();
             LengthType theField;
             theField = this.getSemiMinorAxis();
             strategy.appendField(locator, this, "semiMinorAxis", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isSphere!= null);
+            boolean theFieldIsSet = this.isSetIsSphere();
             java.lang.Boolean theField;
             theField = this.getIsSphere();
             strategy.appendField(locator, this, "isSphere", buffer, theField, theFieldIsSet);

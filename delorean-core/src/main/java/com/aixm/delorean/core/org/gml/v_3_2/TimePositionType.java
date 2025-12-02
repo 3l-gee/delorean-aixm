@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.Basic;
@@ -16,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -69,9 +71,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 @Entity(name = "TimePositionType")
 @Table(name = "TIME_POSITION_TYPE")
-public class TimePositionType implements Equals, HashCode, ToString
+public class TimePositionType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected List<String> value;
     @XmlAttribute(name = "frame")
@@ -131,6 +134,15 @@ public class TimePositionType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    @Transient
+    public boolean isSetValue() {
+        return ((this.value!= null)&&(!this.value.isEmpty()));
+    }
+
+    public void unsetValue() {
+        this.value = null;
+    }
+
     /**
      * Gets the value of the frame property.
      * 
@@ -161,6 +173,11 @@ public class TimePositionType implements Equals, HashCode, ToString
         this.frame = value;
     }
 
+    @Transient
+    public boolean isSetFrame() {
+        return (this.frame!= null);
+    }
+
     /**
      * Gets the value of the calendarEraName property.
      * 
@@ -185,6 +202,11 @@ public class TimePositionType implements Equals, HashCode, ToString
      */
     public void setCalendarEraName(String value) {
         this.calendarEraName = value;
+    }
+
+    @Transient
+    public boolean isSetCalendarEraName() {
+        return (this.calendarEraName!= null);
     }
 
     /**
@@ -212,6 +234,11 @@ public class TimePositionType implements Equals, HashCode, ToString
      */
     public void setIndeterminatePosition(TimeIndeterminateValueType value) {
         this.indeterminatePosition = value;
+    }
+
+    @Transient
+    public boolean isSetIndeterminatePosition() {
+        return (this.indeterminatePosition!= null);
     }
 
     /**
@@ -263,8 +290,21 @@ public class TimePositionType implements Equals, HashCode, ToString
         }
         final TimePositionType that = ((TimePositionType) object);
         {
-            boolean lhsFieldIsSet = (this.indeterminatePosition!= null);
-            boolean rhsFieldIsSet = (that.indeterminatePosition!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<String> lhsField;
+            lhsField = (this.isSetValue()?this.getValue():null);
+            List<String> rhsField;
+            rhsField = (that.isSetValue()?that.getValue():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIndeterminatePosition();
+            boolean rhsFieldIsSet = that.isSetIndeterminatePosition();
             TimeIndeterminateValueType lhsField;
             lhsField = this.getIndeterminatePosition();
             TimeIndeterminateValueType rhsField;
@@ -276,8 +316,8 @@ public class TimePositionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.frame!= null);
-            boolean rhsFieldIsSet = (that.frame!= null);
+            boolean lhsFieldIsSet = this.isSetFrame();
+            boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
             lhsField = this.getFrame();
             String rhsField;
@@ -289,21 +329,8 @@ public class TimePositionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
-            boolean rhsFieldIsSet = ((that.value!= null)&&(!that.value.isEmpty()));
-            List<String> lhsField;
-            lhsField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
-            List<String> rhsField;
-            rhsField = (((that.value!= null)&&(!that.value.isEmpty()))?that.getValue():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.calendarEraName!= null);
-            boolean rhsFieldIsSet = (that.calendarEraName!= null);
+            boolean lhsFieldIsSet = this.isSetCalendarEraName();
+            boolean rhsFieldIsSet = that.isSetCalendarEraName();
             String lhsField;
             lhsField = this.getCalendarEraName();
             String rhsField;
@@ -331,28 +358,28 @@ public class TimePositionType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "frame", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.calendarEraName!= null);
+            boolean theFieldIsSet = this.isSetCalendarEraName();
             String theField;
             theField = this.getCalendarEraName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "calendarEraName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.indeterminatePosition!= null);
+            boolean theFieldIsSet = this.isSetIndeterminatePosition();
             TimeIndeterminateValueType theField;
             theField = this.getIndeterminatePosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "indeterminatePosition", theField);
@@ -384,25 +411,25 @@ public class TimePositionType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.value!= null)&&(!this.value.isEmpty()));
+            boolean theFieldIsSet = this.isSetValue();
             List<String> theField;
-            theField = (((this.value!= null)&&(!this.value.isEmpty()))?this.getValue():null);
+            theField = (this.isSetValue()?this.getValue():null);
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             strategy.appendField(locator, this, "frame", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.calendarEraName!= null);
+            boolean theFieldIsSet = this.isSetCalendarEraName();
             String theField;
             theField = this.getCalendarEraName();
             strategy.appendField(locator, this, "calendarEraName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.indeterminatePosition!= null);
+            boolean theFieldIsSet = this.isSetIndeterminatePosition();
             TimeIndeterminateValueType theField;
             theField = this.getIndeterminatePosition();
             strategy.appendField(locator, this, "indeterminatePosition", buffer, theField, theFieldIsSet);

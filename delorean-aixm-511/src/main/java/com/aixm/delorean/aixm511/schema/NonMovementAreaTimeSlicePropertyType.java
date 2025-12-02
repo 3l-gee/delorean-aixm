@@ -223,19 +223,6 @@ public class NonMovementAreaTimeSlicePropertyType implements Serializable, Equal
         }
         final NonMovementAreaTimeSlicePropertyType that = ((NonMovementAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNonMovementAreaTimeSlice();
-            boolean rhsFieldIsSet = that.isSetNonMovementAreaTimeSlice();
-            NonMovementAreaTimeSliceType lhsField;
-            lhsField = this.getNonMovementAreaTimeSlice();
-            NonMovementAreaTimeSliceType rhsField;
-            rhsField = that.getNonMovementAreaTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonMovementAreaTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonMovementAreaTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NonMovementAreaTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNonMovementAreaTimeSlice();
+            boolean rhsFieldIsSet = that.isSetNonMovementAreaTimeSlice();
+            NonMovementAreaTimeSliceType lhsField;
+            lhsField = this.getNonMovementAreaTimeSlice();
+            NonMovementAreaTimeSliceType rhsField;
+            rhsField = that.getNonMovementAreaTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonMovementAreaTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonMovementAreaTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

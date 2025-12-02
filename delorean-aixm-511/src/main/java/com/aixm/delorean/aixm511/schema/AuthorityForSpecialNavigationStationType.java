@@ -228,7 +228,7 @@ public class AuthorityForSpecialNavigationStationType
     @OneToMany(targetEntity = AuthorityForSpecialNavigationStationTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_AUTHORITY_FOR_SPEC_0")
     public List<AuthorityForSpecialNavigationStationTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDAggregateInformationType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CICitationPropertyType aggregateDataSetName;
     protected MDIdentifierPropertyType aggregateDataSetIdentifier;
     @XmlElement(required = true)
@@ -78,6 +81,10 @@ public class MDAggregateInformationType
         this.aggregateDataSetName = value;
     }
 
+    public boolean isSetAggregateDataSetName() {
+        return (this.aggregateDataSetName!= null);
+    }
+
     /**
      * Gets the value of the aggregateDataSetIdentifier property.
      * 
@@ -100,6 +107,10 @@ public class MDAggregateInformationType
      */
     public void setAggregateDataSetIdentifier(MDIdentifierPropertyType value) {
         this.aggregateDataSetIdentifier = value;
+    }
+
+    public boolean isSetAggregateDataSetIdentifier() {
+        return (this.aggregateDataSetIdentifier!= null);
     }
 
     /**
@@ -126,6 +137,10 @@ public class MDAggregateInformationType
         this.associationType = value;
     }
 
+    public boolean isSetAssociationType() {
+        return (this.associationType!= null);
+    }
+
     /**
      * Gets the value of the initiativeType property.
      * 
@@ -150,6 +165,10 @@ public class MDAggregateInformationType
         this.initiativeType = value;
     }
 
+    public boolean isSetInitiativeType() {
+        return (this.initiativeType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -163,8 +182,8 @@ public class MDAggregateInformationType
         }
         final MDAggregateInformationType that = ((MDAggregateInformationType) object);
         {
-            boolean lhsFieldIsSet = (this.associationType!= null);
-            boolean rhsFieldIsSet = (that.associationType!= null);
+            boolean lhsFieldIsSet = this.isSetAssociationType();
+            boolean rhsFieldIsSet = that.isSetAssociationType();
             DSAssociationTypeCodePropertyType lhsField;
             lhsField = this.getAssociationType();
             DSAssociationTypeCodePropertyType rhsField;
@@ -176,21 +195,8 @@ public class MDAggregateInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregateDataSetIdentifier!= null);
-            boolean rhsFieldIsSet = (that.aggregateDataSetIdentifier!= null);
-            MDIdentifierPropertyType lhsField;
-            lhsField = this.getAggregateDataSetIdentifier();
-            MDIdentifierPropertyType rhsField;
-            rhsField = that.getAggregateDataSetIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregateDataSetName!= null);
-            boolean rhsFieldIsSet = (that.aggregateDataSetName!= null);
+            boolean lhsFieldIsSet = this.isSetAggregateDataSetName();
+            boolean rhsFieldIsSet = that.isSetAggregateDataSetName();
             CICitationPropertyType lhsField;
             lhsField = this.getAggregateDataSetName();
             CICitationPropertyType rhsField;
@@ -202,8 +208,21 @@ public class MDAggregateInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.initiativeType!= null);
-            boolean rhsFieldIsSet = (that.initiativeType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregateDataSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetAggregateDataSetIdentifier();
+            MDIdentifierPropertyType lhsField;
+            lhsField = this.getAggregateDataSetIdentifier();
+            MDIdentifierPropertyType rhsField;
+            rhsField = that.getAggregateDataSetIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregateDataSetIdentifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregateDataSetIdentifier", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInitiativeType();
+            boolean rhsFieldIsSet = that.isSetInitiativeType();
             DSInitiativeTypeCodePropertyType lhsField;
             lhsField = this.getInitiativeType();
             DSInitiativeTypeCodePropertyType rhsField;
@@ -221,28 +240,28 @@ public class MDAggregateInformationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.aggregateDataSetName!= null);
+            boolean theFieldIsSet = this.isSetAggregateDataSetName();
             CICitationPropertyType theField;
             theField = this.getAggregateDataSetName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregateDataSetName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregateDataSetIdentifier!= null);
+            boolean theFieldIsSet = this.isSetAggregateDataSetIdentifier();
             MDIdentifierPropertyType theField;
             theField = this.getAggregateDataSetIdentifier();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregateDataSetIdentifier", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.associationType!= null);
+            boolean theFieldIsSet = this.isSetAssociationType();
             DSAssociationTypeCodePropertyType theField;
             theField = this.getAssociationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "associationType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.initiativeType!= null);
+            boolean theFieldIsSet = this.isSetInitiativeType();
             DSInitiativeTypeCodePropertyType theField;
             theField = this.getInitiativeType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "initiativeType", theField);
@@ -255,25 +274,25 @@ public class MDAggregateInformationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.aggregateDataSetName!= null);
+            boolean theFieldIsSet = this.isSetAggregateDataSetName();
             CICitationPropertyType theField;
             theField = this.getAggregateDataSetName();
             strategy.appendField(locator, this, "aggregateDataSetName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregateDataSetIdentifier!= null);
+            boolean theFieldIsSet = this.isSetAggregateDataSetIdentifier();
             MDIdentifierPropertyType theField;
             theField = this.getAggregateDataSetIdentifier();
             strategy.appendField(locator, this, "aggregateDataSetIdentifier", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.associationType!= null);
+            boolean theFieldIsSet = this.isSetAssociationType();
             DSAssociationTypeCodePropertyType theField;
             theField = this.getAssociationType();
             strategy.appendField(locator, this, "associationType", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.initiativeType!= null);
+            boolean theFieldIsSet = this.isSetInitiativeType();
             DSInitiativeTypeCodePropertyType theField;
             theField = this.getInitiativeType();
             strategy.appendField(locator, this, "initiativeType", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -38,8 +39,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class PTFreeTextPropertyType
     extends CharacterStringPropertyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "PT_FreeText")
     protected PTFreeTextType ptFreeText;
 
@@ -67,6 +70,10 @@ public class PTFreeTextPropertyType
         this.ptFreeText = value;
     }
 
+    public boolean isSetPTFreeText() {
+        return (this.ptFreeText!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -80,8 +87,8 @@ public class PTFreeTextPropertyType
         }
         final PTFreeTextPropertyType that = ((PTFreeTextPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.ptFreeText!= null);
-            boolean rhsFieldIsSet = (that.ptFreeText!= null);
+            boolean lhsFieldIsSet = this.isSetPTFreeText();
+            boolean rhsFieldIsSet = that.isSetPTFreeText();
             PTFreeTextType lhsField;
             lhsField = this.getPTFreeText();
             PTFreeTextType rhsField;
@@ -99,7 +106,7 @@ public class PTFreeTextPropertyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.ptFreeText!= null);
+            boolean theFieldIsSet = this.isSetPTFreeText();
             PTFreeTextType theField;
             theField = this.getPTFreeText();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ptFreeText", theField);
@@ -112,7 +119,7 @@ public class PTFreeTextPropertyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.ptFreeText!= null);
+            boolean theFieldIsSet = this.isSetPTFreeText();
             PTFreeTextType theField;
             theField = this.getPTFreeText();
             strategy.appendField(locator, this, "ptFreeText", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_ObligationCode_PropertyType", propOrder = {
     "mdObligationCode"
 })
-public class MDObligationCodePropertyType implements Equals, HashCode, ToString
+public class MDObligationCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_ObligationCode")
     @XmlSchemaType(name = "string")
     protected MDObligationCodeType mdObligationCode;
@@ -78,6 +80,10 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
         this.mdObligationCode = value;
     }
 
+    public boolean isSetMDObligationCode() {
+        return (this.mdObligationCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -102,6 +108,10 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -124,8 +134,8 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
         }
         final MDObligationCodePropertyType that = ((MDObligationCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdObligationCode!= null);
-            boolean rhsFieldIsSet = (that.mdObligationCode!= null);
+            boolean lhsFieldIsSet = this.isSetMDObligationCode();
+            boolean rhsFieldIsSet = that.isSetMDObligationCode();
             MDObligationCodeType lhsField;
             lhsField = this.getMDObligationCode();
             MDObligationCodeType rhsField;
@@ -137,8 +147,8 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -166,14 +176,14 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdObligationCode!= null);
+            boolean theFieldIsSet = this.isSetMDObligationCode();
             MDObligationCodeType theField;
             theField = this.getMDObligationCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdObligationCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -205,13 +215,13 @@ public class MDObligationCodePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdObligationCode!= null);
+            boolean theFieldIsSet = this.isSetMDObligationCode();
             MDObligationCodeType theField;
             theField = this.getMDObligationCode();
             strategy.appendField(locator, this, "mdObligationCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

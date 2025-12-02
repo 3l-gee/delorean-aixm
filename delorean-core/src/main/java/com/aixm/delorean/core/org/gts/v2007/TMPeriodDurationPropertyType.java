@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gts.v2007;
 
+import java.io.Serializable;
 import javax.xml.datatype.Duration;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TM_PeriodDuration_PropertyType", propOrder = {
     "tmPeriodDuration"
 })
-public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
+public class TMPeriodDurationPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TM_PeriodDuration")
     protected Duration tmPeriodDuration;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
         this.tmPeriodDuration = value;
     }
 
+    public boolean isSetTMPeriodDuration() {
+        return (this.tmPeriodDuration!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
         }
         final TMPeriodDurationPropertyType that = ((TMPeriodDurationPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.tmPeriodDuration!= null);
-            boolean rhsFieldIsSet = (that.tmPeriodDuration!= null);
-            Duration lhsField;
-            lhsField = this.getTMPeriodDuration();
-            Duration rhsField;
-            rhsField = that.getTMPeriodDuration();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tmPeriodDuration", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tmPeriodDuration", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTMPeriodDuration();
+            boolean rhsFieldIsSet = that.isSetTMPeriodDuration();
+            Duration lhsField;
+            lhsField = this.getTMPeriodDuration();
+            Duration rhsField;
+            rhsField = that.getTMPeriodDuration();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tmPeriodDuration", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tmPeriodDuration", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.tmPeriodDuration!= null);
+            boolean theFieldIsSet = this.isSetTMPeriodDuration();
             Duration theField;
             theField = this.getTMPeriodDuration();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "tmPeriodDuration", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class TMPeriodDurationPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.tmPeriodDuration!= null);
+            boolean theFieldIsSet = this.isSetTMPeriodDuration();
             Duration theField;
             theField = this.getTMPeriodDuration();
             strategy.appendField(locator, this, "tmPeriodDuration", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

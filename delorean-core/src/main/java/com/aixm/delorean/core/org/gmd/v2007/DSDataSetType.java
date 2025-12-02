@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DSDataSetType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<MDMetadataPropertyType> has;
     protected List<DSAggregatePropertyType> partOf;
@@ -87,6 +90,14 @@ public class DSDataSetType
         this.has = has;
     }
 
+    public boolean isSetHas() {
+        return ((this.has!= null)&&(!this.has.isEmpty()));
+    }
+
+    public void unsetHas() {
+        this.has = null;
+    }
+
     /**
      * Gets the value of the partOf property.
      * 
@@ -124,6 +135,14 @@ public class DSDataSetType
         this.partOf = partOf;
     }
 
+    public boolean isSetPartOf() {
+        return ((this.partOf!= null)&&(!this.partOf.isEmpty()));
+    }
+
+    public void unsetPartOf() {
+        this.partOf = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -137,27 +156,27 @@ public class DSDataSetType
         }
         final DSDataSetType that = ((DSDataSetType) object);
         {
-            boolean lhsFieldIsSet = ((this.has!= null)&&(!this.has.isEmpty()));
-            boolean rhsFieldIsSet = ((that.has!= null)&&(!that.has.isEmpty()));
-            List<MDMetadataPropertyType> lhsField;
-            lhsField = (((this.has!= null)&&(!this.has.isEmpty()))?this.getHas():null);
-            List<MDMetadataPropertyType> rhsField;
-            rhsField = (((that.has!= null)&&(!that.has.isEmpty()))?that.getHas():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "has", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "has", rhsField);
+            boolean lhsFieldIsSet = this.isSetPartOf();
+            boolean rhsFieldIsSet = that.isSetPartOf();
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (this.isSetPartOf()?this.getPartOf():null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (that.isSetPartOf()?that.getPartOf():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "partOf", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "partOf", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.partOf!= null)&&(!this.partOf.isEmpty()));
-            boolean rhsFieldIsSet = ((that.partOf!= null)&&(!that.partOf.isEmpty()));
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (((this.partOf!= null)&&(!this.partOf.isEmpty()))?this.getPartOf():null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (((that.partOf!= null)&&(!that.partOf.isEmpty()))?that.getPartOf():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "partOf", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "partOf", rhsField);
+            boolean lhsFieldIsSet = this.isSetHas();
+            boolean rhsFieldIsSet = that.isSetHas();
+            List<MDMetadataPropertyType> lhsField;
+            lhsField = (this.isSetHas()?this.getHas():null);
+            List<MDMetadataPropertyType> rhsField;
+            rhsField = (that.isSetHas()?that.getHas():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "has", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "has", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -169,16 +188,16 @@ public class DSDataSetType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.has!= null)&&(!this.has.isEmpty()));
+            boolean theFieldIsSet = this.isSetHas();
             List<MDMetadataPropertyType> theField;
-            theField = (((this.has!= null)&&(!this.has.isEmpty()))?this.getHas():null);
+            theField = (this.isSetHas()?this.getHas():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "has", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.partOf!= null)&&(!this.partOf.isEmpty()));
+            boolean theFieldIsSet = this.isSetPartOf();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.partOf!= null)&&(!this.partOf.isEmpty()))?this.getPartOf():null);
+            theField = (this.isSetPartOf()?this.getPartOf():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "partOf", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -189,15 +208,15 @@ public class DSDataSetType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.has!= null)&&(!this.has.isEmpty()));
+            boolean theFieldIsSet = this.isSetHas();
             List<MDMetadataPropertyType> theField;
-            theField = (((this.has!= null)&&(!this.has.isEmpty()))?this.getHas():null);
+            theField = (this.isSetHas()?this.getHas():null);
             strategy.appendField(locator, this, "has", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.partOf!= null)&&(!this.partOf.isEmpty()));
+            boolean theFieldIsSet = this.isSetPartOf();
             List<DSAggregatePropertyType> theField;
-            theField = (((this.partOf!= null)&&(!this.partOf.isEmpty()))?this.getPartOf():null);
+            theField = (this.isSetPartOf()?this.getPartOf():null);
             strategy.appendField(locator, this, "partOf", buffer, theField, theFieldIsSet);
         }
         return buffer;

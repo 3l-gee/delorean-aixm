@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -43,9 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "UnlimitedInteger_Type", propOrder = {
     "value"
 })
-public class UnlimitedIntegerType implements Equals, HashCode, ToString
+public class UnlimitedIntegerType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger value;
@@ -76,6 +78,10 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the isInfinite property.
      * 
@@ -84,7 +90,7 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
      *     {@link Boolean }
      *     
      */
-    public Boolean getIsInfinite() {
+    public boolean getIsInfinite() {
         return isInfinite;
     }
 
@@ -96,8 +102,16 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
      *     {@link Boolean }
      *     
      */
-    public void setIsInfinite(Boolean value) {
+    public void setIsInfinite(boolean value) {
         this.isInfinite = value;
+    }
+
+    public boolean isSetIsInfinite() {
+        return (this.isInfinite!= null);
+    }
+
+    public void unsetIsInfinite() {
+        this.isInfinite = null;
     }
 
     @Override
@@ -122,27 +136,27 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
         }
         final UnlimitedIntegerType that = ((UnlimitedIntegerType) object);
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
+            boolean lhsFieldIsSet = this.isSetIsInfinite();
+            boolean rhsFieldIsSet = that.isSetIsInfinite();
+            boolean lhsField;
+            lhsField = (this.isSetIsInfinite()?this.getIsInfinite():false);
+            boolean rhsField;
+            rhsField = (that.isSetIsInfinite()?that.getIsInfinite():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             BigInteger lhsField;
             lhsField = this.getValue();
             BigInteger rhsField;
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.isInfinite!= null);
-            boolean rhsFieldIsSet = (that.isInfinite!= null);
-            Boolean lhsField;
-            lhsField = this.getIsInfinite();
-            Boolean rhsField;
-            rhsField = that.getIsInfinite();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "isInfinite", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "isInfinite", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -164,16 +178,16 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             BigInteger theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isInfinite!= null);
-            Boolean theField;
-            theField = this.getIsInfinite();
+            boolean theFieldIsSet = this.isSetIsInfinite();
+            boolean theField;
+            theField = (this.isSetIsInfinite()?this.getIsInfinite():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "isInfinite", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -203,15 +217,15 @@ public class UnlimitedIntegerType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             BigInteger theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.isInfinite!= null);
-            Boolean theField;
-            theField = this.getIsInfinite();
+            boolean theFieldIsSet = this.isSetIsInfinite();
+            boolean theField;
+            theField = (this.isSetIsInfinite()?this.getIsInfinite():false);
             strategy.appendField(locator, this, "isInfinite", buffer, theField, theFieldIsSet);
         }
         return buffer;

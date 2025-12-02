@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "secondDefiningParameter"
 })
 @XmlRootElement(name = "SecondDefiningParameterPropertyElement")
-public class SecondDefiningParameterPropertyElement implements Equals, HashCode, ToString
+public class SecondDefiningParameterPropertyElement implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SecondDefiningParameter", required = true)
     protected SecondDefiningParameter secondDefiningParameter;
 
@@ -74,6 +76,10 @@ public class SecondDefiningParameterPropertyElement implements Equals, HashCode,
         this.secondDefiningParameter = value;
     }
 
+    public boolean isSetSecondDefiningParameter() {
+        return (this.secondDefiningParameter!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -96,8 +102,8 @@ public class SecondDefiningParameterPropertyElement implements Equals, HashCode,
         }
         final SecondDefiningParameterPropertyElement that = ((SecondDefiningParameterPropertyElement) object);
         {
-            boolean lhsFieldIsSet = (this.secondDefiningParameter!= null);
-            boolean rhsFieldIsSet = (that.secondDefiningParameter!= null);
+            boolean lhsFieldIsSet = this.isSetSecondDefiningParameter();
+            boolean rhsFieldIsSet = that.isSetSecondDefiningParameter();
             SecondDefiningParameter lhsField;
             lhsField = this.getSecondDefiningParameter();
             SecondDefiningParameter rhsField;
@@ -125,7 +131,7 @@ public class SecondDefiningParameterPropertyElement implements Equals, HashCode,
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.secondDefiningParameter!= null);
+            boolean theFieldIsSet = this.isSetSecondDefiningParameter();
             SecondDefiningParameter theField;
             theField = this.getSecondDefiningParameter();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "secondDefiningParameter", theField);
@@ -157,7 +163,7 @@ public class SecondDefiningParameterPropertyElement implements Equals, HashCode,
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.secondDefiningParameter!= null);
+            boolean theFieldIsSet = this.isSetSecondDefiningParameter();
             SecondDefiningParameter theField;
             theField = this.getSecondDefiningParameter();
             strategy.appendField(locator, this, "secondDefiningParameter", buffer, theField, theFieldIsSet);

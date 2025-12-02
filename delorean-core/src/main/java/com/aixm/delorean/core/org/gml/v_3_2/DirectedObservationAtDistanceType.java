@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DirectedObservationAtDistanceType
     extends DirectedObservationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected MeasureType distance;
 
@@ -66,6 +69,10 @@ public class DirectedObservationAtDistanceType
         this.distance = value;
     }
 
+    public boolean isSetDistance() {
+        return (this.distance!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -79,8 +86,8 @@ public class DirectedObservationAtDistanceType
         }
         final DirectedObservationAtDistanceType that = ((DirectedObservationAtDistanceType) object);
         {
-            boolean lhsFieldIsSet = (this.distance!= null);
-            boolean rhsFieldIsSet = (that.distance!= null);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
             MeasureType lhsField;
             lhsField = this.getDistance();
             MeasureType rhsField;
@@ -98,7 +105,7 @@ public class DirectedObservationAtDistanceType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             MeasureType theField;
             theField = this.getDistance();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "distance", theField);
@@ -111,7 +118,7 @@ public class DirectedObservationAtDistanceType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             MeasureType theField;
             theField = this.getDistance();
             strategy.appendField(locator, this, "distance", buffer, theField, theFieldIsSet);

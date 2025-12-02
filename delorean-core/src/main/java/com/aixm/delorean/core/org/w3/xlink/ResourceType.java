@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.w3.xlink;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -48,14 +49,15 @@ import org.w3c.dom.Element;
 @XmlType(name = "resourceType", propOrder = {
     "content"
 })
-public class ResourceType implements Equals, HashCode, ToString
+public class ResourceType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlMixed
     @XmlAnyElement(lax = true)
     protected List<Object> content;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.RESOURCE;
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
     protected String role;
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
@@ -103,32 +105,12 @@ public class ResourceType implements Equals, HashCode, ToString
         this.content = content;
     }
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    public TypeType getType() {
-        if (type == null) {
-            return TypeType.RESOURCE;
-        } else {
-            return type;
-        }
+    public boolean isSetContent() {
+        return ((this.content!= null)&&(!this.content.isEmpty()));
     }
 
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setType(TypeType value) {
-        this.type = value;
+    public void unsetContent() {
+        this.content = null;
     }
 
     /**
@@ -155,6 +137,10 @@ public class ResourceType implements Equals, HashCode, ToString
         this.role = value;
     }
 
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
     /**
      * Gets the value of the titleAttribute property.
      * 
@@ -177,6 +163,10 @@ public class ResourceType implements Equals, HashCode, ToString
      */
     public void setTitleAttribute(String value) {
         this.titleAttribute = value;
+    }
+
+    public boolean isSetTitleAttribute() {
+        return (this.titleAttribute!= null);
     }
 
     /**
@@ -203,6 +193,10 @@ public class ResourceType implements Equals, HashCode, ToString
         this.label = value;
     }
 
+    public boolean isSetLabel() {
+        return (this.label!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -225,34 +219,8 @@ public class ResourceType implements Equals, HashCode, ToString
         }
         final ResourceType that = ((ResourceType) object);
         {
-            boolean lhsFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
-            boolean rhsFieldIsSet = ((that.content!= null)&&(!that.content.isEmpty()));
-            List<Object> lhsField;
-            lhsField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
-            List<Object> rhsField;
-            rhsField = (((that.content!= null)&&(!that.content.isEmpty()))?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.label!= null);
-            boolean rhsFieldIsSet = (that.label!= null);
+            boolean lhsFieldIsSet = this.isSetLabel();
+            boolean rhsFieldIsSet = that.isSetLabel();
             String lhsField;
             lhsField = this.getLabel();
             String rhsField;
@@ -264,27 +232,40 @@ public class ResourceType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent()?this.getContent():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent()?that.getContent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.titleAttribute!= null);
-            boolean rhsFieldIsSet = (that.titleAttribute!= null);
+            boolean lhsFieldIsSet = this.isSetTitleAttribute();
+            boolean rhsFieldIsSet = that.isSetTitleAttribute();
             String lhsField;
             lhsField = this.getTitleAttribute();
             String rhsField;
             rhsField = that.getTitleAttribute();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -306,35 +287,28 @@ public class ResourceType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "role", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.titleAttribute!= null);
+            boolean theFieldIsSet = this.isSetTitleAttribute();
             String theField;
             theField = this.getTitleAttribute();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "titleAttribute", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.label!= null);
+            boolean theFieldIsSet = this.isSetLabel();
             String theField;
             theField = this.getLabel();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "label", theField);
@@ -366,31 +340,25 @@ public class ResourceType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             String theField;
             theField = this.getRole();
             strategy.appendField(locator, this, "role", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.titleAttribute!= null);
+            boolean theFieldIsSet = this.isSetTitleAttribute();
             String theField;
             theField = this.getTitleAttribute();
             strategy.appendField(locator, this, "titleAttribute", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.label!= null);
+            boolean theFieldIsSet = this.isSetLabel();
             String theField;
             theField = this.getLabel();
             strategy.appendField(locator, this, "label", buffer, theField, theFieldIsSet);

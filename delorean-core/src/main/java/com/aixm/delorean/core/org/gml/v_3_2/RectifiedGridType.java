@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class RectifiedGridType
     extends GridType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected PointPropertyType origin;
     @XmlElement(required = true)
@@ -70,6 +73,10 @@ public class RectifiedGridType
      */
     public void setOrigin(PointPropertyType value) {
         this.origin = value;
+    }
+
+    public boolean isSetOrigin() {
+        return (this.origin!= null);
     }
 
     /**
@@ -109,6 +116,14 @@ public class RectifiedGridType
         this.offsetVector = offsetVector;
     }
 
+    public boolean isSetOffsetVector() {
+        return ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
+    }
+
+    public void unsetOffsetVector() {
+        this.offsetVector = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,8 +137,8 @@ public class RectifiedGridType
         }
         final RectifiedGridType that = ((RectifiedGridType) object);
         {
-            boolean lhsFieldIsSet = (this.origin!= null);
-            boolean rhsFieldIsSet = (that.origin!= null);
+            boolean lhsFieldIsSet = this.isSetOrigin();
+            boolean rhsFieldIsSet = that.isSetOrigin();
             PointPropertyType lhsField;
             lhsField = this.getOrigin();
             PointPropertyType rhsField;
@@ -135,12 +150,12 @@ public class RectifiedGridType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
-            boolean rhsFieldIsSet = ((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetOffsetVector();
+            boolean rhsFieldIsSet = that.isSetOffsetVector();
             List<VectorType> lhsField;
-            lhsField = (((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()))?this.getOffsetVector():null);
+            lhsField = (this.isSetOffsetVector()?this.getOffsetVector():null);
             List<VectorType> rhsField;
-            rhsField = (((that.offsetVector!= null)&&(!that.offsetVector.isEmpty()))?that.getOffsetVector():null);
+            rhsField = (that.isSetOffsetVector()?that.getOffsetVector():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetVector", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetVector", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -154,16 +169,16 @@ public class RectifiedGridType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             PointPropertyType theField;
             theField = this.getOrigin();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "origin", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
+            boolean theFieldIsSet = this.isSetOffsetVector();
             List<VectorType> theField;
-            theField = (((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()))?this.getOffsetVector():null);
+            theField = (this.isSetOffsetVector()?this.getOffsetVector():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "offsetVector", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -174,15 +189,15 @@ public class RectifiedGridType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             PointPropertyType theField;
             theField = this.getOrigin();
             strategy.appendField(locator, this, "origin", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()));
+            boolean theFieldIsSet = this.isSetOffsetVector();
             List<VectorType> theField;
-            theField = (((this.offsetVector!= null)&&(!this.offsetVector.isEmpty()))?this.getOffsetVector():null);
+            theField = (this.isSetOffsetVector()?this.getOffsetVector():null);
             strategy.appendField(locator, this, "offsetVector", buffer, theField, theFieldIsSet);
         }
         return buffer;

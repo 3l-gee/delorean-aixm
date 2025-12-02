@@ -225,7 +225,7 @@ public class FlightConditionCircumstanceType
     @OneToMany(targetEntity = FlightConditionCircumstanceTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_FLIGHT_CONDITION_C_0")
     public List<FlightConditionCircumstanceTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -289,19 +289,6 @@ public class FlightConditionCircumstanceType
         }
         final FlightConditionCircumstanceType that = ((FlightConditionCircumstanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetReferenceLocation();
-            boolean rhsFieldIsSet = that.isSetReferenceLocation();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getReferenceLocation();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getReferenceLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRelationWithLocation();
             boolean rhsFieldIsSet = that.isSetRelationWithLocation();
             JAXBElement<CodeLocationQualifierType> lhsField;
@@ -315,19 +302,6 @@ public class FlightConditionCircumstanceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightConditionCircumstanceTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FlightConditionCircumstanceTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -336,6 +310,32 @@ public class FlightConditionCircumstanceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReferenceLocation();
+            boolean rhsFieldIsSet = that.isSetReferenceLocation();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getReferenceLocation();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getReferenceLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightConditionCircumstanceTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FlightConditionCircumstanceTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

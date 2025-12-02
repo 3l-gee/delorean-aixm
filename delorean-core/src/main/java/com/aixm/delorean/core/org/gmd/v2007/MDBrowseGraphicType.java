@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDBrowseGraphicType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CharacterStringPropertyType fileName;
     protected CharacterStringPropertyType fileDescription;
@@ -76,6 +79,10 @@ public class MDBrowseGraphicType
         this.fileName = value;
     }
 
+    public boolean isSetFileName() {
+        return (this.fileName!= null);
+    }
+
     /**
      * Gets the value of the fileDescription property.
      * 
@@ -98,6 +105,10 @@ public class MDBrowseGraphicType
      */
     public void setFileDescription(CharacterStringPropertyType value) {
         this.fileDescription = value;
+    }
+
+    public boolean isSetFileDescription() {
+        return (this.fileDescription!= null);
     }
 
     /**
@@ -124,6 +135,10 @@ public class MDBrowseGraphicType
         this.fileType = value;
     }
 
+    public boolean isSetFileType() {
+        return (this.fileType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -137,21 +152,21 @@ public class MDBrowseGraphicType
         }
         final MDBrowseGraphicType that = ((MDBrowseGraphicType) object);
         {
-            boolean lhsFieldIsSet = (this.fileType!= null);
-            boolean rhsFieldIsSet = (that.fileType!= null);
+            boolean lhsFieldIsSet = this.isSetFileName();
+            boolean rhsFieldIsSet = that.isSetFileName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getFileType();
+            lhsField = this.getFileName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getFileType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileType", rhsField);
+            rhsField = that.getFileName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.fileDescription!= null);
-            boolean rhsFieldIsSet = (that.fileDescription!= null);
+            boolean lhsFieldIsSet = this.isSetFileDescription();
+            boolean rhsFieldIsSet = that.isSetFileDescription();
             CharacterStringPropertyType lhsField;
             lhsField = this.getFileDescription();
             CharacterStringPropertyType rhsField;
@@ -163,14 +178,14 @@ public class MDBrowseGraphicType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.fileName!= null);
-            boolean rhsFieldIsSet = (that.fileName!= null);
+            boolean lhsFieldIsSet = this.isSetFileType();
+            boolean rhsFieldIsSet = that.isSetFileType();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getFileName();
+            lhsField = this.getFileType();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getFileName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileName", rhsField);
+            rhsField = that.getFileType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -182,21 +197,21 @@ public class MDBrowseGraphicType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.fileName!= null);
+            boolean theFieldIsSet = this.isSetFileName();
             CharacterStringPropertyType theField;
             theField = this.getFileName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "fileName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.fileDescription!= null);
+            boolean theFieldIsSet = this.isSetFileDescription();
             CharacterStringPropertyType theField;
             theField = this.getFileDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "fileDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.fileType!= null);
+            boolean theFieldIsSet = this.isSetFileType();
             CharacterStringPropertyType theField;
             theField = this.getFileType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "fileType", theField);
@@ -209,19 +224,19 @@ public class MDBrowseGraphicType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.fileName!= null);
+            boolean theFieldIsSet = this.isSetFileName();
             CharacterStringPropertyType theField;
             theField = this.getFileName();
             strategy.appendField(locator, this, "fileName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.fileDescription!= null);
+            boolean theFieldIsSet = this.isSetFileDescription();
             CharacterStringPropertyType theField;
             theField = this.getFileDescription();
             strategy.appendField(locator, this, "fileDescription", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.fileType!= null);
+            boolean theFieldIsSet = this.isSetFileType();
             CharacterStringPropertyType theField;
             theField = this.getFileType();
             strategy.appendField(locator, this, "fileType", buffer, theField, theFieldIsSet);

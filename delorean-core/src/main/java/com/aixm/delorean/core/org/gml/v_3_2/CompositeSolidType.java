@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CompositeSolidType
     extends AbstractSolidType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<SolidPropertyType> solidMember;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class CompositeSolidType
         this.solidMember = solidMember;
     }
 
+    public boolean isSetSolidMember() {
+        return ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+    }
+
+    public void unsetSolidMember() {
+        this.solidMember = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class CompositeSolidType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,12 +137,12 @@ public class CompositeSolidType
         }
         final CompositeSolidType that = ((CompositeSolidType) object);
         {
-            boolean lhsFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
-            boolean rhsFieldIsSet = ((that.solidMember!= null)&&(!that.solidMember.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetSolidMember();
+            boolean rhsFieldIsSet = that.isSetSolidMember();
             List<SolidPropertyType> lhsField;
-            lhsField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            lhsField = (this.isSetSolidMember()?this.getSolidMember():null);
             List<SolidPropertyType> rhsField;
-            rhsField = (((that.solidMember!= null)&&(!that.solidMember.isEmpty()))?that.getSolidMember():null);
+            rhsField = (that.isSetSolidMember()?that.getSolidMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -135,8 +150,8 @@ public class CompositeSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -154,14 +169,14 @@ public class CompositeSolidType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSolidMember();
             List<SolidPropertyType> theField;
-            theField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            theField = (this.isSetSolidMember()?this.getSolidMember():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "solidMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class CompositeSolidType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.solidMember!= null)&&(!this.solidMember.isEmpty()));
+            boolean theFieldIsSet = this.isSetSolidMember();
             List<SolidPropertyType> theField;
-            theField = (((this.solidMember!= null)&&(!this.solidMember.isEmpty()))?this.getSolidMember():null);
+            theField = (this.isSetSolidMember()?this.getSolidMember():null);
             strategy.appendField(locator, this, "solidMember", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

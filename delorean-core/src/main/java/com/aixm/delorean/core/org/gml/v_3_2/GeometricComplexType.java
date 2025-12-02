@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class GeometricComplexType
     extends AbstractGeometryType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<GeometricPrimitivePropertyType> element;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class GeometricComplexType
         this.element = element;
     }
 
+    public boolean isSetElement() {
+        return ((this.element!= null)&&(!this.element.isEmpty()));
+    }
+
+    public void unsetElement() {
+        this.element = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class GeometricComplexType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +137,27 @@ public class GeometricComplexType
         }
         final GeometricComplexType that = ((GeometricComplexType) object);
         {
-            boolean lhsFieldIsSet = ((this.element!= null)&&(!this.element.isEmpty()));
-            boolean rhsFieldIsSet = ((that.element!= null)&&(!that.element.isEmpty()));
-            List<GeometricPrimitivePropertyType> lhsField;
-            lhsField = (((this.element!= null)&&(!this.element.isEmpty()))?this.getElement():null);
-            List<GeometricPrimitivePropertyType> rhsField;
-            rhsField = (((that.element!= null)&&(!that.element.isEmpty()))?that.getElement():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElement();
+            boolean rhsFieldIsSet = that.isSetElement();
+            List<GeometricPrimitivePropertyType> lhsField;
+            lhsField = (this.isSetElement()?this.getElement():null);
+            List<GeometricPrimitivePropertyType> rhsField;
+            rhsField = (that.isSetElement()?that.getElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,14 +169,14 @@ public class GeometricComplexType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.element!= null)&&(!this.element.isEmpty()));
+            boolean theFieldIsSet = this.isSetElement();
             List<GeometricPrimitivePropertyType> theField;
-            theField = (((this.element!= null)&&(!this.element.isEmpty()))?this.getElement():null);
+            theField = (this.isSetElement()?this.getElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "element", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class GeometricComplexType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.element!= null)&&(!this.element.isEmpty()));
+            boolean theFieldIsSet = this.isSetElement();
             List<GeometricPrimitivePropertyType> theField;
-            theField = (((this.element!= null)&&(!this.element.isEmpty()))?this.getElement():null);
+            theField = (this.isSetElement()?this.getElement():null);
             strategy.appendField(locator, this, "element", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

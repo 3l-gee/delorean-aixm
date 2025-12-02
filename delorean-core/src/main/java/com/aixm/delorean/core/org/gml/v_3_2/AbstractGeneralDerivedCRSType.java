@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractGeneralDerivedCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:conversion is an association role to the coordinate conversion used to define the derived CRS.
      * 
@@ -79,6 +82,10 @@ public abstract class AbstractGeneralDerivedCRSType
         this.conversion = value;
     }
 
+    public boolean isSetConversion() {
+        return (this.conversion!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -92,8 +99,8 @@ public abstract class AbstractGeneralDerivedCRSType
         }
         final AbstractGeneralDerivedCRSType that = ((AbstractGeneralDerivedCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.conversion!= null);
-            boolean rhsFieldIsSet = (that.conversion!= null);
+            boolean lhsFieldIsSet = this.isSetConversion();
+            boolean rhsFieldIsSet = that.isSetConversion();
             JAXBElement<GeneralConversionPropertyType> lhsField;
             lhsField = this.getConversion();
             JAXBElement<GeneralConversionPropertyType> rhsField;
@@ -111,7 +118,7 @@ public abstract class AbstractGeneralDerivedCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.conversion!= null);
+            boolean theFieldIsSet = this.isSetConversion();
             JAXBElement<GeneralConversionPropertyType> theField;
             theField = this.getConversion();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "conversion", theField);
@@ -124,7 +131,7 @@ public abstract class AbstractGeneralDerivedCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.conversion!= null);
+            boolean theFieldIsSet = this.isSetConversion();
             JAXBElement<GeneralConversionPropertyType> theField;
             theField = this.getConversion();
             strategy.appendField(locator, this, "conversion", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CI_PresentationFormCode_PropertyType", propOrder = {
     "ciPresentationFormCode"
 })
-public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToString
+public class CIPresentationFormCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "CI_PresentationFormCode")
     protected CodeListValueType ciPresentationFormCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
         this.ciPresentationFormCode = value;
     }
 
+    public boolean isSetCIPresentationFormCode() {
+        return (this.ciPresentationFormCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
         }
         final CIPresentationFormCodePropertyType that = ((CIPresentationFormCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.ciPresentationFormCode!= null);
-            boolean rhsFieldIsSet = (that.ciPresentationFormCode!= null);
+            boolean lhsFieldIsSet = this.isSetCIPresentationFormCode();
+            boolean rhsFieldIsSet = that.isSetCIPresentationFormCode();
             CodeListValueType lhsField;
             lhsField = this.getCIPresentationFormCode();
             CodeListValueType rhsField;
             rhsField = that.getCIPresentationFormCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ciPresentationFormCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ciPresentationFormCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.ciPresentationFormCode!= null);
+            boolean theFieldIsSet = this.isSetCIPresentationFormCode();
             CodeListValueType theField;
             theField = this.getCIPresentationFormCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "ciPresentationFormCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class CIPresentationFormCodePropertyType implements Equals, HashCode, ToS
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.ciPresentationFormCode!= null);
+            boolean theFieldIsSet = this.isSetCIPresentationFormCode();
             CodeListValueType theField;
             theField = this.getCIPresentationFormCode();
             strategy.appendField(locator, this, "ciPresentationFormCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

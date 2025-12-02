@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -48,8 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXExtentType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType description;
     protected List<EXGeographicExtentPropertyType> geographicElement;
     protected List<EXTemporalExtentPropertyType> temporalElement;
@@ -77,6 +80,10 @@ public class EXExtentType
      */
     public void setDescription(CharacterStringPropertyType value) {
         this.description = value;
+    }
+
+    public boolean isSetDescription() {
+        return (this.description!= null);
     }
 
     /**
@@ -116,6 +123,14 @@ public class EXExtentType
         this.geographicElement = geographicElement;
     }
 
+    public boolean isSetGeographicElement() {
+        return ((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()));
+    }
+
+    public void unsetGeographicElement() {
+        this.geographicElement = null;
+    }
+
     /**
      * Gets the value of the temporalElement property.
      * 
@@ -151,6 +166,14 @@ public class EXExtentType
      */
     public void setTemporalElement(List<EXTemporalExtentPropertyType> temporalElement) {
         this.temporalElement = temporalElement;
+    }
+
+    public boolean isSetTemporalElement() {
+        return ((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()));
+    }
+
+    public void unsetTemporalElement() {
+        this.temporalElement = null;
     }
 
     /**
@@ -190,6 +213,14 @@ public class EXExtentType
         this.verticalElement = verticalElement;
     }
 
+    public boolean isSetVerticalElement() {
+        return ((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()));
+    }
+
+    public void unsetVerticalElement() {
+        this.verticalElement = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -203,21 +234,8 @@ public class EXExtentType
         }
         final EXExtentType that = ((EXExtentType) object);
         {
-            boolean lhsFieldIsSet = ((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()));
-            boolean rhsFieldIsSet = ((that.verticalElement!= null)&&(!that.verticalElement.isEmpty()));
-            List<EXVerticalExtentPropertyType> lhsField;
-            lhsField = (((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()))?this.getVerticalElement():null);
-            List<EXVerticalExtentPropertyType> rhsField;
-            rhsField = (((that.verticalElement!= null)&&(!that.verticalElement.isEmpty()))?that.getVerticalElement():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.description!= null);
-            boolean rhsFieldIsSet = (that.description!= null);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDescription();
             CharacterStringPropertyType rhsField;
@@ -229,12 +247,25 @@ public class EXExtentType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()));
-            boolean rhsFieldIsSet = ((that.geographicElement!= null)&&(!that.geographicElement.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetVerticalElement();
+            boolean rhsFieldIsSet = that.isSetVerticalElement();
+            List<EXVerticalExtentPropertyType> lhsField;
+            lhsField = (this.isSetVerticalElement()?this.getVerticalElement():null);
+            List<EXVerticalExtentPropertyType> rhsField;
+            rhsField = (that.isSetVerticalElement()?that.getVerticalElement():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeographicElement();
+            boolean rhsFieldIsSet = that.isSetGeographicElement();
             List<EXGeographicExtentPropertyType> lhsField;
-            lhsField = (((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()))?this.getGeographicElement():null);
+            lhsField = (this.isSetGeographicElement()?this.getGeographicElement():null);
             List<EXGeographicExtentPropertyType> rhsField;
-            rhsField = (((that.geographicElement!= null)&&(!that.geographicElement.isEmpty()))?that.getGeographicElement():null);
+            rhsField = (that.isSetGeographicElement()?that.getGeographicElement():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geographicElement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geographicElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -242,12 +273,12 @@ public class EXExtentType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()));
-            boolean rhsFieldIsSet = ((that.temporalElement!= null)&&(!that.temporalElement.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetTemporalElement();
+            boolean rhsFieldIsSet = that.isSetTemporalElement();
             List<EXTemporalExtentPropertyType> lhsField;
-            lhsField = (((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()))?this.getTemporalElement():null);
+            lhsField = (this.isSetTemporalElement()?this.getTemporalElement():null);
             List<EXTemporalExtentPropertyType> rhsField;
-            rhsField = (((that.temporalElement!= null)&&(!that.temporalElement.isEmpty()))?that.getTemporalElement():null);
+            rhsField = (that.isSetTemporalElement()?that.getTemporalElement():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalElement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -261,30 +292,30 @@ public class EXExtentType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "description", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeographicElement();
             List<EXGeographicExtentPropertyType> theField;
-            theField = (((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()))?this.getGeographicElement():null);
+            theField = (this.isSetGeographicElement()?this.getGeographicElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geographicElement", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetTemporalElement();
             List<EXTemporalExtentPropertyType> theField;
-            theField = (((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()))?this.getTemporalElement():null);
+            theField = (this.isSetTemporalElement()?this.getTemporalElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "temporalElement", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetVerticalElement();
             List<EXVerticalExtentPropertyType> theField;
-            theField = (((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()))?this.getVerticalElement():null);
+            theField = (this.isSetVerticalElement()?this.getVerticalElement():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "verticalElement", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -295,27 +326,27 @@ public class EXExtentType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.description!= null);
+            boolean theFieldIsSet = this.isSetDescription();
             CharacterStringPropertyType theField;
             theField = this.getDescription();
             strategy.appendField(locator, this, "description", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetGeographicElement();
             List<EXGeographicExtentPropertyType> theField;
-            theField = (((this.geographicElement!= null)&&(!this.geographicElement.isEmpty()))?this.getGeographicElement():null);
+            theField = (this.isSetGeographicElement()?this.getGeographicElement():null);
             strategy.appendField(locator, this, "geographicElement", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetTemporalElement();
             List<EXTemporalExtentPropertyType> theField;
-            theField = (((this.temporalElement!= null)&&(!this.temporalElement.isEmpty()))?this.getTemporalElement():null);
+            theField = (this.isSetTemporalElement()?this.getTemporalElement():null);
             strategy.appendField(locator, this, "temporalElement", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()));
+            boolean theFieldIsSet = this.isSetVerticalElement();
             List<EXVerticalExtentPropertyType> theField;
-            theField = (((this.verticalElement!= null)&&(!this.verticalElement.isEmpty()))?this.getVerticalElement():null);
+            theField = (this.isSetVerticalElement()?this.getVerticalElement():null);
             strategy.appendField(locator, this, "verticalElement", buffer, theField, theFieldIsSet);
         }
         return buffer;

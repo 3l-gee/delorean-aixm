@@ -320,13 +320,6 @@
                                         <include>*.xjb</include>
                                     </bindingIncludes>
                                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                                    <episodes>
-                                        <episode>
-                                            <groupId>com.aixm.delorean</groupId>
-                                            <artifactId>delorean-core</artifactId>
-                                            <version>${project.parent.version}</version>
-                                        </episode>
-                                    </episodes>
                                 </configuration>
                             </execution>
                         </executions>

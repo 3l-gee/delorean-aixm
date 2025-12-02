@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.w3.xlink;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,14 +47,15 @@ import org.w3c.dom.Element;
 @XmlType(name = "titleEltType", propOrder = {
     "content"
 })
-public class TitleEltType implements Equals, HashCode, ToString
+public class TitleEltType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlMixed
     @XmlAnyElement(lax = true)
     protected List<Object> content;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected TypeType type;
+    public static final TypeType TYPE = TypeType.TITLE;
     /**
      * xml:lang is not required, but provides much of the
      *      motivation for title elements in addition to attributes, and so
@@ -102,32 +104,12 @@ public class TitleEltType implements Equals, HashCode, ToString
         this.content = content;
     }
 
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TypeType }
-     *     
-     */
-    public TypeType getType() {
-        if (type == null) {
-            return TypeType.TITLE;
-        } else {
-            return type;
-        }
+    public boolean isSetContent() {
+        return ((this.content!= null)&&(!this.content.isEmpty()));
     }
 
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TypeType }
-     *     
-     */
-    public void setType(TypeType value) {
-        this.type = value;
+    public void unsetContent() {
+        this.content = null;
     }
 
     /**
@@ -157,6 +139,10 @@ public class TitleEltType implements Equals, HashCode, ToString
         this.lang = value;
     }
 
+    public boolean isSetLang() {
+        return (this.lang!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -179,40 +165,27 @@ public class TitleEltType implements Equals, HashCode, ToString
         }
         final TitleEltType that = ((TitleEltType) object);
         {
-            boolean lhsFieldIsSet = (this.type!= null);
-            boolean rhsFieldIsSet = (that.type!= null);
-            TypeType lhsField;
-            lhsField = this.getType();
-            TypeType rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
-            boolean rhsFieldIsSet = ((that.content!= null)&&(!that.content.isEmpty()));
-            List<Object> lhsField;
-            lhsField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
-            List<Object> rhsField;
-            rhsField = (((that.content!= null)&&(!that.content.isEmpty()))?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.lang!= null);
-            boolean rhsFieldIsSet = (that.lang!= null);
+            boolean lhsFieldIsSet = this.isSetLang();
+            boolean rhsFieldIsSet = that.isSetLang();
             String lhsField;
             lhsField = this.getLang();
             String rhsField;
             rhsField = that.getLang();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lang", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lang", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent()?this.getContent():null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent()?that.getContent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -234,21 +207,14 @@ public class TitleEltType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "type", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.lang!= null);
+            boolean theFieldIsSet = this.isSetLang();
             String theField;
             theField = this.getLang();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "lang", theField);
@@ -280,19 +246,13 @@ public class TitleEltType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.type!= null);
-            TypeType theField;
-            theField = this.getType();
-            strategy.appendField(locator, this, "type", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.lang!= null);
+            boolean theFieldIsSet = this.isSetLang();
             String theField;
             theField = this.getLang();
             strategy.appendField(locator, this, "lang", buffer, theField, theFieldIsSet);

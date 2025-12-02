@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class NodeType
     extends AbstractTopoPrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected FaceOrTopoSolidPropertyType container;
     protected List<DirectedEdgePropertyType> directedEdge;
     /**
@@ -78,6 +81,10 @@ public class NodeType
      */
     public void setContainer(FaceOrTopoSolidPropertyType value) {
         this.container = value;
+    }
+
+    public boolean isSetContainer() {
+        return (this.container!= null);
     }
 
     /**
@@ -117,6 +124,14 @@ public class NodeType
         this.directedEdge = directedEdge;
     }
 
+    public boolean isSetDirectedEdge() {
+        return ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
+    }
+
+    public void unsetDirectedEdge() {
+        this.directedEdge = null;
+    }
+
     /**
      * This property element either references a point via the XLink-attributes or contains the point element. pointProperty is the predefined property which may be used by GML Application Schemas whenever a GML feature has a property with a value that is substitutable for Point.
      * 
@@ -140,6 +155,10 @@ public class NodeType
      */
     public void setPointProperty(PointPropertyType value) {
         this.pointProperty = value;
+    }
+
+    public boolean isSetPointProperty() {
+        return (this.pointProperty!= null);
     }
 
     /**
@@ -166,6 +185,10 @@ public class NodeType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -179,34 +202,21 @@ public class NodeType
         }
         final NodeType that = ((NodeType) object);
         {
-            boolean lhsFieldIsSet = (this.container!= null);
-            boolean rhsFieldIsSet = (that.container!= null);
-            FaceOrTopoSolidPropertyType lhsField;
-            lhsField = this.getContainer();
-            FaceOrTopoSolidPropertyType rhsField;
-            rhsField = that.getContainer();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()));
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()))?this.getDirectedEdge():null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (((that.directedEdge!= null)&&(!that.directedEdge.isEmpty()))?that.getDirectedEdge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.pointProperty!= null);
-            boolean rhsFieldIsSet = (that.pointProperty!= null);
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
             PointPropertyType lhsField;
             lhsField = this.getPointProperty();
             PointPropertyType rhsField;
@@ -218,14 +228,27 @@ public class NodeType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            boolean lhsFieldIsSet = this.isSetContainer();
+            boolean rhsFieldIsSet = that.isSetContainer();
+            FaceOrTopoSolidPropertyType lhsField;
+            lhsField = this.getContainer();
+            FaceOrTopoSolidPropertyType rhsField;
+            rhsField = that.getContainer();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge()?that.getDirectedEdge():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -237,28 +260,28 @@ public class NodeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.container!= null);
+            boolean theFieldIsSet = this.isSetContainer();
             FaceOrTopoSolidPropertyType theField;
             theField = this.getContainer();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "container", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedEdge();
             List<DirectedEdgePropertyType> theField;
-            theField = (((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()))?this.getDirectedEdge():null);
+            theField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedEdge", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pointProperty!= null);
+            boolean theFieldIsSet = this.isSetPointProperty();
             PointPropertyType theField;
             theField = this.getPointProperty();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pointProperty", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -271,25 +294,25 @@ public class NodeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.container!= null);
+            boolean theFieldIsSet = this.isSetContainer();
             FaceOrTopoSolidPropertyType theField;
             theField = this.getContainer();
             strategy.appendField(locator, this, "container", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedEdge();
             List<DirectedEdgePropertyType> theField;
-            theField = (((this.directedEdge!= null)&&(!this.directedEdge.isEmpty()))?this.getDirectedEdge():null);
+            theField = (this.isSetDirectedEdge()?this.getDirectedEdge():null);
             strategy.appendField(locator, this, "directedEdge", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.pointProperty!= null);
+            boolean theFieldIsSet = this.isSetPointProperty();
             PointPropertyType theField;
             theField = this.getPointProperty();
             strategy.appendField(locator, this, "pointProperty", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

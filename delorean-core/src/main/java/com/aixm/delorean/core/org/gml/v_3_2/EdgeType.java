@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -47,8 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EdgeType
     extends AbstractTopoPrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected TopoSolidPropertyType container;
     @XmlElement(required = true)
     protected List<DirectedNodePropertyType> directedNode;
@@ -83,6 +86,10 @@ public class EdgeType
      */
     public void setContainer(TopoSolidPropertyType value) {
         this.container = value;
+    }
+
+    public boolean isSetContainer() {
+        return (this.container!= null);
     }
 
     /**
@@ -122,6 +129,14 @@ public class EdgeType
         this.directedNode = directedNode;
     }
 
+    public boolean isSetDirectedNode() {
+        return ((this.directedNode!= null)&&(!this.directedNode.isEmpty()));
+    }
+
+    public void unsetDirectedNode() {
+        this.directedNode = null;
+    }
+
     /**
      * The gml:directedFace property element describes the boundary of topology solids, in the coBoundary of topology edges and is used in the support of surface features via the gml:TopoSurface expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included face is used i.e. inward or outward with respect to the surface normal in any geometric realisation.Gets the value of the directedFace property.
      * 
@@ -159,6 +174,14 @@ public class EdgeType
         this.directedFace = directedFace;
     }
 
+    public boolean isSetDirectedFace() {
+        return ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+    }
+
+    public void unsetDirectedFace() {
+        this.directedFace = null;
+    }
+
     /**
      * This property element either references a curve via the XLink-attributes or contains the curve element. curveProperty is the predefined property which may be used by GML Application Schemas whenever a GML feature has a property with a value that is substitutable for AbstractCurve.
      * 
@@ -182,6 +205,10 @@ public class EdgeType
      */
     public void setCurveProperty(CurvePropertyType value) {
         this.curveProperty = value;
+    }
+
+    public boolean isSetCurveProperty() {
+        return (this.curveProperty!= null);
     }
 
     /**
@@ -208,6 +235,10 @@ public class EdgeType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -221,8 +252,8 @@ public class EdgeType
         }
         final EdgeType that = ((EdgeType) object);
         {
-            boolean lhsFieldIsSet = (this.container!= null);
-            boolean rhsFieldIsSet = (that.container!= null);
+            boolean lhsFieldIsSet = this.isSetContainer();
+            boolean rhsFieldIsSet = that.isSetContainer();
             TopoSolidPropertyType lhsField;
             lhsField = this.getContainer();
             TopoSolidPropertyType rhsField;
@@ -234,21 +265,8 @@ public class EdgeType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.directedNode!= null)&&(!this.directedNode.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedNode!= null)&&(!that.directedNode.isEmpty()));
-            List<DirectedNodePropertyType> lhsField;
-            lhsField = (((this.directedNode!= null)&&(!this.directedNode.isEmpty()))?this.getDirectedNode():null);
-            List<DirectedNodePropertyType> rhsField;
-            rhsField = (((that.directedNode!= null)&&(!that.directedNode.isEmpty()))?that.getDirectedNode():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedNode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.curveProperty!= null);
-            boolean rhsFieldIsSet = (that.curveProperty!= null);
+            boolean lhsFieldIsSet = this.isSetCurveProperty();
+            boolean rhsFieldIsSet = that.isSetCurveProperty();
             CurvePropertyType lhsField;
             lhsField = this.getCurveProperty();
             CurvePropertyType rhsField;
@@ -260,8 +278,8 @@ public class EdgeType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -273,12 +291,25 @@ public class EdgeType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedFace!= null)&&(!that.directedFace.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDirectedNode();
+            boolean rhsFieldIsSet = that.isSetDirectedNode();
+            List<DirectedNodePropertyType> lhsField;
+            lhsField = (this.isSetDirectedNode()?this.getDirectedNode():null);
+            List<DirectedNodePropertyType> rhsField;
+            rhsField = (that.isSetDirectedNode()?that.getDirectedNode():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedNode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
             List<DirectedFacePropertyType> lhsField;
-            lhsField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             List<DirectedFacePropertyType> rhsField;
-            rhsField = (((that.directedFace!= null)&&(!that.directedFace.isEmpty()))?that.getDirectedFace():null);
+            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -292,35 +323,35 @@ public class EdgeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.container!= null);
+            boolean theFieldIsSet = this.isSetContainer();
             TopoSolidPropertyType theField;
             theField = this.getContainer();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "container", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedNode!= null)&&(!this.directedNode.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedNode();
             List<DirectedNodePropertyType> theField;
-            theField = (((this.directedNode!= null)&&(!this.directedNode.isEmpty()))?this.getDirectedNode():null);
+            theField = (this.isSetDirectedNode()?this.getDirectedNode():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedNode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedFace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.curveProperty!= null);
+            boolean theFieldIsSet = this.isSetCurveProperty();
             CurvePropertyType theField;
             theField = this.getCurveProperty();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curveProperty", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -333,31 +364,31 @@ public class EdgeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.container!= null);
+            boolean theFieldIsSet = this.isSetContainer();
             TopoSolidPropertyType theField;
             theField = this.getContainer();
             strategy.appendField(locator, this, "container", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedNode!= null)&&(!this.directedNode.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedNode();
             List<DirectedNodePropertyType> theField;
-            theField = (((this.directedNode!= null)&&(!this.directedNode.isEmpty()))?this.getDirectedNode():null);
+            theField = (this.isSetDirectedNode()?this.getDirectedNode():null);
             strategy.appendField(locator, this, "directedNode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (((this.directedFace!= null)&&(!this.directedFace.isEmpty()))?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
             strategy.appendField(locator, this, "directedFace", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.curveProperty!= null);
+            boolean theFieldIsSet = this.isSetCurveProperty();
             CurvePropertyType theField;
             theField = this.getCurveProperty();
             strategy.appendField(locator, this, "curveProperty", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

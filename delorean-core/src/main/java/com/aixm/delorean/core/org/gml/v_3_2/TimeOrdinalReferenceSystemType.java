@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeOrdinalReferenceSystemType
     extends TimeReferenceSystemType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<TimeOrdinalEraPropertyType> component;
 
@@ -81,6 +84,14 @@ public class TimeOrdinalReferenceSystemType
         this.component = component;
     }
 
+    public boolean isSetComponent() {
+        return ((this.component!= null)&&(!this.component.isEmpty()));
+    }
+
+    public void unsetComponent() {
+        this.component = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -94,12 +105,12 @@ public class TimeOrdinalReferenceSystemType
         }
         final TimeOrdinalReferenceSystemType that = ((TimeOrdinalReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = ((this.component!= null)&&(!this.component.isEmpty()));
-            boolean rhsFieldIsSet = ((that.component!= null)&&(!that.component.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetComponent();
+            boolean rhsFieldIsSet = that.isSetComponent();
             List<TimeOrdinalEraPropertyType> lhsField;
-            lhsField = (((this.component!= null)&&(!this.component.isEmpty()))?this.getComponent():null);
+            lhsField = (this.isSetComponent()?this.getComponent():null);
             List<TimeOrdinalEraPropertyType> rhsField;
-            rhsField = (((that.component!= null)&&(!that.component.isEmpty()))?that.getComponent():null);
+            rhsField = (that.isSetComponent()?that.getComponent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "component", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "component", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -113,9 +124,9 @@ public class TimeOrdinalReferenceSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.component!= null)&&(!this.component.isEmpty()));
+            boolean theFieldIsSet = this.isSetComponent();
             List<TimeOrdinalEraPropertyType> theField;
-            theField = (((this.component!= null)&&(!this.component.isEmpty()))?this.getComponent():null);
+            theField = (this.isSetComponent()?this.getComponent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "component", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -126,9 +137,9 @@ public class TimeOrdinalReferenceSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.component!= null)&&(!this.component.isEmpty()));
+            boolean theFieldIsSet = this.isSetComponent();
             List<TimeOrdinalEraPropertyType> theField;
-            theField = (((this.component!= null)&&(!this.component.isEmpty()))?this.getComponent():null);
+            theField = (this.isSetComponent()?this.getComponent():null);
             strategy.appendField(locator, this, "component", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,9 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -59,9 +61,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     SpeedType.class
 })
 @Embeddable
-public class MeasureType implements Equals, HashCode, ToString
+public class MeasureType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected double value;
     @XmlAttribute(name = "uom", required = true)
@@ -83,6 +86,11 @@ public class MeasureType implements Equals, HashCode, ToString
      */
     public void setValue(double value) {
         this.value = value;
+    }
+
+    @Transient
+    public boolean isSetValue() {
+        return true;
     }
 
     /**
@@ -109,6 +117,11 @@ public class MeasureType implements Equals, HashCode, ToString
      */
     public void setUom(String value) {
         this.uom = value;
+    }
+
+    @Transient
+    public boolean isSetUom() {
+        return (this.uom!= null);
     }
 
     @Override
@@ -146,8 +159,8 @@ public class MeasureType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
             lhsField = this.getUom();
             String rhsField;
@@ -182,7 +195,7 @@ public class MeasureType implements Equals, HashCode, ToString
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uom", theField);
@@ -220,7 +233,7 @@ public class MeasureType implements Equals, HashCode, ToString
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             strategy.appendField(locator, this, "uom", buffer, theField, theFieldIsSet);

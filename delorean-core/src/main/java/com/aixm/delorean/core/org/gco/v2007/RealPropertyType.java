@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "Real_PropertyType", propOrder = {
     "real"
 })
-public class RealPropertyType implements Equals, HashCode, ToString
+public class RealPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Real")
     protected Double real;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -76,6 +78,10 @@ public class RealPropertyType implements Equals, HashCode, ToString
         this.real = value;
     }
 
+    public boolean isSetReal() {
+        return (this.real!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -100,6 +106,10 @@ public class RealPropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -122,8 +132,8 @@ public class RealPropertyType implements Equals, HashCode, ToString
         }
         final RealPropertyType that = ((RealPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -135,8 +145,8 @@ public class RealPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.real!= null);
-            boolean rhsFieldIsSet = (that.real!= null);
+            boolean lhsFieldIsSet = this.isSetReal();
+            boolean rhsFieldIsSet = that.isSetReal();
             Double lhsField;
             lhsField = this.getReal();
             Double rhsField;
@@ -164,14 +174,14 @@ public class RealPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.real!= null);
+            boolean theFieldIsSet = this.isSetReal();
             Double theField;
             theField = this.getReal();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "real", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -203,13 +213,13 @@ public class RealPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.real!= null);
+            boolean theFieldIsSet = this.isSetReal();
             Double theField;
             theField = this.getReal();
             strategy.appendField(locator, this, "real", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
@@ -57,9 +58,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "dataset",
     "other"
 })
-public class MDScopeDescriptionType implements Equals, HashCode, ToString
+public class MDScopeDescriptionType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<ObjectReferencePropertyType> attributes;
     protected List<ObjectReferencePropertyType> features;
     protected List<ObjectReferencePropertyType> featureInstances;
@@ -104,6 +106,14 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
         this.attributes = attributes;
     }
 
+    public boolean isSetAttributes() {
+        return ((this.attributes!= null)&&(!this.attributes.isEmpty()));
+    }
+
+    public void unsetAttributes() {
+        this.attributes = null;
+    }
+
     /**
      * Gets the value of the features property.
      * 
@@ -139,6 +149,14 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
      */
     public void setFeatures(List<ObjectReferencePropertyType> features) {
         this.features = features;
+    }
+
+    public boolean isSetFeatures() {
+        return ((this.features!= null)&&(!this.features.isEmpty()));
+    }
+
+    public void unsetFeatures() {
+        this.features = null;
     }
 
     /**
@@ -178,6 +196,14 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
         this.featureInstances = featureInstances;
     }
 
+    public boolean isSetFeatureInstances() {
+        return ((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()));
+    }
+
+    public void unsetFeatureInstances() {
+        this.featureInstances = null;
+    }
+
     /**
      * Gets the value of the attributeInstances property.
      * 
@@ -215,6 +241,14 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
         this.attributeInstances = attributeInstances;
     }
 
+    public boolean isSetAttributeInstances() {
+        return ((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()));
+    }
+
+    public void unsetAttributeInstances() {
+        this.attributeInstances = null;
+    }
+
     /**
      * Gets the value of the dataset property.
      * 
@@ -237,6 +271,10 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
      */
     public void setDataset(CharacterStringPropertyType value) {
         this.dataset = value;
+    }
+
+    public boolean isSetDataset() {
+        return (this.dataset!= null);
     }
 
     /**
@@ -263,6 +301,10 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
         this.other = value;
     }
 
+    public boolean isSetOther() {
+        return (this.other!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -285,8 +327,60 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
         }
         final MDScopeDescriptionType that = ((MDScopeDescriptionType) object);
         {
-            boolean lhsFieldIsSet = (this.dataset!= null);
-            boolean rhsFieldIsSet = (that.dataset!= null);
+            boolean lhsFieldIsSet = this.isSetAttributeInstances();
+            boolean rhsFieldIsSet = that.isSetAttributeInstances();
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (this.isSetAttributeInstances()?this.getAttributeInstances():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (that.isSetAttributeInstances()?that.getAttributeInstances():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeInstances", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeInstances", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAttributes();
+            boolean rhsFieldIsSet = that.isSetAttributes();
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (this.isSetAttributes()?this.getAttributes():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (that.isSetAttributes()?that.getAttributes():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributes", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOther();
+            boolean rhsFieldIsSet = that.isSetOther();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOther();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOther();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "other", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "other", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFeatures();
+            boolean rhsFieldIsSet = that.isSetFeatures();
+            List<ObjectReferencePropertyType> lhsField;
+            lhsField = (this.isSetFeatures()?this.getFeatures():null);
+            List<ObjectReferencePropertyType> rhsField;
+            rhsField = (that.isSetFeatures()?that.getFeatures():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "features", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "features", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDataset();
+            boolean rhsFieldIsSet = that.isSetDataset();
             CharacterStringPropertyType lhsField;
             lhsField = this.getDataset();
             CharacterStringPropertyType rhsField;
@@ -298,66 +392,14 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.features!= null)&&(!this.features.isEmpty()));
-            boolean rhsFieldIsSet = ((that.features!= null)&&(!that.features.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetFeatureInstances();
+            boolean rhsFieldIsSet = that.isSetFeatureInstances();
             List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.features!= null)&&(!this.features.isEmpty()))?this.getFeatures():null);
+            lhsField = (this.isSetFeatureInstances()?this.getFeatureInstances():null);
             List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.features!= null)&&(!that.features.isEmpty()))?that.getFeatures():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "features", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "features", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.attributes!= null)&&(!this.attributes.isEmpty()));
-            boolean rhsFieldIsSet = ((that.attributes!= null)&&(!that.attributes.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.attributes!= null)&&(!this.attributes.isEmpty()))?this.getAttributes():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.attributes!= null)&&(!that.attributes.isEmpty()))?that.getAttributes():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureInstances!= null)&&(!that.featureInstances.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()))?this.getFeatureInstances():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.featureInstances!= null)&&(!that.featureInstances.isEmpty()))?that.getFeatureInstances():null);
+            rhsField = (that.isSetFeatureInstances()?that.getFeatureInstances():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureInstances", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureInstances", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()));
-            boolean rhsFieldIsSet = ((that.attributeInstances!= null)&&(!that.attributeInstances.isEmpty()));
-            List<ObjectReferencePropertyType> lhsField;
-            lhsField = (((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()))?this.getAttributeInstances():null);
-            List<ObjectReferencePropertyType> rhsField;
-            rhsField = (((that.attributeInstances!= null)&&(!that.attributeInstances.isEmpty()))?that.getAttributeInstances():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeInstances", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeInstances", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.other!= null);
-            boolean rhsFieldIsSet = (that.other!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOther();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOther();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "other", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "other", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -379,42 +421,42 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.attributes!= null)&&(!this.attributes.isEmpty()));
+            boolean theFieldIsSet = this.isSetAttributes();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.attributes!= null)&&(!this.attributes.isEmpty()))?this.getAttributes():null);
+            theField = (this.isSetAttributes()?this.getAttributes():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "attributes", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.features!= null)&&(!this.features.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatures();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.features!= null)&&(!this.features.isEmpty()))?this.getFeatures():null);
+            theField = (this.isSetFeatures()?this.getFeatures():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "features", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureInstances();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()))?this.getFeatureInstances():null);
+            theField = (this.isSetFeatureInstances()?this.getFeatureInstances():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureInstances", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()));
+            boolean theFieldIsSet = this.isSetAttributeInstances();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()))?this.getAttributeInstances():null);
+            theField = (this.isSetAttributeInstances()?this.getAttributeInstances():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "attributeInstances", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataset!= null);
+            boolean theFieldIsSet = this.isSetDataset();
             CharacterStringPropertyType theField;
             theField = this.getDataset();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dataset", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.other!= null);
+            boolean theFieldIsSet = this.isSetOther();
             CharacterStringPropertyType theField;
             theField = this.getOther();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "other", theField);
@@ -446,37 +488,37 @@ public class MDScopeDescriptionType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.attributes!= null)&&(!this.attributes.isEmpty()));
+            boolean theFieldIsSet = this.isSetAttributes();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.attributes!= null)&&(!this.attributes.isEmpty()))?this.getAttributes():null);
+            theField = (this.isSetAttributes()?this.getAttributes():null);
             strategy.appendField(locator, this, "attributes", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.features!= null)&&(!this.features.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatures();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.features!= null)&&(!this.features.isEmpty()))?this.getFeatures():null);
+            theField = (this.isSetFeatures()?this.getFeatures():null);
             strategy.appendField(locator, this, "features", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureInstances();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.featureInstances!= null)&&(!this.featureInstances.isEmpty()))?this.getFeatureInstances():null);
+            theField = (this.isSetFeatureInstances()?this.getFeatureInstances():null);
             strategy.appendField(locator, this, "featureInstances", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()));
+            boolean theFieldIsSet = this.isSetAttributeInstances();
             List<ObjectReferencePropertyType> theField;
-            theField = (((this.attributeInstances!= null)&&(!this.attributeInstances.isEmpty()))?this.getAttributeInstances():null);
+            theField = (this.isSetAttributeInstances()?this.getAttributeInstances():null);
             strategy.appendField(locator, this, "attributeInstances", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dataset!= null);
+            boolean theFieldIsSet = this.isSetDataset();
             CharacterStringPropertyType theField;
             theField = this.getDataset();
             strategy.appendField(locator, this, "dataset", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.other!= null);
+            boolean theFieldIsSet = this.isSetOther();
             CharacterStringPropertyType theField;
             theField = this.getOther();
             strategy.appendField(locator, this, "other", buffer, theField, theFieldIsSet);

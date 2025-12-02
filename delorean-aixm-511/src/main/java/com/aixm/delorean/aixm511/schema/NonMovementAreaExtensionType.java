@@ -223,19 +223,6 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
         }
         final NonMovementAreaExtensionType that = ((NonMovementAreaExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNonMovementAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNonMovementAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNonMovementAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNonMovementAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNonMovementAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNonMovementAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class NonMovementAreaExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNonMovementAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNonMovementAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNonMovementAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNonMovementAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNonMovementAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNonMovementAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

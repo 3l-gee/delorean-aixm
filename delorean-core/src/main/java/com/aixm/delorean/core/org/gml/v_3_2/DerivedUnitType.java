@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DerivedUnitType
     extends UnitDefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<DerivationUnitTermType> derivationUnitTerm;
 
@@ -83,6 +86,14 @@ public class DerivedUnitType
         this.derivationUnitTerm = derivationUnitTerm;
     }
 
+    public boolean isSetDerivationUnitTerm() {
+        return ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+    }
+
+    public void unsetDerivationUnitTerm() {
+        this.derivationUnitTerm = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -96,12 +107,12 @@ public class DerivedUnitType
         }
         final DerivedUnitType that = ((DerivedUnitType) object);
         {
-            boolean lhsFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
-            boolean rhsFieldIsSet = ((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDerivationUnitTerm();
+            boolean rhsFieldIsSet = that.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> lhsField;
-            lhsField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            lhsField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             List<DerivationUnitTermType> rhsField;
-            rhsField = (((that.derivationUnitTerm!= null)&&(!that.derivationUnitTerm.isEmpty()))?that.getDerivationUnitTerm():null);
+            rhsField = (that.isSetDerivationUnitTerm()?that.getDerivationUnitTerm():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -115,9 +126,9 @@ public class DerivedUnitType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+            boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "derivationUnitTerm", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -128,9 +139,9 @@ public class DerivedUnitType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+            boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()))?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
             strategy.appendField(locator, this, "derivationUnitTerm", buffer, theField, theFieldIsSet);
         }
         return buffer;

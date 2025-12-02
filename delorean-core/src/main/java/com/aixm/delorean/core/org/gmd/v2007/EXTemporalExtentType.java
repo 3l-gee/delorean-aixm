@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gts.v2007.TMPrimitivePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXTemporalExtentType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected TMPrimitivePropertyType extent;
 
@@ -74,6 +77,10 @@ public class EXTemporalExtentType
         this.extent = value;
     }
 
+    public boolean isSetExtent() {
+        return (this.extent!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -87,8 +94,8 @@ public class EXTemporalExtentType
         }
         final EXTemporalExtentType that = ((EXTemporalExtentType) object);
         {
-            boolean lhsFieldIsSet = (this.extent!= null);
-            boolean rhsFieldIsSet = (that.extent!= null);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
             TMPrimitivePropertyType lhsField;
             lhsField = this.getExtent();
             TMPrimitivePropertyType rhsField;
@@ -106,7 +113,7 @@ public class EXTemporalExtentType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             TMPrimitivePropertyType theField;
             theField = this.getExtent();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
@@ -119,7 +126,7 @@ public class EXTemporalExtentType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.extent!= null);
+            boolean theFieldIsSet = this.isSetExtent();
             TMPrimitivePropertyType theField;
             theField = this.getExtent();
             strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);

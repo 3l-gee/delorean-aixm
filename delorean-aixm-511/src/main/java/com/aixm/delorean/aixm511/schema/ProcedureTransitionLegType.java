@@ -228,7 +228,7 @@ public class ProcedureTransitionLegType
     @OneToMany(targetEntity = ProcedureTransitionLegTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_PROCEDURE_TRANSITI_1")
     public List<ProcedureTransitionLegTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -279,19 +279,6 @@ public class ProcedureTransitionLegType
         }
         final ProcedureTransitionLegType that = ((ProcedureTransitionLegType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
-            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getSeqNumberARINC();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getSeqNumberARINC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
             boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
             SegmentLegPropertyType lhsField;
@@ -313,6 +300,19 @@ public class ProcedureTransitionLegType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
+            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getSeqNumberARINC();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getSeqNumberARINC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

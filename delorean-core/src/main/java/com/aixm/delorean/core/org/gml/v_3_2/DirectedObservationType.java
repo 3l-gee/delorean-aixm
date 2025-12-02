@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class DirectedObservationType
     extends ObservationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The property gml:direction is intended as a pre-defined property expressing a direction to be assigned to features defined in a GML application schema.
      * 
@@ -75,6 +78,10 @@ public class DirectedObservationType
         this.direction = value;
     }
 
+    public boolean isSetDirection() {
+        return (this.direction!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -88,8 +95,8 @@ public class DirectedObservationType
         }
         final DirectedObservationType that = ((DirectedObservationType) object);
         {
-            boolean lhsFieldIsSet = (this.direction!= null);
-            boolean rhsFieldIsSet = (that.direction!= null);
+            boolean lhsFieldIsSet = this.isSetDirection();
+            boolean rhsFieldIsSet = that.isSetDirection();
             DirectionPropertyType lhsField;
             lhsField = this.getDirection();
             DirectionPropertyType rhsField;
@@ -107,7 +114,7 @@ public class DirectedObservationType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.direction!= null);
+            boolean theFieldIsSet = this.isSetDirection();
             DirectionPropertyType theField;
             theField = this.getDirection();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "direction", theField);
@@ -120,7 +127,7 @@ public class DirectedObservationType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.direction!= null);
+            boolean theFieldIsSet = this.isSetDirection();
             DirectionPropertyType theField;
             theField = this.getDirection();
             strategy.appendField(locator, this, "direction", buffer, theField, theFieldIsSet);

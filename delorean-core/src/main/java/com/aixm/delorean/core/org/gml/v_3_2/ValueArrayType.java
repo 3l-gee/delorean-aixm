@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -34,8 +35,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "ValueArrayType")
 public class ValueArrayType
     extends CompositeValueType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "codeSpace")
     @XmlSchemaType(name = "anyURI")
     protected String codeSpace;
@@ -66,6 +69,10 @@ public class ValueArrayType
         this.codeSpace = value;
     }
 
+    public boolean isSetCodeSpace() {
+        return (this.codeSpace!= null);
+    }
+
     /**
      * Gets the value of the uom property.
      * 
@@ -90,6 +97,10 @@ public class ValueArrayType
         this.uom = value;
     }
 
+    public boolean isSetUom() {
+        return (this.uom!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -103,8 +114,8 @@ public class ValueArrayType
         }
         final ValueArrayType that = ((ValueArrayType) object);
         {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
             String lhsField;
             lhsField = this.getCodeSpace();
             String rhsField;
@@ -116,8 +127,8 @@ public class ValueArrayType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.uom!= null);
-            boolean rhsFieldIsSet = (that.uom!= null);
+            boolean lhsFieldIsSet = this.isSetUom();
+            boolean rhsFieldIsSet = that.isSetUom();
             String lhsField;
             lhsField = this.getUom();
             String rhsField;
@@ -135,14 +146,14 @@ public class ValueArrayType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "codeSpace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uom", theField);
@@ -155,13 +166,13 @@ public class ValueArrayType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             String theField;
             theField = this.getCodeSpace();
             strategy.appendField(locator, this, "codeSpace", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.uom!= null);
+            boolean theFieldIsSet = this.isSetUom();
             String theField;
             theField = this.getUom();
             strategy.appendField(locator, this, "uom", buffer, theField, theFieldIsSet);

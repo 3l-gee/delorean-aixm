@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -35,8 +36,10 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 })
 public abstract class AbstractDQCompletenessType
     extends AbstractDQElementType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
 
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {

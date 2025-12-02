@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CompositeValueType
     extends AbstractGMLType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<ValuePropertyType> valueComponent;
     /**
      * Property that contains Values.
@@ -94,6 +97,14 @@ public class CompositeValueType
         this.valueComponent = valueComponent;
     }
 
+    public boolean isSetValueComponent() {
+        return ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
+    }
+
+    public void unsetValueComponent() {
+        this.valueComponent = null;
+    }
+
     /**
      * Property that contains Values.
      * 
@@ -117,6 +128,10 @@ public class CompositeValueType
      */
     public void setValueComponents(ValueArrayPropertyType value) {
         this.valueComponents = value;
+    }
+
+    public boolean isSetValueComponents() {
+        return (this.valueComponents!= null);
     }
 
     /**
@@ -143,6 +158,10 @@ public class CompositeValueType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -156,8 +175,8 @@ public class CompositeValueType
         }
         final CompositeValueType that = ((CompositeValueType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
@@ -169,27 +188,27 @@ public class CompositeValueType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.valueComponents!= null);
-            boolean rhsFieldIsSet = (that.valueComponents!= null);
+            boolean lhsFieldIsSet = this.isSetValueComponent();
+            boolean rhsFieldIsSet = that.isSetValueComponent();
+            List<ValuePropertyType> lhsField;
+            lhsField = (this.isSetValueComponent()?this.getValueComponent():null);
+            List<ValuePropertyType> rhsField;
+            rhsField = (that.isSetValueComponent()?that.getValueComponent():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValueComponents();
+            boolean rhsFieldIsSet = that.isSetValueComponents();
             ValueArrayPropertyType lhsField;
             lhsField = this.getValueComponents();
             ValueArrayPropertyType rhsField;
             rhsField = that.getValueComponents();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponents", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponents", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
-            boolean rhsFieldIsSet = ((that.valueComponent!= null)&&(!that.valueComponent.isEmpty()));
-            List<ValuePropertyType> lhsField;
-            lhsField = (((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()))?this.getValueComponent():null);
-            List<ValuePropertyType> rhsField;
-            rhsField = (((that.valueComponent!= null)&&(!that.valueComponent.isEmpty()))?that.getValueComponent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueComponent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueComponent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -201,21 +220,21 @@ public class CompositeValueType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
+            boolean theFieldIsSet = this.isSetValueComponent();
             List<ValuePropertyType> theField;
-            theField = (((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()))?this.getValueComponent():null);
+            theField = (this.isSetValueComponent()?this.getValueComponent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "valueComponent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.valueComponents!= null);
+            boolean theFieldIsSet = this.isSetValueComponents();
             ValueArrayPropertyType theField;
             theField = this.getValueComponents();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "valueComponents", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -228,19 +247,19 @@ public class CompositeValueType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()));
+            boolean theFieldIsSet = this.isSetValueComponent();
             List<ValuePropertyType> theField;
-            theField = (((this.valueComponent!= null)&&(!this.valueComponent.isEmpty()))?this.getValueComponent():null);
+            theField = (this.isSetValueComponent()?this.getValueComponent():null);
             strategy.appendField(locator, this, "valueComponent", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.valueComponents!= null);
+            boolean theFieldIsSet = this.isSetValueComponents();
             ValueArrayPropertyType theField;
             theField = this.getValueComponents();
             strategy.appendField(locator, this, "valueComponents", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

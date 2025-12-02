@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.IntegerPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDGeometricObjectsType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected MDGeometricObjectTypeCodePropertyType geometricObjectType;
     protected IntegerPropertyType geometricObjectCount;
@@ -71,6 +74,10 @@ public class MDGeometricObjectsType
         this.geometricObjectType = value;
     }
 
+    public boolean isSetGeometricObjectType() {
+        return (this.geometricObjectType!= null);
+    }
+
     /**
      * Gets the value of the geometricObjectCount property.
      * 
@@ -95,6 +102,10 @@ public class MDGeometricObjectsType
         this.geometricObjectCount = value;
     }
 
+    public boolean isSetGeometricObjectCount() {
+        return (this.geometricObjectCount!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -108,27 +119,27 @@ public class MDGeometricObjectsType
         }
         final MDGeometricObjectsType that = ((MDGeometricObjectsType) object);
         {
-            boolean lhsFieldIsSet = (this.geometricObjectCount!= null);
-            boolean rhsFieldIsSet = (that.geometricObjectCount!= null);
-            IntegerPropertyType lhsField;
-            lhsField = this.getGeometricObjectCount();
-            IntegerPropertyType rhsField;
-            rhsField = that.getGeometricObjectCount();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectCount", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectCount", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.geometricObjectType!= null);
-            boolean rhsFieldIsSet = (that.geometricObjectType!= null);
+            boolean lhsFieldIsSet = this.isSetGeometricObjectType();
+            boolean rhsFieldIsSet = that.isSetGeometricObjectType();
             MDGeometricObjectTypeCodePropertyType lhsField;
             lhsField = this.getGeometricObjectType();
             MDGeometricObjectTypeCodePropertyType rhsField;
             rhsField = that.getGeometricObjectType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeometricObjectCount();
+            boolean rhsFieldIsSet = that.isSetGeometricObjectCount();
+            IntegerPropertyType lhsField;
+            lhsField = this.getGeometricObjectCount();
+            IntegerPropertyType rhsField;
+            rhsField = that.getGeometricObjectCount();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricObjectCount", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricObjectCount", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -140,14 +151,14 @@ public class MDGeometricObjectsType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.geometricObjectType!= null);
+            boolean theFieldIsSet = this.isSetGeometricObjectType();
             MDGeometricObjectTypeCodePropertyType theField;
             theField = this.getGeometricObjectType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometricObjectType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geometricObjectCount!= null);
+            boolean theFieldIsSet = this.isSetGeometricObjectCount();
             IntegerPropertyType theField;
             theField = this.getGeometricObjectCount();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometricObjectCount", theField);
@@ -160,13 +171,13 @@ public class MDGeometricObjectsType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.geometricObjectType!= null);
+            boolean theFieldIsSet = this.isSetGeometricObjectType();
             MDGeometricObjectTypeCodePropertyType theField;
             theField = this.getGeometricObjectType();
             strategy.appendField(locator, this, "geometricObjectType", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.geometricObjectCount!= null);
+            boolean theFieldIsSet = this.isSetGeometricObjectCount();
             IntegerPropertyType theField;
             theField = this.getGeometricObjectCount();
             strategy.appendField(locator, this, "geometricObjectCount", buffer, theField, theFieldIsSet);

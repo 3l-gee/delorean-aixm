@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TimeIntervalLengthType", propOrder = {
     "value"
 })
-public class TimeIntervalLengthType implements Equals, HashCode, ToString
+public class TimeIntervalLengthType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected BigDecimal value;
     @XmlAttribute(name = "unit", required = true)
@@ -83,6 +85,10 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the unit property.
      * 
@@ -105,6 +111,10 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
      */
     public void setUnit(String value) {
         this.unit = value;
+    }
+
+    public boolean isSetUnit() {
+        return (this.unit!= null);
     }
 
     /**
@@ -131,6 +141,10 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
         this.radix = value;
     }
 
+    public boolean isSetRadix() {
+        return (this.radix!= null);
+    }
+
     /**
      * Gets the value of the factor property.
      * 
@@ -155,6 +169,10 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
         this.factor = value;
     }
 
+    public boolean isSetFactor() {
+        return (this.factor!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -177,34 +195,21 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
         }
         final TimeIntervalLengthType that = ((TimeIntervalLengthType) object);
         {
-            boolean lhsFieldIsSet = (this.unit!= null);
-            boolean rhsFieldIsSet = (that.unit!= null);
-            String lhsField;
-            lhsField = this.getUnit();
-            String rhsField;
-            rhsField = that.getUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unit", rhsField);
+            boolean lhsFieldIsSet = this.isSetFactor();
+            boolean rhsFieldIsSet = that.isSetFactor();
+            BigInteger lhsField;
+            lhsField = this.getFactor();
+            BigInteger rhsField;
+            rhsField = that.getFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
-            BigDecimal lhsField;
-            lhsField = this.getValue();
-            BigDecimal rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.radix!= null);
-            boolean rhsFieldIsSet = (that.radix!= null);
+            boolean lhsFieldIsSet = this.isSetRadix();
+            boolean rhsFieldIsSet = that.isSetRadix();
             BigInteger lhsField;
             lhsField = this.getRadix();
             BigInteger rhsField;
@@ -216,14 +221,27 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.factor!= null);
-            boolean rhsFieldIsSet = (that.factor!= null);
-            BigInteger lhsField;
-            lhsField = this.getFactor();
-            BigInteger rhsField;
-            rhsField = that.getFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "factor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "factor", rhsField);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            BigDecimal lhsField;
+            lhsField = this.getValue();
+            BigDecimal rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnit();
+            boolean rhsFieldIsSet = that.isSetUnit();
+            String lhsField;
+            lhsField = this.getUnit();
+            String rhsField;
+            rhsField = that.getUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -245,28 +263,28 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             BigDecimal theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.unit!= null);
+            boolean theFieldIsSet = this.isSetUnit();
             String theField;
             theField = this.getUnit();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "unit", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.radix!= null);
+            boolean theFieldIsSet = this.isSetRadix();
             BigInteger theField;
             theField = this.getRadix();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radix", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.factor!= null);
+            boolean theFieldIsSet = this.isSetFactor();
             BigInteger theField;
             theField = this.getFactor();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "factor", theField);
@@ -298,25 +316,25 @@ public class TimeIntervalLengthType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             BigDecimal theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.unit!= null);
+            boolean theFieldIsSet = this.isSetUnit();
             String theField;
             theField = this.getUnit();
             strategy.appendField(locator, this, "unit", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.radix!= null);
+            boolean theFieldIsSet = this.isSetRadix();
             BigInteger theField;
             theField = this.getRadix();
             strategy.appendField(locator, this, "radix", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.factor!= null);
+            boolean theFieldIsSet = this.isSetFactor();
             BigInteger theField;
             theField = this.getFactor();
             strategy.appendField(locator, this, "factor", buffer, theField, theFieldIsSet);

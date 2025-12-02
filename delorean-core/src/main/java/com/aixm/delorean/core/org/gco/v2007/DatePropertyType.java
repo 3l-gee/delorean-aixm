@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import javax.xml.datatype.XMLGregorianCalendar;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -48,9 +49,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "date",
     "dateTime"
 })
-public class DatePropertyType implements Equals, HashCode, ToString
+public class DatePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Date", nillable = true)
     protected String date;
     @XmlElement(name = "DateTime")
@@ -83,6 +85,10 @@ public class DatePropertyType implements Equals, HashCode, ToString
         this.date = value;
     }
 
+    public boolean isSetDate() {
+        return (this.date!= null);
+    }
+
     /**
      * Gets the value of the dateTime property.
      * 
@@ -105,6 +111,10 @@ public class DatePropertyType implements Equals, HashCode, ToString
      */
     public void setDateTime(XMLGregorianCalendar value) {
         this.dateTime = value;
+    }
+
+    public boolean isSetDateTime() {
+        return (this.dateTime!= null);
     }
 
     /**
@@ -131,6 +141,10 @@ public class DatePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -153,21 +167,21 @@ public class DatePropertyType implements Equals, HashCode, ToString
         }
         final DatePropertyType that = ((DatePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetDate();
+            boolean rhsFieldIsSet = that.isSetDate();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getDate();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.dateTime!= null);
-            boolean rhsFieldIsSet = (that.dateTime!= null);
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
             XMLGregorianCalendar lhsField;
             lhsField = this.getDateTime();
             XMLGregorianCalendar rhsField;
@@ -179,14 +193,14 @@ public class DatePropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.date!= null);
-            boolean rhsFieldIsSet = (that.date!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getDate();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -208,21 +222,21 @@ public class DatePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.date!= null);
+            boolean theFieldIsSet = this.isSetDate();
             String theField;
             theField = this.getDate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "date", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateTime!= null);
+            boolean theFieldIsSet = this.isSetDateTime();
             XMLGregorianCalendar theField;
             theField = this.getDateTime();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -254,19 +268,19 @@ public class DatePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.date!= null);
+            boolean theFieldIsSet = this.isSetDate();
             String theField;
             theField = this.getDate();
             strategy.appendField(locator, this, "date", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateTime!= null);
+            boolean theFieldIsSet = this.isSetDateTime();
             XMLGregorianCalendar theField;
             theField = this.getDateTime();
             strategy.appendField(locator, this, "dateTime", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

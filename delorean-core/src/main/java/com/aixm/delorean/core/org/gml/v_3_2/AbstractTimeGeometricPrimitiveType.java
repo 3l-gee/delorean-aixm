@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractTimeGeometricPrimitiveType
     extends AbstractTimePrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "frame")
     @XmlSchemaType(name = "anyURI")
     protected String frame;
@@ -73,6 +76,10 @@ public abstract class AbstractTimeGeometricPrimitiveType
         this.frame = value;
     }
 
+    public boolean isSetFrame() {
+        return (this.frame!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -86,8 +93,8 @@ public abstract class AbstractTimeGeometricPrimitiveType
         }
         final AbstractTimeGeometricPrimitiveType that = ((AbstractTimeGeometricPrimitiveType) object);
         {
-            boolean lhsFieldIsSet = (this.frame!= null);
-            boolean rhsFieldIsSet = (that.frame!= null);
+            boolean lhsFieldIsSet = this.isSetFrame();
+            boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
             lhsField = this.getFrame();
             String rhsField;
@@ -105,7 +112,7 @@ public abstract class AbstractTimeGeometricPrimitiveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "frame", theField);
@@ -118,7 +125,7 @@ public abstract class AbstractTimeGeometricPrimitiveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.frame!= null);
+            boolean theFieldIsSet = this.isSetFrame();
             String theField;
             theField = this.getFrame();
             strategy.appendField(locator, this, "frame", buffer, theField, theFieldIsSet);

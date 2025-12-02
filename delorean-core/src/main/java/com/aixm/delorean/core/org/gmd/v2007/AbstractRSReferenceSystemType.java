@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractRSReferenceSystemType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected RSIdentifierPropertyType name;
     protected List<EXExtentPropertyType> domainOfValidity;
@@ -72,6 +75,10 @@ public abstract class AbstractRSReferenceSystemType
      */
     public void setName(RSIdentifierPropertyType value) {
         this.name = value;
+    }
+
+    public boolean isSetName() {
+        return (this.name!= null);
     }
 
     /**
@@ -111,6 +118,14 @@ public abstract class AbstractRSReferenceSystemType
         this.domainOfValidity = domainOfValidity;
     }
 
+    public boolean isSetDomainOfValidity() {
+        return ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+    }
+
+    public void unsetDomainOfValidity() {
+        this.domainOfValidity = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -124,27 +139,27 @@ public abstract class AbstractRSReferenceSystemType
         }
         final AbstractRSReferenceSystemType that = ((AbstractRSReferenceSystemType) object);
         {
-            boolean lhsFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
-            boolean rhsFieldIsSet = ((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()));
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (((that.domainOfValidity!= null)&&(!that.domainOfValidity.isEmpty()))?that.getDomainOfValidity():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.name!= null);
-            boolean rhsFieldIsSet = (that.name!= null);
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             RSIdentifierPropertyType lhsField;
             lhsField = this.getName();
             RSIdentifierPropertyType rhsField;
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDomainOfValidity();
+            boolean rhsFieldIsSet = that.isSetDomainOfValidity();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetDomainOfValidity()?that.getDomainOfValidity():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -156,16 +171,16 @@ public abstract class AbstractRSReferenceSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             RSIdentifierPropertyType theField;
             theField = this.getName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "name", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<EXExtentPropertyType> theField;
-            theField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainOfValidity", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -176,15 +191,15 @@ public abstract class AbstractRSReferenceSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.name!= null);
+            boolean theFieldIsSet = this.isSetName();
             RSIdentifierPropertyType theField;
             theField = this.getName();
             strategy.appendField(locator, this, "name", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+            boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<EXExtentPropertyType> theField;
-            theField = (((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()))?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
             strategy.appendField(locator, this, "domainOfValidity", buffer, theField, theFieldIsSet);
         }
         return buffer;

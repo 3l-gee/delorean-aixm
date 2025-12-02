@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MemberNameType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CharacterStringPropertyType aName;
     @XmlElement(required = true)
@@ -72,6 +75,10 @@ public class MemberNameType
         this.aName = value;
     }
 
+    public boolean isSetAName() {
+        return (this.aName!= null);
+    }
+
     /**
      * Gets the value of the attributeType property.
      * 
@@ -96,6 +103,10 @@ public class MemberNameType
         this.attributeType = value;
     }
 
+    public boolean isSetAttributeType() {
+        return (this.attributeType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -109,27 +120,27 @@ public class MemberNameType
         }
         final MemberNameType that = ((MemberNameType) object);
         {
-            boolean lhsFieldIsSet = (this.aName!= null);
-            boolean rhsFieldIsSet = (that.aName!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getAName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getAName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.attributeType!= null);
-            boolean rhsFieldIsSet = (that.attributeType!= null);
+            boolean lhsFieldIsSet = this.isSetAttributeType();
+            boolean rhsFieldIsSet = that.isSetAttributeType();
             TypeNamePropertyType lhsField;
             lhsField = this.getAttributeType();
             TypeNamePropertyType rhsField;
             rhsField = that.getAttributeType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAName();
+            boolean rhsFieldIsSet = that.isSetAName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getAName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getAName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -141,14 +152,14 @@ public class MemberNameType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.aName!= null);
+            boolean theFieldIsSet = this.isSetAName();
             CharacterStringPropertyType theField;
             theField = this.getAName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.attributeType!= null);
+            boolean theFieldIsSet = this.isSetAttributeType();
             TypeNamePropertyType theField;
             theField = this.getAttributeType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "attributeType", theField);
@@ -161,13 +172,13 @@ public class MemberNameType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.aName!= null);
+            boolean theFieldIsSet = this.isSetAName();
             CharacterStringPropertyType theField;
             theField = this.getAName();
             strategy.appendField(locator, this, "aName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.attributeType!= null);
+            boolean theFieldIsSet = this.isSetAttributeType();
             TypeNamePropertyType theField;
             theField = this.getAttributeType();
             strategy.appendField(locator, this, "attributeType", buffer, theField, theFieldIsSet);

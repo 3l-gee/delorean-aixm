@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "TopoPrimitiveArrayAssociationType", propOrder = {
     "abstractTopoPrimitive"
 })
-public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToString
+public class TopoPrimitiveArrayAssociationType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractTopoPrimitive", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractTopoPrimitiveType>> abstractTopoPrimitive;
     @XmlAttribute(name = "owns")
@@ -96,6 +98,14 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
         this.abstractTopoPrimitive = abstractTopoPrimitive;
     }
 
+    public boolean isSetAbstractTopoPrimitive() {
+        return ((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()));
+    }
+
+    public void unsetAbstractTopoPrimitive() {
+        this.abstractTopoPrimitive = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -104,7 +114,7 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -120,8 +130,16 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -146,27 +164,27 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
         }
         final TopoPrimitiveArrayAssociationType that = ((TopoPrimitiveArrayAssociationType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractTopoPrimitive!= null)&&(!that.abstractTopoPrimitive.isEmpty()));
-            List<JAXBElement<? extends AbstractTopoPrimitiveType>> lhsField;
-            lhsField = (((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()))?this.getAbstractTopoPrimitive():null);
-            List<JAXBElement<? extends AbstractTopoPrimitiveType>> rhsField;
-            rhsField = (((that.abstractTopoPrimitive!= null)&&(!that.abstractTopoPrimitive.isEmpty()))?that.getAbstractTopoPrimitive():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractTopoPrimitive();
+            boolean rhsFieldIsSet = that.isSetAbstractTopoPrimitive();
+            List<JAXBElement<? extends AbstractTopoPrimitiveType>> lhsField;
+            lhsField = (this.isSetAbstractTopoPrimitive()?this.getAbstractTopoPrimitive():null);
+            List<JAXBElement<? extends AbstractTopoPrimitiveType>> rhsField;
+            rhsField = (that.isSetAbstractTopoPrimitive()?that.getAbstractTopoPrimitive():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTopoPrimitive", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTopoPrimitive", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -188,16 +206,16 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractTopoPrimitive();
             List<JAXBElement<? extends AbstractTopoPrimitiveType>> theField;
-            theField = (((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()))?this.getAbstractTopoPrimitive():null);
+            theField = (this.isSetAbstractTopoPrimitive()?this.getAbstractTopoPrimitive():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTopoPrimitive", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -227,15 +245,15 @@ public class TopoPrimitiveArrayAssociationType implements Equals, HashCode, ToSt
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractTopoPrimitive();
             List<JAXBElement<? extends AbstractTopoPrimitiveType>> theField;
-            theField = (((this.abstractTopoPrimitive!= null)&&(!this.abstractTopoPrimitive.isEmpty()))?this.getAbstractTopoPrimitive():null);
+            theField = (this.isSetAbstractTopoPrimitive()?this.getAbstractTopoPrimitive():null);
             strategy.appendField(locator, this, "abstractTopoPrimitive", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

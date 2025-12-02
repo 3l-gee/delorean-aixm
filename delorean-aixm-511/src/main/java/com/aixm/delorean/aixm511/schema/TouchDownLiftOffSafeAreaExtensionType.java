@@ -260,6 +260,19 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
         }
         final TouchDownLiftOffSafeAreaExtensionType that = ((TouchDownLiftOffSafeAreaExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -281,19 +294,6 @@ public class TouchDownLiftOffSafeAreaExtensionType implements Serializable, Equa
             rhsField = that.getAbstractTouchDownLiftOffSafeAreaExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTouchDownLiftOffSafeAreaExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTouchDownLiftOffSafeAreaExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportHeliportProtectionAreaExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportHeliportProtectionAreaExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportHeliportProtectionAreaExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportHeliportProtectionAreaExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportHeliportProtectionAreaExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportHeliportProtectionAreaExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

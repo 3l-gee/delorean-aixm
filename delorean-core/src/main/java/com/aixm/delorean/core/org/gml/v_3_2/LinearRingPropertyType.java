@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "LinearRingPropertyType", propOrder = {
     "linearRing"
 })
-public class LinearRingPropertyType implements Equals, HashCode, ToString
+public class LinearRingPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A LinearRing is defined by four or more coordinate tuples, with linear interpolation between them; the first and last coordinates shall be coincident. The number of direct positions in the list shall be at least four.
      * 
@@ -79,6 +81,10 @@ public class LinearRingPropertyType implements Equals, HashCode, ToString
         this.linearRing = value;
     }
 
+    public boolean isSetLinearRing() {
+        return (this.linearRing!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -101,8 +107,8 @@ public class LinearRingPropertyType implements Equals, HashCode, ToString
         }
         final LinearRingPropertyType that = ((LinearRingPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.linearRing!= null);
-            boolean rhsFieldIsSet = (that.linearRing!= null);
+            boolean lhsFieldIsSet = this.isSetLinearRing();
+            boolean rhsFieldIsSet = that.isSetLinearRing();
             LinearRingType lhsField;
             lhsField = this.getLinearRing();
             LinearRingType rhsField;
@@ -130,7 +136,7 @@ public class LinearRingPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.linearRing!= null);
+            boolean theFieldIsSet = this.isSetLinearRing();
             LinearRingType theField;
             theField = this.getLinearRing();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "linearRing", theField);
@@ -162,7 +168,7 @@ public class LinearRingPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.linearRing!= null);
+            boolean theFieldIsSet = this.isSetLinearRing();
             LinearRingType theField;
             theField = this.getLinearRing();
             strategy.appendField(locator, this, "linearRing", buffer, theField, theFieldIsSet);

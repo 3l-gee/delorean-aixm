@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TopoVolumeType
     extends AbstractTopologyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<DirectedTopoSolidPropertyType> directedTopoSolid;
     @XmlAttribute(name = "aggregationType")
@@ -85,6 +88,14 @@ public class TopoVolumeType
         this.directedTopoSolid = directedTopoSolid;
     }
 
+    public boolean isSetDirectedTopoSolid() {
+        return ((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()));
+    }
+
+    public void unsetDirectedTopoSolid() {
+        this.directedTopoSolid = null;
+    }
+
     /**
      * Gets the value of the aggregationType property.
      * 
@@ -109,6 +120,10 @@ public class TopoVolumeType
         this.aggregationType = value;
     }
 
+    public boolean isSetAggregationType() {
+        return (this.aggregationType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -122,27 +137,27 @@ public class TopoVolumeType
         }
         final TopoVolumeType that = ((TopoVolumeType) object);
         {
-            boolean lhsFieldIsSet = (this.aggregationType!= null);
-            boolean rhsFieldIsSet = (that.aggregationType!= null);
+            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
+            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
+            List<DirectedTopoSolidPropertyType> lhsField;
+            lhsField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
+            List<DirectedTopoSolidPropertyType> rhsField;
+            rhsField = (that.isSetDirectedTopoSolid()?that.getDirectedTopoSolid():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
             lhsField = this.getAggregationType();
             AggregationType rhsField;
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()));
-            boolean rhsFieldIsSet = ((that.directedTopoSolid!= null)&&(!that.directedTopoSolid.isEmpty()));
-            List<DirectedTopoSolidPropertyType> lhsField;
-            lhsField = (((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()))?this.getDirectedTopoSolid():null);
-            List<DirectedTopoSolidPropertyType> rhsField;
-            rhsField = (((that.directedTopoSolid!= null)&&(!that.directedTopoSolid.isEmpty()))?that.getDirectedTopoSolid():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -154,14 +169,14 @@ public class TopoVolumeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedTopoSolid();
             List<DirectedTopoSolidPropertyType> theField;
-            theField = (((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()))?this.getDirectedTopoSolid():null);
+            theField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedTopoSolid", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "aggregationType", theField);
@@ -174,13 +189,13 @@ public class TopoVolumeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()));
+            boolean theFieldIsSet = this.isSetDirectedTopoSolid();
             List<DirectedTopoSolidPropertyType> theField;
-            theField = (((this.directedTopoSolid!= null)&&(!this.directedTopoSolid.isEmpty()))?this.getDirectedTopoSolid():null);
+            theField = (this.isSetDirectedTopoSolid()?this.getDirectedTopoSolid():null);
             strategy.appendField(locator, this, "directedTopoSolid", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.aggregationType!= null);
+            boolean theFieldIsSet = this.isSetAggregationType();
             AggregationType theField;
             theField = this.getAggregationType();
             strategy.appendField(locator, this, "aggregationType", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.IntegerPropertyType;
 import com.aixm.delorean.core.org.gco.v2007.MeasurePropertyType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDDimensionType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected MDDimensionNameTypeCodePropertyType dimensionName;
     @XmlElement(required = true)
@@ -76,6 +79,10 @@ public class MDDimensionType
         this.dimensionName = value;
     }
 
+    public boolean isSetDimensionName() {
+        return (this.dimensionName!= null);
+    }
+
     /**
      * Gets the value of the dimensionSize property.
      * 
@@ -98,6 +105,10 @@ public class MDDimensionType
      */
     public void setDimensionSize(IntegerPropertyType value) {
         this.dimensionSize = value;
+    }
+
+    public boolean isSetDimensionSize() {
+        return (this.dimensionSize!= null);
     }
 
     /**
@@ -124,6 +135,10 @@ public class MDDimensionType
         this.resolution = value;
     }
 
+    public boolean isSetResolution() {
+        return (this.resolution!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -137,8 +152,21 @@ public class MDDimensionType
         }
         final MDDimensionType that = ((MDDimensionType) object);
         {
-            boolean lhsFieldIsSet = (this.dimensionSize!= null);
-            boolean rhsFieldIsSet = (that.dimensionSize!= null);
+            boolean lhsFieldIsSet = this.isSetDimensionName();
+            boolean rhsFieldIsSet = that.isSetDimensionName();
+            MDDimensionNameTypeCodePropertyType lhsField;
+            lhsField = this.getDimensionName();
+            MDDimensionNameTypeCodePropertyType rhsField;
+            rhsField = that.getDimensionName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDimensionSize();
+            boolean rhsFieldIsSet = that.isSetDimensionSize();
             IntegerPropertyType lhsField;
             lhsField = this.getDimensionSize();
             IntegerPropertyType rhsField;
@@ -150,27 +178,14 @@ public class MDDimensionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.resolution!= null);
-            boolean rhsFieldIsSet = (that.resolution!= null);
+            boolean lhsFieldIsSet = this.isSetResolution();
+            boolean rhsFieldIsSet = that.isSetResolution();
             MeasurePropertyType lhsField;
             lhsField = this.getResolution();
             MeasurePropertyType rhsField;
             rhsField = that.getResolution();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.dimensionName!= null);
-            boolean rhsFieldIsSet = (that.dimensionName!= null);
-            MDDimensionNameTypeCodePropertyType lhsField;
-            lhsField = this.getDimensionName();
-            MDDimensionNameTypeCodePropertyType rhsField;
-            rhsField = that.getDimensionName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -182,21 +197,21 @@ public class MDDimensionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.dimensionName!= null);
+            boolean theFieldIsSet = this.isSetDimensionName();
             MDDimensionNameTypeCodePropertyType theField;
             theField = this.getDimensionName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dimensionName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dimensionSize!= null);
+            boolean theFieldIsSet = this.isSetDimensionSize();
             IntegerPropertyType theField;
             theField = this.getDimensionSize();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dimensionSize", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.resolution!= null);
+            boolean theFieldIsSet = this.isSetResolution();
             MeasurePropertyType theField;
             theField = this.getResolution();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "resolution", theField);
@@ -209,19 +224,19 @@ public class MDDimensionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.dimensionName!= null);
+            boolean theFieldIsSet = this.isSetDimensionName();
             MDDimensionNameTypeCodePropertyType theField;
             theField = this.getDimensionName();
             strategy.appendField(locator, this, "dimensionName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dimensionSize!= null);
+            boolean theFieldIsSet = this.isSetDimensionSize();
             IntegerPropertyType theField;
             theField = this.getDimensionSize();
             strategy.appendField(locator, this, "dimensionSize", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.resolution!= null);
+            boolean theFieldIsSet = this.isSetResolution();
             MeasurePropertyType theField;
             theField = this.getResolution();
             strategy.appendField(locator, this, "resolution", buffer, theField, theFieldIsSet);

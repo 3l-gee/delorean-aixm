@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class UnitDefinitionType
     extends DefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * The gml:quantityType property indicates the phenomenon to which the units apply. This element contains an informal description of the phenomenon or type of physical quantity that is measured or observed. When the physical quantity is the result of an observation or measurement, this term is known as observable type or measurand.
      * The use of gml:quantityType for references to remote values is deprecated.
@@ -92,6 +95,10 @@ public class UnitDefinitionType
         this.quantityType = value;
     }
 
+    public boolean isSetQuantityType() {
+        return (this.quantityType!= null);
+    }
+
     /**
      * The gml:quantityTypeReference property indicates the phenomenon to which the units apply. The content is a reference to a remote value.
      * 
@@ -115,6 +122,10 @@ public class UnitDefinitionType
      */
     public void setQuantityTypeReference(ReferenceType value) {
         this.quantityTypeReference = value;
+    }
+
+    public boolean isSetQuantityTypeReference() {
+        return (this.quantityTypeReference!= null);
     }
 
     /**
@@ -143,6 +154,10 @@ public class UnitDefinitionType
         this.catalogSymbol = value;
     }
 
+    public boolean isSetCatalogSymbol() {
+        return (this.catalogSymbol!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -156,8 +171,8 @@ public class UnitDefinitionType
         }
         final UnitDefinitionType that = ((UnitDefinitionType) object);
         {
-            boolean lhsFieldIsSet = (this.quantityTypeReference!= null);
-            boolean rhsFieldIsSet = (that.quantityTypeReference!= null);
+            boolean lhsFieldIsSet = this.isSetQuantityTypeReference();
+            boolean rhsFieldIsSet = that.isSetQuantityTypeReference();
             ReferenceType lhsField;
             lhsField = this.getQuantityTypeReference();
             ReferenceType rhsField;
@@ -169,8 +184,8 @@ public class UnitDefinitionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.quantityType!= null);
-            boolean rhsFieldIsSet = (that.quantityType!= null);
+            boolean lhsFieldIsSet = this.isSetQuantityType();
+            boolean rhsFieldIsSet = that.isSetQuantityType();
             StringOrRefType lhsField;
             lhsField = this.getQuantityType();
             StringOrRefType rhsField;
@@ -182,8 +197,8 @@ public class UnitDefinitionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.catalogSymbol!= null);
-            boolean rhsFieldIsSet = (that.catalogSymbol!= null);
+            boolean lhsFieldIsSet = this.isSetCatalogSymbol();
+            boolean rhsFieldIsSet = that.isSetCatalogSymbol();
             CodeType lhsField;
             lhsField = this.getCatalogSymbol();
             CodeType rhsField;
@@ -201,21 +216,21 @@ public class UnitDefinitionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.quantityType!= null);
+            boolean theFieldIsSet = this.isSetQuantityType();
             StringOrRefType theField;
             theField = this.getQuantityType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "quantityType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.quantityTypeReference!= null);
+            boolean theFieldIsSet = this.isSetQuantityTypeReference();
             ReferenceType theField;
             theField = this.getQuantityTypeReference();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "quantityTypeReference", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.catalogSymbol!= null);
+            boolean theFieldIsSet = this.isSetCatalogSymbol();
             CodeType theField;
             theField = this.getCatalogSymbol();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "catalogSymbol", theField);
@@ -228,19 +243,19 @@ public class UnitDefinitionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.quantityType!= null);
+            boolean theFieldIsSet = this.isSetQuantityType();
             StringOrRefType theField;
             theField = this.getQuantityType();
             strategy.appendField(locator, this, "quantityType", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.quantityTypeReference!= null);
+            boolean theFieldIsSet = this.isSetQuantityTypeReference();
             ReferenceType theField;
             theField = this.getQuantityTypeReference();
             strategy.appendField(locator, this, "quantityTypeReference", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.catalogSymbol!= null);
+            boolean theFieldIsSet = this.isSetCatalogSymbol();
             CodeType theField;
             theField = this.getCatalogSymbol();
             strategy.appendField(locator, this, "catalogSymbol", buffer, theField, theFieldIsSet);

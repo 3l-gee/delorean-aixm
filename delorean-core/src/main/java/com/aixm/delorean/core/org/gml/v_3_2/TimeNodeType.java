@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeNodeType
     extends AbstractTimeTopologyPrimitiveType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<TimeEdgePropertyType> previousEdge;
     protected List<TimeEdgePropertyType> nextEdge;
     protected TimeInstantPropertyType position;
@@ -85,6 +88,14 @@ public class TimeNodeType
         this.previousEdge = previousEdge;
     }
 
+    public boolean isSetPreviousEdge() {
+        return ((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()));
+    }
+
+    public void unsetPreviousEdge() {
+        this.previousEdge = null;
+    }
+
     /**
      * Gets the value of the nextEdge property.
      * 
@@ -122,6 +133,14 @@ public class TimeNodeType
         this.nextEdge = nextEdge;
     }
 
+    public boolean isSetNextEdge() {
+        return ((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()));
+    }
+
+    public void unsetNextEdge() {
+        this.nextEdge = null;
+    }
+
     /**
      * Gets the value of the position property.
      * 
@@ -146,6 +165,10 @@ public class TimeNodeType
         this.position = value;
     }
 
+    public boolean isSetPosition() {
+        return (this.position!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -159,12 +182,12 @@ public class TimeNodeType
         }
         final TimeNodeType that = ((TimeNodeType) object);
         {
-            boolean lhsFieldIsSet = ((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()));
-            boolean rhsFieldIsSet = ((that.nextEdge!= null)&&(!that.nextEdge.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetNextEdge();
+            boolean rhsFieldIsSet = that.isSetNextEdge();
             List<TimeEdgePropertyType> lhsField;
-            lhsField = (((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()))?this.getNextEdge():null);
+            lhsField = (this.isSetNextEdge()?this.getNextEdge():null);
             List<TimeEdgePropertyType> rhsField;
-            rhsField = (((that.nextEdge!= null)&&(!that.nextEdge.isEmpty()))?that.getNextEdge():null);
+            rhsField = (that.isSetNextEdge()?that.getNextEdge():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nextEdge", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nextEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -172,27 +195,27 @@ public class TimeNodeType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()));
-            boolean rhsFieldIsSet = ((that.previousEdge!= null)&&(!that.previousEdge.isEmpty()));
-            List<TimeEdgePropertyType> lhsField;
-            lhsField = (((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()))?this.getPreviousEdge():null);
-            List<TimeEdgePropertyType> rhsField;
-            rhsField = (((that.previousEdge!= null)&&(!that.previousEdge.isEmpty()))?that.getPreviousEdge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "previousEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "previousEdge", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.position!= null);
-            boolean rhsFieldIsSet = (that.position!= null);
+            boolean lhsFieldIsSet = this.isSetPosition();
+            boolean rhsFieldIsSet = that.isSetPosition();
             TimeInstantPropertyType lhsField;
             lhsField = this.getPosition();
             TimeInstantPropertyType rhsField;
             rhsField = that.getPosition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "position", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "position", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPreviousEdge();
+            boolean rhsFieldIsSet = that.isSetPreviousEdge();
+            List<TimeEdgePropertyType> lhsField;
+            lhsField = (this.isSetPreviousEdge()?this.getPreviousEdge():null);
+            List<TimeEdgePropertyType> rhsField;
+            rhsField = (that.isSetPreviousEdge()?that.getPreviousEdge():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "previousEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "previousEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -204,21 +227,21 @@ public class TimeNodeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetPreviousEdge();
             List<TimeEdgePropertyType> theField;
-            theField = (((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()))?this.getPreviousEdge():null);
+            theField = (this.isSetPreviousEdge()?this.getPreviousEdge():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "previousEdge", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetNextEdge();
             List<TimeEdgePropertyType> theField;
-            theField = (((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()))?this.getNextEdge():null);
+            theField = (this.isSetNextEdge()?this.getNextEdge():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nextEdge", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.position!= null);
+            boolean theFieldIsSet = this.isSetPosition();
             TimeInstantPropertyType theField;
             theField = this.getPosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "position", theField);
@@ -231,19 +254,19 @@ public class TimeNodeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetPreviousEdge();
             List<TimeEdgePropertyType> theField;
-            theField = (((this.previousEdge!= null)&&(!this.previousEdge.isEmpty()))?this.getPreviousEdge():null);
+            theField = (this.isSetPreviousEdge()?this.getPreviousEdge():null);
             strategy.appendField(locator, this, "previousEdge", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()));
+            boolean theFieldIsSet = this.isSetNextEdge();
             List<TimeEdgePropertyType> theField;
-            theField = (((this.nextEdge!= null)&&(!this.nextEdge.isEmpty()))?this.getNextEdge():null);
+            theField = (this.isSetNextEdge()?this.getNextEdge():null);
             strategy.appendField(locator, this, "nextEdge", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.position!= null);
+            boolean theFieldIsSet = this.isSetPosition();
             TimeInstantPropertyType theField;
             theField = this.getPosition();
             strategy.appendField(locator, this, "position", buffer, theField, theFieldIsSet);

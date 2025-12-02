@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeCalendarType
     extends TimeReferenceSystemType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<TimeCalendarEraPropertyType> referenceFrame;
 
@@ -81,6 +84,14 @@ public class TimeCalendarType
         this.referenceFrame = referenceFrame;
     }
 
+    public boolean isSetReferenceFrame() {
+        return ((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()));
+    }
+
+    public void unsetReferenceFrame() {
+        this.referenceFrame = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -94,12 +105,12 @@ public class TimeCalendarType
         }
         final TimeCalendarType that = ((TimeCalendarType) object);
         {
-            boolean lhsFieldIsSet = ((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()));
-            boolean rhsFieldIsSet = ((that.referenceFrame!= null)&&(!that.referenceFrame.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetReferenceFrame();
+            boolean rhsFieldIsSet = that.isSetReferenceFrame();
             List<TimeCalendarEraPropertyType> lhsField;
-            lhsField = (((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()))?this.getReferenceFrame():null);
+            lhsField = (this.isSetReferenceFrame()?this.getReferenceFrame():null);
             List<TimeCalendarEraPropertyType> rhsField;
-            rhsField = (((that.referenceFrame!= null)&&(!that.referenceFrame.isEmpty()))?that.getReferenceFrame():null);
+            rhsField = (that.isSetReferenceFrame()?that.getReferenceFrame():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "referenceFrame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "referenceFrame", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -113,9 +124,9 @@ public class TimeCalendarType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()));
+            boolean theFieldIsSet = this.isSetReferenceFrame();
             List<TimeCalendarEraPropertyType> theField;
-            theField = (((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()))?this.getReferenceFrame():null);
+            theField = (this.isSetReferenceFrame()?this.getReferenceFrame():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "referenceFrame", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -126,9 +137,9 @@ public class TimeCalendarType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()));
+            boolean theFieldIsSet = this.isSetReferenceFrame();
             List<TimeCalendarEraPropertyType> theField;
-            theField = (((this.referenceFrame!= null)&&(!this.referenceFrame.isEmpty()))?this.getReferenceFrame():null);
+            theField = (this.isSetReferenceFrame()?this.getReferenceFrame():null);
             strategy.appendField(locator, this, "referenceFrame", buffer, theField, theFieldIsSet);
         }
         return buffer;

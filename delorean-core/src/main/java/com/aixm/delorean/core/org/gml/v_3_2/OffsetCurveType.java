@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class OffsetCurveType
     extends AbstractCurveSegmentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected CurvePropertyType offsetBase;
     @XmlElement(required = true)
@@ -73,6 +76,10 @@ public class OffsetCurveType
         this.offsetBase = value;
     }
 
+    public boolean isSetOffsetBase() {
+        return (this.offsetBase!= null);
+    }
+
     /**
      * Gets the value of the distance property.
      * 
@@ -95,6 +102,10 @@ public class OffsetCurveType
      */
     public void setDistance(LengthType value) {
         this.distance = value;
+    }
+
+    public boolean isSetDistance() {
+        return (this.distance!= null);
     }
 
     /**
@@ -121,6 +132,10 @@ public class OffsetCurveType
         this.refDirection = value;
     }
 
+    public boolean isSetRefDirection() {
+        return (this.refDirection!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -134,8 +149,8 @@ public class OffsetCurveType
         }
         final OffsetCurveType that = ((OffsetCurveType) object);
         {
-            boolean lhsFieldIsSet = (this.offsetBase!= null);
-            boolean rhsFieldIsSet = (that.offsetBase!= null);
+            boolean lhsFieldIsSet = this.isSetOffsetBase();
+            boolean rhsFieldIsSet = that.isSetOffsetBase();
             CurvePropertyType lhsField;
             lhsField = this.getOffsetBase();
             CurvePropertyType rhsField;
@@ -147,8 +162,8 @@ public class OffsetCurveType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.distance!= null);
-            boolean rhsFieldIsSet = (that.distance!= null);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
             LengthType lhsField;
             lhsField = this.getDistance();
             LengthType rhsField;
@@ -160,8 +175,8 @@ public class OffsetCurveType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.refDirection!= null);
-            boolean rhsFieldIsSet = (that.refDirection!= null);
+            boolean lhsFieldIsSet = this.isSetRefDirection();
+            boolean rhsFieldIsSet = that.isSetRefDirection();
             VectorType lhsField;
             lhsField = this.getRefDirection();
             VectorType rhsField;
@@ -179,21 +194,21 @@ public class OffsetCurveType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.offsetBase!= null);
+            boolean theFieldIsSet = this.isSetOffsetBase();
             CurvePropertyType theField;
             theField = this.getOffsetBase();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "offsetBase", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             LengthType theField;
             theField = this.getDistance();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "distance", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.refDirection!= null);
+            boolean theFieldIsSet = this.isSetRefDirection();
             VectorType theField;
             theField = this.getRefDirection();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "refDirection", theField);
@@ -206,19 +221,19 @@ public class OffsetCurveType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.offsetBase!= null);
+            boolean theFieldIsSet = this.isSetOffsetBase();
             CurvePropertyType theField;
             theField = this.getOffsetBase();
             strategy.appendField(locator, this, "offsetBase", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             LengthType theField;
             theField = this.getDistance();
             strategy.appendField(locator, this, "distance", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.refDirection!= null);
+            boolean theFieldIsSet = this.isSetRefDirection();
             VectorType theField;
             theField = this.getRefDirection();
             strategy.appendField(locator, this, "refDirection", buffer, theField, theFieldIsSet);

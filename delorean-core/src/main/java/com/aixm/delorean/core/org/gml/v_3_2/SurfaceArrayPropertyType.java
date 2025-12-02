@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -49,9 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "SurfaceArrayPropertyType", propOrder = {
     "abstractSurface"
 })
-public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
+public class SurfaceArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractSurface", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractSurfaceType>> abstractSurface;
     @XmlAttribute(name = "owns")
@@ -101,6 +103,14 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
         this.abstractSurface = abstractSurface;
     }
 
+    public boolean isSetAbstractSurface() {
+        return ((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()));
+    }
+
+    public void unsetAbstractSurface() {
+        this.abstractSurface = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -109,7 +119,7 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -125,8 +135,16 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -151,12 +169,12 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
         }
         final SurfaceArrayPropertyType that = ((SurfaceArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -164,12 +182,12 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractSurface!= null)&&(!that.abstractSurface.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAbstractSurface();
+            boolean rhsFieldIsSet = that.isSetAbstractSurface();
             List<JAXBElement<? extends AbstractSurfaceType>> lhsField;
-            lhsField = (((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()))?this.getAbstractSurface():null);
+            lhsField = (this.isSetAbstractSurface()?this.getAbstractSurface():null);
             List<JAXBElement<? extends AbstractSurfaceType>> rhsField;
-            rhsField = (((that.abstractSurface!= null)&&(!that.abstractSurface.isEmpty()))?that.getAbstractSurface():null);
+            rhsField = (that.isSetAbstractSurface()?that.getAbstractSurface():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -193,16 +211,16 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSurface();
             List<JAXBElement<? extends AbstractSurfaceType>> theField;
-            theField = (((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()))?this.getAbstractSurface():null);
+            theField = (this.isSetAbstractSurface()?this.getAbstractSurface():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurface", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -232,15 +250,15 @@ public class SurfaceArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractSurface();
             List<JAXBElement<? extends AbstractSurfaceType>> theField;
-            theField = (((this.abstractSurface!= null)&&(!this.abstractSurface.isEmpty()))?this.getAbstractSurface():null);
+            theField = (this.isSetAbstractSurface()?this.getAbstractSurface():null);
             strategy.appendField(locator, this, "abstractSurface", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

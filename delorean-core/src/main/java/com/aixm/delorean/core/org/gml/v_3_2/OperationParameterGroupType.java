@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class OperationParameterGroupType
     extends AbstractGeneralOperationParameterType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:maximumOccurs is the maximum number of times that values for this parameter group may be included. If this attribute is omitted, the maximum number shall be one.
      * 
@@ -78,6 +81,10 @@ public class OperationParameterGroupType
      */
     public void setMaximumOccurs(BigInteger value) {
         this.maximumOccurs = value;
+    }
+
+    public boolean isSetMaximumOccurs() {
+        return (this.maximumOccurs!= null);
     }
 
     /**
@@ -120,6 +127,14 @@ public class OperationParameterGroupType
         this.parameter = parameter;
     }
 
+    public boolean isSetParameter() {
+        return ((this.parameter!= null)&&(!this.parameter.isEmpty()));
+    }
+
+    public void unsetParameter() {
+        this.parameter = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -133,12 +148,12 @@ public class OperationParameterGroupType
         }
         final OperationParameterGroupType that = ((OperationParameterGroupType) object);
         {
-            boolean lhsFieldIsSet = ((this.parameter!= null)&&(!this.parameter.isEmpty()));
-            boolean rhsFieldIsSet = ((that.parameter!= null)&&(!that.parameter.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetParameter();
+            boolean rhsFieldIsSet = that.isSetParameter();
             List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> lhsField;
-            lhsField = (((this.parameter!= null)&&(!this.parameter.isEmpty()))?this.getParameter():null);
+            lhsField = (this.isSetParameter()?this.getParameter():null);
             List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> rhsField;
-            rhsField = (((that.parameter!= null)&&(!that.parameter.isEmpty()))?that.getParameter():null);
+            rhsField = (that.isSetParameter()?that.getParameter():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parameter", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parameter", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -146,8 +161,8 @@ public class OperationParameterGroupType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.maximumOccurs!= null);
-            boolean rhsFieldIsSet = (that.maximumOccurs!= null);
+            boolean lhsFieldIsSet = this.isSetMaximumOccurs();
+            boolean rhsFieldIsSet = that.isSetMaximumOccurs();
             BigInteger lhsField;
             lhsField = this.getMaximumOccurs();
             BigInteger rhsField;
@@ -165,16 +180,16 @@ public class OperationParameterGroupType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.maximumOccurs!= null);
+            boolean theFieldIsSet = this.isSetMaximumOccurs();
             BigInteger theField;
             theField = this.getMaximumOccurs();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "maximumOccurs", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.parameter!= null)&&(!this.parameter.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameter();
             List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> theField;
-            theField = (((this.parameter!= null)&&(!this.parameter.isEmpty()))?this.getParameter():null);
+            theField = (this.isSetParameter()?this.getParameter():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "parameter", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -185,15 +200,15 @@ public class OperationParameterGroupType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.maximumOccurs!= null);
+            boolean theFieldIsSet = this.isSetMaximumOccurs();
             BigInteger theField;
             theField = this.getMaximumOccurs();
             strategy.appendField(locator, this, "maximumOccurs", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.parameter!= null)&&(!this.parameter.isEmpty()));
+            boolean theFieldIsSet = this.isSetParameter();
             List<JAXBElement<AbstractGeneralOperationParameterPropertyType>> theField;
-            theField = (((this.parameter!= null)&&(!this.parameter.isEmpty()))?this.getParameter():null);
+            theField = (this.isSetParameter()?this.getParameter():null);
             strategy.appendField(locator, this, "parameter", buffer, theField, theFieldIsSet);
         }
         return buffer;

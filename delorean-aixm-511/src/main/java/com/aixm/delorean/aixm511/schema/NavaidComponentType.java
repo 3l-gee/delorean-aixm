@@ -294,7 +294,7 @@ public class NavaidComponentType
     @OneToMany(targetEntity = NavaidComponentTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_NAVAID_COMPONENT_T_0")
     public List<NavaidComponentTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -384,19 +384,6 @@ public class NavaidComponentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidComponentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<NavaidComponentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -405,19 +392,6 @@ public class NavaidComponentType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProvidesNavigableLocation();
-            boolean rhsFieldIsSet = that.isSetProvidesNavigableLocation();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getProvidesNavigableLocation();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getProvidesNavigableLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "providesNavigableLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "providesNavigableLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -436,6 +410,19 @@ public class NavaidComponentType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetProvidesNavigableLocation();
+            boolean rhsFieldIsSet = that.isSetProvidesNavigableLocation();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getProvidesNavigableLocation();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getProvidesNavigableLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "providesNavigableLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "providesNavigableLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCollocationGroup();
             boolean rhsFieldIsSet = that.isSetCollocationGroup();
             JAXBElement<NoSequenceType> lhsField;
@@ -444,6 +431,19 @@ public class NavaidComponentType
             rhsField = that.getCollocationGroup();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidComponentTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<NavaidComponentTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.RecordTypePropertyType;
@@ -50,8 +51,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDCoverageDescriptionType
     extends AbstractMDContentInformationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected RecordTypePropertyType attributeDescription;
     @XmlElement(required = true)
@@ -82,6 +85,10 @@ public class MDCoverageDescriptionType
         this.attributeDescription = value;
     }
 
+    public boolean isSetAttributeDescription() {
+        return (this.attributeDescription!= null);
+    }
+
     /**
      * Gets the value of the contentType property.
      * 
@@ -104,6 +111,10 @@ public class MDCoverageDescriptionType
      */
     public void setContentType(MDCoverageContentTypeCodePropertyType value) {
         this.contentType = value;
+    }
+
+    public boolean isSetContentType() {
+        return (this.contentType!= null);
     }
 
     /**
@@ -143,6 +154,14 @@ public class MDCoverageDescriptionType
         this.dimension = dimension;
     }
 
+    public boolean isSetDimension() {
+        return ((this.dimension!= null)&&(!this.dimension.isEmpty()));
+    }
+
+    public void unsetDimension() {
+        this.dimension = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -156,8 +175,8 @@ public class MDCoverageDescriptionType
         }
         final MDCoverageDescriptionType that = ((MDCoverageDescriptionType) object);
         {
-            boolean lhsFieldIsSet = (this.attributeDescription!= null);
-            boolean rhsFieldIsSet = (that.attributeDescription!= null);
+            boolean lhsFieldIsSet = this.isSetAttributeDescription();
+            boolean rhsFieldIsSet = that.isSetAttributeDescription();
             RecordTypePropertyType lhsField;
             lhsField = this.getAttributeDescription();
             RecordTypePropertyType rhsField;
@@ -169,8 +188,8 @@ public class MDCoverageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.contentType!= null);
-            boolean rhsFieldIsSet = (that.contentType!= null);
+            boolean lhsFieldIsSet = this.isSetContentType();
+            boolean rhsFieldIsSet = that.isSetContentType();
             MDCoverageContentTypeCodePropertyType lhsField;
             lhsField = this.getContentType();
             MDCoverageContentTypeCodePropertyType rhsField;
@@ -182,12 +201,12 @@ public class MDCoverageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.dimension!= null)&&(!this.dimension.isEmpty()));
-            boolean rhsFieldIsSet = ((that.dimension!= null)&&(!that.dimension.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDimension();
+            boolean rhsFieldIsSet = that.isSetDimension();
             List<MDRangeDimensionPropertyType> lhsField;
-            lhsField = (((this.dimension!= null)&&(!this.dimension.isEmpty()))?this.getDimension():null);
+            lhsField = (this.isSetDimension()?this.getDimension():null);
             List<MDRangeDimensionPropertyType> rhsField;
-            rhsField = (((that.dimension!= null)&&(!that.dimension.isEmpty()))?that.getDimension():null);
+            rhsField = (that.isSetDimension()?that.getDimension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -201,23 +220,23 @@ public class MDCoverageDescriptionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.attributeDescription!= null);
+            boolean theFieldIsSet = this.isSetAttributeDescription();
             RecordTypePropertyType theField;
             theField = this.getAttributeDescription();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "attributeDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.contentType!= null);
+            boolean theFieldIsSet = this.isSetContentType();
             MDCoverageContentTypeCodePropertyType theField;
             theField = this.getContentType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contentType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.dimension!= null)&&(!this.dimension.isEmpty()));
+            boolean theFieldIsSet = this.isSetDimension();
             List<MDRangeDimensionPropertyType> theField;
-            theField = (((this.dimension!= null)&&(!this.dimension.isEmpty()))?this.getDimension():null);
+            theField = (this.isSetDimension()?this.getDimension():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dimension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -228,21 +247,21 @@ public class MDCoverageDescriptionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.attributeDescription!= null);
+            boolean theFieldIsSet = this.isSetAttributeDescription();
             RecordTypePropertyType theField;
             theField = this.getAttributeDescription();
             strategy.appendField(locator, this, "attributeDescription", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.contentType!= null);
+            boolean theFieldIsSet = this.isSetContentType();
             MDCoverageContentTypeCodePropertyType theField;
             theField = this.getContentType();
             strategy.appendField(locator, this, "contentType", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.dimension!= null)&&(!this.dimension.isEmpty()));
+            boolean theFieldIsSet = this.isSetDimension();
             List<MDRangeDimensionPropertyType> theField;
-            theField = (((this.dimension!= null)&&(!this.dimension.isEmpty()))?this.getDimension():null);
+            theField = (this.isSetDimension()?this.getDimension():null);
             strategy.appendField(locator, this, "dimension", buffer, theField, theFieldIsSet);
         }
         return buffer;

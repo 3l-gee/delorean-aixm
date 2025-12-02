@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.BooleanPropertyType;
@@ -52,8 +53,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDFeatureCatalogueDescriptionType
     extends AbstractMDContentInformationType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected BooleanPropertyType complianceCode;
     protected List<CharacterStringPropertyType> language;
     @XmlElement(required = true)
@@ -84,6 +87,10 @@ public class MDFeatureCatalogueDescriptionType
      */
     public void setComplianceCode(BooleanPropertyType value) {
         this.complianceCode = value;
+    }
+
+    public boolean isSetComplianceCode() {
+        return (this.complianceCode!= null);
     }
 
     /**
@@ -123,6 +130,14 @@ public class MDFeatureCatalogueDescriptionType
         this.language = language;
     }
 
+    public boolean isSetLanguage() {
+        return ((this.language!= null)&&(!this.language.isEmpty()));
+    }
+
+    public void unsetLanguage() {
+        this.language = null;
+    }
+
     /**
      * Gets the value of the includedWithDataset property.
      * 
@@ -145,6 +160,10 @@ public class MDFeatureCatalogueDescriptionType
      */
     public void setIncludedWithDataset(BooleanPropertyType value) {
         this.includedWithDataset = value;
+    }
+
+    public boolean isSetIncludedWithDataset() {
+        return (this.includedWithDataset!= null);
     }
 
     /**
@@ -184,6 +203,14 @@ public class MDFeatureCatalogueDescriptionType
         this.featureTypes = featureTypes;
     }
 
+    public boolean isSetFeatureTypes() {
+        return ((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()));
+    }
+
+    public void unsetFeatureTypes() {
+        this.featureTypes = null;
+    }
+
     /**
      * Gets the value of the featureCatalogueCitation property.
      * 
@@ -221,6 +248,14 @@ public class MDFeatureCatalogueDescriptionType
         this.featureCatalogueCitation = featureCatalogueCitation;
     }
 
+    public boolean isSetFeatureCatalogueCitation() {
+        return ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
+    }
+
+    public void unsetFeatureCatalogueCitation() {
+        this.featureCatalogueCitation = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -234,34 +269,21 @@ public class MDFeatureCatalogueDescriptionType
         }
         final MDFeatureCatalogueDescriptionType that = ((MDFeatureCatalogueDescriptionType) object);
         {
-            boolean lhsFieldIsSet = ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()));
-            List<CICitationPropertyType> lhsField;
-            lhsField = (((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()))?this.getFeatureCatalogueCitation():null);
-            List<CICitationPropertyType> rhsField;
-            rhsField = (((that.featureCatalogueCitation!= null)&&(!that.featureCatalogueCitation.isEmpty()))?that.getFeatureCatalogueCitation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
+            boolean lhsFieldIsSet = this.isSetFeatureTypes();
+            boolean rhsFieldIsSet = that.isSetFeatureTypes();
+            List<GenericNamePropertyType> lhsField;
+            lhsField = (this.isSetFeatureTypes()?this.getFeatureTypes():null);
+            List<GenericNamePropertyType> rhsField;
+            rhsField = (that.isSetFeatureTypes()?that.getFeatureTypes():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureTypes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureTypes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.language!= null)&&(!this.language.isEmpty()));
-            boolean rhsFieldIsSet = ((that.language!= null)&&(!that.language.isEmpty()));
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (((this.language!= null)&&(!this.language.isEmpty()))?this.getLanguage():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (((that.language!= null)&&(!that.language.isEmpty()))?that.getLanguage():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.complianceCode!= null);
-            boolean rhsFieldIsSet = (that.complianceCode!= null);
+            boolean lhsFieldIsSet = this.isSetComplianceCode();
+            boolean rhsFieldIsSet = that.isSetComplianceCode();
             BooleanPropertyType lhsField;
             lhsField = this.getComplianceCode();
             BooleanPropertyType rhsField;
@@ -273,8 +295,21 @@ public class MDFeatureCatalogueDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.includedWithDataset!= null);
-            boolean rhsFieldIsSet = (that.includedWithDataset!= null);
+            boolean lhsFieldIsSet = this.isSetLanguage();
+            boolean rhsFieldIsSet = that.isSetLanguage();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLanguage()?this.getLanguage():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLanguage()?that.getLanguage():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIncludedWithDataset();
+            boolean rhsFieldIsSet = that.isSetIncludedWithDataset();
             BooleanPropertyType lhsField;
             lhsField = this.getIncludedWithDataset();
             BooleanPropertyType rhsField;
@@ -286,14 +321,14 @@ public class MDFeatureCatalogueDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()));
-            boolean rhsFieldIsSet = ((that.featureTypes!= null)&&(!that.featureTypes.isEmpty()));
-            List<GenericNamePropertyType> lhsField;
-            lhsField = (((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()))?this.getFeatureTypes():null);
-            List<GenericNamePropertyType> rhsField;
-            rhsField = (((that.featureTypes!= null)&&(!that.featureTypes.isEmpty()))?that.getFeatureTypes():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureTypes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureTypes", rhsField);
+            boolean lhsFieldIsSet = this.isSetFeatureCatalogueCitation();
+            boolean rhsFieldIsSet = that.isSetFeatureCatalogueCitation();
+            List<CICitationPropertyType> lhsField;
+            lhsField = (this.isSetFeatureCatalogueCitation()?this.getFeatureCatalogueCitation():null);
+            List<CICitationPropertyType> rhsField;
+            rhsField = (that.isSetFeatureCatalogueCitation()?that.getFeatureCatalogueCitation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,37 +340,37 @@ public class MDFeatureCatalogueDescriptionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.complianceCode!= null);
+            boolean theFieldIsSet = this.isSetComplianceCode();
             BooleanPropertyType theField;
             theField = this.getComplianceCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "complianceCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.language!= null)&&(!this.language.isEmpty()));
+            boolean theFieldIsSet = this.isSetLanguage();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.language!= null)&&(!this.language.isEmpty()))?this.getLanguage():null);
+            theField = (this.isSetLanguage()?this.getLanguage():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "language", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.includedWithDataset!= null);
+            boolean theFieldIsSet = this.isSetIncludedWithDataset();
             BooleanPropertyType theField;
             theField = this.getIncludedWithDataset();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "includedWithDataset", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureTypes();
             List<GenericNamePropertyType> theField;
-            theField = (((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()))?this.getFeatureTypes():null);
+            theField = (this.isSetFeatureTypes()?this.getFeatureTypes():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureTypes", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureCatalogueCitation();
             List<CICitationPropertyType> theField;
-            theField = (((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()))?this.getFeatureCatalogueCitation():null);
+            theField = (this.isSetFeatureCatalogueCitation()?this.getFeatureCatalogueCitation():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "featureCatalogueCitation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -346,33 +381,33 @@ public class MDFeatureCatalogueDescriptionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.complianceCode!= null);
+            boolean theFieldIsSet = this.isSetComplianceCode();
             BooleanPropertyType theField;
             theField = this.getComplianceCode();
             strategy.appendField(locator, this, "complianceCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.language!= null)&&(!this.language.isEmpty()));
+            boolean theFieldIsSet = this.isSetLanguage();
             List<CharacterStringPropertyType> theField;
-            theField = (((this.language!= null)&&(!this.language.isEmpty()))?this.getLanguage():null);
+            theField = (this.isSetLanguage()?this.getLanguage():null);
             strategy.appendField(locator, this, "language", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.includedWithDataset!= null);
+            boolean theFieldIsSet = this.isSetIncludedWithDataset();
             BooleanPropertyType theField;
             theField = this.getIncludedWithDataset();
             strategy.appendField(locator, this, "includedWithDataset", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureTypes();
             List<GenericNamePropertyType> theField;
-            theField = (((this.featureTypes!= null)&&(!this.featureTypes.isEmpty()))?this.getFeatureTypes():null);
+            theField = (this.isSetFeatureTypes()?this.getFeatureTypes():null);
             strategy.appendField(locator, this, "featureTypes", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()));
+            boolean theFieldIsSet = this.isSetFeatureCatalogueCitation();
             List<CICitationPropertyType> theField;
-            theField = (((this.featureCatalogueCitation!= null)&&(!this.featureCatalogueCitation.isEmpty()))?this.getFeatureCatalogueCitation():null);
+            theField = (this.isSetFeatureCatalogueCitation()?this.getFeatureCatalogueCitation():null);
             strategy.appendField(locator, this, "featureCatalogueCitation", buffer, theField, theFieldIsSet);
         }
         return buffer;

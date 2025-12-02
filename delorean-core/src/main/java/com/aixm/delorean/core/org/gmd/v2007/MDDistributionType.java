@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
@@ -45,8 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class MDDistributionType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected List<MDFormatPropertyType> distributionFormat;
     protected List<MDDistributorPropertyType> distributor;
     protected List<MDDigitalTransferOptionsPropertyType> transferOptions;
@@ -88,6 +91,14 @@ public class MDDistributionType
         this.distributionFormat = distributionFormat;
     }
 
+    public boolean isSetDistributionFormat() {
+        return ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
+    }
+
+    public void unsetDistributionFormat() {
+        this.distributionFormat = null;
+    }
+
     /**
      * Gets the value of the distributor property.
      * 
@@ -123,6 +134,14 @@ public class MDDistributionType
      */
     public void setDistributor(List<MDDistributorPropertyType> distributor) {
         this.distributor = distributor;
+    }
+
+    public boolean isSetDistributor() {
+        return ((this.distributor!= null)&&(!this.distributor.isEmpty()));
+    }
+
+    public void unsetDistributor() {
+        this.distributor = null;
     }
 
     /**
@@ -162,6 +181,14 @@ public class MDDistributionType
         this.transferOptions = transferOptions;
     }
 
+    public boolean isSetTransferOptions() {
+        return ((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()));
+    }
+
+    public void unsetTransferOptions() {
+        this.transferOptions = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -175,25 +202,12 @@ public class MDDistributionType
         }
         final MDDistributionType that = ((MDDistributionType) object);
         {
-            boolean lhsFieldIsSet = ((this.distributor!= null)&&(!this.distributor.isEmpty()));
-            boolean rhsFieldIsSet = ((that.distributor!= null)&&(!that.distributor.isEmpty()));
-            List<MDDistributorPropertyType> lhsField;
-            lhsField = (((this.distributor!= null)&&(!this.distributor.isEmpty()))?this.getDistributor():null);
-            List<MDDistributorPropertyType> rhsField;
-            rhsField = (((that.distributor!= null)&&(!that.distributor.isEmpty()))?that.getDistributor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()));
-            boolean rhsFieldIsSet = ((that.transferOptions!= null)&&(!that.transferOptions.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetTransferOptions();
+            boolean rhsFieldIsSet = that.isSetTransferOptions();
             List<MDDigitalTransferOptionsPropertyType> lhsField;
-            lhsField = (((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()))?this.getTransferOptions():null);
+            lhsField = (this.isSetTransferOptions()?this.getTransferOptions():null);
             List<MDDigitalTransferOptionsPropertyType> rhsField;
-            rhsField = (((that.transferOptions!= null)&&(!that.transferOptions.isEmpty()))?that.getTransferOptions():null);
+            rhsField = (that.isSetTransferOptions()?that.getTransferOptions():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transferOptions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transferOptions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -201,12 +215,25 @@ public class MDDistributionType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
-            boolean rhsFieldIsSet = ((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetDistributor();
+            boolean rhsFieldIsSet = that.isSetDistributor();
+            List<MDDistributorPropertyType> lhsField;
+            lhsField = (this.isSetDistributor()?this.getDistributor():null);
+            List<MDDistributorPropertyType> rhsField;
+            rhsField = (that.isSetDistributor()?that.getDistributor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistributionFormat();
+            boolean rhsFieldIsSet = that.isSetDistributionFormat();
             List<MDFormatPropertyType> lhsField;
-            lhsField = (((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()))?this.getDistributionFormat():null);
+            lhsField = (this.isSetDistributionFormat()?this.getDistributionFormat():null);
             List<MDFormatPropertyType> rhsField;
-            rhsField = (((that.distributionFormat!= null)&&(!that.distributionFormat.isEmpty()))?that.getDistributionFormat():null);
+            rhsField = (that.isSetDistributionFormat()?that.getDistributionFormat():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionFormat", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionFormat", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -220,23 +247,23 @@ public class MDDistributionType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
+            boolean theFieldIsSet = this.isSetDistributionFormat();
             List<MDFormatPropertyType> theField;
-            theField = (((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()))?this.getDistributionFormat():null);
+            theField = (this.isSetDistributionFormat()?this.getDistributionFormat():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "distributionFormat", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.distributor!= null)&&(!this.distributor.isEmpty()));
+            boolean theFieldIsSet = this.isSetDistributor();
             List<MDDistributorPropertyType> theField;
-            theField = (((this.distributor!= null)&&(!this.distributor.isEmpty()))?this.getDistributor():null);
+            theField = (this.isSetDistributor()?this.getDistributor():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "distributor", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()));
+            boolean theFieldIsSet = this.isSetTransferOptions();
             List<MDDigitalTransferOptionsPropertyType> theField;
-            theField = (((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()))?this.getTransferOptions():null);
+            theField = (this.isSetTransferOptions()?this.getTransferOptions():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "transferOptions", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -247,21 +274,21 @@ public class MDDistributionType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()));
+            boolean theFieldIsSet = this.isSetDistributionFormat();
             List<MDFormatPropertyType> theField;
-            theField = (((this.distributionFormat!= null)&&(!this.distributionFormat.isEmpty()))?this.getDistributionFormat():null);
+            theField = (this.isSetDistributionFormat()?this.getDistributionFormat():null);
             strategy.appendField(locator, this, "distributionFormat", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.distributor!= null)&&(!this.distributor.isEmpty()));
+            boolean theFieldIsSet = this.isSetDistributor();
             List<MDDistributorPropertyType> theField;
-            theField = (((this.distributor!= null)&&(!this.distributor.isEmpty()))?this.getDistributor():null);
+            theField = (this.isSetDistributor()?this.getDistributor():null);
             strategy.appendField(locator, this, "distributor", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()));
+            boolean theFieldIsSet = this.isSetTransferOptions();
             List<MDDigitalTransferOptionsPropertyType> theField;
-            theField = (((this.transferOptions!= null)&&(!this.transferOptions.isEmpty()))?this.getTransferOptions():null);
+            theField = (this.isSetTransferOptions()?this.getTransferOptions():null);
             strategy.appendField(locator, this, "transferOptions", buffer, theField, theFieldIsSet);
         }
         return buffer;

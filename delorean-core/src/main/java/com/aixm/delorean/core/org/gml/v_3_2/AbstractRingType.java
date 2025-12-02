@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -42,9 +43,10 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
     LinearRingType.class,
     RingType.class
 })
-public abstract class AbstractRingType implements Equals, HashCode, ToString
+public abstract class AbstractRingType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
 
     @Override
     public boolean equals(Object object) {

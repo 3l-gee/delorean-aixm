@@ -223,19 +223,6 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
         }
         final ApronLightSystemTimeSlicePropertyType that = ((ApronLightSystemTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetApronLightSystemTimeSlice();
-            boolean rhsFieldIsSet = that.isSetApronLightSystemTimeSlice();
-            ApronLightSystemTimeSliceType lhsField;
-            lhsField = this.getApronLightSystemTimeSlice();
-            ApronLightSystemTimeSliceType rhsField;
-            rhsField = that.getApronLightSystemTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "apronLightSystemTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "apronLightSystemTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ApronLightSystemTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApronLightSystemTimeSlice();
+            boolean rhsFieldIsSet = that.isSetApronLightSystemTimeSlice();
+            ApronLightSystemTimeSliceType lhsField;
+            lhsField = this.getApronLightSystemTimeSlice();
+            ApronLightSystemTimeSliceType rhsField;
+            rhsField = that.getApronLightSystemTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "apronLightSystemTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "apronLightSystemTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

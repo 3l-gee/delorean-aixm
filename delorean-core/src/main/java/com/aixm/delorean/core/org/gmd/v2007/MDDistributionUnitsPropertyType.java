@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "MD_DistributionUnits_PropertyType", propOrder = {
     "mdDistributionUnits"
 })
-public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToString
+public class MDDistributionUnitsPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_DistributionUnits")
     protected CodeListValueType mdDistributionUnits;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
         this.mdDistributionUnits = value;
     }
 
+    public boolean isSetMDDistributionUnits() {
+        return (this.mdDistributionUnits!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,8 +133,8 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
         }
         final MDDistributionUnitsPropertyType that = ((MDDistributionUnitsPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.mdDistributionUnits!= null);
-            boolean rhsFieldIsSet = (that.mdDistributionUnits!= null);
+            boolean lhsFieldIsSet = this.isSetMDDistributionUnits();
+            boolean rhsFieldIsSet = that.isSetMDDistributionUnits();
             CodeListValueType lhsField;
             lhsField = this.getMDDistributionUnits();
             CodeListValueType rhsField;
@@ -136,8 +146,8 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
@@ -165,14 +175,14 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.mdDistributionUnits!= null);
+            boolean theFieldIsSet = this.isSetMDDistributionUnits();
             CodeListValueType theField;
             theField = this.getMDDistributionUnits();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "mdDistributionUnits", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class MDDistributionUnitsPropertyType implements Equals, HashCode, ToStri
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.mdDistributionUnits!= null);
+            boolean theFieldIsSet = this.isSetMDDistributionUnits();
             CodeListValueType theField;
             theField = this.getMDDistributionUnits();
             strategy.appendField(locator, this, "mdDistributionUnits", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

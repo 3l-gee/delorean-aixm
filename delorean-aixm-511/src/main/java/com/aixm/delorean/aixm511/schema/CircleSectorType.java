@@ -522,7 +522,7 @@ public class CircleSectorType
     @OneToMany(targetEntity = CircleSectorTypeExtensionType.class, cascade = {
         CascadeType.ALL
     }, fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "EXTENSION_CIRCLE_SECTOR_TYPE_0")
     public List<CircleSectorTypeExtensionType> getExtension() {
         if (extension == null) {
             extension = new ArrayList<>();
@@ -707,14 +707,14 @@ public class CircleSectorType
         }
         final CircleSectorType that = ((CircleSectorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFromAngle();
-            boolean rhsFieldIsSet = that.isSetFromAngle();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getFromAngle();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getFromAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetAngleDirectionReference();
+            boolean rhsFieldIsSet = that.isSetAngleDirectionReference();
+            JAXBElement<CodeDirectionReferenceType> lhsField;
+            lhsField = this.getAngleDirectionReference();
+            JAXBElement<CodeDirectionReferenceType> rhsField;
+            rhsField = that.getAngleDirectionReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleDirectionReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleDirectionReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -733,14 +733,14 @@ public class CircleSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInnerDistance();
-            boolean rhsFieldIsSet = that.isSetInnerDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getInnerDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getInnerDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "innerDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "innerDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetFromAngle();
+            boolean rhsFieldIsSet = that.isSetFromAngle();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getFromAngle();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getFromAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fromAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fromAngle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -759,19 +759,6 @@ public class CircleSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAngleType();
             boolean rhsFieldIsSet = that.isSetAngleType();
             JAXBElement<CodeBearingType> lhsField;
@@ -785,14 +772,14 @@ public class CircleSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
-            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getLowerLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getLowerLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetInnerDistance();
+            boolean rhsFieldIsSet = that.isSetInnerDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getInnerDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getInnerDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "innerDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "innerDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -806,6 +793,32 @@ public class CircleSectorType
             rhsField = that.getToAngle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toAngle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOuterDistance();
+            boolean rhsFieldIsSet = that.isSetOuterDistance();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getOuterDistance();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getOuterDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLowerLimitReference();
+            boolean rhsFieldIsSet = that.isSetLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getLowerLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getLowerLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -837,14 +850,14 @@ public class CircleSectorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAngleDirectionReference();
-            boolean rhsFieldIsSet = that.isSetAngleDirectionReference();
-            JAXBElement<CodeDirectionReferenceType> lhsField;
-            lhsField = this.getAngleDirectionReference();
-            JAXBElement<CodeDirectionReferenceType> rhsField;
-            rhsField = that.getAngleDirectionReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "angleDirectionReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "angleDirectionReference", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -858,19 +871,6 @@ public class CircleSectorType
             rhsField = that.getArcDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOuterDistance();
-            boolean rhsFieldIsSet = that.isSetOuterDistance();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getOuterDistance();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getOuterDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outerDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outerDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

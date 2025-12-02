@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "HistoryPropertyType", propOrder = {
     "abstractTimeSlice"
 })
-public class HistoryPropertyType implements Equals, HashCode, ToString
+public class HistoryPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractTimeSlice", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractTimeSliceType>> abstractTimeSlice;
     @XmlAttribute(name = "owns")
@@ -99,6 +101,14 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
         this.abstractTimeSlice = abstractTimeSlice;
     }
 
+    public boolean isSetAbstractTimeSlice() {
+        return ((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()));
+    }
+
+    public void unsetAbstractTimeSlice() {
+        this.abstractTimeSlice = null;
+    }
+
     /**
      * Gets the value of the owns property.
      * 
@@ -107,7 +117,7 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public java.lang.Boolean getOwns() {
+    public boolean getOwns() {
         if (owns == null) {
             return false;
         } else {
@@ -123,8 +133,16 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
      *     {@link java.lang.Boolean }
      *     
      */
-    public void setOwns(java.lang.Boolean value) {
+    public void setOwns(boolean value) {
         this.owns = value;
+    }
+
+    public boolean isSetOwns() {
+        return (this.owns!= null);
+    }
+
+    public void unsetOwns() {
+        this.owns = null;
     }
 
     @Override
@@ -149,27 +167,27 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
         }
         final HistoryPropertyType that = ((HistoryPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractTimeSlice!= null)&&(!that.abstractTimeSlice.isEmpty()));
-            List<JAXBElement<? extends AbstractTimeSliceType>> lhsField;
-            lhsField = (((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()))?this.getAbstractTimeSlice():null);
-            List<JAXBElement<? extends AbstractTimeSliceType>> rhsField;
-            rhsField = (((that.abstractTimeSlice!= null)&&(!that.abstractTimeSlice.isEmpty()))?that.getAbstractTimeSlice():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeSlice", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.owns!= null);
-            boolean rhsFieldIsSet = (that.owns!= null);
-            java.lang.Boolean lhsField;
-            lhsField = this.getOwns();
-            java.lang.Boolean rhsField;
-            rhsField = that.getOwns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAbstractTimeSlice();
+            List<JAXBElement<? extends AbstractTimeSliceType>> lhsField;
+            lhsField = (this.isSetAbstractTimeSlice()?this.getAbstractTimeSlice():null);
+            List<JAXBElement<? extends AbstractTimeSliceType>> rhsField;
+            rhsField = (that.isSetAbstractTimeSlice()?that.getAbstractTimeSlice():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -191,16 +209,16 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractTimeSlice();
             List<JAXBElement<? extends AbstractTimeSliceType>> theField;
-            theField = (((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()))?this.getAbstractTimeSlice():null);
+            theField = (this.isSetAbstractTimeSlice()?this.getAbstractTimeSlice():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractTimeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -230,15 +248,15 @@ public class HistoryPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractTimeSlice();
             List<JAXBElement<? extends AbstractTimeSliceType>> theField;
-            theField = (((this.abstractTimeSlice!= null)&&(!this.abstractTimeSlice.isEmpty()))?this.getAbstractTimeSlice():null);
+            theField = (this.isSetAbstractTimeSlice()?this.getAbstractTimeSlice():null);
             strategy.appendField(locator, this, "abstractTimeSlice", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.owns!= null);
-            java.lang.Boolean theField;
-            theField = this.getOwns();
+            boolean theFieldIsSet = this.isSetOwns();
+            boolean theField;
+            theField = (this.isSetOwns()?this.getOwns():false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import javax.xml.datatype.XMLGregorianCalendar;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TemporalDatumType
     extends TemporalDatumBaseType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:origin is the date and time origin of this temporal datum.
      * 
@@ -74,6 +77,10 @@ public class TemporalDatumType
         this.origin = value;
     }
 
+    public boolean isSetOrigin() {
+        return (this.origin!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -87,8 +94,8 @@ public class TemporalDatumType
         }
         final TemporalDatumType that = ((TemporalDatumType) object);
         {
-            boolean lhsFieldIsSet = (this.origin!= null);
-            boolean rhsFieldIsSet = (that.origin!= null);
+            boolean lhsFieldIsSet = this.isSetOrigin();
+            boolean rhsFieldIsSet = that.isSetOrigin();
             XMLGregorianCalendar lhsField;
             lhsField = this.getOrigin();
             XMLGregorianCalendar rhsField;
@@ -106,7 +113,7 @@ public class TemporalDatumType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             XMLGregorianCalendar theField;
             theField = this.getOrigin();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "origin", theField);
@@ -119,7 +126,7 @@ public class TemporalDatumType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             XMLGregorianCalendar theField;
             theField = this.getOrigin();
             strategy.appendField(locator, this, "origin", buffer, theField, theFieldIsSet);

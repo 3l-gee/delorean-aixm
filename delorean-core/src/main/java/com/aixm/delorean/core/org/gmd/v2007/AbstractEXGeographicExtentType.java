@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.BooleanPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,8 +47,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public abstract class AbstractEXGeographicExtentType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected BooleanPropertyType extentTypeCode;
 
     /**
@@ -74,6 +77,10 @@ public abstract class AbstractEXGeographicExtentType
         this.extentTypeCode = value;
     }
 
+    public boolean isSetExtentTypeCode() {
+        return (this.extentTypeCode!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -87,8 +94,8 @@ public abstract class AbstractEXGeographicExtentType
         }
         final AbstractEXGeographicExtentType that = ((AbstractEXGeographicExtentType) object);
         {
-            boolean lhsFieldIsSet = (this.extentTypeCode!= null);
-            boolean rhsFieldIsSet = (that.extentTypeCode!= null);
+            boolean lhsFieldIsSet = this.isSetExtentTypeCode();
+            boolean rhsFieldIsSet = that.isSetExtentTypeCode();
             BooleanPropertyType lhsField;
             lhsField = this.getExtentTypeCode();
             BooleanPropertyType rhsField;
@@ -106,7 +113,7 @@ public abstract class AbstractEXGeographicExtentType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.extentTypeCode!= null);
+            boolean theFieldIsSet = this.isSetExtentTypeCode();
             BooleanPropertyType theField;
             theField = this.getExtentTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extentTypeCode", theField);
@@ -119,7 +126,7 @@ public abstract class AbstractEXGeographicExtentType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.extentTypeCode!= null);
+            boolean theFieldIsSet = this.isSetExtentTypeCode();
             BooleanPropertyType theField;
             theField = this.getExtentTypeCode();
             strategy.appendField(locator, this, "extentTypeCode", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.DatePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CIDateType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected DatePropertyType date;
     @XmlElement(required = true)
@@ -72,6 +75,10 @@ public class CIDateType
         this.date = value;
     }
 
+    public boolean isSetDate() {
+        return (this.date!= null);
+    }
+
     /**
      * Gets the value of the dateType property.
      * 
@@ -96,6 +103,10 @@ public class CIDateType
         this.dateType = value;
     }
 
+    public boolean isSetDateType() {
+        return (this.dateType!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -109,27 +120,27 @@ public class CIDateType
         }
         final CIDateType that = ((CIDateType) object);
         {
-            boolean lhsFieldIsSet = (this.date!= null);
-            boolean rhsFieldIsSet = (that.date!= null);
-            DatePropertyType lhsField;
-            lhsField = this.getDate();
-            DatePropertyType rhsField;
-            rhsField = that.getDate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.dateType!= null);
-            boolean rhsFieldIsSet = (that.dateType!= null);
+            boolean lhsFieldIsSet = this.isSetDateType();
+            boolean rhsFieldIsSet = that.isSetDateType();
             CIDateTypeCodePropertyType lhsField;
             lhsField = this.getDateType();
             CIDateTypeCodePropertyType rhsField;
             rhsField = that.getDateType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDate();
+            boolean rhsFieldIsSet = that.isSetDate();
+            DatePropertyType lhsField;
+            lhsField = this.getDate();
+            DatePropertyType rhsField;
+            rhsField = that.getDate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "date", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "date", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -141,14 +152,14 @@ public class CIDateType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.date!= null);
+            boolean theFieldIsSet = this.isSetDate();
             DatePropertyType theField;
             theField = this.getDate();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "date", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateType!= null);
+            boolean theFieldIsSet = this.isSetDateType();
             CIDateTypeCodePropertyType theField;
             theField = this.getDateType();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateType", theField);
@@ -161,13 +172,13 @@ public class CIDateType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.date!= null);
+            boolean theFieldIsSet = this.isSetDate();
             DatePropertyType theField;
             theField = this.getDate();
             strategy.appendField(locator, this, "date", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.dateType!= null);
+            boolean theFieldIsSet = this.isSetDateType();
             CIDateTypeCodePropertyType theField;
             theField = this.getDateType();
             strategy.appendField(locator, this, "dateType", buffer, theField, theFieldIsSet);

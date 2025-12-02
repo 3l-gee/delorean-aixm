@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -45,9 +46,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "DS_InitiativeTypeCode_PropertyType", propOrder = {
     "dsInitiativeTypeCode"
 })
-public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToString
+public class DSInitiativeTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DS_InitiativeTypeCode")
     protected CodeListValueType dsInitiativeTypeCode;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -77,6 +79,10 @@ public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToStr
         this.dsInitiativeTypeCode = value;
     }
 
+    public boolean isSetDSInitiativeTypeCode() {
+        return (this.dsInitiativeTypeCode!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -101,6 +107,10 @@ public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToStr
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -123,27 +133,27 @@ public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToStr
         }
         final DSInitiativeTypeCodePropertyType that = ((DSInitiativeTypeCodePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.dsInitiativeTypeCode!= null);
-            boolean rhsFieldIsSet = (that.dsInitiativeTypeCode!= null);
-            CodeListValueType lhsField;
-            lhsField = this.getDSInitiativeTypeCode();
-            CodeListValueType rhsField;
-            rhsField = that.getDSInitiativeTypeCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dsInitiativeTypeCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dsInitiativeTypeCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
             lhsField = this.getNilReason();
             String rhsField;
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDSInitiativeTypeCode();
+            boolean rhsFieldIsSet = that.isSetDSInitiativeTypeCode();
+            CodeListValueType lhsField;
+            lhsField = this.getDSInitiativeTypeCode();
+            CodeListValueType rhsField;
+            rhsField = that.getDSInitiativeTypeCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dsInitiativeTypeCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dsInitiativeTypeCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -165,14 +175,14 @@ public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToStr
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.dsInitiativeTypeCode!= null);
+            boolean theFieldIsSet = this.isSetDSInitiativeTypeCode();
             CodeListValueType theField;
             theField = this.getDSInitiativeTypeCode();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dsInitiativeTypeCode", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -204,13 +214,13 @@ public class DSInitiativeTypeCodePropertyType implements Equals, HashCode, ToStr
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.dsInitiativeTypeCode!= null);
+            boolean theFieldIsSet = this.isSetDSInitiativeTypeCode();
             CodeListValueType theField;
             theField = this.getDSInitiativeTypeCode();
             strategy.appendField(locator, this, "dsInitiativeTypeCode", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

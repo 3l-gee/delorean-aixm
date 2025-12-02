@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -42,9 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "GridLimitsType", propOrder = {
     "gridEnvelope"
 })
-public class GridLimitsType implements Equals, HashCode, ToString
+public class GridLimitsType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "GridEnvelope", required = true)
     protected GridEnvelopeType gridEnvelope;
 
@@ -72,6 +74,10 @@ public class GridLimitsType implements Equals, HashCode, ToString
         this.gridEnvelope = value;
     }
 
+    public boolean isSetGridEnvelope() {
+        return (this.gridEnvelope!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -94,8 +100,8 @@ public class GridLimitsType implements Equals, HashCode, ToString
         }
         final GridLimitsType that = ((GridLimitsType) object);
         {
-            boolean lhsFieldIsSet = (this.gridEnvelope!= null);
-            boolean rhsFieldIsSet = (that.gridEnvelope!= null);
+            boolean lhsFieldIsSet = this.isSetGridEnvelope();
+            boolean rhsFieldIsSet = that.isSetGridEnvelope();
             GridEnvelopeType lhsField;
             lhsField = this.getGridEnvelope();
             GridEnvelopeType rhsField;
@@ -123,7 +129,7 @@ public class GridLimitsType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.gridEnvelope!= null);
+            boolean theFieldIsSet = this.isSetGridEnvelope();
             GridEnvelopeType theField;
             theField = this.getGridEnvelope();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "gridEnvelope", theField);
@@ -155,7 +161,7 @@ public class GridLimitsType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.gridEnvelope!= null);
+            boolean theFieldIsSet = this.isSetGridEnvelope();
             GridEnvelopeType theField;
             theField = this.getGridEnvelope();
             strategy.appendField(locator, this, "gridEnvelope", buffer, theField, theFieldIsSet);

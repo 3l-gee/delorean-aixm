@@ -19,7 +19,6 @@ import com.aixm.delorean.util.JaxbUtil;
 
 import java.util.stream.Stream;
 
-@Disabled
 public class SurfaceGMLTest {
 
     @BeforeAll
@@ -55,11 +54,11 @@ public class SurfaceGMLTest {
                     </gml:patches>
                 </gml:Surface>
                 """,
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s1",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -117,11 +116,11 @@ public class SurfaceGMLTest {
                     </gml:patches>
                 </gml:Surface>
                 """,
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s2",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -130,14 +129,14 @@ public class SurfaceGMLTest {
                     null,
                     null,
                     GisUtil.ring(0L,
-                        GisUtil.curveObj("i1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
                             )
                         )
                     ),
                     GisUtil.ring(1L,
-                        GisUtil.curveObj("i2", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
                             )
@@ -167,11 +166,11 @@ public class SurfaceGMLTest {
                     </gml:patches>
                 </gml:Surface>
                 """,
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s1",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -229,11 +228,11 @@ public class SurfaceGMLTest {
                     </gml:patches>
                 </gml:Surface>
                 """,
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s2",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -242,14 +241,14 @@ public class SurfaceGMLTest {
                     null,
                     null,
                     GisUtil.ring(0L,
-                        GisUtil.curveObj("i1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
                             )
                         )
                     ),
                     GisUtil.ring(1L,
-                        GisUtil.curveObj("i2", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i2", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
                             )
@@ -281,11 +280,11 @@ public class SurfaceGMLTest {
     static Stream<Arguments> MarshallValidGMLSurface() {
         return Stream.of(
             Arguments.of(
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s1",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -317,11 +316,11 @@ public class SurfaceGMLTest {
                 """
             ),
             Arguments.of(
-                GisUtil.surfaceObj(
+                GisUtil.GMLSurface(
                     "s2",
                     null,
                     GisUtil.ring(null,
-                        GisUtil.curveObj("e1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("e1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(52.51630693440871 13.377717264214601, 38.89763528280979 -77.03654820204511, -24.589287528217096 -70.1916580926402, -33.9034433595103 18.411155413722216, 52.51630693440871 13.377717264214601)")
                             )
@@ -330,14 +329,14 @@ public class SurfaceGMLTest {
                     null,
                     null,
                     GisUtil.ring(0L,
-                        GisUtil.curveObj("i1", 0L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i1", 0L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.457661694315526 8.500405759632237, 47.44362506469117 8.5869315810565, 47.38261839625727 8.564957389137748, 47.38261839625727 8.564957389137748, 47.457661694315526 8.500405759632237)")
                             )
                         )
                     ),
                     GisUtil.ring(0L,
-                        GisUtil.curveObj("i2", 1L, GeometricType.GML, null,
+                        GisUtil.GMLCurve("i2", 1L, GeometricType.GML, null,
                             GisUtil.line(0L,
                                 GisUtil.posList("4326", "LINESTRING(47.56581942557537 8.383867948906243, 47.5709303379544 8.415345303858395, 47.576918419662654 8.394814759365808, 47.56581942557537 8.383867948906243)")
                             )

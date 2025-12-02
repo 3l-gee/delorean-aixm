@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.AngleType;
 import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import com.aixm.delorean.core.org.gml.v_3_2.MeasureType;
@@ -49,9 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "Measure_PropertyType", propOrder = {
     "measure"
 })
-public class MeasurePropertyType implements Equals, HashCode, ToString
+public class MeasurePropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "Measure", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends MeasureType> measure;
     @XmlAttribute(name = "nilReason", namespace = "http://www.isotc211.org/2005/gco")
@@ -89,6 +91,10 @@ public class MeasurePropertyType implements Equals, HashCode, ToString
         this.measure = value;
     }
 
+    public boolean isSetMeasure() {
+        return (this.measure!= null);
+    }
+
     /**
      * Gets the value of the nilReason property.
      * 
@@ -113,6 +119,10 @@ public class MeasurePropertyType implements Equals, HashCode, ToString
         this.nilReason = value;
     }
 
+    public boolean isSetNilReason() {
+        return (this.nilReason!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -135,27 +145,27 @@ public class MeasurePropertyType implements Equals, HashCode, ToString
         }
         final MeasurePropertyType that = ((MeasurePropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.nilReason!= null);
-            boolean rhsFieldIsSet = (that.nilReason!= null);
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.measure!= null);
-            boolean rhsFieldIsSet = (that.measure!= null);
+            boolean lhsFieldIsSet = this.isSetMeasure();
+            boolean rhsFieldIsSet = that.isSetMeasure();
             JAXBElement<? extends MeasureType> lhsField;
             lhsField = this.getMeasure();
             JAXBElement<? extends MeasureType> rhsField;
             rhsField = that.getMeasure();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measure", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -177,14 +187,14 @@ public class MeasurePropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.measure!= null);
+            boolean theFieldIsSet = this.isSetMeasure();
             JAXBElement<? extends MeasureType> theField;
             theField = this.getMeasure();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "measure", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nilReason", theField);
@@ -216,13 +226,13 @@ public class MeasurePropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.measure!= null);
+            boolean theFieldIsSet = this.isSetMeasure();
             JAXBElement<? extends MeasureType> theField;
             theField = this.getMeasure();
             strategy.appendField(locator, this, "measure", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.nilReason!= null);
+            boolean theFieldIsSet = this.isSetNilReason();
             String theField;
             theField = this.getNilReason();
             strategy.appendField(locator, this, "nilReason", buffer, theField, theFieldIsSet);

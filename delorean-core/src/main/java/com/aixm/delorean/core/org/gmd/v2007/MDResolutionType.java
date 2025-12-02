@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.DistancePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "equivalentScale",
     "distance"
 })
-public class MDResolutionType implements Equals, HashCode, ToString
+public class MDResolutionType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected MDRepresentativeFractionPropertyType equivalentScale;
     protected DistancePropertyType distance;
 
@@ -74,6 +76,10 @@ public class MDResolutionType implements Equals, HashCode, ToString
         this.equivalentScale = value;
     }
 
+    public boolean isSetEquivalentScale() {
+        return (this.equivalentScale!= null);
+    }
+
     /**
      * Gets the value of the distance property.
      * 
@@ -98,6 +104,10 @@ public class MDResolutionType implements Equals, HashCode, ToString
         this.distance = value;
     }
 
+    public boolean isSetDistance() {
+        return (this.distance!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -120,8 +130,8 @@ public class MDResolutionType implements Equals, HashCode, ToString
         }
         final MDResolutionType that = ((MDResolutionType) object);
         {
-            boolean lhsFieldIsSet = (this.distance!= null);
-            boolean rhsFieldIsSet = (that.distance!= null);
+            boolean lhsFieldIsSet = this.isSetDistance();
+            boolean rhsFieldIsSet = that.isSetDistance();
             DistancePropertyType lhsField;
             lhsField = this.getDistance();
             DistancePropertyType rhsField;
@@ -133,8 +143,8 @@ public class MDResolutionType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.equivalentScale!= null);
-            boolean rhsFieldIsSet = (that.equivalentScale!= null);
+            boolean lhsFieldIsSet = this.isSetEquivalentScale();
+            boolean rhsFieldIsSet = that.isSetEquivalentScale();
             MDRepresentativeFractionPropertyType lhsField;
             lhsField = this.getEquivalentScale();
             MDRepresentativeFractionPropertyType rhsField;
@@ -162,14 +172,14 @@ public class MDResolutionType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.equivalentScale!= null);
+            boolean theFieldIsSet = this.isSetEquivalentScale();
             MDRepresentativeFractionPropertyType theField;
             theField = this.getEquivalentScale();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "equivalentScale", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             DistancePropertyType theField;
             theField = this.getDistance();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "distance", theField);
@@ -201,13 +211,13 @@ public class MDResolutionType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.equivalentScale!= null);
+            boolean theFieldIsSet = this.isSetEquivalentScale();
             MDRepresentativeFractionPropertyType theField;
             theField = this.getEquivalentScale();
             strategy.appendField(locator, this, "equivalentScale", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.distance!= null);
+            boolean theFieldIsSet = this.isSetDistance();
             DistancePropertyType theField;
             theField = this.getDistance();
             strategy.appendField(locator, this, "distance", buffer, theField, theFieldIsSet);

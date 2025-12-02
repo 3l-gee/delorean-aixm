@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.JAXBElement;
@@ -47,9 +48,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "CurveSegmentArrayPropertyType", propOrder = {
     "abstractCurveSegment"
 })
-public class CurveSegmentArrayPropertyType implements Equals, HashCode, ToString
+public class CurveSegmentArrayPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractCurveSegment", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<? extends AbstractCurveSegmentType>> abstractCurveSegment;
 
@@ -105,6 +107,14 @@ public class CurveSegmentArrayPropertyType implements Equals, HashCode, ToString
         this.abstractCurveSegment = abstractCurveSegment;
     }
 
+    public boolean isSetAbstractCurveSegment() {
+        return ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
+    }
+
+    public void unsetAbstractCurveSegment() {
+        this.abstractCurveSegment = null;
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -127,12 +137,12 @@ public class CurveSegmentArrayPropertyType implements Equals, HashCode, ToString
         }
         final CurveSegmentArrayPropertyType that = ((CurveSegmentArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
-            boolean rhsFieldIsSet = ((that.abstractCurveSegment!= null)&&(!that.abstractCurveSegment.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetAbstractCurveSegment();
+            boolean rhsFieldIsSet = that.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> lhsField;
-            lhsField = (((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()))?this.getAbstractCurveSegment():null);
+            lhsField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
             List<JAXBElement<? extends AbstractCurveSegmentType>> rhsField;
-            rhsField = (((that.abstractCurveSegment!= null)&&(!that.abstractCurveSegment.isEmpty()))?that.getAbstractCurveSegment():null);
+            rhsField = (that.isSetAbstractCurveSegment()?that.getAbstractCurveSegment():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurveSegment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurveSegment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -156,9 +166,9 @@ public class CurveSegmentArrayPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> theField;
-            theField = (((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()))?this.getAbstractCurveSegment():null);
+            theField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractCurveSegment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -188,9 +198,9 @@ public class CurveSegmentArrayPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
+            boolean theFieldIsSet = this.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> theField;
-            theField = (((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()))?this.getAbstractCurveSegment():null);
+            theField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
             strategy.appendField(locator, this, "abstractCurveSegment", buffer, theField, theFieldIsSet);
         }
         return buffer;

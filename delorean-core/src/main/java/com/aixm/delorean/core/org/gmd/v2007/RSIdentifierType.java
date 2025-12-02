@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -39,8 +40,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class RSIdentifierType
     extends MDIdentifierType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType codeSpace;
     protected CharacterStringPropertyType version;
 
@@ -68,6 +71,10 @@ public class RSIdentifierType
         this.codeSpace = value;
     }
 
+    public boolean isSetCodeSpace() {
+        return (this.codeSpace!= null);
+    }
+
     /**
      * Gets the value of the version property.
      * 
@@ -92,6 +99,10 @@ public class RSIdentifierType
         this.version = value;
     }
 
+    public boolean isSetVersion() {
+        return (this.version!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -105,27 +116,27 @@ public class RSIdentifierType
         }
         final RSIdentifierType that = ((RSIdentifierType) object);
         {
-            boolean lhsFieldIsSet = (this.version!= null);
-            boolean rhsFieldIsSet = (that.version!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getVersion();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.codeSpace!= null);
-            boolean rhsFieldIsSet = (that.codeSpace!= null);
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
             CharacterStringPropertyType lhsField;
             lhsField = this.getCodeSpace();
             CharacterStringPropertyType rhsField;
             rhsField = that.getCodeSpace();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getVersion();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -137,14 +148,14 @@ public class RSIdentifierType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             CharacterStringPropertyType theField;
             theField = this.getCodeSpace();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "codeSpace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.version!= null);
+            boolean theFieldIsSet = this.isSetVersion();
             CharacterStringPropertyType theField;
             theField = this.getVersion();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "version", theField);
@@ -157,13 +168,13 @@ public class RSIdentifierType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.codeSpace!= null);
+            boolean theFieldIsSet = this.isSetCodeSpace();
             CharacterStringPropertyType theField;
             theField = this.getCodeSpace();
             strategy.appendField(locator, this, "codeSpace", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.version!= null);
+            boolean theFieldIsSet = this.isSetVersion();
             CharacterStringPropertyType theField;
             theField = this.getVersion();
             strategy.appendField(locator, this, "version", buffer, theField, theFieldIsSet);

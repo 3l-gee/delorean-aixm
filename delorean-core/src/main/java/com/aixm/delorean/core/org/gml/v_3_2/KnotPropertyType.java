@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -44,9 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "KnotPropertyType", propOrder = {
     "knot"
 })
-public class KnotPropertyType implements Equals, HashCode, ToString
+public class KnotPropertyType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * A knot is a breakpoint on a piecewise spline curve.
      * value is the value of the parameter at the knot of the spline (see ISO 19107:2003, 6.4.24.2).
@@ -85,6 +87,10 @@ public class KnotPropertyType implements Equals, HashCode, ToString
         this.knot = value;
     }
 
+    public boolean isSetKnot() {
+        return (this.knot!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -107,8 +113,8 @@ public class KnotPropertyType implements Equals, HashCode, ToString
         }
         final KnotPropertyType that = ((KnotPropertyType) object);
         {
-            boolean lhsFieldIsSet = (this.knot!= null);
-            boolean rhsFieldIsSet = (that.knot!= null);
+            boolean lhsFieldIsSet = this.isSetKnot();
+            boolean rhsFieldIsSet = that.isSetKnot();
             KnotType lhsField;
             lhsField = this.getKnot();
             KnotType rhsField;
@@ -136,7 +142,7 @@ public class KnotPropertyType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.knot!= null);
+            boolean theFieldIsSet = this.isSetKnot();
             KnotType theField;
             theField = this.getKnot();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "knot", theField);
@@ -168,7 +174,7 @@ public class KnotPropertyType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.knot!= null);
+            boolean theFieldIsSet = this.isSetKnot();
             KnotType theField;
             theField = this.getKnot();
             strategy.appendField(locator, this, "knot", buffer, theField, theFieldIsSet);

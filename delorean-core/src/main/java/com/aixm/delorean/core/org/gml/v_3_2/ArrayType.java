@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
@@ -36,8 +37,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ArrayType
     extends AbstractGMLType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected ArrayAssociationType members;
 
     /**
@@ -64,6 +67,10 @@ public class ArrayType
         this.members = value;
     }
 
+    public boolean isSetMembers() {
+        return (this.members!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -77,8 +84,8 @@ public class ArrayType
         }
         final ArrayType that = ((ArrayType) object);
         {
-            boolean lhsFieldIsSet = (this.members!= null);
-            boolean rhsFieldIsSet = (that.members!= null);
+            boolean lhsFieldIsSet = this.isSetMembers();
+            boolean rhsFieldIsSet = that.isSetMembers();
             ArrayAssociationType lhsField;
             lhsField = this.getMembers();
             ArrayAssociationType rhsField;
@@ -96,7 +103,7 @@ public class ArrayType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.members!= null);
+            boolean theFieldIsSet = this.isSetMembers();
             ArrayAssociationType theField;
             theField = this.getMembers();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "members", theField);
@@ -109,7 +116,7 @@ public class ArrayType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.members!= null);
+            boolean theFieldIsSet = this.isSetMembers();
             ArrayAssociationType theField;
             theField = this.getMembers();
             strategy.appendField(locator, this, "members", buffer, theField, theFieldIsSet);

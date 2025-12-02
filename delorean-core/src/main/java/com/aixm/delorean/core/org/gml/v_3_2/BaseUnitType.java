@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -37,8 +38,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class BaseUnitType
     extends UnitDefinitionType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected ReferenceType unitsSystem;
 
@@ -66,6 +69,10 @@ public class BaseUnitType
         this.unitsSystem = value;
     }
 
+    public boolean isSetUnitsSystem() {
+        return (this.unitsSystem!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -79,8 +86,8 @@ public class BaseUnitType
         }
         final BaseUnitType that = ((BaseUnitType) object);
         {
-            boolean lhsFieldIsSet = (this.unitsSystem!= null);
-            boolean rhsFieldIsSet = (that.unitsSystem!= null);
+            boolean lhsFieldIsSet = this.isSetUnitsSystem();
+            boolean rhsFieldIsSet = that.isSetUnitsSystem();
             ReferenceType lhsField;
             lhsField = this.getUnitsSystem();
             ReferenceType rhsField;
@@ -98,7 +105,7 @@ public class BaseUnitType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.unitsSystem!= null);
+            boolean theFieldIsSet = this.isSetUnitsSystem();
             ReferenceType theField;
             theField = this.getUnitsSystem();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "unitsSystem", theField);
@@ -111,7 +118,7 @@ public class BaseUnitType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.unitsSystem!= null);
+            boolean theFieldIsSet = this.isSetUnitsSystem();
             ReferenceType theField;
             theField = this.getUnitsSystem();
             strategy.appendField(locator, this, "unitsSystem", buffer, theField, theFieldIsSet);

@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TemporalCRSType
     extends AbstractCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:timeCS is an association role to the time coordinate system used by this CRS.
      * 
@@ -87,6 +90,10 @@ public class TemporalCRSType
         this.timeCS = value;
     }
 
+    public boolean isSetTimeCS() {
+        return (this.timeCS!= null);
+    }
+
     /**
      * Gets the value of the usesTemporalCS property.
      * 
@@ -109,6 +116,10 @@ public class TemporalCRSType
      */
     public void setUsesTemporalCS(TemporalCSPropertyType value) {
         this.usesTemporalCS = value;
+    }
+
+    public boolean isSetUsesTemporalCS() {
+        return (this.usesTemporalCS!= null);
     }
 
     /**
@@ -138,6 +149,10 @@ public class TemporalCRSType
         this.temporalDatum = value;
     }
 
+    public boolean isSetTemporalDatum() {
+        return (this.temporalDatum!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -151,8 +166,21 @@ public class TemporalCRSType
         }
         final TemporalCRSType that = ((TemporalCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.usesTemporalCS!= null);
-            boolean rhsFieldIsSet = (that.usesTemporalCS!= null);
+            boolean lhsFieldIsSet = this.isSetTimeCS();
+            boolean rhsFieldIsSet = that.isSetTimeCS();
+            JAXBElement<TimeCSPropertyType> lhsField;
+            lhsField = this.getTimeCS();
+            JAXBElement<TimeCSPropertyType> rhsField;
+            rhsField = that.getTimeCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesTemporalCS();
+            boolean rhsFieldIsSet = that.isSetUsesTemporalCS();
             TemporalCSPropertyType lhsField;
             lhsField = this.getUsesTemporalCS();
             TemporalCSPropertyType rhsField;
@@ -164,27 +192,14 @@ public class TemporalCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.temporalDatum!= null);
-            boolean rhsFieldIsSet = (that.temporalDatum!= null);
+            boolean lhsFieldIsSet = this.isSetTemporalDatum();
+            boolean rhsFieldIsSet = that.isSetTemporalDatum();
             JAXBElement<TemporalDatumPropertyType> lhsField;
             lhsField = this.getTemporalDatum();
             JAXBElement<TemporalDatumPropertyType> rhsField;
             rhsField = that.getTemporalDatum();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "temporalDatum", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "temporalDatum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.timeCS!= null);
-            boolean rhsFieldIsSet = (that.timeCS!= null);
-            JAXBElement<TimeCSPropertyType> lhsField;
-            lhsField = this.getTimeCS();
-            JAXBElement<TimeCSPropertyType> rhsField;
-            rhsField = that.getTimeCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -196,21 +211,21 @@ public class TemporalCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.timeCS!= null);
+            boolean theFieldIsSet = this.isSetTimeCS();
             JAXBElement<TimeCSPropertyType> theField;
             theField = this.getTimeCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesTemporalCS!= null);
+            boolean theFieldIsSet = this.isSetUsesTemporalCS();
             TemporalCSPropertyType theField;
             theField = this.getUsesTemporalCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "usesTemporalCS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.temporalDatum!= null);
+            boolean theFieldIsSet = this.isSetTemporalDatum();
             JAXBElement<TemporalDatumPropertyType> theField;
             theField = this.getTemporalDatum();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "temporalDatum", theField);
@@ -223,19 +238,19 @@ public class TemporalCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.timeCS!= null);
+            boolean theFieldIsSet = this.isSetTimeCS();
             JAXBElement<TimeCSPropertyType> theField;
             theField = this.getTimeCS();
             strategy.appendField(locator, this, "timeCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.usesTemporalCS!= null);
+            boolean theFieldIsSet = this.isSetUsesTemporalCS();
             TemporalCSPropertyType theField;
             theField = this.getUsesTemporalCS();
             strategy.appendField(locator, this, "usesTemporalCS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.temporalDatum!= null);
+            boolean theFieldIsSet = this.isSetTemporalDatum();
             JAXBElement<TemporalDatumPropertyType> theField;
             theField = this.getTemporalDatum();
             strategy.appendField(locator, this, "temporalDatum", buffer, theField, theFieldIsSet);

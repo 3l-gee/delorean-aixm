@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -42,9 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "Binary_Type", propOrder = {
     "value"
 })
-public class BinaryType implements Equals, HashCode, ToString
+public class BinaryType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlValue
     protected String value;
     @XmlAttribute(name = "src")
@@ -75,6 +77,10 @@ public class BinaryType implements Equals, HashCode, ToString
         this.value = value;
     }
 
+    public boolean isSetValue() {
+        return (this.value!= null);
+    }
+
     /**
      * Gets the value of the src property.
      * 
@@ -99,6 +105,10 @@ public class BinaryType implements Equals, HashCode, ToString
         this.src = value;
     }
 
+    public boolean isSetSrc() {
+        return (this.src!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -121,27 +131,27 @@ public class BinaryType implements Equals, HashCode, ToString
         }
         final BinaryType that = ((BinaryType) object);
         {
-            boolean lhsFieldIsSet = (this.src!= null);
-            boolean rhsFieldIsSet = (that.src!= null);
-            String lhsField;
-            lhsField = this.getSrc();
-            String rhsField;
-            rhsField = that.getSrc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "src", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "src", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.value!= null);
-            boolean rhsFieldIsSet = (that.value!= null);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
             String lhsField;
             lhsField = this.getValue();
             String rhsField;
             rhsField = that.getValue();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrc();
+            boolean rhsFieldIsSet = that.isSetSrc();
+            String lhsField;
+            lhsField = this.getSrc();
+            String rhsField;
+            rhsField = that.getSrc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "src", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "src", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -163,14 +173,14 @@ public class BinaryType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "value", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.src!= null);
+            boolean theFieldIsSet = this.isSetSrc();
             String theField;
             theField = this.getSrc();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "src", theField);
@@ -202,13 +212,13 @@ public class BinaryType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.value!= null);
+            boolean theFieldIsSet = this.isSetValue();
             String theField;
             theField = this.getValue();
             strategy.appendField(locator, this, "value", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.src!= null);
+            boolean theFieldIsSet = this.isSetSrc();
             String theField;
             theField = this.getSrc();
             strategy.appendField(locator, this, "src", buffer, theField, theFieldIsSet);

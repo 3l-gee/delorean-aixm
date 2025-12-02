@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -53,9 +54,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     GenericMetaDataType.class
 })
-public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
+public abstract class AbstractMetaDataType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlMixed
     protected List<String> content;
     /**
@@ -105,6 +107,14 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
         this.content = content;
     }
 
+    public boolean isSetContent() {
+        return ((this.content!= null)&&(!this.content.isEmpty()));
+    }
+
+    public void unsetContent() {
+        this.content = null;
+    }
+
     /**
      * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
      * 
@@ -130,6 +140,10 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
         this.id = value;
     }
 
+    public boolean isSetId() {
+        return (this.id!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -152,8 +166,8 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
         }
         final AbstractMetaDataType that = ((AbstractMetaDataType) object);
         {
-            boolean lhsFieldIsSet = (this.id!= null);
-            boolean rhsFieldIsSet = (that.id!= null);
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
             String lhsField;
             lhsField = this.getId();
             String rhsField;
@@ -165,12 +179,12 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
-            boolean rhsFieldIsSet = ((that.content!= null)&&(!that.content.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
             List<String> lhsField;
-            lhsField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            lhsField = (this.isSetContent()?this.getContent():null);
             List<String> rhsField;
-            rhsField = (((that.content!= null)&&(!that.content.isEmpty()))?that.getContent():null);
+            rhsField = (that.isSetContent()?that.getContent():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -194,14 +208,14 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<String> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "id", theField);
@@ -233,13 +247,13 @@ public abstract class AbstractMetaDataType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = ((this.content!= null)&&(!this.content.isEmpty()));
+            boolean theFieldIsSet = this.isSetContent();
             List<String> theField;
-            theField = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
+            theField = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.id!= null);
+            boolean theFieldIsSet = this.isSetId();
             String theField;
             theField = this.getId();
             strategy.appendField(locator, this, "id", buffer, theField, theFieldIsSet);

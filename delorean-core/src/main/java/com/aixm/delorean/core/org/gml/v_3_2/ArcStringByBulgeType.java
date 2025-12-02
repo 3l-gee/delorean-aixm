@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +65,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ArcStringByBulgeType
     extends AbstractCurveSegmentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElementRefs({
         @XmlElementRef(name = "pos", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
         @XmlElementRef(name = "pointProperty", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
@@ -79,7 +82,7 @@ public class ArcStringByBulgeType
     @XmlElement(required = true)
     protected List<VectorType> normal;
     @XmlAttribute(name = "interpolation")
-    protected CurveInterpolationType interpolation;
+    public static final CurveInterpolationType INTERPOLATION = CurveInterpolationType.CIRCULAR_ARC_2_POINT_WITH_BULGE;
     @XmlAttribute(name = "numArc")
     protected BigInteger numArc;
 
@@ -122,6 +125,14 @@ public class ArcStringByBulgeType
         this.posOrPointPropertyOrPointRep = posOrPointPropertyOrPointRep;
     }
 
+    public boolean isSetPosOrPointPropertyOrPointRep() {
+        return ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+    }
+
+    public void unsetPosOrPointPropertyOrPointRep() {
+        this.posOrPointPropertyOrPointRep = null;
+    }
+
     /**
      * Gets the value of the posList property.
      * 
@@ -146,6 +157,10 @@ public class ArcStringByBulgeType
         this.posList = value;
     }
 
+    public boolean isSetPosList() {
+        return (this.posList!= null);
+    }
+
     /**
      * Gets the value of the coordinates property.
      * 
@@ -168,6 +183,10 @@ public class ArcStringByBulgeType
      */
     public void setCoordinates(CoordinatesType value) {
         this.coordinates = value;
+    }
+
+    public boolean isSetCoordinates() {
+        return (this.coordinates!= null);
     }
 
     /**
@@ -207,6 +226,14 @@ public class ArcStringByBulgeType
         this.bulge = bulge;
     }
 
+    public boolean isSetBulge() {
+        return ((this.bulge!= null)&&(!this.bulge.isEmpty()));
+    }
+
+    public void unsetBulge() {
+        this.bulge = null;
+    }
+
     /**
      * Gets the value of the normal property.
      * 
@@ -244,32 +271,12 @@ public class ArcStringByBulgeType
         this.normal = normal;
     }
 
-    /**
-     * Gets the value of the interpolation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CurveInterpolationType }
-     *     
-     */
-    public CurveInterpolationType getInterpolation() {
-        if (interpolation == null) {
-            return CurveInterpolationType.CIRCULAR_ARC_2_POINT_WITH_BULGE;
-        } else {
-            return interpolation;
-        }
+    public boolean isSetNormal() {
+        return ((this.normal!= null)&&(!this.normal.isEmpty()));
     }
 
-    /**
-     * Sets the value of the interpolation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CurveInterpolationType }
-     *     
-     */
-    public void setInterpolation(CurveInterpolationType value) {
-        this.interpolation = value;
+    public void unsetNormal() {
+        this.normal = null;
     }
 
     /**
@@ -296,6 +303,10 @@ public class ArcStringByBulgeType
         this.numArc = value;
     }
 
+    public boolean isSetNumArc() {
+        return (this.numArc!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -309,12 +320,25 @@ public class ArcStringByBulgeType
         }
         final ArcStringByBulgeType that = ((ArcStringByBulgeType) object);
         {
-            boolean lhsFieldIsSet = ((this.bulge!= null)&&(!this.bulge.isEmpty()));
-            boolean rhsFieldIsSet = ((that.bulge!= null)&&(!that.bulge.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
+            boolean rhsFieldIsSet = that.isSetPosOrPointPropertyOrPointRep();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetPosOrPointPropertyOrPointRep()?that.getPosOrPointPropertyOrPointRep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBulge();
+            boolean rhsFieldIsSet = that.isSetBulge();
             List<Double> lhsField;
-            lhsField = (((this.bulge!= null)&&(!this.bulge.isEmpty()))?this.getBulge():null);
+            lhsField = (this.isSetBulge()?this.getBulge():null);
             List<Double> rhsField;
-            rhsField = (((that.bulge!= null)&&(!that.bulge.isEmpty()))?that.getBulge():null);
+            rhsField = (that.isSetBulge()?that.getBulge():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bulge", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bulge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -322,60 +346,8 @@ public class ArcStringByBulgeType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.posList!= null);
-            boolean rhsFieldIsSet = (that.posList!= null);
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.interpolation!= null);
-            boolean rhsFieldIsSet = (that.interpolation!= null);
-            CurveInterpolationType lhsField;
-            lhsField = this.getInterpolation();
-            CurveInterpolationType rhsField;
-            rhsField = that.getInterpolation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpolation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpolation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.numArc!= null);
-            boolean rhsFieldIsSet = (that.numArc!= null);
-            BigInteger lhsField;
-            lhsField = this.getNumArc();
-            BigInteger rhsField;
-            rhsField = that.getNumArc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = ((this.normal!= null)&&(!this.normal.isEmpty()));
-            boolean rhsFieldIsSet = ((that.normal!= null)&&(!that.normal.isEmpty()));
-            List<VectorType> lhsField;
-            lhsField = (((this.normal!= null)&&(!this.normal.isEmpty()))?this.getNormal():null);
-            List<VectorType> rhsField;
-            rhsField = (((that.normal!= null)&&(!that.normal.isEmpty()))?that.getNormal():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "normal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "normal", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.coordinates!= null);
-            boolean rhsFieldIsSet = (that.coordinates!= null);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
             CoordinatesType lhsField;
             lhsField = this.getCoordinates();
             CoordinatesType rhsField;
@@ -387,14 +359,40 @@ public class ArcStringByBulgeType
             }
         }
         {
-            boolean lhsFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
-            boolean rhsFieldIsSet = ((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()));
-            List<JAXBElement<?>> lhsField;
-            lhsField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (((that.posOrPointPropertyOrPointRep!= null)&&(!that.posOrPointPropertyOrPointRep.isEmpty()))?that.getPosOrPointPropertyOrPointRep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posOrPointPropertyOrPointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep", rhsField);
+            boolean lhsFieldIsSet = this.isSetNumArc();
+            boolean rhsFieldIsSet = that.isSetNumArc();
+            BigInteger lhsField;
+            lhsField = this.getNumArc();
+            BigInteger rhsField;
+            rhsField = that.getNumArc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNormal();
+            boolean rhsFieldIsSet = that.isSetNormal();
+            List<VectorType> lhsField;
+            lhsField = (this.isSetNormal()?this.getNormal():null);
+            List<VectorType> rhsField;
+            rhsField = (that.isSetNormal()?that.getNormal():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "normal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "normal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -406,49 +404,42 @@ public class ArcStringByBulgeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posOrPointPropertyOrPointRep", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "posList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "coordinates", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.bulge!= null)&&(!this.bulge.isEmpty()));
+            boolean theFieldIsSet = this.isSetBulge();
             List<Double> theField;
-            theField = (((this.bulge!= null)&&(!this.bulge.isEmpty()))?this.getBulge():null);
+            theField = (this.isSetBulge()?this.getBulge():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "bulge", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.normal!= null)&&(!this.normal.isEmpty()));
+            boolean theFieldIsSet = this.isSetNormal();
             List<VectorType> theField;
-            theField = (((this.normal!= null)&&(!this.normal.isEmpty()))?this.getNormal():null);
+            theField = (this.isSetNormal()?this.getNormal():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "normal", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            CurveInterpolationType theField;
-            theField = this.getInterpolation();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interpolation", theField);
-            currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.numArc!= null);
+            boolean theFieldIsSet = this.isSetNumArc();
             BigInteger theField;
             theField = this.getNumArc();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "numArc", theField);
@@ -461,43 +452,37 @@ public class ArcStringByBulgeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()));
+            boolean theFieldIsSet = this.isSetPosOrPointPropertyOrPointRep();
             List<JAXBElement<?>> theField;
-            theField = (((this.posOrPointPropertyOrPointRep!= null)&&(!this.posOrPointPropertyOrPointRep.isEmpty()))?this.getPosOrPointPropertyOrPointRep():null);
+            theField = (this.isSetPosOrPointPropertyOrPointRep()?this.getPosOrPointPropertyOrPointRep():null);
             strategy.appendField(locator, this, "posOrPointPropertyOrPointRep", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.posList!= null);
+            boolean theFieldIsSet = this.isSetPosList();
             DirectPositionListType theField;
             theField = this.getPosList();
             strategy.appendField(locator, this, "posList", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.coordinates!= null);
+            boolean theFieldIsSet = this.isSetCoordinates();
             CoordinatesType theField;
             theField = this.getCoordinates();
             strategy.appendField(locator, this, "coordinates", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.bulge!= null)&&(!this.bulge.isEmpty()));
+            boolean theFieldIsSet = this.isSetBulge();
             List<Double> theField;
-            theField = (((this.bulge!= null)&&(!this.bulge.isEmpty()))?this.getBulge():null);
+            theField = (this.isSetBulge()?this.getBulge():null);
             strategy.appendField(locator, this, "bulge", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = ((this.normal!= null)&&(!this.normal.isEmpty()));
+            boolean theFieldIsSet = this.isSetNormal();
             List<VectorType> theField;
-            theField = (((this.normal!= null)&&(!this.normal.isEmpty()))?this.getNormal():null);
+            theField = (this.isSetNormal()?this.getNormal():null);
             strategy.appendField(locator, this, "normal", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interpolation!= null);
-            CurveInterpolationType theField;
-            theField = this.getInterpolation();
-            strategy.appendField(locator, this, "interpolation", buffer, theField, theFieldIsSet);
-        }
-        {
-            boolean theFieldIsSet = (this.numArc!= null);
+            boolean theFieldIsSet = this.isSetNumArc();
             BigInteger theField;
             theField = this.getNumArc();
             strategy.appendField(locator, this, "numArc", buffer, theField, theFieldIsSet);

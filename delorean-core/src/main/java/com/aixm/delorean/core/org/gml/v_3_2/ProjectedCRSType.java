@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -44,8 +45,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class ProjectedCRSType
     extends AbstractGeneralDerivedCRSType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     /**
      * gml:baseGeodeticCRS is an association role to the geodetic coordinate reference system used by this projected CRS.
      * 
@@ -84,6 +87,10 @@ public class ProjectedCRSType
         this.baseGeodeticCRS = value;
     }
 
+    public boolean isSetBaseGeodeticCRS() {
+        return (this.baseGeodeticCRS!= null);
+    }
+
     /**
      * Gets the value of the baseGeographicCRS property.
      * 
@@ -106,6 +113,10 @@ public class ProjectedCRSType
      */
     public void setBaseGeographicCRS(GeographicCRSPropertyType value) {
         this.baseGeographicCRS = value;
+    }
+
+    public boolean isSetBaseGeographicCRS() {
+        return (this.baseGeographicCRS!= null);
     }
 
     /**
@@ -135,6 +146,10 @@ public class ProjectedCRSType
         this.cartesianCS = value;
     }
 
+    public boolean isSetCartesianCS() {
+        return (this.cartesianCS!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -148,21 +163,8 @@ public class ProjectedCRSType
         }
         final ProjectedCRSType that = ((ProjectedCRSType) object);
         {
-            boolean lhsFieldIsSet = (this.baseGeographicCRS!= null);
-            boolean rhsFieldIsSet = (that.baseGeographicCRS!= null);
-            GeographicCRSPropertyType lhsField;
-            lhsField = this.getBaseGeographicCRS();
-            GeographicCRSPropertyType rhsField;
-            rhsField = that.getBaseGeographicCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeographicCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeographicCRS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.baseGeodeticCRS!= null);
-            boolean rhsFieldIsSet = (that.baseGeodeticCRS!= null);
+            boolean lhsFieldIsSet = this.isSetBaseGeodeticCRS();
+            boolean rhsFieldIsSet = that.isSetBaseGeodeticCRS();
             GeodeticCRSPropertyType lhsField;
             lhsField = this.getBaseGeodeticCRS();
             GeodeticCRSPropertyType rhsField;
@@ -174,14 +176,27 @@ public class ProjectedCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.cartesianCS!= null);
-            boolean rhsFieldIsSet = (that.cartesianCS!= null);
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> lhsField;
             lhsField = this.getCartesianCS();
             JAXBElement<CartesianCSPropertyType> rhsField;
             rhsField = that.getCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseGeographicCRS();
+            boolean rhsFieldIsSet = that.isSetBaseGeographicCRS();
+            GeographicCRSPropertyType lhsField;
+            lhsField = this.getBaseGeographicCRS();
+            GeographicCRSPropertyType rhsField;
+            rhsField = that.getBaseGeographicCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeographicCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeographicCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -193,21 +208,21 @@ public class ProjectedCRSType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.baseGeodeticCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseGeodeticCRS();
             GeodeticCRSPropertyType theField;
             theField = this.getBaseGeodeticCRS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "baseGeodeticCRS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.baseGeographicCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseGeographicCRS();
             GeographicCRSPropertyType theField;
             theField = this.getBaseGeographicCRS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "baseGeographicCRS", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cartesianCS!= null);
+            boolean theFieldIsSet = this.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> theField;
             theField = this.getCartesianCS();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "cartesianCS", theField);
@@ -220,19 +235,19 @@ public class ProjectedCRSType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.baseGeodeticCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseGeodeticCRS();
             GeodeticCRSPropertyType theField;
             theField = this.getBaseGeodeticCRS();
             strategy.appendField(locator, this, "baseGeodeticCRS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.baseGeographicCRS!= null);
+            boolean theFieldIsSet = this.isSetBaseGeographicCRS();
             GeographicCRSPropertyType theField;
             theField = this.getBaseGeographicCRS();
             strategy.appendField(locator, this, "baseGeographicCRS", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.cartesianCS!= null);
+            boolean theFieldIsSet = this.isSetCartesianCS();
             JAXBElement<CartesianCSPropertyType> theField;
             theField = this.getCartesianCS();
             strategy.appendField(locator, this, "cartesianCS", buffer, theField, theFieldIsSet);

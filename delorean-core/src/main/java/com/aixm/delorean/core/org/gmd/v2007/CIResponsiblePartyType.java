@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -49,8 +50,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class CIResponsiblePartyType
     extends AbstractObjectType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType individualName;
     protected CharacterStringPropertyType organisationName;
     protected CharacterStringPropertyType positionName;
@@ -82,6 +85,10 @@ public class CIResponsiblePartyType
         this.individualName = value;
     }
 
+    public boolean isSetIndividualName() {
+        return (this.individualName!= null);
+    }
+
     /**
      * Gets the value of the organisationName property.
      * 
@@ -104,6 +111,10 @@ public class CIResponsiblePartyType
      */
     public void setOrganisationName(CharacterStringPropertyType value) {
         this.organisationName = value;
+    }
+
+    public boolean isSetOrganisationName() {
+        return (this.organisationName!= null);
     }
 
     /**
@@ -130,6 +141,10 @@ public class CIResponsiblePartyType
         this.positionName = value;
     }
 
+    public boolean isSetPositionName() {
+        return (this.positionName!= null);
+    }
+
     /**
      * Gets the value of the contactInfo property.
      * 
@@ -152,6 +167,10 @@ public class CIResponsiblePartyType
      */
     public void setContactInfo(CIContactPropertyType value) {
         this.contactInfo = value;
+    }
+
+    public boolean isSetContactInfo() {
+        return (this.contactInfo!= null);
     }
 
     /**
@@ -178,6 +197,10 @@ public class CIResponsiblePartyType
         this.role = value;
     }
 
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -191,8 +214,8 @@ public class CIResponsiblePartyType
         }
         final CIResponsiblePartyType that = ((CIResponsiblePartyType) object);
         {
-            boolean lhsFieldIsSet = (this.positionName!= null);
-            boolean rhsFieldIsSet = (that.positionName!= null);
+            boolean lhsFieldIsSet = this.isSetPositionName();
+            boolean rhsFieldIsSet = that.isSetPositionName();
             CharacterStringPropertyType lhsField;
             lhsField = this.getPositionName();
             CharacterStringPropertyType rhsField;
@@ -204,21 +227,21 @@ public class CIResponsiblePartyType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.contactInfo!= null);
-            boolean rhsFieldIsSet = (that.contactInfo!= null);
-            CIContactPropertyType lhsField;
-            lhsField = this.getContactInfo();
-            CIContactPropertyType rhsField;
-            rhsField = that.getContactInfo();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
+            boolean lhsFieldIsSet = this.isSetOrganisationName();
+            boolean rhsFieldIsSet = that.isSetOrganisationName();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getOrganisationName();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getOrganisationName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.individualName!= null);
-            boolean rhsFieldIsSet = (that.individualName!= null);
+            boolean lhsFieldIsSet = this.isSetIndividualName();
+            boolean rhsFieldIsSet = that.isSetIndividualName();
             CharacterStringPropertyType lhsField;
             lhsField = this.getIndividualName();
             CharacterStringPropertyType rhsField;
@@ -230,27 +253,27 @@ public class CIResponsiblePartyType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.role!= null);
-            boolean rhsFieldIsSet = (that.role!= null);
+            boolean lhsFieldIsSet = this.isSetContactInfo();
+            boolean rhsFieldIsSet = that.isSetContactInfo();
+            CIContactPropertyType lhsField;
+            lhsField = this.getContactInfo();
+            CIContactPropertyType rhsField;
+            rhsField = that.getContactInfo();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contactInfo", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contactInfo", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
             CIRoleCodePropertyType lhsField;
             lhsField = this.getRole();
             CIRoleCodePropertyType rhsField;
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = (this.organisationName!= null);
-            boolean rhsFieldIsSet = (that.organisationName!= null);
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getOrganisationName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getOrganisationName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "organisationName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "organisationName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -262,35 +285,35 @@ public class CIResponsiblePartyType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.individualName!= null);
+            boolean theFieldIsSet = this.isSetIndividualName();
             CharacterStringPropertyType theField;
             theField = this.getIndividualName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "individualName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.organisationName!= null);
+            boolean theFieldIsSet = this.isSetOrganisationName();
             CharacterStringPropertyType theField;
             theField = this.getOrganisationName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "organisationName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.positionName!= null);
+            boolean theFieldIsSet = this.isSetPositionName();
             CharacterStringPropertyType theField;
             theField = this.getPositionName();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "positionName", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.contactInfo!= null);
+            boolean theFieldIsSet = this.isSetContactInfo();
             CIContactPropertyType theField;
             theField = this.getContactInfo();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contactInfo", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             CIRoleCodePropertyType theField;
             theField = this.getRole();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "role", theField);
@@ -303,31 +326,31 @@ public class CIResponsiblePartyType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.individualName!= null);
+            boolean theFieldIsSet = this.isSetIndividualName();
             CharacterStringPropertyType theField;
             theField = this.getIndividualName();
             strategy.appendField(locator, this, "individualName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.organisationName!= null);
+            boolean theFieldIsSet = this.isSetOrganisationName();
             CharacterStringPropertyType theField;
             theField = this.getOrganisationName();
             strategy.appendField(locator, this, "organisationName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.positionName!= null);
+            boolean theFieldIsSet = this.isSetPositionName();
             CharacterStringPropertyType theField;
             theField = this.getPositionName();
             strategy.appendField(locator, this, "positionName", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.contactInfo!= null);
+            boolean theFieldIsSet = this.isSetContactInfo();
             CIContactPropertyType theField;
             theField = this.getContactInfo();
             strategy.appendField(locator, this, "contactInfo", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.role!= null);
+            boolean theFieldIsSet = this.isSetRole();
             CIRoleCodePropertyType theField;
             theField = this.getRole();
             strategy.appendField(locator, this, "role", buffer, theField, theFieldIsSet);

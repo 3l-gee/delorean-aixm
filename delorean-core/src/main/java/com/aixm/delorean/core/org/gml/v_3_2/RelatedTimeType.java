@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -53,8 +54,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "RelatedTimeType")
 public class RelatedTimeType
     extends TimePrimitivePropertyType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "relativePosition")
     protected String relativePosition;
 
@@ -82,6 +85,10 @@ public class RelatedTimeType
         this.relativePosition = value;
     }
 
+    public boolean isSetRelativePosition() {
+        return (this.relativePosition!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -95,8 +102,8 @@ public class RelatedTimeType
         }
         final RelatedTimeType that = ((RelatedTimeType) object);
         {
-            boolean lhsFieldIsSet = (this.relativePosition!= null);
-            boolean rhsFieldIsSet = (that.relativePosition!= null);
+            boolean lhsFieldIsSet = this.isSetRelativePosition();
+            boolean rhsFieldIsSet = that.isSetRelativePosition();
             String lhsField;
             lhsField = this.getRelativePosition();
             String rhsField;
@@ -114,7 +121,7 @@ public class RelatedTimeType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.relativePosition!= null);
+            boolean theFieldIsSet = this.isSetRelativePosition();
             String theField;
             theField = this.getRelativePosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "relativePosition", theField);
@@ -127,7 +134,7 @@ public class RelatedTimeType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.relativePosition!= null);
+            boolean theFieldIsSet = this.isSetRelativePosition();
             String theField;
             theField = this.getRelativePosition();
             strategy.appendField(locator, this, "relativePosition", buffer, theField, theFieldIsSet);

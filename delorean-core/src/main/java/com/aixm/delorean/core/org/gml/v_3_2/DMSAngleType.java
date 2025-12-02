@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -54,9 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
     "minutes",
     "seconds"
 })
-public class DMSAngleType implements Equals, HashCode, ToString
+public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected DegreesType degrees;
     protected BigDecimal decimalMinutes;
@@ -88,6 +90,10 @@ public class DMSAngleType implements Equals, HashCode, ToString
         this.degrees = value;
     }
 
+    public boolean isSetDegrees() {
+        return (this.degrees!= null);
+    }
+
     /**
      * Gets the value of the decimalMinutes property.
      * 
@@ -110,6 +116,10 @@ public class DMSAngleType implements Equals, HashCode, ToString
      */
     public void setDecimalMinutes(BigDecimal value) {
         this.decimalMinutes = value;
+    }
+
+    public boolean isSetDecimalMinutes() {
+        return (this.decimalMinutes!= null);
     }
 
     /**
@@ -136,6 +146,10 @@ public class DMSAngleType implements Equals, HashCode, ToString
         this.minutes = value;
     }
 
+    public boolean isSetMinutes() {
+        return (this.minutes!= null);
+    }
+
     /**
      * Gets the value of the seconds property.
      * 
@@ -160,6 +174,10 @@ public class DMSAngleType implements Equals, HashCode, ToString
         this.seconds = value;
     }
 
+    public boolean isSetSeconds() {
+        return (this.seconds!= null);
+    }
+
     @Override
     public boolean equals(Object object) {
         ObjectLocator thisLocator = null;
@@ -182,21 +200,21 @@ public class DMSAngleType implements Equals, HashCode, ToString
         }
         final DMSAngleType that = ((DMSAngleType) object);
         {
-            boolean lhsFieldIsSet = (this.degrees!= null);
-            boolean rhsFieldIsSet = (that.degrees!= null);
-            DegreesType lhsField;
-            lhsField = this.getDegrees();
-            DegreesType rhsField;
-            rhsField = that.getDegrees();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
+            boolean lhsFieldIsSet = this.isSetSeconds();
+            boolean rhsFieldIsSet = that.isSetSeconds();
+            BigDecimal lhsField;
+            lhsField = this.getSeconds();
+            BigDecimal rhsField;
+            rhsField = that.getSeconds();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.decimalMinutes!= null);
-            boolean rhsFieldIsSet = (that.decimalMinutes!= null);
+            boolean lhsFieldIsSet = this.isSetDecimalMinutes();
+            boolean rhsFieldIsSet = that.isSetDecimalMinutes();
             BigDecimal lhsField;
             lhsField = this.getDecimalMinutes();
             BigDecimal rhsField;
@@ -208,8 +226,8 @@ public class DMSAngleType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.minutes!= null);
-            boolean rhsFieldIsSet = (that.minutes!= null);
+            boolean lhsFieldIsSet = this.isSetMinutes();
+            boolean rhsFieldIsSet = that.isSetMinutes();
             Integer lhsField;
             lhsField = this.getMinutes();
             Integer rhsField;
@@ -221,14 +239,14 @@ public class DMSAngleType implements Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = (this.seconds!= null);
-            boolean rhsFieldIsSet = (that.seconds!= null);
-            BigDecimal lhsField;
-            lhsField = this.getSeconds();
-            BigDecimal rhsField;
-            rhsField = that.getSeconds();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
+            boolean lhsFieldIsSet = this.isSetDegrees();
+            boolean rhsFieldIsSet = that.isSetDegrees();
+            DegreesType lhsField;
+            lhsField = this.getDegrees();
+            DegreesType rhsField;
+            rhsField = that.getDegrees();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -250,28 +268,28 @@ public class DMSAngleType implements Equals, HashCode, ToString
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            boolean theFieldIsSet = (this.degrees!= null);
+            boolean theFieldIsSet = this.isSetDegrees();
             DegreesType theField;
             theField = this.getDegrees();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "degrees", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimalMinutes!= null);
+            boolean theFieldIsSet = this.isSetDecimalMinutes();
             BigDecimal theField;
             theField = this.getDecimalMinutes();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "decimalMinutes", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.minutes!= null);
+            boolean theFieldIsSet = this.isSetMinutes();
             Integer theField;
             theField = this.getMinutes();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "minutes", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.seconds!= null);
+            boolean theFieldIsSet = this.isSetSeconds();
             BigDecimal theField;
             theField = this.getSeconds();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "seconds", theField);
@@ -303,25 +321,25 @@ public class DMSAngleType implements Equals, HashCode, ToString
     @Override
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            boolean theFieldIsSet = (this.degrees!= null);
+            boolean theFieldIsSet = this.isSetDegrees();
             DegreesType theField;
             theField = this.getDegrees();
             strategy.appendField(locator, this, "degrees", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.decimalMinutes!= null);
+            boolean theFieldIsSet = this.isSetDecimalMinutes();
             BigDecimal theField;
             theField = this.getDecimalMinutes();
             strategy.appendField(locator, this, "decimalMinutes", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.minutes!= null);
+            boolean theFieldIsSet = this.isSetMinutes();
             Integer theField;
             theField = this.getMinutes();
             strategy.appendField(locator, this, "minutes", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.seconds!= null);
+            boolean theFieldIsSet = this.isSetSeconds();
             BigDecimal theField;
             theField = this.getSeconds();
             strategy.appendField(locator, this, "seconds", buffer, theField, theFieldIsSet);

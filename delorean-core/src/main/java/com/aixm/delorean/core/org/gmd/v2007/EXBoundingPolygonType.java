@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.aixm.delorean.core.org.gss.v2007.GMObjectPropertyType;
@@ -42,8 +43,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class EXBoundingPolygonType
     extends AbstractEXGeographicExtentType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
     protected List<GMObjectPropertyType> polygon;
 
@@ -84,6 +87,14 @@ public class EXBoundingPolygonType
         this.polygon = polygon;
     }
 
+    public boolean isSetPolygon() {
+        return ((this.polygon!= null)&&(!this.polygon.isEmpty()));
+    }
+
+    public void unsetPolygon() {
+        this.polygon = null;
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -97,12 +108,12 @@ public class EXBoundingPolygonType
         }
         final EXBoundingPolygonType that = ((EXBoundingPolygonType) object);
         {
-            boolean lhsFieldIsSet = ((this.polygon!= null)&&(!this.polygon.isEmpty()));
-            boolean rhsFieldIsSet = ((that.polygon!= null)&&(!that.polygon.isEmpty()));
+            boolean lhsFieldIsSet = this.isSetPolygon();
+            boolean rhsFieldIsSet = that.isSetPolygon();
             List<GMObjectPropertyType> lhsField;
-            lhsField = (((this.polygon!= null)&&(!this.polygon.isEmpty()))?this.getPolygon():null);
+            lhsField = (this.isSetPolygon()?this.getPolygon():null);
             List<GMObjectPropertyType> rhsField;
-            rhsField = (((that.polygon!= null)&&(!that.polygon.isEmpty()))?that.getPolygon():null);
+            rhsField = (that.isSetPolygon()?that.getPolygon():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "polygon", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "polygon", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -116,9 +127,9 @@ public class EXBoundingPolygonType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = ((this.polygon!= null)&&(!this.polygon.isEmpty()));
+            boolean theFieldIsSet = this.isSetPolygon();
             List<GMObjectPropertyType> theField;
-            theField = (((this.polygon!= null)&&(!this.polygon.isEmpty()))?this.getPolygon():null);
+            theField = (this.isSetPolygon()?this.getPolygon():null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "polygon", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -129,9 +140,9 @@ public class EXBoundingPolygonType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = ((this.polygon!= null)&&(!this.polygon.isEmpty()));
+            boolean theFieldIsSet = this.isSetPolygon();
             List<GMObjectPropertyType> theField;
-            theField = (((this.polygon!= null)&&(!this.polygon.isEmpty()))?this.getPolygon():null);
+            theField = (this.isSetPolygon()?this.getPolygon():null);
             strategy.appendField(locator, this, "polygon", buffer, theField, theFieldIsSet);
         }
         return buffer;

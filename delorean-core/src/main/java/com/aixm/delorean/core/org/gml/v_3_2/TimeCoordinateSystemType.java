@@ -1,6 +1,7 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -43,8 +44,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 })
 public class TimeCoordinateSystemType
     extends TimeReferenceSystemType
+    implements Serializable
 {
 
+    private static final long serialVersionUID = 20251104L;
     protected TimePositionType originPosition;
     protected TimeInstantPropertyType origin;
     @XmlElement(required = true)
@@ -74,6 +77,10 @@ public class TimeCoordinateSystemType
         this.originPosition = value;
     }
 
+    public boolean isSetOriginPosition() {
+        return (this.originPosition!= null);
+    }
+
     /**
      * Gets the value of the origin property.
      * 
@@ -96,6 +103,10 @@ public class TimeCoordinateSystemType
      */
     public void setOrigin(TimeInstantPropertyType value) {
         this.origin = value;
+    }
+
+    public boolean isSetOrigin() {
+        return (this.origin!= null);
     }
 
     /**
@@ -122,6 +133,10 @@ public class TimeCoordinateSystemType
         this.interval = value;
     }
 
+    public boolean isSetInterval() {
+        return (this.interval!= null);
+    }
+
     @Override
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
         if ((object == null)||(this.getClass()!= object.getClass())) {
@@ -135,21 +150,21 @@ public class TimeCoordinateSystemType
         }
         final TimeCoordinateSystemType that = ((TimeCoordinateSystemType) object);
         {
-            boolean lhsFieldIsSet = (this.originPosition!= null);
-            boolean rhsFieldIsSet = (that.originPosition!= null);
-            TimePositionType lhsField;
-            lhsField = this.getOriginPosition();
-            TimePositionType rhsField;
-            rhsField = that.getOriginPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "originPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "originPosition", rhsField);
+            boolean lhsFieldIsSet = this.isSetInterval();
+            boolean rhsFieldIsSet = that.isSetInterval();
+            TimeIntervalLengthType lhsField;
+            lhsField = this.getInterval();
+            TimeIntervalLengthType rhsField;
+            rhsField = that.getInterval();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = (this.origin!= null);
-            boolean rhsFieldIsSet = (that.origin!= null);
+            boolean lhsFieldIsSet = this.isSetOrigin();
+            boolean rhsFieldIsSet = that.isSetOrigin();
             TimeInstantPropertyType lhsField;
             lhsField = this.getOrigin();
             TimeInstantPropertyType rhsField;
@@ -161,14 +176,14 @@ public class TimeCoordinateSystemType
             }
         }
         {
-            boolean lhsFieldIsSet = (this.interval!= null);
-            boolean rhsFieldIsSet = (that.interval!= null);
-            TimeIntervalLengthType lhsField;
-            lhsField = this.getInterval();
-            TimeIntervalLengthType rhsField;
-            rhsField = that.getInterval();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interval", rhsField);
+            boolean lhsFieldIsSet = this.isSetOriginPosition();
+            boolean rhsFieldIsSet = that.isSetOriginPosition();
+            TimePositionType lhsField;
+            lhsField = this.getOriginPosition();
+            TimePositionType rhsField;
+            rhsField = that.getOriginPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "originPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "originPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -180,21 +195,21 @@ public class TimeCoordinateSystemType
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = super.hashCode(locator, strategy);
         {
-            boolean theFieldIsSet = (this.originPosition!= null);
+            boolean theFieldIsSet = this.isSetOriginPosition();
             TimePositionType theField;
             theField = this.getOriginPosition();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "originPosition", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             TimeInstantPropertyType theField;
             theField = this.getOrigin();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "origin", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interval!= null);
+            boolean theFieldIsSet = this.isSetInterval();
             TimeIntervalLengthType theField;
             theField = this.getInterval();
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interval", theField);
@@ -207,19 +222,19 @@ public class TimeCoordinateSystemType
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         super.appendFields(locator, buffer, strategy);
         {
-            boolean theFieldIsSet = (this.originPosition!= null);
+            boolean theFieldIsSet = this.isSetOriginPosition();
             TimePositionType theField;
             theField = this.getOriginPosition();
             strategy.appendField(locator, this, "originPosition", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.origin!= null);
+            boolean theFieldIsSet = this.isSetOrigin();
             TimeInstantPropertyType theField;
             theField = this.getOrigin();
             strategy.appendField(locator, this, "origin", buffer, theField, theFieldIsSet);
         }
         {
-            boolean theFieldIsSet = (this.interval!= null);
+            boolean theFieldIsSet = this.isSetInterval();
             TimeIntervalLengthType theField;
             theField = this.getInterval();
             strategy.appendField(locator, this, "interval", buffer, theField, theFieldIsSet);
