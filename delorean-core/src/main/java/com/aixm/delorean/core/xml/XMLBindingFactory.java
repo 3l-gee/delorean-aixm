@@ -53,7 +53,8 @@ public class XMLBindingFactory<T, X> {
     
     private Schema getSchemaFromPath(String path, SchemaFactory schemaFactory) {
 
-        InputStream inputStream = DeloreanUtility.pathToInputStream(path);
+        // the schem is expected to be in the target classpath
+        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
         Source schemaSource = new StreamSource(inputStream);
         
         URL resourceUrl = getClass().getClassLoader().getResource(path);

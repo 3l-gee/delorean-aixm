@@ -2,6 +2,7 @@ package com.aixm.delorean.core;
 
 import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
+import com.aixm.delorean.core.engine.DeloreanEngine;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
 import javax.xml.namespace.QName;
 
@@ -13,15 +14,23 @@ public class Delorean<R, F, T, O> {
     
     @SuppressWarnings("unchecked")
     public static <R, F, T, O> ContainerWarehouse<R, F, T, O> initContainerWarehouse(DeloreanConfig config) {
-        Class<R> root = (Class<R>) config.getRoot();
-        Class<F> feature = (Class<F>) config.getFeature();
-        Class<T> timeSlice = (Class<T>) config.getTimeSlice();
-        Class<O> object = (Class<O>) config.getObject();
+        Class<R> rootClass = (Class<R>) config.getRootClass();
+        Class<F> featureClass = (Class<F>) config.getFeatureClass();
+        Class<T> timeSliceClass = (Class<T>) config.getTimeSliceClass();
+        Class<O> objectClass = (Class<O>) config.getObjectClass();
 
         QName qName = config.getQName();
-        XMLBindingFactory<R, F> xmlFactory = new XMLBindingFactory<>(root, feature, config.getSchemaPath());
-        DatabaseBindingFactory<R, F> databaseFactory = new DatabaseBindingFactory<>(root, feature, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath());
-        return new ContainerWarehouse<>(config.getName(), root, feature, timeSlice, object, qName, xmlFactory, databaseFactory);
+        XMLBindingFactory<R, F> xmlFactory = new XMLBindingFactory<>(rootClass, featureClass, config.getSchemaPath());
+        DatabaseBindingFactory<R, F> databaseFactory = new DatabaseBindingFactory<>(rootClass, featureClass, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath());
+        Class<DeloreanEngine> engineClass = (Class<DeloreanEngine>) config.getDeloreanEngineClass();
+        DeloreanEngine deloreanEngine;
+        try {
+            deloreanEngine = engineClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate DeloreanEngine: " + engineClass + e.getMessage(), e);
+        }
+        
+        return new ContainerWarehouse<R, F, T, O>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.aixm.delorean.core.database;
 
 import org.hibernate.Session;
-import org.locationtech.jts.awt.PointShapeFactory.X;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,36 +10,32 @@ import org.hibernate.Transaction;
 
 import jakarta.persistence.Tuple;
 
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.sql.SQLException;
 
 import com.aixm.delorean.core.DeloreanUtility;
 
-public class DatabaseBinding<T, X> {
-    private final Class<T> root;
-    private final Class<X> feature;
+public class DatabaseBinding<R, F> {
+    private final Class<R> rootClass;
+    private final Class<F> featureClass;
     private String sqlPreInit;
     private String sqlPostInit;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
 
-    public DatabaseBinding(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus) {
-        this.root = root;
-        this.feature = feature;
-        this.sqlPreInit = DeloreanUtility.pathToSQLRessouce(sqlPreInitPath);
-        this.sqlPostInit = DeloreanUtility.pathToSQLRessouce(sqlPostInitPath);
+    public DatabaseBinding(Class<R> rootClass, Class<F> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus) {
+        this.rootClass = rootClass;
+        this.featureClass = featureClass;
+        this.sqlPreInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPreInitPath));
+        this.sqlPostInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPostInitPath));
         this.configuration = configuration;
         this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
@@ -75,6 +70,17 @@ public class DatabaseBinding<T, X> {
 
     public Session getSession() {
         return this.sessionFactory.openSession();
+    }
+
+    
+    public String inputStreamToSQL(InputStream inputStream) {
+        try {
+            String string = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8).lines().collect(Collectors.joining("\n"));
+            return string;
+        } catch (Exception e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Error reading SQL resource stream", e);
+            return null;
+        }
     }
 
     public void setHbm2ddl(String hbm2ddlAuto) {
@@ -253,7 +259,7 @@ public class DatabaseBinding<T, X> {
         }
     }
 
-    public Object extract(Class<T> structure, Object id) {
+    public Object extract(Class<R> structure, Object id) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }

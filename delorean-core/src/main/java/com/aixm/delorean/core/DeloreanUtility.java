@@ -15,6 +15,8 @@ import java.util.zip.ZipFile;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
+import jakarta.annotation.Resource;
+
 import java.nio.file.Path;
 
 public class DeloreanUtility {
@@ -29,7 +31,7 @@ public class DeloreanUtility {
      * @return The InputStream for the file or the first entry of a zip.
      * @throws Exception If the file is not found, access is denied, or any I/O error occurs.
      */
-    public static InputStream pathToInputStream(String filePath) {
+    public static InputStream absPathToInputStream(String filePath) {
         if (filePath == null || filePath.trim().isEmpty()) {
             ConsoleLogger.log(LogLevel.ERROR, "File path cannot be null or empty.");
             return null;
@@ -38,39 +40,17 @@ public class DeloreanUtility {
         Path path = Paths.get(filePath);
 
         try {
-            if (filePath.toLowerCase().endsWith(".zip")) {
-                try (ZipFile zipFile = new ZipFile(path.toFile())) {
-                    
-                    if (!zipFile.entries().hasMoreElements()) {
-                        ConsoleLogger.log(LogLevel.ERROR,"ZIP file is empty: " + filePath);
-                        return null;
-                    }
-                    
-                    ZipEntry firstEntry = zipFile.entries().nextElement();
-                    
-                    return zipFile.getInputStream(firstEntry);
-                    
-                } catch (FileNotFoundException e) {
-                    ConsoleLogger.log(LogLevel.ERROR, "ZIP file not found at path: " + filePath);
-                    return null;
-
-                } catch (Exception e) {
-                    ConsoleLogger.log(LogLevel.ERROR, "Error reading ZIP file: " + filePath + " - " + e.getMessage());
-                    return null;
-                }
-            } else {                
-                if (!Files.exists(path)) {
-                    ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
-                    return null;
-                }
-                
-                if (Files.isDirectory(path)) {
-                    ConsoleLogger.log(LogLevel.ERROR, "Path points to a directory, not a file: " + filePath);
-                    return null;
-                }
-                
-                return new FileInputStream(path.toFile());
+            if (!Files.exists(path)) {
+                ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
+                return null;
             }
+            
+            if (Files.isDirectory(path)) {
+                ConsoleLogger.log(LogLevel.ERROR, "Path points to a directory, not a file: " + filePath);
+                return null;
+            }
+            
+            return new FileInputStream(path.toFile());
         } catch (SecurityException e) {
             ConsoleLogger.log(LogLevel.ERROR, "Access denied for file at path: " + filePath);
             return null;
@@ -83,20 +63,42 @@ public class DeloreanUtility {
         }
     }
 
-    /**
-     * Loads a resource from the classpath as an InputStream.
-     * * @param resourcePath The path to the resource (e.g., "/data/file.txt").
-     * @return The InputStream for the resource, or null if not found.
-     * @throws Exception If the resource is not found or an I/O error occurs.
-     */
-    public static InputStream pathToResourceAsStream(String resourcePath) throws Exception {
-        InputStream is = DeloreanUtility.class.getResourceAsStream(resourcePath);
-        if (is == null) {
-            throw new Exception("Classpath resource not found: " + resourcePath);
+    public static InputStream absPathZipToInputStream(String filePath) {
+        if (filePath == null || filePath.trim().isEmpty()) {
+            ConsoleLogger.log(LogLevel.ERROR, "File path cannot be null or empty.");
+            return null;
         }
-        return is;
-    }
 
+        if (!filePath.toLowerCase().endsWith(".zip")) {
+            ConsoleLogger.log(LogLevel.ERROR, "File path must end with .zip: " + filePath);
+            return null;
+        }
+        
+        Path path = Paths.get(filePath);
+
+        try {
+            ZipFile zipFile = new ZipFile(path.toFile());
+                
+            if (!zipFile.entries().hasMoreElements()) {
+                ConsoleLogger.log(LogLevel.ERROR,"ZIP file is empty: " + filePath);
+                return null;
+            }
+                
+            ZipEntry firstEntry = zipFile.entries().nextElement();
+                
+            return zipFile.getInputStream(firstEntry);
+                
+        } catch (SecurityException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Access denied for file at path: " + filePath);
+            return null;
+        } catch (FileNotFoundException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "File not found at path: " + filePath);
+            return null;
+        } catch (Exception e) {
+            ConsoleLogger.log(LogLevel.ERROR, "An unexpected I/O error occurred while accessing: " + filePath + " - " + e.getMessage());
+            return null;
+        }
+    }
 
     /**
      * Provides a FileOutputStream for writing data to a file on the disk.

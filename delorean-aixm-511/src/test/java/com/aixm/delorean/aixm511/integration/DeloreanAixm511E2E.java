@@ -28,10 +28,11 @@ public class DeloreanAixm511E2E {
             com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
             com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType.class,
             com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType.class,
+            com.aixm.delorean.aixm511.engine.AixmDeloreanEngine.class,
             new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
             "schema/message/AIXM_BasicMessage.xsd",
-            "/postgresql/pre-init.sql",
-            "/postgresql/post-init.sql",
+            "postgresql/pre-init.sql",
+            "postgresql/post-init.sql",
             "hibernate/hibernate.cfg.xml"
         );
 
@@ -50,8 +51,8 @@ public class DeloreanAixm511E2E {
         assertThat(warehouse.getContainerById(id)).isEqualTo(warehouse.getLastUsedContainer());
 
         // container is correctly configured
-        assertThat(warehouse.getLastUsedContainer().getRoot()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
-        assertThat(warehouse.getLastUsedContainer().getFeature()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
+        assertThat(warehouse.getLastUsedContainer().getRootClass()).isEqualTo(com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class);
+        assertThat(warehouse.getLastUsedContainer().getFeatureClass()).isEqualTo(com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class);
 
         // container has XML binding
         XMLBinding<?,?> xmlBinding = warehouse.getLastUsedContainer().getXmlBinding();
@@ -71,6 +72,15 @@ public class DeloreanAixm511E2E {
 
         // do
         warehouse.getContainerById(id).unmarshal(xmlPath);
+
+    }
+
+    @Test
+    @Order(21)
+    void statistics(){
+
+        // do
+        warehouse.getContainerById(id).statistics();
 
     }
 

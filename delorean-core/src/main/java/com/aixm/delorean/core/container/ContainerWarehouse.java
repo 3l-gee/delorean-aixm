@@ -9,37 +9,52 @@ import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
+import com.aixm.delorean.core.engine.DeloreanEngine;
 
 public class ContainerWarehouse<R, F, T, O> {
     protected String name;
-    protected final Class<R> root;
-    protected final Class<F> feature;
-    protected final Class<T> timeSlice;
-    protected final Class<O> object;
+    protected final Class<R> rootClass;
+    protected final Class<F> featureClass;
+    protected final Class<T> timeSliceClass;
+    protected final Class<O> objectClass;
     protected final QName qName;
     protected final XMLBindingFactory<R, F> xmlFactory;
     protected final DatabaseBindingFactory<R, F> databaseFactory;
-    protected Map<String, Container<R, F>> containers;
+    protected final DeloreanEngine deloreanEngine;
+    protected Map<String, Container<R, F, T, O>> containers;
     protected String lastUsedContainerId; 
 
-    public ContainerWarehouse(String name, Class<R> root, Class<F> feature, Class<T> timeSlice, Class<O> object, QName qName, XMLBindingFactory<R, F> xmlFactory, DatabaseBindingFactory<R, F> databaseFactory) {
+
+    public ContainerWarehouse(
+        String name, 
+        Class<R> rootClass,
+        Class<F> featureClass, 
+        Class<T> timeSliceClass, 
+        Class<O> objectClass, 
+        QName qName, 
+        XMLBindingFactory<R, F> xmlFactory, 
+        DatabaseBindingFactory<R, F> databaseFactory, 
+        DeloreanEngine deloreanEngine) {
         this.name = name;
-        this.root = root;
-        this.feature = feature;
-        this.timeSlice = timeSlice;
-        this.object = object;
+        this.rootClass = rootClass;
+        this.featureClass = featureClass;
+        this.timeSliceClass = timeSliceClass;
+        this.objectClass = objectClass;
         this.qName = qName;
         this.lastUsedContainerId = null; 
         this.xmlFactory = xmlFactory;
         this.databaseFactory = databaseFactory;
         this.containers = new HashMap<>();
+        this.deloreanEngine = deloreanEngine;
         this.createNewContainer();
+        
     }
 
     public void createNewContainer() {
-        Container<R, F> container = new Container<R, F>(this.root, this.feature, this.qName);
+        Container<R, F, T, O> container = new Container<R, F, T, O>(this.rootClass, this.featureClass, this.timeSliceClass, this.objectClass, this.qName);
         container.setXmlBinding(this.xmlFactory.createXMLBinding());
         container.setDatabaseBinding(this.databaseFactory.createDatabaseBinding());
+        container.setDeloreanEngine(this.deloreanEngine);
 
         String id = UUID.randomUUID().toString().substring(0, 6);
         this.containers.put(id, container);
@@ -51,7 +66,7 @@ public class ContainerWarehouse<R, F, T, O> {
         this.lastUsedContainerId = id; 
     }
 
-    public Container<R, F> getContainerById(String id) {
+    public Container<R, F, T, O> getContainerById(String id) {
         if (!this.containers.containsKey(id)) {
             return null;
         }
@@ -59,8 +74,8 @@ public class ContainerWarehouse<R, F, T, O> {
         return this.containers.get(id);
     }
 
-    public Container<R, F> getContainerByName(String name) {
-        for (Map.Entry<String, Container<R, F>> entry : this.containers.entrySet()) {
+    public Container<R, F, T, O> getContainerByName(String name) {
+        for (Map.Entry<String, Container<R, F, T, O>> entry : this.containers.entrySet()) {
             if (entry.getValue().getName().equals(name)) {
                 this.lastUsedContainerId = entry.getKey();
                 return entry.getValue();
@@ -77,7 +92,7 @@ public class ContainerWarehouse<R, F, T, O> {
         return this.lastUsedContainerId;
     }
 
-    public Container<R, F> getLastUsedContainer() {
+    public Container<R, F, T, O> getLastUsedContainer() {
         return this.containers.get(this.lastUsedContainerId);
     }
 }

@@ -24,16 +24,16 @@ import jakarta.xml.bind.ValidationEvent;
 import jakarta.xml.bind.ValidationEventHandler;
 import jakarta.xml.bind.ValidationEventLocator;
 
-public class XMLBinding<T, X> {
-    private final Class<T> root;
-    private final Class<X> feature;
+public class XMLBinding<R, F> {
+    private final Class<R> root;
+    private final Class<F> feature;
     private JAXBContext context;
     private Unmarshaller unmarshaller;
     private Marshaller marshaller;
     private SchemaFactory schemaFactory;
     private Schema schema;
 
-    public XMLBinding(Schema schema, Class<T> root, Class<X> feature) {
+    public XMLBinding(Schema schema, Class<R> root, Class<F> feature) {
         this.schema = schema;
         this.root = root;
         this.feature = feature;
@@ -132,7 +132,7 @@ public class XMLBinding<T, X> {
 
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(InputStream xmlStream) {
+    public R unmarshal(InputStream xmlStream) {
 
         // Unmarshal the XML content from the InputStream
         Object unmarshalledObject;
@@ -157,11 +157,11 @@ public class XMLBinding<T, X> {
         }
 
         // Verify if the root element matches the expected type
-        JAXBElement<T> aixmElement;
+        JAXBElement<R> aixmElement;
         if (this.root.isInstance(rootElement.getValue())) {
-            aixmElement = (JAXBElement<T>) rootElement;
+            aixmElement = (JAXBElement<R>) rootElement;
             ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixmElement.getDeclaredType().getName() + ">");
-            return (T) aixmElement.getValue();
+            return (R) aixmElement.getValue();
 
         } else {
             ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
@@ -171,9 +171,9 @@ public class XMLBinding<T, X> {
     }
     
     
-    public void marshal(T record, FileOutputStream outputStream, Class<T> clazz, QName qName) {
+    public void marshal(R record, FileOutputStream outputStream, Class<R> clazz, QName qName) {
         try {
-            JAXBElement<T> rootElement = new JAXBElement<>(qName, this.root, record);
+            JAXBElement<R> rootElement = new JAXBElement<>(qName, this.root, record);
             this.marshaller.marshal(rootElement, outputStream);
             ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + ">");
         } catch (JAXBException e) {

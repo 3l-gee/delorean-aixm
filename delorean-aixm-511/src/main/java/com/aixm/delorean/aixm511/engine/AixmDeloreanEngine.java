@@ -3,20 +3,36 @@ package com.aixm.delorean.aixm511.engine;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
+import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
+import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 
 import jakarta.xml.bind.JAXBElement;
 
-public class AixmDeloreanEngine<R,F,T,O> extends com.aixm.delorean.core.engine.DeloreanEngine<R,F,T,O> {
+public class AixmDeloreanEngine extends com.aixm.delorean.core.engine.DeloreanEngine {
 
-    public AixmDeloreanEngine(Class<R> root, Class<F> feature, Class<T> timeSlice, Class<O> object) {
-        super(root, feature, timeSlice, object);
+    public AixmDeloreanEngine() {
+        super();
     }
 
     @Override
-    public Object statistics(Object container, String xpathExpression) {
-        // TODO Auto-generated method stub
-        return null;
+    public void statistics(Object container) {
+
+        Integer featureCount = 0;
+        Integer timeSliceCount = 0;
+
+        AIXMBasicMessageType message = (AIXMBasicMessageType) container;
+
+        for (BasicMessageMemberAIXMPropertyType member : message.getHasMember()) {
+            AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
+            if (feature != null) {
+                featureCount += 1;
+            }
+
+        }
+
+        System.out.println("Features: " + featureCount + ", TimeSlices: " + timeSliceCount);
     }
 
     @Override

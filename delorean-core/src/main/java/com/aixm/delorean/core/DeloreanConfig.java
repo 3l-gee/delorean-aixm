@@ -5,15 +5,17 @@ import javax.xml.namespace.QName;
 public class DeloreanConfig {
 
     protected final String name;
-    protected final Class<?> root;
-    protected final Class<?> feature;
-    protected final Class<?> timeSlice;
-    protected final Class<?> object;
+    protected final Class<?> rootClass;
+    protected final Class<?> featureClass;
+    protected final Class<?> timeSliceClass;
+    protected final Class<?> objectClass;
     protected final QName qName;
     protected final String schemaPath;
     protected final String sqlPreInitPath;
     protected final String sqlPostInitPath;
     protected final String configurationPath;
+    protected final Class<?> deloreanEngineClass;
+
 
     public DeloreanConfig(
         // General settings
@@ -23,10 +25,12 @@ public class DeloreanConfig {
         Class<?> timeSlice,
         Class<?> object,
 
+        // Engine settings
+        Class<?> deloreanEngineClass,
+
         // XML settings
         QName qName,
         String schemaPath,
-        // Boolean validateXML,
 
         // Database settings
         String sqlPreInitPath,
@@ -34,35 +38,36 @@ public class DeloreanConfig {
         String configurationPath
     ) {
         this.name = name;
-        this.root = root;
-        this.timeSlice = timeSlice;
-        this.object = object;
-        this.feature = feature;
+        this.rootClass = root;
+        this.timeSliceClass = timeSlice;
+        this.objectClass = object;
+        this.featureClass = feature;
         this.qName = qName;
         this.schemaPath = schemaPath;
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
         this.configurationPath = configurationPath;
+        this.deloreanEngineClass = deloreanEngineClass;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Class<?> getRoot() {
-        return this.root;
+    public Class<?> getRootClass() {
+        return this.rootClass;
     }
 
-    public Class<?> getFeature() {
-        return this.feature;
+    public Class<?> getFeatureClass() {
+        return this.featureClass;
     }
 
-    public Class<?> getTimeSlice() {
-        return this.timeSlice;
+    public Class<?> getTimeSliceClass() {
+        return this.timeSliceClass;
     }
 
-    public Class<?> getObject() {
-        return this.object;
+    public Class<?> getObjectClass() {
+        return this.objectClass;
     }
 
     public QName getQName() {
@@ -83,6 +88,10 @@ public class DeloreanConfig {
 
     public String getConfigurationPath() {
         return this.configurationPath;
+    }
+
+    public Class<?> getDeloreanEngineClass() {
+        return this.deloreanEngineClass;
     }
 
 }

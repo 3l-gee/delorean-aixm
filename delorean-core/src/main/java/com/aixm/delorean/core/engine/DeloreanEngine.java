@@ -4,21 +4,12 @@ import java.util.Objects;
 
 import jakarta.xml.bind.JAXBElement;
 
-public abstract class DeloreanEngine<R,F,T,O> {
+public abstract class DeloreanEngine {
 
-    protected final Class<R> root;
-    protected final Class<F> feature;
-    protected final Class<T> timeSlice;
-    protected final Class<O> object;
-
-    public DeloreanEngine(Class<R> root, Class<F> feature, Class<T> timeSlice, Class<O> object) {
-        this.root = root;
-        this.feature = feature;
-        this.timeSlice = timeSlice;
-        this.object = object;
+    public DeloreanEngine() {
     }
 
-    public abstract Object statistics(Object container, String xpathExpression);
+    public abstract void statistics(Object container);
 
     public abstract Object filter(Object container, String filterExpression);
 
