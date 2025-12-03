@@ -18,6 +18,8 @@ import org.w3c.dom.ls.LSResourceResolver;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
+import com.aixm.delorean.core.DeloreanUtility;
+
 public class XMLBindingFactory<T, X> {
         protected final Class<T> root;
         protected final Class<X> feature;
@@ -51,21 +53,19 @@ public class XMLBindingFactory<T, X> {
     
     private Schema getSchemaFromPath(String path, SchemaFactory schemaFactory) {
 
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
-            if (inputStream == null) {
-                throw new RuntimeException("Schema file not found in classpath: " + path);
-            }
-            
-            Source schemaSource = new StreamSource(inputStream);
-            
-            URL resourceUrl = getClass().getClassLoader().getResource(path);
-            if (resourceUrl != null) {
-                schemaSource.setSystemId(resourceUrl.toExternalForm());
-            }
-
+        InputStream inputStream = DeloreanUtility.pathToInputStream(path);
+        Source schemaSource = new StreamSource(inputStream);
+        
+        URL resourceUrl = getClass().getClassLoader().getResource(path);
+        if (resourceUrl != null) {
+            schemaSource.setSystemId(resourceUrl.toExternalForm());
+        }
+        
+        try {
             return schemaFactory.newSchema(schemaSource);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load schema: " + path, e);
+            ConsoleLogger.log(LogLevel.ERROR, "Failed to load XML Schema from path: " + path + " - " + e.getMessage());
+            return null;
         }
     }
 

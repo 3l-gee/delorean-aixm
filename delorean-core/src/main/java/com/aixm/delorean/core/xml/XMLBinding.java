@@ -132,50 +132,56 @@ public class XMLBinding<T, X> {
 
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(Path path) {
-        try (InputStream xmlStream = new FileInputStream(path.toFile())) {
-            Object unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
-            JAXBElement<?> rootElement;
-            if (unmarshalledObject instanceof JAXBElement<?>) {
-                rootElement = (JAXBElement<?>) unmarshalledObject;
-            } else {
-                ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
-                return null;
-            }
+    public T unmarshal(InputStream xmlStream) {
 
-            JAXBElement<T> aixmElement;
-            if (this.root.isInstance(rootElement.getValue())) {
-                aixmElement = (JAXBElement<T>) rootElement;
-                ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixmElement.getDeclaredType().getName() + ">");
-                return (T) rootElement.getValue();
-
-            } else {
-                ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
-            }
-
+        // Unmarshal the XML content from the InputStream
+        Object unmarshalledObject;
+        try {
+            unmarshalledObject = this.unmarshaller.unmarshal(xmlStream);
         } catch (JAXBException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during unmarshalling");
-            e.printStackTrace();
+            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during unmarshalling : " + e.getMessage());
+            return null;
 
         } catch (Exception e) {
-            ConsoleLogger.log(LogLevel.ERROR, "General exception during unmarshalling");
-            e.printStackTrace();
+            ConsoleLogger.log(LogLevel.ERROR, "General exception during unmarshalling : " + e.getMessage());
+            return null;
+        }
+
+        // Check if the root element is of type JAXBElement
+        JAXBElement<?> rootElement;
+        if (unmarshalledObject instanceof JAXBElement<?>) {
+            rootElement = (JAXBElement<?>) unmarshalledObject;
+        } else {
+            ConsoleLogger.log(LogLevel.ERROR, "Unsuccessfully unmarshalled : Unknown root element type " + unmarshalledObject.getClass().getName());
+            return null;
+        }
+
+        // Verify if the root element matches the expected type
+        JAXBElement<T> aixmElement;
+        if (this.root.isInstance(rootElement.getValue())) {
+            aixmElement = (JAXBElement<T>) rootElement;
+            ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixmElement.getDeclaredType().getName() + ">");
+            return (T) aixmElement.getValue();
+
+        } else {
+            ConsoleLogger.log(LogLevel.ERROR, "Inconsistent AIXM unmarshalling for: " + rootElement.getValue().getClass().getName());
         }
 
         return null;
     }
     
     
-    public void marshal(T record, Path path, Class<T> clazz, QName qName) {
-        try (FileOutputStream outputStream = new FileOutputStream(path.toFile())) {
+    public void marshal(T record, FileOutputStream outputStream, Class<T> clazz, QName qName) {
+        try {
             JAXBElement<T> rootElement = new JAXBElement<>(qName, this.root, record);
             this.marshaller.marshal(rootElement, outputStream);
-            
-            ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + "> to " + path);
-
+            ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + ">");
+        } catch (JAXBException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during marshalling: " + e.getMessage());
+        
         } catch (Exception e) {
             ConsoleLogger.log(LogLevel.ERROR, "Error during marshalling: " + e.getMessage());
-            e.printStackTrace();
+
         }
     }
 }

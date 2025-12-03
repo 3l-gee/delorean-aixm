@@ -22,13 +22,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.sql.SQLException;
+
+import com.aixm.delorean.core.DeloreanUtility;
 
 public class DatabaseBinding<T, X> {
     private final Class<T> root;
     private final Class<X> feature;
-    private String sqlPreInitPath;
-    private String sqlPostInitPath;
+    private String sqlPreInit;
+    private String sqlPostInit;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
@@ -36,8 +39,8 @@ public class DatabaseBinding<T, X> {
     public DatabaseBinding(Class<T> root, Class<X> feature, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus) {
         this.root = root;
         this.feature = feature;
-        this.sqlPreInitPath = sqlPreInitPath;
-        this.sqlPostInitPath = sqlPostInitPath;
+        this.sqlPreInit = DeloreanUtility.pathToSQLRessouce(sqlPreInitPath);
+        this.sqlPostInit = DeloreanUtility.pathToSQLRessouce(sqlPostInitPath);
         this.configuration = configuration;
         this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
@@ -117,9 +120,9 @@ public class DatabaseBinding<T, X> {
                 case "create":
                 case "create-only":
                 case "create-drop":
-                    this.executeSQLScript(this.sqlPreInitPath);
+                    this.executeSQLScript(this.sqlPreInit);
                     this.sessionFactory = configuration.buildSessionFactory();
-                    this.executeSQLScript(this.sqlPostInitPath);
+                    this.executeSQLScript(this.sqlPostInit);
                     break;
 
                 case "none":
@@ -139,18 +142,8 @@ public class DatabaseBinding<T, X> {
         }
     }
 
-
-    private String readSQLFromClasspath(String path) throws IOException {
-        try (InputStream is = getClass().getClassLoader().getResourceAsStream(path)) {
-            if (is == null) throw new IOException("SQL script not found: " + path);
-            return new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))
-                    .lines().collect(Collectors.joining("\n"));
-        }
-    }
-
-    private void executeSQLScript(String sqlScriptPath) {
+    private void executeSQLScript(String sql) {
         try {
-            String sql = readSQLFromClasspath(sqlScriptPath);
             try (Connection conn = getConnection(); Statement stmt = conn.createStatement()) {
                 if (sql.contains("DO $$")) {
                     stmt.execute(sql);  // Handle PostgreSQL DO block as one statement
@@ -161,11 +154,11 @@ public class DatabaseBinding<T, X> {
                         }
                     }
                 }
-                ConsoleLogger.log(LogLevel.INFO, "Successfully executed script: " + sqlScriptPath);
+                ConsoleLogger.log(LogLevel.INFO, "Successfully executed script.");
             }
-        } catch (IOException | SQLException e) {
-            ConsoleLogger.log(LogLevel.ERROR, "Error executing script: " + sqlScriptPath, e);
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Error executing script.", e);
+            return;
         }
     }
 

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.*;
 public class DeloreanAixm511E2E {
     
     String id;
-    ContainerWarehouse<?,?> warehouse;
+    ContainerWarehouse<?,?,?,?> warehouse;
     
     @Test
     @Order(10)
@@ -26,10 +26,12 @@ public class DeloreanAixm511E2E {
             "AIXM 5.1.1",
             com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType.class,
             com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType.class,
+            com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType.class,
+            com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType.class,
             new javax.xml.namespace.QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
             "schema/message/AIXM_BasicMessage.xsd",
-            "postgrsql/pre-init.sql",
-            "postgrsql/post-init.sql",
+            "/postgresql/pre-init.sql",
+            "/postgresql/post-init.sql",
             "hibernate/hibernate.cfg.xml"
         );
 

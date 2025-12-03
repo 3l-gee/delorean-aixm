@@ -712,7 +712,7 @@ public class TemporalityTest {
         DMETimeSliceType newTimeSlice = JaxbUtil.loadFromXml(newTS, DMETimeSliceType.class);
 
         // do
-        DMETimeSliceType mergedTimeSlice = TemporalityHelper.merge(DMETimeSliceType.class, oldTimeSlice, newTimeSlice);
+        DMETimeSliceType mergedTimeSlice = TemporalityHelper.integrate(DMETimeSliceType.class, oldTimeSlice, newTimeSlice);
 
         // check
         assertThat(mergedTimeSlice).isNotNull();

@@ -9,12 +9,17 @@ import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.qgis.QgisProjectBinding;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.xml.namespace.QName;
+
+import com.aixm.delorean.core.DeloreanUtility;
 
 import org.hibernate.Session;
 
@@ -90,15 +95,25 @@ public class Container<T, X> {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        Path pathObj = Paths.get(path);
-        this.message = (T) this.xmlBinding.unmarshal(pathObj);
+        
+        InputStream xmlStream = DeloreanUtility.pathToInputStream(path);
+
+        if (xmlStream == null) {
+            return;
+        } 
+
+        this.message = (T) this.xmlBinding.unmarshal(xmlStream);
+
     }
 
     public void marshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
         }
-        Path pathObj = Paths.get(path);
+        FileOutputStream pathObj = DeloreanUtility.pathToOutputStream(path);
+        if (pathObj == null) {
+            return;
+        }
         this.xmlBinding.marshal(this.message, pathObj, this.root, this.qName);
     }
 

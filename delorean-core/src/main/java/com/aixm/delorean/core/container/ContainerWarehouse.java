@@ -10,20 +10,24 @@ import javax.xml.namespace.QName;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
 
-public class ContainerWarehouse<T, X> {
+public class ContainerWarehouse<R, F, T, O> {
     protected String name;
-    protected final Class<T> root;
-    protected final Class<X> feature;
+    protected final Class<R> root;
+    protected final Class<F> feature;
+    protected final Class<T> timeSlice;
+    protected final Class<O> object;
     protected final QName qName;
-    protected final XMLBindingFactory<T, X> xmlFactory;
-    protected final DatabaseBindingFactory<T, X> databaseFactory;
-    protected Map<String, Container<T, X>> containers;
+    protected final XMLBindingFactory<R, F> xmlFactory;
+    protected final DatabaseBindingFactory<R, F> databaseFactory;
+    protected Map<String, Container<R, F>> containers;
     protected String lastUsedContainerId; 
 
-    public ContainerWarehouse(String name, Class<T> root, Class<X> feature, QName qName, XMLBindingFactory<T, X> xmlFactory, DatabaseBindingFactory<T, X> databaseFactory) {
+    public ContainerWarehouse(String name, Class<R> root, Class<F> feature, Class<T> timeSlice, Class<O> object, QName qName, XMLBindingFactory<R, F> xmlFactory, DatabaseBindingFactory<R, F> databaseFactory) {
         this.name = name;
         this.root = root;
         this.feature = feature;
+        this.timeSlice = timeSlice;
+        this.object = object;
         this.qName = qName;
         this.lastUsedContainerId = null; 
         this.xmlFactory = xmlFactory;
@@ -33,7 +37,7 @@ public class ContainerWarehouse<T, X> {
     }
 
     public void createNewContainer() {
-        Container<T, X> container = new Container<T, X>(this.root, this.feature, this.qName);
+        Container<R, F> container = new Container<R, F>(this.root, this.feature, this.qName);
         container.setXmlBinding(this.xmlFactory.createXMLBinding());
         container.setDatabaseBinding(this.databaseFactory.createDatabaseBinding());
 
@@ -47,7 +51,7 @@ public class ContainerWarehouse<T, X> {
         this.lastUsedContainerId = id; 
     }
 
-    public Container<T, X> getContainerById(String id) {
+    public Container<R, F> getContainerById(String id) {
         if (!this.containers.containsKey(id)) {
             return null;
         }
@@ -55,8 +59,8 @@ public class ContainerWarehouse<T, X> {
         return this.containers.get(id);
     }
 
-    public Container<T, X> getContainerByName(String name) {
-        for (Map.Entry<String, Container<T, X>> entry : this.containers.entrySet()) {
+    public Container<R, F> getContainerByName(String name) {
+        for (Map.Entry<String, Container<R, F>> entry : this.containers.entrySet()) {
             if (entry.getValue().getName().equals(name)) {
                 this.lastUsedContainerId = entry.getKey();
                 return entry.getValue();
@@ -73,7 +77,7 @@ public class ContainerWarehouse<T, X> {
         return this.lastUsedContainerId;
     }
 
-    public Container<T, X> getLastUsedContainer() {
+    public Container<R, F> getLastUsedContainer() {
         return this.containers.get(this.lastUsedContainerId);
     }
 }

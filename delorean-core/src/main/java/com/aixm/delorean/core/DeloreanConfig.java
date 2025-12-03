@@ -7,6 +7,8 @@ public class DeloreanConfig {
     protected final String name;
     protected final Class<?> root;
     protected final Class<?> feature;
+    protected final Class<?> timeSlice;
+    protected final Class<?> object;
     protected final QName qName;
     protected final String schemaPath;
     protected final String sqlPreInitPath;
@@ -18,6 +20,8 @@ public class DeloreanConfig {
         String name,
         Class<?> root,
         Class<?> feature,
+        Class<?> timeSlice,
+        Class<?> object,
 
         // XML settings
         QName qName,
@@ -31,6 +35,8 @@ public class DeloreanConfig {
     ) {
         this.name = name;
         this.root = root;
+        this.timeSlice = timeSlice;
+        this.object = object;
         this.feature = feature;
         this.qName = qName;
         this.schemaPath = schemaPath;
@@ -49,6 +55,14 @@ public class DeloreanConfig {
 
     public Class<?> getFeature() {
         return this.feature;
+    }
+
+    public Class<?> getTimeSlice() {
+        return this.timeSlice;
+    }
+
+    public Class<?> getObject() {
+        return this.object;
     }
 
     public QName getQName() {
