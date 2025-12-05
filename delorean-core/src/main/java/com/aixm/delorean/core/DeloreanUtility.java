@@ -15,8 +15,6 @@ import java.util.zip.ZipFile;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 
-import jakarta.annotation.Resource;
-
 import java.nio.file.Path;
 
 public class DeloreanUtility {

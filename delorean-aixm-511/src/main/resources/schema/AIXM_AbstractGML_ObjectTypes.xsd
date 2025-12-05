@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--====================================================================-->
-	<!--AIXM 5.1-->
-	<!--www.aixm.aero-->
-	<!--Released:  February 2010-->
-	<!--====================================================================-->
-	<!--
-		Copyright (c) 2010, EUROCONTROL & FAA
+<!--AIXM 5.1.1-->
+<!--www.aixm.aero-->
+<!--April 2016-->
+<!--====================================================================-->
+<!--
+		Copyright (c) 2016, EUROCONTROL & FAA
 		=====================================
 		All rights reserved.
 		Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -20,22 +20,19 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 		provided by the Open Source Initiative:
 		http://www.opensource.org/licenses/bsd-license.php
 	-->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmd="http://www.isotc211.org/2005/gmd" targetNamespace="http://www.aixm.aero/schema/5.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmd="http://www.isotc211.org/2005/gmd" targetNamespace="http://www.aixm.aero/schema/5.1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1.1">
 	<annotation>
 		<appinfo>
-			<gml:gmlProfileSchema>http://www.aixm.aero/schema/5.1/profile/gml4aixm.xsd</gml:gmlProfileSchema>
+			<gml:gmlProfileSchema>http://external.schemas.opengis.net/gmlAIXMProfile/1.1/gml321forAIXM.xsd</gml:gmlProfileSchema>
 		</appinfo>
-	</annotation>
-	<annotation>
-		<appinfo source="www.aixm.aero/schema/5.1">AIXM_AbstractGML_ObjectTypesFeatures.xsd</appinfo>
 	</annotation>
 	<!--====================================================================-->
 	<!--Schema Imports and Includes-->
 	<!--====================================================================-->
 	<!--==== IMPORT GML 3.2 ====-->
-	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./ISO_19136_Schemas/gml.xsd"/>
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
 	<!--==== IMPORT ISO19139 METADATA SCHEMA ====-->
-	<import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="./ISO_19139_Schemas/gmd/metadataEntity.xsd"/>
+	<import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
 	<!--====================================================================-->
 	<!--Base AIXM Feature/Object Constructs-->
 	<!--====================================================================-->

@@ -9,7 +9,7 @@ import javax.xml.namespace.QName;
 
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
-import com.aixm.delorean.core.engine.DeloreanEngine;
+import com.aixm.delorean.core.engine.AbstractEngine;
 
 public class ContainerWarehouse<R, F, T, O> {
     protected String name;
@@ -20,9 +20,11 @@ public class ContainerWarehouse<R, F, T, O> {
     protected final QName qName;
     protected final XMLBindingFactory<R, F> xmlFactory;
     protected final DatabaseBindingFactory<R, F> databaseFactory;
-    protected final DeloreanEngine deloreanEngine;
+    protected final AbstractEngine deloreanEngine;
     protected Map<String, Container<R, F, T, O>> containers;
     protected String lastUsedContainerId; 
+    protected final Class<?> CoreResourceAnchorsClass;
+    protected final Class<?> AIXMResourceAnchorsClass;
 
 
     public ContainerWarehouse(
@@ -34,7 +36,10 @@ public class ContainerWarehouse<R, F, T, O> {
         QName qName, 
         XMLBindingFactory<R, F> xmlFactory, 
         DatabaseBindingFactory<R, F> databaseFactory, 
-        DeloreanEngine deloreanEngine) {
+        AbstractEngine deloreanEngine,
+        Class<?> CoreResourceAnchorsClass,
+        Class<?> AIXMResourceAnchorsClass
+    ) {
         this.name = name;
         this.rootClass = rootClass;
         this.featureClass = featureClass;
@@ -46,6 +51,10 @@ public class ContainerWarehouse<R, F, T, O> {
         this.databaseFactory = databaseFactory;
         this.containers = new HashMap<>();
         this.deloreanEngine = deloreanEngine;
+        this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
+        this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
+
+         // create the first container
         this.createNewContainer();
         
     }

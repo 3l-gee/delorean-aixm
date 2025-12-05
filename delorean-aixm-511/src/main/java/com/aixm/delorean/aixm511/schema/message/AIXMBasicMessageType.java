@@ -55,7 +55,10 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlType(name = "AIXMBasicMessageType", propOrder = {
     "hasMember"
 })
-@XmlRootElement
+@XmlRootElement(
+    name = "AIXMBasicMessage",
+    namespace = "http://www.aixm.aero/schema/5.1.1/message"
+)
 @Entity(name = "AIXMBasicMessageType")
 @Table(name = "aixm_message", schema = "aixm")
 public class AIXMBasicMessageType

@@ -53,9 +53,12 @@
     <modules>
         <module>post-jaxb</module>
         <module>delorean-core</module>
+        <module>delorean-aixm-511</module>
+        <module>delorean-cli</module>
+        <module>delorean-api</module>
         <!-- <module>pre-jaxb</module> -->
         <!-- <module>delorean-aixm-51</module> -->
-        <module>delorean-aixm-511</module>
+
         <!-- <module>delorean-aixm-52</module> -->
     </modules>
     

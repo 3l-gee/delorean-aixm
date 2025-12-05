@@ -1,11 +1,11 @@
 package com.aixm.delorean.core.container;
 
-import com.aixm.delorean.core.xml.XMLBinding;
+import com.aixm.delorean.core.xml.XmlBindingService;
 import com.aixm.delorean.core.xml.XMLConfig;
 import com.aixm.delorean.core.Delorean;
-import com.aixm.delorean.core.database.DatabaseBinding;
+import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.database.DatabaseConfig;
-import com.aixm.delorean.core.engine.DeloreanEngine;
+import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.qgis.QgisProjectBinding;
@@ -34,9 +34,9 @@ public class Container<R, F, T, O> {
     protected final Class<O> objectClass;
     protected R message;
     protected MessageType messageType;
-    protected XMLBinding<R, F> xmlBinding;
-    protected DatabaseBinding<R, F> databaseBinding;
-    protected DeloreanEngine deloreanEngine;
+    protected XmlBindingService<R, F> xmlBinding;
+    protected DatabaseBindingService<R, F> databaseBinding;
+    protected AbstractEngine deloreanEngine;
 
     public Container(Class<R> rootClass, Class<F> featureClass, Class<T> timeSliceClass, Class<O> objectClass, QName qName) {
         this.rootClass = rootClass;
@@ -66,6 +66,14 @@ public class Container<R, F, T, O> {
         return this.featureClass;
     }
 
+    public Class<?> getTimeSliceClass() {
+        return this.timeSliceClass;
+    }
+
+    public Class<?> getObjectClass() {
+        return this.objectClass;
+    }
+
     public R getMessage() {
         return this.message;
     }   
@@ -82,27 +90,27 @@ public class Container<R, F, T, O> {
         this.messageType = messageType;
     }
 
-    public void setXmlBinding(XMLBinding<R, F> xmlBinding) {
+    public void setXmlBinding(XmlBindingService<R, F> xmlBinding) {
         this.xmlBinding = xmlBinding;
     }
 
-    public XMLBinding<R, F> getXmlBinding() {
+    public XmlBindingService<R, F> getXmlBinding() {
         return this.xmlBinding;
     }
 
-    public void setDatabaseBinding(DatabaseBinding<R, F> databaseBinding) {
+    public void setDatabaseBinding(DatabaseBindingService<R, F> databaseBinding) {
         this.databaseBinding = databaseBinding;
     }
 
-    public DatabaseBinding<R, F> getDatabaseBinding() {
+    public DatabaseBindingService<R, F> getDatabaseBinding() {
         return this.databaseBinding;
     }
 
-    public void setDeloreanEngine(DeloreanEngine deloreanEngine) {
+    public void setDeloreanEngine(AbstractEngine deloreanEngine) {
         this.deloreanEngine = deloreanEngine;
     }
 
-    public DeloreanEngine getDeloreanEngine() {
+    public AbstractEngine getDeloreanEngine() {
         return this.deloreanEngine;
     }
 

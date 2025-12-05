@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2008 (http://www.altova.com) by Eduard Porosnicu (EUROCONTROL) -->
 <!--====================================================================-->
-<!--AIXM 5.1-->
+<!--AIXM 5.1.1-->
 <!--www.aixm.aero-->
-<!--Released:  February 2010-->
+<!--April 2016-->
 <!--====================================================================-->
 <!--
-		Copyright (c) 2010, EUROCONTROL & FAA
+		Copyright (c) 2016, EUROCONTROL & FAA
 		=====================================
 		All rights reserved.
 		Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -22,12 +21,11 @@ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
 		http://www.opensource.org/licenses/bsd-license.php
 	-->
 <!-- Component: AIXM: Basic Message -->
-<schema xmlns:message="http://www.aixm.aero/schema/5.1/message" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aixm="http://www.aixm.aero/schema/5.1" targetNamespace="http://www.aixm.aero/schema/5.1/message" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1">
-	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../ISO_19136_Schemas/gml.xsd"/>
-	<import namespace="http://www.aixm.aero/schema/5.1" schemaLocation="../AIXM_Features.xsd"/>
-	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../xlink/xlinks.xsd"/>
+<schema xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" targetNamespace="http://www.aixm.aero/schema/5.1.1/message" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1.1">
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="../AIXM_Features.xsd"/>
 	<annotation>
-		<appinfo source="urn:eurocontrol:specification:aixm:schema:xsd:Basic Message.xsd:5.1">Basic Message.xsd</appinfo>
+		<appinfo>Basic Message.xsd</appinfo>
 		<documentation>The definition of a simple data product, that contains just a collection of AIXM features.</documentation>
 	</annotation>
 	<group name="AIXMBasicMessagePropertyGroup">

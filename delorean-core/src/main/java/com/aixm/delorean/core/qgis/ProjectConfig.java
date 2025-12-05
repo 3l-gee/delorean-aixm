@@ -2,7 +2,7 @@ package com.aixm.delorean.core.qgis;
 
 import java.util.List;
 
-import com.aixm.delorean.core.database.DatabaseBinding;
+import com.aixm.delorean.core.database.DatabaseBindingService;
 
 public class ProjectConfig {
     private String templatePath;
@@ -49,7 +49,7 @@ public class ProjectConfig {
         return port; 
     }
     
-    public void generateSource(DatabaseBinding binding) {
+    public void generateSource(DatabaseBindingService binding) {
         //TODO solve this with non localhosted DB 
         String url = binding.getUrl();  // e.g., jdbc:postgresql://localhost:5432/demo
 
