@@ -14,10 +14,14 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import java.util.function.Function;
+
 import java.sql.SQLException;
 
 import com.aixm.delorean.core.DeloreanUtility;
@@ -72,6 +76,45 @@ public class DatabaseBindingService<R, F> {
         return this.sessionFactory.openSession();
     }
 
+    public String statistics() {
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("sessionfactory is not init");
+        }
+
+        Function<ResultSet, Integer> countMapper = (rs) -> {
+            try {
+                return rs.getInt(1); 
+            } catch (SQLException e) {
+                throw new RuntimeException("Error reading count from ResultSet", e);
+            }
+        };
+
+        // Define SQL queries
+        String featureSql = "SELECT COUNT(DISTINCT id) FROM AIXM.AIXM_FEATURE";
+        String timeSliceSql = "SELECT COUNT(DISTINCT id) FROM AIXM.aixm_timeslice";
+
+        Integer featureCount = 0;
+        Integer timeSliceCount = 0;
+
+        try {
+            List<Integer> featureResults = executeSQLQuery(featureSql, countMapper);
+            if (!featureResults.isEmpty()) {
+                featureCount = featureResults.get(0);
+            }
+
+            List<Integer> timeSliceResults = executeSQLQuery(timeSliceSql, countMapper);
+            if (!timeSliceResults.isEmpty()) {
+                timeSliceCount = timeSliceResults.get(0);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR: Could not fetch statistics.";
+        }
+
+        // Format and return the result string
+        return new String("F: " + featureCount + " / TS: " + timeSliceCount);
+    }
     
     public String inputStreamToSQL(InputStream inputStream) {
         try {
@@ -141,12 +184,44 @@ public class DatabaseBindingService<R, F> {
                 default:
                     throw new IllegalArgumentException("Unknown hbm2ddl.auto value: " + hbm2ddl);
             }
-            ConsoleLogger.log(LogLevel.INFO, "Successfully initialized Hibernate session factory <" + this.getUrl() + ">");
         } catch (Exception e) {
             ConsoleLogger.log(LogLevel.ERROR, "Error initializing Hibernate session factory", e);
 
         }
     }
+
+    /**
+     * Executes a single SQL query (typically SELECT) and maps the results to a List of objects.
+     * @param <T> The type of object to map the results to.
+     * @param sql The single SQL SELECT query to execute.
+     * @param mapper The RowMapper functional interface to handle per-row mapping logic.
+     * @return A List of objects of type T containing the mapped results.
+     */
+    public <R> List<R> executeSQLQuery(String sql, Function<ResultSet, R> mapper) {
+        List<R> results = new ArrayList<>();
+
+        if (sql == null || sql.trim().isEmpty()) {
+            return results;
+        }
+
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql.trim())) {
+
+            while (rs.next()) {
+                R item = mapper.apply(rs);
+                results.add(item);
+            }
+
+        } catch (SQLException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Error executing query: " + sql, e);
+        } catch (UnsupportedOperationException e) {
+            ConsoleLogger.log(LogLevel.ERROR, "Database connection error.", e);
+        }
+        
+        return results;
+    }
+
 
     private void executeSQLScript(String sql) {
         try {
@@ -160,7 +235,6 @@ public class DatabaseBindingService<R, F> {
                         }
                     }
                 }
-                ConsoleLogger.log(LogLevel.INFO, "Successfully executed script.");
             }
         } catch (SQLException e) {
             ConsoleLogger.log(LogLevel.ERROR, "Error executing script.", e);
@@ -170,7 +244,6 @@ public class DatabaseBindingService<R, F> {
 
     public void shutdown(){
         this.sessionFactory.close();
-        ConsoleLogger.log(LogLevel.INFO, "Successfully close connection <" + this.getUrl() + ">");
     }
 
     private List<MutationFeatureTimeslice> getTopTimeslice(Session session, List<String> nameList){
@@ -247,7 +320,6 @@ public class DatabaseBindingService<R, F> {
             session.persist(object); 
 
             transaction.commit();
-            ConsoleLogger.log(LogLevel.INFO, "Sucessfully persisted");
 
         } catch (Exception e) {
             if (transaction != null) {
@@ -273,8 +345,6 @@ public class DatabaseBindingService<R, F> {
             Object object = session.find(structure, id);
 
             transaction.commit();
-
-            ConsoleLogger.log(LogLevel.INFO, "Sucessfully extracted");
             return object;
 
         } catch (Exception e) {

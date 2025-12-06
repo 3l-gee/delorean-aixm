@@ -133,6 +133,8 @@ public class Container<R, F, T, O> {
         } 
 
         this.message = (R) this.xmlBinding.unmarshal(xmlStream);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
 
     }
 
@@ -145,6 +147,8 @@ public class Container<R, F, T, O> {
             return;
         }
         this.xmlBinding.marshal(this.message, pathObj, this.rootClass, this.qName);
+        String stats = this.xmlBinding.statistics(path);
+        ConsoleLogger.log(LogLevel.INFO, "Marshalled <" + rootClass.getSimpleName() + "> to: " + path + " stats: " + stats);
     }
 
     public void statistics() {
@@ -159,6 +163,8 @@ public class Container<R, F, T, O> {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.startup();
+
+        ConsoleLogger.log(LogLevel.INFO, "Initialized <" + this.databaseBinding.getUrl() + ">");
     }
 
     public void shutdown() {
@@ -166,6 +172,7 @@ public class Container<R, F, T, O> {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.shutdown();
+        ConsoleLogger.log(LogLevel.INFO, "Shutdown <" + this.databaseBinding.getUrl() + ">");
     }
 
     public void persist() {
@@ -173,6 +180,8 @@ public class Container<R, F, T, O> {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.databaseBinding.persist(this.message);
+        String stats = this.databaseBinding.statistics();
+        ConsoleLogger.log(LogLevel.INFO, "Persisted <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
         
         // if (this.getEditorProject() != null) {
         // }
@@ -193,6 +202,8 @@ public class Container<R, F, T, O> {
         }   
 
         this.message = (R) this.databaseBinding.extract(this.rootClass, id);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
 }

@@ -29,7 +29,7 @@ public class AIXM511 {
             AbstractAIXMTimeSliceType.class,
             AbstractAIXMObjectType.class,
             Aixm511Engine.class,
-            new QName("http://www.aixm.aero/schema/5.1.1", "AIXMBasicMessage"),
+            new QName("http://www.aixm.aero/schema/5.1.1/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
             "postgresql/pre-init.sql",
             "postgresql/post-init.sql",

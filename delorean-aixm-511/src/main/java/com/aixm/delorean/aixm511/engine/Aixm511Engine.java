@@ -1,12 +1,14 @@
 package com.aixm.delorean.aixm511.engine;
 
 import java.lang.reflect.Field;
+import java.time.Instant;
 import java.util.List;
 
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.engine.TemporalityInspector;
 
 import jakarta.xml.bind.JAXBElement;
 
@@ -17,7 +19,24 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
     }
 
     @Override
-    public void statistics(Object container) {
+    public void info(Object container) {
+        TemporalityInspector combinedInspector = new TemporalityInspector(null, null, null, null, 0, 0, 0, 0);
+
+        AIXMBasicMessageType message = (AIXMBasicMessageType) container;
+
+        for (BasicMessageMemberAIXMPropertyType member : message.getHasMember()) { 
+            AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
+            if (feature != null) {
+                TemporalityInspector inspector = Aixm511TimeSliceEngine.getTimeSliceValidityPeriod(feature);
+                combinedInspector = combinedInspector.combine(inspector);
+            }
+        }
+
+        System.out.println("Combined TemporalityInspector: " + combinedInspector);
+    }
+
+    @Override
+    public String statistics(Object container) {
 
         Integer featureCount = 0;
         Integer timeSliceCount = 0;
@@ -28,11 +47,12 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
             AbstractAIXMFeatureType feature = member.getAbstractAIXMFeature().getValue();
             if (feature != null) {
                 featureCount += 1;
+                timeSliceCount += Aixm511TimeSliceEngine.countTimeSlices(feature);
             }
 
         }
 
-        System.out.println("Features: " + featureCount + ", TimeSlices: " + timeSliceCount);
+        return new String("F: " + featureCount + " / TS: " + timeSliceCount);
     }
 
     @Override
@@ -188,6 +208,5 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
 
         return result;
     }
-     
-        
+    
 }

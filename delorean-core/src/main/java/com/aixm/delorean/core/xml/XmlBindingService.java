@@ -5,20 +5,26 @@ import java.io.InputStream;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
-import com.aixm.delorean.core.log.ConsoleLogger;
-import com.aixm.delorean.core.log.LogLevel;
-
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.ValidationEvent;
-import jakarta.xml.bind.ValidationEventHandler;
 import jakarta.xml.bind.ValidationEventLocator;
+import org.w3c.dom.Document;
+import com.aixm.delorean.core.DeloreanUtility;
+import com.aixm.delorean.core.log.ConsoleLogger;
+import com.aixm.delorean.core.log.LogLevel;
+
+
 
 public class XmlBindingService<R, F> {
     private final Class<R> root;
@@ -34,14 +40,16 @@ public class XmlBindingService<R, F> {
         this.root = root;
         this.feature = feature;
         try {
-            this.context = JAXBContext.newInstance(root);
-
-            try (FileOutputStream logFile = new FileOutputStream("context.xml.log", true)) {
-                logFile.write(("JAXBContext created with classes: " + this.context.toString() + System.lineSeparator()).getBytes());
-                logFile.write(("Schema used for validation: " + this.schema.toString() + System.lineSeparator()).getBytes());
-            } catch (Exception e) {
-                ConsoleLogger.log(LogLevel.ERROR, "Failed to write JAXBContext creation log: " + e.getMessage());
-            }
+            this.context = JAXBContext.newInstance(
+                root, 
+                feature,
+                com.aixm.delorean.core.org.gco.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gmd.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gml.v_3_2.ObjectFactory.class,
+                com.aixm.delorean.core.org.gsr.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gss.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.gts.v2007.ObjectFactory.class,
+                com.aixm.delorean.core.org.w3.xlink.ObjectFactory.class);
 
             this.schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             
@@ -52,7 +60,6 @@ public class XmlBindingService<R, F> {
             this.marshaller = this.context.createMarshaller();
             this.marshaller.setSchema(schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            this.marshaller.setProperty(Marshaller.JAXB_FRAGMENT, false);
             this.marshaller.setEventHandler(this::handleEvent);
         } catch (Exception e) {
             e.printStackTrace();
@@ -110,6 +117,51 @@ public class XmlBindingService<R, F> {
         return true;
     }
 
+    public String statistics(String path) {
+        InputStream xmlStream;
+        if (path.toLowerCase().endsWith(".zip")) {
+            xmlStream = DeloreanUtility.absPathZipToInputStream(path);
+        } else {
+            xmlStream = DeloreanUtility.absPathToInputStream(path);
+        }
+
+        if (xmlStream == null) {
+            return null;
+        } 
+
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true); 
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document xmlDocument = builder.parse(xmlStream);
+
+            XPathFactory xpathFactory = XPathFactory.newInstance();
+            XPath xpath = xpathFactory.newXPath();
+            
+            xpath.setNamespaceContext(new DynamicNamespaceContext(xmlDocument));
+
+            // --- Query 1: count(/message:AIXMBasicMessage/message:hasMember/*) ---
+            String query1 = "count(/message:AIXMBasicMessage/message:hasMember/*)";
+            Number count1 = (Number) xpath.evaluate(query1, xmlDocument, XPathConstants.NUMBER);
+            long featureCount = count1.longValue();
+
+            // --- Query 2: count(//aixm:timeSlice) ---
+            String query2 = "count(//aixm:timeSlice)";
+            Number count2 = (Number) xpath.evaluate(query2, xmlDocument, XPathConstants.NUMBER);
+            long timeSliceCount = count2.longValue();
+            
+            // 5. Format and return the statistics
+            return new String("F: " + featureCount + " / TS: " + timeSliceCount);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error processing XML: " + e.getMessage();
+        } finally {
+             if (xmlStream != null) {
+                 try { xmlStream.close(); } catch (Exception e) { /* ignore */ }
+             }
+        }
+    }
 
     @SuppressWarnings("unchecked")
     public R unmarshal(InputStream xmlStream) {
@@ -140,7 +192,6 @@ public class XmlBindingService<R, F> {
         JAXBElement<R> aixmElement;
         if (this.root.isInstance(rootElement.getValue())) {
             aixmElement = (JAXBElement<R>) rootElement;
-            ConsoleLogger.log(LogLevel.INFO, "Successfully unmarshalled <" + aixmElement.getDeclaredType().getName() + ">");
             return (R) aixmElement.getValue();
 
         } else {
@@ -168,7 +219,6 @@ public class XmlBindingService<R, F> {
         try {
             JAXBElement<R> rootElement = new JAXBElement<>(qName, this.root, record);
             this.marshaller.marshal(rootElement, outputStream);
-            ConsoleLogger.log(LogLevel.INFO, "Successfully marshalled <" + clazz.getName() + ">");
         } catch (JAXBException e) {
             ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during marshalling: " + e.getMessage());
         

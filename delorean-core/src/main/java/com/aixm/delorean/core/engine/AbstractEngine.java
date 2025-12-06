@@ -9,7 +9,9 @@ public abstract class AbstractEngine {
     public AbstractEngine() {
     }
 
-    public abstract void statistics(Object container);
+    public abstract void info(Object container);
+
+    public abstract String statistics(Object container);
 
     public abstract Object filter(Object container, String filterExpression);
 

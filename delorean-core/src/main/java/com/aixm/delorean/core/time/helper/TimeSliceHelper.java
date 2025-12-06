@@ -48,7 +48,7 @@ public class TimeSliceHelper {
     public static TimePrimitivePropertyType printValidTime(DeloreanTimeSliceType aixmTime){
         TimePrimitivePropertyType validTime = new TimePrimitivePropertyType();
         TimePeriodType timePeriod = printTimePeriodType(aixmTime);
-        JAXBElement<TimePeriodType> timePeriodElement = new JAXBElement<TimePeriodType>(new QName("http://www.example.com/schema", "TimePeriod"), TimePeriodType.class, timePeriod);
+        JAXBElement<TimePeriodType> timePeriodElement = new JAXBElement<TimePeriodType>(new QName("http://www.opengis.net/gml/3.2", "TimePeriod"), TimePeriodType.class, timePeriod);
         validTime.setAbstractTimePrimitive(timePeriodElement);
         return validTime;
     }

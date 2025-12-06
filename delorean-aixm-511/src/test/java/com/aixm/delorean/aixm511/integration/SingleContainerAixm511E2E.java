@@ -62,15 +62,6 @@ public class SingleContainerAixm511E2E {
     }
 
     @Test
-    @Order(21)
-    void statistics(){
-
-        // do
-        container.statistics();
-
-    }
-
-    @Test
     @Order(30)
     void extractMarshalledXml() {
 
