@@ -8,6 +8,7 @@ import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
+import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.engine.TemporalityInspector;
 
 import jakarta.xml.bind.JAXBElement;
@@ -20,7 +21,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
 
     @Override
     public void info(Object container) {
-        TemporalityInspector combinedInspector = new TemporalityInspector(null, null, null, null, 0, 0, 0, 0);
+        TemporalityInspector combinedInspector = new TemporalityInspector(Instant.MAX, Instant.MIN, Instant.MAX, Instant.MIN, 0, 0, 0, 0);
 
         AIXMBasicMessageType message = (AIXMBasicMessageType) container;
 
@@ -32,7 +33,7 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
             }
         }
 
-        System.out.println("Combined TemporalityInspector: " + combinedInspector);
+        combinedInspector.printSummary();
     }
 
     @Override
@@ -62,8 +63,8 @@ public class Aixm511Engine extends com.aixm.delorean.core.engine.AbstractEngine 
     }
 
     @Override
-    public Object merge(Object firstObject, Object secondObject) {
-        // TODO Auto-generated method stub
+    public Object merge(Object object) {
+
         return null;
     }
 

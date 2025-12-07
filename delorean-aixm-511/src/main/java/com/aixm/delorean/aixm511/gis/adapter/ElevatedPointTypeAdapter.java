@@ -27,6 +27,7 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Aixm
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
             result.setElevation(value.getElevation());
             result.setGeoidUndulation(value.getGeoidUndulation());
+            result.setVerticalAccuracy(value.getVerticalAccuracy());
             result.setVerticalDatum(value.getVerticalDatum());
             result.setAnnotation(value.getAnnotation());
             result.setExtension(value.getExtension());
@@ -63,6 +64,7 @@ public class ElevatedPointTypeAdapter extends XmlAdapter<ElevatedPointType, Aixm
             result.setHorizontalAccuracy(value.getHorizontalAccuracy());
             result.setElevation(value.getElevation());
             result.setGeoidUndulation(value.getGeoidUndulation());
+            result.setVerticalAccuracy(value.getVerticalAccuracy());
             result.setVerticalDatum(value.getVerticalDatum());
             result.setAnnotation(value.getAnnotation());
             result.setExtension(value.getExtension());

@@ -48,9 +48,9 @@ public class AixmPointType extends com.aixm.delorean.core.gis.type.Point impleme
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY", precision = 20, scale = 10)),
-        @AttributeOverride(name = "uom", column = @Column(name = "HORIZONTAL_ACCURACY_UOM")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "HORIZONTAL_ACCURACY_NIL"))
+        @AttributeOverride(name = "value", column = @Column(name = "horizontalAccuracy", precision = 20, scale = 10)),
+        @AttributeOverride(name = "uom", column = @Column(name = "horizontalAccuracy_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "horizontalAccuracy_nilreason"))
     })
     public ValDistanceType getHorizontalAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getHorizontalAccuracy());

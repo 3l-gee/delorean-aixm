@@ -12,6 +12,7 @@ import com.aixm.delorean.aixm511.engine.Aixm511Engine;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMObjectType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
+import com.aixm.delorean.aixm511.database.Aixm511DatabaseHelper;
 
 public class AIXM511 {
 
@@ -29,6 +30,7 @@ public class AIXM511 {
             AbstractAIXMTimeSliceType.class,
             AbstractAIXMObjectType.class,
             Aixm511Engine.class,
+            Aixm511DatabaseHelper.class,
             new QName("http://www.aixm.aero/schema/5.1.1/message", "AIXMBasicMessage", "message"),
             "/schema/message/AIXM_BasicMessage.xsd",
             "postgresql/pre-init.sql",

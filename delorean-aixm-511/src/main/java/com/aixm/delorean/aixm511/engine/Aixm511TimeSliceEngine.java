@@ -44,9 +44,6 @@ public class Aixm511TimeSliceEngine {
         return count;
     }
 
-
-    
-
     public static TemporalityInspector getTimeSliceValidityPeriod(AbstractAIXMFeatureType feature) {
         Instant EarliestfeatureLifetimeStart = null;
         Instant LastestfeatureLifetimeEnd = null;

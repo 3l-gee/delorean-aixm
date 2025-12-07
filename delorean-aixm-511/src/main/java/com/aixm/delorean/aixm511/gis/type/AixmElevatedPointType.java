@@ -37,6 +37,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     protected JAXBElement<ValDistanceSignedType> geoidUndulation;
     protected JAXBElement<CodeVerticalDatumType> verticalDatum;
     protected JAXBElement<ValDistanceType> horizontalAccuracy;
+    protected JAXBElement<ValDistanceType> verticalAccuracy;
     protected List<NotePropertyType> annotation;
     protected List<ElevatedPointTypeExtension> extension;
 
@@ -57,9 +58,9 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "ELEVATION", length = 255)),
-        @AttributeOverride(name = "uom", column = @Column(name = "ELEVATION_UOM")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "ELEVATION_NIL"))
+        @AttributeOverride(name = "value", column = @Column(name = "elevation", length = 255)),
+        @AttributeOverride(name = "uom", column = @Column(name = "elevation_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "elevation_nilreason"))
     })
     public ValDistanceVerticalType getElevationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceVerticalType.class, this.getElevation());
@@ -85,9 +86,9 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "GEOID_UNDULATION", precision = 20, scale = 10)),
-        @AttributeOverride(name = "uom", column = @Column(name = "GEOID_UNDULATION_UOM")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "GEOID_UNDULATION_NIL"))
+        @AttributeOverride(name = "value", column = @Column(name = "geoidUndulation", precision = 20, scale = 10)),
+        @AttributeOverride(name = "uom", column = @Column(name = "geoidUndulation_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "geoidUndulation_nilreason"))
     })
     public ValDistanceSignedType getGeoidUndulationItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceSignedType.class, this.getGeoidUndulation());
@@ -113,8 +114,8 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "VERTICAL_DATUM", length = 60)),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "VERTICAL_DATUM_NIL"))
+        @AttributeOverride(name = "value", column = @Column(name = "verticalDatum", length = 60)),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "verticalDatum_nilreason"))
     })
     public CodeVerticalDatumType getVerticalDatumItem() {
         return XmlAdapterUtils.unmarshallSource(CodeVerticalDatumType.class, this.getVerticalDatum());
@@ -140,9 +141,9 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "HORIZONTAL_ACCURACY", precision = 20, scale = 10)),
-        @AttributeOverride(name = "uom", column = @Column(name = "HORIZONTAL_ACCURACY_UOM")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "HORIZONTAL_ACCURACY_NIL"))
+        @AttributeOverride(name = "value", column = @Column(name = "horizontalAccuracy", precision = 20, scale = 10)),
+        @AttributeOverride(name = "uom", column = @Column(name = "horizontalAccuracy_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "horizontalAccuracy_nilreason"))
     })
     public ValDistanceType getHorizontalAccuracyItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getHorizontalAccuracy());
@@ -150,6 +151,34 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
         setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), ElevatedPointType.class, target));
+    }
+
+    @Transient
+    public JAXBElement<ValDistanceType> getVerticalAccuracy() {
+        return verticalAccuracy;
+    }
+
+    public void setVerticalAccuracy(JAXBElement<ValDistanceType> value) {
+        this.verticalAccuracy = value;
+    }
+
+    @Transient
+    public boolean isSetVerticalAccuracy() {
+        return (this.verticalAccuracy!= null);
+    }
+    
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "value", column = @Column(name = "verticalAccuracy", precision = 20, scale = 10)),
+        @AttributeOverride(name = "uom", column = @Column(name = "verticalAccuracy_uom")),
+        @AttributeOverride(name = "nilReason", column = @Column(name = "verticalAccuracy_nilreason"))
+    })
+    public ValDistanceType getVerticalAccuracyItem() {
+        return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getVerticalAccuracy());
+    }
+
+    public void setVerticalAccuracyItem(ValDistanceType target) {
+        setVerticalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "verticalAccuracy"), ElevatedPointType.class, target));
     }
 
     @OneToMany(targetEntity = NotePropertyType.class, cascade = {

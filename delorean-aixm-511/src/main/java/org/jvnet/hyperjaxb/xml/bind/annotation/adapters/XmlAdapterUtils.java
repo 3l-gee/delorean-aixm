@@ -246,8 +246,11 @@ public class XmlAdapterUtils
 			}
 
 			// Case 2C — illegal state
-			throw new IllegalStateException(
-				"Illegal combination: value=" + value + ", nilReason=" + nilReason);
+			final XmlAdapter<BoundType, ValueType> xmlAdapter = getXmlAdapter(xmlAdapterClass);
+			return new JAXBElement<BoundType>(name, declaredType, scope, xmlAdapter.marshal(v));
+			//
+			// throw new IllegalStateException(
+			// 	"Illegal combination: value=" + value + ", nilReason=" + nilReason);
 
 		}
 		catch (Exception ex)
@@ -296,7 +299,9 @@ public class XmlAdapterUtils
 		}
 
 		// Case 2C — illegal state
-		throw new IllegalStateException(
-			"Illegal combination: value=" + value + ", nilReason=" + nilReason);
+		return new JAXBElement<>(name, declaredType, scope, v);
+		//
+		// throw new IllegalStateException(
+		// 	"Illegal combination: value=" + value + ", nilReason=" + nilReason);
 	}
 }

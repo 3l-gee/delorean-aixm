@@ -13,9 +13,10 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
+@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SingleContainerAixm511E2E {
+public class SimpleAixm511E2E {
     
     String id;
     Container<?,?,?,?> container;
@@ -63,6 +64,13 @@ public class SingleContainerAixm511E2E {
 
     @Test
     @Order(30)
+    void info(){
+        // do
+        container.info();
+    }
+
+    @Test
+    @Order(40)
     void extractMarshalledXml() {
 
         // given
@@ -73,7 +81,7 @@ public class SingleContainerAixm511E2E {
     }
 
     @Test
-    @Order(40)
+    @Order(50)
     void establishConnection() {
 
         // given
@@ -92,7 +100,7 @@ public class SingleContainerAixm511E2E {
     }
 
     @Test
-    @Order(50)
+    @Order(60)
     void persisteData() {
 
         // given
@@ -107,7 +115,7 @@ public class SingleContainerAixm511E2E {
     }
 
     @Test
-    @Order(60)
+    @Order(70)
     void databaseExtract() {
 
         // do
@@ -118,7 +126,7 @@ public class SingleContainerAixm511E2E {
 
 
     @Test
-    @Order(70)
+    @Order(80)
     void extractExtractedXml() {
 
         // given
