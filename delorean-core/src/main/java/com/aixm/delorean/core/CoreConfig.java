@@ -15,6 +15,7 @@ public class CoreConfig {
     protected final String sqlPostInitPath;
     protected final String configurationPath;
     protected final Class<?> deloreanEngineClass;
+    protected final Class<?> databaseHelperClass;
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
 
@@ -28,7 +29,8 @@ public class CoreConfig {
         Class<?> object,
 
         // Engine settings
-        Class<?> deloreanEngineClass,
+        Class<?> engineClass,
+        Class<?> databaseHelperClass,
 
         // XML settings
         QName qName,
@@ -53,7 +55,8 @@ public class CoreConfig {
         this.sqlPreInitPath = sqlPreInitPath;
         this.sqlPostInitPath = sqlPostInitPath;
         this.configurationPath = configurationPath;
-        this.deloreanEngineClass = deloreanEngineClass;
+        this.deloreanEngineClass = engineClass;
+        this.databaseHelperClass = databaseHelperClass;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
     }
@@ -100,6 +103,10 @@ public class CoreConfig {
 
     public Class<?> getDeloreanEngineClass() {
         return this.deloreanEngineClass;
+    }
+    
+    public Class<?> getDatabaseHelperClass() {
+        return this.databaseHelperClass;
     }
 
     public Class<?> getCoreResourceAnchorsClass() {

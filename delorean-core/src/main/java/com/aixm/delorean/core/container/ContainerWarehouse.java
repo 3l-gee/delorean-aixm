@@ -10,6 +10,7 @@ import javax.xml.namespace.QName;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
 import com.aixm.delorean.core.engine.AbstractEngine;
+import com.aixm.delorean.core.database.AbstractDatabaseHelper;
 
 public class ContainerWarehouse<R, F, T, O> {
     protected String name;
@@ -21,6 +22,7 @@ public class ContainerWarehouse<R, F, T, O> {
     protected final XMLBindingFactory<R, F> xmlFactory;
     protected final DatabaseBindingFactory<R, F> databaseFactory;
     protected final AbstractEngine deloreanEngine;
+    protected final AbstractDatabaseHelper databaseHelper;
     protected Map<String, Container<R, F, T, O>> containers;
     protected String lastUsedContainerId; 
     protected final Class<?> CoreResourceAnchorsClass;
@@ -37,6 +39,7 @@ public class ContainerWarehouse<R, F, T, O> {
         XMLBindingFactory<R, F> xmlFactory, 
         DatabaseBindingFactory<R, F> databaseFactory, 
         AbstractEngine deloreanEngine,
+        AbstractDatabaseHelper databaseHelper,
         Class<?> CoreResourceAnchorsClass,
         Class<?> AIXMResourceAnchorsClass
     ) {
@@ -49,6 +52,7 @@ public class ContainerWarehouse<R, F, T, O> {
         this.lastUsedContainerId = null; 
         this.xmlFactory = xmlFactory;
         this.databaseFactory = databaseFactory;
+        this.databaseHelper = databaseHelper;
         this.containers = new HashMap<>();
         this.deloreanEngine = deloreanEngine;
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;

@@ -26,16 +26,17 @@ import java.sql.SQLException;
 
 import com.aixm.delorean.core.DeloreanUtility;
 
-public class DatabaseBindingService<R, F> {
-    private final Class<R> rootClass;
-    private final Class<F> featureClass;
+public class DatabaseBindingService<ROOT, FEATURE> {
+    private final Class<ROOT> rootClass;
+    private final Class<FEATURE> featureClass;
     private String sqlPreInit;
     private String sqlPostInit;
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
+    protected AbstractDatabaseHelper databaseHelper;
 
-    public DatabaseBindingService(Class<R> rootClass, Class<F> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus) {
+    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseHelper databaseHelper) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.sqlPreInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPreInitPath));
@@ -43,6 +44,7 @@ public class DatabaseBindingService<R, F> {
         this.configuration = configuration;
         this.sessionFactory = null;
         this.connectionStatus = connectionStatus;
+        this.databaseHelper = databaseHelper;
     }
     
     public void setUrl(String url){
@@ -331,7 +333,7 @@ public class DatabaseBindingService<R, F> {
         }
     }
 
-    public Object extract(Class<R> structure, Object id) {
+    public Object extract(Class<ROOT> structure, Object id) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }
@@ -358,99 +360,15 @@ public class DatabaseBindingService<R, F> {
         }
     }
 
-    // public Object extractId(Class<T> root, Int id){
-    //     if (this.sessionFactory == null) {
-    //         throw new IllegalArgumentException("sessionfactory is not init");
-    //     // }
+    public <X> void merge(Object object) {
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("sessionfactory is not init");
+        }
 
-    //     Session session = this.getSession();
-    //     Transaction transaction = null;
+        Session session = this.getSession();
 
-
-    // }
-
-    // public <X> void persist(Object object, Class<T> clazz, Class<X> featureClass) {
-    //     if (this.sessionFactory == null){
-    //         throw new IllegalArgumentException("sessionfactory is not init");
-    //     }
-
-    //     Session session = this.getSession();
-    //     Transaction transaction = null;
-
-    //     if (object == null || !isMappedClass(object) ){
-    //         return;
-    //     }
-
-    //     try {
-    //         transaction = session.beginTransaction();
-
-    //         // 1. Convert to AixmBasicMesage to separet message and memeber
-    //         AIXMBasicMessageType message = (AIXMBasicMessageType) object;
-    //         List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
-    //         message.unsetHasMember();
-
-    //         // 2. Persite memeberless message
-    //         session.persist(message); 
-
-    //         // 3. extract current top timeslice from db (top = last)
-    //         List<MutationFeatureTimeslice> mutationFeatureTimeslices = this.getTopTimeslice(session, this.databaseConfig.getFeatureSqlList());
-
-    //         // 4. merge timeslice
-    //         basicMessageMembers.parallelStream().forEach(bmm -> {
-    //             try (Session threadSession = this.sessionFactory.openSession()) {
-    //                 threadSession.beginTransaction();
-
-    //                 AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
-    //                 String identifier = abstractFeature.getIdentifier().getValue();
-    //                 MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
-    //                     .filter(f -> f.getIdentifier().equals(identifier))
-    //                     .findFirst()
-    //                     .orElse(null);
-
-    //                 DatabaseFunctionHelper.A5_2HandelTimeSlice(bmm, existing, threadSession);
-
-    //                 threadSession.getTransaction().commit();
-    //             } catch (Exception e) {
-    //                 e.printStackTrace();
-    //             }
-    //         });
-
-    //         // 5. flush and close original session after persisting message
-    //         session.flush();
-
-    //         // 6. Use StatelessSession for manual batch operations
-    //         StatelessSession statelessSession = this.sessionFactory.openStatelessSession();
-    //         Transaction statelessTx = statelessSession.beginTransaction();
-
-    //         try {
-    //             for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
-    //                 if (mft != null) {
-    //                     mft.appplyMutationStateless(statelessSession); // << implement this
-    //                 }
-    //             }
-
-    //             statelessTx.commit();
-    //             ConsoleLogger.log(LogLevel.INFO, "Successfully loaded");
-    //         } catch (Exception e) {
-    //             statelessTx.rollback();
-    //             e.printStackTrace();
-    //         } finally {
-    //             statelessSession.close();
-    //         }
-
-    //         transaction.commit();
-    //         ConsoleLogger.log(LogLevel.INFO, "Sucessfully loaded");
-
-    //         //TODO : link BasicMessageMemberAIXMPropertyType back to AIXMBasicMessageType, but how do i know to wich one ?
-    //     } catch (Exception e) {
-    //         if (transaction != null) {
-    //             transaction.rollback();
-    //         }
-    //         e.printStackTrace();
-    //     } finally {
-    //         session.close();
-    //     }
-    // }
+        this.databaseHelper.merge(sessionFactory, session, object);
+    }
 
     // public Object export(Class<T> structure, Object id) {
     //     ConsoleLogger.log(LogLevel.DEBUG, "Retrieving : " + structure + " with id: " + id, new Exception().getStackTrace()[0]);

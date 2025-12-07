@@ -11,8 +11,9 @@ public class DatabaseBindingFactory<T, X> {
     protected Configuration configuration;
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
+    protected AbstractDatabaseHelper databaseHelper;
 
-    public DatabaseBindingFactory(Class<T> rootClass, Class<X> featureClass, String sqlPreInitPath, String sqlPostInitPath, String configurationPath, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass) {
+    public DatabaseBindingFactory(Class<T> rootClass, Class<X> featureClass, String sqlPreInitPath, String sqlPostInitPath, String configurationPath, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass, AbstractDatabaseHelper databaseHelper) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.sqlPreInitPath = sqlPreInitPath;
@@ -20,6 +21,7 @@ public class DatabaseBindingFactory<T, X> {
         this.CoreResourceAnchorsClass = CoreResourceAnchorsClass;
         this.AIXMResourceAnchorsClass = AIXMResourceAnchorsClass;
         this.configuration = new Configuration().configure(configurationPath);
+        this.databaseHelper = databaseHelper;
     }
 
     public DatabaseBindingService<T, X> createDatabaseBinding() {
@@ -29,6 +31,8 @@ public class DatabaseBindingFactory<T, X> {
             this.sqlPreInitPath, 
             this.sqlPostInitPath, 
             this.configuration, 
-            ConnectionStatus.DISCONNECTED);
+            ConnectionStatus.DISCONNECTED,
+            this.databaseHelper
+        );
     }
 }

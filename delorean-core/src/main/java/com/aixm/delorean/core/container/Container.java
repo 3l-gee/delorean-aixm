@@ -3,6 +3,7 @@ package com.aixm.delorean.core.container;
 import com.aixm.delorean.core.xml.XmlBindingService;
 import com.aixm.delorean.core.xml.XMLConfig;
 import com.aixm.delorean.core.Delorean;
+import com.aixm.delorean.core.database.AbstractDatabaseHelper;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.database.DatabaseConfig;
 import com.aixm.delorean.core.engine.AbstractEngine;
@@ -17,6 +18,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.PublicKey;
 
 import javax.xml.namespace.QName;
 
@@ -25,25 +27,26 @@ import com.aixm.delorean.core.DeloreanUtility;
 import org.hibernate.Session;
 import org.locationtech.jts.awt.PointShapeFactory.X;
 
-public class Container<R, F, T, O> {
+public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     protected String name;
     protected final QName qName;
-    protected final Class<R> rootClass;
-    protected final Class<F> featureClass;
-    protected final Class<T> timeSliceClass;
-    protected final Class<O> objectClass;
-    protected R message;
+    protected final Class<ROOT> rootClass;
+    protected final Class<FEATURE> featureClass;
+    protected final Class<TIMESLICE> timeSliceClass;
+    protected final Class<OBJECT> objectClass;
+    protected ROOT message;
     protected MessageType messageType;
-    protected XmlBindingService<R, F> xmlBinding;
-    protected DatabaseBindingService<R, F> databaseBinding;
+    protected XmlBindingService<ROOT, FEATURE> xmlBinding;
+    protected DatabaseBindingService<ROOT, FEATURE> databaseBinding;
     protected AbstractEngine deloreanEngine;
 
-    public Container(Class<R> rootClass, Class<F> featureClass, Class<T> timeSliceClass, Class<O> objectClass, QName qName) {
+    public Container(Class<ROOT> rootClass, Class<FEATURE> featureClass, Class<TIMESLICE> timeSliceClass, Class<OBJECT> objectClass, QName qName) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.timeSliceClass = timeSliceClass;
         this.objectClass = objectClass;
         this.qName = qName;
+
     }
 
     public String getName() {
@@ -74,11 +77,11 @@ public class Container<R, F, T, O> {
         return this.objectClass;
     }
 
-    public R getMessage() {
+    public ROOT getMessage() {
         return this.message;
     }   
 
-    public void setMessage(R message) {
+    public void setMessage(ROOT message) {
         this.message = message;
     }
 
@@ -90,19 +93,19 @@ public class Container<R, F, T, O> {
         this.messageType = messageType;
     }
 
-    public void setXmlBinding(XmlBindingService<R, F> xmlBinding) {
+    public void setXmlBinding(XmlBindingService<ROOT, FEATURE> xmlBinding) {
         this.xmlBinding = xmlBinding;
     }
 
-    public XmlBindingService<R, F> getXmlBinding() {
+    public XmlBindingService<ROOT, FEATURE> getXmlBinding() {
         return this.xmlBinding;
     }
 
-    public void setDatabaseBinding(DatabaseBindingService<R, F> databaseBinding) {
+    public void setDatabaseBinding(DatabaseBindingService<ROOT, FEATURE> databaseBinding) {
         this.databaseBinding = databaseBinding;
     }
 
-    public DatabaseBindingService<R, F> getDatabaseBinding() {
+    public DatabaseBindingService<ROOT, FEATURE> getDatabaseBinding() {
         return this.databaseBinding;
     }
 
@@ -132,7 +135,7 @@ public class Container<R, F, T, O> {
             return;
         } 
 
-        this.message = (R) this.xmlBinding.unmarshal(xmlStream);
+        this.message = (ROOT) this.xmlBinding.unmarshal(xmlStream);
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Unmarshalled <" + rootClass.getSimpleName() + "> from: " + path + " stats: " + stats);
 
@@ -156,6 +159,13 @@ public class Container<R, F, T, O> {
             throw new RuntimeException("DatabaseBinding is not set");
         }
         this.deloreanEngine.statistics(this.message);
+    }
+
+    public void info() {
+        if (this.deloreanEngine == null) {
+            throw new RuntimeException("DeloreanEngine is not set");
+        }
+        this.deloreanEngine.info(this.message);
     }
 
     public void startup() {
@@ -196,12 +206,21 @@ public class Container<R, F, T, O> {
         // }
     }
 
+    public void merge() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }   
+        this.databaseBinding.merge(this.message);
+        String stats = this.databaseBinding.statistics();
+        ConsoleLogger.log(LogLevel.INFO, "Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+    }
+
     public void extract(Object id) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
         }   
 
-        this.message = (R) this.databaseBinding.extract(this.rootClass, id);
+        this.message = (ROOT) this.databaseBinding.extract(this.rootClass, id);
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }

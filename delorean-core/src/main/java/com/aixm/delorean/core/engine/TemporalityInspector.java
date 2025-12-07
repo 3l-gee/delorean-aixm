@@ -15,10 +15,10 @@ public record TemporalityInspector(
 
     public TemporalityInspector combine(TemporalityInspector other) {
         return new TemporalityInspector(
-            earliestFeatureLifetimeStart.isBefore(other.earliestFeatureLifetimeStart) ? earliestFeatureLifetimeStart : other.earliestFeatureLifetimeStart,
-            latestFeatureLifetimeStart.isAfter(other.latestFeatureLifetimeStart) ? latestFeatureLifetimeStart : other.latestFeatureLifetimeStart,
-            earliestValidTimeStart.isBefore(other.earliestValidTimeStart) ? earliestValidTimeStart : other.earliestValidTimeStart,
-            latestValidTimeEnd.isAfter(other.latestValidTimeEnd) ? latestValidTimeEnd : other.latestValidTimeEnd,
+            other.earliestFeatureLifetimeStart == null ? this.earliestFeatureLifetimeStart : earliestFeatureLifetimeStart.isBefore(other.earliestFeatureLifetimeStart) ? earliestFeatureLifetimeStart : other.earliestFeatureLifetimeStart,
+            other.latestFeatureLifetimeStart == null ? this.latestFeatureLifetimeStart : latestFeatureLifetimeStart.isAfter(other.latestFeatureLifetimeStart) ? latestFeatureLifetimeStart : other.latestFeatureLifetimeStart,
+            other.earliestValidTimeStart == null ? this.earliestValidTimeStart : earliestValidTimeStart.isBefore(other.earliestValidTimeStart) ? earliestValidTimeStart : other.earliestValidTimeStart,
+            other.latestValidTimeEnd == null ? this.latestValidTimeEnd : latestValidTimeEnd.isAfter(other.latestValidTimeEnd) ? latestValidTimeEnd : other.latestValidTimeEnd,
             baselineCount + other.baselineCount,
             snapshotCount + other.snapshotCount,
             tempDeltaCount + other.tempDeltaCount,
@@ -27,7 +27,7 @@ public record TemporalityInspector(
     }
 
     public void printSummary() {
-        System.out.println("Temporality Inspector Summary:");
+        System.out.println(" Summary of Temporality Inspection ");
         System.out.println("Feature Lifetime from   : " + earliestFeatureLifetimeStart + " to " + latestFeatureLifetimeStart);
         System.out.println("Time Slice Valid from   : " + earliestValidTimeStart + " to " + latestValidTimeEnd);
         int totalCount = baselineCount + snapshotCount + tempDeltaCount + permDeltaCount;

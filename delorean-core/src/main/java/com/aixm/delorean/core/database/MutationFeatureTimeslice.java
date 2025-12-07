@@ -3,7 +3,7 @@ package com.aixm.delorean.core.database;
 import org.hibernate.Session;
 import org.hibernate.StatelessSession;
 
-import com.aixm.delorean.core.database.DatabaseFunctionHelper.TimeSliceAction;
+import com.aixm.delorean.core.database.TimeSliceAction;
 
 import java.lang.reflect.Method;
 import java.time.Instant;
@@ -15,15 +15,21 @@ public class MutationFeatureTimeslice {
     private Long correctionNumber;
 
     private TimeSliceAction action;
-    private Object timeSliceProperty;
+    private Object timeSlicePropertyObject;
     private Instant newTimeSliceStart;
 
-    private String timeSliceSchemaName;
+    private String schema;
+    private String feature;
+
+    private String timeSlice;
+    private String timeSliceProperty;
+    private String featureTimeSliceLink;
+    private String featureType;
 
     private Long oldTimeSlicePropertyId;
     private Long oldTimeSliceId;
 
-    public MutationFeatureTimeslice(Long featureId, String identifier, Long sequenceNumber, Long correctionNumber, Long TSPid, Long TSid, String TSschemaName) {
+    public MutationFeatureTimeslice(Long featureId, String identifier, Long sequenceNumber, Long correctionNumber, Long TSPid, Long TSid, String featureSchemaName) {
         this.featureId = featureId;
         this.identifier = identifier;
         this.sequenceNumber = sequenceNumber;
@@ -31,7 +37,13 @@ public class MutationFeatureTimeslice {
         this.oldTimeSlicePropertyId = TSPid;
         this.oldTimeSliceId = TSid;
         this.action = TimeSliceAction.NOTHING;
-        this.timeSliceSchemaName = TSschemaName;
+        this.schema = featureSchemaName.split("\\.")[0];
+        this.feature = featureSchemaName.split("\\.")[1];
+
+        this.timeSlice =  feature + "_ts";
+        this.timeSliceProperty = feature + "_tsp";
+        this.featureTimeSliceLink = "timeslice_" + feature + "_link";
+        this.featureType = feature + "type";
     }
 
     public Long getFeatureId(){
@@ -66,30 +78,21 @@ public class MutationFeatureTimeslice {
         this.action = action;
     }
 
-    public Object getTimeSliceProperty(){
-        return this.timeSliceProperty;
+    public Object getTimeSlicePropertyObject(){
+        return this.timeSlicePropertyObject;
     }
 
-    public void setTimeSliceProperty(Object tsp){
-        this.timeSliceProperty = tsp;
+    public void setTimeSlicePropertyObject(Object tsp){
+        this.timeSlicePropertyObject = tsp;
     }
 
-    // TODO : disgusting workaround that is needed as all the xxxTimeSliceProprtyType are not extension of a AbstractTimeSliceProprtyType
-    private Long extractDbid(Object tsp) {
+    private Long extractHjid(Object tsp) {
         try {
-            Method m = tsp.getClass().getMethod("getDbid");
+            Method m = tsp.getClass().getMethod("gethjid");
             return (Long) m.invoke(tsp);
         } catch (Exception e) {
-            throw new RuntimeException("Cannot extract dbid from tsp of type: " + tsp.getClass(), e);
+            throw new RuntimeException("Cannot extract hjid from tsp of type: " + tsp.getClass(), e);
         }
-    }
-
-    public String getTimeSliceSchemaName(){
-        return this.timeSliceSchemaName;
-    }
-
-    public void setTimeSliceSchemaName(String TSSchemaName){
-        this.timeSliceSchemaName = TSSchemaName;
     }
 
     public Instant getNewTimeSliceStart(){
@@ -107,12 +110,12 @@ public class MutationFeatureTimeslice {
                 break;
 
             case TimeSliceAction.CHANGE:
-                this.appendNewTSP(session, this.extractDbid(this.timeSliceProperty));
+                this.appendNewTSP(session, this.extractHjid(this.timeSlicePropertyObject));
                 this.cutOldTSP(session);
                 break;
 
             case TimeSliceAction.CORRECTION:
-                this.appendNewTSP(session, this.extractDbid(this.timeSliceProperty));
+                this.appendNewTSP(session, this.extractHjid(this.timeSlicePropertyObject));
                 break;
         }
     }
@@ -125,31 +128,35 @@ public class MutationFeatureTimeslice {
                 break;
                                 
             case TimeSliceAction.CHANGE:            
-                this.appendNewTSP(session, this.extractDbid(this.timeSliceProperty));    
+                this.appendNewTSP(session, this.extractHjid(this.timeSlicePropertyObject));    
                 this.cutOldTSP(session);
                 break;
 
             case TimeSliceAction.CORRECTION:
-                this.appendNewTSP(session, this.extractDbid(this.timeSliceProperty));
+                this.appendNewTSP(session, this.extractHjid(this.timeSlicePropertyObject));
                 break;
         }
     }
 
     private void appendNewTSP(Session session, Long newTSPid){
-        session.createNativeMutationQuery("""
-                INSERT INTO master_join (source_id, target_id)
-                VALUES (:featureId, :tspId)
-            """)
-            .setParameter("featureId", this.featureId)
-            .setParameter("tspId", newTSPid)
-            .executeUpdate();
+        String sql = """
+            INSERT INTO %1$s.%2$s (%3$s, timeslice)
+            VALUES (:tspId, :featureId)
+        """.formatted(this.schema, this.featureTimeSliceLink, this.featureType);
+
+        session.createNativeMutationQuery(sql)
+        .setParameter("featureId", this.featureId)
+        .setParameter("tspId", newTSPid)
+        .executeUpdate();
     }
 
     private void appendNewTSP(StatelessSession session, Long newTSPid){
-        session.createNativeMutationQuery("""
-            INSERT INTO master_join (source_id, target_id)
-            VALUES (:featureId, :tspId)
-        """)
+        String sql = """
+            INSERT INTO  %1$s.%2$s (%3$s, timeslice)
+            VALUES (:tspId, :featureId)
+        """.formatted(this.schema, this.featureTimeSliceLink, this.featureType);
+
+        session.createNativeMutationQuery(sql)
         .setParameter("featureId", this.featureId)
         .setParameter("tspId", newTSPid)
         .executeUpdate();
@@ -157,10 +164,10 @@ public class MutationFeatureTimeslice {
 
     private void cutOldTSP(Session session) {
         String sql = """
-            UPDATE %s
+            UPDATE aixm.aixm_timeslice
             SET valid_time_end = :new_begin_position
-            WHERE id = :time_slice_id
-            """.formatted(this.timeSliceSchemaName + "_ts");
+            WHERE hjid = :time_slice_id
+            """;
 
         session.createNativeMutationQuery(sql)
             .setParameter("new_begin_position", this.newTimeSliceStart)
@@ -170,10 +177,10 @@ public class MutationFeatureTimeslice {
 
     private void cutOldTSP(StatelessSession session) {
         String sql = """
-            UPDATE %s
+            UPDATE aixm.aixm_timeslice
             SET valid_time_end = :new_begin_position
-            WHERE id = :time_slice_id
-            """.formatted(this.timeSliceSchemaName + "_ts");
+            WHERE hjid = :time_slice_id
+            """;
 
         session.createNativeMutationQuery(sql)
             .setParameter("new_begin_position", this.newTimeSliceStart)

@@ -4,6 +4,7 @@ import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
+import com.aixm.delorean.core.database.AbstractDatabaseHelper;
 import javax.xml.namespace.QName;
 
 public class Delorean<R, F, T, O> {
@@ -13,15 +14,12 @@ public class Delorean<R, F, T, O> {
     }
     
     @SuppressWarnings("unchecked")
-    public static <R, F, T, O> ContainerWarehouse<R, F, T, O> initContainerWarehouse(CoreConfig config) {
-        Class<R> rootClass = (Class<R>) config.getRootClass();
-        Class<F> featureClass = (Class<F>) config.getFeatureClass();
-        Class<T> timeSliceClass = (Class<T>) config.getTimeSliceClass();
-        Class<O> objectClass = (Class<O>) config.getObjectClass();
+    public static <ROOT, FEATURE, TIMESLICE, OBJECT> ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT> initContainerWarehouse(CoreConfig config) {
+        Class<ROOT> rootClass = (Class<ROOT>) config.getRootClass();
+        Class<FEATURE> featureClass = (Class<FEATURE>) config.getFeatureClass();
+        Class<TIMESLICE> timeSliceClass = (Class<TIMESLICE>) config.getTimeSliceClass();
+        Class<OBJECT> objectClass = (Class<OBJECT>) config.getObjectClass();
 
-        QName qName = config.getQName();
-        XMLBindingFactory<R, F> xmlFactory = new XMLBindingFactory<>(rootClass, featureClass, config.getSchemaPath(), config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
-        DatabaseBindingFactory<R, F> databaseFactory = new DatabaseBindingFactory<>(rootClass, featureClass, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath(), config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
         Class<AbstractEngine> engineClass = (Class<AbstractEngine>) config.getDeloreanEngineClass();
         AbstractEngine deloreanEngine;
         try {
@@ -29,8 +27,20 @@ public class Delorean<R, F, T, O> {
         } catch (Exception e) {
             throw new RuntimeException("Failed to instantiate DeloreanEngine: " + engineClass + e.getMessage(), e);
         }
-        
-        return new ContainerWarehouse<R, F, T, O>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine, config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
+
+        Class<AbstractDatabaseHelper> databaseHelperClass = (Class<AbstractDatabaseHelper>) config.getDatabaseHelperClass();
+        AbstractDatabaseHelper databaseHelper;
+        try {
+            databaseHelper = databaseHelperClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate DatabaseHelper: " + databaseHelperClass + e.getMessage(), e);
+        }
+
+        QName qName = config.getQName();
+        XMLBindingFactory<ROOT, FEATURE> xmlFactory = new XMLBindingFactory<>(rootClass, featureClass, config.getSchemaPath(), config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
+        DatabaseBindingFactory<ROOT, FEATURE> databaseFactory = new DatabaseBindingFactory<>(rootClass, featureClass, config.getSqlPreInitPath(), config.getSqlPostInitPath(), config.getConfigurationPath(),  config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass(), databaseHelper);
+
+        return new ContainerWarehouse<ROOT, FEATURE, TIMESLICE, OBJECT>(config.getName(), rootClass, featureClass, timeSliceClass, objectClass, qName, xmlFactory, databaseFactory, deloreanEngine, databaseHelper, config.getCoreResourceAnchorsClass(), config.getAIXMResourceAnchorsClass());
     }
 
 }

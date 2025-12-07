@@ -15,7 +15,7 @@ public abstract class AbstractEngine {
 
     public abstract Object filter(Object container, String filterExpression);
 
-    public abstract Object merge(Object firstObject, Object secondObject);
+    public abstract Object merge(Object object);
 
     public abstract Object integrate(Class<?> type, Object oldObj, Object newObj);
 
