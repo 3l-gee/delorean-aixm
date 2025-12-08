@@ -8,6 +8,10 @@ public class HibernateHelper {
     private static final int DEFAULT_RETRIES = 3;
     private static final long RETRY_DELAY_MS = 500;
 
+    public static <T> T doWithoutTransaction(Session session, HibernateOperation<T> operation) {
+        return operation.apply(session);
+    }
+
     public static <T> T doInTransaction(Session session, HibernateOperation<T> operation) {
         Transaction tx = null;
 

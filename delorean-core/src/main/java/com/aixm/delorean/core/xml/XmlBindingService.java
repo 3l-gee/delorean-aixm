@@ -7,6 +7,8 @@ import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamWriter;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.xpath.XPath;
@@ -60,6 +62,7 @@ public class XmlBindingService<R, F> {
             this.marshaller = this.context.createMarshaller();
             this.marshaller.setSchema(schema);
             this.marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            this.marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             this.marshaller.setEventHandler(this::handleEvent);
         } catch (Exception e) {
             e.printStackTrace();
@@ -217,8 +220,14 @@ public class XmlBindingService<R, F> {
         }
 
         try {
+            XMLOutputFactory factory = XMLOutputFactory.newInstance();
+            XMLStreamWriter standardWriter = factory.createXMLStreamWriter(outputStream, "UTF-8");
+            XMLStreamWriter customWriter = new XMLWriterHelper(standardWriter);
             JAXBElement<R> rootElement = new JAXBElement<>(qName, this.root, record);
-            this.marshaller.marshal(rootElement, outputStream);
+            this.marshaller.marshal(rootElement, customWriter);
+            customWriter.flush();
+            customWriter.close();
+
         } catch (JAXBException e) {
             ConsoleLogger.log(LogLevel.ERROR, "JAXB exception during marshalling: " + e.getMessage());
         

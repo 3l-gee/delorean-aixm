@@ -22,7 +22,6 @@ Simple lifecycle test for AIXM 5.1.1 Delorean container
     - marshal XML
 */
 
-@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TimeSliceMergeAixm511E2E {
@@ -47,8 +46,7 @@ public class TimeSliceMergeAixm511E2E {
     void loadXmlFirstContainer(){
 
         // given 
-        // String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-first.xml";
-        String xmlPath = "src\\test\\resources\\xml\\2025-06-12 ADBS.zip";
+        String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-first.xml";
         
 
         // do
@@ -87,8 +85,7 @@ public class TimeSliceMergeAixm511E2E {
     void loadXmlSecondContainer(){
 
         // given 
-        // String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-second.xml";
-        String xmlPath = "src\\test\\resources\\xml\\2025-12-08 OBS.zip";
+        String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-second.xml";
 
         // do
         FirstContainer.unmarshal(xmlPath);

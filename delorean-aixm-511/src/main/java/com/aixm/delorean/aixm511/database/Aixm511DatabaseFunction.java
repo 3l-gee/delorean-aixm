@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
+import com.aixm.delorean.core.database.HibernateHelper;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -146,81 +147,68 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
         
         AIXMBasicMessageType message = (AIXMBasicMessageType) object;
         Session session = sessionFactory.openSession();
-        Transaction newTimeSliceTransaction = null;
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
 
-        try {
-            // 1. Convert to AixmBasicMesage to separet message and memeber
-            List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
-            message.unsetHasMember();
-            newTimeSliceTransaction = session.beginTransaction();
-            // 2. Persite memeberless message
-            session.persist(message); 
+        // 1. Convert to AixmBasicMesage to separet message and memeber
+        List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
+        message.unsetHasMember();
 
-            // 3. extract current top timeslice from db (top = last)
-            mutationFeatureTimeslices.addAll(Aixm511DatabaseFunction.generateTimesliceAction(session, featureList));
+        // 2. Persite memeberless message
+        HibernateHelper.doInTransaction(session, s -> {
+            s.persist(message);
+            return null;
+        });
 
-            // 4. merge timeslice
-            basicMessageMembers.parallelStream().forEach(bmm -> {
-                try (Session threadSession = sessionFactory.openSession()) {
-                    threadSession.beginTransaction();
+        // 3. extract current top timeslice from db (top = last)
+        mutationFeatureTimeslices.addAll(Aixm511DatabaseFunction.generateTimesliceAction(session, featureList));
 
-                    AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
-                    String identifier = abstractFeature.getId();
-                    MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
-                        .filter(f -> f.getIdentifier().equals(identifier))
-                        .findFirst()
-                        .orElse(null);
+        // 4. feature, timeslice and correction slice are merged
+        Transaction mergeTransaction = session.beginTransaction();
+        int i = 0;
+        for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
+            AbstractAIXMFeatureType abstractFeature = bmm.getAbstractAIXMFeatureValue();
+            String identifier = abstractFeature.getId();
+            MutationFeatureTimeslice existing = mutationFeatureTimeslices.stream()
+                    .filter(f -> f.getIdentifier().equals(identifier))
+                    .findFirst()
+                    .orElse(null);
 
-                    Aixm511DatabaseFunction.extractTimeslice(bmm, existing, threadSession);
+            Aixm511DatabaseFunction.extractTimeslice(bmm, existing, session);
 
-                    threadSession.getTransaction().commit();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-
-            // 5. flush and close original session after persisting message
-            session.flush();
-        } catch (Exception e) {
-            if (newTimeSliceTransaction != null) {
-                newTimeSliceTransaction.rollback();
+            if (++i % 50 == 0) {
+                session.flush();
+                session.clear();
             }
-            e.printStackTrace();
-        } finally {
-            session.close();
         }
-        Transaction oldTimesliceUpdateTransaction = null;
-        try {
-            // 6. Use StatelessSession for manual batch operations
-            oldTimesliceUpdateTransaction = session.beginTransaction();
-            for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
-                if (mft != null) {
-                    mft.appplyMutation(session); // << implement this
-                }
+        mergeTransaction.commit();
+
+        // 6. Use StatelessSession for manual batch operations
+        Transaction updateTransaction = session.beginTransaction();
+        for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
+            if (mft != null) {
+                mft.appplyMutation(session); // << implement this
             }
 
-            oldTimesliceUpdateTransaction.commit();
-            //TODO : link BasicMessageMemberAIXMPropertyType back to AIXMBasicMessageType, but how do i know to wich one ?
-        } catch (Exception e) {
-            if (oldTimesliceUpdateTransaction != null) {
-                oldTimesliceUpdateTransaction.rollback();
+            if (++i % 50 == 0) {
+                session.flush();
+                session.clear();
             }
-            e.printStackTrace();
-        } finally {
-            session.close();
         }
+        updateTransaction.commit();
+
+        session.close();
     }
 
     private static <T extends AbstractAIXMFeatureType> MutationFeatureTimeslice extractTimeslice(BasicMessageMemberAIXMPropertyType basicMessageMember, MutationFeatureTimeslice existing, Session session){
 
         AbstractAIXMTimeSliceType ts;
-        List<Object> tsps;
+        List<Object> tsps = new ArrayList<>(); // Ensure tsps is a valid List
         AbstractAIXMFeatureType abstractFeature = basicMessageMember.getAbstractAIXMFeatureValue(); 
         String getTimesliceMethod = "get" + abstractFeature.getClass().getSimpleName().replace("Type", "") + "TimeSlice";
 
+        
 		try {
-			tsps = (List<Object>) abstractFeature.getClass().getMethod("getTimeSlice").invoke(abstractFeature);
+            tsps.addAll((List<Object>) abstractFeature.getClass().getMethod("getTimeSlice").invoke(abstractFeature));
 		} catch (NoSuchMethodException e) {
 			throw new RuntimeException("No such method: getTimeSlice for feature type: " + abstractFeature.getClass().getSimpleName(), e);
 		} catch (Exception e) {
@@ -260,6 +248,10 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
         // 2. new feature are persited at the basic message level
         if (existing == null) {
             session.persist(bmm);
+            HibernateHelper.doWithoutTransaction(session, s -> {
+                s.persist(bmm);
+                return null;
+            });
             return existing;
 
         // 3. new changes are merged on the existing feature
@@ -268,7 +260,10 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
             if (incomingSeq != existing.getSequenceNumber() + 1) {
                 ConsoleLogger.log(LogLevel.WARN, "Missing Timeslice for feature [" + feature.getClass().getSimpleName() + "] : " +  existing.getIdentifier() + " between sequence numbers: " + existing.getSequenceNumber() + " and " + incomingSeq);
             }
-            session.persist(tsp);
+            HibernateHelper.doWithoutTransaction(session, s -> {
+                s.persist(tsp);
+                return null;
+            });
             existing.setAction(TimeSliceAction.CHANGE);
             existing.setTimeSlicePropertyObject(tsp);
             existing.setNewTimeSliceStart(ts.getValidTime().getBeginPosition());
@@ -277,7 +272,10 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
         
         // 4. correction changes are merged on the existing feature
         } else if (incomingSeq == existing.getSequenceNumber() && incomingCorr > existing.getCorrectionNumber()) {
-            session.persist(tsp);
+            HibernateHelper.doWithoutTransaction(session, s -> {
+                s.persist(tsp);
+                return null;
+            });
             existing.setAction(TimeSliceAction.CORRECTION);
             existing.setTimeSlicePropertyObject(tsp);
             return existing;

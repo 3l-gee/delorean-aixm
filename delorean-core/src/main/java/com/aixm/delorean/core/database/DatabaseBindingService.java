@@ -314,7 +314,7 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         }
 
         try (Session session = sessionFactory.openSession()) {
-            HibernateHelper.doInTransactionWithRetry(session, s -> {
+            HibernateHelper.doInTransaction(session, s -> {
                 s.persist(object);
                 return null;
             });
