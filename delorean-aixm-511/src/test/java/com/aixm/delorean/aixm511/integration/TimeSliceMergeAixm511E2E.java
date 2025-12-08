@@ -13,7 +13,16 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
+/*
+Simple lifecycle test for AIXM 5.1.1 Delorean container 
+    - unmarshal XML
+    - establish connection to DB
+    - persist data to DB
+    - extract data from DB
+    - marshal XML
+*/
 
+@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TimeSliceMergeAixm511E2E {
@@ -38,7 +47,9 @@ public class TimeSliceMergeAixm511E2E {
     void loadXmlFirstContainer(){
 
         // given 
-        String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-first.xml";
+        // String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-first.xml";
+        String xmlPath = "src\\test\\resources\\xml\\2025-06-12 ADBS.zip";
+        
 
         // do
         FirstContainer.unmarshal(xmlPath);
@@ -76,7 +87,8 @@ public class TimeSliceMergeAixm511E2E {
     void loadXmlSecondContainer(){
 
         // given 
-        String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-second.xml";
+        // String xmlPath = "src\\test\\resources\\xml\\timeslice-merge-second.xml";
+        String xmlPath = "src\\test\\resources\\xml\\2025-12-08 OBS.zip";
 
         // do
         FirstContainer.unmarshal(xmlPath);

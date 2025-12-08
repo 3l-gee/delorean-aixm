@@ -11,9 +11,9 @@ public class DatabaseBindingFactory<T, X> {
     protected Configuration configuration;
     protected final Class<?> CoreResourceAnchorsClass;
     protected final Class<?> AIXMResourceAnchorsClass;
-    protected AbstractDatabaseHelper databaseHelper;
+    protected AbstractDatabaseFunctions databaseHelper;
 
-    public DatabaseBindingFactory(Class<T> rootClass, Class<X> featureClass, String sqlPreInitPath, String sqlPostInitPath, String configurationPath, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass, AbstractDatabaseHelper databaseHelper) {
+    public DatabaseBindingFactory(Class<T> rootClass, Class<X> featureClass, String sqlPreInitPath, String sqlPostInitPath, String configurationPath, Class<?> CoreResourceAnchorsClass, Class<?> AIXMResourceAnchorsClass, AbstractDatabaseFunctions databaseHelper) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.sqlPreInitPath = sqlPreInitPath;

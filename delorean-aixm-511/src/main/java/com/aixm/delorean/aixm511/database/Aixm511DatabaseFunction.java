@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.aixm.delorean.core.database.AbstractDatabaseHelper;
+import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
@@ -20,7 +20,7 @@ import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
 
-public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
+public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
 
     private static List<String> featureList = List.of(
     "aerial_refuelling.aerialrefuelling",
@@ -136,7 +136,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
             "airport_heliport.workarea");
 
     @Override
-    public void merge(SessionFactory sessionFactory, Session session, Object object) {
+    public void merge(SessionFactory sessionFactory, Object object) {
 
         if (!(object instanceof AIXMBasicMessageType)) {
         // Handle incorrect object type, e.g., throw IllegalArgumentException or log and return
@@ -145,6 +145,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
         }
         
         AIXMBasicMessageType message = (AIXMBasicMessageType) object;
+        Session session = sessionFactory.openSession();
         Transaction newTimeSliceTransaction = null;
         List<MutationFeatureTimeslice> mutationFeatureTimeslices = new ArrayList<>();
 
@@ -157,7 +158,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
             session.persist(message); 
 
             // 3. extract current top timeslice from db (top = last)
-            mutationFeatureTimeslices.addAll(Aixm511DatabaseHelper.generateTimesliceAction(session, featureList));
+            mutationFeatureTimeslices.addAll(Aixm511DatabaseFunction.generateTimesliceAction(session, featureList));
 
             // 4. merge timeslice
             basicMessageMembers.parallelStream().forEach(bmm -> {
@@ -171,7 +172,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
                         .findFirst()
                         .orElse(null);
 
-                    Aixm511DatabaseHelper.extractTimeslice(bmm, existing, threadSession);
+                    Aixm511DatabaseFunction.extractTimeslice(bmm, existing, threadSession);
 
                     threadSession.getTransaction().commit();
                 } catch (Exception e) {
@@ -235,7 +236,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
                 throw new RuntimeException("Failed to access value/nilReason", e);
             }
             
-            return Aixm511DatabaseHelper.mergeTimeSlice(ts, tsp, abstractFeature, existing, basicMessageMember, session);
+            return Aixm511DatabaseFunction.mergeTimeSlice(ts, tsp, abstractFeature, existing, basicMessageMember, session);
         }
 
         return existing;
@@ -291,7 +292,7 @@ public class Aixm511DatabaseHelper extends AbstractDatabaseHelper {
     private static List<MutationFeatureTimeslice> generateTimesliceAction(Session session, List<String> featureList){
         List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
         for (String name : featureList) {
-            String sql = Aixm511DatabaseHelper.querryValidTimeslice(name);
+            String sql = Aixm511DatabaseFunction.querryValidTimeslice(name);
             List<Tuple> tuples = session.createNativeQuery(sql, Tuple.class).getResultList();
             featureTimeslices.addAll(tuples.stream()
                 .map(t -> new MutationFeatureTimeslice(

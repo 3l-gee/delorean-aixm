@@ -4,7 +4,7 @@ import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingFactory;
 import com.aixm.delorean.core.engine.AbstractEngine;
 import com.aixm.delorean.core.xml.XMLBindingFactory;
-import com.aixm.delorean.core.database.AbstractDatabaseHelper;
+import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import javax.xml.namespace.QName;
 
 public class Delorean<R, F, T, O> {
@@ -28,8 +28,8 @@ public class Delorean<R, F, T, O> {
             throw new RuntimeException("Failed to instantiate DeloreanEngine: " + engineClass + e.getMessage(), e);
         }
 
-        Class<AbstractDatabaseHelper> databaseHelperClass = (Class<AbstractDatabaseHelper>) config.getDatabaseHelperClass();
-        AbstractDatabaseHelper databaseHelper;
+        Class<AbstractDatabaseFunctions> databaseHelperClass = (Class<AbstractDatabaseFunctions>) config.getDatabaseHelperClass();
+        AbstractDatabaseFunctions databaseHelper;
         try {
             databaseHelper = databaseHelperClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {

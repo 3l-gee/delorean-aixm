@@ -10,11 +10,19 @@ public class TimePrimitivePropertyTypeAdapter extends XmlAdapter<TimePrimitivePr
     
     @Override
     public DeloreanTimeSliceType unmarshal(TimePrimitivePropertyType v) throws Exception {
+        if (v == null) {
+            return null;
+        }
+    
         return (TimeSliceHelper.parseValidTime(v));
     }
 
     @Override
     public TimePrimitivePropertyType marshal(DeloreanTimeSliceType v) throws Exception {
+        if (v == null) {
+            return null;
+        }
+        
         return (TimeSliceHelper.printValidTime(v));
     }
 

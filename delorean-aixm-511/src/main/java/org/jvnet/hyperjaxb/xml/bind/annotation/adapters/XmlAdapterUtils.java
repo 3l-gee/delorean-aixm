@@ -228,8 +228,8 @@ public class XmlAdapterUtils
 			if (value == null) {
 				// do nothing
 			} else if (value.getClass() == java.lang.String.class) {
-				value = (value == null || ((String) value).isEmpty()) ? null : value;
-			}
+				value = (value == null || ((String) value).isEmpty() || value == "") ? null : value;
+			}	
 
 			// Case 2A — normal value
 			if (value != null && nilReason == null) {
@@ -246,6 +246,7 @@ public class XmlAdapterUtils
 			}
 
 			// Case 2C — illegal state
+			System.out.println("Warning: Illegal combination: value=" + value + ", nilReason=" + nilReason + "for : " + v.getClass().getName());
 			final XmlAdapter<BoundType, ValueType> xmlAdapter = getXmlAdapter(xmlAdapterClass);
 			return new JAXBElement<BoundType>(name, declaredType, scope, xmlAdapter.marshal(v));
 			//
@@ -283,7 +284,7 @@ public class XmlAdapterUtils
 		if (value == null) {
 			// do nothing
 		} else if (value.getClass() == java.lang.String.class) {
-			value = (value == null || ((String) value).isEmpty()) ? null : value;
+			value = (value == null || ((String) value).isEmpty() || value == "") ? null : value;
 		}
 
 		// Case 2A — normal value
@@ -299,6 +300,7 @@ public class XmlAdapterUtils
 		}
 
 		// Case 2C — illegal state
+		System.out.println("Warning: Illegal combination: value=" + value + ", nilReason=" + nilReason + "for : " + v.getClass().getName());
 		return new JAXBElement<>(name, declaredType, scope, v);
 		//
 		// throw new IllegalStateException(

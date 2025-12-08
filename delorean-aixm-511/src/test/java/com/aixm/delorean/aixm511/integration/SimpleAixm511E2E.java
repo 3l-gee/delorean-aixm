@@ -13,7 +13,18 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Disabled
+/*
+Merge lifecycle test for AIXM 5.1.1 Delorean container
+    - unmarshal firt XML
+    - establish connection to DB
+    - persist data to DB
+    - unmarshal second XML
+    - establish connection to DB
+    - merge second data into first data
+    - extract data from DB
+    - marshal XML
+*/
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SimpleAixm511E2E {

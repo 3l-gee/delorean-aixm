@@ -3,7 +3,7 @@ package com.aixm.delorean.core.container;
 import com.aixm.delorean.core.xml.XmlBindingService;
 import com.aixm.delorean.core.xml.XMLConfig;
 import com.aixm.delorean.core.Delorean;
-import com.aixm.delorean.core.database.AbstractDatabaseHelper;
+import com.aixm.delorean.core.database.AbstractDatabaseFunctions;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.database.DatabaseConfig;
 import com.aixm.delorean.core.engine.AbstractEngine;

@@ -34,9 +34,9 @@ public class DatabaseBindingService<ROOT, FEATURE> {
     private SessionFactory sessionFactory;
     private Configuration configuration;
     private ConnectionStatus connectionStatus;
-    protected AbstractDatabaseHelper databaseHelper;
+    protected AbstractDatabaseFunctions databaseHelper;
 
-    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseHelper databaseHelper) {
+    public DatabaseBindingService(Class<ROOT> rootClass, Class<FEATURE> featureClass, String sqlPreInitPath, String sqlPostInitPath, Configuration configuration, ConnectionStatus connectionStatus, AbstractDatabaseFunctions databaseHelper) {
         this.rootClass = rootClass;
         this.featureClass = featureClass;
         this.sqlPreInit = this.inputStreamToSQL(Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPreInitPath));
@@ -313,23 +313,13 @@ public class DatabaseBindingService<ROOT, FEATURE> {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
-        Session session = this.getSession();
-        Transaction transaction = null;
-
-        try {
-            transaction = session.beginTransaction();
-
-            session.persist(object); 
-
-            transaction.commit();
-
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
+        try (Session session = sessionFactory.openSession()) {
+            HibernateHelper.doInTransactionWithRetry(session, s -> {
+                s.persist(object);
+                return null;
+            });
+        } catch (Exception ex) {
+            throw new RuntimeException("Failed to persist " + object.getClass().getName(), ex);
         }
     }
 
@@ -365,9 +355,7 @@ public class DatabaseBindingService<ROOT, FEATURE> {
             throw new IllegalArgumentException("sessionfactory is not init");
         }
 
-        Session session = this.getSession();
-
-        this.databaseHelper.merge(sessionFactory, session, object);
+        this.databaseHelper.merge(this.sessionFactory, object);
     }
 
     // public Object export(Class<T> structure, Object id) {
