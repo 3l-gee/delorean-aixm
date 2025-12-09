@@ -149,19 +149,6 @@ public class OffsetCurveType
         }
         final OffsetCurveType that = ((OffsetCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOffsetBase();
-            boolean rhsFieldIsSet = that.isSetOffsetBase();
-            CurvePropertyType lhsField;
-            lhsField = this.getOffsetBase();
-            CurvePropertyType rhsField;
-            rhsField = that.getOffsetBase();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetBase", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetBase", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistance();
             boolean rhsFieldIsSet = that.isSetDistance();
             LengthType lhsField;
@@ -183,6 +170,19 @@ public class OffsetCurveType
             rhsField = that.getRefDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOffsetBase();
+            boolean rhsFieldIsSet = that.isSetOffsetBase();
+            CurvePropertyType lhsField;
+            lhsField = this.getOffsetBase();
+            CurvePropertyType rhsField;
+            rhsField = that.getOffsetBase();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetBase", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetBase", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

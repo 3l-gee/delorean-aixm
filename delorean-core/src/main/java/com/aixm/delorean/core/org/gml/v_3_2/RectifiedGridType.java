@@ -137,19 +137,6 @@ public class RectifiedGridType
         }
         final RectifiedGridType that = ((RectifiedGridType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrigin();
-            boolean rhsFieldIsSet = that.isSetOrigin();
-            PointPropertyType lhsField;
-            lhsField = this.getOrigin();
-            PointPropertyType rhsField;
-            rhsField = that.getOrigin();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOffsetVector();
             boolean rhsFieldIsSet = that.isSetOffsetVector();
             List<VectorType> lhsField;
@@ -158,6 +145,19 @@ public class RectifiedGridType
             rhsField = (that.isSetOffsetVector()?that.getOffsetVector():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offsetVector", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offsetVector", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrigin();
+            boolean rhsFieldIsSet = that.isSetOrigin();
+            PointPropertyType lhsField;
+            lhsField = this.getOrigin();
+            PointPropertyType rhsField;
+            rhsField = that.getOrigin();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

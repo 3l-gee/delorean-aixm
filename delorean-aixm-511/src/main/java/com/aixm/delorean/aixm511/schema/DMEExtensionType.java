@@ -260,19 +260,6 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
         }
         final DMEExtensionType that = ((DMEExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class DMEExtensionType implements Serializable, Equals, HashCode, ToStrin
             rhsField = that.getAbstractDMEExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractDMEExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractDMEExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractNavaidEquipmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

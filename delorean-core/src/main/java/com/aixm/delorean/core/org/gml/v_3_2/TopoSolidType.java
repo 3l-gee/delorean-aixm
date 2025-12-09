@@ -265,19 +265,6 @@ public class TopoSolidType
         }
         final TopoSolidType that = ((TopoSolidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSolidProperty();
-            boolean rhsFieldIsSet = that.isSetSolidProperty();
-            SolidPropertyType lhsField;
-            lhsField = this.getSolidProperty();
-            SolidPropertyType rhsField;
-            rhsField = that.getSolidProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidProperty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUniversal();
             boolean rhsFieldIsSet = that.isSetUniversal();
             boolean lhsField;
@@ -304,19 +291,6 @@ public class TopoSolidType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDirectedFace();
             boolean rhsFieldIsSet = that.isSetDirectedFace();
             List<DirectedFacePropertyType> lhsField;
@@ -325,6 +299,32 @@ public class TopoSolidType
             rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSolidProperty();
+            boolean rhsFieldIsSet = that.isSetSolidProperty();
+            SolidPropertyType lhsField;
+            lhsField = this.getSolidProperty();
+            SolidPropertyType rhsField;
+            rhsField = that.getSolidProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "solidProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "solidProperty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

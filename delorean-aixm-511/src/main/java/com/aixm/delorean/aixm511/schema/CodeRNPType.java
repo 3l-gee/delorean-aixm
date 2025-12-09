@@ -66,7 +66,7 @@ public class CodeRNPType implements Serializable, Equals, HashCode, ToString
      *     
      */
     @Basic
-    @Column(name = "VALUE_", precision = 20, scale = 10)
+    @Column(name = "VALUE_", precision = 11, scale = 1)
     public BigDecimal getValue() {
         return value;
     }

@@ -269,14 +269,14 @@ public class MDFeatureCatalogueDescriptionType
         }
         final MDFeatureCatalogueDescriptionType that = ((MDFeatureCatalogueDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFeatureTypes();
-            boolean rhsFieldIsSet = that.isSetFeatureTypes();
-            List<GenericNamePropertyType> lhsField;
-            lhsField = (this.isSetFeatureTypes()?this.getFeatureTypes():null);
-            List<GenericNamePropertyType> rhsField;
-            rhsField = (that.isSetFeatureTypes()?that.getFeatureTypes():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureTypes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureTypes", rhsField);
+            boolean lhsFieldIsSet = this.isSetFeatureCatalogueCitation();
+            boolean rhsFieldIsSet = that.isSetFeatureCatalogueCitation();
+            List<CICitationPropertyType> lhsField;
+            lhsField = (this.isSetFeatureCatalogueCitation()?this.getFeatureCatalogueCitation():null);
+            List<CICitationPropertyType> rhsField;
+            rhsField = (that.isSetFeatureCatalogueCitation()?that.getFeatureCatalogueCitation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -321,14 +321,14 @@ public class MDFeatureCatalogueDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFeatureCatalogueCitation();
-            boolean rhsFieldIsSet = that.isSetFeatureCatalogueCitation();
-            List<CICitationPropertyType> lhsField;
-            lhsField = (this.isSetFeatureCatalogueCitation()?this.getFeatureCatalogueCitation():null);
-            List<CICitationPropertyType> rhsField;
-            rhsField = (that.isSetFeatureCatalogueCitation()?that.getFeatureCatalogueCitation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureCatalogueCitation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureCatalogueCitation", rhsField);
+            boolean lhsFieldIsSet = this.isSetFeatureTypes();
+            boolean rhsFieldIsSet = that.isSetFeatureTypes();
+            List<GenericNamePropertyType> lhsField;
+            lhsField = (this.isSetFeatureTypes()?this.getFeatureTypes():null);
+            List<GenericNamePropertyType> rhsField;
+            rhsField = (that.isSetFeatureTypes()?that.getFeatureTypes():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureTypes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureTypes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

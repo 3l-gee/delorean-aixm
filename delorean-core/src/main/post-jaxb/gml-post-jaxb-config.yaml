@@ -19,7 +19,7 @@ change:
         ]
 
   - where: 
-      filePath: delorean\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
+      filePath: delorean-core\src\main\java\com\aixm\delorean\core\org\gml\v_3_2\AbstractGMLType.java
       method: getIdentifier 
     updates:
       - old:

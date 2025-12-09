@@ -533,14 +533,14 @@ public class TouchDownLiftOffSafeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLighting();
-            boolean rhsFieldIsSet = that.isSetLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -559,27 +559,27 @@ public class TouchDownLiftOffSafeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetObstacleFree();
-            boolean rhsFieldIsSet = that.isSetObstacleFree();
+            boolean lhsFieldIsSet = this.isSetLighting();
+            boolean rhsFieldIsSet = that.isSetLighting();
             JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getObstacleFree();
+            lhsField = this.getLighting();
             JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getObstacleFree();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleFree", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleFree", rhsField);
+            rhsField = that.getLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProtectedTouchDownLiftOff();
-            boolean rhsFieldIsSet = that.isSetProtectedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getProtectedTouchDownLiftOff();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getProtectedTouchDownLiftOff();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedTouchDownLiftOff", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedTouchDownLiftOff", rhsField);
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -611,27 +611,27 @@ public class TouchDownLiftOffSafeAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMElevatedSurfacePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetObstacleFree();
+            boolean rhsFieldIsSet = that.isSetObstacleFree();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getObstacleFree();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getObstacleFree();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleFree", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleFree", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            boolean lhsFieldIsSet = this.isSetProtectedTouchDownLiftOff();
+            boolean rhsFieldIsSet = that.isSetProtectedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getProtectedTouchDownLiftOff();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getProtectedTouchDownLiftOff();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protectedTouchDownLiftOff", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protectedTouchDownLiftOff", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

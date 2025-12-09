@@ -223,19 +223,6 @@ public class EquipmentUnavailableAdjustmentTypeExtensionType implements Serializ
         }
         final EquipmentUnavailableAdjustmentTypeExtensionType that = ((EquipmentUnavailableAdjustmentTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractEquipmentUnavailableAdjustmentExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractEquipmentUnavailableAdjustmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class EquipmentUnavailableAdjustmentTypeExtensionType implements Serializ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractEquipmentUnavailableAdjustmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractEquipmentUnavailableAdjustmentExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractEquipmentUnavailableAdjustmentExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractEquipmentUnavailableAdjustmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractEquipmentUnavailableAdjustmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractEquipmentUnavailableAdjustmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

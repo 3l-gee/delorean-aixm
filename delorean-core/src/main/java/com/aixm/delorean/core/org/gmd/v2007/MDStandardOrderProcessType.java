@@ -182,14 +182,14 @@ public class MDStandardOrderProcessType
         }
         final MDStandardOrderProcessType that = ((MDStandardOrderProcessType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
-            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
+            boolean lhsFieldIsSet = this.isSetTurnaround();
+            boolean rhsFieldIsSet = that.isSetTurnaround();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getOrderingInstructions();
+            lhsField = this.getTurnaround();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getOrderingInstructions();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
+            rhsField = that.getTurnaround();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnaround", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnaround", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -208,14 +208,14 @@ public class MDStandardOrderProcessType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnaround();
-            boolean rhsFieldIsSet = that.isSetTurnaround();
+            boolean lhsFieldIsSet = this.isSetOrderingInstructions();
+            boolean rhsFieldIsSet = that.isSetOrderingInstructions();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getTurnaround();
+            lhsField = this.getOrderingInstructions();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getTurnaround();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnaround", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnaround", rhsField);
+            rhsField = that.getOrderingInstructions();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

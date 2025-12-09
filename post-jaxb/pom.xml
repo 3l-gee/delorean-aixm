@@ -16,7 +16,7 @@
     <artifactId>post-jaxb</artifactId>
     <packaging>jar</packaging>
 
-    <name>Post-JAXB Codegen Fix Utility</name>
+    <name>JAXB Post Processing Runner</name>
     <description>Post-processing for JAXB generated classes</description>
 
     <properties>

@@ -134,19 +134,6 @@ public class URLPropertyType implements Serializable, Equals, HashCode, ToString
         }
         final URLPropertyType that = ((URLPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetURL();
-            boolean rhsFieldIsSet = that.isSetURL();
-            String lhsField;
-            lhsField = this.getURL();
-            String rhsField;
-            rhsField = that.getURL();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "url", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "url", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -155,6 +142,19 @@ public class URLPropertyType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetURL();
+            boolean rhsFieldIsSet = that.isSetURL();
+            String lhsField;
+            lhsField = this.getURL();
+            String rhsField;
+            rhsField = that.getURL();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "url", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "url", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

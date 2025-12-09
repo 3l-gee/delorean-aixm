@@ -267,14 +267,14 @@ public class ElevatedSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ElevatedSurfaceTypeExtension> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<ElevatedSurfaceTypeExtension> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetElevation();
+            boolean rhsFieldIsSet = that.isSetElevation();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getElevation();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getElevation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -293,14 +293,14 @@ public class ElevatedSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElevation();
-            boolean rhsFieldIsSet = that.isSetElevation();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getElevation();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getElevation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elevation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elevation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ElevatedSurfaceTypeExtension> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<ElevatedSurfaceTypeExtension> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

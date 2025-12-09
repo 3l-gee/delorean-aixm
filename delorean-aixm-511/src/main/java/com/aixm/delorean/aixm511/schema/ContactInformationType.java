@@ -473,14 +473,14 @@ public class ContactInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = this.isSetPhoneFax();
+            boolean rhsFieldIsSet = that.isSetPhoneFax();
+            List<TelephoneContactPropertyType> lhsField;
+            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
+            List<TelephoneContactPropertyType> rhsField;
+            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -499,19 +499,6 @@ public class ContactInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNetworkNode();
-            boolean rhsFieldIsSet = that.isSetNetworkNode();
-            List<OnlineContactPropertyType> lhsField;
-            lhsField = (this.isSetNetworkNode()?this.getNetworkNode():null);
-            List<OnlineContactPropertyType> rhsField;
-            rhsField = (that.isSetNetworkNode()?that.getNetworkNode():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAixmName();
             boolean rhsFieldIsSet = that.isSetAixmName();
             JAXBElement<TextNameType> lhsField;
@@ -520,6 +507,19 @@ public class ContactInformationType
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -538,14 +538,14 @@ public class ContactInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPhoneFax();
-            boolean rhsFieldIsSet = that.isSetPhoneFax();
-            List<TelephoneContactPropertyType> lhsField;
-            lhsField = (this.isSetPhoneFax()?this.getPhoneFax():null);
-            List<TelephoneContactPropertyType> rhsField;
-            rhsField = (that.isSetPhoneFax()?that.getPhoneFax():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "phoneFax", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "phoneFax", rhsField);
+            boolean lhsFieldIsSet = this.isSetNetworkNode();
+            boolean rhsFieldIsSet = that.isSetNetworkNode();
+            List<OnlineContactPropertyType> lhsField;
+            lhsField = (this.isSetNetworkNode()?this.getNetworkNode():null);
+            List<OnlineContactPropertyType> rhsField;
+            rhsField = (that.isSetNetworkNode()?that.getNetworkNode():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "networkNode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "networkNode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

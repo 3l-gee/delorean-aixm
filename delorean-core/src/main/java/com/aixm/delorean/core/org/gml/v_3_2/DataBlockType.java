@@ -192,19 +192,6 @@ public class DataBlockType implements Serializable, Equals, HashCode, ToString
         }
         final DataBlockType that = ((DataBlockType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTupleList();
-            boolean rhsFieldIsSet = that.isSetTupleList();
-            CoordinatesType lhsField;
-            lhsField = this.getTupleList();
-            CoordinatesType rhsField;
-            rhsField = that.getTupleList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tupleList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tupleList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDoubleOrNilReasonTupleList();
             boolean rhsFieldIsSet = that.isSetDoubleOrNilReasonTupleList();
             List<String> lhsField;
@@ -213,6 +200,19 @@ public class DataBlockType implements Serializable, Equals, HashCode, ToString
             rhsField = (that.isSetDoubleOrNilReasonTupleList()?that.getDoubleOrNilReasonTupleList():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "doubleOrNilReasonTupleList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "doubleOrNilReasonTupleList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTupleList();
+            boolean rhsFieldIsSet = that.isSetTupleList();
+            CoordinatesType lhsField;
+            lhsField = this.getTupleList();
+            CoordinatesType rhsField;
+            rhsField = that.getTupleList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tupleList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tupleList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

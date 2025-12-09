@@ -305,19 +305,6 @@ public class ProcedureTransitionLegType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
-            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getSeqNumberARINC();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getSeqNumberARINC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -326,6 +313,19 @@ public class ProcedureTransitionLegType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeqNumberARINC();
+            boolean rhsFieldIsSet = that.isSetSeqNumberARINC();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getSeqNumberARINC();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getSeqNumberARINC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seqNumberARINC", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seqNumberARINC", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

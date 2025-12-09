@@ -223,19 +223,6 @@ public class GuidanceLineTimeSlicePropertyType implements Serializable, Equals, 
         }
         final GuidanceLineTimeSlicePropertyType that = ((GuidanceLineTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGuidanceLineTimeSlice();
-            boolean rhsFieldIsSet = that.isSetGuidanceLineTimeSlice();
-            GuidanceLineTimeSliceType lhsField;
-            lhsField = this.getGuidanceLineTimeSlice();
-            GuidanceLineTimeSliceType rhsField;
-            rhsField = that.getGuidanceLineTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceLineTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceLineTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class GuidanceLineTimeSlicePropertyType implements Serializable, Equals, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGuidanceLineTimeSlice();
+            boolean rhsFieldIsSet = that.isSetGuidanceLineTimeSlice();
+            GuidanceLineTimeSliceType lhsField;
+            lhsField = this.getGuidanceLineTimeSlice();
+            GuidanceLineTimeSliceType rhsField;
+            rhsField = that.getGuidanceLineTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "guidanceLineTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "guidanceLineTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

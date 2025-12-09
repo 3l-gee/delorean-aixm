@@ -4,23 +4,18 @@ import org.junit.jupiter.api.*;
 
 import com.aixm.delorean.aixm511.AIXM511;
 import com.aixm.delorean.aixm511.engine.Aixm511Engine;
-import com.aixm.delorean.core.CoreConfig;
-import com.aixm.delorean.core.Delorean;
 import com.aixm.delorean.core.container.Container;
-import com.aixm.delorean.core.container.ContainerWarehouse;
 import com.aixm.delorean.core.database.DatabaseBindingService;
 import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
+
 /*
-Merge lifecycle test for AIXM 5.1.1 Delorean container
-    - unmarshal firt XML
+Simple lifecycle test for AIXM 5.1.1 Delorean container 
+    - unmarshal XML
     - establish connection to DB
     - persist data to DB
-    - unmarshal second XML
-    - establish connection to DB
-    - merge second data into first data
     - extract data from DB
     - marshal XML
 */

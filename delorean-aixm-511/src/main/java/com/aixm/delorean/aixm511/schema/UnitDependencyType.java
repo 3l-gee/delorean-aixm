@@ -279,32 +279,6 @@ public class UnitDependencyType
         }
         final UnitDependencyType that = ((UnitDependencyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheUnit();
-            boolean rhsFieldIsSet = that.isSetTheUnit();
-            UnitPropertyType lhsField;
-            lhsField = this.getTheUnit();
-            UnitPropertyType rhsField;
-            rhsField = that.getTheUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeUnitDependencyType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeUnitDependencyType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<UnitDependencyTypeExtensionType> lhsField;
@@ -318,6 +292,19 @@ public class UnitDependencyType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetTheUnit();
+            boolean rhsFieldIsSet = that.isSetTheUnit();
+            UnitPropertyType lhsField;
+            lhsField = this.getTheUnit();
+            UnitPropertyType rhsField;
+            rhsField = that.getTheUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theUnit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -326,6 +313,19 @@ public class UnitDependencyType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeUnitDependencyType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeUnitDependencyType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

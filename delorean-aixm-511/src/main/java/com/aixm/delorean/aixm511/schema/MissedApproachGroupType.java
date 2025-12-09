@@ -393,6 +393,19 @@ public class MissedApproachGroupType
         }
         final MissedApproachGroupType that = ((MissedApproachGroupType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAltimeter();
+            boolean rhsFieldIsSet = that.isSetAltimeter();
+            List<AltimeterSourcePropertyType> lhsField;
+            lhsField = (this.isSetAltimeter()?this.getAltimeter():null);
+            List<AltimeterSourcePropertyType> rhsField;
+            rhsField = (that.isSetAltimeter()?that.getAltimeter():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altimeter", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altimeter", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -419,14 +432,14 @@ public class MissedApproachGroupType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAltimeter();
-            boolean rhsFieldIsSet = that.isSetAltimeter();
-            List<AltimeterSourcePropertyType> lhsField;
-            lhsField = (this.isSetAltimeter()?this.getAltimeter():null);
-            List<AltimeterSourcePropertyType> rhsField;
-            rhsField = (that.isSetAltimeter()?that.getAltimeter():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altimeter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altimeter", rhsField);
+            boolean lhsFieldIsSet = this.isSetInstruction();
+            boolean rhsFieldIsSet = that.isSetInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -453,19 +466,6 @@ public class MissedApproachGroupType
             rhsField = that.getAlternateClimbAltitude();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alternateClimbAltitude", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alternateClimbAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInstruction();
-            boolean rhsFieldIsSet = that.isSetInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

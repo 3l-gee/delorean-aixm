@@ -265,40 +265,14 @@ public class MDFormatType
         }
         final MDFormatType that = ((MDFormatType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecification();
-            boolean rhsFieldIsSet = that.isSetSpecification();
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getSpecification();
+            lhsField = this.getName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getSpecification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFormatDistributor();
-            boolean rhsFieldIsSet = that.isSetFormatDistributor();
-            List<MDDistributorPropertyType> lhsField;
-            lhsField = (this.isSetFormatDistributor()?this.getFormatDistributor():null);
-            List<MDDistributorPropertyType> rhsField;
-            rhsField = (that.isSetFormatDistributor()?that.getFormatDistributor():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formatDistributor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formatDistributor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAmendmentNumber();
-            boolean rhsFieldIsSet = that.isSetAmendmentNumber();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getAmendmentNumber();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getAmendmentNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "amendmentNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "amendmentNumber", rhsField);
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -317,6 +291,32 @@ public class MDFormatType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFormatDistributor();
+            boolean rhsFieldIsSet = that.isSetFormatDistributor();
+            List<MDDistributorPropertyType> lhsField;
+            lhsField = (this.isSetFormatDistributor()?this.getFormatDistributor():null);
+            List<MDDistributorPropertyType> rhsField;
+            rhsField = (that.isSetFormatDistributor()?that.getFormatDistributor():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "formatDistributor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "formatDistributor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecification();
+            boolean rhsFieldIsSet = that.isSetSpecification();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSpecification();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSpecification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
             boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
             CharacterStringPropertyType lhsField;
@@ -330,14 +330,14 @@ public class MDFormatType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
+            boolean lhsFieldIsSet = this.isSetAmendmentNumber();
+            boolean rhsFieldIsSet = that.isSetAmendmentNumber();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
+            lhsField = this.getAmendmentNumber();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            rhsField = that.getAmendmentNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "amendmentNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "amendmentNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

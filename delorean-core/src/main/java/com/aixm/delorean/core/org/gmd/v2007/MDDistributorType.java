@@ -235,14 +235,14 @@ public class MDDistributorType
         }
         final MDDistributorType that = ((MDDistributorType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistributorContact();
-            boolean rhsFieldIsSet = that.isSetDistributorContact();
-            CIResponsiblePartyPropertyType lhsField;
-            lhsField = this.getDistributorContact();
-            CIResponsiblePartyPropertyType rhsField;
-            rhsField = that.getDistributorContact();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistributorTransferOptions();
+            boolean rhsFieldIsSet = that.isSetDistributorTransferOptions();
+            List<MDDigitalTransferOptionsPropertyType> lhsField;
+            lhsField = (this.isSetDistributorTransferOptions()?this.getDistributorTransferOptions():null);
+            List<MDDigitalTransferOptionsPropertyType> rhsField;
+            rhsField = (that.isSetDistributorTransferOptions()?that.getDistributorTransferOptions():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorTransferOptions", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorTransferOptions", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -261,19 +261,6 @@ public class MDDistributorType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDistributorTransferOptions();
-            boolean rhsFieldIsSet = that.isSetDistributorTransferOptions();
-            List<MDDigitalTransferOptionsPropertyType> lhsField;
-            lhsField = (this.isSetDistributorTransferOptions()?this.getDistributorTransferOptions():null);
-            List<MDDigitalTransferOptionsPropertyType> rhsField;
-            rhsField = (that.isSetDistributorTransferOptions()?that.getDistributorTransferOptions():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorTransferOptions", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorTransferOptions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDistributionOrderProcess();
             boolean rhsFieldIsSet = that.isSetDistributionOrderProcess();
             List<MDStandardOrderProcessPropertyType> lhsField;
@@ -282,6 +269,19 @@ public class MDDistributorType
             rhsField = (that.isSetDistributionOrderProcess()?that.getDistributionOrderProcess():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributionOrderProcess", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributionOrderProcess", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDistributorContact();
+            boolean rhsFieldIsSet = that.isSetDistributorContact();
+            CIResponsiblePartyPropertyType lhsField;
+            lhsField = this.getDistributorContact();
+            CIResponsiblePartyPropertyType rhsField;
+            rhsField = that.getDistributorContact();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distributorContact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distributorContact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

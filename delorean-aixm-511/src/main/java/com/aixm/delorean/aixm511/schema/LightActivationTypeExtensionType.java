@@ -223,19 +223,6 @@ public class LightActivationTypeExtensionType implements Serializable, Equals, H
         }
         final LightActivationTypeExtensionType that = ((LightActivationTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractLightActivationExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractLightActivationExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractLightActivationExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractLightActivationExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightActivationExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightActivationExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class LightActivationTypeExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractLightActivationExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractLightActivationExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractLightActivationExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractLightActivationExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractLightActivationExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractLightActivationExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

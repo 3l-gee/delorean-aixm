@@ -338,7 +338,7 @@
                                     <goal>java</goal>
                                 </goals>
                                 <configuration>
-                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBCodegenFix</mainClass>
+                                    <mainClass>com.aixm.delorean.postjaxb.PostJAXBRunner</mainClass>
                                     <arguments>
                                         <argument>${project.basedir}/src/main/post-jaxb/aixm511-post-jaxb-config.yaml</argument>
                                     </arguments>

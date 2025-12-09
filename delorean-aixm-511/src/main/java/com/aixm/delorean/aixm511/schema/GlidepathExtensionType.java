@@ -260,14 +260,14 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
         }
         final GlidepathExtensionType that = ((GlidepathExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGlidepathExtension();
+            lhsField = this.getAbstractNavaidEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGlidepathExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
+            rhsField = that.getAbstractNavaidEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class GlidepathExtensionType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractGlidepathExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGlidepathExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractNavaidEquipmentExtension();
+            lhsField = this.getAbstractGlidepathExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractNavaidEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractNavaidEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractNavaidEquipmentExtension", rhsField);
+            rhsField = that.getAbstractGlidepathExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGlidepathExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGlidepathExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

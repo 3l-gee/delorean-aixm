@@ -153,19 +153,6 @@ public class GeodesicStringType
         }
         final GeodesicStringType that = ((GeodesicStringType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPosList();
-            boolean rhsFieldIsSet = that.isSetPosList();
-            DirectPositionListType lhsField;
-            lhsField = this.getPosList();
-            DirectPositionListType rhsField;
-            rhsField = that.getPosList();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
             boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
             List<Object> lhsField;
@@ -174,6 +161,19 @@ public class GeodesicStringType
             rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPosList();
+            boolean rhsFieldIsSet = that.isSetPosList();
+            DirectPositionListType lhsField;
+            lhsField = this.getPosList();
+            DirectPositionListType rhsField;
+            rhsField = that.getPosList();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "posList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posList", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

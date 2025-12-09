@@ -116,19 +116,6 @@ public class RSIdentifierType
         }
         final RSIdentifierType that = ((RSIdentifierType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCodeSpace();
-            boolean rhsFieldIsSet = that.isSetCodeSpace();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getCodeSpace();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getCodeSpace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVersion();
             boolean rhsFieldIsSet = that.isSetVersion();
             CharacterStringPropertyType lhsField;
@@ -137,6 +124,19 @@ public class RSIdentifierType
             rhsField = that.getVersion();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCodeSpace();
+            boolean rhsFieldIsSet = that.isSetCodeSpace();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getCodeSpace();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getCodeSpace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "codeSpace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "codeSpace", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

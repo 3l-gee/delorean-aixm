@@ -1,9 +1,9 @@
 package com.aixm.delorean.postjaxb;
 
 public class Regex {
-    private String filePath; // glob or regex for file matching
-    private String regex;       // regex pattern to find
-    private String replacement; // what to replace with
+    private String filePath;
+    private String regex;
+    private String replacement;
 
     public String getFilePath() {
         return filePath;

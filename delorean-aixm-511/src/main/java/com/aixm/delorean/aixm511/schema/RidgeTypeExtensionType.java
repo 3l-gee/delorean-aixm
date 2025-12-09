@@ -223,19 +223,6 @@ public class RidgeTypeExtensionType implements Serializable, Equals, HashCode, T
         }
         final RidgeTypeExtensionType that = ((RidgeTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRidgeExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRidgeExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRidgeExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRidgeExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRidgeExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRidgeExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RidgeTypeExtensionType implements Serializable, Equals, HashCode, T
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRidgeExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRidgeExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRidgeExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRidgeExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRidgeExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRidgeExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

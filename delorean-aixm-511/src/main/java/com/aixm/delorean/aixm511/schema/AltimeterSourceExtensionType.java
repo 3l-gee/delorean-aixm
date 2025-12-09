@@ -223,19 +223,6 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
         }
         final AltimeterSourceExtensionType that = ((AltimeterSourceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAltimeterSourceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAltimeterSourceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AltimeterSourceExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAltimeterSourceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAltimeterSourceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAltimeterSourceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAltimeterSourceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAltimeterSourceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAltimeterSourceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

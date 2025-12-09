@@ -223,19 +223,6 @@ public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, 
         }
         final AuthorityForAirspaceTimeSlicePropertyType that = ((AuthorityForAirspaceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAuthorityForAirspaceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAuthorityForAirspaceTimeSlice();
-            AuthorityForAirspaceTimeSliceType lhsField;
-            lhsField = this.getAuthorityForAirspaceTimeSlice();
-            AuthorityForAirspaceTimeSliceType rhsField;
-            rhsField = that.getAuthorityForAirspaceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorityForAirspaceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorityForAirspaceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AuthorityForAirspaceTimeSlicePropertyType implements Serializable, 
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAuthorityForAirspaceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAuthorityForAirspaceTimeSlice();
+            AuthorityForAirspaceTimeSliceType lhsField;
+            lhsField = this.getAuthorityForAirspaceTimeSlice();
+            AuthorityForAirspaceTimeSliceType rhsField;
+            rhsField = that.getAuthorityForAirspaceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "authorityForAirspaceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "authorityForAirspaceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

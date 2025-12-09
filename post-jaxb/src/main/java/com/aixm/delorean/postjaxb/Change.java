@@ -2,7 +2,6 @@ package com.aixm.delorean.postjaxb;
 
 import java.util.List;
 
-// Maps a single item under the 'changes' list
 public class Change {
 
     private ChangeWhere where;

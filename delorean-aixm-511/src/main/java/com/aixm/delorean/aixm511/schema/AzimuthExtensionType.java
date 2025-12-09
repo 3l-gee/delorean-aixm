@@ -260,6 +260,19 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
         }
         final AzimuthExtensionType that = ((AzimuthExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAzimuthExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAzimuthExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractNavaidEquipmentExtension();
             boolean rhsFieldIsSet = that.isSetAbstractNavaidEquipmentExtension();
             AbstractExtensionType lhsField;
@@ -281,19 +294,6 @@ public class AzimuthExtensionType implements Serializable, Equals, HashCode, ToS
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAzimuthExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAzimuthExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAzimuthExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAzimuthExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAzimuthExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAzimuthExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

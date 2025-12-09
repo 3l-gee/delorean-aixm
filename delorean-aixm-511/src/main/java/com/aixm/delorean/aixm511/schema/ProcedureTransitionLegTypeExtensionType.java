@@ -223,19 +223,6 @@ public class ProcedureTransitionLegTypeExtensionType implements Serializable, Eq
         }
         final ProcedureTransitionLegTypeExtensionType that = ((ProcedureTransitionLegTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractProcedureTransitionLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractProcedureTransitionLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractProcedureTransitionLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractProcedureTransitionLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureTransitionLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureTransitionLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class ProcedureTransitionLegTypeExtensionType implements Serializable, Eq
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractProcedureTransitionLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractProcedureTransitionLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractProcedureTransitionLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractProcedureTransitionLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractProcedureTransitionLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractProcedureTransitionLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

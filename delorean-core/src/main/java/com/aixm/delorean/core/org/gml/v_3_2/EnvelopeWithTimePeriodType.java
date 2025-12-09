@@ -169,19 +169,6 @@ public class EnvelopeWithTimePeriodType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrame();
-            boolean rhsFieldIsSet = that.isSetFrame();
-            String lhsField;
-            lhsField = this.getFrame();
-            String rhsField;
-            rhsField = that.getFrame();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEndPosition();
             boolean rhsFieldIsSet = that.isSetEndPosition();
             TimePositionType lhsField;
@@ -190,6 +177,19 @@ public class EnvelopeWithTimePeriodType
             rhsField = that.getEndPosition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "endPosition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "endPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrame();
+            boolean rhsFieldIsSet = that.isSetFrame();
+            String lhsField;
+            lhsField = this.getFrame();
+            String rhsField;
+            rhsField = that.getFrame();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

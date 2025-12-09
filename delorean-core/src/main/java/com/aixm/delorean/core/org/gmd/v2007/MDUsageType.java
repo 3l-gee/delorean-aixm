@@ -204,19 +204,6 @@ public class MDUsageType
         }
         final MDUsageType that = ((MDUsageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecificUsage();
-            boolean rhsFieldIsSet = that.isSetSpecificUsage();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSpecificUsage();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSpecificUsage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUserDeterminedLimitations();
             boolean rhsFieldIsSet = that.isSetUserDeterminedLimitations();
             CharacterStringPropertyType lhsField;
@@ -251,6 +238,19 @@ public class MDUsageType
             rhsField = (that.isSetUserContactInfo()?that.getUserContactInfo():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userContactInfo", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userContactInfo", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecificUsage();
+            boolean rhsFieldIsSet = that.isSetSpecificUsage();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSpecificUsage();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSpecificUsage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specificUsage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specificUsage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

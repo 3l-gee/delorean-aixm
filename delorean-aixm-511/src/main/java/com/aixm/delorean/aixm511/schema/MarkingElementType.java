@@ -438,14 +438,14 @@ public class MarkingElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtentLocation();
-            boolean rhsFieldIsSet = that.isSetExtentLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getExtentLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getExtentLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
+            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
+            lhsField = this.getExtentCurveExtent();
+            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
+            rhsField = that.getExtentCurveExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,19 +459,6 @@ public class MarkingElementType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtentCurveExtent();
-            boolean rhsFieldIsSet = that.isSetExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> lhsField;
-            lhsField = this.getExtentCurveExtent();
-            JAXBElement<AIXMElevatedCurvePropertyType> rhsField;
-            rhsField = that.getExtentCurveExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentCurveExtent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentCurveExtent", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,6 +498,19 @@ public class MarkingElementType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtentLocation();
+            boolean rhsFieldIsSet = that.isSetExtentLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getExtentLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getExtentLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extentLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extentLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

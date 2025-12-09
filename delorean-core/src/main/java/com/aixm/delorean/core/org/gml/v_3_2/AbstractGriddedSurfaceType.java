@@ -169,19 +169,6 @@ public abstract class AbstractGriddedSurfaceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColumns();
-            boolean rhsFieldIsSet = that.isSetColumns();
-            BigInteger lhsField;
-            lhsField = this.getColumns();
-            BigInteger rhsField;
-            rhsField = that.getColumns();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRows();
             boolean rhsFieldIsSet = that.isSetRows();
             BigInteger lhsField;
@@ -190,6 +177,19 @@ public abstract class AbstractGriddedSurfaceType
             rhsField = that.getRows();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rows", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rows", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetColumns();
+            boolean rhsFieldIsSet = that.isSetColumns();
+            BigInteger lhsField;
+            lhsField = this.getColumns();
+            BigInteger rhsField;
+            rhsField = that.getColumns();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

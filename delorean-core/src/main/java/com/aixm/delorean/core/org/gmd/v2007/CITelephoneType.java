@@ -155,19 +155,6 @@ public class CITelephoneType
         }
         final CITelephoneType that = ((CITelephoneType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFacsimile();
-            boolean rhsFieldIsSet = that.isSetFacsimile();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetFacsimile()?this.getFacsimile():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetFacsimile()?that.getFacsimile():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetVoice();
             boolean rhsFieldIsSet = that.isSetVoice();
             List<CharacterStringPropertyType> lhsField;
@@ -176,6 +163,19 @@ public class CITelephoneType
             rhsField = (that.isSetVoice()?that.getVoice():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "voice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "voice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFacsimile();
+            boolean rhsFieldIsSet = that.isSetFacsimile();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetFacsimile()?this.getFacsimile():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetFacsimile()?that.getFacsimile():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "facsimile", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "facsimile", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -382,6 +382,32 @@ public class SectorDesignType
         }
         final SectorDesignType that = ((SectorDesignType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTerminationAltitude();
+            boolean rhsFieldIsSet = that.isSetTerminationAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getTerminationAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getTerminationAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "terminationAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "terminationAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnPermitted();
+            boolean rhsFieldIsSet = that.isSetTurnPermitted();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getTurnPermitted();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getTurnPermitted();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -408,27 +434,14 @@ public class SectorDesignType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnPermitted();
-            boolean rhsFieldIsSet = that.isSetTurnPermitted();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getTurnPermitted();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getTurnPermitted();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnPermitted", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnPermitted", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTerminationAltitude();
-            boolean rhsFieldIsSet = that.isSetTerminationAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getTerminationAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getTerminationAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "terminationAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "terminationAltitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SectorDesignTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<SectorDesignTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -442,19 +455,6 @@ public class SectorDesignType
             rhsField = that.getTurnDirection();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SectorDesignTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<SectorDesignTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

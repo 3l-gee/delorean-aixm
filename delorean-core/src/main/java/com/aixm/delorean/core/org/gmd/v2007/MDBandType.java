@@ -304,32 +304,6 @@ public class MDBandType
         }
         final MDBandType that = ((MDBandType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMaxValue();
-            boolean rhsFieldIsSet = that.isSetMaxValue();
-            RealPropertyType lhsField;
-            lhsField = this.getMaxValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMaxValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetBitsPerValue();
-            boolean rhsFieldIsSet = that.isSetBitsPerValue();
-            IntegerPropertyType lhsField;
-            lhsField = this.getBitsPerValue();
-            IntegerPropertyType rhsField;
-            rhsField = that.getBitsPerValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bitsPerValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bitsPerValue", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUnits();
             boolean rhsFieldIsSet = that.isSetUnits();
             UomLengthPropertyType lhsField;
@@ -343,14 +317,14 @@ public class MDBandType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetToneGradation();
-            boolean rhsFieldIsSet = that.isSetToneGradation();
-            IntegerPropertyType lhsField;
-            lhsField = this.getToneGradation();
-            IntegerPropertyType rhsField;
-            rhsField = that.getToneGradation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toneGradation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toneGradation", rhsField);
+            boolean lhsFieldIsSet = this.isSetMinValue();
+            boolean rhsFieldIsSet = that.isSetMinValue();
+            RealPropertyType lhsField;
+            lhsField = this.getMinValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMinValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -382,6 +356,45 @@ public class MDBandType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetBitsPerValue();
+            boolean rhsFieldIsSet = that.isSetBitsPerValue();
+            IntegerPropertyType lhsField;
+            lhsField = this.getBitsPerValue();
+            IntegerPropertyType rhsField;
+            rhsField = that.getBitsPerValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "bitsPerValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "bitsPerValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaxValue();
+            boolean rhsFieldIsSet = that.isSetMaxValue();
+            RealPropertyType lhsField;
+            lhsField = this.getMaxValue();
+            RealPropertyType rhsField;
+            rhsField = that.getMaxValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maxValue", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maxValue", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetToneGradation();
+            boolean rhsFieldIsSet = that.isSetToneGradation();
+            IntegerPropertyType lhsField;
+            lhsField = this.getToneGradation();
+            IntegerPropertyType rhsField;
+            rhsField = that.getToneGradation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "toneGradation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "toneGradation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOffset();
             boolean rhsFieldIsSet = that.isSetOffset();
             RealPropertyType lhsField;
@@ -390,19 +403,6 @@ public class MDBandType
             rhsField = that.getOffset();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offset", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinValue();
-            boolean rhsFieldIsSet = that.isSetMinValue();
-            RealPropertyType lhsField;
-            lhsField = this.getMinValue();
-            RealPropertyType rhsField;
-            rhsField = that.getMinValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minValue", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minValue", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

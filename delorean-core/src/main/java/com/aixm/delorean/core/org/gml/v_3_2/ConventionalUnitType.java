@@ -179,6 +179,19 @@ public class ConventionalUnitType
         }
         final ConventionalUnitType that = ((ConventionalUnitType) object);
         {
+            boolean lhsFieldIsSet = this.isSetDerivationUnitTerm();
+            boolean rhsFieldIsSet = that.isSetDerivationUnitTerm();
+            List<DerivationUnitTermType> lhsField;
+            lhsField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
+            List<DerivationUnitTermType> rhsField;
+            rhsField = (that.isSetDerivationUnitTerm()?that.getDerivationUnitTerm():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
             boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
             ConversionToPreferredUnitType lhsField;
@@ -200,19 +213,6 @@ public class ConventionalUnitType
             rhsField = that.getRoughConversionToPreferredUnit();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roughConversionToPreferredUnit", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDerivationUnitTerm();
-            boolean rhsFieldIsSet = that.isSetDerivationUnitTerm();
-            List<DerivationUnitTermType> lhsField;
-            lhsField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
-            List<DerivationUnitTermType> rhsField;
-            rhsField = (that.isSetDerivationUnitTerm()?that.getDerivationUnitTerm():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

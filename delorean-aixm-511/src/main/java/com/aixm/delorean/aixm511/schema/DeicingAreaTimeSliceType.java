@@ -476,6 +476,19 @@ public class DeicingAreaTimeSliceType
         }
         final DeicingAreaTimeSliceType that = ((DeicingAreaTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
+            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> lhsField;
+            lhsField = this.getTaxiwayLocation();
+            JAXBElement<TaxiwayPropertyType> rhsField;
+            rhsField = that.getTaxiwayLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetStandLocation();
             boolean rhsFieldIsSet = that.isSetStandLocation();
             JAXBElement<AircraftStandPropertyType> lhsField;
@@ -484,45 +497,6 @@ public class DeicingAreaTimeSliceType
             rhsField = that.getStandLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAssociatedApron();
-            boolean rhsFieldIsSet = that.isSetAssociatedApron();
-            JAXBElement<ApronPropertyType> lhsField;
-            lhsField = this.getAssociatedApron();
-            JAXBElement<ApronPropertyType> rhsField;
-            rhsField = that.getAssociatedApron();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedApron", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedApron", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<DeicingAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<DeicingAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -554,14 +528,27 @@ public class DeicingAreaTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTaxiwayLocation();
-            boolean rhsFieldIsSet = that.isSetTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> lhsField;
-            lhsField = this.getTaxiwayLocation();
-            JAXBElement<TaxiwayPropertyType> rhsField;
-            rhsField = that.getTaxiwayLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiwayLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiwayLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetAssociatedApron();
+            boolean rhsFieldIsSet = that.isSetAssociatedApron();
+            JAXBElement<ApronPropertyType> lhsField;
+            lhsField = this.getAssociatedApron();
+            JAXBElement<ApronPropertyType> rhsField;
+            rhsField = that.getAssociatedApron();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedApron", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedApron", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -575,6 +562,19 @@ public class DeicingAreaTimeSliceType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<DeicingAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<DeicingAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

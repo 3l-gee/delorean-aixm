@@ -201,14 +201,14 @@ public class MDDigitalTransferOptionsType
         }
         final MDDigitalTransferOptionsType that = ((MDDigitalTransferOptionsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
-            boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getUnitsOfDistribution();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getUnitsOfDistribution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitsOfDistribution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitsOfDistribution", rhsField);
+            boolean lhsFieldIsSet = this.isSetOnLine();
+            boolean rhsFieldIsSet = that.isSetOnLine();
+            List<CIOnlineResourcePropertyType> lhsField;
+            lhsField = (this.isSetOnLine()?this.getOnLine():null);
+            List<CIOnlineResourcePropertyType> rhsField;
+            rhsField = (that.isSetOnLine()?that.getOnLine():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,14 +240,14 @@ public class MDDigitalTransferOptionsType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOnLine();
-            boolean rhsFieldIsSet = that.isSetOnLine();
-            List<CIOnlineResourcePropertyType> lhsField;
-            lhsField = (this.isSetOnLine()?this.getOnLine():null);
-            List<CIOnlineResourcePropertyType> rhsField;
-            rhsField = (that.isSetOnLine()?that.getOnLine():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
+            boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
+            boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getUnitsOfDistribution();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getUnitsOfDistribution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitsOfDistribution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitsOfDistribution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -978,27 +978,92 @@ public class HoldingPatternTimeSliceType
         }
         final HoldingPatternTimeSliceType that = ((HoldingPatternTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndDistance();
-            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndDistance();
-            JAXBElement<HoldingPatternDistancePropertyType> lhsField;
-            lhsField = this.getOutboundLegSpanEndDistance();
-            JAXBElement<HoldingPatternDistancePropertyType> rhsField;
-            rhsField = that.getOutboundLegSpanEndDistance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndDistance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndDistance", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeHoldingUsageType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeHoldingUsageType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHoldingPoint();
-            boolean rhsFieldIsSet = that.isSetHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> lhsField;
-            lhsField = this.getHoldingPoint();
-            JAXBElement<SegmentPointPropertyType> rhsField;
-            rhsField = that.getHoldingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<HoldingPatternExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<HoldingPatternExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInstruction();
+            boolean rhsFieldIsSet = that.isSetInstruction();
+            JAXBElement<TextInstructionType> lhsField;
+            lhsField = this.getInstruction();
+            JAXBElement<TextInstructionType> rhsField;
+            rhsField = that.getInstruction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourseType();
+            boolean rhsFieldIsSet = that.isSetOutboundCourseType();
+            JAXBElement<CodeCourseType> lhsField;
+            lhsField = this.getOutboundCourseType();
+            JAXBElement<CodeCourseType> rhsField;
+            rhsField = that.getOutboundCourseType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourseType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourseType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundCourse();
+            boolean rhsFieldIsSet = that.isSetOutboundCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getOutboundCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getOutboundCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTurnDirection();
+            boolean rhsFieldIsSet = that.isSetTurnDirection();
+            JAXBElement<CodeDirectionTurnType> lhsField;
+            lhsField = this.getTurnDirection();
+            JAXBElement<CodeDirectionTurnType> rhsField;
+            rhsField = that.getTurnDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1030,110 +1095,6 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInstruction();
-            boolean rhsFieldIsSet = that.isSetInstruction();
-            JAXBElement<TextInstructionType> lhsField;
-            lhsField = this.getInstruction();
-            JAXBElement<TextInstructionType> rhsField;
-            rhsField = that.getInstruction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "instruction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "instruction", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInboundCourse();
-            boolean rhsFieldIsSet = that.isSetInboundCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getInboundCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getInboundCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inboundCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundCourseType();
-            boolean rhsFieldIsSet = that.isSetOutboundCourseType();
-            JAXBElement<CodeCourseType> lhsField;
-            lhsField = this.getOutboundCourseType();
-            JAXBElement<CodeCourseType> rhsField;
-            rhsField = that.getOutboundCourseType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourseType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourseType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNonStandardHolding();
-            boolean rhsFieldIsSet = that.isSetNonStandardHolding();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getNonStandardHolding();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getNonStandardHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonStandardHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonStandardHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundCourse();
-            boolean rhsFieldIsSet = that.isSetOutboundCourse();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getOutboundCourse();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getOutboundCourse();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundCourse", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundCourse", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndTime();
-            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndTime();
-            JAXBElement<HoldingPatternDurationPropertyType> lhsField;
-            lhsField = this.getOutboundLegSpanEndTime();
-            JAXBElement<HoldingPatternDurationPropertyType> rhsField;
-            rhsField = that.getOutboundLegSpanEndTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeHoldingUsageType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeHoldingUsageType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUpperLimitReference();
             boolean rhsFieldIsSet = that.isSetUpperLimitReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -1160,14 +1121,27 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getExtent();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getExtent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            boolean lhsFieldIsSet = this.isSetNonStandardHolding();
+            boolean rhsFieldIsSet = that.isSetNonStandardHolding();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getNonStandardHolding();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getNonStandardHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nonStandardHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nonStandardHolding", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInboundCourse();
+            boolean rhsFieldIsSet = that.isSetInboundCourse();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getInboundCourse();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getInboundCourse();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inboundCourse", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inboundCourse", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1186,14 +1160,14 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<HoldingPatternExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<HoldingPatternExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndDistance();
+            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndDistance();
+            JAXBElement<HoldingPatternDistancePropertyType> lhsField;
+            lhsField = this.getOutboundLegSpanEndDistance();
+            JAXBElement<HoldingPatternDistancePropertyType> rhsField;
+            rhsField = that.getOutboundLegSpanEndDistance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndDistance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndDistance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1212,14 +1186,40 @@ public class HoldingPatternTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTurnDirection();
-            boolean rhsFieldIsSet = that.isSetTurnDirection();
-            JAXBElement<CodeDirectionTurnType> lhsField;
-            lhsField = this.getTurnDirection();
-            JAXBElement<CodeDirectionTurnType> rhsField;
-            rhsField = that.getTurnDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "turnDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "turnDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetHoldingPoint();
+            boolean rhsFieldIsSet = that.isSetHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> lhsField;
+            lhsField = this.getHoldingPoint();
+            JAXBElement<SegmentPointPropertyType> rhsField;
+            rhsField = that.getHoldingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "holdingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "holdingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getExtent();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getExtent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOutboundLegSpanEndTime();
+            boolean rhsFieldIsSet = that.isSetOutboundLegSpanEndTime();
+            JAXBElement<HoldingPatternDurationPropertyType> lhsField;
+            lhsField = this.getOutboundLegSpanEndTime();
+            JAXBElement<HoldingPatternDurationPropertyType> rhsField;
+            rhsField = that.getOutboundLegSpanEndTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outboundLegSpanEndTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outboundLegSpanEndTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

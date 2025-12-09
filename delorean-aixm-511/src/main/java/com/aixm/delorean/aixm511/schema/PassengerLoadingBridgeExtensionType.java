@@ -223,19 +223,6 @@ public class PassengerLoadingBridgeExtensionType implements Serializable, Equals
         }
         final PassengerLoadingBridgeExtensionType that = ((PassengerLoadingBridgeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPassengerLoadingBridgeExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPassengerLoadingBridgeExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPassengerLoadingBridgeExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPassengerLoadingBridgeExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPassengerLoadingBridgeExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPassengerLoadingBridgeExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class PassengerLoadingBridgeExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPassengerLoadingBridgeExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPassengerLoadingBridgeExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPassengerLoadingBridgeExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPassengerLoadingBridgeExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPassengerLoadingBridgeExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPassengerLoadingBridgeExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

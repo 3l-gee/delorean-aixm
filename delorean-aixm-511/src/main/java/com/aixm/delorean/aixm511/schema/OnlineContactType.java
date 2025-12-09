@@ -499,14 +499,14 @@ public class OnlineContactType
         }
         final OnlineContactType that = ((OnlineContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNetwork();
-            boolean rhsFieldIsSet = that.isSetNetwork();
-            JAXBElement<CodeTelecomNetworkType> lhsField;
-            lhsField = this.getNetwork();
-            JAXBElement<CodeTelecomNetworkType> rhsField;
-            rhsField = that.getNetwork();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getProtocol();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -525,45 +525,6 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getProtocol();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetEMail();
             boolean rhsFieldIsSet = that.isSetEMail();
             JAXBElement<TextAddressType> lhsField;
@@ -572,6 +533,32 @@ public class OnlineContactType
             rhsField = that.getEMail();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "eMail", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "eMail", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNetwork();
+            boolean rhsFieldIsSet = that.isSetNetwork();
+            JAXBElement<CodeTelecomNetworkType> lhsField;
+            lhsField = this.getNetwork();
+            JAXBElement<CodeTelecomNetworkType> rhsField;
+            rhsField = that.getNetwork();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "network", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "network", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -590,14 +577,27 @@ public class OnlineContactType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

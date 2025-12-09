@@ -223,19 +223,6 @@ public class TACANTimeSlicePropertyType implements Serializable, Equals, HashCod
         }
         final TACANTimeSlicePropertyType that = ((TACANTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTACANTimeSlice();
-            boolean rhsFieldIsSet = that.isSetTACANTimeSlice();
-            TACANTimeSliceType lhsField;
-            lhsField = this.getTACANTimeSlice();
-            TACANTimeSliceType rhsField;
-            rhsField = that.getTACANTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tacanTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tacanTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class TACANTimeSlicePropertyType implements Serializable, Equals, HashCod
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTACANTimeSlice();
+            boolean rhsFieldIsSet = that.isSetTACANTimeSlice();
+            TACANTimeSliceType lhsField;
+            lhsField = this.getTACANTimeSlice();
+            TACANTimeSliceType rhsField;
+            rhsField = that.getTACANTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tacanTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tacanTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

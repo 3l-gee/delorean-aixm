@@ -223,19 +223,6 @@ public class StandardLevelSectorExtensionType implements Serializable, Equals, H
         }
         final StandardLevelSectorExtensionType that = ((StandardLevelSectorExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelSectorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelSectorExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractStandardLevelSectorExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractStandardLevelSectorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelSectorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelSectorExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class StandardLevelSectorExtensionType implements Serializable, Equals, H
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractStandardLevelSectorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractStandardLevelSectorExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractStandardLevelSectorExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractStandardLevelSectorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandardLevelSectorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandardLevelSectorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

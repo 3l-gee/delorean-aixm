@@ -184,14 +184,14 @@ public class LILineageType
         }
         final LILineageType that = ((LILineageType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStatement();
-            boolean rhsFieldIsSet = that.isSetStatement();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getStatement();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getStatement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statement", rhsField);
+            boolean lhsFieldIsSet = this.isSetProcessStep();
+            boolean rhsFieldIsSet = that.isSetProcessStep();
+            List<LIProcessStepPropertyType> lhsField;
+            lhsField = (this.isSetProcessStep()?this.getProcessStep():null);
+            List<LIProcessStepPropertyType> rhsField;
+            rhsField = (that.isSetProcessStep()?that.getProcessStep():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -210,14 +210,14 @@ public class LILineageType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProcessStep();
-            boolean rhsFieldIsSet = that.isSetProcessStep();
-            List<LIProcessStepPropertyType> lhsField;
-            lhsField = (this.isSetProcessStep()?this.getProcessStep():null);
-            List<LIProcessStepPropertyType> rhsField;
-            rhsField = (that.isSetProcessStep()?that.getProcessStep():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "processStep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "processStep", rhsField);
+            boolean lhsFieldIsSet = this.isSetStatement();
+            boolean rhsFieldIsSet = that.isSetStatement();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getStatement();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getStatement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "statement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "statement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

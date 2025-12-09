@@ -279,32 +279,6 @@ public class AirspaceVolumeDependencyType
         }
         final AirspaceVolumeDependencyType that = ((AirspaceVolumeDependencyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDependency();
-            boolean rhsFieldIsSet = that.isSetDependency();
-            JAXBElement<CodeAirspaceDependencyType> lhsField;
-            lhsField = this.getDependency();
-            JAXBElement<CodeAirspaceDependencyType> rhsField;
-            rhsField = that.getDependency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTheAirspace();
             boolean rhsFieldIsSet = that.isSetTheAirspace();
             AirspacePropertyType lhsField;
@@ -318,6 +292,19 @@ public class AirspaceVolumeDependencyType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDependency();
+            boolean rhsFieldIsSet = that.isSetDependency();
+            JAXBElement<CodeAirspaceDependencyType> lhsField;
+            lhsField = this.getDependency();
+            JAXBElement<CodeAirspaceDependencyType> rhsField;
+            rhsField = that.getDependency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dependency", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dependency", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<AirspaceVolumeDependencyTypeExtensionType> lhsField;
@@ -326,6 +313,19 @@ public class AirspaceVolumeDependencyType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

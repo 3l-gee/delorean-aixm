@@ -205,6 +205,19 @@ public class DQQuantitativeResultType
         }
         final DQQuantitativeResultType that = ((DQQuantitativeResultType) object);
         {
+            boolean lhsFieldIsSet = this.isSetValueType();
+            boolean rhsFieldIsSet = that.isSetValueType();
+            RecordTypePropertyType lhsField;
+            lhsField = this.getValueType();
+            RecordTypePropertyType rhsField;
+            rhsField = that.getValueType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetErrorStatistic();
             boolean rhsFieldIsSet = that.isSetErrorStatistic();
             CharacterStringPropertyType lhsField;
@@ -226,19 +239,6 @@ public class DQQuantitativeResultType
             rhsField = (that.isSetValue()?that.getValue():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValueType();
-            boolean rhsFieldIsSet = that.isSetValueType();
-            RecordTypePropertyType lhsField;
-            lhsField = this.getValueType();
-            RecordTypePropertyType rhsField;
-            rhsField = that.getValueType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

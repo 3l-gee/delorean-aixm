@@ -279,14 +279,14 @@ public class CIAddressType
         }
         final CIAddressType that = ((CIAddressType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCity();
-            boolean rhsFieldIsSet = that.isSetCity();
+            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
+            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getCity();
+            lhsField = this.getAdministrativeArea();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getCity();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
+            rhsField = that.getAdministrativeArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -305,14 +305,27 @@ public class CIAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPostalCode();
-            boolean rhsFieldIsSet = that.isSetPostalCode();
+            boolean lhsFieldIsSet = this.isSetCity();
+            boolean rhsFieldIsSet = that.isSetCity();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getPostalCode();
+            lhsField = this.getCity();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getPostalCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
+            rhsField = that.getCity();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "city", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "city", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElectronicMailAddress();
+            boolean rhsFieldIsSet = that.isSetElectronicMailAddress();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetElectronicMailAddress()?that.getElectronicMailAddress():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "electronicMailAddress", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "electronicMailAddress", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -331,27 +344,14 @@ public class CIAddressType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAdministrativeArea();
-            boolean rhsFieldIsSet = that.isSetAdministrativeArea();
+            boolean lhsFieldIsSet = this.isSetPostalCode();
+            boolean rhsFieldIsSet = that.isSetPostalCode();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getAdministrativeArea();
+            lhsField = this.getPostalCode();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getAdministrativeArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "administrativeArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "administrativeArea", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElectronicMailAddress();
-            boolean rhsFieldIsSet = that.isSetElectronicMailAddress();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetElectronicMailAddress()?this.getElectronicMailAddress():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetElectronicMailAddress()?that.getElectronicMailAddress():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "electronicMailAddress", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "electronicMailAddress", rhsField);
+            rhsField = that.getPostalCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "postalCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "postalCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

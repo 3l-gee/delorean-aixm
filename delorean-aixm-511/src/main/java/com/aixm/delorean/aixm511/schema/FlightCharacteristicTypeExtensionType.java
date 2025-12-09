@@ -223,19 +223,6 @@ public class FlightCharacteristicTypeExtensionType implements Serializable, Equa
         }
         final FlightCharacteristicTypeExtensionType that = ((FlightCharacteristicTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFlightCharacteristicExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFlightCharacteristicExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFlightCharacteristicExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFlightCharacteristicExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightCharacteristicExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightCharacteristicExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class FlightCharacteristicTypeExtensionType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFlightCharacteristicExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFlightCharacteristicExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFlightCharacteristicExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFlightCharacteristicExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFlightCharacteristicExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFlightCharacteristicExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

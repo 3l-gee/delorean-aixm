@@ -382,19 +382,6 @@ public class AltitudeAdjustmentType
         }
         final AltitudeAdjustmentType that = ((AltitudeAdjustmentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPrimaryAlternateMinimum();
-            boolean rhsFieldIsSet = that.isSetPrimaryAlternateMinimum();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getPrimaryAlternateMinimum();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getPrimaryAlternateMinimum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primaryAlternateMinimum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primaryAlternateMinimum", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAltitudeAdjustment();
             boolean rhsFieldIsSet = that.isSetAltitudeAdjustment();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -403,6 +390,19 @@ public class AltitudeAdjustmentType
             rhsField = that.getAltitudeAdjustment();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitudeAdjustment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitudeAdjustment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AltitudeAdjustmentTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<AltitudeAdjustmentTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -421,19 +421,6 @@ public class AltitudeAdjustmentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLocalRemoteCode();
-            boolean rhsFieldIsSet = that.isSetLocalRemoteCode();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLocalRemoteCode();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLocalRemoteCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localRemoteCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localRemoteCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -447,14 +434,27 @@ public class AltitudeAdjustmentType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AltitudeAdjustmentTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AltitudeAdjustmentTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetPrimaryAlternateMinimum();
+            boolean rhsFieldIsSet = that.isSetPrimaryAlternateMinimum();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getPrimaryAlternateMinimum();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getPrimaryAlternateMinimum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "primaryAlternateMinimum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "primaryAlternateMinimum", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocalRemoteCode();
+            boolean rhsFieldIsSet = that.isSetLocalRemoteCode();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLocalRemoteCode();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLocalRemoteCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "localRemoteCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "localRemoteCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

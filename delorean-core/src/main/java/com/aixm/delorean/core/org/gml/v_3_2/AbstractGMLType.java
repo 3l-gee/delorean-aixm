@@ -210,6 +210,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
      *     
      */
     @Embedded
+    @jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")), @jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace")) })
     public CodeWithAuthorityType getIdentifier() {
         return identifier;
     }
@@ -332,27 +333,14 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         }
         final AbstractGMLType that = ((AbstractGMLType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIdentifier();
-            boolean rhsFieldIsSet = that.isSetIdentifier();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getIdentifier();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetId();
-            boolean rhsFieldIsSet = that.isSetId();
-            String lhsField;
-            lhsField = this.getId();
-            String rhsField;
-            rhsField = that.getId();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
+            boolean lhsFieldIsSet = this.isSetDescription();
+            boolean rhsFieldIsSet = that.isSetDescription();
+            StringOrRefType lhsField;
+            lhsField = this.getDescription();
+            StringOrRefType rhsField;
+            rhsField = that.getDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -371,14 +359,14 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDescription();
-            boolean rhsFieldIsSet = that.isSetDescription();
-            StringOrRefType lhsField;
-            lhsField = this.getDescription();
-            StringOrRefType rhsField;
-            rhsField = that.getDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            boolean lhsFieldIsSet = this.isSetId();
+            boolean rhsFieldIsSet = that.isSetId();
+            String lhsField;
+            lhsField = this.getId();
+            String rhsField;
+            rhsField = that.getId();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -392,6 +380,19 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
             rhsField = (that.isSetName()?that.getName():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetIdentifier();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getIdentifier();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

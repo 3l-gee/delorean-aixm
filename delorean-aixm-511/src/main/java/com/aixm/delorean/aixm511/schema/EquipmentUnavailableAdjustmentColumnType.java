@@ -441,6 +441,32 @@ public class EquipmentUnavailableAdjustmentColumnType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
+            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getApproachLightingInoperative();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getApproachLightingInoperative();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLandingSystemLights();
+            boolean rhsFieldIsSet = that.isSetLandingSystemLights();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLandingSystemLights();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLandingSystemLights();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingSystemLights", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingSystemLights", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<EquipmentUnavailableAdjustmentColumnTypeExtensionType> lhsField;
@@ -467,19 +493,6 @@ public class EquipmentUnavailableAdjustmentColumnType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetApproachLightingInoperative();
-            boolean rhsFieldIsSet = that.isSetApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getApproachLightingInoperative();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getApproachLightingInoperative();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approachLightingInoperative", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approachLightingInoperative", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGuidanceEquipment();
             boolean rhsFieldIsSet = that.isSetGuidanceEquipment();
             JAXBElement<CodeApproachType> lhsField;
@@ -501,19 +514,6 @@ public class EquipmentUnavailableAdjustmentColumnType
             rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLandingSystemLights();
-            boolean rhsFieldIsSet = that.isSetLandingSystemLights();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLandingSystemLights();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLandingSystemLights();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "landingSystemLights", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "landingSystemLights", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

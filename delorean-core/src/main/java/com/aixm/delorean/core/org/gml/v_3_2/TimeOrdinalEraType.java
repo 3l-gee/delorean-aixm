@@ -288,19 +288,6 @@ public class TimeOrdinalEraType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStart();
-            boolean rhsFieldIsSet = that.isSetStart();
-            TimeNodePropertyType lhsField;
-            lhsField = this.getStart();
-            TimeNodePropertyType rhsField;
-            rhsField = that.getStart();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             TimePeriodPropertyType lhsField;
@@ -348,6 +335,19 @@ public class TimeOrdinalEraType
             rhsField = that.getGroup();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "group", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "group", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
+            TimeNodePropertyType lhsField;
+            lhsField = this.getStart();
+            TimeNodePropertyType rhsField;
+            rhsField = that.getStart();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

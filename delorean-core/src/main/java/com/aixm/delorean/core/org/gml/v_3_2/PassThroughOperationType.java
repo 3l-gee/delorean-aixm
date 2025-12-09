@@ -181,19 +181,6 @@ public class PassThroughOperationType
         }
         final PassThroughOperationType that = ((PassThroughOperationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCoordOperation();
-            boolean rhsFieldIsSet = that.isSetCoordOperation();
-            JAXBElement<CoordinateOperationPropertyType> lhsField;
-            lhsField = this.getCoordOperation();
-            JAXBElement<CoordinateOperationPropertyType> rhsField;
-            rhsField = that.getCoordOperation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetModifiedCoordinate();
             boolean rhsFieldIsSet = that.isSetModifiedCoordinate();
             List<BigInteger> lhsField;
@@ -202,6 +189,19 @@ public class PassThroughOperationType
             rhsField = (that.isSetModifiedCoordinate()?that.getModifiedCoordinate():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "modifiedCoordinate", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "modifiedCoordinate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCoordOperation();
+            boolean rhsFieldIsSet = that.isSetCoordOperation();
+            JAXBElement<CoordinateOperationPropertyType> lhsField;
+            lhsField = this.getCoordOperation();
+            JAXBElement<CoordinateOperationPropertyType> rhsField;
+            rhsField = that.getCoordOperation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordOperation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordOperation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

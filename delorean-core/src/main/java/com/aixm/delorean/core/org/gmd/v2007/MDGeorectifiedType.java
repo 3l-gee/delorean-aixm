@@ -312,6 +312,19 @@ public class MDGeorectifiedType
         }
         final MDGeorectifiedType that = ((MDGeorectifiedType) object);
         {
+            boolean lhsFieldIsSet = this.isSetCheckPointAvailability();
+            boolean rhsFieldIsSet = that.isSetCheckPointAvailability();
+            BooleanPropertyType lhsField;
+            lhsField = this.getCheckPointAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getCheckPointAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPointInPixel();
             boolean rhsFieldIsSet = that.isSetPointInPixel();
             MDPixelOrientationCodePropertyType lhsField;
@@ -320,6 +333,19 @@ public class MDGeorectifiedType
             rhsField = that.getPointInPixel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointInPixel", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointInPixel", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCenterPoint();
+            boolean rhsFieldIsSet = that.isSetCenterPoint();
+            GMPointPropertyType lhsField;
+            lhsField = this.getCenterPoint();
+            GMPointPropertyType rhsField;
+            rhsField = that.getCenterPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centerPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centerPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -351,32 +377,6 @@ public class MDGeorectifiedType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTransformationDimensionDescription();
-            boolean rhsFieldIsSet = that.isSetTransformationDimensionDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getTransformationDimensionDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getTransformationDimensionDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCenterPoint();
-            boolean rhsFieldIsSet = that.isSetCenterPoint();
-            GMPointPropertyType lhsField;
-            lhsField = this.getCenterPoint();
-            GMPointPropertyType rhsField;
-            rhsField = that.getCenterPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centerPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centerPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCheckPointDescription();
             boolean rhsFieldIsSet = that.isSetCheckPointDescription();
             CharacterStringPropertyType lhsField;
@@ -390,14 +390,14 @@ public class MDGeorectifiedType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCheckPointAvailability();
-            boolean rhsFieldIsSet = that.isSetCheckPointAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getCheckPointAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getCheckPointAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "checkPointAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "checkPointAvailability", rhsField);
+            boolean lhsFieldIsSet = this.isSetTransformationDimensionDescription();
+            boolean rhsFieldIsSet = that.isSetTransformationDimensionDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getTransformationDimensionDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getTransformationDimensionDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "transformationDimensionDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "transformationDimensionDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

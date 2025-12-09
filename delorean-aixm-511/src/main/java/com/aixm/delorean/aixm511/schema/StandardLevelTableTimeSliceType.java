@@ -302,19 +302,6 @@ public class StandardLevelTableTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStandardICAO();
-            boolean rhsFieldIsSet = that.isSetStandardICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getStandardICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getStandardICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -336,6 +323,19 @@ public class StandardLevelTableTimeSliceType
             rhsField = that.getAixmName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardICAO();
+            boolean rhsFieldIsSet = that.isSetStandardICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getStandardICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getStandardICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -227,14 +227,14 @@ public class TinType
         }
         final TinType that = ((TinType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBreakLines();
-            boolean rhsFieldIsSet = that.isSetBreakLines();
+            boolean lhsFieldIsSet = this.isSetStopLines();
+            boolean rhsFieldIsSet = that.isSetStopLines();
             List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetBreakLines()?this.getBreakLines():null);
+            lhsField = (this.isSetStopLines()?this.getStopLines():null);
             List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetBreakLines()?that.getBreakLines():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
+            rhsField = (that.isSetStopLines()?that.getStopLines():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -266,14 +266,14 @@ public class TinType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStopLines();
-            boolean rhsFieldIsSet = that.isSetStopLines();
+            boolean lhsFieldIsSet = this.isSetBreakLines();
+            boolean rhsFieldIsSet = that.isSetBreakLines();
             List<LineStringSegmentArrayPropertyType> lhsField;
-            lhsField = (this.isSetStopLines()?this.getStopLines():null);
+            lhsField = (this.isSetBreakLines()?this.getBreakLines():null);
             List<LineStringSegmentArrayPropertyType> rhsField;
-            rhsField = (that.isSetStopLines()?that.getStopLines():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "stopLines", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "stopLines", rhsField);
+            rhsField = (that.isSetBreakLines()?that.getBreakLines():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "breakLines", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "breakLines", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

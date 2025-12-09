@@ -223,19 +223,6 @@ public class MissedApproachGroupTypeExtensionType implements Serializable, Equal
         }
         final MissedApproachGroupTypeExtensionType that = ((MissedApproachGroupTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractMissedApproachGroupExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractMissedApproachGroupExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractMissedApproachGroupExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractMissedApproachGroupExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMissedApproachGroupExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMissedApproachGroupExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class MissedApproachGroupTypeExtensionType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractMissedApproachGroupExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractMissedApproachGroupExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractMissedApproachGroupExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractMissedApproachGroupExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMissedApproachGroupExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMissedApproachGroupExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

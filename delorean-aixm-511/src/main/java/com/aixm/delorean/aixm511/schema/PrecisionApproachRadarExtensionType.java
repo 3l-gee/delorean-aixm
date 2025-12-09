@@ -273,19 +273,6 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractPrecisionApproachRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractPrecisionApproachRadarExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractPrecisionApproachRadarExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractPrecisionApproachRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrecisionApproachRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrecisionApproachRadarExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -294,6 +281,19 @@ public class PrecisionApproachRadarExtensionType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractPrecisionApproachRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractPrecisionApproachRadarExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractPrecisionApproachRadarExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractPrecisionApproachRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrecisionApproachRadarExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrecisionApproachRadarExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

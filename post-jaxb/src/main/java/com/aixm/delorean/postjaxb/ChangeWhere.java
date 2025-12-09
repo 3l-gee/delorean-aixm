@@ -1,6 +1,5 @@
 package com.aixm.delorean.postjaxb;
 
-// Maps the 'where' block within a Change
 public class ChangeWhere {
     private String filePath;
     private String method;

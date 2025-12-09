@@ -32,7 +32,14 @@
 	You must retain both this GPLv3 notice and the original BSD license notice.
 -->
 <!-- Component: AIXM: Data Types -->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.aixm.aero/schema/5.1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.1.1">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:aixm="http://www.aixm.aero/schema/5.1.1" 
+	xmlns:gml="http://www.opengis.net/gml/3.2" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	targetNamespace="http://www.aixm.aero/schema/5.1.1" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="5.1.1">
 	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="./gml/3.2.1/gml.xsd"/>
 	<!-- delorean aixm hyper jaxb codegen limitation -->
 	<attributeGroup name="AssociationAttributeGroup">
@@ -5002,7 +5009,11 @@
 	</complexType>
 	<simpleType name="CodeRNPBaseType">
 		<restriction base="decimal">
-			<pattern value="[0-9]{1,2}(\.[0-9]{1}){0,1}"/>
+			<!-- delorean aixm hyper jaxb codgen limitation-->
+			<!-- <pattern value="[0-9]{1,2}(\.[0-9]{1}){0,1}"/> -->
+			<fractionDigits value="1"/>
+			<minInclusive value="0.0"/>
+			<maxInclusive value="99.9"/>
 		</restriction>
 	</simpleType>
 	<complexType name="CodeRNPType">
@@ -7948,7 +7959,11 @@
 	</complexType>
 	<simpleType name="ValFrictionBaseType">
 		<restriction base="decimal">
-			<pattern value="0\.[0-9]{2}"/>
+			<!-- delorean aixm hyper jaxb codgen limitation -->
+			<!-- <pattern value="0\.[0-9]{2}"/> -->
+			<fractionDigits value="2"/>
+			<minInclusive value="0.00"/>
+			<maxInclusive value="0.99"/>
 		</restriction>
 	</simpleType>
 	<complexType name="ValFrictionType">
@@ -8019,7 +8034,11 @@
 	</complexType>
 	<simpleType name="ValPCNBaseType">
 		<restriction base="decimal">
-			<pattern value="[0-9]{1,3}(\.[0-9]){0,1}"/>
+			<!-- delorean aixm hyper jaxb codgen limitation -->
+			<!-- <pattern value="[0-9]{1,3}(\.[0-9]){0,1}"/> -->
+			<fractionDigits value="1"/>
+			<minInclusive value="0.0"/>
+			<maxInclusive value="999.9"/>
 		</restriction>
 	</simpleType>
 	<complexType name="ValPCNType">

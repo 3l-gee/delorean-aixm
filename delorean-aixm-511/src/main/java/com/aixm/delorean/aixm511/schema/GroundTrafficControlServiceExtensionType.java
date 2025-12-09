@@ -297,32 +297,6 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
         }
         final GroundTrafficControlServiceExtensionType that = ((GroundTrafficControlServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractTrafficSeparationServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractTrafficSeparationServiceExtension();
             AbstractExtensionType lhsField;
@@ -336,6 +310,19 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAbstractGroundTrafficControlServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundTrafficControlServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundTrafficControlServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundTrafficControlServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundTrafficControlServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
@@ -344,6 +331,19 @@ public class GroundTrafficControlServiceExtensionType implements Serializable, E
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
