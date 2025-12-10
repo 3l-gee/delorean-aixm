@@ -192,6 +192,19 @@ public class ClothoidType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetScaleFactor();
+            boolean rhsFieldIsSet = that.isSetScaleFactor();
+            BigDecimal lhsField;
+            lhsField = this.getScaleFactor();
+            BigDecimal rhsField;
+            rhsField = that.getScaleFactor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
@@ -213,19 +226,6 @@ public class ClothoidType
             rhsField = that.getRefLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refLocation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetScaleFactor();
-            boolean rhsFieldIsSet = that.isSetScaleFactor();
-            BigDecimal lhsField;
-            lhsField = this.getScaleFactor();
-            BigDecimal rhsField;
-            rhsField = that.getScaleFactor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "scaleFactor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "scaleFactor", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

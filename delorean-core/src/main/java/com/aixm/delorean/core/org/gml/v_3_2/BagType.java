@@ -134,19 +134,6 @@ public class BagType
         }
         final BagType that = ((BagType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMembers();
-            boolean rhsFieldIsSet = that.isSetMembers();
-            ArrayAssociationType lhsField;
-            lhsField = this.getMembers();
-            ArrayAssociationType rhsField;
-            rhsField = that.getMembers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "members", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "members", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMember();
             boolean rhsFieldIsSet = that.isSetMember();
             List<AssociationRoleType> lhsField;
@@ -155,6 +142,19 @@ public class BagType
             rhsField = (that.isSetMember()?that.getMember():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "member", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "member", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMembers();
+            boolean rhsFieldIsSet = that.isSetMembers();
+            ArrayAssociationType lhsField;
+            lhsField = this.getMembers();
+            ArrayAssociationType rhsField;
+            rhsField = that.getMembers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "members", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "members", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

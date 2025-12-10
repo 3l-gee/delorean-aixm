@@ -129,19 +129,6 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
         }
         final MappingRuleType that = ((MappingRuleType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRuleDefinition();
-            boolean rhsFieldIsSet = that.isSetRuleDefinition();
-            String lhsField;
-            lhsField = this.getRuleDefinition();
-            String rhsField;
-            rhsField = that.getRuleDefinition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleDefinition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleDefinition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRuleReference();
             boolean rhsFieldIsSet = that.isSetRuleReference();
             ReferenceType lhsField;
@@ -150,6 +137,19 @@ public class MappingRuleType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getRuleReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRuleDefinition();
+            boolean rhsFieldIsSet = that.isSetRuleDefinition();
+            String lhsField;
+            lhsField = this.getRuleDefinition();
+            String rhsField;
+            rhsField = that.getRuleDefinition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ruleDefinition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ruleDefinition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

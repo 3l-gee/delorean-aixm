@@ -6,865 +6,1828 @@
     <!-- section : auto -->
     <!-- part : default -->
     <jaxb:bindings node="//xs:complexType[@name='CodeBuoyDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeICAOCountryType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeReferencePathIdentifierType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteIndicatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAerialRefuellingPointType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAerialRefuellingPrefixType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAerialRefuellingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftCategoryType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftEngineNumberType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftEngineType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftGroundServiceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftICAOType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="4"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftStandType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAircraftWingspanClassType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirportHeliportCollocationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirportHeliportDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="6"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirportHeliportType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirportWarningType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceActivityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceAggregationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceClassificationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceDependencyType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="10"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspacePointPositionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspacePointRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAirspaceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAltitudeAdjustmentType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAltitudeUseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachEquipmentAdditionalType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachGuidanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachLightingICAOType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachLightingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachPrefixType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApproachType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApprovalType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApronElementType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeApronSectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeArcDirectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeArrestingGearEnergyAbsorbType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeArrestingGearEngageDeviceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeATCReportingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAuralMorseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAuthorityRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAuthorityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeAviationStandardsType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeBearingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeBuoyType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCardinalDirectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCheckpointCategoryType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeColourType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCommunicationChannelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCommunicationDirectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCommunicationModeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeComparisonType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeContaminationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCourseQualityILSType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeCourseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDayType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDeclaredDistanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDesignatedPointDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="5"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDesignatedPointType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDesignStandardType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDirectionReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDirectionTurnType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDirectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDistanceIndicationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDMEChannelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeDMEType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeEmissionBandType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeEquipmentAntiCollisionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeEquipmentUnavailableType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFacilityRankingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFinalGuidanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFireFightingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightDestinationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightOriginType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightPurposeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightRestrictionDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="16"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightRestrictionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightRuleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightStatusType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlightType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFlowConditionOperationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFreeFlightType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFrictionDeviceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFrictionEstimateType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeFuelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeGeoBorderType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeGradeSeparationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeGroundLightingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeGuidanceLineType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeHeightReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeHelicopterPerformanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeHoldingCategoryType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeHoldingUsageType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeHoldingUseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeIATAType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="3"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeICAOType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="4"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeILSBackCourseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeIntegrityLevelILSType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeIntensityStandByType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLanguageType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLevelSeriesType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLevelTableDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLevelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLightHoldingPositionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLightingJARType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLightIntensityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLightSourceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLoadingBridgeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLocationQualifierType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeLogicalOperatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMarkerBeaconSignalType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMarkingConditionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMarkingStyleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMeteoConditionsType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMilitaryOperationsType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMilitaryRoutePointType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMilitaryStatusType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMilitaryTrainingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMinimaFinalApproachPathType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMinimumAltitudeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMinimumHeightType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMissedApproachType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMLSAzimuthType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeMLSChannelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavaidDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="4"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavaidPurposeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavaidServiceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavigationAreaRestrictionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavigationAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavigationEquipmentType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNavigationSpecificationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNDBUsageType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNitrogenType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNorthReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeNotePurposeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeObstacleAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeObstacleAssessmentSurfaceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeObstructionIdSurfaceZoneType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOilType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOperationAirportHeliportType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOperationManoeuvringAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOrganisationDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="12"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOrganisationHierarchyType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOrganisationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeOxygenType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePARType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePassengerServiceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePCNMethodType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePCNPavementType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePCNSubgradeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePCNTyrePressureType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePilotControlledLightingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePositionInILSType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodePrimaryRadarType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProcedureAvailabilityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProcedureCodingStandardType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProcedureDistanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProcedureFixRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProcedurePhaseType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeProtectAreaSectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRadarServiceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRadioEmissionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRadioFrequencyAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRadioSignalType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeReferenceRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeReflectorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRelativePositionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRNPType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC" scale="1"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRoadType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteAvailabilityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteDesignatorLetterType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteDesignatorPrefixType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteDesignatorSuffixType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteNavigationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteOriginType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteSegmentPathType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRouteType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRuleProcedureTitleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRuleProcedureType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwayElementType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwayMarkingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwayPointRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwayProtectionAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwaySectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRunwayType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRVRReadingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRVSMPointRoleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeRVSMType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSafeAltitudeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSegmentPathType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSegmentTerminationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeServiceATCType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeServiceATFMType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeServiceGroundControlType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeServiceInformationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeServiceSARType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSideType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSignalPerformanceILSType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSpecialDateType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSpecialNavigationChainDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="4"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSpecialNavigationStationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSpecialNavigationSystemType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSpeedReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStandbyPowerType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusAirportType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusAirspaceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusConstructionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusNavaidType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusOperationsType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeStatusServiceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSurfaceCompositionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSurfaceConditionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSurfacePreparationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeSystemActivationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTAAType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTACANChannelType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTaxiwayElementType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTaxiwaySectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTaxiwayType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTelecomNetworkType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTimeEventCombinationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTimeEventType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTimeReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTLOFSectionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTrajectoryType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeTransponderType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeUnitDependencyType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeUnitType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeUpperAlphaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeUsageLimitationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeUUIDType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeValueInterpretationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVASISType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVerticalDatumType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVerticalReferenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVerticalStructureMarkingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVerticalStructureMaterialType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVerticalStructureType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVisualDockingGuidanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeVORType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeWakeTurbulenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeWorkAreaType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='CodeYesNoType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DateMonthDayType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DateTimeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DateType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='DateYearType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NoNumberType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='NoSequenceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextAddressType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="500"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="16"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextInstructionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="TEXT" length="10000"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextNameType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="60"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextNoteType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="TEXT" length="10000"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextPhoneType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextPropertyNameType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextRemarkType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="TEXT" length="5000"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TextSIDSTARDesignatorType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="7"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='TimeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValAlarmLimitType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValAngleType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValBearingType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValChannelNumberType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValDepthType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValDistanceSignedType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValDistanceType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValDistanceVerticalType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValDurationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValFLType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+</hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValFrequencyType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValFrictionType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC" scale="2"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValHexType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="VARCHAR" length="256"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValLCNType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValLightIntensityType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValMagneticVariationChangeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValMagneticVariationType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValPCNType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC" scale="1"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValPercentType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValPressureType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValSlopeType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValSpeedType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValTemperatureType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='ValWeightType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+        <hj:basic>
+          <!-- Embedable + orm -->
+          <orm:column column-definition="NUMERIC"/>
+        </hj:basic>
+      </hj:embeddable>
     </jaxb:bindings>
     <jaxb:bindings node="//xs:complexType[@name='XHTMLType']">
-      <hj:embeddable/>
+      <hj:embeddable>
+</hj:embeddable>
     </jaxb:bindings>
   </jaxb:bindings>
   <jaxb:bindings schemaLocation="../AIXM_Features.xsd" node="/xs:schema">

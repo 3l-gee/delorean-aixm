@@ -281,27 +281,14 @@ public class MDMediumType
         }
         final MDMediumType that = ((MDMediumType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDensityUnits();
-            boolean rhsFieldIsSet = that.isSetDensityUnits();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getDensityUnits();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getDensityUnits();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "densityUnits", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "densityUnits", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMediumNote();
-            boolean rhsFieldIsSet = that.isSetMediumNote();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMediumNote();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMediumNote();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
+            boolean lhsFieldIsSet = this.isSetVolumes();
+            boolean rhsFieldIsSet = that.isSetVolumes();
+            IntegerPropertyType lhsField;
+            lhsField = this.getVolumes();
+            IntegerPropertyType rhsField;
+            rhsField = that.getVolumes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,19 +302,6 @@ public class MDMediumType
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetVolumes();
-            boolean rhsFieldIsSet = that.isSetVolumes();
-            IntegerPropertyType lhsField;
-            lhsField = this.getVolumes();
-            IntegerPropertyType rhsField;
-            rhsField = that.getVolumes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "volumes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "volumes", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -354,6 +328,32 @@ public class MDMediumType
             rhsField = (that.isSetMediumFormat()?that.getMediumFormat():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumFormat", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumFormat", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDensityUnits();
+            boolean rhsFieldIsSet = that.isSetDensityUnits();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getDensityUnits();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getDensityUnits();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "densityUnits", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "densityUnits", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMediumNote();
+            boolean rhsFieldIsSet = that.isSetMediumNote();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMediumNote();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMediumNote();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mediumNote", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mediumNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

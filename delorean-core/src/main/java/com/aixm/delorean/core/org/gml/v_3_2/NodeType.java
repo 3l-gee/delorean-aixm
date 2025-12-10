@@ -202,19 +202,6 @@ public class NodeType
         }
         final NodeType that = ((NodeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContainer();
-            boolean rhsFieldIsSet = that.isSetContainer();
-            FaceOrTopoSolidPropertyType lhsField;
-            lhsField = this.getContainer();
-            FaceOrTopoSolidPropertyType rhsField;
-            rhsField = that.getContainer();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDirectedEdge();
             boolean rhsFieldIsSet = that.isSetDirectedEdge();
             List<DirectedEdgePropertyType> lhsField;
@@ -249,6 +236,19 @@ public class NodeType
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContainer();
+            boolean rhsFieldIsSet = that.isSetContainer();
+            FaceOrTopoSolidPropertyType lhsField;
+            lhsField = this.getContainer();
+            FaceOrTopoSolidPropertyType rhsField;
+            rhsField = that.getContainer();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "container", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "container", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

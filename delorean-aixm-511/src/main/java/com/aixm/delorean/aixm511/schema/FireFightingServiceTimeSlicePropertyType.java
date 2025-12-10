@@ -223,19 +223,6 @@ public class FireFightingServiceTimeSlicePropertyType implements Serializable, E
         }
         final FireFightingServiceTimeSlicePropertyType that = ((FireFightingServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFireFightingServiceTimeSlice();
-            boolean rhsFieldIsSet = that.isSetFireFightingServiceTimeSlice();
-            FireFightingServiceTimeSliceType lhsField;
-            lhsField = this.getFireFightingServiceTimeSlice();
-            FireFightingServiceTimeSliceType rhsField;
-            rhsField = that.getFireFightingServiceTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fireFightingServiceTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fireFightingServiceTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class FireFightingServiceTimeSlicePropertyType implements Serializable, E
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFireFightingServiceTimeSlice();
+            boolean rhsFieldIsSet = that.isSetFireFightingServiceTimeSlice();
+            FireFightingServiceTimeSliceType lhsField;
+            lhsField = this.getFireFightingServiceTimeSlice();
+            FireFightingServiceTimeSliceType rhsField;
+            rhsField = that.getFireFightingServiceTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fireFightingServiceTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fireFightingServiceTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

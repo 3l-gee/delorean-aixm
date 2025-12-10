@@ -44,16 +44,14 @@ class SimpleType:
             node.append(Jaxb.end)
             return node
         
-        # else:
-            # constraints = {**transposition.get(element.attrib["name"], {}), **Validation.generate_constraints(element)}
-            # if self.config.constraint_methode == "xjb":
-            #     size = constraints.get("size")
-            #     pattern = constraints.get("pattern")
+        # constraints = {**transposition.get(element.attrib["name"], {}), **Validation.generate_constraints(element)}
+        # size = constraints.get("size")
+        # pattern = constraints.get("pattern")
 
-            #     if size is not None:
-            #         node.append(size)
-            #     if pattern is not None:
-            #         node.append(pattern)
+        # if size is not None:
+        #     node.append(size)
+        # if pattern is not None:
+        #     node.append(pattern)
 
     
         # if element_base == "date":

@@ -313,32 +313,6 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
         }
         final DirectPositionListType that = ((DirectPositionListType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSrsName();
-            boolean rhsFieldIsSet = that.isSetSrsName();
-            String lhsField;
-            lhsField = this.getSrsName();
-            String rhsField;
-            rhsField = that.getSrsName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCount();
-            boolean rhsFieldIsSet = that.isSetCount();
-            BigInteger lhsField;
-            lhsField = this.getCount();
-            BigInteger rhsField;
-            rhsField = that.getCount();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "count", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "count", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             List<Double> lhsField;
@@ -360,6 +334,32 @@ public class DirectPositionListType implements Serializable, Equals, HashCode, T
             rhsField = that.getSrsDimension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsDimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsDimension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSrsName();
+            boolean rhsFieldIsSet = that.isSetSrsName();
+            String lhsField;
+            lhsField = this.getSrsName();
+            String rhsField;
+            rhsField = that.getSrsName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "srsName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "srsName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCount();
+            boolean rhsFieldIsSet = that.isSetCount();
+            BigInteger lhsField;
+            lhsField = this.getCount();
+            BigInteger rhsField;
+            rhsField = that.getCount();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "count", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "count", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

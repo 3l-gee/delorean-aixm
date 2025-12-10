@@ -223,19 +223,6 @@ public class IntermediateLegTimeSlicePropertyType implements Serializable, Equal
         }
         final IntermediateLegTimeSlicePropertyType that = ((IntermediateLegTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetIntermediateLegTimeSlice();
-            boolean rhsFieldIsSet = that.isSetIntermediateLegTimeSlice();
-            IntermediateLegTimeSliceType lhsField;
-            lhsField = this.getIntermediateLegTimeSlice();
-            IntermediateLegTimeSliceType rhsField;
-            rhsField = that.getIntermediateLegTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediateLegTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediateLegTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class IntermediateLegTimeSlicePropertyType implements Serializable, Equal
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetIntermediateLegTimeSlice();
+            boolean rhsFieldIsSet = that.isSetIntermediateLegTimeSlice();
+            IntermediateLegTimeSliceType lhsField;
+            lhsField = this.getIntermediateLegTimeSlice();
+            IntermediateLegTimeSliceType rhsField;
+            rhsField = that.getIntermediateLegTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "intermediateLegTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "intermediateLegTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

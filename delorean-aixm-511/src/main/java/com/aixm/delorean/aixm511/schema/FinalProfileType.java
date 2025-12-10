@@ -360,6 +360,19 @@ public class FinalProfileType
         }
         final FinalProfileType that = ((FinalProfileType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTiming();
+            boolean rhsFieldIsSet = that.isSetTiming();
+            List<ApproachTimingTablePropertyType> lhsField;
+            lhsField = (this.isSetTiming()?this.getTiming():null);
+            List<ApproachTimingTablePropertyType> rhsField;
+            rhsField = (that.isSetTiming()?that.getTiming():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDistance();
             boolean rhsFieldIsSet = that.isSetDistance();
             List<ApproachDistanceTablePropertyType> lhsField;
@@ -373,14 +386,14 @@ public class FinalProfileType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAltitude();
-            boolean rhsFieldIsSet = that.isSetAltitude();
-            List<ApproachAltitudeTablePropertyType> lhsField;
-            lhsField = (this.isSetAltitude()?this.getAltitude():null);
-            List<ApproachAltitudeTablePropertyType> rhsField;
-            rhsField = (that.isSetAltitude()?that.getAltitude():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FinalProfileTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension()?this.getExtension():null);
+            List<FinalProfileTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension()?that.getExtension():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -399,27 +412,14 @@ public class FinalProfileType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTiming();
-            boolean rhsFieldIsSet = that.isSetTiming();
-            List<ApproachTimingTablePropertyType> lhsField;
-            lhsField = (this.isSetTiming()?this.getTiming():null);
-            List<ApproachTimingTablePropertyType> rhsField;
-            rhsField = (that.isSetTiming()?that.getTiming():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FinalProfileTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<FinalProfileTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAltitude();
+            boolean rhsFieldIsSet = that.isSetAltitude();
+            List<ApproachAltitudeTablePropertyType> lhsField;
+            lhsField = (this.isSetAltitude()?this.getAltitude():null);
+            List<ApproachAltitudeTablePropertyType> rhsField;
+            rhsField = (that.isSetAltitude()?that.getAltitude():null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "altitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "altitude", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

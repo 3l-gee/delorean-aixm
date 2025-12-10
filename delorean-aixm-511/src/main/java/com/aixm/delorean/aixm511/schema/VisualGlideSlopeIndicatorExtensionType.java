@@ -260,14 +260,14 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
         }
         final VisualGlideSlopeIndicatorExtensionType that = ((VisualGlideSlopeIndicatorExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightSystemExtension();
+            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightSystemExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
+            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVisualGlideSlopeIndicatorExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVisualGlideSlopeIndicatorExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class VisualGlideSlopeIndicatorExtensionType implements Serializable, Equ
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractVisualGlideSlopeIndicatorExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractVisualGlideSlopeIndicatorExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightSystemExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightSystemExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractVisualGlideSlopeIndicatorExtension();
+            lhsField = this.getAbstractGroundLightSystemExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractVisualGlideSlopeIndicatorExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractVisualGlideSlopeIndicatorExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractVisualGlideSlopeIndicatorExtension", rhsField);
+            rhsField = that.getAbstractGroundLightSystemExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightSystemExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightSystemExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

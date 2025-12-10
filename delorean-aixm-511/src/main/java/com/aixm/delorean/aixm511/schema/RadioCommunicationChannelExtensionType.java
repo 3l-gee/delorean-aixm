@@ -223,19 +223,6 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
         }
         final RadioCommunicationChannelExtensionType that = ((RadioCommunicationChannelExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationChannelExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationChannelExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadioCommunicationChannelExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadioCommunicationChannelExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationChannelExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationChannelExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RadioCommunicationChannelExtensionType implements Serializable, Equ
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationChannelExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationChannelExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadioCommunicationChannelExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadioCommunicationChannelExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationChannelExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationChannelExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

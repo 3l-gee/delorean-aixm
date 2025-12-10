@@ -2,20 +2,22 @@ from .annotation import Jaxb, HyperJAXB
 from .view import View
 from .content import Content
 from .field_handler import FieldHandler
+from .annotation import Tag
+from .orm_handler import OrmHandler
 
 
 class ComplexType: 
     @staticmethod
-    def generate_complex_types(type):
+    def generate_complex_types(type, transposition):
         res = []
         for element in type:
-            result = ComplexType.runner(element)
+            result = ComplexType.runner(element, transposition)
             if result:
                 res.extend(result)
         return res 
     
     @staticmethod
-    def runner(element) :
+    def runner(element, transposition) :
         node = []
         if element is None :    
             return node
@@ -27,7 +29,7 @@ class ComplexType:
         suffix = View.get_suffix(element.attrib.get("name"))
 
         node.append(Jaxb.complex(element.attrib["name"]))
-        node.extend(ComplexType.class_writer(element, schema, suffix))
+        node.extend(ComplexType.class_writer(element, schema, suffix, transposition))
         node.append(Jaxb.end)
 
         parent_xpath = Jaxb.complex_xpath(element.attrib.get("name"))
@@ -36,7 +38,7 @@ class ComplexType:
         return node
     
     @staticmethod
-    def class_writer(element, schema, suffix):
+    def class_writer(element, schema, suffix, transposition):
         node = []
 
         # Abstract types are entity and have a inheritance strategy
@@ -50,7 +52,27 @@ class ComplexType:
 
         # Types that are embeddable 
         if element.attrib.get("name") in Content.get_embed().keys():
-            node.append(HyperJAXB.embeddable())
+            node.append(HyperJAXB.embeddabl_start())
+            if not element.find(Tag.simple_content) :
+                node.append(HyperJAXB.embeddable_end())
+                return node
+        
+            simple_content = element.find(Tag.simple_content)
+
+            if simple_content.find(Tag.restriction): 
+                extension_or_restriction = simple_content.find(Tag.restriction).attrib["base"]
+            elif simple_content.find(Tag.extension) : 
+                extension_or_restriction = simple_content.find(Tag.extension).attrib["base"]
+            else : 
+                raise Exception("Embeded compley type must extend or restrict a SimpleContent")
+            
+            extension_or_restriction = extension_or_restriction.split(":")[1]
+
+            constraint = transposition.get(extension_or_restriction)
+            node.append(HyperJAXB.hj_basic_start())
+            node.extend(OrmHandler.constraint_generator(constraint))
+            node.append(HyperJAXB.hj_basic_end())
+            node.append(HyperJAXB.embeddable_end())
             return node
         
         Content.append_entity(element.attrib["name"])

@@ -290,14 +290,14 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
         }
         final TimePositionType that = ((TimePositionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCalendarEraName();
-            boolean rhsFieldIsSet = that.isSetCalendarEraName();
-            String lhsField;
-            lhsField = this.getCalendarEraName();
-            String rhsField;
-            rhsField = that.getCalendarEraName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
+            boolean lhsFieldIsSet = this.isSetIndeterminatePosition();
+            boolean rhsFieldIsSet = that.isSetIndeterminatePosition();
+            TimeIndeterminateValueType lhsField;
+            lhsField = this.getIndeterminatePosition();
+            TimeIndeterminateValueType rhsField;
+            rhsField = that.getIndeterminatePosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indeterminatePosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indeterminatePosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -316,19 +316,6 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetIndeterminatePosition();
-            boolean rhsFieldIsSet = that.isSetIndeterminatePosition();
-            TimeIndeterminateValueType lhsField;
-            lhsField = this.getIndeterminatePosition();
-            TimeIndeterminateValueType rhsField;
-            rhsField = that.getIndeterminatePosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "indeterminatePosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "indeterminatePosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFrame();
             boolean rhsFieldIsSet = that.isSetFrame();
             String lhsField;
@@ -337,6 +324,19 @@ public class TimePositionType implements Serializable, Equals, HashCode, ToStrin
             rhsField = that.getFrame();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frame", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frame", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCalendarEraName();
+            boolean rhsFieldIsSet = that.isSetCalendarEraName();
+            String lhsField;
+            lhsField = this.getCalendarEraName();
+            String rhsField;
+            rhsField = that.getCalendarEraName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "calendarEraName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "calendarEraName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -192,6 +192,19 @@ public class DataBlockType implements Serializable, Equals, HashCode, ToString
         }
         final DataBlockType that = ((DataBlockType) object);
         {
+            boolean lhsFieldIsSet = this.isSetRangeParameters();
+            boolean rhsFieldIsSet = that.isSetRangeParameters();
+            AssociationRoleType lhsField;
+            lhsField = this.getRangeParameters();
+            AssociationRoleType rhsField;
+            rhsField = that.getRangeParameters();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDoubleOrNilReasonTupleList();
             boolean rhsFieldIsSet = that.isSetDoubleOrNilReasonTupleList();
             List<String> lhsField;
@@ -213,19 +226,6 @@ public class DataBlockType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getTupleList();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tupleList", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tupleList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRangeParameters();
-            boolean rhsFieldIsSet = that.isSetRangeParameters();
-            AssociationRoleType lhsField;
-            lhsField = this.getRangeParameters();
-            AssociationRoleType rhsField;
-            rhsField = that.getRangeParameters();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

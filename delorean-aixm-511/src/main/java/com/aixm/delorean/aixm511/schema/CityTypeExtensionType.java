@@ -223,19 +223,6 @@ public class CityTypeExtensionType implements Serializable, Equals, HashCode, To
         }
         final CityTypeExtensionType that = ((CityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractCityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractCityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractCityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCityExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class CityTypeExtensionType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractCityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractCityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractCityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractCityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

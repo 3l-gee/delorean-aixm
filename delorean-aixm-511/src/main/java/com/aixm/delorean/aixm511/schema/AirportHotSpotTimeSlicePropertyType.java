@@ -223,19 +223,6 @@ public class AirportHotSpotTimeSlicePropertyType implements Serializable, Equals
         }
         final AirportHotSpotTimeSlicePropertyType that = ((AirportHotSpotTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirportHotSpotTimeSlice();
-            boolean rhsFieldIsSet = that.isSetAirportHotSpotTimeSlice();
-            AirportHotSpotTimeSliceType lhsField;
-            lhsField = this.getAirportHotSpotTimeSlice();
-            AirportHotSpotTimeSliceType rhsField;
-            rhsField = that.getAirportHotSpotTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHotSpotTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHotSpotTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirportHotSpotTimeSlicePropertyType implements Serializable, Equals
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAirportHotSpotTimeSlice();
+            boolean rhsFieldIsSet = that.isSetAirportHotSpotTimeSlice();
+            AirportHotSpotTimeSliceType lhsField;
+            lhsField = this.getAirportHotSpotTimeSlice();
+            AirportHotSpotTimeSliceType rhsField;
+            rhsField = that.getAirportHotSpotTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHotSpotTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHotSpotTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

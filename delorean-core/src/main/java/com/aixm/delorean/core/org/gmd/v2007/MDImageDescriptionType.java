@@ -430,6 +430,19 @@ public class MDImageDescriptionType
         }
         final MDImageDescriptionType that = ((MDImageDescriptionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetTriangulationIndicator();
+            boolean rhsFieldIsSet = that.isSetTriangulationIndicator();
+            BooleanPropertyType lhsField;
+            lhsField = this.getTriangulationIndicator();
+            BooleanPropertyType rhsField;
+            rhsField = that.getTriangulationIndicator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "triangulationIndicator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "triangulationIndicator", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCompressionGenerationQuantity();
             boolean rhsFieldIsSet = that.isSetCompressionGenerationQuantity();
             IntegerPropertyType lhsField;
@@ -443,14 +456,14 @@ public class MDImageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLensDistortionInformationAvailability();
-            boolean rhsFieldIsSet = that.isSetLensDistortionInformationAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getLensDistortionInformationAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getLensDistortionInformationAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lensDistortionInformationAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lensDistortionInformationAvailability", rhsField);
+            boolean lhsFieldIsSet = this.isSetCloudCoverPercentage();
+            boolean rhsFieldIsSet = that.isSetCloudCoverPercentage();
+            RealPropertyType lhsField;
+            lhsField = this.getCloudCoverPercentage();
+            RealPropertyType rhsField;
+            rhsField = that.getCloudCoverPercentage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cloudCoverPercentage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cloudCoverPercentage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -482,40 +495,14 @@ public class MDImageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCloudCoverPercentage();
-            boolean rhsFieldIsSet = that.isSetCloudCoverPercentage();
-            RealPropertyType lhsField;
-            lhsField = this.getCloudCoverPercentage();
-            RealPropertyType rhsField;
-            rhsField = that.getCloudCoverPercentage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cloudCoverPercentage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cloudCoverPercentage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetImagingCondition();
-            boolean rhsFieldIsSet = that.isSetImagingCondition();
-            MDImagingConditionCodePropertyType lhsField;
-            lhsField = this.getImagingCondition();
-            MDImagingConditionCodePropertyType rhsField;
-            rhsField = that.getImagingCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "imagingCondition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "imagingCondition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCameraCalibrationInformationAvailability();
-            boolean rhsFieldIsSet = that.isSetCameraCalibrationInformationAvailability();
+            boolean lhsFieldIsSet = this.isSetFilmDistortionInformationAvailability();
+            boolean rhsFieldIsSet = that.isSetFilmDistortionInformationAvailability();
             BooleanPropertyType lhsField;
-            lhsField = this.getCameraCalibrationInformationAvailability();
+            lhsField = this.getFilmDistortionInformationAvailability();
             BooleanPropertyType rhsField;
-            rhsField = that.getCameraCalibrationInformationAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cameraCalibrationInformationAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cameraCalibrationInformationAvailability", rhsField);
+            rhsField = that.getFilmDistortionInformationAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "filmDistortionInformationAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "filmDistortionInformationAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -547,6 +534,32 @@ public class MDImageDescriptionType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetImagingCondition();
+            boolean rhsFieldIsSet = that.isSetImagingCondition();
+            MDImagingConditionCodePropertyType lhsField;
+            lhsField = this.getImagingCondition();
+            MDImagingConditionCodePropertyType rhsField;
+            rhsField = that.getImagingCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "imagingCondition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "imagingCondition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCameraCalibrationInformationAvailability();
+            boolean rhsFieldIsSet = that.isSetCameraCalibrationInformationAvailability();
+            BooleanPropertyType lhsField;
+            lhsField = this.getCameraCalibrationInformationAvailability();
+            BooleanPropertyType rhsField;
+            rhsField = that.getCameraCalibrationInformationAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cameraCalibrationInformationAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cameraCalibrationInformationAvailability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetRadiometricCalibrationDataAvailability();
             boolean rhsFieldIsSet = that.isSetRadiometricCalibrationDataAvailability();
             BooleanPropertyType lhsField;
@@ -560,27 +573,14 @@ public class MDImageDescriptionType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTriangulationIndicator();
-            boolean rhsFieldIsSet = that.isSetTriangulationIndicator();
+            boolean lhsFieldIsSet = this.isSetLensDistortionInformationAvailability();
+            boolean rhsFieldIsSet = that.isSetLensDistortionInformationAvailability();
             BooleanPropertyType lhsField;
-            lhsField = this.getTriangulationIndicator();
+            lhsField = this.getLensDistortionInformationAvailability();
             BooleanPropertyType rhsField;
-            rhsField = that.getTriangulationIndicator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "triangulationIndicator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "triangulationIndicator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFilmDistortionInformationAvailability();
-            boolean rhsFieldIsSet = that.isSetFilmDistortionInformationAvailability();
-            BooleanPropertyType lhsField;
-            lhsField = this.getFilmDistortionInformationAvailability();
-            BooleanPropertyType rhsField;
-            rhsField = that.getFilmDistortionInformationAvailability();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "filmDistortionInformationAvailability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "filmDistortionInformationAvailability", rhsField);
+            rhsField = that.getLensDistortionInformationAvailability();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lensDistortionInformationAvailability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lensDistortionInformationAvailability", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

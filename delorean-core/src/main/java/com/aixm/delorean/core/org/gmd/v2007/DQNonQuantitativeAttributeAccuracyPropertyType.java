@@ -348,6 +348,32 @@ public class DQNonQuantitativeAttributeAccuracyPropertyType implements Serializa
         }
         final DQNonQuantitativeAttributeAccuracyPropertyType that = ((DQNonQuantitativeAttributeAccuracyPropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetUuidref();
+            boolean rhsFieldIsSet = that.isSetUuidref();
+            String lhsField;
+            lhsField = this.getUuidref();
+            String rhsField;
+            rhsField = that.getUuidref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -374,19 +400,6 @@ public class DQNonQuantitativeAttributeAccuracyPropertyType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDQNonQuantitativeAttributeAccuracy();
-            boolean rhsFieldIsSet = that.isSetDQNonQuantitativeAttributeAccuracy();
-            DQNonQuantitativeAttributeAccuracyType lhsField;
-            lhsField = this.getDQNonQuantitativeAttributeAccuracy();
-            DQNonQuantitativeAttributeAccuracyType rhsField;
-            rhsField = that.getDQNonQuantitativeAttributeAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqNonQuantitativeAttributeAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqNonQuantitativeAttributeAccuracy", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetHref();
             boolean rhsFieldIsSet = that.isSetHref();
             String lhsField;
@@ -400,14 +413,14 @@ public class DQNonQuantitativeAttributeAccuracyPropertyType implements Serializa
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUuidref();
-            boolean rhsFieldIsSet = that.isSetUuidref();
-            String lhsField;
-            lhsField = this.getUuidref();
-            String rhsField;
-            rhsField = that.getUuidref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uuidref", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uuidref", rhsField);
+            boolean lhsFieldIsSet = this.isSetDQNonQuantitativeAttributeAccuracy();
+            boolean rhsFieldIsSet = that.isSetDQNonQuantitativeAttributeAccuracy();
+            DQNonQuantitativeAttributeAccuracyType lhsField;
+            lhsField = this.getDQNonQuantitativeAttributeAccuracy();
+            DQNonQuantitativeAttributeAccuracyType rhsField;
+            rhsField = that.getDQNonQuantitativeAttributeAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dqNonQuantitativeAttributeAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dqNonQuantitativeAttributeAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -447,19 +460,6 @@ public class DQNonQuantitativeAttributeAccuracyPropertyType implements Serializa
             rhsField = that.getSimpleLinkTitle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

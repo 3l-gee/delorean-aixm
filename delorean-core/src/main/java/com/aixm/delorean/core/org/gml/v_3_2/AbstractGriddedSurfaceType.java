@@ -156,19 +156,6 @@ public abstract class AbstractGriddedSurfaceType
         }
         final AbstractGriddedSurfaceType that = ((AbstractGriddedSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPointGridRows();
-            boolean rhsFieldIsSet = that.isSetPointGridRows();
-            Rows lhsField;
-            lhsField = this.getPointGridRows();
-            Rows rhsField;
-            rhsField = that.getPointGridRows();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRows();
             boolean rhsFieldIsSet = that.isSetRows();
             BigInteger lhsField;
@@ -190,6 +177,19 @@ public abstract class AbstractGriddedSurfaceType
             rhsField = that.getColumns();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "columns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "columns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointGridRows();
+            boolean rhsFieldIsSet = that.isSetPointGridRows();
+            Rows lhsField;
+            lhsField = this.getPointGridRows();
+            Rows rhsField;
+            rhsField = that.getPointGridRows();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointGridRows", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointGridRows", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -181,6 +181,19 @@ public class SequenceRuleType implements Serializable, Equals, HashCode, ToStrin
         }
         final SequenceRuleType that = ((SequenceRuleType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOrder();
+            boolean rhsFieldIsSet = that.isSetOrder();
+            IncrementOrder lhsField;
+            lhsField = this.getOrder();
+            IncrementOrder rhsField;
+            rhsField = that.getOrder();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
             SequenceRuleEnumeration lhsField;
@@ -202,19 +215,6 @@ public class SequenceRuleType implements Serializable, Equals, HashCode, ToStrin
             rhsField = (that.isSetAxisOrder()?that.getAxisOrder():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisOrder", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisOrder", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOrder();
-            boolean rhsFieldIsSet = that.isSetOrder();
-            IncrementOrder lhsField;
-            lhsField = this.getOrder();
-            IncrementOrder rhsField;
-            rhsField = that.getOrder();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "order", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "order", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

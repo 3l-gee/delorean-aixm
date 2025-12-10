@@ -223,19 +223,6 @@ public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equa
         }
         final SeaplaneRampSiteTimeSlicePropertyType that = ((SeaplaneRampSiteTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSeaplaneRampSiteTimeSlice();
-            boolean rhsFieldIsSet = that.isSetSeaplaneRampSiteTimeSlice();
-            SeaplaneRampSiteTimeSliceType lhsField;
-            lhsField = this.getSeaplaneRampSiteTimeSlice();
-            SeaplaneRampSiteTimeSliceType rhsField;
-            rhsField = that.getSeaplaneRampSiteTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seaplaneRampSiteTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seaplaneRampSiteTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class SeaplaneRampSiteTimeSlicePropertyType implements Serializable, Equa
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeaplaneRampSiteTimeSlice();
+            boolean rhsFieldIsSet = that.isSetSeaplaneRampSiteTimeSlice();
+            SeaplaneRampSiteTimeSliceType lhsField;
+            lhsField = this.getSeaplaneRampSiteTimeSlice();
+            SeaplaneRampSiteTimeSliceType rhsField;
+            rhsField = that.getSeaplaneRampSiteTimeSlice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seaplaneRampSiteTimeSlice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seaplaneRampSiteTimeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

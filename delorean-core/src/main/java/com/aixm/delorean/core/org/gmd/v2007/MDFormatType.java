@@ -265,6 +265,32 @@ public class MDFormatType
         }
         final MDFormatType that = ((MDFormatType) object);
         {
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getVersion();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAmendmentNumber();
+            boolean rhsFieldIsSet = that.isSetAmendmentNumber();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getAmendmentNumber();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getAmendmentNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "amendmentNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "amendmentNumber", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetName();
             boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
@@ -278,14 +304,14 @@ public class MDFormatType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVersion();
-            boolean rhsFieldIsSet = that.isSetVersion();
+            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
+            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getVersion();
+            lhsField = this.getFileDecompressionTechnique();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            rhsField = that.getFileDecompressionTechnique();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -312,32 +338,6 @@ public class MDFormatType
             rhsField = that.getSpecification();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
-            boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getFileDecompressionTechnique();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getFileDecompressionTechnique();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fileDecompressionTechnique", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fileDecompressionTechnique", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAmendmentNumber();
-            boolean rhsFieldIsSet = that.isSetAmendmentNumber();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getAmendmentNumber();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getAmendmentNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "amendmentNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "amendmentNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -223,19 +223,6 @@ public class RoadExtensionType implements Serializable, Equals, HashCode, ToStri
         }
         final RoadExtensionType that = ((RoadExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRoadExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRoadExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRoadExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRoadExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRoadExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRoadExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RoadExtensionType implements Serializable, Equals, HashCode, ToStri
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRoadExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRoadExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRoadExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRoadExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRoadExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRoadExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -223,19 +223,6 @@ public class AirspaceVolumeTypeExtensionType implements Serializable, Equals, Ha
         }
         final AirspaceVolumeTypeExtensionType that = ((AirspaceVolumeTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAirspaceVolumeExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirspaceVolumeExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirspaceVolumeExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirspaceVolumeExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceVolumeExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceVolumeExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class AirspaceVolumeTypeExtensionType implements Serializable, Equals, Ha
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirspaceVolumeExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirspaceVolumeExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirspaceVolumeExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirspaceVolumeExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirspaceVolumeExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirspaceVolumeExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

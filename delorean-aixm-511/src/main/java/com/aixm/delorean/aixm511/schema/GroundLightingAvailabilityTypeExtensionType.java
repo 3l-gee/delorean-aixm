@@ -260,14 +260,14 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
         }
         final GroundLightingAvailabilityTypeExtensionType that = ((GroundLightingAvailabilityTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractGroundLightingAvailabilityExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractGroundLightingAvailabilityExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractGroundLightingAvailabilityExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractGroundLightingAvailabilityExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightingAvailabilityExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightingAvailabilityExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class GroundLightingAvailabilityTypeExtensionType implements Serializable
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGroundLightingAvailabilityExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractGroundLightingAvailabilityExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractGroundLightingAvailabilityExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractGroundLightingAvailabilityExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGroundLightingAvailabilityExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGroundLightingAvailabilityExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

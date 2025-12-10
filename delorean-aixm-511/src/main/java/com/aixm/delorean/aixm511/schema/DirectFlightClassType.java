@@ -259,19 +259,6 @@ public class DirectFlightClassType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExceedLength();
-            boolean rhsFieldIsSet = that.isSetExceedLength();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getExceedLength();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getExceedLength();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<DirectFlightClassTypeExtensionType> lhsField;
@@ -280,6 +267,19 @@ public class DirectFlightClassType
             rhsField = (that.isSetExtension()?that.getExtension():null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExceedLength();
+            boolean rhsFieldIsSet = that.isSetExceedLength();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getExceedLength();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getExceedLength();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exceedLength", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exceedLength", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

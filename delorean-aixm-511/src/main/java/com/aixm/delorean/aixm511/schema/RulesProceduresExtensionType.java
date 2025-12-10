@@ -223,19 +223,6 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
         }
         final RulesProceduresExtensionType that = ((RulesProceduresExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRulesProceduresExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRulesProceduresExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRulesProceduresExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRulesProceduresExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRulesProceduresExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRulesProceduresExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -244,6 +231,19 @@ public class RulesProceduresExtensionType implements Serializable, Equals, HashC
             rhsField = (that.isSetOwns()?that.getOwns():false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractRulesProceduresExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRulesProceduresExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRulesProceduresExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRulesProceduresExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRulesProceduresExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRulesProceduresExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

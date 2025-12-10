@@ -36,7 +36,7 @@ class Coordinator:
                         
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(
-                ComplexType.generate_complex_types(value["complex_type"]["type"]))
+                ComplexType.generate_complex_types(value["complex_type"]["type"], value["simple_type"]["transposition"]))
                         
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(

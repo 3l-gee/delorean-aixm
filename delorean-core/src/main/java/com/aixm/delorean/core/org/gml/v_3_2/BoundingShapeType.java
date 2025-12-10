@@ -177,19 +177,6 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         }
         final BoundingShapeType that = ((BoundingShapeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGmlNull();
-            boolean rhsFieldIsSet = that.isSetGmlNull();
-            String lhsField;
-            lhsField = this.getGmlNull();
-            String rhsField;
-            rhsField = that.getGmlNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
@@ -211,6 +198,19 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
             rhsField = that.getEnvelope();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "envelope", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "envelope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGmlNull();
+            boolean rhsFieldIsSet = that.isSetGmlNull();
+            String lhsField;
+            lhsField = this.getGmlNull();
+            String rhsField;
+            rhsField = that.getGmlNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -606,76 +606,64 @@ class Util:
                 if pattern is not None:
                     enum.append(pattern.attrib["value"])
             res["enum"] = enum
+            res["uber"] = "enum"
             return res
 
         restriction = element.find(Tag.restriction)
         if restriction is None:
             return res
     
-        base = restriction.attrib["base"]
-        fractionDigits = restriction.find(Tag.fractionDigits)
-        length = restriction.find(Tag.length)
-        maxExclusive = restriction.find(Tag.maxExclusive)
-        minExclusive = restriction.find(Tag.minExclusive)
-        maxInclusive = restriction.find(Tag.maxInclusive)
-        minInclusive = restriction.find(Tag.minInclusive)
-        maxLength = restriction.find(Tag.maxLength)
-        minLength = restriction.find(Tag.minLength)
-        pattern = restriction.find(Tag.pattern)
-        totalDigits = restriction.find(Tag.totalDigits)
-        whiteSpace = restriction.find(Tag.whiteSpace)
+        if restriction.attrib["base"]:
+            res["base"] = restriction.attrib["base"]
+            if restriction.attrib["base"] == "string":
+                res["uber"] = "string"
+            elif restriction.attrib["base"] == "unsignedInt":
+                res["uber"] = "unsignedInt"
+            elif restriction.attrib["base"] == "decimal":
+                res["uber"] = "decimal" 
+            elif restriction.attrib["base"] == "boolean":
+                res["uber"] = "boolean"
+            elif restriction.attrib["base"] == "date":
+                res["uber"] = "date"
+            elif restriction.attrib["base"] == "dateTime":
+                res["uber"] = "dateTime"
+            elif restriction.attrib["base"] == "token":
+                res["uber"] = "token"
+            elif restriction.attrib["base"] == "time":
+                res["uber"] = "TItimeME"
 
-        if base is not None:
-            if base == "string":
-                res["column_definition"] = "TEXT"
-            elif base == "integer":
-                res["column_definition"] = "INTEGER"
-            elif base == "decimal":
-                res["column_definition"] = "DECIMAL" 
-            elif base == "boolean":
-                res["column_definition"] = "BOOLEAN"
-            elif base == "date":
-                res["column_definition"] = "DATE"
-            elif base == "dateTime":
-                res["column_definition"] = "TIMESTAMP"
-            elif base == "time":
-                res["column_definition"] = "TIME"
+        if restriction.find(Tag.fractionDigits) is not None:
+            res["fractionDigits"] = restriction.find(Tag.fractionDigits).attrib["value"]
+        
+        if restriction.find(Tag.length) is not None:
+            res["length"] = restriction.find(Tag.length).attrib["value"]
 
-        # if fractionDigits is not None:
-        #     pass
+        if restriction.find(Tag.maxExclusive) is not None:
+            res["maxExclusive"] = restriction.find(Tag.maxExclusive).attrib["value"]
 
-        # if length is not None:
-        #     pass
+        if restriction.find(Tag.minExclusive) is not None:
+            res["minExclusive"] = restriction.find(Tag.minExclusive).attrib["value"]
+        
+        if restriction.find(Tag.maxInclusive) is not None:
+            res["maxInclusive"] = restriction.find(Tag.maxInclusive).attrib["value"]
 
-        # if maxExclusive is not None:
-        #     pass
+        if restriction.find(Tag.minInclusive) is not None:
+            res["minInclusive"] = restriction.find(Tag.minInclusive).attrib["value"]
+        
+        if restriction.find(Tag.maxLength) is not None:
+            res["maxLength"] = restriction.find(Tag.maxLength).attrib["value"]
 
-        # if minExclusive is not None:
-        #     pass
-    
-        # if maxInclusive is not None:
-        #     pass
+        if restriction.find(Tag.minLength) is not None:
+            res["minLength"] = restriction.find(Tag.minLength).attrib["value"]
 
-        # if minInclusive is not None:
-            pass
+        if restriction.find(Tag.pattern) is not None:
+            res["pattern"] = restriction.find(Tag.pattern).attrib["value"]
 
-        if length is not None:
-            res["column_length"] = length.attrib["value"]
-
-        # if maxLength is not None:
-        #     res["column_length"] = maxLength.attrib["value"]
-
-        # if minLength is not None or maxLength is not None:
-        #     res["size"] = (Annox.field_add(Jpa.constraint.size(minLength.attrib["value"], maxLength.attrib["value"])))
-
-        # if pattern is not None:
-        #     res["pattern"] = (Annox.field_add(Jpa.constraint.pattern(pattern.attrib["value"], "this field must match")))
-
-        # if totalDigits is not None:
-        #     pass
-
-        # if whiteSpace is not None:
-        #     pass        
+        if restriction.find(Tag.totalDigits) is not None:
+            res["totalDigits"] = restriction.find(Tag.totalDigits).attrib["value"]
+        
+        if restriction.find(Tag.whiteSpace) is not None:
+            res["whiteSpace"] = restriction.find(Tag.whiteSpace).attrib["value"]
             
         return res
 
@@ -718,7 +706,7 @@ class Jaxb:
         return f'''<jaxb:package name="{value}" />'''
     
     @staticmethod
-    def basic(xpath):
+    def bindings(xpath):
         return f'''<jaxb:bindings node="{xpath}">'''
 
     @staticmethod
@@ -794,10 +782,11 @@ class Annox:
         return f'''<annox:removeAnnotation target="field">{annotation}</annox:annotate>'''
     
 class HyperJAXB:
+    
     @staticmethod
     def orm_table(annotation):
         return f'''<orm:table {annotation} />'''
-    
+
     @staticmethod
     def orm_inheritance(annotation):
         return f'''<orm:inheritance {annotation} />'''
@@ -823,8 +812,12 @@ class HyperJAXB:
         return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}"/></orm:attribute-override>'''
     
     @staticmethod
-    def embeddable():
-        return f'''<hj:embeddable/>'''
+    def embeddabl_start():
+        return f'''<hj:embeddable>'''
+    
+    @staticmethod
+    def embeddable_end():
+        return f'''</hj:embeddable>'''
     
     @staticmethod
     def hj_entity_start():
@@ -834,6 +827,14 @@ class HyperJAXB:
     def hj_entity_end():
         return f'''</hj:entity>'''
     
+    @staticmethod
+    def hj_basic_start():
+        return f'''<hj:basic>'''
+
+    @staticmethod
+    def hj_basic_end():
+        return f'''</hj:basic>'''
+
     @staticmethod
     def hj_mapped_start():
         return f'''<hj:mapped-superclass>'''
@@ -893,6 +894,7 @@ class HyperJAXB:
     @staticmethod
     def hj_many_to_many_end():
         return f'</hj:many-to-many>'
+
     
 class Tag:
     _xs_namespace = "{http://www.w3.org/2001/XMLSchema}"

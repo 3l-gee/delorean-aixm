@@ -260,14 +260,14 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
         }
         final RadioCommunicationOperationalStatusTypeExtensionType that = ((RadioCommunicationOperationalStatusTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationOperationalStatusExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationOperationalStatusExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractRadioCommunicationOperationalStatusExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractRadioCommunicationOperationalStatusExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationOperationalStatusExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationOperationalStatusExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -286,14 +286,14 @@ public class RadioCommunicationOperationalStatusTypeExtensionType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadioCommunicationOperationalStatusExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadioCommunicationOperationalStatusExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadioCommunicationOperationalStatusExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadioCommunicationOperationalStatusExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadioCommunicationOperationalStatusExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadioCommunicationOperationalStatusExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

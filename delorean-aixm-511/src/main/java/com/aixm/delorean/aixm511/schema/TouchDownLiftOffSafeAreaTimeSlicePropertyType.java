@@ -223,19 +223,6 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
         }
         final TouchDownLiftOffSafeAreaTimeSlicePropertyType that = ((TouchDownLiftOffSafeAreaTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTouchDownLiftOffSafeAreaTimeSlice();
             boolean rhsFieldIsSet = that.isSetTouchDownLiftOffSafeAreaTimeSlice();
             TouchDownLiftOffSafeAreaTimeSliceType lhsField;
@@ -244,6 +231,19 @@ public class TouchDownLiftOffSafeAreaTimeSlicePropertyType implements Serializab
             rhsField = that.getTouchDownLiftOffSafeAreaTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "touchDownLiftOffSafeAreaTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "touchDownLiftOffSafeAreaTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns()?this.getOwns():false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns()?that.getOwns():false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

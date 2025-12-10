@@ -8,6 +8,59 @@ from .content import Content
 
 class OrmHandler: 
 
+    def constraint_generator(constraints) -> dict:
+        POSTGRES_VARCHAR_LIMIT = 4000
+
+        if constraints is None:
+            return []
+        
+        node = ["<!-- Embedable + orm -->"]
+
+        if constraints["uber"] == "string":
+            if constraints.get("length") is None and constraints.get("maxLength") is None :
+                length = 256
+            elif constraints.get("length") is not None and constraints.get("maxLength") is None :
+                length = constraints.get("length")
+            elif constraints.get("length") is None and constraints.get("maxLength") is not None :
+                length = constraints.get("maxLength")
+            elif constraints.get("length") is not None and constraints.get("maxLength") is not None :
+                length = max(constraints.get("maxLength"), constraints.get("length"))
+
+            if int(length) <= POSTGRES_VARCHAR_LIMIT:
+                # Map to VARCHAR
+                node.append(f'''<orm:column column-definition="VARCHAR" length="{length}" />''')
+                return node
+            else:
+                # Map to TEXT
+                node.append(f'''<orm:column column-definition="TEXT" length="{length}" />''')
+                return node
+            
+        if constraints["uber"] == "unsignedInt":
+            return []
+        
+        if constraints["uber"] == "token":
+            return []
+
+        if constraints["uber"] == "decimal":
+            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is None:
+                node.append(f'''<orm:column column-definition="NUMERIC" />''')
+                return node
+            
+            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is None:
+                node.append(f'''<orm:column column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" />''')
+                return node
+            
+            if constraints.get("fractionDigits") is None and constraints.get("totalDigits") is not None:
+                node.append(f'''<orm:column column-definition="NUMERIC" precision="{constraints.get("totalDigits")}" />''')
+                return node
+            
+            if constraints.get("fractionDigits") is not None and constraints.get("totalDigits") is not None:
+                node.append(f'''<orm:column column-definition="NUMERIC" scale="{constraints.get("fractionDigits")}" precision="{constraints.get("totalDigits")}" />''')
+                return node
+        
+        return []
+
+
     @staticmethod
     def embeded_types(type, parent, element) -> dict:
         res = ["<!-- Embedded -->"]
