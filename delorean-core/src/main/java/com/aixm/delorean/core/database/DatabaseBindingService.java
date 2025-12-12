@@ -224,7 +224,6 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         return results;
     }
 
-
     private void executeSQLScript(String sql) {
         try {
             try (Connection conn = getConnection(); Statement stmt = conn.createStatement()) {
@@ -246,66 +245,6 @@ public class DatabaseBindingService<ROOT, FEATURE> {
 
     public void shutdown(){
         this.sessionFactory.close();
-    }
-
-    private List<MutationFeatureTimeslice> getTopTimeslice(Session session, List<String> nameList){
-
-        List<MutationFeatureTimeslice> featureTimeslices = new ArrayList<>();
-
-        for (String name : nameList) {
-
-            String sql = this.generateTopFeatureTimesliceSql(name);
-
-            List<Tuple> tuples = session.createNativeQuery(sql, Tuple.class).getResultList();
-
-            featureTimeslices.addAll(tuples.stream()
-                .map(t -> new MutationFeatureTimeslice(
-                    t.get("feature_id", Long.class),
-                    t.get("identifier", String.class),
-                    t.get("sequence_number", Long.class),
-                    t.get("correction_number", Long.class),
-                    t.get("time_slice_property_id", Long.class),
-                    t.get("time_slice_id", Long.class),
-                    name
-                ))
-                .toList());
-        }
-
-        return featureTimeslices;
-    }
-
-    private String generateTopFeatureTimesliceSql(String name) {
-        String feature = name;
-        String timeSliceProperty = name + "_tsp";
-        String timeSlice = name + "_ts";
-        String featureType = name.replaceFirst("^.*\\.", "") + "timeslice_id";
-
-        return String.format("""
-            SELECT DISTINCT ON (%1$s.identifier)
-            %1$s.id AS feature_id,
-            %1$s.identifier AS identifier,
-            %3$s.sequence_number AS sequence_number,
-            %3$s.correction_number AS correction_number,
-            %2$s.id As time_slice_property_id,
-            %3$s.id AS time_slice_id
-            FROM %1$s
-            LEFT JOIN master_join
-            ON %1$s.id = master_join.source_id
-            LEFT JOIN %2$s
-            ON master_join.target_id = %2$s.id
-            LEFT JOIN %3$s
-            ON %2$s.%4$s = %3$s.id
-            WHERE
-                %1$s.feature_status = 'APPROVED'
-                AND 
-                %3$s.feature_status = 'APPROVED'
-            ORDER BY identifier, sequence_number DESC, correction_number DESC;
-        """,
-            feature,                // %1$s - alias: dp, rw, etc.
-            timeSliceProperty,      // %2$s - full table (e.g., navaids_points.designatedpoint)
-            timeSlice,              // %3$s - tsp table
-            featureType             // %4$s - ts table
-        );
     }
 
     public void persist(Object object) {
@@ -350,7 +289,7 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         }
     }
 
-    public <X> void merge(Object object) {
+    public void merge(Object object) {
         if (this.sessionFactory == null){
             throw new IllegalArgumentException("sessionfactory is not init");
         }

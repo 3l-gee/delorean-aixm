@@ -118,7 +118,6 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
     }
 
     // Lifecycle methods
-
     public void unmarshal(String path) {
         if (this.xmlBinding == null) {
             throw new RuntimeException("XMLBinding is not set");
@@ -192,18 +191,6 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         this.databaseBinding.persist(this.message);
         String stats = this.databaseBinding.statistics();
         ConsoleLogger.log(LogLevel.INFO, "Persisted <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
-        
-        // if (this.getEditorProject() != null) {
-        // }
-
-        // if (this.getPublisherProject() != null) {
-        //     Session session = this.databaseBinding.getSession();
-        //     String userName = this.databaseBinding.getUserName();
-        //     this.publisherPRJ.loadProject(session, userName);
-        //     ConsoleLogger.log(LogLevel.INFO, "AIXM and project successfully loaded");
-        // } else {
-        //     ConsoleLogger.log(LogLevel.INFO, "AIXM successfully loaded");
-        // }
     }
 
     public void merge() {

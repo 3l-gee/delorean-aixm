@@ -2,6 +2,7 @@ package com.aixm.delorean.aixm511.database;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,6 +14,7 @@ import com.aixm.delorean.core.database.MutationFeatureTimeslice;
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
 import com.aixm.delorean.core.database.TimeSliceAction;
+import com.aixm.delorean.core.database.BasicMessage;
 
 import jakarta.persistence.Tuple;
 
@@ -20,6 +22,7 @@ import com.aixm.delorean.aixm511.schema.AbstractAIXMFeatureType;
 import com.aixm.delorean.aixm511.schema.message.AIXMBasicMessageType;
 import com.aixm.delorean.aixm511.schema.message.BasicMessageMemberAIXMPropertyType;
 import com.aixm.delorean.aixm511.schema.AbstractAIXMTimeSliceType;
+
 
 public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
 
@@ -153,16 +156,10 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
         List<BasicMessageMemberAIXMPropertyType> basicMessageMembers = message.getHasMember();
         message.unsetHasMember();
 
-        // 2. Persite memeberless message
-        HibernateHelper.doInTransaction(session, s -> {
-            s.persist(message);
-            return null;
-        });
-
-        // 3. extract current top timeslice from db (top = last)
+        // 2. extract current top timeslice from db (top = last)
         mutationFeatureTimeslices.addAll(Aixm511DatabaseFunction.generateTimesliceAction(session, featureList));
 
-        // 4. feature, timeslice and correction slice are merged
+        // 3. feature, timeslice and correction slice are merged
         Transaction mergeTransaction = session.beginTransaction();
         int i = 0;
         for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
@@ -182,7 +179,7 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
         }
         mergeTransaction.commit();
 
-        // 6. Use StatelessSession for manual batch operations
+        // 4. Use StatelessSession for manual batch operations
         Transaction updateTransaction = session.beginTransaction();
         for (MutationFeatureTimeslice mft : mutationFeatureTimeslices){
             if (mft != null) {
@@ -195,6 +192,30 @@ public class Aixm511DatabaseFunction extends AbstractDatabaseFunctions {
             }
         }
         updateTransaction.commit();
+
+        // 5. Link new BasicMessageMemberAIXMPropertyType to 
+        Transaction linkTransaction = session.beginTransaction();
+        BasicMessage result = session.createQuery("SELECT new com.aixm.delorean.core.database.BasicMessage(aixm.aixm_message.hjid, aixm.aixm_message.id) FROM aixm.aixm_message", BasicMessage.class).setMaxResults(1).getSingleResult();
+
+        Long messageHjid = result.hjid();
+        String messageId = result.id();
+                
+        List<Long> featureHjids = new ArrayList<>();
+        for (BasicMessageMemberAIXMPropertyType bmm : basicMessageMembers) {
+            if (bmm.gethjid() != null) {
+                featureHjids.add(bmm.gethjid());
+            }
+        } 
+
+        for (Long featId : featureHjids) {
+            session.createNativeMutationQuery(
+                    "INSERT INTO aixm.message_member_link (message_id, feature_id) VALUES (:msg, :feat)")
+                .setParameter("msg", messageHjid)
+                .setParameter("feat", featId)
+                .executeUpdate();
+        }
+
+        linkTransaction.commit();
 
         session.close();
     }
