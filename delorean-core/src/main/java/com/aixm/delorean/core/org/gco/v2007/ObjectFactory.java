@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
 import com.aixm.delorean.core.org.gml.v_3_2.AngleType;
 import com.aixm.delorean.core.org.gml.v_3_2.CodeType;
 import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
@@ -13,38 +9,42 @@ import com.aixm.delorean.core.org.gml.v_3_2.ScaleType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the com.aixm.delorean.core.org.gco.v2007 package. 
- * <p>An ObjectFactory allows you to programmatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
- * provided in this class.
- * 
+ * This object contains factory methods for each Java content interface and Java
+ * element interface generated in the com.aixm.delorean.core.org.gco.v2007
+ * package.
+ * <p>
+ * An ObjectFactory allows you to programmatically construct new instances of
+ * the Java representation for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces and classes representing the
+ * binding of schema type definitions, element declarations and model groups.
+ * Factory methods for each of these are provided in this class.
+ *
  */
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _CharacterString_QNAME = new QName("http://www.isotc211.org/2005/gco", "CharacterString");
+    private static final QName _CharacterString_QNAME = new QName("http://www.isotc211.org/2005/gco",
+            "CharacterString");
     private static final QName _AbstractObject_QNAME = new QName("http://www.isotc211.org/2005/gco", "AbstractObject");
     private static final QName _TypeName_QNAME = new QName("http://www.isotc211.org/2005/gco", "TypeName");
     private static final QName _MemberName_QNAME = new QName("http://www.isotc211.org/2005/gco", "MemberName");
     private static final QName _Multiplicity_QNAME = new QName("http://www.isotc211.org/2005/gco", "Multiplicity");
-    private static final QName _MultiplicityRange_QNAME = new QName("http://www.isotc211.org/2005/gco", "MultiplicityRange");
+    private static final QName _MultiplicityRange_QNAME = new QName("http://www.isotc211.org/2005/gco",
+            "MultiplicityRange");
     private static final QName _Measure_QNAME = new QName("http://www.isotc211.org/2005/gco", "Measure");
     private static final QName _Length_QNAME = new QName("http://www.isotc211.org/2005/gco", "Length");
     private static final QName _Angle_QNAME = new QName("http://www.isotc211.org/2005/gco", "Angle");
     private static final QName _Scale_QNAME = new QName("http://www.isotc211.org/2005/gco", "Scale");
     private static final QName _Distance_QNAME = new QName("http://www.isotc211.org/2005/gco", "Distance");
     private static final QName _Boolean_QNAME = new QName("http://www.isotc211.org/2005/gco", "Boolean");
-    private static final QName _AbstractGenericName_QNAME = new QName("http://www.isotc211.org/2005/gco", "AbstractGenericName");
+    private static final QName _AbstractGenericName_QNAME = new QName("http://www.isotc211.org/2005/gco",
+            "AbstractGenericName");
     private static final QName _LocalName_QNAME = new QName("http://www.isotc211.org/2005/gco", "LocalName");
     private static final QName _ScopedName_QNAME = new QName("http://www.isotc211.org/2005/gco", "ScopedName");
     private static final QName _DateTime_QNAME = new QName("http://www.isotc211.org/2005/gco", "DateTime");
@@ -52,23 +52,24 @@ public class ObjectFactory {
     private static final QName _Decimal_QNAME = new QName("http://www.isotc211.org/2005/gco", "Decimal");
     private static final QName _Real_QNAME = new QName("http://www.isotc211.org/2005/gco", "Real");
     private static final QName _Integer_QNAME = new QName("http://www.isotc211.org/2005/gco", "Integer");
-    private static final QName _UnlimitedInteger_QNAME = new QName("http://www.isotc211.org/2005/gco", "UnlimitedInteger");
+    private static final QName _UnlimitedInteger_QNAME = new QName("http://www.isotc211.org/2005/gco",
+            "UnlimitedInteger");
     private static final QName _Record_QNAME = new QName("http://www.isotc211.org/2005/gco", "Record");
     private static final QName _RecordType_QNAME = new QName("http://www.isotc211.org/2005/gco", "RecordType");
     private static final QName _Binary_QNAME = new QName("http://www.isotc211.org/2005/gco", "Binary");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.aixm.delorean.core.org.gco.v2007
-     * 
+     * Create a new ObjectFactory that can be used to create new instances of schema
+     * derived classes for package: com.aixm.delorean.core.org.gco.v2007
+     *
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link CodeListValueType }
-     * 
-     * @return
-     *     the new instance of {@link CodeListValueType }
+     *
+     * @return the new instance of {@link CodeListValueType }
      */
     public CodeListValueType createCodeListValueType() {
         return new CodeListValueType();
@@ -76,9 +77,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TypeNameType }
-     * 
-     * @return
-     *     the new instance of {@link TypeNameType }
+     *
+     * @return the new instance of {@link TypeNameType }
      */
     public TypeNameType createTypeNameType() {
         return new TypeNameType();
@@ -86,9 +86,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MemberNameType }
-     * 
-     * @return
-     *     the new instance of {@link MemberNameType }
+     *
+     * @return the new instance of {@link MemberNameType }
      */
     public MemberNameType createMemberNameType() {
         return new MemberNameType();
@@ -96,9 +95,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiplicityType }
-     * 
-     * @return
-     *     the new instance of {@link MultiplicityType }
+     *
+     * @return the new instance of {@link MultiplicityType }
      */
     public MultiplicityType createMultiplicityType() {
         return new MultiplicityType();
@@ -106,9 +104,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiplicityRangeType }
-     * 
-     * @return
-     *     the new instance of {@link MultiplicityRangeType }
+     *
+     * @return the new instance of {@link MultiplicityRangeType }
      */
     public MultiplicityRangeType createMultiplicityRangeType() {
         return new MultiplicityRangeType();
@@ -116,9 +113,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnlimitedIntegerType }
-     * 
-     * @return
-     *     the new instance of {@link UnlimitedIntegerType }
+     *
+     * @return the new instance of {@link UnlimitedIntegerType }
      */
     public UnlimitedIntegerType createUnlimitedIntegerType() {
         return new UnlimitedIntegerType();
@@ -126,9 +122,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RecordTypeType }
-     * 
-     * @return
-     *     the new instance of {@link RecordTypeType }
+     *
+     * @return the new instance of {@link RecordTypeType }
      */
     public RecordTypeType createRecordTypeType() {
         return new RecordTypeType();
@@ -136,9 +131,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BinaryType }
-     * 
-     * @return
-     *     the new instance of {@link BinaryType }
+     *
+     * @return the new instance of {@link BinaryType }
      */
     public BinaryType createBinaryType() {
         return new BinaryType();
@@ -146,9 +140,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ObjectReferencePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ObjectReferencePropertyType }
+     *
+     * @return the new instance of {@link ObjectReferencePropertyType }
      */
     public ObjectReferencePropertyType createObjectReferencePropertyType() {
         return new ObjectReferencePropertyType();
@@ -156,9 +149,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TypeNamePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TypeNamePropertyType }
+     *
+     * @return the new instance of {@link TypeNamePropertyType }
      */
     public TypeNamePropertyType createTypeNamePropertyType() {
         return new TypeNamePropertyType();
@@ -166,9 +158,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MemberNamePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MemberNamePropertyType }
+     *
+     * @return the new instance of {@link MemberNamePropertyType }
      */
     public MemberNamePropertyType createMemberNamePropertyType() {
         return new MemberNamePropertyType();
@@ -176,9 +167,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiplicityPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiplicityPropertyType }
+     *
+     * @return the new instance of {@link MultiplicityPropertyType }
      */
     public MultiplicityPropertyType createMultiplicityPropertyType() {
         return new MultiplicityPropertyType();
@@ -186,9 +176,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiplicityRangePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiplicityRangePropertyType }
+     *
+     * @return the new instance of {@link MultiplicityRangePropertyType }
      */
     public MultiplicityRangePropertyType createMultiplicityRangePropertyType() {
         return new MultiplicityRangePropertyType();
@@ -196,9 +185,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MeasurePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MeasurePropertyType }
+     *
+     * @return the new instance of {@link MeasurePropertyType }
      */
     public MeasurePropertyType createMeasurePropertyType() {
         return new MeasurePropertyType();
@@ -206,9 +194,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LengthPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LengthPropertyType }
+     *
+     * @return the new instance of {@link LengthPropertyType }
      */
     public LengthPropertyType createLengthPropertyType() {
         return new LengthPropertyType();
@@ -216,9 +203,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AnglePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link AnglePropertyType }
+     *
+     * @return the new instance of {@link AnglePropertyType }
      */
     public AnglePropertyType createAnglePropertyType() {
         return new AnglePropertyType();
@@ -226,9 +212,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ScalePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ScalePropertyType }
+     *
+     * @return the new instance of {@link ScalePropertyType }
      */
     public ScalePropertyType createScalePropertyType() {
         return new ScalePropertyType();
@@ -236,9 +221,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DistancePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DistancePropertyType }
+     *
+     * @return the new instance of {@link DistancePropertyType }
      */
     public DistancePropertyType createDistancePropertyType() {
         return new DistancePropertyType();
@@ -246,9 +230,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CharacterStringPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CharacterStringPropertyType }
+     *
+     * @return the new instance of {@link CharacterStringPropertyType }
      */
     public CharacterStringPropertyType createCharacterStringPropertyType() {
         return new CharacterStringPropertyType();
@@ -256,9 +239,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BooleanPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link BooleanPropertyType }
+     *
+     * @return the new instance of {@link BooleanPropertyType }
      */
     public BooleanPropertyType createBooleanPropertyType() {
         return new BooleanPropertyType();
@@ -266,9 +248,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GenericNamePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GenericNamePropertyType }
+     *
+     * @return the new instance of {@link GenericNamePropertyType }
      */
     public GenericNamePropertyType createGenericNamePropertyType() {
         return new GenericNamePropertyType();
@@ -276,9 +257,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LocalNamePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LocalNamePropertyType }
+     *
+     * @return the new instance of {@link LocalNamePropertyType }
      */
     public LocalNamePropertyType createLocalNamePropertyType() {
         return new LocalNamePropertyType();
@@ -286,9 +266,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ScopedNamePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ScopedNamePropertyType }
+     *
+     * @return the new instance of {@link ScopedNamePropertyType }
      */
     public ScopedNamePropertyType createScopedNamePropertyType() {
         return new ScopedNamePropertyType();
@@ -296,9 +275,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomAnglePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomAnglePropertyType }
+     *
+     * @return the new instance of {@link UomAnglePropertyType }
      */
     public UomAnglePropertyType createUomAnglePropertyType() {
         return new UomAnglePropertyType();
@@ -306,9 +284,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomLengthPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomLengthPropertyType }
+     *
+     * @return the new instance of {@link UomLengthPropertyType }
      */
     public UomLengthPropertyType createUomLengthPropertyType() {
         return new UomLengthPropertyType();
@@ -316,9 +293,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomScalePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomScalePropertyType }
+     *
+     * @return the new instance of {@link UomScalePropertyType }
      */
     public UomScalePropertyType createUomScalePropertyType() {
         return new UomScalePropertyType();
@@ -326,9 +302,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnitOfMeasurePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UnitOfMeasurePropertyType }
+     *
+     * @return the new instance of {@link UnitOfMeasurePropertyType }
      */
     public UnitOfMeasurePropertyType createUnitOfMeasurePropertyType() {
         return new UnitOfMeasurePropertyType();
@@ -336,9 +311,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomAreaPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomAreaPropertyType }
+     *
+     * @return the new instance of {@link UomAreaPropertyType }
      */
     public UomAreaPropertyType createUomAreaPropertyType() {
         return new UomAreaPropertyType();
@@ -346,9 +320,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomVelocityPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomVelocityPropertyType }
+     *
+     * @return the new instance of {@link UomVelocityPropertyType }
      */
     public UomVelocityPropertyType createUomVelocityPropertyType() {
         return new UomVelocityPropertyType();
@@ -356,9 +329,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomTimePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomTimePropertyType }
+     *
+     * @return the new instance of {@link UomTimePropertyType }
      */
     public UomTimePropertyType createUomTimePropertyType() {
         return new UomTimePropertyType();
@@ -366,9 +338,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UomVolumePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UomVolumePropertyType }
+     *
+     * @return the new instance of {@link UomVolumePropertyType }
      */
     public UomVolumePropertyType createUomVolumePropertyType() {
         return new UomVolumePropertyType();
@@ -376,9 +347,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DateTimePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DateTimePropertyType }
+     *
+     * @return the new instance of {@link DateTimePropertyType }
      */
     public DateTimePropertyType createDateTimePropertyType() {
         return new DateTimePropertyType();
@@ -386,9 +356,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DatePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DatePropertyType }
+     *
+     * @return the new instance of {@link DatePropertyType }
      */
     public DatePropertyType createDatePropertyType() {
         return new DatePropertyType();
@@ -396,9 +365,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NumberPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link NumberPropertyType }
+     *
+     * @return the new instance of {@link NumberPropertyType }
      */
     public NumberPropertyType createNumberPropertyType() {
         return new NumberPropertyType();
@@ -406,9 +374,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DecimalPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DecimalPropertyType }
+     *
+     * @return the new instance of {@link DecimalPropertyType }
      */
     public DecimalPropertyType createDecimalPropertyType() {
         return new DecimalPropertyType();
@@ -416,9 +383,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RealPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link RealPropertyType }
+     *
+     * @return the new instance of {@link RealPropertyType }
      */
     public RealPropertyType createRealPropertyType() {
         return new RealPropertyType();
@@ -426,9 +392,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link IntegerPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link IntegerPropertyType }
+     *
+     * @return the new instance of {@link IntegerPropertyType }
      */
     public IntegerPropertyType createIntegerPropertyType() {
         return new IntegerPropertyType();
@@ -436,9 +401,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnlimitedIntegerPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UnlimitedIntegerPropertyType }
+     *
+     * @return the new instance of {@link UnlimitedIntegerPropertyType }
      */
     public UnlimitedIntegerPropertyType createUnlimitedIntegerPropertyType() {
         return new UnlimitedIntegerPropertyType();
@@ -446,9 +410,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RecordPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link RecordPropertyType }
+     *
+     * @return the new instance of {@link RecordPropertyType }
      */
     public RecordPropertyType createRecordPropertyType() {
         return new RecordPropertyType();
@@ -456,9 +419,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RecordTypePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link RecordTypePropertyType }
+     *
+     * @return the new instance of {@link RecordTypePropertyType }
      */
     public RecordTypePropertyType createRecordTypePropertyType() {
         return new RecordTypePropertyType();
@@ -466,9 +428,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BinaryPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link BinaryPropertyType }
+     *
+     * @return the new instance of {@link BinaryPropertyType }
      */
     public BinaryPropertyType createBinaryPropertyType() {
         return new BinaryPropertyType();
@@ -476,11 +437,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "CharacterString")
     public JAXBElement<String> createCharacterString(String value) {
@@ -488,12 +449,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractObjectType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractObjectType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractObjectType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractObjectType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "AbstractObject")
     public JAXBElement<AbstractObjectType> createAbstractObject(AbstractObjectType value) {
@@ -501,12 +463,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TypeNameType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TypeNameType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TypeNameType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TypeNameType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "TypeName")
     public JAXBElement<TypeNameType> createTypeName(TypeNameType value) {
@@ -514,12 +477,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MemberNameType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MemberNameType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MemberNameType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MemberNameType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "MemberName")
     public JAXBElement<MemberNameType> createMemberName(MemberNameType value) {
@@ -527,12 +491,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiplicityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiplicityType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiplicityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiplicityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Multiplicity")
     public JAXBElement<MultiplicityType> createMultiplicity(MultiplicityType value) {
@@ -540,12 +505,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiplicityRangeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiplicityRangeType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiplicityRangeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiplicityRangeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "MultiplicityRange")
     public JAXBElement<MultiplicityRangeType> createMultiplicityRange(MultiplicityRangeType value) {
@@ -553,12 +519,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link MeasureType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Measure")
     public JAXBElement<MeasureType> createMeasure(MeasureType value) {
@@ -566,12 +533,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link LengthType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link LengthType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Length", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "Measure")
     public JAXBElement<LengthType> createLength(LengthType value) {
@@ -579,12 +547,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link AngleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Angle", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "Measure")
     public JAXBElement<AngleType> createAngle(AngleType value) {
@@ -592,12 +561,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ScaleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ScaleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ScaleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ScaleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Scale", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "Measure")
     public JAXBElement<ScaleType> createScale(ScaleType value) {
@@ -605,12 +575,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link LengthType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link LengthType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Distance", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "Length")
     public JAXBElement<LengthType> createDistance(LengthType value) {
@@ -619,11 +590,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Boolean
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Boolean")
     public JAXBElement<Boolean> createBoolean(Boolean value) {
@@ -632,11 +603,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "AbstractGenericName")
     public JAXBElement<CodeType> createAbstractGenericName(CodeType value) {
@@ -645,11 +616,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "LocalName", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "AbstractGenericName")
     public JAXBElement<CodeType> createLocalName(CodeType value) {
@@ -658,11 +629,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "ScopedName", substitutionHeadNamespace = "http://www.isotc211.org/2005/gco", substitutionHeadName = "AbstractGenericName")
     public JAXBElement<CodeType> createScopedName(CodeType value) {
@@ -670,12 +641,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link XMLGregorianCalendar }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "DateTime")
     public JAXBElement<XMLGregorianCalendar> createDateTime(XMLGregorianCalendar value) {
@@ -684,11 +656,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Date")
     public JAXBElement<String> createDate(String value) {
@@ -696,12 +668,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Decimal")
     public JAXBElement<BigDecimal> createDecimal(BigDecimal value) {
@@ -710,11 +683,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Double
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Real")
     public JAXBElement<Double> createReal(Double value) {
@@ -722,12 +695,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Integer")
     public JAXBElement<BigInteger> createInteger(BigInteger value) {
@@ -735,12 +709,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UnlimitedIntegerType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link UnlimitedIntegerType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UnlimitedIntegerType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UnlimitedIntegerType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "UnlimitedInteger")
     public JAXBElement<UnlimitedIntegerType> createUnlimitedInteger(UnlimitedIntegerType value) {
@@ -749,11 +724,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Object
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Record")
     public JAXBElement<Object> createRecord(Object value) {
@@ -761,12 +736,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RecordTypeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link RecordTypeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RecordTypeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link RecordTypeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "RecordType")
     public JAXBElement<RecordTypeType> createRecordType(RecordTypeType value) {
@@ -774,12 +750,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BinaryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BinaryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BinaryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BinaryType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.isotc211.org/2005/gco", name = "Binary")
     public JAXBElement<BinaryType> createBinary(BinaryType value) {

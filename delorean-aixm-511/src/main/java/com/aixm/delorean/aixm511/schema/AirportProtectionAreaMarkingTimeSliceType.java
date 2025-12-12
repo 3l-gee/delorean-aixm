@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -25,6 +21,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,27 +32,37 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for AirportProtectionAreaMarkingTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AirportProtectionAreaMarkingTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AirportProtectionAreaMarkingTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}AirportProtectionAreaMarkingPropertyGroup"/>
+ *         <group ref=
+"{http://www.aixm.aero/schema/5.1.1}AirportProtectionAreaMarkingPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirportProtectionAreaMarkingExtension"/>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractMarkingExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAirportProtectionAreaMarkingExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractMarkingExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -62,25 +72,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AirportProtectionAreaMarkingTimeSliceType", propOrder = {
-    "markingICAOStandard",
-    "condition",
-    "element",
-    "annotation",
-    "markingLocation",
-    "markedProtectionArea",
-    "extension"
-})
+@XmlType(name = "AirportProtectionAreaMarkingTimeSliceType", propOrder = {"markingICAOStandard", "condition", "element",
+        "annotation", "markingLocation", "markedProtectionArea", "extension"})
 @Entity(name = "AirportProtectionAreaMarkingTimeSliceType")
 @Table(name = "airportprotectionareamarking_ts", schema = "airport_heliport")
-public class AirportProtectionAreaMarkingTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class AirportProtectionAreaMarkingTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "markingICAOStandard", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -99,11 +99,10 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Gets the value of the markingICAOStandard property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getMarkingICAOStandard() {
@@ -112,11 +111,11 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Sets the value of the markingICAOStandard property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setMarkingICAOStandard(JAXBElement<CodeYesNoType> value) {
         this.markingICAOStandard = value;
@@ -124,16 +123,15 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetMarkingICAOStandard() {
-        return (this.markingICAOStandard!= null);
+        return (this.markingICAOStandard != null);
     }
 
     /**
      * Gets the value of the condition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeMarkingConditionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeMarkingConditionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeMarkingConditionType> getCondition() {
@@ -142,11 +140,11 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Sets the value of the condition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeMarkingConditionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeMarkingConditionType }{@code >}
+     *
      */
     public void setCondition(JAXBElement<CodeMarkingConditionType> value) {
         this.condition = value;
@@ -154,39 +152,36 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetCondition() {
-        return (this.condition!= null);
+        return (this.condition != null);
     }
 
     /**
      * Gets the value of the element property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the element property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the element property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getElement().add(newItem);
+     * getElement().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MarkingElementPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = MarkingElementPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = MarkingElementPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "element_airportprotectionareamarking_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "element", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "airportprotectionareamarkingpropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "element", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "airportprotectionareamarkingpropertygroup", referencedColumnName = "hjid")})
     public List<MarkingElementPropertyType> getElement() {
         if (element == null) {
             element = new ArrayList<>();
@@ -195,8 +190,8 @@ public class AirportProtectionAreaMarkingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setElement(List<MarkingElementPropertyType> element) {
         this.element = element;
@@ -204,7 +199,7 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetElement() {
-        return ((this.element!= null)&&(!this.element.isEmpty()));
+        return ((this.element != null) && (!this.element.isEmpty()));
     }
 
     public void unsetElement() {
@@ -213,34 +208,31 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_airportprotectionareamarking_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "airportprotectionareamarkingpropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "airportprotectionareamarkingpropertygroup", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -249,8 +241,8 @@ public class AirportProtectionAreaMarkingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -258,7 +250,7 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -267,11 +259,10 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Gets the value of the markingLocation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeProtectAreaSectionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeProtectAreaSectionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeProtectAreaSectionType> getMarkingLocation() {
@@ -280,11 +271,11 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Sets the value of the markingLocation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeProtectAreaSectionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeProtectAreaSectionType }{@code >}
+     *
      */
     public void setMarkingLocation(JAXBElement<CodeProtectAreaSectionType> value) {
         this.markingLocation = value;
@@ -292,16 +283,15 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetMarkingLocation() {
-        return (this.markingLocation!= null);
+        return (this.markingLocation != null);
     }
 
     /**
      * Gets the value of the markedProtectionArea property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportProtectionAreaPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AirportHeliportProtectionAreaPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AirportHeliportProtectionAreaPropertyType> getMarkedProtectionArea() {
@@ -310,11 +300,12 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     /**
      * Sets the value of the markedProtectionArea property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportProtectionAreaPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AirportHeliportProtectionAreaPropertyType
+     *            }{@code >}
+     *
      */
     public void setMarkedProtectionArea(JAXBElement<AirportHeliportProtectionAreaPropertyType> value) {
         this.markedProtectionArea = value;
@@ -322,34 +313,34 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetMarkedProtectionArea() {
-        return (this.markedProtectionArea!= null);
+        return (this.markedProtectionArea != null);
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AirportProtectionAreaMarkingExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = AirportProtectionAreaMarkingExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_AIRPORT_PROTECTION_0")
     public List<AirportProtectionAreaMarkingExtensionType> getExtension() {
         if (extension == null) {
@@ -359,8 +350,8 @@ public class AirportProtectionAreaMarkingTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<AirportProtectionAreaMarkingExtensionType> extension) {
         this.extension = extension;
@@ -368,7 +359,7 @@ public class AirportProtectionAreaMarkingTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -376,59 +367,62 @@ public class AirportProtectionAreaMarkingTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "markingicaostandard")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "markingicaostandard_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "markingicaostandard")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "markingicaostandard_nilreason"))})
     public CodeYesNoType getMarkingICAOStandardItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getMarkingICAOStandard());
     }
 
     public void setMarkingICAOStandardItem(CodeYesNoType target) {
-        setMarkingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markingICAOStandard"), AirportProtectionAreaMarkingTimeSliceType.class, target));
+        setMarkingICAOStandard(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "markingICAOStandard"),
+                AirportProtectionAreaMarkingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "condition")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "condition_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "condition")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "condition_nilreason"))})
     public CodeMarkingConditionType getConditionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeMarkingConditionType.class, this.getCondition());
     }
 
     public void setConditionItem(CodeMarkingConditionType target) {
-        setCondition(XmlAdapterUtils.marshallJAXBElement(CodeMarkingConditionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "condition"), AirportProtectionAreaMarkingTimeSliceType.class, target));
+        setCondition(XmlAdapterUtils.marshallJAXBElement(CodeMarkingConditionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "condition"),
+                AirportProtectionAreaMarkingTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "markinglocation")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "markinglocation_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "markinglocation")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "markinglocation_nilreason"))})
     public CodeProtectAreaSectionType getMarkingLocationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeProtectAreaSectionType.class, this.getMarkingLocation());
     }
 
     public void setMarkingLocationItem(CodeProtectAreaSectionType target) {
-        setMarkingLocation(XmlAdapterUtils.marshallJAXBElement(CodeProtectAreaSectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markingLocation"), AirportProtectionAreaMarkingTimeSliceType.class, target));
+        setMarkingLocation(XmlAdapterUtils.marshallJAXBElement(CodeProtectAreaSectionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "markingLocation"),
+                AirportProtectionAreaMarkingTimeSliceType.class, target));
     }
 
     @ManyToOne(targetEntity = AirportHeliportProtectionAreaPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "markedprotectionarea_id", referencedColumnName = "hjid")
     public AirportHeliportProtectionAreaPropertyType getMarkedProtectionAreaItem() {
-        return XmlAdapterUtils.unmarshallSource(AirportHeliportProtectionAreaPropertyType.class, this.getMarkedProtectionArea());
+        return XmlAdapterUtils.unmarshallSource(AirportHeliportProtectionAreaPropertyType.class,
+                this.getMarkedProtectionArea());
     }
 
     public void setMarkedProtectionAreaItem(AirportHeliportProtectionAreaPropertyType target) {
-        setMarkedProtectionArea(XmlAdapterUtils.marshallJAXBElement(AirportHeliportProtectionAreaPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "markedProtectionArea"), AirportProtectionAreaMarkingTimeSliceType.class, target));
+        setMarkedProtectionArea(XmlAdapterUtils.marshallJAXBElement(AirportHeliportProtectionAreaPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "markedProtectionArea"),
+                AirportProtectionAreaMarkingTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -439,53 +433,14 @@ public class AirportProtectionAreaMarkingTimeSliceType
         }
         final AirportProtectionAreaMarkingTimeSliceType that = ((AirportProtectionAreaMarkingTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirportProtectionAreaMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<AirportProtectionAreaMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkingLocation();
-            boolean rhsFieldIsSet = that.isSetMarkingLocation();
-            JAXBElement<CodeProtectAreaSectionType> lhsField;
-            lhsField = this.getMarkingLocation();
-            JAXBElement<CodeProtectAreaSectionType> rhsField;
-            rhsField = that.getMarkingLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
+            boolean lhsFieldIsSet = this.isSetCondition();
+            boolean rhsFieldIsSet = that.isSetCondition();
+            JAXBElement<CodeMarkingConditionType> lhsField;
+            lhsField = this.getCondition();
+            JAXBElement<CodeMarkingConditionType> rhsField;
+            rhsField = that.getCondition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -504,14 +459,27 @@ public class AirportProtectionAreaMarkingTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCondition();
-            boolean rhsFieldIsSet = that.isSetCondition();
-            JAXBElement<CodeMarkingConditionType> lhsField;
-            lhsField = this.getCondition();
-            JAXBElement<CodeMarkingConditionType> rhsField;
-            rhsField = that.getCondition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirportProtectionAreaMarkingExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirportProtectionAreaMarkingExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -520,11 +488,37 @@ public class AirportProtectionAreaMarkingTimeSliceType
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<MarkingElementPropertyType> lhsField;
-            lhsField = (this.isSetElement()?this.getElement():null);
+            lhsField = (this.isSetElement() ? this.getElement() : null);
             List<MarkingElementPropertyType> rhsField;
-            rhsField = (that.isSetElement()?that.getElement():null);
+            rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingLocation();
+            boolean rhsFieldIsSet = that.isSetMarkingLocation();
+            JAXBElement<CodeProtectAreaSectionType> lhsField;
+            lhsField = this.getMarkingLocation();
+            JAXBElement<CodeProtectAreaSectionType> rhsField;
+            rhsField = that.getMarkingLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingLocation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingLocation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -552,14 +546,14 @@ public class AirportProtectionAreaMarkingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetElement();
             List<MarkingElementPropertyType> theField;
-            theField = (this.isSetElement()?this.getElement():null);
+            theField = (this.isSetElement() ? this.getElement() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "element", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -580,7 +574,7 @@ public class AirportProtectionAreaMarkingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirportProtectionAreaMarkingExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -605,13 +599,13 @@ public class AirportProtectionAreaMarkingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetElement();
             List<MarkingElementPropertyType> theField;
-            theField = (this.isSetElement()?this.getElement():null);
+            theField = (this.isSetElement() ? this.getElement() : null);
             strategy.appendField(locator, this, "element", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -629,7 +623,7 @@ public class AirportProtectionAreaMarkingTimeSliceType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<AirportProtectionAreaMarkingExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

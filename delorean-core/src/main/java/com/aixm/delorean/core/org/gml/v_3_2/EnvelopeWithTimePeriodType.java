@@ -1,50 +1,52 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for EnvelopeWithTimePeriodType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for EnvelopeWithTimePeriodType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="EnvelopeWithTimePeriodType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}EnvelopeType">
  *       <sequence>
- *         <element name="beginPosition" type="{http://www.opengis.net/gml/3.2}TimePositionType"/>
- *         <element name="endPosition" type="{http://www.opengis.net/gml/3.2}TimePositionType"/>
+ *         <element name="beginPosition" type=
+"{http://www.opengis.net/gml/3.2}TimePositionType"/>
+ *         <element name="endPosition" type=
+"{http://www.opengis.net/gml/3.2}TimePositionType"/>
  *       </sequence>
- *       <attribute name="frame" type="{http://www.w3.org/2001/XMLSchema}anyURI" default="#ISO-8601" />
+ *       <attribute name="frame" type=
+"{http://www.w3.org/2001/XMLSchema}anyURI" default="#ISO-8601" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EnvelopeWithTimePeriodType", propOrder = {
-    "beginPosition",
-    "endPosition"
-})
-public class EnvelopeWithTimePeriodType
-    extends EnvelopeType
-    implements Serializable
-{
+@XmlType(name = "EnvelopeWithTimePeriodType", propOrder = {"beginPosition", "endPosition"})
+public class EnvelopeWithTimePeriodType extends EnvelopeType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -57,11 +59,9 @@ public class EnvelopeWithTimePeriodType
 
     /**
      * Gets the value of the beginPosition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TimePositionType }
-     *     
+     *
+     * @return possible object is {@link TimePositionType }
+     *
      */
     public TimePositionType getBeginPosition() {
         return beginPosition;
@@ -69,27 +69,24 @@ public class EnvelopeWithTimePeriodType
 
     /**
      * Sets the value of the beginPosition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TimePositionType }
-     *     
+     *            allowed object is {@link TimePositionType }
+     *
      */
     public void setBeginPosition(TimePositionType value) {
         this.beginPosition = value;
     }
 
     public boolean isSetBeginPosition() {
-        return (this.beginPosition!= null);
+        return (this.beginPosition != null);
     }
 
     /**
      * Gets the value of the endPosition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TimePositionType }
-     *     
+     *
+     * @return possible object is {@link TimePositionType }
+     *
      */
     public TimePositionType getEndPosition() {
         return endPosition;
@@ -97,27 +94,24 @@ public class EnvelopeWithTimePeriodType
 
     /**
      * Sets the value of the endPosition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TimePositionType }
-     *     
+     *            allowed object is {@link TimePositionType }
+     *
      */
     public void setEndPosition(TimePositionType value) {
         this.endPosition = value;
     }
 
     public boolean isSetEndPosition() {
-        return (this.endPosition!= null);
+        return (this.endPosition != null);
     }
 
     /**
      * Gets the value of the frame property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFrame() {
         if (frame == null) {
@@ -129,23 +123,23 @@ public class EnvelopeWithTimePeriodType
 
     /**
      * Sets the value of the frame property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setFrame(String value) {
         this.frame = value;
     }
 
     public boolean isSetFrame() {
-        return (this.frame!= null);
+        return (this.frame != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

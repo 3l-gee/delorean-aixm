@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ApproachAltitudeTablePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ApproachAltitudeTablePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ApproachAltitudeTablePropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}ApproachAltitudeTable"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}ApproachAltitudeTable"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ApproachAltitudeTablePropertyType", propOrder = {
-    "approachAltitudeTable"
-})
+@XmlType(name = "ApproachAltitudeTablePropertyType", propOrder = {"approachAltitudeTable"})
 @Entity(name = "ApproachAltitudeTablePropertyType")
 @Table(name = "approachaltitudetable_pt", schema = "procedure")
-public class ApproachAltitudeTablePropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class ApproachAltitudeTablePropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ApproachAltitudeTable", required = true)
@@ -56,15 +58,11 @@ public class ApproachAltitudeTablePropertyType
 
     /**
      * Gets the value of the approachAltitudeTable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ApproachAltitudeTableType }
-     *     
+     *
+     * @return possible object is {@link ApproachAltitudeTableType }
+     *
      */
-    @OneToOne(targetEntity = ApproachAltitudeTableType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ApproachAltitudeTableType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "approachaltitudetable_id", referencedColumnName = "hjid")
     public ApproachAltitudeTableType getApproachAltitudeTable() {
         return approachAltitudeTable;
@@ -72,11 +70,10 @@ public class ApproachAltitudeTablePropertyType
 
     /**
      * Sets the value of the approachAltitudeTable property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ApproachAltitudeTableType }
-     *     
+     *            allowed object is {@link ApproachAltitudeTableType }
+     *
      */
     public void setApproachAltitudeTable(ApproachAltitudeTableType value) {
         this.approachAltitudeTable = value;
@@ -84,12 +81,13 @@ public class ApproachAltitudeTablePropertyType
 
     @Transient
     public boolean isSetApproachAltitudeTable() {
-        return (this.approachAltitudeTable!= null);
+        return (this.approachAltitudeTable != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

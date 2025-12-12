@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,35 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for StandardLevelColumnTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for StandardLevelColumnTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="StandardLevelColumnTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}StandardLevelColumnTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}StandardLevelColumnTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StandardLevelColumnTimeSlicePropertyType", propOrder = {
-    "standardLevelColumnTimeSlice"
-})
+@XmlType(name = "StandardLevelColumnTimeSlicePropertyType", propOrder = {"standardLevelColumnTimeSlice"})
 @Entity(name = "StandardLevelColumnTimeSlicePropertyType")
 @Table(name = "standardlevelcolumn_tsp", schema = "shared")
-public class StandardLevelColumnTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class StandardLevelColumnTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "StandardLevelColumnTimeSlice", required = true)
@@ -77,15 +81,12 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
 
     /**
      * Gets the value of the standardLevelColumnTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StandardLevelColumnTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link StandardLevelColumnTimeSliceType }
+     *
      */
     @OneToOne(targetEntity = StandardLevelColumnTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public StandardLevelColumnTimeSliceType getStandardLevelColumnTimeSlice() {
         return standardLevelColumnTimeSlice;
@@ -93,11 +94,10 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
 
     /**
      * Sets the value of the standardLevelColumnTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StandardLevelColumnTimeSliceType }
-     *     
+     *            allowed object is {@link StandardLevelColumnTimeSliceType }
+     *
      */
     public void setStandardLevelColumnTimeSlice(StandardLevelColumnTimeSliceType value) {
         this.standardLevelColumnTimeSlice = value;
@@ -105,16 +105,14 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
 
     @Transient
     public boolean isSetStandardLevelColumnTimeSlice() {
-        return (this.standardLevelColumnTimeSlice!= null);
+        return (this.standardLevelColumnTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +126,10 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +137,7 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +145,10 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +159,21 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +182,11 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,8 +205,9 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -226,9 +218,9 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -242,8 +234,10 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
             lhsField = this.getStandardLevelColumnTimeSlice();
             StandardLevelColumnTimeSliceType rhsField;
             rhsField = that.getStandardLevelColumnTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelColumnTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelColumnTimeSlice", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardLevelColumnTimeSlice",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardLevelColumnTimeSlice",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,7 +268,7 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +306,7 @@ public class StandardLevelColumnTimeSlicePropertyType implements Serializable, E
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

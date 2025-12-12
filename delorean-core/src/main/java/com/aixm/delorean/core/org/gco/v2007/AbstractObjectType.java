@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDQElementType;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDQResultType;
 import com.aixm.delorean.core.org.gmd.v2007.AbstractDSAggregateType;
@@ -62,6 +61,7 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -75,87 +75,51 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractObject_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractObject_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractObject_Type">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
  *       </sequence>
- *       <attGroup ref="{http://www.isotc211.org/2005/gco}ObjectIdentification"/>
+ *       <attGroup ref=
+"{http://www.isotc211.org/2005/gco}ObjectIdentification"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractObject_Type")
-@XmlSeeAlso({
-    EXVerticalExtentType.class,
-    EXExtentType.class,
-    EXTemporalExtentType.class,
-    AbstractEXGeographicExtentType.class,
-    MDIdentifierType.class,
-    MDReferenceSystemType.class,
-    AbstractRSReferenceSystemType.class,
-    CIResponsiblePartyType.class,
-    CICitationType.class,
-    CIAddressType.class,
-    CIOnlineResourceType.class,
-    CIContactType.class,
-    CITelephoneType.class,
-    CIDateType.class,
-    CISeriesType.class,
-    MDDimensionType.class,
-    AbstractMDSpatialRepresentationType.class,
-    MDGeometricObjectsType.class,
-    MDExtendedElementInformationType.class,
-    MDMetadataExtensionInformationType.class,
-    AbstractMDContentInformationType.class,
-    MDRangeDimensionType.class,
-    MDApplicationSchemaInformationType.class,
-    MDPortrayalCatalogueReferenceType.class,
-    MDConstraintsType.class,
-    MDMediumType.class,
-    MDDigitalTransferOptionsType.class,
-    MDStandardOrderProcessType.class,
-    MDDistributorType.class,
-    MDDistributionType.class,
-    MDFormatType.class,
-    MDMaintenanceInformationType.class,
-    MDBrowseGraphicType.class,
-    AbstractMDIdentificationType.class,
-    MDRepresentativeFractionType.class,
-    MDUsageType.class,
-    MDKeywordsType.class,
-    DSAssociationType.class,
-    MDAggregateInformationType.class,
-    LIProcessStepType.class,
-    LISourceType.class,
-    LILineageType.class,
-    AbstractDQResultType.class,
-    AbstractDQElementType.class,
-    DQDataQualityType.class,
-    DQScopeType.class,
-    PTFreeTextType.class,
-    PTLocaleType.class,
-    MDMetadataType.class,
-    DSDataSetType.class,
-    AbstractDSAggregateType.class,
-    TypeNameType.class,
-    MemberNameType.class,
-    MultiplicityType.class,
-    MultiplicityRangeType.class
-})
-public abstract class AbstractObjectType implements Serializable, Equals, HashCode, ToString
-{
+@XmlSeeAlso({EXVerticalExtentType.class, EXExtentType.class, EXTemporalExtentType.class,
+        AbstractEXGeographicExtentType.class, MDIdentifierType.class, MDReferenceSystemType.class,
+        AbstractRSReferenceSystemType.class, CIResponsiblePartyType.class, CICitationType.class, CIAddressType.class,
+        CIOnlineResourceType.class, CIContactType.class, CITelephoneType.class, CIDateType.class, CISeriesType.class,
+        MDDimensionType.class, AbstractMDSpatialRepresentationType.class, MDGeometricObjectsType.class,
+        MDExtendedElementInformationType.class, MDMetadataExtensionInformationType.class,
+        AbstractMDContentInformationType.class, MDRangeDimensionType.class, MDApplicationSchemaInformationType.class,
+        MDPortrayalCatalogueReferenceType.class, MDConstraintsType.class, MDMediumType.class,
+        MDDigitalTransferOptionsType.class, MDStandardOrderProcessType.class, MDDistributorType.class,
+        MDDistributionType.class, MDFormatType.class, MDMaintenanceInformationType.class, MDBrowseGraphicType.class,
+        AbstractMDIdentificationType.class, MDRepresentativeFractionType.class, MDUsageType.class, MDKeywordsType.class,
+        DSAssociationType.class, MDAggregateInformationType.class, LIProcessStepType.class, LISourceType.class,
+        LILineageType.class, AbstractDQResultType.class, AbstractDQElementType.class, DQDataQualityType.class,
+        DQScopeType.class, PTFreeTextType.class, PTLocaleType.class, MDMetadataType.class, DSDataSetType.class,
+        AbstractDSAggregateType.class, TypeNameType.class, MemberNameType.class, MultiplicityType.class,
+        MultiplicityRangeType.class})
+public abstract class AbstractObjectType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "id")
@@ -168,11 +132,9 @@ public abstract class AbstractObjectType implements Serializable, Equals, HashCo
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getId() {
         return id;
@@ -180,27 +142,24 @@ public abstract class AbstractObjectType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setId(String value) {
         this.id = value;
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
     /**
      * Gets the value of the uuid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUuid() {
         return uuid;
@@ -208,18 +167,17 @@ public abstract class AbstractObjectType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the uuid property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setUuid(String value) {
         this.uuid = value;
     }
 
     public boolean isSetUuid() {
-        return (this.uuid!= null);
+        return (this.uuid != null);
     }
 
     @Override
@@ -235,8 +193,9 @@ public abstract class AbstractObjectType implements Serializable, Equals, HashCo
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

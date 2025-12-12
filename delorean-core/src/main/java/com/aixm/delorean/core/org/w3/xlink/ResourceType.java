@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.w3.xlink;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
@@ -12,6 +9,9 @@ import jakarta.xml.bind.annotation.XmlMixed;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -26,12 +26,17 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.w3c.dom.Element;
 
-
 /**
- * <p>Java class for resourceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for resourceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="resourceType">
  *   <complexContent>
@@ -42,15 +47,12 @@ import org.w3c.dom.Element;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "resourceType", propOrder = {
-    "content"
-})
-public class ResourceType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "resourceType", propOrder = {"content"})
+public class ResourceType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlMixed
@@ -68,27 +70,26 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the content property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getContent().add(newItem);
+     * getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Element }
-     * {@link Object }
-     * {@link String }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link Element }
+     * {@link Object } {@link String }
+     *
+     *
      */
     public List<Object> getContent() {
         if (content == null) {
@@ -98,15 +99,15 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setContent(List<Object> content) {
         this.content = content;
     }
 
     public boolean isSetContent() {
-        return ((this.content!= null)&&(!this.content.isEmpty()));
+        return ((this.content != null) && (!this.content.isEmpty()));
     }
 
     public void unsetContent() {
@@ -115,11 +116,9 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -127,27 +126,24 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the titleAttribute property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTitleAttribute() {
         return titleAttribute;
@@ -155,27 +151,24 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the titleAttribute property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setTitleAttribute(String value) {
         this.titleAttribute = value;
     }
 
     public boolean isSetTitleAttribute() {
-        return (this.titleAttribute!= null);
+        return (this.titleAttribute != null);
     }
 
     /**
      * Gets the value of the label property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getLabel() {
         return label;
@@ -183,18 +176,17 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the label property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setLabel(String value) {
         this.label = value;
     }
 
     public boolean isSetLabel() {
-        return (this.label!= null);
+        return (this.label != null);
     }
 
     @Override
@@ -210,27 +202,15 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final ResourceType that = ((ResourceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            List<Object> lhsField;
-            lhsField = (this.isSetContent()?this.getContent():null);
-            List<Object> rhsField;
-            rhsField = (that.isSetContent()?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetTitleAttribute();
             boolean rhsFieldIsSet = that.isSetTitleAttribute();
@@ -245,14 +225,14 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<Object> lhsField;
+            lhsField = (this.isSetContent() ? this.getContent() : null);
+            List<Object> rhsField;
+            rhsField = (that.isSetContent() ? that.getContent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -266,6 +246,19 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getLabel();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "label", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "label", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -289,7 +282,7 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent()?this.getContent():null);
+            theField = (this.isSetContent() ? this.getContent() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -342,7 +335,7 @@ public class ResourceType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetContent();
             List<Object> theField;
-            theField = (this.isSetContent()?this.getContent():null);
+            theField = (this.isSetContent() ? this.getContent() : null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {

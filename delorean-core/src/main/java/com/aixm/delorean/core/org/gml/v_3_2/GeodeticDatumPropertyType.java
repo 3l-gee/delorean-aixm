@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -11,6 +10,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,14 +24,21 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:GeodeticDatumPropertyType is a property type for association roles to a geodetic datum, either referencing or containing the definition of that datum.
- * 
- * <p>Java class for GeodeticDatumPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:GeodeticDatumPropertyType is a property type for association roles to a
+ * geodetic datum, either referencing or containing the definition of that
+ * datum.
+ *
+ * <p>
+ * Java class for GeodeticDatumPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GeodeticDatumPropertyType">
  *   <complexContent>
@@ -39,25 +46,25 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}GeodeticDatum"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeodeticDatumPropertyType", propOrder = {
-    "geodeticDatum"
-})
-public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "GeodeticDatumPropertyType", propOrder = {"geodeticDatum"})
+public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:GeodeticDatum is a geodetic datum defines the precise location and orientation in 3-dimensional space of a defined ellipsoid (or sphere), or of a Cartesian coordinate system centered in this ellipsoid (or sphere).
-     * 
+     * gml:GeodeticDatum is a geodetic datum defines the precise location and
+     * orientation in 3-dimensional space of a defined ellipsoid (or sphere), or of
+     * a Cartesian coordinate system centered in this ellipsoid (or sphere).
+     *
      */
     @XmlElement(name = "GeodeticDatum")
     protected GeodeticDatumType geodeticDatum;
@@ -82,12 +89,12 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
     protected ActuateType actuate;
 
     /**
-     * gml:GeodeticDatum is a geodetic datum defines the precise location and orientation in 3-dimensional space of a defined ellipsoid (or sphere), or of a Cartesian coordinate system centered in this ellipsoid (or sphere).
-     * 
-     * @return
-     *     possible object is
-     *     {@link GeodeticDatumType }
-     *     
+     * gml:GeodeticDatum is a geodetic datum defines the precise location and
+     * orientation in 3-dimensional space of a defined ellipsoid (or sphere), or of
+     * a Cartesian coordinate system centered in this ellipsoid (or sphere).
+     *
+     * @return possible object is {@link GeodeticDatumType }
+     *
      */
     public GeodeticDatumType getGeodeticDatum() {
         return geodeticDatum;
@@ -95,11 +102,10 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the geodeticDatum property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link GeodeticDatumType }
-     *     
+     *            allowed object is {@link GeodeticDatumType }
+     *
      * @see #getGeodeticDatum()
      */
     public void setGeodeticDatum(GeodeticDatumType value) {
@@ -107,16 +113,14 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
     }
 
     public boolean isSetGeodeticDatum() {
-        return (this.geodeticDatum!= null);
+        return (this.geodeticDatum != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -124,27 +128,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -152,27 +153,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -180,27 +178,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -208,27 +203,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -236,27 +228,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -264,27 +253,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -292,27 +278,24 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -320,18 +303,17 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     @Override
@@ -347,8 +329,9 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -356,14 +339,27 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
         }
         final GeodeticDatumPropertyType that = ((GeodeticDatumPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetGeodeticDatum();
-            boolean rhsFieldIsSet = that.isSetGeodeticDatum();
-            GeodeticDatumType lhsField;
-            lhsField = this.getGeodeticDatum();
-            GeodeticDatumType rhsField;
-            rhsField = that.getGeodeticDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geodeticDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geodeticDatum", rhsField);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -382,14 +378,14 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -421,45 +417,6 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
             String lhsField;
@@ -468,6 +425,32 @@ public class GeodeticDatumPropertyType implements Serializable, Equals, HashCode
             rhsField = that.getRole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetGeodeticDatum();
+            boolean rhsFieldIsSet = that.isSetGeodeticDatum();
+            GeodeticDatumType lhsField;
+            lhsField = this.getGeodeticDatum();
+            GeodeticDatumType rhsField;
+            rhsField = that.getGeodeticDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geodeticDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geodeticDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

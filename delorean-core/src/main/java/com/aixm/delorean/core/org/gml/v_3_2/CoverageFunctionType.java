@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,12 +19,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for CoverageFunctionType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for CoverageFunctionType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CoverageFunctionType">
  *   <complexContent>
@@ -38,44 +43,46 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CoverageFunctionType", propOrder = {
-    "mappingRule",
-    "coverageMappingRule",
-    "gridFunction"
-})
-public class CoverageFunctionType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "CoverageFunctionType", propOrder = {"mappingRule", "coverageMappingRule", "gridFunction"})
+public class CoverageFunctionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MappingRule")
     protected StringOrRefType mappingRule;
     /**
-     * gml:CoverageMappingRule provides a formal or informal description of the coverage function.
-     * The mapping rule may be defined as an in-line string (gml:ruleDefinition) or via a remote reference through xlink:href (gml:ruleReference).  
-     * If no rule name is specified, the default is 'Linear' with respect to members of the domain in document order.
-     * 
+     * gml:CoverageMappingRule provides a formal or informal description of the
+     * coverage function. The mapping rule may be defined as an in-line string
+     * (gml:ruleDefinition) or via a remote reference through xlink:href
+     * (gml:ruleReference). If no rule name is specified, the default is 'Linear'
+     * with respect to members of the domain in document order.
+     *
      */
     @XmlElement(name = "CoverageMappingRule")
     protected MappingRuleType coverageMappingRule;
     /**
-     * gml:GridFunction provides an explicit mapping rule for grid geometries, i.e. the domain shall be a geometry of type grid.  It describes the mapping of grid posts (discrete point grid coverage) or grid cells (discrete surface coverage) to the values in the range set.
-     * The gml:startPoint is the index position of a point in the grid that is mapped to the first point in the range set (this is also the index position of the first grid post).  If the gml:startPoint property is omitted the gml:startPoint is assumed to be equal to the value of gml:low in the gml:Grid geometry. Subsequent points in the mapping are determined by the value of the gml:sequenceRule.
-     * 
+     * gml:GridFunction provides an explicit mapping rule for grid geometries, i.e.
+     * the domain shall be a geometry of type grid. It describes the mapping of grid
+     * posts (discrete point grid coverage) or grid cells (discrete surface
+     * coverage) to the values in the range set. The gml:startPoint is the index
+     * position of a point in the grid that is mapped to the first point in the
+     * range set (this is also the index position of the first grid post). If the
+     * gml:startPoint property is omitted the gml:startPoint is assumed to be equal
+     * to the value of gml:low in the gml:Grid geometry. Subsequent points in the
+     * mapping are determined by the value of the gml:sequenceRule.
+     *
      */
     @XmlElement(name = "GridFunction")
     protected GridFunctionType gridFunction;
 
     /**
      * Gets the value of the mappingRule property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StringOrRefType }
-     *     
+     *
+     * @return possible object is {@link StringOrRefType }
+     *
      */
     public StringOrRefType getMappingRule() {
         return mappingRule;
@@ -83,29 +90,28 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the mappingRule property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StringOrRefType }
-     *     
+     *            allowed object is {@link StringOrRefType }
+     *
      */
     public void setMappingRule(StringOrRefType value) {
         this.mappingRule = value;
     }
 
     public boolean isSetMappingRule() {
-        return (this.mappingRule!= null);
+        return (this.mappingRule != null);
     }
 
     /**
-     * gml:CoverageMappingRule provides a formal or informal description of the coverage function.
-     * The mapping rule may be defined as an in-line string (gml:ruleDefinition) or via a remote reference through xlink:href (gml:ruleReference).  
-     * If no rule name is specified, the default is 'Linear' with respect to members of the domain in document order.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MappingRuleType }
-     *     
+     * gml:CoverageMappingRule provides a formal or informal description of the
+     * coverage function. The mapping rule may be defined as an in-line string
+     * (gml:ruleDefinition) or via a remote reference through xlink:href
+     * (gml:ruleReference). If no rule name is specified, the default is 'Linear'
+     * with respect to members of the domain in document order.
+     *
+     * @return possible object is {@link MappingRuleType }
+     *
      */
     public MappingRuleType getCoverageMappingRule() {
         return coverageMappingRule;
@@ -113,11 +119,10 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the coverageMappingRule property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MappingRuleType }
-     *     
+     *            allowed object is {@link MappingRuleType }
+     *
      * @see #getCoverageMappingRule()
      */
     public void setCoverageMappingRule(MappingRuleType value) {
@@ -125,17 +130,22 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
     }
 
     public boolean isSetCoverageMappingRule() {
-        return (this.coverageMappingRule!= null);
+        return (this.coverageMappingRule != null);
     }
 
     /**
-     * gml:GridFunction provides an explicit mapping rule for grid geometries, i.e. the domain shall be a geometry of type grid.  It describes the mapping of grid posts (discrete point grid coverage) or grid cells (discrete surface coverage) to the values in the range set.
-     * The gml:startPoint is the index position of a point in the grid that is mapped to the first point in the range set (this is also the index position of the first grid post).  If the gml:startPoint property is omitted the gml:startPoint is assumed to be equal to the value of gml:low in the gml:Grid geometry. Subsequent points in the mapping are determined by the value of the gml:sequenceRule.
-     * 
-     * @return
-     *     possible object is
-     *     {@link GridFunctionType }
-     *     
+     * gml:GridFunction provides an explicit mapping rule for grid geometries, i.e.
+     * the domain shall be a geometry of type grid. It describes the mapping of grid
+     * posts (discrete point grid coverage) or grid cells (discrete surface
+     * coverage) to the values in the range set. The gml:startPoint is the index
+     * position of a point in the grid that is mapped to the first point in the
+     * range set (this is also the index position of the first grid post). If the
+     * gml:startPoint property is omitted the gml:startPoint is assumed to be equal
+     * to the value of gml:low in the gml:Grid geometry. Subsequent points in the
+     * mapping are determined by the value of the gml:sequenceRule.
+     *
+     * @return possible object is {@link GridFunctionType }
+     *
      */
     public GridFunctionType getGridFunction() {
         return gridFunction;
@@ -143,11 +153,10 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
 
     /**
      * Sets the value of the gridFunction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link GridFunctionType }
-     *     
+     *            allowed object is {@link GridFunctionType }
+     *
      * @see #getGridFunction()
      */
     public void setGridFunction(GridFunctionType value) {
@@ -155,7 +164,7 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
     }
 
     public boolean isSetGridFunction() {
-        return (this.gridFunction!= null);
+        return (this.gridFunction != null);
     }
 
     @Override
@@ -171,8 +180,9 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -180,14 +190,14 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
         }
         final CoverageFunctionType that = ((CoverageFunctionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
-            boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
-            MappingRuleType lhsField;
-            lhsField = this.getCoverageMappingRule();
-            MappingRuleType rhsField;
-            rhsField = that.getCoverageMappingRule();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
+            boolean lhsFieldIsSet = this.isSetGridFunction();
+            boolean rhsFieldIsSet = that.isSetGridFunction();
+            GridFunctionType lhsField;
+            lhsField = this.getGridFunction();
+            GridFunctionType rhsField;
+            rhsField = that.getGridFunction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -206,14 +216,14 @@ public class CoverageFunctionType implements Serializable, Equals, HashCode, ToS
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGridFunction();
-            boolean rhsFieldIsSet = that.isSetGridFunction();
-            GridFunctionType lhsField;
-            lhsField = this.getGridFunction();
-            GridFunctionType rhsField;
-            rhsField = that.getGridFunction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridFunction", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridFunction", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoverageMappingRule();
+            boolean rhsFieldIsSet = that.isSetCoverageMappingRule();
+            MappingRuleType lhsField;
+            lhsField = this.getCoverageMappingRule();
+            MappingRuleType rhsField;
+            rhsField = that.getCoverageMappingRule();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coverageMappingRule", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coverageMappingRule", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

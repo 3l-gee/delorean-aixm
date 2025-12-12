@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +16,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -32,52 +32,50 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <group ref="{http://www.opengis.net/gml/3.2}geometricPositionListGroup"/>
+ *       <group ref=
+"{http://www.opengis.net/gml/3.2}geometricPositionListGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "posList",
-    "geometricPositionGroup"
-})
+@XmlType(name = "", propOrder = {"posList", "geometricPositionGroup"})
 @Entity(name = "Row")
 @Table(name = "ROW_")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Row implements Serializable, Equals, HashCode, ToString
-{
+public class Row implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected DirectPositionListType posList;
-    @XmlElements({
-        @XmlElement(name = "pos", type = DirectPositionType.class),
-        @XmlElement(name = "pointProperty", type = PointPropertyType.class)
-    })
+    @XmlElements({@XmlElement(name = "pos", type = DirectPositionType.class),
+            @XmlElement(name = "pointProperty", type = PointPropertyType.class)})
     protected List<Object> geometricPositionGroup;
     @XmlAttribute(name = "Hjid")
     protected Long hjid;
 
     /**
      * Gets the value of the posList property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DirectPositionListType }
-     *     
+     *
+     * @return possible object is {@link DirectPositionListType }
+     *
      */
     @Transient
     public DirectPositionListType getPosList() {
@@ -86,11 +84,10 @@ public class Row implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the posList property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DirectPositionListType }
-     *     
+     *            allowed object is {@link DirectPositionListType }
+     *
      */
     public void setPosList(DirectPositionListType value) {
         this.posList = value;
@@ -98,33 +95,37 @@ public class Row implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetPosList() {
-        return (this.posList!= null);
+        return (this.posList != null);
     }
 
     /**
-     * GML supports two different ways to specify a geometric position: either by a direct position (a data type) or a point (a geometric object).
-     * pos elements are positions that are "owned" by the geometric primitive encapsulating this geometric position.
-     * pointProperty elements contain a point that may be referenced from other geometry elements or reference another point defined elsewhere (reuse of existing points).Gets the value of the geometricPositionGroup property.
-     * 
+     * GML supports two different ways to specify a geometric position: either by a
+     * direct position (a data type) or a point (a geometric object). pos elements
+     * are positions that are "owned" by the geometric primitive encapsulating this
+     * geometric position. pointProperty elements contain a point that may be
+     * referenced from other geometry elements or reference another point defined
+     * elsewhere (reuse of existing points).Gets the value of the
+     * geometricPositionGroup property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the geometricPositionGroup property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the geometricPositionGroup property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getGeometricPositionGroup().add(newItem);
+     * getGeometricPositionGroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DirectPositionType }
-     * {@link PointPropertyType }
-     * 
-     * 
+     * {@link DirectPositionType } {@link PointPropertyType }
+     *
+     *
      */
     @Transient
     public List<Object> getGeometricPositionGroup() {
@@ -135,10 +136,13 @@ public class Row implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * GML supports two different ways to specify a geometric position: either by a direct position (a data type) or a point (a geometric object).
-     * pos elements are positions that are "owned" by the geometric primitive encapsulating this geometric position.
-     * pointProperty elements contain a point that may be referenced from other geometry elements or reference another point defined elsewhere (reuse of existing points).
-     * 
+     * GML supports two different ways to specify a geometric position: either by a
+     * direct position (a data type) or a point (a geometric object). pos elements
+     * are positions that are "owned" by the geometric primitive encapsulating this
+     * geometric position. pointProperty elements contain a point that may be
+     * referenced from other geometry elements or reference another point defined
+     * elsewhere (reuse of existing points).
+     *
      */
     public void setGeometricPositionGroup(List<Object> geometricPositionGroup) {
         this.geometricPositionGroup = geometricPositionGroup;
@@ -146,7 +150,7 @@ public class Row implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetGeometricPositionGroup() {
-        return ((this.geometricPositionGroup!= null)&&(!this.geometricPositionGroup.isEmpty()));
+        return ((this.geometricPositionGroup != null) && (!this.geometricPositionGroup.isEmpty()));
     }
 
     public void unsetGeometricPositionGroup() {
@@ -155,11 +159,9 @@ public class Row implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -170,11 +172,10 @@ public class Row implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the hjid property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void setHjid(Long value) {
         this.hjid = value;
@@ -193,8 +194,9 @@ public class Row implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -218,9 +220,9 @@ public class Row implements Serializable, Equals, HashCode, ToString
             boolean lhsFieldIsSet = this.isSetGeometricPositionGroup();
             boolean rhsFieldIsSet = that.isSetGeometricPositionGroup();
             List<Object> lhsField;
-            lhsField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            lhsField = (this.isSetGeometricPositionGroup() ? this.getGeometricPositionGroup() : null);
             List<Object> rhsField;
-            rhsField = (that.isSetGeometricPositionGroup()?that.getGeometricPositionGroup():null);
+            rhsField = (that.isSetGeometricPositionGroup() ? that.getGeometricPositionGroup() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geometricPositionGroup", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geometricPositionGroup", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -253,7 +255,7 @@ public class Row implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetGeometricPositionGroup();
             List<Object> theField;
-            theField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            theField = (this.isSetGeometricPositionGroup() ? this.getGeometricPositionGroup() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "geometricPositionGroup", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -291,7 +293,7 @@ public class Row implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetGeometricPositionGroup();
             List<Object> theField;
-            theField = (this.isSetGeometricPositionGroup()?this.getGeometricPositionGroup():null);
+            theField = (this.isSetGeometricPositionGroup() ? this.getGeometricPositionGroup() : null);
             strategy.appendField(locator, this, "geometricPositionGroup", buffer, theField, theFieldIsSet);
         }
         return buffer;

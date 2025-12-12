@@ -1,11 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -20,6 +15,9 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -33,49 +31,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractGMLType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractGMLType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractGMLType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <group ref="{http://www.opengis.net/gml/3.2}StandardObjectProperties"/>
+ *         <group ref=
+"{http://www.opengis.net/gml/3.2}StandardObjectProperties"/>
  *       </sequence>
  *       <attribute ref="{http://www.opengis.net/gml/3.2}id use="required""/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractGMLType", propOrder = {
-    "metaDataProperty",
-    "description",
-    "descriptionReference",
-    "identifier",
-    "name"
-})
-@XmlSeeAlso({
-    AbstractTopologyType.class,
-    CompositeValueType.class,
-    AbstractGeometryType.class,
-    AbstractTimeObjectType.class,
-    BagType.class,
-    ArrayType.class,
-    AbstractTimeSliceType.class,
-    DefinitionBaseType.class,
-    AbstractFeatureType.class
-})
+@XmlType(name = "AbstractGMLType", propOrder = {"metaDataProperty", "description", "descriptionReference", "identifier",
+        "name"})
+@XmlSeeAlso({AbstractTopologyType.class, CompositeValueType.class, AbstractGeometryType.class,
+        AbstractTimeObjectType.class, BagType.class, ArrayType.class, AbstractTimeSliceType.class,
+        DefinitionBaseType.class, AbstractFeatureType.class})
 @MappedSuperclass
-public abstract class AbstractGMLType implements Serializable, Equals, HashCode, ToString
-{
+public abstract class AbstractGMLType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected List<MetaDataPropertyType> metaDataProperty;
@@ -84,8 +74,11 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
     protected CodeWithAuthorityType identifier;
     protected List<CodeType> name;
     /**
-     * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
-     * 
+     * The attribute gml:id supports provision of a handle for the XML element
+     * representing a GML Object. Its use is mandatory for all GML objects. It is of
+     * XML type ID, so is constrained to be unique in the XML document within which
+     * it occurs.
+     *
      */
     @XmlAttribute(name = "id", namespace = "http://www.opengis.net/gml/3.2", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -95,25 +88,26 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     /**
      * Gets the value of the metaDataProperty property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the metaDataProperty property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the metaDataProperty property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getMetaDataProperty().add(newItem);
+     * getMetaDataProperty().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MetaDataPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @Transient
     public List<MetaDataPropertyType> getMetaDataProperty() {
@@ -124,8 +118,8 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setMetaDataProperty(List<MetaDataPropertyType> metaDataProperty) {
         this.metaDataProperty = metaDataProperty;
@@ -133,7 +127,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetMetaDataProperty() {
-        return ((this.metaDataProperty!= null)&&(!this.metaDataProperty.isEmpty()));
+        return ((this.metaDataProperty != null) && (!this.metaDataProperty.isEmpty()));
     }
 
     public void unsetMetaDataProperty() {
@@ -142,25 +136,25 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StringOrRefType }
-     *     
+     *
+     * @return possible object is {@link StringOrRefType }
+     *
      */
     @Embedded
-    @jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "description")), @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "description_nilReason")), @jakarta.persistence.AttributeOverride(name = "href", column = @jakarta.persistence.Column(name = "description_href")) })
+    @jakarta.persistence.AttributeOverrides({
+            @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "description")),
+            @jakarta.persistence.AttributeOverride(name = "nilReason", column = @jakarta.persistence.Column(name = "description_nilReason")),
+            @jakarta.persistence.AttributeOverride(name = "href", column = @jakarta.persistence.Column(name = "description_href"))})
     public StringOrRefType getDescription() {
         return description;
     }
 
     /**
      * Sets the value of the description property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StringOrRefType }
-     *     
+     *            allowed object is {@link StringOrRefType }
+     *
      */
     public void setDescription(StringOrRefType value) {
         this.description = value;
@@ -168,16 +162,14 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetDescription() {
-        return (this.description!= null);
+        return (this.description != null);
     }
 
     /**
      * Gets the value of the descriptionReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ReferenceType }
-     *     
+     *
+     * @return possible object is {@link ReferenceType }
+     *
      */
     @Transient
     public ReferenceType getDescriptionReference() {
@@ -186,11 +178,10 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the descriptionReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ReferenceType }
-     *     
+     *            allowed object is {@link ReferenceType }
+     *
      */
     public void setDescriptionReference(ReferenceType value) {
         this.descriptionReference = value;
@@ -198,30 +189,29 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetDescriptionReference() {
-        return (this.descriptionReference!= null);
+        return (this.descriptionReference != null);
     }
 
     /**
      * Gets the value of the identifier property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeWithAuthorityType }
-     *     
+     *
+     * @return possible object is {@link CodeWithAuthorityType }
+     *
      */
     @Embedded
-    @jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")), @jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace")) })
+    @jakarta.persistence.AttributeOverrides({
+            @jakarta.persistence.AttributeOverride(name = "value", column = @jakarta.persistence.Column(name = "identifier")),
+            @jakarta.persistence.AttributeOverride(name = "codeSpace", column = @jakarta.persistence.Column(name = "codeSpace"))})
     public CodeWithAuthorityType getIdentifier() {
         return identifier;
     }
 
     /**
      * Sets the value of the identifier property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CodeWithAuthorityType }
-     *     
+     *            allowed object is {@link CodeWithAuthorityType }
+     *
      */
     public void setIdentifier(CodeWithAuthorityType value) {
         this.identifier = value;
@@ -229,30 +219,30 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetIdentifier() {
-        return (this.identifier!= null);
+        return (this.identifier != null);
     }
 
     /**
      * Gets the value of the name property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the name property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the name property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getName().add(newItem);
+     * getName().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link CodeType }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link CodeType }
+     *
+     *
      */
     @Transient
     public List<CodeType> getName() {
@@ -263,8 +253,8 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setName(List<CodeType> name) {
         this.name = name;
@@ -272,7 +262,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetName() {
-        return ((this.name!= null)&&(!this.name.isEmpty()));
+        return ((this.name != null) && (!this.name.isEmpty()));
     }
 
     public void unsetName() {
@@ -280,12 +270,13 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
     }
 
     /**
-     * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * The attribute gml:id supports provision of a handle for the XML element
+     * representing a GML Object. Its use is mandatory for all GML objects. It is of
+     * XML type ID, so is constrained to be unique in the XML document within which
+     * it occurs.
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "ID", length = 255)
@@ -295,11 +286,10 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      * @see #getId()
      */
     public void setId(String value) {
@@ -308,7 +298,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
 
     @Transient
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
     @Override
@@ -324,14 +314,41 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final AbstractGMLType that = ((AbstractGMLType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetMetaDataProperty();
+            boolean rhsFieldIsSet = that.isSetMetaDataProperty();
+            List<MetaDataPropertyType> lhsField;
+            lhsField = (this.isSetMetaDataProperty() ? this.getMetaDataProperty() : null);
+            List<MetaDataPropertyType> rhsField;
+            rhsField = (that.isSetMetaDataProperty() ? that.getMetaDataProperty() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metaDataProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metaDataProperty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
+            List<CodeType> lhsField;
+            lhsField = (this.isSetName() ? this.getName() : null);
+            List<CodeType> rhsField;
+            rhsField = (that.isSetName() ? that.getName() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetDescriptionReference();
             boolean rhsFieldIsSet = that.isSetDescriptionReference();
@@ -346,14 +363,14 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMetaDataProperty();
-            boolean rhsFieldIsSet = that.isSetMetaDataProperty();
-            List<MetaDataPropertyType> lhsField;
-            lhsField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
-            List<MetaDataPropertyType> rhsField;
-            rhsField = (that.isSetMetaDataProperty()?that.getMetaDataProperty():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "metaDataProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "metaDataProperty", rhsField);
+            boolean lhsFieldIsSet = this.isSetIdentifier();
+            boolean rhsFieldIsSet = that.isSetIdentifier();
+            CodeWithAuthorityType lhsField;
+            lhsField = this.getIdentifier();
+            CodeWithAuthorityType rhsField;
+            rhsField = that.getIdentifier();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -384,32 +401,6 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
-            List<CodeType> lhsField;
-            lhsField = (this.isSetName()?this.getName():null);
-            List<CodeType> rhsField;
-            rhsField = (that.isSetName()?that.getName():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetIdentifier();
-            boolean rhsFieldIsSet = that.isSetIdentifier();
-            CodeWithAuthorityType lhsField;
-            lhsField = this.getIdentifier();
-            CodeWithAuthorityType rhsField;
-            rhsField = that.getIdentifier();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "identifier", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "identifier", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -429,7 +420,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetMetaDataProperty();
             List<MetaDataPropertyType> theField;
-            theField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
+            theField = (this.isSetMetaDataProperty() ? this.getMetaDataProperty() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "metaDataProperty", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -457,7 +448,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetName();
             List<CodeType> theField;
-            theField = (this.isSetName()?this.getName():null);
+            theField = (this.isSetName() ? this.getName() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "name", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -496,7 +487,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetMetaDataProperty();
             List<MetaDataPropertyType> theField;
-            theField = (this.isSetMetaDataProperty()?this.getMetaDataProperty():null);
+            theField = (this.isSetMetaDataProperty() ? this.getMetaDataProperty() : null);
             strategy.appendField(locator, this, "metaDataProperty", buffer, theField, theFieldIsSet);
         }
         {
@@ -520,7 +511,7 @@ public abstract class AbstractGMLType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetName();
             List<CodeType> theField;
-            theField = (this.isSetName()?this.getName():null);
+            theField = (this.isSetName() ? this.getName() : null);
             strategy.appendField(locator, this, "name", buffer, theField, theFieldIsSet);
         }
         {

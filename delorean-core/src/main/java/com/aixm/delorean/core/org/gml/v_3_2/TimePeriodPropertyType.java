@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -11,6 +10,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,14 +24,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:TimePeriodPropertyType provides for associating a gml:TimePeriod with an object.
- * 
- * <p>Java class for TimePeriodPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:TimePeriodPropertyType provides for associating a gml:TimePeriod with an
+ * object.
+ *
+ * <p>
+ * Java class for TimePeriodPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TimePeriodPropertyType">
  *   <complexContent>
@@ -39,29 +45,35 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}TimePeriod"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TimePeriodPropertyType", propOrder = {
-    "timePeriod"
-})
-public class TimePeriodPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "TimePeriodPropertyType", propOrder = {"timePeriod"})
+public class TimePeriodPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:TimePeriod acts as a one-dimensional geometric primitive that represents an identifiable extent in time.
-     * The location in of a gml:TimePeriod is described by the temporal positions of the instants at which it begins and ends. The length of the period is equal to the temporal distance between the two bounding temporal positions. 
-     * Both beginning and end may be described in terms of their direct position using gml:TimePositionType which is an XML Schema simple content type, or by reference to an indentifiable time instant using gml:TimeInstantPropertyType.
-     * Alternatively a limit of a gml:TimePeriod may use the conventional GML property model to make a reference to a time instant described elsewhere, or a limit may be indicated as a direct position.
-     * 
+     * gml:TimePeriod acts as a one-dimensional geometric primitive that represents
+     * an identifiable extent in time. The location in of a gml:TimePeriod is
+     * described by the temporal positions of the instants at which it begins and
+     * ends. The length of the period is equal to the temporal distance between the
+     * two bounding temporal positions. Both beginning and end may be described in
+     * terms of their direct position using gml:TimePositionType which is an XML
+     * Schema simple content type, or by reference to an indentifiable time instant
+     * using gml:TimeInstantPropertyType. Alternatively a limit of a gml:TimePeriod
+     * may use the conventional GML property model to make a reference to a time
+     * instant described elsewhere, or a limit may be indicated as a direct
+     * position.
+     *
      */
     @XmlElement(name = "TimePeriod")
     protected TimePeriodType timePeriod;
@@ -88,15 +100,20 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
     protected java.lang.Boolean owns;
 
     /**
-     * gml:TimePeriod acts as a one-dimensional geometric primitive that represents an identifiable extent in time.
-     * The location in of a gml:TimePeriod is described by the temporal positions of the instants at which it begins and ends. The length of the period is equal to the temporal distance between the two bounding temporal positions. 
-     * Both beginning and end may be described in terms of their direct position using gml:TimePositionType which is an XML Schema simple content type, or by reference to an indentifiable time instant using gml:TimeInstantPropertyType.
-     * Alternatively a limit of a gml:TimePeriod may use the conventional GML property model to make a reference to a time instant described elsewhere, or a limit may be indicated as a direct position.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TimePeriodType }
-     *     
+     * gml:TimePeriod acts as a one-dimensional geometric primitive that represents
+     * an identifiable extent in time. The location in of a gml:TimePeriod is
+     * described by the temporal positions of the instants at which it begins and
+     * ends. The length of the period is equal to the temporal distance between the
+     * two bounding temporal positions. Both beginning and end may be described in
+     * terms of their direct position using gml:TimePositionType which is an XML
+     * Schema simple content type, or by reference to an indentifiable time instant
+     * using gml:TimeInstantPropertyType. Alternatively a limit of a gml:TimePeriod
+     * may use the conventional GML property model to make a reference to a time
+     * instant described elsewhere, or a limit may be indicated as a direct
+     * position.
+     *
+     * @return possible object is {@link TimePeriodType }
+     *
      */
     public TimePeriodType getTimePeriod() {
         return timePeriod;
@@ -104,11 +121,10 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the timePeriod property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TimePeriodType }
-     *     
+     *            allowed object is {@link TimePeriodType }
+     *
      * @see #getTimePeriod()
      */
     public void setTimePeriod(TimePeriodType value) {
@@ -116,16 +132,14 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
     }
 
     public boolean isSetTimePeriod() {
-        return (this.timePeriod!= null);
+        return (this.timePeriod != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -133,27 +147,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -161,27 +172,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -189,27 +197,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -217,27 +222,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -245,27 +247,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -273,27 +272,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -301,27 +297,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -329,27 +322,24 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -361,18 +351,17 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -392,66 +381,15 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final TimePeriodPropertyType that = ((TimePeriodPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimePeriod();
-            boolean rhsFieldIsSet = that.isSetTimePeriod();
-            TimePeriodType lhsField;
-            lhsField = this.getTimePeriod();
-            TimePeriodType rhsField;
-            rhsField = that.getTimePeriod();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timePeriod", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timePeriod", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
@@ -466,27 +404,27 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -505,19 +443,6 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
             boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
             String lhsField;
@@ -526,6 +451,71 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
             rhsField = that.getSimpleLinkTitle();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimePeriod();
+            boolean rhsFieldIsSet = that.isSetTimePeriod();
+            TimePeriodType lhsField;
+            lhsField = this.getTimePeriod();
+            TimePeriodType rhsField;
+            rhsField = that.getTimePeriod();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timePeriod", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timePeriod", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -612,7 +602,7 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -698,7 +688,7 @@ public class TimePeriodPropertyType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AerialRefuellingAnchorPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AerialRefuellingAnchorPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AerialRefuellingAnchorPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AerialRefuellingAnchor"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AerialRefuellingAnchor"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AerialRefuellingAnchorPropertyType", propOrder = {
-    "aerialRefuellingAnchor"
-})
+@XmlType(name = "AerialRefuellingAnchorPropertyType", propOrder = {"aerialRefuellingAnchor"})
 @Entity(name = "AerialRefuellingAnchorPropertyType")
 @Table(name = "aerialrefuellinganchor_pt", schema = "aerial_refuelling")
-public class AerialRefuellingAnchorPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class AerialRefuellingAnchorPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AerialRefuellingAnchor", required = true)
@@ -56,15 +58,11 @@ public class AerialRefuellingAnchorPropertyType
 
     /**
      * Gets the value of the aerialRefuellingAnchor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AerialRefuellingAnchorType }
-     *     
+     *
+     * @return possible object is {@link AerialRefuellingAnchorType }
+     *
      */
-    @OneToOne(targetEntity = AerialRefuellingAnchorType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AerialRefuellingAnchorType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "aerialrefuellinganchor_id", referencedColumnName = "hjid")
     public AerialRefuellingAnchorType getAerialRefuellingAnchor() {
         return aerialRefuellingAnchor;
@@ -72,11 +70,10 @@ public class AerialRefuellingAnchorPropertyType
 
     /**
      * Sets the value of the aerialRefuellingAnchor property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AerialRefuellingAnchorType }
-     *     
+     *            allowed object is {@link AerialRefuellingAnchorType }
+     *
      */
     public void setAerialRefuellingAnchor(AerialRefuellingAnchorType value) {
         this.aerialRefuellingAnchor = value;
@@ -84,12 +81,13 @@ public class AerialRefuellingAnchorPropertyType
 
     @Transient
     public boolean isSetAerialRefuellingAnchor() {
-        return (this.aerialRefuellingAnchor!= null);
+        return (this.aerialRefuellingAnchor != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

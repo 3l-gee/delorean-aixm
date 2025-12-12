@@ -1,26 +1,31 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * gml:GeodeticCRS is a coordinate reference system based on a geodetic datum.
- * 
- * <p>Java class for GeodeticCRSType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for GeodeticCRSType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GeodeticCRSType">
  *   <complexContent>
@@ -37,55 +42,52 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeodeticCRSType", propOrder = {
-    "ellipsoidalCS",
-    "cartesianCS",
-    "sphericalCS",
-    "geodeticDatum"
-})
-public class GeodeticCRSType
-    extends AbstractCRSType
-    implements Serializable
-{
+@XmlType(name = "GeodeticCRSType", propOrder = {"ellipsoidalCS", "cartesianCS", "sphericalCS", "geodeticDatum"})
+public class GeodeticCRSType extends AbstractCRSType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:ellipsoidalCS is an association role to the ellipsoidal coordinate system used by this CRS.
-     * 
+     * gml:ellipsoidalCS is an association role to the ellipsoidal coordinate system
+     * used by this CRS.
+     *
      */
     @XmlElementRef(name = "ellipsoidalCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<EllipsoidalCSPropertyType> ellipsoidalCS;
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
-     * 
+     * gml:cartesianCS is an association role to the Cartesian coordinate system
+     * used by this CRS.
+     *
      */
     @XmlElementRef(name = "cartesianCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CartesianCSPropertyType> cartesianCS;
     /**
-     * gml:sphericalCS is an association role to the spherical coordinate system used by this CRS.
-     * 
+     * gml:sphericalCS is an association role to the spherical coordinate system
+     * used by this CRS.
+     *
      */
     @XmlElementRef(name = "sphericalCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<SphericalCSPropertyType> sphericalCS;
     /**
-     * gml:geodeticDatum is an association role to the geodetic datum used by this CRS.
-     * 
+     * gml:geodeticDatum is an association role to the geodetic datum used by this
+     * CRS.
+     *
      */
     @XmlElementRef(name = "geodeticDatum", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<GeodeticDatumPropertyType> geodeticDatum;
 
     /**
-     * gml:ellipsoidalCS is an association role to the ellipsoidal coordinate system used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     *     
+     * gml:ellipsoidalCS is an association role to the ellipsoidal coordinate system
+     * used by this CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<EllipsoidalCSPropertyType> getEllipsoidalCS() {
         return ellipsoidalCS;
@@ -93,12 +95,13 @@ public class GeodeticCRSType
 
     /**
      * Sets the value of the ellipsoidalCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType
+     *            }{@code >}
+     *
      * @see #getEllipsoidalCS()
      */
     public void setEllipsoidalCS(JAXBElement<EllipsoidalCSPropertyType> value) {
@@ -106,17 +109,18 @@ public class GeodeticCRSType
     }
 
     public boolean isSetEllipsoidalCS() {
-        return (this.ellipsoidalCS!= null);
+        return (this.ellipsoidalCS != null);
     }
 
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     
+     * gml:cartesianCS is an association role to the Cartesian coordinate system
+     * used by this CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<CartesianCSPropertyType> getCartesianCS() {
         return cartesianCS;
@@ -124,12 +128,13 @@ public class GeodeticCRSType
 
     /**
      * Sets the value of the cartesianCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
+     *            }{@code >}
+     *
      * @see #getCartesianCS()
      */
     public void setCartesianCS(JAXBElement<CartesianCSPropertyType> value) {
@@ -137,17 +142,18 @@ public class GeodeticCRSType
     }
 
     public boolean isSetCartesianCS() {
-        return (this.cartesianCS!= null);
+        return (this.cartesianCS != null);
     }
 
     /**
-     * gml:sphericalCS is an association role to the spherical coordinate system used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *     
+     * gml:sphericalCS is an association role to the spherical coordinate system
+     * used by this CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SphericalCSPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<SphericalCSPropertyType> getSphericalCS() {
         return sphericalCS;
@@ -155,12 +161,13 @@ public class GeodeticCRSType
 
     /**
      * Sets the value of the sphericalCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link SphericalCSPropertyType
+     *            }{@code >}
+     *
      * @see #getSphericalCS()
      */
     public void setSphericalCS(JAXBElement<SphericalCSPropertyType> value) {
@@ -168,17 +175,18 @@ public class GeodeticCRSType
     }
 
     public boolean isSetSphericalCS() {
-        return (this.sphericalCS!= null);
+        return (this.sphericalCS != null);
     }
 
     /**
-     * gml:geodeticDatum is an association role to the geodetic datum used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     *     
+     * gml:geodeticDatum is an association role to the geodetic datum used by this
+     * CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<GeodeticDatumPropertyType> getGeodeticDatum() {
         return geodeticDatum;
@@ -186,12 +194,13 @@ public class GeodeticCRSType
 
     /**
      * Sets the value of the geodeticDatum property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType
+     *            }{@code >}
+     *
      * @see #getGeodeticDatum()
      */
     public void setGeodeticDatum(JAXBElement<GeodeticDatumPropertyType> value) {
@@ -199,12 +208,13 @@ public class GeodeticCRSType
     }
 
     public boolean isSetGeodeticDatum() {
-        return (this.geodeticDatum!= null);
+        return (this.geodeticDatum != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -215,6 +225,19 @@ public class GeodeticCRSType
         }
         final GeodeticCRSType that = ((GeodeticCRSType) object);
         {
+            boolean lhsFieldIsSet = this.isSetSphericalCS();
+            boolean rhsFieldIsSet = that.isSetSphericalCS();
+            JAXBElement<SphericalCSPropertyType> lhsField;
+            lhsField = this.getSphericalCS();
+            JAXBElement<SphericalCSPropertyType> rhsField;
+            rhsField = that.getSphericalCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetEllipsoidalCS();
             boolean rhsFieldIsSet = that.isSetEllipsoidalCS();
             JAXBElement<EllipsoidalCSPropertyType> lhsField;
@@ -223,19 +246,6 @@ public class GeodeticCRSType
             rhsField = that.getEllipsoidalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "ellipsoidalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "ellipsoidalCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGeodeticDatum();
-            boolean rhsFieldIsSet = that.isSetGeodeticDatum();
-            JAXBElement<GeodeticDatumPropertyType> lhsField;
-            lhsField = this.getGeodeticDatum();
-            JAXBElement<GeodeticDatumPropertyType> rhsField;
-            rhsField = that.getGeodeticDatum();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geodeticDatum", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geodeticDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -254,14 +264,14 @@ public class GeodeticCRSType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSphericalCS();
-            boolean rhsFieldIsSet = that.isSetSphericalCS();
-            JAXBElement<SphericalCSPropertyType> lhsField;
-            lhsField = this.getSphericalCS();
-            JAXBElement<SphericalCSPropertyType> rhsField;
-            rhsField = that.getSphericalCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "sphericalCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "sphericalCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeodeticDatum();
+            boolean rhsFieldIsSet = that.isSetGeodeticDatum();
+            JAXBElement<GeodeticDatumPropertyType> lhsField;
+            lhsField = this.getGeodeticDatum();
+            JAXBElement<GeodeticDatumPropertyType> rhsField;
+            rhsField = that.getGeodeticDatum();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "geodeticDatum", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "geodeticDatum", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

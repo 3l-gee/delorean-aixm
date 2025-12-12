@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,42 +13,48 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for LocalizerType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for LocalizerType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="LocalizerType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractNavaidEquipmentType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractNavaidEquipmentType">
  *       <sequence>
- *         <element name="timeSlice" type="{http://www.aixm.aero/schema/5.1.1}LocalizerTimeSlicePropertyType" maxOccurs="unbounded"/>
+ *         <element name="timeSlice" type=
+"{http://www.aixm.aero/schema/5.1.1}LocalizerTimeSlicePropertyType" maxOccurs=
+"unbounded"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LocalizerType", propOrder = {
-    "timeSlice"
-})
+@XmlType(name = "LocalizerType", propOrder = {"timeSlice"})
 @Entity(name = "LocalizerType")
 @Table(name = "localizer", schema = "navaids_point")
-public class LocalizerType
-    extends AbstractNavaidEquipmentType
-    implements Serializable
-{
+public class LocalizerType extends AbstractNavaidEquipmentType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -59,34 +62,32 @@ public class LocalizerType
 
     /**
      * Gets the value of the timeSlice property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the timeSlice property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the timeSlice property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTimeSlice().add(newItem);
+     * getTimeSlice().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LocalizerTimeSlicePropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = LocalizerTimeSlicePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_localizer_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "localizertype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "localizertype", referencedColumnName = "hjid")})
     public List<LocalizerTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();
@@ -95,8 +96,8 @@ public class LocalizerType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTimeSlice(List<LocalizerTimeSlicePropertyType> timeSlice) {
         this.timeSlice = timeSlice;
@@ -104,7 +105,7 @@ public class LocalizerType
 
     @Transient
     public boolean isSetTimeSlice() {
-        return ((this.timeSlice!= null)&&(!this.timeSlice.isEmpty()));
+        return ((this.timeSlice != null) && (!this.timeSlice.isEmpty()));
     }
 
     public void unsetTimeSlice() {
@@ -112,8 +113,9 @@ public class LocalizerType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -127,9 +129,9 @@ public class LocalizerType
             boolean lhsFieldIsSet = this.isSetTimeSlice();
             boolean rhsFieldIsSet = that.isSetTimeSlice();
             List<LocalizerTimeSlicePropertyType> lhsField;
-            lhsField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            lhsField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             List<LocalizerTimeSlicePropertyType> rhsField;
-            rhsField = (that.isSetTimeSlice()?that.getTimeSlice():null);
+            rhsField = (that.isSetTimeSlice() ? that.getTimeSlice() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -145,7 +147,7 @@ public class LocalizerType
         {
             boolean theFieldIsSet = this.isSetTimeSlice();
             List<LocalizerTimeSlicePropertyType> theField;
-            theField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            theField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -158,7 +160,7 @@ public class LocalizerType
         {
             boolean theFieldIsSet = this.isSetTimeSlice();
             List<LocalizerTimeSlicePropertyType> theField;
-            theField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            theField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             strategy.appendField(locator, this, "timeSlice", buffer, theField, theFieldIsSet);
         }
         return buffer;

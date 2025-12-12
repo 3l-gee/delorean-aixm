@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gts.v2007;
 
-import java.io.Serializable;
-import javax.xml.datatype.Duration;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import javax.xml.datatype.Duration;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,12 +21,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for TM_PeriodDuration_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TM_PeriodDuration_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TM_PeriodDuration_PropertyType">
  *   <complexContent>
@@ -39,15 +44,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TM_PeriodDuration_PropertyType", propOrder = {
-    "tmPeriodDuration"
-})
-public class TMPeriodDurationPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "TM_PeriodDuration_PropertyType", propOrder = {"tmPeriodDuration"})
+public class TMPeriodDurationPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "TM_PeriodDuration")
@@ -57,11 +59,9 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
 
     /**
      * Gets the value of the tmPeriodDuration property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Duration }
-     *     
+     *
+     * @return possible object is {@link Duration }
+     *
      */
     public Duration getTMPeriodDuration() {
         return tmPeriodDuration;
@@ -69,27 +69,24 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the tmPeriodDuration property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Duration }
-     *     
+     *            allowed object is {@link Duration }
+     *
      */
     public void setTMPeriodDuration(Duration value) {
         this.tmPeriodDuration = value;
     }
 
     public boolean isSetTMPeriodDuration() {
-        return (this.tmPeriodDuration!= null);
+        return (this.tmPeriodDuration != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -97,18 +94,17 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -124,8 +120,9 @@ public class TMPeriodDurationPropertyType implements Serializable, Equals, HashC
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -5,13 +5,19 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
-
 /**
- * 
- * 
- * <p>Java class for MD_ObligationCode_Type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ *
+ *
+ * <p>
+ * Java class for MD_ObligationCode_Type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <simpleType name="MD_ObligationCode_Type">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -21,17 +27,15 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- * 
+ *
  */
 @XmlType(name = "MD_ObligationCode_Type")
 @XmlEnum
 public enum MDObligationCodeType {
 
     @XmlEnumValue("mandatory")
-    MANDATORY("mandatory"),
-    @XmlEnumValue("optional")
-    OPTIONAL("optional"),
-    @XmlEnumValue("conditional")
+    MANDATORY("mandatory"), @XmlEnumValue("optional")
+    OPTIONAL("optional"), @XmlEnumValue("conditional")
     CONDITIONAL("conditional");
     private final String value;
 
@@ -41,9 +45,8 @@ public enum MDObligationCodeType {
 
     /**
      * Gets the value associated to the enum constant.
-     * 
-     * @return
-     *     The value linked to the enum.
+     *
+     * @return The value linked to the enum.
      */
     public String value() {
         return value;
@@ -51,16 +54,15 @@ public enum MDObligationCodeType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     * 
+     *
      * @param v
-     *     The value to get the enum from.
-     * @return
-     *     The enum which corresponds to the value, if it exists.
+     *            The value to get the enum from.
+     * @return The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *     If no value matches in the enum declaration.
+     *             If no value matches in the enum declaration.
      */
     public static MDObligationCodeType fromValue(String v) {
-        for (MDObligationCodeType c: MDObligationCodeType.values()) {
+        for (MDObligationCodeType c : MDObligationCodeType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

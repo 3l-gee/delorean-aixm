@@ -1,55 +1,56 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 
-
 /**
- * <p>Java class for AbstractDirectFlightType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractDirectFlightType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractDirectFlightType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMObjectType">
  *       <sequence>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractDirectFlightType")
-@XmlSeeAlso({
-    DirectFlightClassType.class,
-    DirectFlightSegmentType.class
-})
+@XmlSeeAlso({DirectFlightClassType.class, DirectFlightSegmentType.class})
 @Entity(name = "AbstractDirectFlightType")
 @Table(name = "abstractdirectflight", schema = "public")
-public class AbstractDirectFlightType
-    extends AbstractAIXMObjectType
-    implements Serializable
-{
+public class AbstractDirectFlightType extends AbstractAIXMObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

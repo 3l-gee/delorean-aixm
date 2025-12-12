@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -14,6 +13,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -27,32 +27,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for TextNoteType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TextNoteType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TextNoteType">
  *   <simpleContent>
  *     <extension base="<http://www.aixm.aero/schema/5.1.1>TextNoteBaseType">
- *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
- *       <attribute name="lang" type="{http://www.w3.org/2001/XMLSchema}language" />
+ *       <attribute name="nilReason" type=
+"{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
+ *       <attribute name="lang" type=
+"{http://www.w3.org/2001/XMLSchema}language" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TextNoteType", propOrder = {
-    "value"
-})
+@XmlType(name = "TextNoteType", propOrder = {"value"})
 @Embeddable
-public class TextNoteType implements Serializable, Equals, HashCode, ToString
-{
+public class TextNoteType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -66,11 +70,9 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "VALUE_", length = 10000)
@@ -80,11 +82,10 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the value property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setValue(String value) {
         this.value = value;
@@ -92,16 +93,14 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetValue() {
-        return (this.value!= null);
+        return (this.value != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "NIL_REASON")
@@ -111,11 +110,10 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -123,16 +121,14 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the lang property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "LANG", length = 17)
@@ -142,11 +138,10 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the lang property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setLang(String value) {
         this.lang = value;
@@ -154,7 +149,7 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetLang() {
-        return (this.lang!= null);
+        return (this.lang != null);
     }
 
     @Override
@@ -170,14 +165,28 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final TextNoteType that = ((TextNoteType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetValue();
             boolean rhsFieldIsSet = that.isSetValue();
@@ -200,19 +209,6 @@ public class TextNoteType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getLang();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lang", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lang", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

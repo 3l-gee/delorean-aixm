@@ -1,73 +1,86 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ConventionalUnitType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ConventionalUnitType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ConventionalUnitType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}UnitDefinitionType">
  *       <sequence>
  *         <choice>
- *           <element ref="{http://www.opengis.net/gml/3.2}conversionToPreferredUnit"/>
- *           <element ref="{http://www.opengis.net/gml/3.2}roughConversionToPreferredUnit"/>
+ *           <element ref=
+"{http://www.opengis.net/gml/3.2}conversionToPreferredUnit"/>
+ *           <element ref=
+"{http://www.opengis.net/gml/3.2}roughConversionToPreferredUnit"/>
  *         </choice>
- *         <element ref="{http://www.opengis.net/gml/3.2}derivationUnitTerm" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}derivationUnitTerm" maxOccurs=
+"unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ConventionalUnitType", propOrder = {
-    "conversionToPreferredUnit",
-    "roughConversionToPreferredUnit",
-    "derivationUnitTerm"
-})
-public class ConventionalUnitType
-    extends UnitDefinitionType
-    implements Serializable
-{
+@XmlType(name = "ConventionalUnitType", propOrder = {"conversionToPreferredUnit", "roughConversionToPreferredUnit",
+        "derivationUnitTerm"})
+public class ConventionalUnitType extends UnitDefinitionType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
-     * 
+     * The elements gml:conversionToPreferredUnit and
+     * gml:roughConversionToPreferredUnit represent parameters used to convert
+     * conventional units to preferred units for this physical quantity type. A
+     * preferred unit is either a Base Unit or a Derived Unit that is selected for
+     * all values of one physical quantity type.
+     *
      */
     protected ConversionToPreferredUnitType conversionToPreferredUnit;
     /**
-     * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
-     * 
+     * The elements gml:conversionToPreferredUnit and
+     * gml:roughConversionToPreferredUnit represent parameters used to convert
+     * conventional units to preferred units for this physical quantity type. A
+     * preferred unit is either a Base Unit or a Derived Unit that is selected for
+     * all values of one physical quantity type.
+     *
      */
     protected ConversionToPreferredUnitType roughConversionToPreferredUnit;
     protected List<DerivationUnitTermType> derivationUnitTerm;
 
     /**
-     * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConversionToPreferredUnitType }
-     *     
+     * The elements gml:conversionToPreferredUnit and
+     * gml:roughConversionToPreferredUnit represent parameters used to convert
+     * conventional units to preferred units for this physical quantity type. A
+     * preferred unit is either a Base Unit or a Derived Unit that is selected for
+     * all values of one physical quantity type.
+     *
+     * @return possible object is {@link ConversionToPreferredUnitType }
+     *
      */
     public ConversionToPreferredUnitType getConversionToPreferredUnit() {
         return conversionToPreferredUnit;
@@ -75,11 +88,10 @@ public class ConventionalUnitType
 
     /**
      * Sets the value of the conversionToPreferredUnit property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ConversionToPreferredUnitType }
-     *     
+     *            allowed object is {@link ConversionToPreferredUnitType }
+     *
      * @see #getConversionToPreferredUnit()
      */
     public void setConversionToPreferredUnit(ConversionToPreferredUnitType value) {
@@ -87,16 +99,18 @@ public class ConventionalUnitType
     }
 
     public boolean isSetConversionToPreferredUnit() {
-        return (this.conversionToPreferredUnit!= null);
+        return (this.conversionToPreferredUnit != null);
     }
 
     /**
-     * The elements gml:conversionToPreferredUnit and gml:roughConversionToPreferredUnit represent parameters used to convert conventional units to preferred units for this physical quantity type.  A preferred unit is either a Base Unit or a Derived Unit that is selected for all values of one physical quantity type.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConversionToPreferredUnitType }
-     *     
+     * The elements gml:conversionToPreferredUnit and
+     * gml:roughConversionToPreferredUnit represent parameters used to convert
+     * conventional units to preferred units for this physical quantity type. A
+     * preferred unit is either a Base Unit or a Derived Unit that is selected for
+     * all values of one physical quantity type.
+     *
+     * @return possible object is {@link ConversionToPreferredUnitType }
+     *
      */
     public ConversionToPreferredUnitType getRoughConversionToPreferredUnit() {
         return roughConversionToPreferredUnit;
@@ -104,11 +118,10 @@ public class ConventionalUnitType
 
     /**
      * Sets the value of the roughConversionToPreferredUnit property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ConversionToPreferredUnitType }
-     *     
+     *            allowed object is {@link ConversionToPreferredUnitType }
+     *
      * @see #getRoughConversionToPreferredUnit()
      */
     public void setRoughConversionToPreferredUnit(ConversionToPreferredUnitType value) {
@@ -116,31 +129,37 @@ public class ConventionalUnitType
     }
 
     public boolean isSetRoughConversionToPreferredUnit() {
-        return (this.roughConversionToPreferredUnit!= null);
+        return (this.roughConversionToPreferredUnit != null);
     }
 
     /**
-     * A set of gml:derivationUnitTerm elements describes a derived unit of measure.  Each element carries an integer exponent.  The terms are combined by raising each referenced unit to the power of its exponent and forming the product.
-     * This unit term references another unit of measure (uom) and provides an integer exponent applied to that unit in defining the compound unit. The exponent may be positive or negative, but not zero.Gets the value of the derivationUnitTerm property.
-     * 
+     * A set of gml:derivationUnitTerm elements describes a derived unit of measure.
+     * Each element carries an integer exponent. The terms are combined by raising
+     * each referenced unit to the power of its exponent and forming the product.
+     * This unit term references another unit of measure (uom) and provides an
+     * integer exponent applied to that unit in defining the compound unit. The
+     * exponent may be positive or negative, but not zero.Gets the value of the
+     * derivationUnitTerm property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the derivationUnitTerm property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the derivationUnitTerm property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getDerivationUnitTerm().add(newItem);
+     * getDerivationUnitTerm().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DerivationUnitTermType }
-     * 
-     * 
+     *
+     *
      */
     public List<DerivationUnitTermType> getDerivationUnitTerm() {
         if (derivationUnitTerm == null) {
@@ -150,16 +169,20 @@ public class ConventionalUnitType
     }
 
     /**
-     * A set of gml:derivationUnitTerm elements describes a derived unit of measure.  Each element carries an integer exponent.  The terms are combined by raising each referenced unit to the power of its exponent and forming the product.
-     * This unit term references another unit of measure (uom) and provides an integer exponent applied to that unit in defining the compound unit. The exponent may be positive or negative, but not zero.
-     * 
+     * A set of gml:derivationUnitTerm elements describes a derived unit of measure.
+     * Each element carries an integer exponent. The terms are combined by raising
+     * each referenced unit to the power of its exponent and forming the product.
+     * This unit term references another unit of measure (uom) and provides an
+     * integer exponent applied to that unit in defining the compound unit. The
+     * exponent may be positive or negative, but not zero.
+     *
      */
     public void setDerivationUnitTerm(List<DerivationUnitTermType> derivationUnitTerm) {
         this.derivationUnitTerm = derivationUnitTerm;
     }
 
     public boolean isSetDerivationUnitTerm() {
-        return ((this.derivationUnitTerm!= null)&&(!this.derivationUnitTerm.isEmpty()));
+        return ((this.derivationUnitTerm != null) && (!this.derivationUnitTerm.isEmpty()));
     }
 
     public void unsetDerivationUnitTerm() {
@@ -167,8 +190,9 @@ public class ConventionalUnitType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -179,27 +203,16 @@ public class ConventionalUnitType
         }
         final ConventionalUnitType that = ((ConventionalUnitType) object);
         {
-            boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
-            boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
-            ConversionToPreferredUnitType lhsField;
-            lhsField = this.getConversionToPreferredUnit();
-            ConversionToPreferredUnitType rhsField;
-            rhsField = that.getConversionToPreferredUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "conversionToPreferredUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "conversionToPreferredUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetRoughConversionToPreferredUnit();
             boolean rhsFieldIsSet = that.isSetRoughConversionToPreferredUnit();
             ConversionToPreferredUnitType lhsField;
             lhsField = this.getRoughConversionToPreferredUnit();
             ConversionToPreferredUnitType rhsField;
             rhsField = that.getRoughConversionToPreferredUnit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roughConversionToPreferredUnit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "roughConversionToPreferredUnit",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "roughConversionToPreferredUnit",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -208,11 +221,24 @@ public class ConventionalUnitType
             boolean lhsFieldIsSet = this.isSetDerivationUnitTerm();
             boolean rhsFieldIsSet = that.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> lhsField;
-            lhsField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
+            lhsField = (this.isSetDerivationUnitTerm() ? this.getDerivationUnitTerm() : null);
             List<DerivationUnitTermType> rhsField;
-            rhsField = (that.isSetDerivationUnitTerm()?that.getDerivationUnitTerm():null);
+            rhsField = (that.isSetDerivationUnitTerm() ? that.getDerivationUnitTerm() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "derivationUnitTerm", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "derivationUnitTerm", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetConversionToPreferredUnit();
+            boolean rhsFieldIsSet = that.isSetConversionToPreferredUnit();
+            ConversionToPreferredUnitType lhsField;
+            lhsField = this.getConversionToPreferredUnit();
+            ConversionToPreferredUnitType rhsField;
+            rhsField = that.getConversionToPreferredUnit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "conversionToPreferredUnit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "conversionToPreferredUnit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,7 +266,7 @@ public class ConventionalUnitType
         {
             boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm() ? this.getDerivationUnitTerm() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "derivationUnitTerm", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -265,7 +291,7 @@ public class ConventionalUnitType
         {
             boolean theFieldIsSet = this.isSetDerivationUnitTerm();
             List<DerivationUnitTermType> theField;
-            theField = (this.isSetDerivationUnitTerm()?this.getDerivationUnitTerm():null);
+            theField = (this.isSetDerivationUnitTerm() ? this.getDerivationUnitTerm() : null);
             strategy.appendField(locator, this, "derivationUnitTerm", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RidgePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RidgePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RidgePropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}Ridge"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RidgePropertyType", propOrder = {
-    "ridge"
-})
+@XmlType(name = "RidgePropertyType", propOrder = {"ridge"})
 @Entity(name = "RidgePropertyType")
 @Table(name = "ridge_pt", schema = "airport_heliport")
-public class RidgePropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class RidgePropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Ridge", required = true)
@@ -56,15 +57,11 @@ public class RidgePropertyType
 
     /**
      * Gets the value of the ridge property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RidgeType }
-     *     
+     *
+     * @return possible object is {@link RidgeType }
+     *
      */
-    @OneToOne(targetEntity = RidgeType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = RidgeType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ridge_id", referencedColumnName = "hjid")
     public RidgeType getRidge() {
         return ridge;
@@ -72,11 +69,10 @@ public class RidgePropertyType
 
     /**
      * Sets the value of the ridge property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RidgeType }
-     *     
+     *            allowed object is {@link RidgeType }
+     *
      */
     public void setRidge(RidgeType value) {
         this.ridge = value;
@@ -84,12 +80,13 @@ public class RidgePropertyType
 
     @Transient
     public boolean isSetRidge() {
-        return (this.ridge!= null);
+        return (this.ridge != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

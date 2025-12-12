@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,40 +31,66 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for TaxiwayContaminationType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TaxiwayContaminationType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TaxiwayContaminationType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractSurfaceContaminationType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractSurfaceContaminationType">
  *       <sequence>
- *         <element name="observationTime" type="{http://www.aixm.aero/schema/5.1.1}DateTimeType" minOccurs="0"/>
- *         <element name="depth" type="{http://www.aixm.aero/schema/5.1.1}ValDepthType" minOccurs="0"/>
- *         <element name="frictionCoefficient" type="{http://www.aixm.aero/schema/5.1.1}ValFrictionType" minOccurs="0"/>
- *         <element name="frictionEstimation" type="{http://www.aixm.aero/schema/5.1.1}CodeFrictionEstimateType" minOccurs="0"/>
- *         <element name="frictionDevice" type="{http://www.aixm.aero/schema/5.1.1}CodeFrictionDeviceType" minOccurs="0"/>
- *         <element name="obscuredLights" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="furtherClearanceTime" type="{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
- *         <element name="furtherTotalClearance" type="{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
- *         <element name="nextObservationTime" type="{http://www.aixm.aero/schema/5.1.1}DateTimeType" minOccurs="0"/>
- *         <element name="proportion" type="{http://www.aixm.aero/schema/5.1.1}ValPercentType" minOccurs="0"/>
- *         <element name="criticalRidge" type="{http://www.aixm.aero/schema/5.1.1}RidgePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="layer" type="{http://www.aixm.aero/schema/5.1.1}SurfaceContaminationLayerPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}TaxiwayContaminationPropertyGroup"/>
+ *         <element name="observationTime" type=
+"{http://www.aixm.aero/schema/5.1.1}DateTimeType" minOccurs="0"/>
+ *         <element name="depth" type=
+"{http://www.aixm.aero/schema/5.1.1}ValDepthType" minOccurs="0"/>
+ *         <element name="frictionCoefficient" type=
+"{http://www.aixm.aero/schema/5.1.1}ValFrictionType" minOccurs="0"/>
+ *         <element name="frictionEstimation" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeFrictionEstimateType" minOccurs="0"/>
+ *         <element name="frictionDevice" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeFrictionDeviceType" minOccurs="0"/>
+ *         <element name="obscuredLights" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="furtherClearanceTime" type=
+"{http://www.aixm.aero/schema/5.1.1}TimeType" minOccurs="0"/>
+ *         <element name="furtherTotalClearance" type=
+"{http://www.aixm.aero/schema/5.1.1}CodeYesNoType" minOccurs="0"/>
+ *         <element name="nextObservationTime" type=
+"{http://www.aixm.aero/schema/5.1.1}DateTimeType" minOccurs="0"/>
+ *         <element name="proportion" type=
+"{http://www.aixm.aero/schema/5.1.1}ValPercentType" minOccurs="0"/>
+ *         <element name="criticalRidge" type=
+"{http://www.aixm.aero/schema/5.1.1}RidgePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="layer" type=
+"{http://www.aixm.aero/schema/5.1.1}SurfaceContaminationLayerPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <group ref=
+"{http://www.aixm.aero/schema/5.1.1}TaxiwayContaminationPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSurfaceContaminationExtension"/>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractTaxiwayContaminationExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractSurfaceContaminationExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractTaxiwayContaminationExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -74,33 +100,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TaxiwayContaminationType", propOrder = {
-    "observationTime",
-    "depth",
-    "frictionCoefficient",
-    "frictionEstimation",
-    "frictionDevice",
-    "obscuredLights",
-    "furtherClearanceTime",
-    "furtherTotalClearance",
-    "nextObservationTime",
-    "proportion",
-    "criticalRidge",
-    "layer",
-    "annotation",
-    "clearedWidth",
-    "extension"
-})
+@XmlType(name = "TaxiwayContaminationType", propOrder = {"observationTime", "depth", "frictionCoefficient",
+        "frictionEstimation", "frictionDevice", "obscuredLights", "furtherClearanceTime", "furtherTotalClearance",
+        "nextObservationTime", "proportion", "criticalRidge", "layer", "annotation", "clearedWidth", "extension"})
 @Entity(name = "TaxiwayContaminationType")
 @Table(name = "taxiwaycontamination", schema = "airport_heliport")
-public class TaxiwayContaminationType
-    extends AbstractSurfaceContaminationType
-    implements Serializable
-{
+public class TaxiwayContaminationType extends AbstractSurfaceContaminationType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "observationTime", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -135,11 +144,10 @@ public class TaxiwayContaminationType
 
     /**
      * Gets the value of the observationTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link DateTimeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link DateTimeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<DateTimeType> getObservationTime() {
@@ -148,11 +156,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the observationTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link DateTimeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link DateTimeType
+     *            }{@code >}
+     *
      */
     public void setObservationTime(JAXBElement<DateTimeType> value) {
         this.observationTime = value;
@@ -160,16 +168,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetObservationTime() {
-        return (this.observationTime!= null);
+        return (this.observationTime != null);
     }
 
     /**
      * Gets the value of the depth property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDepthType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValDepthType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDepthType> getDepth() {
@@ -178,11 +185,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the depth property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDepthType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link ValDepthType
+     *            }{@code >}
+     *
      */
     public void setDepth(JAXBElement<ValDepthType> value) {
         this.depth = value;
@@ -190,16 +197,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetDepth() {
-        return (this.depth!= null);
+        return (this.depth != null);
     }
 
     /**
      * Gets the value of the frictionCoefficient property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValFrictionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValFrictionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValFrictionType> getFrictionCoefficient() {
@@ -208,11 +214,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the frictionCoefficient property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValFrictionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValFrictionType }{@code >}
+     *
      */
     public void setFrictionCoefficient(JAXBElement<ValFrictionType> value) {
         this.frictionCoefficient = value;
@@ -220,16 +226,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetFrictionCoefficient() {
-        return (this.frictionCoefficient!= null);
+        return (this.frictionCoefficient != null);
     }
 
     /**
      * Gets the value of the frictionEstimation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeFrictionEstimateType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeFrictionEstimateType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeFrictionEstimateType> getFrictionEstimation() {
@@ -238,11 +243,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the frictionEstimation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeFrictionEstimateType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeFrictionEstimateType }{@code >}
+     *
      */
     public void setFrictionEstimation(JAXBElement<CodeFrictionEstimateType> value) {
         this.frictionEstimation = value;
@@ -250,16 +255,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetFrictionEstimation() {
-        return (this.frictionEstimation!= null);
+        return (this.frictionEstimation != null);
     }
 
     /**
      * Gets the value of the frictionDevice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeFrictionDeviceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeFrictionDeviceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeFrictionDeviceType> getFrictionDevice() {
@@ -268,11 +272,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the frictionDevice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeFrictionDeviceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeFrictionDeviceType }{@code >}
+     *
      */
     public void setFrictionDevice(JAXBElement<CodeFrictionDeviceType> value) {
         this.frictionDevice = value;
@@ -280,16 +284,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetFrictionDevice() {
-        return (this.frictionDevice!= null);
+        return (this.frictionDevice != null);
     }
 
     /**
      * Gets the value of the obscuredLights property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getObscuredLights() {
@@ -298,11 +301,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the obscuredLights property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setObscuredLights(JAXBElement<CodeYesNoType> value) {
         this.obscuredLights = value;
@@ -310,16 +313,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetObscuredLights() {
-        return (this.obscuredLights!= null);
+        return (this.obscuredLights != null);
     }
 
     /**
      * Gets the value of the furtherClearanceTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TimeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TimeType> getFurtherClearanceTime() {
@@ -328,11 +330,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the furtherClearanceTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TimeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TimeType
+     *            }{@code >}
+     *
      */
     public void setFurtherClearanceTime(JAXBElement<TimeType> value) {
         this.furtherClearanceTime = value;
@@ -340,16 +342,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetFurtherClearanceTime() {
-        return (this.furtherClearanceTime!= null);
+        return (this.furtherClearanceTime != null);
     }
 
     /**
      * Gets the value of the furtherTotalClearance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFurtherTotalClearance() {
@@ -358,11 +359,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the furtherTotalClearance property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setFurtherTotalClearance(JAXBElement<CodeYesNoType> value) {
         this.furtherTotalClearance = value;
@@ -370,16 +371,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetFurtherTotalClearance() {
-        return (this.furtherTotalClearance!= null);
+        return (this.furtherTotalClearance != null);
     }
 
     /**
      * Gets the value of the nextObservationTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link DateTimeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link DateTimeType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<DateTimeType> getNextObservationTime() {
@@ -388,11 +388,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the nextObservationTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link DateTimeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link DateTimeType
+     *            }{@code >}
+     *
      */
     public void setNextObservationTime(JAXBElement<DateTimeType> value) {
         this.nextObservationTime = value;
@@ -400,16 +400,15 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetNextObservationTime() {
-        return (this.nextObservationTime!= null);
+        return (this.nextObservationTime != null);
     }
 
     /**
      * Gets the value of the proportion property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValPercentType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link ValPercentType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValPercentType> getProportion() {
@@ -418,11 +417,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the proportion property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValPercentType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValPercentType }{@code >}
+     *
      */
     public void setProportion(JAXBElement<ValPercentType> value) {
         this.proportion = value;
@@ -430,39 +429,36 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetProportion() {
-        return (this.proportion!= null);
+        return (this.proportion != null);
     }
 
     /**
      * Gets the value of the criticalRidge property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the criticalRidge property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the criticalRidge property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getCriticalRidge().add(newItem);
+     * getCriticalRidge().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RidgePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = RidgePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = RidgePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "criticalridge_taxiwaycontamination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "criticalridge", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "criticalridge", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")})
     public List<RidgePropertyType> getCriticalRidge() {
         if (criticalRidge == null) {
             criticalRidge = new ArrayList<>();
@@ -471,8 +467,8 @@ public class TaxiwayContaminationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setCriticalRidge(List<RidgePropertyType> criticalRidge) {
         this.criticalRidge = criticalRidge;
@@ -480,7 +476,7 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetCriticalRidge() {
-        return ((this.criticalRidge!= null)&&(!this.criticalRidge.isEmpty()));
+        return ((this.criticalRidge != null) && (!this.criticalRidge.isEmpty()));
     }
 
     public void unsetCriticalRidge() {
@@ -489,34 +485,32 @@ public class TaxiwayContaminationType
 
     /**
      * Gets the value of the layer property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the layer property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the layer property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getLayer().add(newItem);
+     * getLayer().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SurfaceContaminationLayerPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = SurfaceContaminationLayerPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "layer_taxiwaycontamination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "layer", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "layer", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")})
     public List<SurfaceContaminationLayerPropertyType> getLayer() {
         if (layer == null) {
             layer = new ArrayList<>();
@@ -525,8 +519,8 @@ public class TaxiwayContaminationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setLayer(List<SurfaceContaminationLayerPropertyType> layer) {
         this.layer = layer;
@@ -534,7 +528,7 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetLayer() {
-        return ((this.layer!= null)&&(!this.layer.isEmpty()));
+        return ((this.layer != null) && (!this.layer.isEmpty()));
     }
 
     public void unsetLayer() {
@@ -543,34 +537,31 @@ public class TaxiwayContaminationType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_taxiwaycontamination_link", schema = "airport_heliport", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "taxiwaycontaminationtype", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -579,8 +570,8 @@ public class TaxiwayContaminationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -588,7 +579,7 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -597,11 +588,10 @@ public class TaxiwayContaminationType
 
     /**
      * Gets the value of the clearedWidth property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValDistanceType> getClearedWidth() {
@@ -610,11 +600,11 @@ public class TaxiwayContaminationType
 
     /**
      * Sets the value of the clearedWidth property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValDistanceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValDistanceType }{@code >}
+     *
      */
     public void setClearedWidth(JAXBElement<ValDistanceType> value) {
         this.clearedWidth = value;
@@ -622,34 +612,34 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetClearedWidth() {
-        return (this.clearedWidth!= null);
+        return (this.clearedWidth != null);
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TaxiwayContaminationTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = TaxiwayContaminationTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_TAXIWAY_CONTAMINAT_0")
     public List<TaxiwayContaminationTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -659,8 +649,8 @@ public class TaxiwayContaminationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<TaxiwayContaminationTypeExtensionType> extension) {
         this.extension = extension;
@@ -668,7 +658,7 @@ public class TaxiwayContaminationType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -676,153 +666,157 @@ public class TaxiwayContaminationType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "observationtime")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "observationtime_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "observationtime")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "observationtime_nilreason"))})
     public DateTimeType getObservationTimeItem() {
         return XmlAdapterUtils.unmarshallSource(DateTimeType.class, this.getObservationTime());
     }
 
     public void setObservationTimeItem(DateTimeType target) {
-        setObservationTime(XmlAdapterUtils.marshallJAXBElement(DateTimeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "observationTime"), TaxiwayContaminationType.class, target));
+        setObservationTime(XmlAdapterUtils.marshallJAXBElement(DateTimeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "observationTime"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "depth")),
-        @AttributeOverride(name = "uom", column = @Column(name = "depth_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "depth_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "depth", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "depth_uom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "depth_nilreason"))})
     public ValDepthType getDepthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDepthType.class, this.getDepth());
     }
 
     public void setDepthItem(ValDepthType target) {
-        setDepth(XmlAdapterUtils.marshallJAXBElement(ValDepthType.class, new QName("http://www.aixm.aero/schema/5.1.1", "depth"), TaxiwayContaminationType.class, target));
+        setDepth(XmlAdapterUtils.marshallJAXBElement(ValDepthType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "depth"), TaxiwayContaminationType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frictioncoefficient")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "frictioncoefficient_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "frictioncoefficient", columnDefinition = "NUMERIC", scale = 2)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "frictioncoefficient_nilreason"))})
     public ValFrictionType getFrictionCoefficientItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrictionType.class, this.getFrictionCoefficient());
     }
 
     public void setFrictionCoefficientItem(ValFrictionType target) {
-        setFrictionCoefficient(XmlAdapterUtils.marshallJAXBElement(ValFrictionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "frictionCoefficient"), TaxiwayContaminationType.class, target));
+        setFrictionCoefficient(XmlAdapterUtils.marshallJAXBElement(ValFrictionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "frictionCoefficient"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frictionestimation")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "frictionestimation_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "frictionestimation")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "frictionestimation_nilreason"))})
     public CodeFrictionEstimateType getFrictionEstimationItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFrictionEstimateType.class, this.getFrictionEstimation());
     }
 
     public void setFrictionEstimationItem(CodeFrictionEstimateType target) {
-        setFrictionEstimation(XmlAdapterUtils.marshallJAXBElement(CodeFrictionEstimateType.class, new QName("http://www.aixm.aero/schema/5.1.1", "frictionEstimation"), TaxiwayContaminationType.class, target));
+        setFrictionEstimation(XmlAdapterUtils.marshallJAXBElement(CodeFrictionEstimateType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "frictionEstimation"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frictiondevice")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "frictiondevice_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "frictiondevice")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "frictiondevice_nilreason"))})
     public CodeFrictionDeviceType getFrictionDeviceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFrictionDeviceType.class, this.getFrictionDevice());
     }
 
     public void setFrictionDeviceItem(CodeFrictionDeviceType target) {
-        setFrictionDevice(XmlAdapterUtils.marshallJAXBElement(CodeFrictionDeviceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "frictionDevice"), TaxiwayContaminationType.class, target));
+        setFrictionDevice(XmlAdapterUtils.marshallJAXBElement(CodeFrictionDeviceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "frictionDevice"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "obscuredlights")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "obscuredlights_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "obscuredlights")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "obscuredlights_nilreason"))})
     public CodeYesNoType getObscuredLightsItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getObscuredLights());
     }
 
     public void setObscuredLightsItem(CodeYesNoType target) {
-        setObscuredLights(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "obscuredLights"), TaxiwayContaminationType.class, target));
+        setObscuredLights(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "obscuredLights"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "furtherclearancetime")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "furtherclearancetime_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "furtherclearancetime", columnDefinition = "VARCHAR", length = 256)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "furtherclearancetime_nilreason"))})
     public TimeType getFurtherClearanceTimeItem() {
         return XmlAdapterUtils.unmarshallSource(TimeType.class, this.getFurtherClearanceTime());
     }
 
     public void setFurtherClearanceTimeItem(TimeType target) {
-        setFurtherClearanceTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "furtherClearanceTime"), TaxiwayContaminationType.class, target));
+        setFurtherClearanceTime(XmlAdapterUtils.marshallJAXBElement(TimeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "furtherClearanceTime"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "furthertotalclearance")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "furthertotalclearance_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "furthertotalclearance")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "furthertotalclearance_nilreason"))})
     public CodeYesNoType getFurtherTotalClearanceItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFurtherTotalClearance());
     }
 
     public void setFurtherTotalClearanceItem(CodeYesNoType target) {
-        setFurtherTotalClearance(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "furtherTotalClearance"), TaxiwayContaminationType.class, target));
+        setFurtherTotalClearance(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "furtherTotalClearance"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "nextobservationtime")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "nextobservationtime_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "nextobservationtime")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "nextobservationtime_nilreason"))})
     public DateTimeType getNextObservationTimeItem() {
         return XmlAdapterUtils.unmarshallSource(DateTimeType.class, this.getNextObservationTime());
     }
 
     public void setNextObservationTimeItem(DateTimeType target) {
-        setNextObservationTime(XmlAdapterUtils.marshallJAXBElement(DateTimeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "nextObservationTime"), TaxiwayContaminationType.class, target));
+        setNextObservationTime(XmlAdapterUtils.marshallJAXBElement(DateTimeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "nextObservationTime"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "proportion")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "proportion_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "proportion", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "proportion_nilreason"))})
     public ValPercentType getProportionItem() {
         return XmlAdapterUtils.unmarshallSource(ValPercentType.class, this.getProportion());
     }
 
     public void setProportionItem(ValPercentType target) {
-        setProportion(XmlAdapterUtils.marshallJAXBElement(ValPercentType.class, new QName("http://www.aixm.aero/schema/5.1.1", "proportion"), TaxiwayContaminationType.class, target));
+        setProportion(XmlAdapterUtils.marshallJAXBElement(ValPercentType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "proportion"), TaxiwayContaminationType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "clearedwidth")),
-        @AttributeOverride(name = "uom", column = @Column(name = "clearedwidth_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "clearedwidth_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "clearedwidth", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "clearedwidth_uom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "clearedwidth_nilreason"))})
     public ValDistanceType getClearedWidthItem() {
         return XmlAdapterUtils.unmarshallSource(ValDistanceType.class, this.getClearedWidth());
     }
 
     public void setClearedWidthItem(ValDistanceType target) {
-        setClearedWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "clearedWidth"), TaxiwayContaminationType.class, target));
+        setClearedWidth(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "clearedWidth"), TaxiwayContaminationType.class,
+                target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -833,66 +827,14 @@ public class TaxiwayContaminationType
         }
         final TaxiwayContaminationType that = ((TaxiwayContaminationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
-            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
-            JAXBElement<TimeType> lhsField;
-            lhsField = this.getFurtherClearanceTime();
-            JAXBElement<TimeType> rhsField;
-            rhsField = that.getFurtherClearanceTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrictionDevice();
-            boolean rhsFieldIsSet = that.isSetFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> lhsField;
-            lhsField = this.getFrictionDevice();
-            JAXBElement<CodeFrictionDeviceType> rhsField;
-            rhsField = that.getFrictionDevice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProportion();
-            boolean rhsFieldIsSet = that.isSetProportion();
-            JAXBElement<ValPercentType> lhsField;
-            lhsField = this.getProportion();
-            JAXBElement<ValPercentType> rhsField;
-            rhsField = that.getProportion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetClearedWidth();
-            boolean rhsFieldIsSet = that.isSetClearedWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getClearedWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getClearedWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clearedWidth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clearedWidth", rhsField);
+            boolean lhsFieldIsSet = this.isSetNextObservationTime();
+            boolean rhsFieldIsSet = that.isSetNextObservationTime();
+            JAXBElement<DateTimeType> lhsField;
+            lhsField = this.getNextObservationTime();
+            JAXBElement<DateTimeType> rhsField;
+            rhsField = that.getNextObservationTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nextObservationTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nextObservationTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -911,58 +853,6 @@ public class TaxiwayContaminationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiwayContaminationTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<TaxiwayContaminationTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCriticalRidge();
-            boolean rhsFieldIsSet = that.isSetCriticalRidge();
-            List<RidgePropertyType> lhsField;
-            lhsField = (this.isSetCriticalRidge()?this.getCriticalRidge():null);
-            List<RidgePropertyType> rhsField;
-            rhsField = (that.isSetCriticalRidge()?that.getCriticalRidge():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDepth();
-            boolean rhsFieldIsSet = that.isSetDepth();
-            JAXBElement<ValDepthType> lhsField;
-            lhsField = this.getDepth();
-            JAXBElement<ValDepthType> rhsField;
-            rhsField = that.getDepth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNextObservationTime();
-            boolean rhsFieldIsSet = that.isSetNextObservationTime();
-            JAXBElement<DateTimeType> lhsField;
-            lhsField = this.getNextObservationTime();
-            JAXBElement<DateTimeType> rhsField;
-            rhsField = that.getNextObservationTime();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nextObservationTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nextObservationTime", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFrictionCoefficient();
             boolean rhsFieldIsSet = that.isSetFrictionCoefficient();
             JAXBElement<ValFrictionType> lhsField;
@@ -971,6 +861,71 @@ public class TaxiwayContaminationType
             rhsField = that.getFrictionCoefficient();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionCoefficient", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionCoefficient", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProportion();
+            boolean rhsFieldIsSet = that.isSetProportion();
+            JAXBElement<ValPercentType> lhsField;
+            lhsField = this.getProportion();
+            JAXBElement<ValPercentType> rhsField;
+            rhsField = that.getProportion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "proportion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "proportion", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLayer();
+            boolean rhsFieldIsSet = that.isSetLayer();
+            List<SurfaceContaminationLayerPropertyType> lhsField;
+            lhsField = (this.isSetLayer() ? this.getLayer() : null);
+            List<SurfaceContaminationLayerPropertyType> rhsField;
+            rhsField = (that.isSetLayer() ? that.getLayer() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layer", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layer", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrictionEstimation();
+            boolean rhsFieldIsSet = that.isSetFrictionEstimation();
+            JAXBElement<CodeFrictionEstimateType> lhsField;
+            lhsField = this.getFrictionEstimation();
+            JAXBElement<CodeFrictionEstimateType> rhsField;
+            rhsField = that.getFrictionEstimation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionEstimation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionEstimation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCriticalRidge();
+            boolean rhsFieldIsSet = that.isSetCriticalRidge();
+            List<RidgePropertyType> lhsField;
+            lhsField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
+            List<RidgePropertyType> rhsField;
+            rhsField = (that.isSetCriticalRidge() ? that.getCriticalRidge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "criticalRidge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "criticalRidge", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetClearedWidth();
+            boolean rhsFieldIsSet = that.isSetClearedWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getClearedWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getClearedWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "clearedWidth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "clearedWidth", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -989,14 +944,27 @@ public class TaxiwayContaminationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLayer();
-            boolean rhsFieldIsSet = that.isSetLayer();
-            List<SurfaceContaminationLayerPropertyType> lhsField;
-            lhsField = (this.isSetLayer()?this.getLayer():null);
-            List<SurfaceContaminationLayerPropertyType> rhsField;
-            rhsField = (that.isSetLayer()?that.getLayer():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "layer", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "layer", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFurtherClearanceTime();
+            boolean rhsFieldIsSet = that.isSetFurtherClearanceTime();
+            JAXBElement<TimeType> lhsField;
+            lhsField = this.getFurtherClearanceTime();
+            JAXBElement<TimeType> rhsField;
+            rhsField = that.getFurtherClearanceTime();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "furtherClearanceTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "furtherClearanceTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1015,14 +983,40 @@ public class TaxiwayContaminationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFrictionEstimation();
-            boolean rhsFieldIsSet = that.isSetFrictionEstimation();
-            JAXBElement<CodeFrictionEstimateType> lhsField;
-            lhsField = this.getFrictionEstimation();
-            JAXBElement<CodeFrictionEstimateType> rhsField;
-            rhsField = that.getFrictionEstimation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionEstimation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionEstimation", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiwayContaminationTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TaxiwayContaminationTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDepth();
+            boolean rhsFieldIsSet = that.isSetDepth();
+            JAXBElement<ValDepthType> lhsField;
+            lhsField = this.getDepth();
+            JAXBElement<ValDepthType> rhsField;
+            rhsField = that.getDepth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "depth", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "depth", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFrictionDevice();
+            boolean rhsFieldIsSet = that.isSetFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> lhsField;
+            lhsField = this.getFrictionDevice();
+            JAXBElement<CodeFrictionDeviceType> rhsField;
+            rhsField = that.getFrictionDevice();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frictionDevice", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frictionDevice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1106,21 +1100,21 @@ public class TaxiwayContaminationType
         {
             boolean theFieldIsSet = this.isSetCriticalRidge();
             List<RidgePropertyType> theField;
-            theField = (this.isSetCriticalRidge()?this.getCriticalRidge():null);
+            theField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "criticalRidge", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLayer();
             List<SurfaceContaminationLayerPropertyType> theField;
-            theField = (this.isSetLayer()?this.getLayer():null);
+            theField = (this.isSetLayer() ? this.getLayer() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "layer", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1134,7 +1128,7 @@ public class TaxiwayContaminationType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TaxiwayContaminationTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1207,19 +1201,19 @@ public class TaxiwayContaminationType
         {
             boolean theFieldIsSet = this.isSetCriticalRidge();
             List<RidgePropertyType> theField;
-            theField = (this.isSetCriticalRidge()?this.getCriticalRidge():null);
+            theField = (this.isSetCriticalRidge() ? this.getCriticalRidge() : null);
             strategy.appendField(locator, this, "criticalRidge", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLayer();
             List<SurfaceContaminationLayerPropertyType> theField;
-            theField = (this.isSetLayer()?this.getLayer():null);
+            theField = (this.isSetLayer() ? this.getLayer() : null);
             strategy.appendField(locator, this, "layer", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
@@ -1231,7 +1225,7 @@ public class TaxiwayContaminationType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<TaxiwayContaminationTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

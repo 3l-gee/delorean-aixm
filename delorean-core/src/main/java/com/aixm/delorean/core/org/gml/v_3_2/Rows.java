@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,6 +18,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -34,12 +34,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
@@ -49,7 +54,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 <group ref="{http://www.opengis.net/gml/3.2}geometricPositionListGroup"/>
+ *                 <group ref=
+"{http://www.opengis.net/gml/3.2}geometricPositionListGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -59,18 +65,15 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "row"
-})
+@XmlType(name = "", propOrder = {"row"})
 @Entity(name = "Rows")
 @Table(name = "ROWS_")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Rows implements Serializable, Equals, HashCode, ToString
-{
+public class Rows implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Row", required = true)
@@ -80,29 +83,27 @@ public class Rows implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the row property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the row property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the row property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getRow().add(newItem);
+     * getRow().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Row }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link Row }
+     *
+     *
      */
-    @OneToMany(targetEntity = Row.class, cascade = {
-        CascadeType.ALL
-    })
+    @OneToMany(targetEntity = Row.class, cascade = {CascadeType.ALL})
     @JoinColumn(name = "ROW__ROWS__HJID")
     public List<Row> getRow() {
         if (row == null) {
@@ -112,8 +113,8 @@ public class Rows implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setRow(List<Row> row) {
         this.row = row;
@@ -121,7 +122,7 @@ public class Rows implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetRow() {
-        return ((this.row!= null)&&(!this.row.isEmpty()));
+        return ((this.row != null) && (!this.row.isEmpty()));
     }
 
     public void unsetRow() {
@@ -130,11 +131,9 @@ public class Rows implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the hjid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -145,11 +144,10 @@ public class Rows implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the hjid property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void setHjid(Long value) {
         this.hjid = value;
@@ -168,8 +166,9 @@ public class Rows implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -180,9 +179,9 @@ public class Rows implements Serializable, Equals, HashCode, ToString
             boolean lhsFieldIsSet = this.isSetRow();
             boolean rhsFieldIsSet = that.isSetRow();
             List<Row> lhsField;
-            lhsField = (this.isSetRow()?this.getRow():null);
+            lhsField = (this.isSetRow() ? this.getRow() : null);
             List<Row> rhsField;
-            rhsField = (that.isSetRow()?that.getRow():null);
+            rhsField = (that.isSetRow() ? that.getRow() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "row", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "row", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -208,7 +207,7 @@ public class Rows implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetRow();
             List<Row> theField;
-            theField = (this.isSetRow()?this.getRow():null);
+            theField = (this.isSetRow() ? this.getRow() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "row", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -240,7 +239,7 @@ public class Rows implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetRow();
             List<Row> theField;
-            theField = (this.isSetRow()?this.getRow():null);
+            theField = (this.isSetRow() ? this.getRow() : null);
             strategy.appendField(locator, this, "row", buffer, theField, theFieldIsSet);
         }
         return buffer;

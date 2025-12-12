@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,12 +20,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for InlinePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for InlinePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="InlinePropertyType">
  *   <complexContent>
@@ -33,20 +38,18 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <any/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "InlinePropertyType", propOrder = {
-    "any"
-})
-public class InlinePropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "InlinePropertyType", propOrder = {"any"})
+public class InlinePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlAnyElement(lax = true)
@@ -56,11 +59,9 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Gets the value of the any property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *
+     * @return possible object is {@link Object }
+     *
      */
     public Object getAny() {
         return any;
@@ -68,27 +69,24 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the any property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *            allowed object is {@link Object }
+     *
      */
     public void setAny(Object value) {
         this.any = value;
     }
 
     public boolean isSetAny() {
-        return (this.any!= null);
+        return (this.any != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -100,18 +98,17 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -131,27 +128,15 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final InlinePropertyType that = ((InlinePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAny();
             boolean rhsFieldIsSet = that.isSetAny();
@@ -161,6 +146,19 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
             rhsField = that.getAny();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "any", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "any", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -191,7 +189,7 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -229,7 +227,7 @@ public class InlinePropertyType implements Serializable, Equals, HashCode, ToStr
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

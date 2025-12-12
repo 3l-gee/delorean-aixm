@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -12,6 +11,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,40 +25,47 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:AbstractGeneralOperationParameterPropertyType is a property type for association roles to an operation parameter or group, either referencing or containing the definition of that parameter or group.
- * 
- * <p>Java class for AbstractGeneralOperationParameterPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:AbstractGeneralOperationParameterPropertyType is a property type for
+ * association roles to an operation parameter or group, either referencing or
+ * containing the definition of that parameter or group.
+ *
+ * <p>
+ * Java class for AbstractGeneralOperationParameterPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractGeneralOperationParameterPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.opengis.net/gml/3.2}AbstractGeneralOperationParameter"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}AbstractGeneralOperationParameter"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractGeneralOperationParameterPropertyType", propOrder = {
-    "abstractGeneralOperationParameter"
-})
-public class AbstractGeneralOperationParameterPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "AbstractGeneralOperationParameterPropertyType", propOrder = {"abstractGeneralOperationParameter"})
+public class AbstractGeneralOperationParameterPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:GeneralOperationParameter is the abstract definition of a parameter or group of parameters used by an operation method.
-     * 
+     * gml:GeneralOperationParameter is the abstract definition of a parameter or
+     * group of parameters used by an operation method.
+     *
      */
     @XmlElementRef(name = "AbstractGeneralOperationParameter", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeneralOperationParameterType> abstractGeneralOperationParameter;
@@ -83,14 +90,15 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
     protected ActuateType actuate;
 
     /**
-     * gml:GeneralOperationParameter is the abstract definition of a parameter or group of parameters used by an operation method.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OperationParameterGroupType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OperationParameterType }{@code >}
-     *     
+     * gml:GeneralOperationParameter is the abstract definition of a parameter or
+     * group of parameters used by an operation method.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link OperationParameterGroupType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link OperationParameterType
+     *         }{@code >}
+     *
      */
     public JAXBElement<? extends AbstractGeneralOperationParameterType> getAbstractGeneralOperationParameter() {
         return abstractGeneralOperationParameter;
@@ -98,30 +106,30 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the abstractGeneralOperationParameter property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OperationParameterGroupType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OperationParameterType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link OperationParameterGroupType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link OperationParameterType }{@code >}
+     *
      * @see #getAbstractGeneralOperationParameter()
      */
-    public void setAbstractGeneralOperationParameter(JAXBElement<? extends AbstractGeneralOperationParameterType> value) {
+    public void setAbstractGeneralOperationParameter(
+            JAXBElement<? extends AbstractGeneralOperationParameterType> value) {
         this.abstractGeneralOperationParameter = value;
     }
 
     public boolean isSetAbstractGeneralOperationParameter() {
-        return (this.abstractGeneralOperationParameter!= null);
+        return (this.abstractGeneralOperationParameter != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -129,27 +137,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -157,27 +162,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -185,27 +187,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -213,27 +212,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -241,27 +237,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -269,27 +262,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -297,27 +287,24 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -325,18 +312,17 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     @Override
@@ -352,66 +338,15 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final AbstractGeneralOperationParameterPropertyType that = ((AbstractGeneralOperationParameterPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractGeneralOperationParameter();
-            boolean rhsFieldIsSet = that.isSetAbstractGeneralOperationParameter();
-            JAXBElement<? extends AbstractGeneralOperationParameterType> lhsField;
-            lhsField = this.getAbstractGeneralOperationParameter();
-            JAXBElement<? extends AbstractGeneralOperationParameterType> rhsField;
-            rhsField = that.getAbstractGeneralOperationParameter();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeneralOperationParameter", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeneralOperationParameter", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetRole();
             boolean rhsFieldIsSet = that.isSetRole();
@@ -426,14 +361,42 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
+            boolean lhsFieldIsSet = this.isSetAbstractGeneralOperationParameter();
+            boolean rhsFieldIsSet = that.isSetAbstractGeneralOperationParameter();
+            JAXBElement<? extends AbstractGeneralOperationParameterType> lhsField;
+            lhsField = this.getAbstractGeneralOperationParameter();
+            JAXBElement<? extends AbstractGeneralOperationParameterType> rhsField;
+            rhsField = that.getAbstractGeneralOperationParameter();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeneralOperationParameter",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeneralOperationParameter",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getArcrole();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -452,6 +415,19 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetActuate();
             boolean rhsFieldIsSet = that.isSetActuate();
             ActuateType lhsField;
@@ -465,14 +441,27 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
-            lhsField = this.getHref();
+            lhsField = this.getArcrole();
             String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -497,7 +486,8 @@ public class AbstractGeneralOperationParameterPropertyType implements Serializab
             boolean theFieldIsSet = this.isSetAbstractGeneralOperationParameter();
             JAXBElement<? extends AbstractGeneralOperationParameterType> theField;
             theField = this.getAbstractGeneralOperationParameter();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGeneralOperationParameter", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGeneralOperationParameter",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {

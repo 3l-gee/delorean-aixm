@@ -9,6 +9,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
 import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
 import com.aixm.delorean.aixm511.schema.ElevatedCurveType;
+import com.aixm.delorean.aixm511.schema.CurveType;
 import com.aixm.delorean.aixm511.schema.ElevatedCurveTypeExtension;
 import com.aixm.delorean.aixm511.schema.ElevatedPointType;
 import com.aixm.delorean.aixm511.schema.NotePropertyType;
@@ -150,7 +151,7 @@ public class AixmElevatedCurveType extends com.aixm.delorean.core.gis.type.Curve
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), ElevatedCurveType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), CurveType.class, target));
     }
 
     @Transient

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gts.v2007.TMPrimitivePropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -9,45 +8,45 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * Time period covered by the content of the dataset
- * 
- * <p>Java class for EX_TemporalExtent_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for EX_TemporalExtent_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="EX_TemporalExtent_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="extent" type="{http://www.isotc211.org/2005/gts}TM_Primitive_PropertyType"/>
+ *         <element name="extent" type=
+"{http://www.isotc211.org/2005/gts}TM_Primitive_PropertyType"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EX_TemporalExtent_Type", propOrder = {
-    "extent"
-})
-@XmlSeeAlso({
-    EXSpatialTemporalExtentType.class
-})
-public class EXTemporalExtentType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "EX_TemporalExtent_Type", propOrder = {"extent"})
+@XmlSeeAlso({EXSpatialTemporalExtentType.class})
+public class EXTemporalExtentType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -55,11 +54,9 @@ public class EXTemporalExtentType
 
     /**
      * Gets the value of the extent property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMPrimitivePropertyType }
-     *     
+     *
+     * @return possible object is {@link TMPrimitivePropertyType }
+     *
      */
     public TMPrimitivePropertyType getExtent() {
         return extent;
@@ -67,23 +64,23 @@ public class EXTemporalExtentType
 
     /**
      * Sets the value of the extent property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TMPrimitivePropertyType }
-     *     
+     *            allowed object is {@link TMPrimitivePropertyType }
+     *
      */
     public void setExtent(TMPrimitivePropertyType value) {
         this.extent = value;
     }
 
     public boolean isSetExtent() {
-        return (this.extent!= null);
+        return (this.extent != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -9,6 +8,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,12 +22,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for BoundingShapeType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for BoundingShapeType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="BoundingShapeType">
  *   <complexContent>
@@ -38,27 +43,30 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}Null"/>
  *         </choice>
  *       </sequence>
- *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonType" />
+ *       <attribute name="nilReason" type=
+"{http://www.opengis.net/gml/3.2}NilReasonType" />
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BoundingShapeType", propOrder = {
-    "envelope",
-    "gmlNull"
-})
-public class BoundingShapeType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "BoundingShapeType", propOrder = {"envelope", "gmlNull"})
+public class BoundingShapeType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * Envelope defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct position is the "lower corner" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within the envelope), the second one the "upper corner" (a coordinate position consisting of all the maximal ordinates for each dimension for all points within the envelope).
-     * The use of the properties "coordinates" and "pos" has been deprecated. The explicitly named properties "lowerCorner" and "upperCorner" shall be used instead.
-     * 
+     * Envelope defines an extent using a pair of positions defining opposite
+     * corners in arbitrary dimensions. The first direct position is the "lower
+     * corner" (a coordinate position consisting of all the minimal ordinates for
+     * each dimension for all points within the envelope), the second one the "upper
+     * corner" (a coordinate position consisting of all the maximal ordinates for
+     * each dimension for all points within the envelope). The use of the properties
+     * "coordinates" and "pos" has been deprecated. The explicitly named properties
+     * "lowerCorner" and "upperCorner" shall be used instead.
+     *
      */
     @XmlElementRef(name = "Envelope", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends EnvelopeType> envelope;
@@ -68,14 +76,19 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
     protected String nilReason;
 
     /**
-     * Envelope defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct position is the "lower corner" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within the envelope), the second one the "upper corner" (a coordinate position consisting of all the maximal ordinates for each dimension for all points within the envelope).
-     * The use of the properties "coordinates" and "pos" has been deprecated. The explicitly named properties "lowerCorner" and "upperCorner" shall be used instead.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link EnvelopeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
-     *     
+     * Envelope defines an extent using a pair of positions defining opposite
+     * corners in arbitrary dimensions. The first direct position is the "lower
+     * corner" (a coordinate position consisting of all the minimal ordinates for
+     * each dimension for all points within the envelope), the second one the "upper
+     * corner" (a coordinate position consisting of all the maximal ordinates for
+     * each dimension for all points within the envelope). The use of the properties
+     * "coordinates" and "pos" has been deprecated. The explicitly named properties
+     * "lowerCorner" and "upperCorner" shall be used instead.
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link EnvelopeType
+     *         }{@code >} {@link JAXBElement
+     *         }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
+     *
      */
     public JAXBElement<? extends EnvelopeType> getEnvelope() {
         return envelope;
@@ -83,12 +96,12 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the envelope property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link EnvelopeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link EnvelopeType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
+     *
      * @see #getEnvelope()
      */
     public void setEnvelope(JAXBElement<? extends EnvelopeType> value) {
@@ -96,16 +109,14 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
     }
 
     public boolean isSetEnvelope() {
-        return (this.envelope!= null);
+        return (this.envelope != null);
     }
 
     /**
      * Gets the value of the gmlNull property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getGmlNull() {
         return gmlNull;
@@ -113,27 +124,24 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the gmlNull property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setGmlNull(String value) {
         this.gmlNull = value;
     }
 
     public boolean isSetGmlNull() {
-        return (this.gmlNull!= null);
+        return (this.gmlNull != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -141,18 +149,17 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -168,8 +175,9 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -177,14 +185,14 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
         }
         final BoundingShapeType that = ((BoundingShapeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
+            boolean lhsFieldIsSet = this.isSetGmlNull();
+            boolean rhsFieldIsSet = that.isSetGmlNull();
             String lhsField;
-            lhsField = this.getNilReason();
+            lhsField = this.getGmlNull();
             String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            rhsField = that.getGmlNull();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -203,14 +211,14 @@ public class BoundingShapeType implements Serializable, Equals, HashCode, ToStri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetGmlNull();
-            boolean rhsFieldIsSet = that.isSetGmlNull();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getGmlNull();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getGmlNull();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gmlNull", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gmlNull", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

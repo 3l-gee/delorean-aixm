@@ -67,6 +67,23 @@ class Content(metaclass=SingletonMeta):
         return Content().content
     
     @staticmethod
+    def get_transposition(type):
+        output = {}
+        for key, value in Content().content.items():
+            output = output | value["simple_type"]["transposition"]
+
+        return output.get(type)
+    
+    @staticmethod
+    def save_transposition():
+        output = {}
+        for key, value in Content().content.items():
+            output = output | value["simple_type"]["transposition"]
+
+        with open('transposition.json', 'w') as fp:
+            json.dump(output, fp, indent=4)
+    
+    @staticmethod
     def get_entity():
         return Content().entity
     

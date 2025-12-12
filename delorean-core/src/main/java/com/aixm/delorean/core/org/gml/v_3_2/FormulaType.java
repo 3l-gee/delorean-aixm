@@ -1,10 +1,10 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -18,38 +18,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FormulaType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FormulaType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FormulaType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="a" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         <element name="a" type=
+"{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         <element name="b" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         <element name="c" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         <element name="d" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         <element name="d" type=
+"{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FormulaType", propOrder = {
-    "a",
-    "b",
-    "c",
-    "d"
-})
-public class FormulaType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "FormulaType", propOrder = {"a", "b", "c", "d"})
+public class FormulaType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected Double a;
@@ -59,11 +60,9 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the a property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getA() {
         return a;
@@ -71,23 +70,22 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the a property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *            allowed object is {@link Double }
+     *
      */
     public void setA(Double value) {
         this.a = value;
     }
 
     public boolean isSetA() {
-        return (this.a!= null);
+        return (this.a != null);
     }
 
     /**
      * Gets the value of the b property.
-     * 
+     *
      */
     public double getB() {
         return b;
@@ -95,7 +93,7 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the b property.
-     * 
+     *
      */
     public void setB(double value) {
         this.b = value;
@@ -107,7 +105,7 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the c property.
-     * 
+     *
      */
     public double getC() {
         return c;
@@ -115,7 +113,7 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the c property.
-     * 
+     *
      */
     public void setC(double value) {
         this.c = value;
@@ -127,11 +125,9 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the d property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getD() {
         return d;
@@ -139,18 +135,17 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the d property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *            allowed object is {@link Double }
+     *
      */
     public void setD(Double value) {
         this.d = value;
     }
 
     public boolean isSetD() {
-        return (this.d!= null);
+        return (this.d != null);
     }
 
     @Override
@@ -166,27 +161,15 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final FormulaType that = ((FormulaType) object);
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getC();
-            double rhsField;
-            rhsField = that.getC();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetA();
             boolean rhsFieldIsSet = that.isSetA();
@@ -204,11 +187,11 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
-            lhsField = this.getB();
+            lhsField = this.getC();
             double rhsField;
-            rhsField = that.getB();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "b", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "b", rhsField);
+            rhsField = that.getC();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -222,6 +205,19 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getD();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "d", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "d", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getB();
+            double rhsField;
+            rhsField = that.getB();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "b", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "b", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,24 +1,29 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DirectedObservationType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DirectedObservationType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DirectedObservationType">
  *   <complexContent>
@@ -30,36 +35,29 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DirectedObservationType", propOrder = {
-    "direction"
-})
-@XmlSeeAlso({
-    DirectedObservationAtDistanceType.class
-})
-public class DirectedObservationType
-    extends ObservationType
-    implements Serializable
-{
+@XmlType(name = "DirectedObservationType", propOrder = {"direction"})
+@XmlSeeAlso({DirectedObservationAtDistanceType.class})
+public class DirectedObservationType extends ObservationType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The property gml:direction is intended as a pre-defined property expressing a direction to be assigned to features defined in a GML application schema.
-     * 
+     * The property gml:direction is intended as a pre-defined property expressing a
+     * direction to be assigned to features defined in a GML application schema.
+     *
      */
     @XmlElement(required = true)
     protected DirectionPropertyType direction;
 
     /**
-     * The property gml:direction is intended as a pre-defined property expressing a direction to be assigned to features defined in a GML application schema.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DirectionPropertyType }
-     *     
+     * The property gml:direction is intended as a pre-defined property expressing a
+     * direction to be assigned to features defined in a GML application schema.
+     *
+     * @return possible object is {@link DirectionPropertyType }
+     *
      */
     public DirectionPropertyType getDirection() {
         return direction;
@@ -67,11 +65,10 @@ public class DirectedObservationType
 
     /**
      * Sets the value of the direction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DirectionPropertyType }
-     *     
+     *            allowed object is {@link DirectionPropertyType }
+     *
      * @see #getDirection()
      */
     public void setDirection(DirectionPropertyType value) {
@@ -79,12 +76,13 @@ public class DirectedObservationType
     }
 
     public boolean isSetDirection() {
-        return (this.direction!= null);
+        return (this.direction != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

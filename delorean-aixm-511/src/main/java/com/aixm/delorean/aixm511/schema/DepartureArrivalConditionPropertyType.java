@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DepartureArrivalConditionPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DepartureArrivalConditionPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DepartureArrivalConditionPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}DepartureArrivalCondition"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}DepartureArrivalCondition"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DepartureArrivalConditionPropertyType", propOrder = {
-    "departureArrivalCondition"
-})
+@XmlType(name = "DepartureArrivalConditionPropertyType", propOrder = {"departureArrivalCondition"})
 @Entity(name = "DepartureArrivalConditionPropertyType")
 @Table(name = "departurearrivalcondition_pt", schema = "procedure")
-public class DepartureArrivalConditionPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class DepartureArrivalConditionPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DepartureArrivalCondition", required = true)
@@ -56,15 +58,11 @@ public class DepartureArrivalConditionPropertyType
 
     /**
      * Gets the value of the departureArrivalCondition property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DepartureArrivalConditionType }
-     *     
+     *
+     * @return possible object is {@link DepartureArrivalConditionType }
+     *
      */
-    @OneToOne(targetEntity = DepartureArrivalConditionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = DepartureArrivalConditionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "departurearrivalcondition_id", referencedColumnName = "hjid")
     public DepartureArrivalConditionType getDepartureArrivalCondition() {
         return departureArrivalCondition;
@@ -72,11 +70,10 @@ public class DepartureArrivalConditionPropertyType
 
     /**
      * Sets the value of the departureArrivalCondition property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DepartureArrivalConditionType }
-     *     
+     *            allowed object is {@link DepartureArrivalConditionType }
+     *
      */
     public void setDepartureArrivalCondition(DepartureArrivalConditionType value) {
         this.departureArrivalCondition = value;
@@ -84,12 +81,13 @@ public class DepartureArrivalConditionPropertyType
 
     @Transient
     public boolean isSetDepartureArrivalCondition() {
-        return (this.departureArrivalCondition!= null);
+        return (this.departureArrivalCondition != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

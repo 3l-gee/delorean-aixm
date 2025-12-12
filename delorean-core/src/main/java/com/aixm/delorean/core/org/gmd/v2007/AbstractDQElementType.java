@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import com.aixm.delorean.core.org.gco.v2007.DateTimePropertyType;
@@ -12,61 +9,65 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractDQ_Element_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractDQ_Element_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractDQ_Element_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="nameOfMeasure" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="measureIdentification" type="{http://www.isotc211.org/2005/gmd}MD_Identifier_PropertyType" minOccurs="0"/>
- *         <element name="measureDescription" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="evaluationMethodType" type="{http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode_PropertyType" minOccurs="0"/>
- *         <element name="evaluationMethodDescription" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="evaluationProcedure" type="{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" minOccurs="0"/>
- *         <element name="dateTime" type="{http://www.isotc211.org/2005/gco}DateTime_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="result" type="{http://www.isotc211.org/2005/gmd}DQ_Result_PropertyType" maxOccurs="2"/>
+ *         <element name="nameOfMeasure" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="measureIdentification" type=
+"{http://www.isotc211.org/2005/gmd}MD_Identifier_PropertyType" minOccurs="0"/>
+ *         <element name="measureDescription" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="evaluationMethodType" type=
+"{http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode_PropertyType" minOccurs
+="0"/>
+ *         <element name="evaluationMethodDescription" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="evaluationProcedure" type=
+"{http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType" minOccurs="0"/>
+ *         <element name="dateTime" type=
+"{http://www.isotc211.org/2005/gco}DateTime_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="result" type=
+"{http://www.isotc211.org/2005/gmd}DQ_Result_PropertyType" maxOccurs="2"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractDQ_Element_Type", propOrder = {
-    "nameOfMeasure",
-    "measureIdentification",
-    "measureDescription",
-    "evaluationMethodType",
-    "evaluationMethodDescription",
-    "evaluationProcedure",
-    "dateTime",
-    "result"
-})
-@XmlSeeAlso({
-    AbstractDQTemporalAccuracyType.class,
-    AbstractDQThematicAccuracyType.class,
-    AbstractDQPositionalAccuracyType.class,
-    AbstractDQLogicalConsistencyType.class,
-    AbstractDQCompletenessType.class
-})
-public abstract class AbstractDQElementType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "AbstractDQ_Element_Type", propOrder = {"nameOfMeasure", "measureIdentification", "measureDescription",
+        "evaluationMethodType", "evaluationMethodDescription", "evaluationProcedure", "dateTime", "result"})
+@XmlSeeAlso({AbstractDQTemporalAccuracyType.class, AbstractDQThematicAccuracyType.class,
+        AbstractDQPositionalAccuracyType.class, AbstractDQLogicalConsistencyType.class,
+        AbstractDQCompletenessType.class})
+public abstract class AbstractDQElementType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     protected List<CharacterStringPropertyType> nameOfMeasure;
@@ -81,25 +82,26 @@ public abstract class AbstractDQElementType
 
     /**
      * Gets the value of the nameOfMeasure property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the nameOfMeasure property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the nameOfMeasure property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getNameOfMeasure().add(newItem);
+     * getNameOfMeasure().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CharacterStringPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<CharacterStringPropertyType> getNameOfMeasure() {
         if (nameOfMeasure == null) {
@@ -109,15 +111,15 @@ public abstract class AbstractDQElementType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setNameOfMeasure(List<CharacterStringPropertyType> nameOfMeasure) {
         this.nameOfMeasure = nameOfMeasure;
     }
 
     public boolean isSetNameOfMeasure() {
-        return ((this.nameOfMeasure!= null)&&(!this.nameOfMeasure.isEmpty()));
+        return ((this.nameOfMeasure != null) && (!this.nameOfMeasure.isEmpty()));
     }
 
     public void unsetNameOfMeasure() {
@@ -126,11 +128,9 @@ public abstract class AbstractDQElementType
 
     /**
      * Gets the value of the measureIdentification property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDIdentifierPropertyType }
-     *     
+     *
+     * @return possible object is {@link MDIdentifierPropertyType }
+     *
      */
     public MDIdentifierPropertyType getMeasureIdentification() {
         return measureIdentification;
@@ -138,27 +138,24 @@ public abstract class AbstractDQElementType
 
     /**
      * Sets the value of the measureIdentification property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDIdentifierPropertyType }
-     *     
+     *            allowed object is {@link MDIdentifierPropertyType }
+     *
      */
     public void setMeasureIdentification(MDIdentifierPropertyType value) {
         this.measureIdentification = value;
     }
 
     public boolean isSetMeasureIdentification() {
-        return (this.measureIdentification!= null);
+        return (this.measureIdentification != null);
     }
 
     /**
      * Gets the value of the measureDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getMeasureDescription() {
         return measureDescription;
@@ -166,27 +163,24 @@ public abstract class AbstractDQElementType
 
     /**
      * Sets the value of the measureDescription property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setMeasureDescription(CharacterStringPropertyType value) {
         this.measureDescription = value;
     }
 
     public boolean isSetMeasureDescription() {
-        return (this.measureDescription!= null);
+        return (this.measureDescription != null);
     }
 
     /**
      * Gets the value of the evaluationMethodType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DQEvaluationMethodTypeCodePropertyType }
-     *     
+     *
+     * @return possible object is {@link DQEvaluationMethodTypeCodePropertyType }
+     *
      */
     public DQEvaluationMethodTypeCodePropertyType getEvaluationMethodType() {
         return evaluationMethodType;
@@ -194,27 +188,24 @@ public abstract class AbstractDQElementType
 
     /**
      * Sets the value of the evaluationMethodType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DQEvaluationMethodTypeCodePropertyType }
-     *     
+     *            allowed object is {@link DQEvaluationMethodTypeCodePropertyType }
+     *
      */
     public void setEvaluationMethodType(DQEvaluationMethodTypeCodePropertyType value) {
         this.evaluationMethodType = value;
     }
 
     public boolean isSetEvaluationMethodType() {
-        return (this.evaluationMethodType!= null);
+        return (this.evaluationMethodType != null);
     }
 
     /**
      * Gets the value of the evaluationMethodDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getEvaluationMethodDescription() {
         return evaluationMethodDescription;
@@ -222,27 +213,24 @@ public abstract class AbstractDQElementType
 
     /**
      * Sets the value of the evaluationMethodDescription property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setEvaluationMethodDescription(CharacterStringPropertyType value) {
         this.evaluationMethodDescription = value;
     }
 
     public boolean isSetEvaluationMethodDescription() {
-        return (this.evaluationMethodDescription!= null);
+        return (this.evaluationMethodDescription != null);
     }
 
     /**
      * Gets the value of the evaluationProcedure property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CICitationPropertyType }
-     *     
+     *
+     * @return possible object is {@link CICitationPropertyType }
+     *
      */
     public CICitationPropertyType getEvaluationProcedure() {
         return evaluationProcedure;
@@ -250,41 +238,41 @@ public abstract class AbstractDQElementType
 
     /**
      * Sets the value of the evaluationProcedure property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CICitationPropertyType }
-     *     
+     *            allowed object is {@link CICitationPropertyType }
+     *
      */
     public void setEvaluationProcedure(CICitationPropertyType value) {
         this.evaluationProcedure = value;
     }
 
     public boolean isSetEvaluationProcedure() {
-        return (this.evaluationProcedure!= null);
+        return (this.evaluationProcedure != null);
     }
 
     /**
      * Gets the value of the dateTime property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the dateTime property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the dateTime property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getDateTime().add(newItem);
+     * getDateTime().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DateTimePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<DateTimePropertyType> getDateTime() {
         if (dateTime == null) {
@@ -294,15 +282,15 @@ public abstract class AbstractDQElementType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setDateTime(List<DateTimePropertyType> dateTime) {
         this.dateTime = dateTime;
     }
 
     public boolean isSetDateTime() {
-        return ((this.dateTime!= null)&&(!this.dateTime.isEmpty()));
+        return ((this.dateTime != null) && (!this.dateTime.isEmpty()));
     }
 
     public void unsetDateTime() {
@@ -311,25 +299,26 @@ public abstract class AbstractDQElementType
 
     /**
      * Gets the value of the result property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the result property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the result property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getResult().add(newItem);
+     * getResult().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DQResultPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<DQResultPropertyType> getResult() {
         if (result == null) {
@@ -339,15 +328,15 @@ public abstract class AbstractDQElementType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setResult(List<DQResultPropertyType> result) {
         this.result = result;
     }
 
     public boolean isSetResult() {
-        return ((this.result!= null)&&(!this.result.isEmpty()));
+        return ((this.result != null) && (!this.result.isEmpty()));
     }
 
     public void unsetResult() {
@@ -355,8 +344,9 @@ public abstract class AbstractDQElementType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -367,14 +357,14 @@ public abstract class AbstractDQElementType
         }
         final AbstractDQElementType that = ((AbstractDQElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetEvaluationMethodType();
-            boolean rhsFieldIsSet = that.isSetEvaluationMethodType();
-            DQEvaluationMethodTypeCodePropertyType lhsField;
-            lhsField = this.getEvaluationMethodType();
-            DQEvaluationMethodTypeCodePropertyType rhsField;
-            rhsField = that.getEvaluationMethodType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
+            boolean lhsFieldIsSet = this.isSetEvaluationProcedure();
+            boolean rhsFieldIsSet = that.isSetEvaluationProcedure();
+            CICitationPropertyType lhsField;
+            lhsField = this.getEvaluationProcedure();
+            CICitationPropertyType rhsField;
+            rhsField = that.getEvaluationProcedure();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationProcedure", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationProcedure", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -393,27 +383,14 @@ public abstract class AbstractDQElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMeasureDescription();
-            boolean rhsFieldIsSet = that.isSetMeasureDescription();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getMeasureDescription();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getMeasureDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResult();
-            boolean rhsFieldIsSet = that.isSetResult();
-            List<DQResultPropertyType> lhsField;
-            lhsField = (this.isSetResult()?this.getResult():null);
-            List<DQResultPropertyType> rhsField;
-            rhsField = (that.isSetResult()?that.getResult():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
+            boolean lhsFieldIsSet = this.isSetEvaluationMethodType();
+            boolean rhsFieldIsSet = that.isSetEvaluationMethodType();
+            DQEvaluationMethodTypeCodePropertyType lhsField;
+            lhsField = this.getEvaluationMethodType();
+            DQEvaluationMethodTypeCodePropertyType rhsField;
+            rhsField = that.getEvaluationMethodType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationMethodType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationMethodType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -432,27 +409,40 @@ public abstract class AbstractDQElementType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEvaluationProcedure();
-            boolean rhsFieldIsSet = that.isSetEvaluationProcedure();
-            CICitationPropertyType lhsField;
-            lhsField = this.getEvaluationProcedure();
-            CICitationPropertyType rhsField;
-            rhsField = that.getEvaluationProcedure();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "evaluationProcedure", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "evaluationProcedure", rhsField);
+            boolean lhsFieldIsSet = this.isSetDateTime();
+            boolean rhsFieldIsSet = that.isSetDateTime();
+            List<DateTimePropertyType> lhsField;
+            lhsField = (this.isSetDateTime() ? this.getDateTime() : null);
+            List<DateTimePropertyType> rhsField;
+            rhsField = (that.isSetDateTime() ? that.getDateTime() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateTime();
-            boolean rhsFieldIsSet = that.isSetDateTime();
-            List<DateTimePropertyType> lhsField;
-            lhsField = (this.isSetDateTime()?this.getDateTime():null);
-            List<DateTimePropertyType> rhsField;
-            rhsField = (that.isSetDateTime()?that.getDateTime():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateTime", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateTime", rhsField);
+            boolean lhsFieldIsSet = this.isSetResult();
+            boolean rhsFieldIsSet = that.isSetResult();
+            List<DQResultPropertyType> lhsField;
+            lhsField = (this.isSetResult() ? this.getResult() : null);
+            List<DQResultPropertyType> rhsField;
+            rhsField = (that.isSetResult() ? that.getResult() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "result", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "result", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMeasureDescription();
+            boolean rhsFieldIsSet = that.isSetMeasureDescription();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getMeasureDescription();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getMeasureDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "measureDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "measureDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -461,9 +451,9 @@ public abstract class AbstractDQElementType
             boolean lhsFieldIsSet = this.isSetNameOfMeasure();
             boolean rhsFieldIsSet = that.isSetNameOfMeasure();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetNameOfMeasure()?this.getNameOfMeasure():null);
+            lhsField = (this.isSetNameOfMeasure() ? this.getNameOfMeasure() : null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetNameOfMeasure()?that.getNameOfMeasure():null);
+            rhsField = (that.isSetNameOfMeasure() ? that.getNameOfMeasure() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nameOfMeasure", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nameOfMeasure", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -479,7 +469,7 @@ public abstract class AbstractDQElementType
         {
             boolean theFieldIsSet = this.isSetNameOfMeasure();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetNameOfMeasure()?this.getNameOfMeasure():null);
+            theField = (this.isSetNameOfMeasure() ? this.getNameOfMeasure() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "nameOfMeasure", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -521,14 +511,14 @@ public abstract class AbstractDQElementType
         {
             boolean theFieldIsSet = this.isSetDateTime();
             List<DateTimePropertyType> theField;
-            theField = (this.isSetDateTime()?this.getDateTime():null);
+            theField = (this.isSetDateTime() ? this.getDateTime() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "dateTime", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetResult();
             List<DQResultPropertyType> theField;
-            theField = (this.isSetResult()?this.getResult():null);
+            theField = (this.isSetResult() ? this.getResult() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "result", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -541,7 +531,7 @@ public abstract class AbstractDQElementType
         {
             boolean theFieldIsSet = this.isSetNameOfMeasure();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetNameOfMeasure()?this.getNameOfMeasure():null);
+            theField = (this.isSetNameOfMeasure() ? this.getNameOfMeasure() : null);
             strategy.appendField(locator, this, "nameOfMeasure", buffer, theField, theFieldIsSet);
         }
         {
@@ -577,13 +567,13 @@ public abstract class AbstractDQElementType
         {
             boolean theFieldIsSet = this.isSetDateTime();
             List<DateTimePropertyType> theField;
-            theField = (this.isSetDateTime()?this.getDateTime():null);
+            theField = (this.isSetDateTime() ? this.getDateTime() : null);
             strategy.appendField(locator, this, "dateTime", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetResult();
             List<DQResultPropertyType> theField;
-            theField = (this.isSetResult()?this.getResult():null);
+            theField = (this.isSetResult() ? this.getResult() : null);
             strategy.appendField(locator, this, "result", buffer, theField, theFieldIsSet);
         }
         return buffer;

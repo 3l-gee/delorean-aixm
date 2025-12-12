@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -12,6 +11,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,41 +25,62 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:GeneralConversionPropertyType is a property type for association roles to a general conversion, either referencing or containing the definition of that conversion.
- * 
- * <p>Java class for GeneralConversionPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:GeneralConversionPropertyType is a property type for association roles to
+ * a general conversion, either referencing or containing the definition of that
+ * conversion.
+ *
+ * <p>
+ * Java class for GeneralConversionPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GeneralConversionPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.opengis.net/gml/3.2}AbstractGeneralConversion"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}AbstractGeneralConversion"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeneralConversionPropertyType", propOrder = {
-    "abstractGeneralConversion"
-})
-public class GeneralConversionPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "GeneralConversionPropertyType", propOrder = {"abstractGeneralConversion"})
+public class GeneralConversionPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gm:AbstractGeneralConversion is an abstract operation on coordinates that does not include any change of datum. The best-known example of a coordinate conversion is a map projection. The parameters describing coordinate conversions are defined rather than empirically derived. Note that some conversions have no parameters. The operationVersion, sourceCRS, and targetCRS elements are omitted in a coordinate conversion.
-     * This abstract complex type is expected to be extended for well-known operation methods with many Conversion instances, in GML Application Schemas that define operation-method-specialized element names and contents. This conversion uses an operation method, usually with associated parameter values. However, operation methods and parameter values are directly associated with concrete subtypes, not with this abstract type. All concrete types derived from this type shall extend this type to include a "usesMethod" element that references the "OperationMethod" element. Similarly, all concrete types derived from this type shall extend this type to include zero or more elements each named "uses...Value" that each use the type of an element substitutable for the "AbstractGeneralParameterValue" element.
-     * 
+     * gm:AbstractGeneralConversion is an abstract operation on coordinates that
+     * does not include any change of datum. The best-known example of a coordinate
+     * conversion is a map projection. The parameters describing coordinate
+     * conversions are defined rather than empirically derived. Note that some
+     * conversions have no parameters. The operationVersion, sourceCRS, and
+     * targetCRS elements are omitted in a coordinate conversion. This abstract
+     * complex type is expected to be extended for well-known operation methods with
+     * many Conversion instances, in GML Application Schemas that define
+     * operation-method-specialized element names and contents. This conversion uses
+     * an operation method, usually with associated parameter values. However,
+     * operation methods and parameter values are directly associated with concrete
+     * subtypes, not with this abstract type. All concrete types derived from this
+     * type shall extend this type to include a "usesMethod" element that references
+     * the "OperationMethod" element. Similarly, all concrete types derived from
+     * this type shall extend this type to include zero or more elements each named
+     * "uses...Value" that each use the type of an element substitutable for the
+     * "AbstractGeneralParameterValue" element.
+     *
      */
     @XmlElementRef(name = "AbstractGeneralConversion", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeneralConversionType> abstractGeneralConversion;
@@ -84,14 +105,28 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
     protected ActuateType actuate;
 
     /**
-     * gm:AbstractGeneralConversion is an abstract operation on coordinates that does not include any change of datum. The best-known example of a coordinate conversion is a map projection. The parameters describing coordinate conversions are defined rather than empirically derived. Note that some conversions have no parameters. The operationVersion, sourceCRS, and targetCRS elements are omitted in a coordinate conversion.
-     * This abstract complex type is expected to be extended for well-known operation methods with many Conversion instances, in GML Application Schemas that define operation-method-specialized element names and contents. This conversion uses an operation method, usually with associated parameter values. However, operation methods and parameter values are directly associated with concrete subtypes, not with this abstract type. All concrete types derived from this type shall extend this type to include a "usesMethod" element that references the "OperationMethod" element. Similarly, all concrete types derived from this type shall extend this type to include zero or more elements each named "uses...Value" that each use the type of an element substitutable for the "AbstractGeneralParameterValue" element.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
-     *     
+     * gm:AbstractGeneralConversion is an abstract operation on coordinates that
+     * does not include any change of datum. The best-known example of a coordinate
+     * conversion is a map projection. The parameters describing coordinate
+     * conversions are defined rather than empirically derived. Note that some
+     * conversions have no parameters. The operationVersion, sourceCRS, and
+     * targetCRS elements are omitted in a coordinate conversion. This abstract
+     * complex type is expected to be extended for well-known operation methods with
+     * many Conversion instances, in GML Application Schemas that define
+     * operation-method-specialized element names and contents. This conversion uses
+     * an operation method, usually with associated parameter values. However,
+     * operation methods and parameter values are directly associated with concrete
+     * subtypes, not with this abstract type. All concrete types derived from this
+     * type shall extend this type to include a "usesMethod" element that references
+     * the "OperationMethod" element. Similarly, all concrete types derived from
+     * this type shall extend this type to include zero or more elements each named
+     * "uses...Value" that each use the type of an element substitutable for the
+     * "AbstractGeneralParameterValue" element.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
+     *
      */
     public JAXBElement<? extends AbstractGeneralConversionType> getAbstractGeneralConversion() {
         return abstractGeneralConversion;
@@ -99,12 +134,12 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the abstractGeneralConversion property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
+     *
      * @see #getAbstractGeneralConversion()
      */
     public void setAbstractGeneralConversion(JAXBElement<? extends AbstractGeneralConversionType> value) {
@@ -112,16 +147,14 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
     }
 
     public boolean isSetAbstractGeneralConversion() {
-        return (this.abstractGeneralConversion!= null);
+        return (this.abstractGeneralConversion != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -129,27 +162,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -157,27 +187,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -185,27 +212,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -213,27 +237,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -241,27 +262,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -269,27 +287,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -297,27 +312,24 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -325,18 +337,17 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     @Override
@@ -352,27 +363,15 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final GeneralConversionPropertyType that = ((GeneralConversionPropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetHref();
             boolean rhsFieldIsSet = that.isSetHref();
@@ -387,14 +386,14 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractGeneralConversion();
+            boolean rhsFieldIsSet = that.isSetAbstractGeneralConversion();
+            JAXBElement<? extends AbstractGeneralConversionType> lhsField;
+            lhsField = this.getAbstractGeneralConversion();
+            JAXBElement<? extends AbstractGeneralConversionType> rhsField;
+            rhsField = that.getAbstractGeneralConversion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeneralConversion", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeneralConversion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -408,32 +407,6 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
             rhsField = that.getArcrole();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractGeneralConversion();
-            boolean rhsFieldIsSet = that.isSetAbstractGeneralConversion();
-            JAXBElement<? extends AbstractGeneralConversionType> lhsField;
-            lhsField = this.getAbstractGeneralConversion();
-            JAXBElement<? extends AbstractGeneralConversionType> rhsField;
-            rhsField = that.getAbstractGeneralConversion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeneralConversion", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeneralConversion", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -473,6 +446,45 @@ public class GeneralConversionPropertyType implements Serializable, Equals, Hash
             rhsField = that.getActuate();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

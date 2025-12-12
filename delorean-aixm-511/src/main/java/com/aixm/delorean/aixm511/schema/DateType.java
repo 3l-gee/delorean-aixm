@@ -1,8 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.time.OffsetDateTime;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -11,8 +9,8 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.XmlValue;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.time.OffsetDateTime;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -26,61 +24,61 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
-
 /**
- * <p>Java class for DateType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DateType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DateType">
  *   <simpleContent>
  *     <extension base="<http://www.aixm.aero/schema/5.1.1>DateBaseType">
- *       <attribute name="nilReason" type="{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
+ *       <attribute name="nilReason" type=
+"{http://www.opengis.net/gml/3.2}NilReasonEnumeration" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DateType", propOrder = {
-    "value"
-})
+@XmlType(name = "DateType", propOrder = {"value"})
 @Embeddable
-public class DateType implements Serializable, Equals, HashCode, ToString
-{
+public class DateType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
- @jakarta.xml.bind.annotation.XmlValue @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
-   protected
-    
+    @jakarta.xml.bind.annotation.XmlValue
+    @jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter(com.aixm.delorean.core.time.adapter.XMLGregorianCalendarAdapter.class)
+    protected
+
     OffsetDateTime value;
     @XmlAttribute(name = "nilReason")
     protected String nilReason;
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
-@jakarta.persistence.Basic
+    @jakarta.persistence.Basic
     public OffsetDateTime getValue() {
         return value;
     }
 
     /**
      * Sets the value of the value property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setValue(OffsetDateTime value) {
         this.value = value;
@@ -88,16 +86,14 @@ public class DateType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetValue() {
-        return (this.value!= null);
+        return (this.value != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "NIL_REASON")
@@ -107,11 +103,10 @@ public class DateType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
@@ -119,7 +114,7 @@ public class DateType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -135,8 +130,9 @@ public class DateType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

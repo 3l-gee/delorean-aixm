@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,12 +35,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RunwayTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RunwayTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RunwayTimeSlicePropertyType">
  *   <complexContent>
@@ -48,22 +53,20 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}RunwayTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RunwayTimeSlicePropertyType", propOrder = {
-    "runwayTimeSlice"
-})
+@XmlType(name = "RunwayTimeSlicePropertyType", propOrder = {"runwayTimeSlice"})
 @Entity(name = "RunwayTimeSlicePropertyType")
 @Table(name = "runway_tsp", schema = "airport_heliport")
-public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "RunwayTimeSlice", required = true)
@@ -77,15 +80,11 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
 
     /**
      * Gets the value of the runwayTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RunwayTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link RunwayTimeSliceType }
+     *
      */
-    @OneToOne(targetEntity = RunwayTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = RunwayTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public RunwayTimeSliceType getRunwayTimeSlice() {
         return runwayTimeSlice;
@@ -93,11 +92,10 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the runwayTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RunwayTimeSliceType }
-     *     
+     *            allowed object is {@link RunwayTimeSliceType }
+     *
      */
     public void setRunwayTimeSlice(RunwayTimeSliceType value) {
         this.runwayTimeSlice = value;
@@ -105,16 +103,14 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
 
     @Transient
     public boolean isSetRunwayTimeSlice() {
-        return (this.runwayTimeSlice!= null);
+        return (this.runwayTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +124,10 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +135,7 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +143,10 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +157,21 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +180,11 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,8 +203,9 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -239,9 +229,9 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -274,7 +264,7 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +302,7 @@ public class RunwayTimeSlicePropertyType implements Serializable, Equals, HashCo
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

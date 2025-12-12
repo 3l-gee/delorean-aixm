@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,42 +13,48 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for CheckpointVORType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for CheckpointVORType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CheckpointVORType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractNavigationSystemCheckpointType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractNavigationSystemCheckpointType">
  *       <sequence>
- *         <element name="timeSlice" type="{http://www.aixm.aero/schema/5.1.1}CheckpointVORTimeSlicePropertyType" maxOccurs="unbounded"/>
+ *         <element name="timeSlice" type=
+"{http://www.aixm.aero/schema/5.1.1}CheckpointVORTimeSlicePropertyType" maxOccurs
+="unbounded"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CheckpointVORType", propOrder = {
-    "timeSlice"
-})
+@XmlType(name = "CheckpointVORType", propOrder = {"timeSlice"})
 @Entity(name = "CheckpointVORType")
 @Table(name = "checkpointvor", schema = "navaids_point")
-public class CheckpointVORType
-    extends AbstractNavigationSystemCheckpointType
-    implements Serializable
-{
+public class CheckpointVORType extends AbstractNavigationSystemCheckpointType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -59,34 +62,32 @@ public class CheckpointVORType
 
     /**
      * Gets the value of the timeSlice property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the timeSlice property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the timeSlice property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTimeSlice().add(newItem);
+     * getTimeSlice().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CheckpointVORTimeSlicePropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = CheckpointVORTimeSlicePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeslice_checkpointvor_link", schema = "navaids_point", joinColumns = {
-        @JoinColumn(name = "timeslice", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "checkpointvortype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "timeslice", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "checkpointvortype", referencedColumnName = "hjid")})
     public List<CheckpointVORTimeSlicePropertyType> getTimeSlice() {
         if (timeSlice == null) {
             timeSlice = new ArrayList<>();
@@ -95,8 +96,8 @@ public class CheckpointVORType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTimeSlice(List<CheckpointVORTimeSlicePropertyType> timeSlice) {
         this.timeSlice = timeSlice;
@@ -104,7 +105,7 @@ public class CheckpointVORType
 
     @Transient
     public boolean isSetTimeSlice() {
-        return ((this.timeSlice!= null)&&(!this.timeSlice.isEmpty()));
+        return ((this.timeSlice != null) && (!this.timeSlice.isEmpty()));
     }
 
     public void unsetTimeSlice() {
@@ -112,8 +113,9 @@ public class CheckpointVORType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -127,9 +129,9 @@ public class CheckpointVORType
             boolean lhsFieldIsSet = this.isSetTimeSlice();
             boolean rhsFieldIsSet = that.isSetTimeSlice();
             List<CheckpointVORTimeSlicePropertyType> lhsField;
-            lhsField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            lhsField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             List<CheckpointVORTimeSlicePropertyType> rhsField;
-            rhsField = (that.isSetTimeSlice()?that.getTimeSlice():null);
+            rhsField = (that.isSetTimeSlice() ? that.getTimeSlice() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeSlice", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -145,7 +147,7 @@ public class CheckpointVORType
         {
             boolean theFieldIsSet = this.isSetTimeSlice();
             List<CheckpointVORTimeSlicePropertyType> theField;
-            theField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            theField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeSlice", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -158,7 +160,7 @@ public class CheckpointVORType
         {
             boolean theFieldIsSet = this.isSetTimeSlice();
             List<CheckpointVORTimeSlicePropertyType> theField;
-            theField = (this.isSetTimeSlice()?this.getTimeSlice():null);
+            theField = (this.isSetTimeSlice() ? this.getTimeSlice() : null);
             strategy.appendField(locator, this, "timeSlice", buffer, theField, theFieldIsSet);
         }
         return buffer;

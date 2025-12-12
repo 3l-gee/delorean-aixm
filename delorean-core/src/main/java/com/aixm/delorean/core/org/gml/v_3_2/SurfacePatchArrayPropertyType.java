@@ -1,14 +1,14 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,14 +22,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:SurfacePatchArrayPropertyType is a container for a sequence of surface patches.
- * 
- * <p>Java class for SurfacePatchArrayPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:SurfacePatchArrayPropertyType is a container for a sequence of surface
+ * patches.
+ *
+ * <p>
+ * Java class for SurfacePatchArrayPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="SurfacePatchArrayPropertyType">
  *   <complexContent>
@@ -41,15 +47,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SurfacePatchArrayPropertyType", propOrder = {
-    "abstractSurfacePatch"
-})
-public class SurfacePatchArrayPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "SurfacePatchArrayPropertyType", propOrder = {"abstractSurfacePatch"})
+public class SurfacePatchArrayPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractSurfacePatch", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -57,33 +60,34 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
 
     /**
      * Gets the value of the abstractSurfacePatch property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractSurfacePatch property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractSurfacePatch property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractSurfacePatch().add(newItem);
+     * getAbstractSurfacePatch().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link PolygonPatchType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TriangleType }{@code >}
-     * {@link JAXBElement }{@code <}{@link RectangleType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ConeType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CylinderType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SphereType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGriddedSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link PolygonPatchType }{@code >} {@link JAXBElement
+     * }{@code <}{@link TriangleType }{@code >} {@link JAXBElement
+     * }{@code <}{@link RectangleType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ConeType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CylinderType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SphereType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGriddedSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractSurfacePatchType }{@code >}
-     * 
-     * 
+     *
+     *
      */
     public List<JAXBElement<? extends AbstractSurfacePatchType>> getAbstractSurfacePatch() {
         if (abstractSurfacePatch == null) {
@@ -93,15 +97,15 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAbstractSurfacePatch(List<JAXBElement<? extends AbstractSurfacePatchType>> abstractSurfacePatch) {
         this.abstractSurfacePatch = abstractSurfacePatch;
     }
 
     public boolean isSetAbstractSurfacePatch() {
-        return ((this.abstractSurfacePatch!= null)&&(!this.abstractSurfacePatch.isEmpty()));
+        return ((this.abstractSurfacePatch != null) && (!this.abstractSurfacePatch.isEmpty()));
     }
 
     public void unsetAbstractSurfacePatch() {
@@ -121,8 +125,9 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -133,9 +138,9 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
             boolean lhsFieldIsSet = this.isSetAbstractSurfacePatch();
             boolean rhsFieldIsSet = that.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> lhsField;
-            lhsField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
+            lhsField = (this.isSetAbstractSurfacePatch() ? this.getAbstractSurfacePatch() : null);
             List<JAXBElement<? extends AbstractSurfacePatchType>> rhsField;
-            rhsField = (that.isSetAbstractSurfacePatch()?that.getAbstractSurfacePatch():null);
+            rhsField = (that.isSetAbstractSurfacePatch() ? that.getAbstractSurfacePatch() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurfacePatch", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurfacePatch", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -161,7 +166,7 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> theField;
-            theField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
+            theField = (this.isSetAbstractSurfacePatch() ? this.getAbstractSurfacePatch() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurfacePatch", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -193,7 +198,7 @@ public class SurfacePatchArrayPropertyType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetAbstractSurfacePatch();
             List<JAXBElement<? extends AbstractSurfacePatchType>> theField;
-            theField = (this.isSetAbstractSurfacePatch()?this.getAbstractSurfacePatch():null);
+            theField = (this.isSetAbstractSurfacePatch() ? this.getAbstractSurfacePatch() : null);
             strategy.appendField(locator, this, "abstractSurfacePatch", buffer, theField, theFieldIsSet);
         }
         return buffer;

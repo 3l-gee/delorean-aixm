@@ -1,21 +1,17 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import com.aixm.delorean.aixm511.time.adapter.TimePrimitivePropertyTypeAdapter;
 import com.aixm.delorean.core.org.gml.v_3_2.TimePrimitivePropertyType;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -27,30 +23,42 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * Adds in the AIXM specific properties, such as 'interpretation'.
- * 
- * <p>Java class for AbstractAIXMTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for AbstractAIXMTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractAIXMTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceBaseType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceBaseType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}interpretation"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}sequenceNumber" minOccurs="0"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}correctionNumber" minOccurs="0"/>
- *         <element name="timeSliceMetadata" type="{http://www.aixm.aero/schema/5.1.1}FeatureTimeSliceMetadataPropertyType" minOccurs="0"/>
- *         <element name="featureLifetime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}sequenceNumber" minOccurs="0"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}correctionNumber" minOccurs="0"/>
+ *         <element name="timeSliceMetadata" type=
+"{http://www.aixm.aero/schema/5.1.1}FeatureTimeSliceMetadataPropertyType" minOccurs
+="0"/>
+ *         <element name="featureLifetime" type=
+"{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         <element name="approvalStatus" minOccurs="0">
  *           <simpleType>
  *             <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -67,167 +75,86 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractAIXMTimeSliceType", propOrder = {
-    "interpretation",
-    "sequenceNumber",
-    "correctionNumber",
-    "timeSliceMetadata",
-    "featureLifetime"
-})
-@XmlSeeAlso({
-    AerialRefuellingTimeSliceType.class,
-    AirportHeliportTimeSliceType.class,
-    AirportHeliportCollocationTimeSliceType.class,
-    AirportHotSpotTimeSliceType.class,
-    AltimeterSourceTimeSliceType.class,
-    NonMovementAreaTimeSliceType.class,
-    SurveyControlPointTimeSliceType.class,
-    WorkAreaTimeSliceType.class,
-    AircraftStandTimeSliceType.class,
-    ApronTimeSliceType.class,
-    ApronElementTimeSliceType.class,
-    DeicingAreaTimeSliceType.class,
-    PassengerLoadingBridgeTimeSliceType.class,
-    RoadTimeSliceType.class,
-    TouchDownLiftOffTimeSliceType.class,
-    TouchDownLiftOffSafeAreaTimeSliceType.class,
-    ApproachLightingSystemTimeSliceType.class,
-    ApronLightSystemTimeSliceType.class,
-    GuidanceLineLightSystemTimeSliceType.class,
-    RunwayDirectionLightSystemTimeSliceType.class,
-    RunwayProtectAreaLightSystemTimeSliceType.class,
-    TaxiHoldingPositionLightSystemTimeSliceType.class,
-    TaxiwayLightSystemTimeSliceType.class,
-    TouchDownLiftOffLightSystemTimeSliceType.class,
-    AirportProtectionAreaMarkingTimeSliceType.class,
-    ApronMarkingTimeSliceType.class,
-    DeicingAreaMarkingTimeSliceType.class,
-    GuidanceLineMarkingTimeSliceType.class,
-    RunwayMarkingTimeSliceType.class,
-    StandMarkingTimeSliceType.class,
-    TaxiHoldingPositionMarkingTimeSliceType.class,
-    TaxiwayMarkingTimeSliceType.class,
-    TouchDownLiftOffMarkingTimeSliceType.class,
-    ArrestingGearTimeSliceType.class,
-    RunwayTimeSliceType.class,
-    RunwayBlastPadTimeSliceType.class,
-    RunwayCentrelinePointTimeSliceType.class,
-    RunwayDirectionTimeSliceType.class,
-    RunwayElementTimeSliceType.class,
-    RunwayProtectAreaTimeSliceType.class,
-    RunwayVisualRangeTimeSliceType.class,
-    VisualGlideSlopeIndicatorTimeSliceType.class,
-    FloatingDockSiteTimeSliceType.class,
-    MarkingBuoyTimeSliceType.class,
-    SeaplaneLandingAreaTimeSliceType.class,
-    SeaplaneRampSiteTimeSliceType.class,
-    GuidanceLineTimeSliceType.class,
-    TaxiHoldingPositionTimeSliceType.class,
-    TaxiwayTimeSliceType.class,
-    TaxiwayElementTimeSliceType.class,
-    AirspaceTimeSliceType.class,
-    AuthorityForAirspaceTimeSliceType.class,
-    GeoBorderTimeSliceType.class,
-    HoldingPatternTimeSliceType.class,
-    UnplannedHoldingTimeSliceType.class,
-    AzimuthTimeSliceType.class,
-    CheckpointINSTimeSliceType.class,
-    CheckpointVORTimeSliceType.class,
-    DirectionFinderTimeSliceType.class,
-    DMETimeSliceType.class,
-    ElevationTimeSliceType.class,
-    GlidepathTimeSliceType.class,
-    LocalizerTimeSliceType.class,
-    MarkerBeaconTimeSliceType.class,
-    NavaidTimeSliceType.class,
-    NDBTimeSliceType.class,
-    SDFTimeSliceType.class,
-    SpecialNavigationStationTimeSliceType.class,
-    SpecialNavigationSystemTimeSliceType.class,
-    TACANTimeSliceType.class,
-    VORTimeSliceType.class,
-    AngleIndicationTimeSliceType.class,
-    DistanceIndicationTimeSliceType.class,
-    DesignatedPointTimeSliceType.class,
-    SignificantPointInAirspaceTimeSliceType.class,
-    AeronauticalGroundLightTimeSliceType.class,
-    ObstacleAreaTimeSliceType.class,
-    VerticalStructureTimeSliceType.class,
-    OrganisationAuthorityTimeSliceType.class,
-    UnitTimeSliceType.class,
-    InstrumentApproachProcedureTimeSliceType.class,
-    TerminalArrivalAreaTimeSliceType.class,
-    CirclingAreaTimeSliceType.class,
-    StandardInstrumentArrivalTimeSliceType.class,
-    NavigationAreaTimeSliceType.class,
-    StandardInstrumentDepartureTimeSliceType.class,
-    SafeAltitudeAreaTimeSliceType.class,
-    ArrivalFeederLegTimeSliceType.class,
-    ArrivalLegTimeSliceType.class,
-    DepartureLegTimeSliceType.class,
-    FinalLegTimeSliceType.class,
-    InitialLegTimeSliceType.class,
-    IntermediateLegTimeSliceType.class,
-    MissedApproachLegTimeSliceType.class,
-    NavigationAreaRestrictionTimeSliceType.class,
-    ProcedureDMETimeSliceType.class,
-    ChangeOverPointTimeSliceType.class,
-    RouteTimeSliceType.class,
-    RouteDMETimeSliceType.class,
-    RouteSegmentTimeSliceType.class,
-    AirspaceBorderCrossingTimeSliceType.class,
-    FlightRestrictionTimeSliceType.class,
-    RulesProceduresTimeSliceType.class,
-    AircraftGroundServiceTimeSliceType.class,
-    AirportClearanceServiceTimeSliceType.class,
-    AirportSuppliesServiceTimeSliceType.class,
-    AirTrafficControlServiceTimeSliceType.class,
-    AirTrafficManagementServiceTimeSliceType.class,
-    FireFightingServiceTimeSliceType.class,
-    GroundTrafficControlServiceTimeSliceType.class,
-    InformationServiceTimeSliceType.class,
-    PassengerServiceTimeSliceType.class,
-    PilotControlledLightingTimeSliceType.class,
-    RadioCommunicationChannelTimeSliceType.class,
-    SearchRescueServiceTimeSliceType.class,
-    RadioFrequencyAreaTimeSliceType.class,
-    SpecialDateTimeSliceType.class,
-    StandardLevelColumnTimeSliceType.class,
-    StandardLevelSectorTimeSliceType.class,
-    StandardLevelTableTimeSliceType.class,
-    HoldingAssessmentTimeSliceType.class,
-    PrecisionApproachRadarTimeSliceType.class,
-    PrimarySurveillanceRadarTimeSliceType.class,
-    RadarSystemTimeSliceType.class,
-    SecondarySurveillanceRadarTimeSliceType.class
-})
+@XmlType(name = "AbstractAIXMTimeSliceType", propOrder = {"interpretation", "sequenceNumber", "correctionNumber",
+        "timeSliceMetadata", "featureLifetime"})
+@XmlSeeAlso({AerialRefuellingTimeSliceType.class, AirportHeliportTimeSliceType.class,
+        AirportHeliportCollocationTimeSliceType.class, AirportHotSpotTimeSliceType.class,
+        AltimeterSourceTimeSliceType.class, NonMovementAreaTimeSliceType.class, SurveyControlPointTimeSliceType.class,
+        WorkAreaTimeSliceType.class, AircraftStandTimeSliceType.class, ApronTimeSliceType.class,
+        ApronElementTimeSliceType.class, DeicingAreaTimeSliceType.class, PassengerLoadingBridgeTimeSliceType.class,
+        RoadTimeSliceType.class, TouchDownLiftOffTimeSliceType.class, TouchDownLiftOffSafeAreaTimeSliceType.class,
+        ApproachLightingSystemTimeSliceType.class, ApronLightSystemTimeSliceType.class,
+        GuidanceLineLightSystemTimeSliceType.class, RunwayDirectionLightSystemTimeSliceType.class,
+        RunwayProtectAreaLightSystemTimeSliceType.class, TaxiHoldingPositionLightSystemTimeSliceType.class,
+        TaxiwayLightSystemTimeSliceType.class, TouchDownLiftOffLightSystemTimeSliceType.class,
+        AirportProtectionAreaMarkingTimeSliceType.class, ApronMarkingTimeSliceType.class,
+        DeicingAreaMarkingTimeSliceType.class, GuidanceLineMarkingTimeSliceType.class, RunwayMarkingTimeSliceType.class,
+        StandMarkingTimeSliceType.class, TaxiHoldingPositionMarkingTimeSliceType.class,
+        TaxiwayMarkingTimeSliceType.class, TouchDownLiftOffMarkingTimeSliceType.class, ArrestingGearTimeSliceType.class,
+        RunwayTimeSliceType.class, RunwayBlastPadTimeSliceType.class, RunwayCentrelinePointTimeSliceType.class,
+        RunwayDirectionTimeSliceType.class, RunwayElementTimeSliceType.class, RunwayProtectAreaTimeSliceType.class,
+        RunwayVisualRangeTimeSliceType.class, VisualGlideSlopeIndicatorTimeSliceType.class,
+        FloatingDockSiteTimeSliceType.class, MarkingBuoyTimeSliceType.class, SeaplaneLandingAreaTimeSliceType.class,
+        SeaplaneRampSiteTimeSliceType.class, GuidanceLineTimeSliceType.class, TaxiHoldingPositionTimeSliceType.class,
+        TaxiwayTimeSliceType.class, TaxiwayElementTimeSliceType.class, AirspaceTimeSliceType.class,
+        AuthorityForAirspaceTimeSliceType.class, GeoBorderTimeSliceType.class, HoldingPatternTimeSliceType.class,
+        UnplannedHoldingTimeSliceType.class, AzimuthTimeSliceType.class, CheckpointINSTimeSliceType.class,
+        CheckpointVORTimeSliceType.class, DirectionFinderTimeSliceType.class, DMETimeSliceType.class,
+        ElevationTimeSliceType.class, GlidepathTimeSliceType.class, LocalizerTimeSliceType.class,
+        MarkerBeaconTimeSliceType.class, NavaidTimeSliceType.class, NDBTimeSliceType.class, SDFTimeSliceType.class,
+        SpecialNavigationStationTimeSliceType.class, SpecialNavigationSystemTimeSliceType.class,
+        TACANTimeSliceType.class, VORTimeSliceType.class, AngleIndicationTimeSliceType.class,
+        DistanceIndicationTimeSliceType.class, DesignatedPointTimeSliceType.class,
+        SignificantPointInAirspaceTimeSliceType.class, AeronauticalGroundLightTimeSliceType.class,
+        ObstacleAreaTimeSliceType.class, VerticalStructureTimeSliceType.class, OrganisationAuthorityTimeSliceType.class,
+        UnitTimeSliceType.class, InstrumentApproachProcedureTimeSliceType.class, TerminalArrivalAreaTimeSliceType.class,
+        CirclingAreaTimeSliceType.class, StandardInstrumentArrivalTimeSliceType.class,
+        NavigationAreaTimeSliceType.class, StandardInstrumentDepartureTimeSliceType.class,
+        SafeAltitudeAreaTimeSliceType.class, ArrivalFeederLegTimeSliceType.class, ArrivalLegTimeSliceType.class,
+        DepartureLegTimeSliceType.class, FinalLegTimeSliceType.class, InitialLegTimeSliceType.class,
+        IntermediateLegTimeSliceType.class, MissedApproachLegTimeSliceType.class,
+        NavigationAreaRestrictionTimeSliceType.class, ProcedureDMETimeSliceType.class,
+        ChangeOverPointTimeSliceType.class, RouteTimeSliceType.class, RouteDMETimeSliceType.class,
+        RouteSegmentTimeSliceType.class, AirspaceBorderCrossingTimeSliceType.class,
+        FlightRestrictionTimeSliceType.class, RulesProceduresTimeSliceType.class,
+        AircraftGroundServiceTimeSliceType.class, AirportClearanceServiceTimeSliceType.class,
+        AirportSuppliesServiceTimeSliceType.class, AirTrafficControlServiceTimeSliceType.class,
+        AirTrafficManagementServiceTimeSliceType.class, FireFightingServiceTimeSliceType.class,
+        GroundTrafficControlServiceTimeSliceType.class, InformationServiceTimeSliceType.class,
+        PassengerServiceTimeSliceType.class, PilotControlledLightingTimeSliceType.class,
+        RadioCommunicationChannelTimeSliceType.class, SearchRescueServiceTimeSliceType.class,
+        RadioFrequencyAreaTimeSliceType.class, SpecialDateTimeSliceType.class, StandardLevelColumnTimeSliceType.class,
+        StandardLevelSectorTimeSliceType.class, StandardLevelTableTimeSliceType.class,
+        HoldingAssessmentTimeSliceType.class, PrecisionApproachRadarTimeSliceType.class,
+        PrimarySurveillanceRadarTimeSliceType.class, RadarSystemTimeSliceType.class,
+        SecondarySurveillanceRadarTimeSliceType.class})
 @Entity(name = "AbstractAIXMTimeSliceType")
 @Table(name = "aixm_timeslice", schema = "aixm")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class AbstractAIXMTimeSliceType
-    extends AbstractAIXMTimeSliceBaseType
-    implements Serializable
-{
+public abstract class AbstractAIXMTimeSliceType extends AbstractAIXMTimeSliceBaseType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * Property indicating how the timeslice is to be interpreted.  See the AIXM Temporality model for details.
-     * 
+     * Property indicating how the timeslice is to be interpreted. See the AIXM
+     * Temporality model for details.
+     *
      */
     @XmlElement(required = true)
     protected String interpretation;
     /**
-     * Used for the identification of the Time Slice concerned. See the AIXM Temporality model for details.
-     * 
+     * Used for the identification of the Time Slice concerned. See the AIXM
+     * Temporality model for details.
+     *
      */
     protected Long sequenceNumber;
     /**
-     * Used for indicating the order of the corrections of a Time Slice. See the AIXM Temporality model for details.
-     * 
+     * Used for indicating the order of the corrections of a Time Slice. See the
+     * AIXM Temporality model for details.
+     *
      */
     protected Long correctionNumber;
     protected FeatureTimeSliceMetadataPropertyType timeSliceMetadata;
@@ -242,12 +169,11 @@ public abstract class AbstractAIXMTimeSliceType
     protected Long hjversion;
 
     /**
-     * Property indicating how the timeslice is to be interpreted.  See the AIXM Temporality model for details.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * Property indicating how the timeslice is to be interpreted. See the AIXM
+     * Temporality model for details.
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "INTERPRETATION")
@@ -257,11 +183,10 @@ public abstract class AbstractAIXMTimeSliceType
 
     /**
      * Sets the value of the interpretation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      * @see #getInterpretation()
      */
     public void setInterpretation(String value) {
@@ -270,16 +195,15 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetInterpretation() {
-        return (this.interpretation!= null);
+        return (this.interpretation != null);
     }
 
     /**
-     * Used for the identification of the Time Slice concerned. See the AIXM Temporality model for details.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     * Used for the identification of the Time Slice concerned. See the AIXM
+     * Temporality model for details.
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Basic
     @Column(name = "SEQUENCE_NUMBER")
@@ -289,11 +213,10 @@ public abstract class AbstractAIXMTimeSliceType
 
     /**
      * Sets the value of the sequenceNumber property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      * @see #getSequenceNumber()
      */
     public void setSequenceNumber(Long value) {
@@ -302,16 +225,15 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetSequenceNumber() {
-        return (this.sequenceNumber!= null);
+        return (this.sequenceNumber != null);
     }
 
     /**
-     * Used for indicating the order of the corrections of a Time Slice. See the AIXM Temporality model for details.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     * Used for indicating the order of the corrections of a Time Slice. See the
+     * AIXM Temporality model for details.
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Basic
     @Column(name = "CORRECTION_NUMBER")
@@ -321,11 +243,10 @@ public abstract class AbstractAIXMTimeSliceType
 
     /**
      * Sets the value of the correctionNumber property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      * @see #getCorrectionNumber()
      */
     public void setCorrectionNumber(Long value) {
@@ -334,30 +255,27 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetCorrectionNumber() {
-        return (this.correctionNumber!= null);
+        return (this.correctionNumber != null);
     }
 
     /**
      * Gets the value of the timeSliceMetadata property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FeatureTimeSliceMetadataPropertyType }
-     *     
+     *
+     * @return possible object is {@link FeatureTimeSliceMetadataPropertyType }
+     *
      */
-@jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
-@jakarta.persistence.JoinColumn(name = "time_slice_metadata_hjid", referencedColumnName = "hjid")
+    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL, fetch = jakarta.persistence.FetchType.EAGER)
+    @jakarta.persistence.JoinColumn(name = "time_slice_metadata_hjid", referencedColumnName = "hjid")
     public FeatureTimeSliceMetadataPropertyType getTimeSliceMetadata() {
         return timeSliceMetadata;
     }
 
     /**
      * Sets the value of the timeSliceMetadata property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FeatureTimeSliceMetadataPropertyType }
-     *     
+     *            allowed object is {@link FeatureTimeSliceMetadataPropertyType }
+     *
      */
     public void setTimeSliceMetadata(FeatureTimeSliceMetadataPropertyType value) {
         this.timeSliceMetadata = value;
@@ -365,30 +283,30 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetTimeSliceMetadata() {
-        return (this.timeSliceMetadata!= null);
+        return (this.timeSliceMetadata != null);
     }
 
     /**
      * Gets the value of the featureLifetime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
-@jakarta.persistence.Embedded
-@jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end")) })
+    @jakarta.persistence.Embedded
+    @jakarta.persistence.AttributeOverrides({
+            @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_begin", columnDefinition = "TIMESTAMP")),
+            @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "feature_lifetime_end", columnDefinition = "TIMESTAMP")),
+            @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "time_period_id"))})
     public DeloreanTimeSliceType getFeatureLifetime() {
         return featureLifetime;
     }
 
     /**
      * Sets the value of the featureLifetime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setFeatureLifetime(DeloreanTimeSliceType value) {
         this.featureLifetime = value;
@@ -396,16 +314,14 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetFeatureLifetime() {
-        return (this.featureLifetime!= null);
+        return (this.featureLifetime != null);
     }
 
     /**
      * Gets the value of the approvalStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "APPROVAL_STATUS")
@@ -415,11 +331,10 @@ public abstract class AbstractAIXMTimeSliceType
 
     /**
      * Sets the value of the approvalStatus property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setApprovalStatus(String value) {
         this.approvalStatus = value;
@@ -427,16 +342,14 @@ public abstract class AbstractAIXMTimeSliceType
 
     @Transient
     public boolean isSetApprovalStatus() {
-        return (this.approvalStatus!= null);
+        return (this.approvalStatus != null);
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -447,24 +360,21 @@ public abstract class AbstractAIXMTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -473,20 +383,20 @@ public abstract class AbstractAIXMTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -497,27 +407,14 @@ public abstract class AbstractAIXMTimeSliceType
         }
         final AbstractAIXMTimeSliceType that = ((AbstractAIXMTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCorrectionNumber();
-            boolean rhsFieldIsSet = that.isSetCorrectionNumber();
-            Long lhsField;
-            lhsField = this.getCorrectionNumber();
-            Long rhsField;
-            rhsField = that.getCorrectionNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetApprovalStatus();
-            boolean rhsFieldIsSet = that.isSetApprovalStatus();
+            boolean lhsFieldIsSet = this.isSetInterpretation();
+            boolean rhsFieldIsSet = that.isSetInterpretation();
             String lhsField;
-            lhsField = this.getApprovalStatus();
+            lhsField = this.getInterpretation();
             String rhsField;
-            rhsField = that.getApprovalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
+            rhsField = that.getInterpretation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -531,6 +428,19 @@ public abstract class AbstractAIXMTimeSliceType
             rhsField = that.getFeatureLifetime();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "featureLifetime", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "featureLifetime", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApprovalStatus();
+            boolean rhsFieldIsSet = that.isSetApprovalStatus();
+            String lhsField;
+            lhsField = this.getApprovalStatus();
+            String rhsField;
+            rhsField = that.getApprovalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approvalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approvalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -562,14 +472,14 @@ public abstract class AbstractAIXMTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetInterpretation();
-            boolean rhsFieldIsSet = that.isSetInterpretation();
-            String lhsField;
-            lhsField = this.getInterpretation();
-            String rhsField;
-            rhsField = that.getInterpretation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interpretation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interpretation", rhsField);
+            boolean lhsFieldIsSet = this.isSetCorrectionNumber();
+            boolean rhsFieldIsSet = that.isSetCorrectionNumber();
+            Long lhsField;
+            lhsField = this.getCorrectionNumber();
+            Long rhsField;
+            rhsField = that.getCorrectionNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "correctionNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "correctionNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

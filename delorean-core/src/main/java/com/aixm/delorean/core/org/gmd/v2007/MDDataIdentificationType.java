@@ -1,62 +1,71 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for MD_DataIdentification_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MD_DataIdentification_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_DataIdentification_Type">
  *   <complexContent>
- *     <extension base="{http://www.isotc211.org/2005/gmd}AbstractMD_Identification_Type">
+ *     <extension base=
+"{http://www.isotc211.org/2005/gmd}AbstractMD_Identification_Type">
  *       <sequence>
- *         <element name="spatialRepresentationType" type="{http://www.isotc211.org/2005/gmd}MD_SpatialRepresentationTypeCode_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="spatialResolution" type="{http://www.isotc211.org/2005/gmd}MD_Resolution_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="language" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs="unbounded"/>
- *         <element name="characterSet" type="{http://www.isotc211.org/2005/gmd}MD_CharacterSetCode_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="topicCategory" type="{http://www.isotc211.org/2005/gmd}MD_TopicCategoryCode_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="environmentDescription" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="extent" type="{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="supplementalInformation" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="spatialRepresentationType" type=
+"{http://www.isotc211.org/2005/gmd}MD_SpatialRepresentationTypeCode_PropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <element name="spatialResolution" type=
+"{http://www.isotc211.org/2005/gmd}MD_Resolution_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="language" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs=
+"unbounded"/>
+ *         <element name="characterSet" type=
+"{http://www.isotc211.org/2005/gmd}MD_CharacterSetCode_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="topicCategory" type=
+"{http://www.isotc211.org/2005/gmd}MD_TopicCategoryCode_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="environmentDescription" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="extent" type=
+"{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="supplementalInformation" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_DataIdentification_Type", propOrder = {
-    "spatialRepresentationType",
-    "spatialResolution",
-    "language",
-    "characterSet",
-    "topicCategory",
-    "environmentDescription",
-    "extent",
-    "supplementalInformation"
-})
-public class MDDataIdentificationType
-    extends AbstractMDIdentificationType
-    implements Serializable
-{
+@XmlType(name = "MD_DataIdentification_Type", propOrder = {"spatialRepresentationType", "spatialResolution", "language",
+        "characterSet", "topicCategory", "environmentDescription", "extent", "supplementalInformation"})
+public class MDDataIdentificationType extends AbstractMDIdentificationType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     protected List<MDSpatialRepresentationTypeCodePropertyType> spatialRepresentationType;
@@ -71,25 +80,26 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the spatialRepresentationType property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the spatialRepresentationType property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the spatialRepresentationType property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getSpatialRepresentationType().add(newItem);
+     * getSpatialRepresentationType().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDSpatialRepresentationTypeCodePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDSpatialRepresentationTypeCodePropertyType> getSpatialRepresentationType() {
         if (spatialRepresentationType == null) {
@@ -99,15 +109,16 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
-    public void setSpatialRepresentationType(List<MDSpatialRepresentationTypeCodePropertyType> spatialRepresentationType) {
+    public void setSpatialRepresentationType(
+            List<MDSpatialRepresentationTypeCodePropertyType> spatialRepresentationType) {
         this.spatialRepresentationType = spatialRepresentationType;
     }
 
     public boolean isSetSpatialRepresentationType() {
-        return ((this.spatialRepresentationType!= null)&&(!this.spatialRepresentationType.isEmpty()));
+        return ((this.spatialRepresentationType != null) && (!this.spatialRepresentationType.isEmpty()));
     }
 
     public void unsetSpatialRepresentationType() {
@@ -116,25 +127,26 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the spatialResolution property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the spatialResolution property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the spatialResolution property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getSpatialResolution().add(newItem);
+     * getSpatialResolution().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDResolutionPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDResolutionPropertyType> getSpatialResolution() {
         if (spatialResolution == null) {
@@ -144,15 +156,15 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setSpatialResolution(List<MDResolutionPropertyType> spatialResolution) {
         this.spatialResolution = spatialResolution;
     }
 
     public boolean isSetSpatialResolution() {
-        return ((this.spatialResolution!= null)&&(!this.spatialResolution.isEmpty()));
+        return ((this.spatialResolution != null) && (!this.spatialResolution.isEmpty()));
     }
 
     public void unsetSpatialResolution() {
@@ -161,25 +173,26 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the language property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the language property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the language property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getLanguage().add(newItem);
+     * getLanguage().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CharacterStringPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<CharacterStringPropertyType> getLanguage() {
         if (language == null) {
@@ -189,15 +202,15 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setLanguage(List<CharacterStringPropertyType> language) {
         this.language = language;
     }
 
     public boolean isSetLanguage() {
-        return ((this.language!= null)&&(!this.language.isEmpty()));
+        return ((this.language != null) && (!this.language.isEmpty()));
     }
 
     public void unsetLanguage() {
@@ -206,25 +219,26 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the characterSet property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the characterSet property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the characterSet property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getCharacterSet().add(newItem);
+     * getCharacterSet().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDCharacterSetCodePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDCharacterSetCodePropertyType> getCharacterSet() {
         if (characterSet == null) {
@@ -234,15 +248,15 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setCharacterSet(List<MDCharacterSetCodePropertyType> characterSet) {
         this.characterSet = characterSet;
     }
 
     public boolean isSetCharacterSet() {
-        return ((this.characterSet!= null)&&(!this.characterSet.isEmpty()));
+        return ((this.characterSet != null) && (!this.characterSet.isEmpty()));
     }
 
     public void unsetCharacterSet() {
@@ -251,25 +265,26 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the topicCategory property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the topicCategory property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the topicCategory property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTopicCategory().add(newItem);
+     * getTopicCategory().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDTopicCategoryCodePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDTopicCategoryCodePropertyType> getTopicCategory() {
         if (topicCategory == null) {
@@ -279,15 +294,15 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTopicCategory(List<MDTopicCategoryCodePropertyType> topicCategory) {
         this.topicCategory = topicCategory;
     }
 
     public boolean isSetTopicCategory() {
-        return ((this.topicCategory!= null)&&(!this.topicCategory.isEmpty()));
+        return ((this.topicCategory != null) && (!this.topicCategory.isEmpty()));
     }
 
     public void unsetTopicCategory() {
@@ -296,11 +311,9 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the environmentDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getEnvironmentDescription() {
         return environmentDescription;
@@ -308,41 +321,41 @@ public class MDDataIdentificationType
 
     /**
      * Sets the value of the environmentDescription property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setEnvironmentDescription(CharacterStringPropertyType value) {
         this.environmentDescription = value;
     }
 
     public boolean isSetEnvironmentDescription() {
-        return (this.environmentDescription!= null);
+        return (this.environmentDescription != null);
     }
 
     /**
      * Gets the value of the extent property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extent property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extent property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtent().add(newItem);
+     * getExtent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EXExtentPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<EXExtentPropertyType> getExtent() {
         if (extent == null) {
@@ -352,15 +365,15 @@ public class MDDataIdentificationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtent(List<EXExtentPropertyType> extent) {
         this.extent = extent;
     }
 
     public boolean isSetExtent() {
-        return ((this.extent!= null)&&(!this.extent.isEmpty()));
+        return ((this.extent != null) && (!this.extent.isEmpty()));
     }
 
     public void unsetExtent() {
@@ -369,11 +382,9 @@ public class MDDataIdentificationType
 
     /**
      * Gets the value of the supplementalInformation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getSupplementalInformation() {
         return supplementalInformation;
@@ -381,23 +392,23 @@ public class MDDataIdentificationType
 
     /**
      * Sets the value of the supplementalInformation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setSupplementalInformation(CharacterStringPropertyType value) {
         this.supplementalInformation = value;
     }
 
     public boolean isSetSupplementalInformation() {
-        return (this.supplementalInformation!= null);
+        return (this.supplementalInformation != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -408,40 +419,27 @@ public class MDDataIdentificationType
         }
         final MDDataIdentificationType that = ((MDDataIdentificationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLanguage();
-            boolean rhsFieldIsSet = that.isSetLanguage();
-            List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetLanguage()?this.getLanguage():null);
-            List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetLanguage()?that.getLanguage():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
+            boolean lhsFieldIsSet = this.isSetTopicCategory();
+            boolean rhsFieldIsSet = that.isSetTopicCategory();
+            List<MDTopicCategoryCodePropertyType> lhsField;
+            lhsField = (this.isSetTopicCategory() ? this.getTopicCategory() : null);
+            List<MDTopicCategoryCodePropertyType> rhsField;
+            rhsField = (that.isSetTopicCategory() ? that.getTopicCategory() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topicCategory", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topicCategory", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtent();
-            boolean rhsFieldIsSet = that.isSetExtent();
-            List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetExtent()?this.getExtent():null);
-            List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetExtent()?that.getExtent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSupplementalInformation();
-            boolean rhsFieldIsSet = that.isSetSupplementalInformation();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSupplementalInformation();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSupplementalInformation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supplementalInformation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supplementalInformation", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpatialResolution();
+            boolean rhsFieldIsSet = that.isSetSpatialResolution();
+            List<MDResolutionPropertyType> lhsField;
+            lhsField = (this.isSetSpatialResolution() ? this.getSpatialResolution() : null);
+            List<MDResolutionPropertyType> rhsField;
+            rhsField = (that.isSetSpatialResolution() ? that.getSpatialResolution() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialResolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialResolution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -450,9 +448,9 @@ public class MDDataIdentificationType
             boolean lhsFieldIsSet = this.isSetSpatialRepresentationType();
             boolean rhsFieldIsSet = that.isSetSpatialRepresentationType();
             List<MDSpatialRepresentationTypeCodePropertyType> lhsField;
-            lhsField = (this.isSetSpatialRepresentationType()?this.getSpatialRepresentationType():null);
+            lhsField = (this.isSetSpatialRepresentationType() ? this.getSpatialRepresentationType() : null);
             List<MDSpatialRepresentationTypeCodePropertyType> rhsField;
-            rhsField = (that.isSetSpatialRepresentationType()?that.getSpatialRepresentationType():null);
+            rhsField = (that.isSetSpatialRepresentationType() ? that.getSpatialRepresentationType() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialRepresentationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialRepresentationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -460,14 +458,14 @@ public class MDDataIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCharacterSet();
-            boolean rhsFieldIsSet = that.isSetCharacterSet();
-            List<MDCharacterSetCodePropertyType> lhsField;
-            lhsField = (this.isSetCharacterSet()?this.getCharacterSet():null);
-            List<MDCharacterSetCodePropertyType> rhsField;
-            rhsField = (that.isSetCharacterSet()?that.getCharacterSet():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterSet", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterSet", rhsField);
+            boolean lhsFieldIsSet = this.isSetLanguage();
+            boolean rhsFieldIsSet = that.isSetLanguage();
+            List<CharacterStringPropertyType> lhsField;
+            lhsField = (this.isSetLanguage() ? this.getLanguage() : null);
+            List<CharacterStringPropertyType> rhsField;
+            rhsField = (that.isSetLanguage() ? that.getLanguage() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "language", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "language", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -486,27 +484,40 @@ public class MDDataIdentificationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTopicCategory();
-            boolean rhsFieldIsSet = that.isSetTopicCategory();
-            List<MDTopicCategoryCodePropertyType> lhsField;
-            lhsField = (this.isSetTopicCategory()?this.getTopicCategory():null);
-            List<MDTopicCategoryCodePropertyType> rhsField;
-            rhsField = (that.isSetTopicCategory()?that.getTopicCategory():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "topicCategory", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "topicCategory", rhsField);
+            boolean lhsFieldIsSet = this.isSetSupplementalInformation();
+            boolean rhsFieldIsSet = that.isSetSupplementalInformation();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getSupplementalInformation();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getSupplementalInformation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "supplementalInformation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "supplementalInformation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpatialResolution();
-            boolean rhsFieldIsSet = that.isSetSpatialResolution();
-            List<MDResolutionPropertyType> lhsField;
-            lhsField = (this.isSetSpatialResolution()?this.getSpatialResolution():null);
-            List<MDResolutionPropertyType> rhsField;
-            rhsField = (that.isSetSpatialResolution()?that.getSpatialResolution():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "spatialResolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "spatialResolution", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtent();
+            boolean rhsFieldIsSet = that.isSetExtent();
+            List<EXExtentPropertyType> lhsField;
+            lhsField = (this.isSetExtent() ? this.getExtent() : null);
+            List<EXExtentPropertyType> rhsField;
+            rhsField = (that.isSetExtent() ? that.getExtent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCharacterSet();
+            boolean rhsFieldIsSet = that.isSetCharacterSet();
+            List<MDCharacterSetCodePropertyType> lhsField;
+            lhsField = (this.isSetCharacterSet() ? this.getCharacterSet() : null);
+            List<MDCharacterSetCodePropertyType> rhsField;
+            rhsField = (that.isSetCharacterSet() ? that.getCharacterSet() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "characterSet", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "characterSet", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -520,35 +531,35 @@ public class MDDataIdentificationType
         {
             boolean theFieldIsSet = this.isSetSpatialRepresentationType();
             List<MDSpatialRepresentationTypeCodePropertyType> theField;
-            theField = (this.isSetSpatialRepresentationType()?this.getSpatialRepresentationType():null);
+            theField = (this.isSetSpatialRepresentationType() ? this.getSpatialRepresentationType() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "spatialRepresentationType", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpatialResolution();
             List<MDResolutionPropertyType> theField;
-            theField = (this.isSetSpatialResolution()?this.getSpatialResolution():null);
+            theField = (this.isSetSpatialResolution() ? this.getSpatialResolution() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "spatialResolution", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLanguage();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetLanguage()?this.getLanguage():null);
+            theField = (this.isSetLanguage() ? this.getLanguage() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "language", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetCharacterSet();
             List<MDCharacterSetCodePropertyType> theField;
-            theField = (this.isSetCharacterSet()?this.getCharacterSet():null);
+            theField = (this.isSetCharacterSet() ? this.getCharacterSet() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "characterSet", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetTopicCategory();
             List<MDTopicCategoryCodePropertyType> theField;
-            theField = (this.isSetTopicCategory()?this.getTopicCategory():null);
+            theField = (this.isSetTopicCategory() ? this.getTopicCategory() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "topicCategory", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -562,7 +573,7 @@ public class MDDataIdentificationType
         {
             boolean theFieldIsSet = this.isSetExtent();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetExtent()?this.getExtent():null);
+            theField = (this.isSetExtent() ? this.getExtent() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extent", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -582,31 +593,31 @@ public class MDDataIdentificationType
         {
             boolean theFieldIsSet = this.isSetSpatialRepresentationType();
             List<MDSpatialRepresentationTypeCodePropertyType> theField;
-            theField = (this.isSetSpatialRepresentationType()?this.getSpatialRepresentationType():null);
+            theField = (this.isSetSpatialRepresentationType() ? this.getSpatialRepresentationType() : null);
             strategy.appendField(locator, this, "spatialRepresentationType", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpatialResolution();
             List<MDResolutionPropertyType> theField;
-            theField = (this.isSetSpatialResolution()?this.getSpatialResolution():null);
+            theField = (this.isSetSpatialResolution() ? this.getSpatialResolution() : null);
             strategy.appendField(locator, this, "spatialResolution", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetLanguage();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetLanguage()?this.getLanguage():null);
+            theField = (this.isSetLanguage() ? this.getLanguage() : null);
             strategy.appendField(locator, this, "language", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetCharacterSet();
             List<MDCharacterSetCodePropertyType> theField;
-            theField = (this.isSetCharacterSet()?this.getCharacterSet():null);
+            theField = (this.isSetCharacterSet() ? this.getCharacterSet() : null);
             strategy.appendField(locator, this, "characterSet", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetTopicCategory();
             List<MDTopicCategoryCodePropertyType> theField;
-            theField = (this.isSetTopicCategory()?this.getTopicCategory():null);
+            theField = (this.isSetTopicCategory() ? this.getTopicCategory() : null);
             strategy.appendField(locator, this, "topicCategory", buffer, theField, theFieldIsSet);
         }
         {
@@ -618,7 +629,7 @@ public class MDDataIdentificationType
         {
             boolean theFieldIsSet = this.isSetExtent();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetExtent()?this.getExtent():null);
+            theField = (this.isSetExtent() ? this.getExtent() : null);
             strategy.appendField(locator, this, "extent", buffer, theField, theFieldIsSet);
         }
         {

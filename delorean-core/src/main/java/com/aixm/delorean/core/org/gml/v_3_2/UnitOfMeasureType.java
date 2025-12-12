@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,34 +20,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for UnitOfMeasureType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for UnitOfMeasureType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="UnitOfMeasureType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
  *       </sequence>
- *       <attribute name="uom" use="required" type="{http://www.opengis.net/gml/3.2}UomIdentifier" />
+ *       <attribute name="uom" use="required" type=
+"{http://www.opengis.net/gml/3.2}UomIdentifier" />
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UnitOfMeasureType")
-@XmlSeeAlso({
-    DerivationUnitTermType.class,
-    ConversionToPreferredUnitType.class
-})
-public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToString
-{
+@XmlSeeAlso({DerivationUnitTermType.class, ConversionToPreferredUnitType.class})
+public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlAttribute(name = "uom", required = true)
@@ -55,11 +57,9 @@ public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Gets the value of the uom property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUom() {
         return uom;
@@ -67,18 +67,17 @@ public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the uom property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setUom(String value) {
         this.uom = value;
     }
 
     public boolean isSetUom() {
-        return (this.uom!= null);
+        return (this.uom != null);
     }
 
     @Override
@@ -94,8 +93,9 @@ public class UnitOfMeasureType implements Serializable, Equals, HashCode, ToStri
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

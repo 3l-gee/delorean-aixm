@@ -5,13 +5,20 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
-
 /**
- * This enumeration type specifies values for the knots' type (see ISO 19107:2003, 6.4.25).
- * 
- * <p>Java class for KnotTypesType</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * This enumeration type specifies values for the knots' type (see ISO
+ * 19107:2003, 6.4.25).
+ *
+ * <p>
+ * Java class for KnotTypesType
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <simpleType name="KnotTypesType">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -21,17 +28,15 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- * 
+ *
  */
 @XmlType(name = "KnotTypesType")
 @XmlEnum
 public enum KnotTypesType {
 
     @XmlEnumValue("uniform")
-    UNIFORM("uniform"),
-    @XmlEnumValue("quasiUniform")
-    QUASI_UNIFORM("quasiUniform"),
-    @XmlEnumValue("piecewiseBezier")
+    UNIFORM("uniform"), @XmlEnumValue("quasiUniform")
+    QUASI_UNIFORM("quasiUniform"), @XmlEnumValue("piecewiseBezier")
     PIECEWISE_BEZIER("piecewiseBezier");
     private final String value;
 
@@ -41,9 +46,8 @@ public enum KnotTypesType {
 
     /**
      * Gets the value associated to the enum constant.
-     * 
-     * @return
-     *     The value linked to the enum.
+     *
+     * @return The value linked to the enum.
      */
     public String value() {
         return value;
@@ -51,16 +55,15 @@ public enum KnotTypesType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     * 
+     *
      * @param v
-     *     The value to get the enum from.
-     * @return
-     *     The enum which corresponds to the value, if it exists.
+     *            The value to get the enum from.
+     * @return The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *     If no value matches in the enum declaration.
+     *             If no value matches in the enum declaration.
      */
     public static KnotTypesType fromValue(String v) {
-        for (KnotTypesType c: KnotTypesType.values()) {
+        for (KnotTypesType c : KnotTypesType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

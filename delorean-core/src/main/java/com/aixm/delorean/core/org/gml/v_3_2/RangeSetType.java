@@ -1,15 +1,15 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,19 +23,27 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RangeSetType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RangeSetType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RangeSetType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.opengis.net/gml/3.2}ValueArray" maxOccurs="unbounded"/>
- *         <element ref="{http://www.opengis.net/gml/3.2}AbstractScalarValueList" maxOccurs="unbounded"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}ValueArray" maxOccurs=
+"unbounded"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}AbstractScalarValueList" maxOccurs=
+"unbounded"/>
  *         <element ref="{http://www.opengis.net/gml/3.2}DataBlock"/>
  *         <element ref="{http://www.opengis.net/gml/3.2}File"/>
  *       </choice>
@@ -43,18 +51,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RangeSetType", propOrder = {
-    "valueArray",
-    "abstractScalarValueList",
-    "dataBlock",
-    "file"
-})
-public class RangeSetType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "RangeSetType", propOrder = {"valueArray", "abstractScalarValueList", "dataBlock", "file"})
+public class RangeSetType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ValueArray")
@@ -62,49 +64,69 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     @XmlElementRef(name = "AbstractScalarValueList", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected List<JAXBElement<?>> abstractScalarValueList;
     /**
-     * gml:DataBlock describes the Range as a block of text encoded values similar to a Common Separated Value (CSV) representation.
-     * The range set parameterization is described by the property gml:rangeParameters.
-     * 
+     * gml:DataBlock describes the Range as a block of text encoded values similar
+     * to a Common Separated Value (CSV) representation. The range set
+     * parameterization is described by the property gml:rangeParameters.
+     *
      */
     @XmlElement(name = "DataBlock")
     protected DataBlockType dataBlock;
     /**
-     * for efficiency reasons, GML also provides a means of encoding the range set in an arbitrary external encoding, such as a binary file.  This encoding may be "well-known" but this is not required. This mode uses the gml:File element.
-     * The values of the coverage (attribute values in the range set) are transmitted in a external file that is referenced from the XML structure described by gml:FileType.  The external file is referenced by the gml:fileReference property that is an anyURI (the gml:fileName property has been deprecated).  This means that the external file may be located remotely from the referencing GML instance. 
-     * The gml:compression property points to a definition of a compression algorithm through an anyURI.  This may be a retrievable, computable definition or simply a reference to an unambiguous name for the compression method.
-     * The gml:mimeType property points to a definition of the file mime type.
-     * The gml:fileStructure property is defined by a codelist. Note further that all values shall be enclosed in a single file. Multi-file structures for values are not supported in GML.
-     * The semantics of the range set is described as above using the gml:rangeParameters property.
-     * Note that if any compression algorithm is applied, the structure above applies only to the pre-compression or post-decompression structure of the file.
-     * Note that the fields within a record match the gml:valueComponents of the gml:CompositeValue in document order.
-     * 
+     * for efficiency reasons, GML also provides a means of encoding the range set
+     * in an arbitrary external encoding, such as a binary file. This encoding may
+     * be "well-known" but this is not required. This mode uses the gml:File
+     * element. The values of the coverage (attribute values in the range set) are
+     * transmitted in a external file that is referenced from the XML structure
+     * described by gml:FileType. The external file is referenced by the
+     * gml:fileReference property that is an anyURI (the gml:fileName property has
+     * been deprecated). This means that the external file may be located remotely
+     * from the referencing GML instance. The gml:compression property points to a
+     * definition of a compression algorithm through an anyURI. This may be a
+     * retrievable, computable definition or simply a reference to an unambiguous
+     * name for the compression method. The gml:mimeType property points to a
+     * definition of the file mime type. The gml:fileStructure property is defined
+     * by a codelist. Note further that all values shall be enclosed in a single
+     * file. Multi-file structures for values are not supported in GML. The
+     * semantics of the range set is described as above using the
+     * gml:rangeParameters property. Note that if any compression algorithm is
+     * applied, the structure above applies only to the pre-compression or
+     * post-decompression structure of the file. Note that the fields within a
+     * record match the gml:valueComponents of the gml:CompositeValue in document
+     * order.
+     *
      */
     @XmlElement(name = "File")
     protected FileType file;
 
     /**
-     * A Value Array is used for homogeneous arrays of primitive and aggregate values.  
-     * The member values may be scalars, composites, arrays or lists.
-     * ValueArray has the same content model as CompositeValue, but the member values shall be homogeneous.  The element declaration contains a Schematron constraint which expresses this restriction precisely.  Since the members are homogeneous, the gml:referenceSystem (uom, codeSpace) may be specified on the gml:ValueArray itself and inherited by all the members if desired.Gets the value of the valueArray property.
-     * 
+     * A Value Array is used for homogeneous arrays of primitive and aggregate
+     * values. The member values may be scalars, composites, arrays or lists.
+     * ValueArray has the same content model as CompositeValue, but the member
+     * values shall be homogeneous. The element declaration contains a Schematron
+     * constraint which expresses this restriction precisely. Since the members are
+     * homogeneous, the gml:referenceSystem (uom, codeSpace) may be specified on the
+     * gml:ValueArray itself and inherited by all the members if desired.Gets the
+     * value of the valueArray property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the valueArray property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the valueArray property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getValueArray().add(newItem);
+     * getValueArray().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ValueArrayType }
-     * 
-     * 
+     *
+     *
      */
     public List<ValueArrayType> getValueArray() {
         if (valueArray == null) {
@@ -114,17 +136,21 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * A Value Array is used for homogeneous arrays of primitive and aggregate values.  
-     * The member values may be scalars, composites, arrays or lists.
-     * ValueArray has the same content model as CompositeValue, but the member values shall be homogeneous.  The element declaration contains a Schematron constraint which expresses this restriction precisely.  Since the members are homogeneous, the gml:referenceSystem (uom, codeSpace) may be specified on the gml:ValueArray itself and inherited by all the members if desired.
-     * 
+     * A Value Array is used for homogeneous arrays of primitive and aggregate
+     * values. The member values may be scalars, composites, arrays or lists.
+     * ValueArray has the same content model as CompositeValue, but the member
+     * values shall be homogeneous. The element declaration contains a Schematron
+     * constraint which expresses this restriction precisely. Since the members are
+     * homogeneous, the gml:referenceSystem (uom, codeSpace) may be specified on the
+     * gml:ValueArray itself and inherited by all the members if desired.
+     *
      */
     public void setValueArray(List<ValueArrayType> valueArray) {
         this.valueArray = valueArray;
     }
 
     public boolean isSetValueArray() {
-        return ((this.valueArray!= null)&&(!this.valueArray.isEmpty()));
+        return ((this.valueArray != null) && (!this.valueArray.isEmpty()));
     }
 
     public void unsetValueArray() {
@@ -132,30 +158,35 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * gml:AbstractScalarValueList is an abstract element which acts as the head of a substitution group which contains gml:BooleanList, gml:CategoryList, gml:CountList and gml:QuantityList, and (transitively) the elements in their substitution groups.Gets the value of the abstractScalarValueList property.
-     * 
+     * gml:AbstractScalarValueList is an abstract element which acts as the head of
+     * a substitution group which contains gml:BooleanList, gml:CategoryList,
+     * gml:CountList and gml:QuantityList, and (transitively) the elements in their
+     * substitution groups.Gets the value of the abstractScalarValueList property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractScalarValueList property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractScalarValueList property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractScalarValueList().add(newItem);
+     * getAbstractScalarValueList().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link CodeOrNilReasonListType }{@code >}
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * {@link JAXBElement }{@code <}{@link MeasureOrNilReasonListType }{@code >}
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
-     * 
+     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String
+     * }{@code >}{@code >} {@link JAXBElement
+     * }{@code <}{@link MeasureOrNilReasonListType }{@code >} {@link JAXBElement
+     * }{@code <}{@link Object }{@code >}
+     *
+     *
      */
     public List<JAXBElement<?>> getAbstractScalarValueList() {
         if (abstractScalarValueList == null) {
@@ -165,15 +196,18 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * gml:AbstractScalarValueList is an abstract element which acts as the head of a substitution group which contains gml:BooleanList, gml:CategoryList, gml:CountList and gml:QuantityList, and (transitively) the elements in their substitution groups.
-     * 
+     * gml:AbstractScalarValueList is an abstract element which acts as the head of
+     * a substitution group which contains gml:BooleanList, gml:CategoryList,
+     * gml:CountList and gml:QuantityList, and (transitively) the elements in their
+     * substitution groups.
+     *
      */
     public void setAbstractScalarValueList(List<JAXBElement<?>> abstractScalarValueList) {
         this.abstractScalarValueList = abstractScalarValueList;
     }
 
     public boolean isSetAbstractScalarValueList() {
-        return ((this.abstractScalarValueList!= null)&&(!this.abstractScalarValueList.isEmpty()));
+        return ((this.abstractScalarValueList != null) && (!this.abstractScalarValueList.isEmpty()));
     }
 
     public void unsetAbstractScalarValueList() {
@@ -181,13 +215,12 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * gml:DataBlock describes the Range as a block of text encoded values similar to a Common Separated Value (CSV) representation.
-     * The range set parameterization is described by the property gml:rangeParameters.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DataBlockType }
-     *     
+     * gml:DataBlock describes the Range as a block of text encoded values similar
+     * to a Common Separated Value (CSV) representation. The range set
+     * parameterization is described by the property gml:rangeParameters.
+     *
+     * @return possible object is {@link DataBlockType }
+     *
      */
     public DataBlockType getDataBlock() {
         return dataBlock;
@@ -195,11 +228,10 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the dataBlock property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DataBlockType }
-     *     
+     *            allowed object is {@link DataBlockType }
+     *
      * @see #getDataBlock()
      */
     public void setDataBlock(DataBlockType value) {
@@ -207,23 +239,34 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetDataBlock() {
-        return (this.dataBlock!= null);
+        return (this.dataBlock != null);
     }
 
     /**
-     * for efficiency reasons, GML also provides a means of encoding the range set in an arbitrary external encoding, such as a binary file.  This encoding may be "well-known" but this is not required. This mode uses the gml:File element.
-     * The values of the coverage (attribute values in the range set) are transmitted in a external file that is referenced from the XML structure described by gml:FileType.  The external file is referenced by the gml:fileReference property that is an anyURI (the gml:fileName property has been deprecated).  This means that the external file may be located remotely from the referencing GML instance. 
-     * The gml:compression property points to a definition of a compression algorithm through an anyURI.  This may be a retrievable, computable definition or simply a reference to an unambiguous name for the compression method.
-     * The gml:mimeType property points to a definition of the file mime type.
-     * The gml:fileStructure property is defined by a codelist. Note further that all values shall be enclosed in a single file. Multi-file structures for values are not supported in GML.
-     * The semantics of the range set is described as above using the gml:rangeParameters property.
-     * Note that if any compression algorithm is applied, the structure above applies only to the pre-compression or post-decompression structure of the file.
-     * Note that the fields within a record match the gml:valueComponents of the gml:CompositeValue in document order.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FileType }
-     *     
+     * for efficiency reasons, GML also provides a means of encoding the range set
+     * in an arbitrary external encoding, such as a binary file. This encoding may
+     * be "well-known" but this is not required. This mode uses the gml:File
+     * element. The values of the coverage (attribute values in the range set) are
+     * transmitted in a external file that is referenced from the XML structure
+     * described by gml:FileType. The external file is referenced by the
+     * gml:fileReference property that is an anyURI (the gml:fileName property has
+     * been deprecated). This means that the external file may be located remotely
+     * from the referencing GML instance. The gml:compression property points to a
+     * definition of a compression algorithm through an anyURI. This may be a
+     * retrievable, computable definition or simply a reference to an unambiguous
+     * name for the compression method. The gml:mimeType property points to a
+     * definition of the file mime type. The gml:fileStructure property is defined
+     * by a codelist. Note further that all values shall be enclosed in a single
+     * file. Multi-file structures for values are not supported in GML. The
+     * semantics of the range set is described as above using the
+     * gml:rangeParameters property. Note that if any compression algorithm is
+     * applied, the structure above applies only to the pre-compression or
+     * post-decompression structure of the file. Note that the fields within a
+     * record match the gml:valueComponents of the gml:CompositeValue in document
+     * order.
+     *
+     * @return possible object is {@link FileType }
+     *
      */
     public FileType getFile() {
         return file;
@@ -231,11 +274,10 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the file property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FileType }
-     *     
+     *            allowed object is {@link FileType }
+     *
      * @see #getFile()
      */
     public void setFile(FileType value) {
@@ -243,7 +285,7 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetFile() {
-        return (this.file!= null);
+        return (this.file != null);
     }
 
     @Override
@@ -259,14 +301,41 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final RangeSetType that = ((RangeSetType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractScalarValueList();
+            boolean rhsFieldIsSet = that.isSetAbstractScalarValueList();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetAbstractScalarValueList() ? this.getAbstractScalarValueList() : null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetAbstractScalarValueList() ? that.getAbstractScalarValueList() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValueArray();
+            boolean rhsFieldIsSet = that.isSetValueArray();
+            List<ValueArrayType> lhsField;
+            lhsField = (this.isSetValueArray() ? this.getValueArray() : null);
+            List<ValueArrayType> rhsField;
+            rhsField = (that.isSetValueArray() ? that.getValueArray() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetDataBlock();
             boolean rhsFieldIsSet = that.isSetDataBlock();
@@ -293,32 +362,6 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetValueArray();
-            boolean rhsFieldIsSet = that.isSetValueArray();
-            List<ValueArrayType> lhsField;
-            lhsField = (this.isSetValueArray()?this.getValueArray():null);
-            List<ValueArrayType> rhsField;
-            rhsField = (that.isSetValueArray()?that.getValueArray():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractScalarValueList();
-            boolean rhsFieldIsSet = that.isSetAbstractScalarValueList();
-            List<JAXBElement<?>> lhsField;
-            lhsField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (that.isSetAbstractScalarValueList()?that.getAbstractScalarValueList():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractScalarValueList", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractScalarValueList", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -338,14 +381,14 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetValueArray();
             List<ValueArrayType> theField;
-            theField = (this.isSetValueArray()?this.getValueArray():null);
+            theField = (this.isSetValueArray() ? this.getValueArray() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "valueArray", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractScalarValueList();
             List<JAXBElement<?>> theField;
-            theField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
+            theField = (this.isSetAbstractScalarValueList() ? this.getAbstractScalarValueList() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractScalarValueList", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -391,13 +434,13 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetValueArray();
             List<ValueArrayType> theField;
-            theField = (this.isSetValueArray()?this.getValueArray():null);
+            theField = (this.isSetValueArray() ? this.getValueArray() : null);
             strategy.appendField(locator, this, "valueArray", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractScalarValueList();
             List<JAXBElement<?>> theField;
-            theField = (this.isSetAbstractScalarValueList()?this.getAbstractScalarValueList():null);
+            theField = (this.isSetAbstractScalarValueList() ? this.getAbstractScalarValueList() : null);
             strategy.appendField(locator, this, "abstractScalarValueList", buffer, theField, theFieldIsSet);
         }
         {

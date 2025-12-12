@@ -8,16 +8,16 @@ from .orm_handler import OrmHandler
 
 class ComplexType: 
     @staticmethod
-    def generate_complex_types(type, transposition):
+    def generate_complex_types(type):
         res = []
         for element in type:
-            result = ComplexType.runner(element, transposition)
+            result = ComplexType.runner(element)
             if result:
                 res.extend(result)
         return res 
     
     @staticmethod
-    def runner(element, transposition) :
+    def runner(element) :
         node = []
         if element is None :    
             return node
@@ -29,7 +29,7 @@ class ComplexType:
         suffix = View.get_suffix(element.attrib.get("name"))
 
         node.append(Jaxb.complex(element.attrib["name"]))
-        node.extend(ComplexType.class_writer(element, schema, suffix, transposition))
+        node.extend(ComplexType.class_writer(element, schema, suffix))
         node.append(Jaxb.end)
 
         parent_xpath = Jaxb.complex_xpath(element.attrib.get("name"))
@@ -38,7 +38,7 @@ class ComplexType:
         return node
     
     @staticmethod
-    def class_writer(element, schema, suffix, transposition):
+    def class_writer(element, schema, suffix):
         node = []
 
         # Abstract types are entity and have a inheritance strategy
@@ -68,9 +68,9 @@ class ComplexType:
             
             extension_or_restriction = extension_or_restriction.split(":")[1]
 
-            constraint = transposition.get(extension_or_restriction)
+            constraint = Content.get_transposition(extension_or_restriction)
             node.append(HyperJAXB.hj_basic_start())
-            node.extend(OrmHandler.constraint_generator(constraint))
+            node.extend(OrmHandler.constraint_generator_column(constraint))
             node.append(HyperJAXB.hj_basic_end())
             node.append(HyperJAXB.embeddable_end())
             return node

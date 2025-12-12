@@ -1,51 +1,54 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
-import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
-import jakarta.xml.bind.annotation.XmlRegistry;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the com.aixm.delorean.core.org.gml.v_3_2 package. 
- * <p>An ObjectFactory allows you to programmatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
- * provided in this class.
- * 
+ * This object contains factory methods for each Java content interface and Java
+ * element interface generated in the com.aixm.delorean.core.org.gml.v_3_2
+ * package.
+ * <p>
+ * An ObjectFactory allows you to programmatically construct new instances of
+ * the Java representation for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces and classes representing the
+ * binding of schema type definitions, element declarations and model groups.
+ * Factory methods for each of these are provided in this class.
+ *
  */
 @XmlRegistry
 public class ObjectFactory {
 
     private static final QName _AbstractObject_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractObject");
     private static final QName _AbstractGML_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGML");
-    private static final QName _AbstractAssociationRole_QNAME = new QName("http://www.opengis.net/gml/3.2", "abstractAssociationRole");
-    private static final QName _AbstractStrictAssociationRole_QNAME = new QName("http://www.opengis.net/gml/3.2", "abstractStrictAssociationRole");
-    private static final QName _AbstractReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "abstractReference");
-    private static final QName _AbstractInlineProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "abstractInlineProperty");
-    private static final QName _ReversePropertyName_QNAME = new QName("http://www.opengis.net/gml/3.2", "reversePropertyName");
+    private static final QName _AbstractAssociationRole_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "abstractAssociationRole");
+    private static final QName _AbstractStrictAssociationRole_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "abstractStrictAssociationRole");
+    private static final QName _AbstractReference_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "abstractReference");
+    private static final QName _AbstractInlineProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "abstractInlineProperty");
+    private static final QName _ReversePropertyName_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "reversePropertyName");
     private static final QName _Description_QNAME = new QName("http://www.opengis.net/gml/3.2", "description");
-    private static final QName _DescriptionReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "descriptionReference");
+    private static final QName _DescriptionReference_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "descriptionReference");
     private static final QName _Name_QNAME = new QName("http://www.opengis.net/gml/3.2", "name");
     private static final QName _Identifier_QNAME = new QName("http://www.opengis.net/gml/3.2", "identifier");
     private static final QName _TargetElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "targetElement");
     private static final QName _AssociationName_QNAME = new QName("http://www.opengis.net/gml/3.2", "associationName");
-    private static final QName _DefaultCodeSpace_QNAME = new QName("http://www.opengis.net/gml/3.2", "defaultCodeSpace");
-    private static final QName _GmlProfileSchema_QNAME = new QName("http://www.opengis.net/gml/3.2", "gmlProfileSchema");
+    private static final QName _DefaultCodeSpace_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "defaultCodeSpace");
+    private static final QName _GmlProfileSchema_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "gmlProfileSchema");
     private static final QName _Definition_QNAME = new QName("http://www.opengis.net/gml/3.2", "Definition");
     private static final QName _Remarks_QNAME = new QName("http://www.opengis.net/gml/3.2", "remarks");
     private static final QName _Dictionary_QNAME = new QName("http://www.opengis.net/gml/3.2", "Dictionary");
@@ -53,22 +56,29 @@ public class ObjectFactory {
     private static final QName _UnitOfMeasure_QNAME = new QName("http://www.opengis.net/gml/3.2", "unitOfMeasure");
     private static final QName _UnitDefinition_QNAME = new QName("http://www.opengis.net/gml/3.2", "UnitDefinition");
     private static final QName _QuantityType_QNAME = new QName("http://www.opengis.net/gml/3.2", "quantityType");
-    private static final QName _QuantityTypeReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "quantityTypeReference");
+    private static final QName _QuantityTypeReference_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "quantityTypeReference");
     private static final QName _CatalogSymbol_QNAME = new QName("http://www.opengis.net/gml/3.2", "catalogSymbol");
     private static final QName _BaseUnit_QNAME = new QName("http://www.opengis.net/gml/3.2", "BaseUnit");
     private static final QName _DerivedUnit_QNAME = new QName("http://www.opengis.net/gml/3.2", "DerivedUnit");
-    private static final QName _DerivationUnitTerm_QNAME = new QName("http://www.opengis.net/gml/3.2", "derivationUnitTerm");
-    private static final QName _ConventionalUnit_QNAME = new QName("http://www.opengis.net/gml/3.2", "ConventionalUnit");
-    private static final QName _ConversionToPreferredUnit_QNAME = new QName("http://www.opengis.net/gml/3.2", "conversionToPreferredUnit");
-    private static final QName _RoughConversionToPreferredUnit_QNAME = new QName("http://www.opengis.net/gml/3.2", "roughConversionToPreferredUnit");
+    private static final QName _DerivationUnitTerm_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "derivationUnitTerm");
+    private static final QName _ConventionalUnit_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ConventionalUnit");
+    private static final QName _ConversionToPreferredUnit_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "conversionToPreferredUnit");
+    private static final QName _RoughConversionToPreferredUnit_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "roughConversionToPreferredUnit");
     private static final QName _Measure_QNAME = new QName("http://www.opengis.net/gml/3.2", "measure");
     private static final QName _Angle_QNAME = new QName("http://www.opengis.net/gml/3.2", "angle");
-    private static final QName _AbstractGeometry_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeometry");
+    private static final QName _AbstractGeometry_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeometry");
     private static final QName _Pos_QNAME = new QName("http://www.opengis.net/gml/3.2", "pos");
     private static final QName _PosList_QNAME = new QName("http://www.opengis.net/gml/3.2", "posList");
     private static final QName _Vector_QNAME = new QName("http://www.opengis.net/gml/3.2", "vector");
     private static final QName _Envelope_QNAME = new QName("http://www.opengis.net/gml/3.2", "Envelope");
-    private static final QName _AbstractGeometricPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeometricPrimitive");
+    private static final QName _AbstractGeometricPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeometricPrimitive");
     private static final QName _Point_QNAME = new QName("http://www.opengis.net/gml/3.2", "Point");
     private static final QName _PointProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "pointProperty");
     private static final QName _AbstractCurve_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCurve");
@@ -84,16 +94,21 @@ public class ObjectFactory {
     private static final QName _Curve_QNAME = new QName("http://www.opengis.net/gml/3.2", "Curve");
     private static final QName _BaseCurve_QNAME = new QName("http://www.opengis.net/gml/3.2", "baseCurve");
     private static final QName _OrientableCurve_QNAME = new QName("http://www.opengis.net/gml/3.2", "OrientableCurve");
-    private static final QName _AbstractCurveSegment_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCurveSegment");
+    private static final QName _AbstractCurveSegment_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractCurveSegment");
     private static final QName _Segments_QNAME = new QName("http://www.opengis.net/gml/3.2", "segments");
-    private static final QName _LineStringSegment_QNAME = new QName("http://www.opengis.net/gml/3.2", "LineStringSegment");
+    private static final QName _LineStringSegment_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "LineStringSegment");
     private static final QName _ArcString_QNAME = new QName("http://www.opengis.net/gml/3.2", "ArcString");
     private static final QName _Arc_QNAME = new QName("http://www.opengis.net/gml/3.2", "Arc");
     private static final QName _Circle_QNAME = new QName("http://www.opengis.net/gml/3.2", "Circle");
-    private static final QName _ArcStringByBulge_QNAME = new QName("http://www.opengis.net/gml/3.2", "ArcStringByBulge");
+    private static final QName _ArcStringByBulge_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ArcStringByBulge");
     private static final QName _ArcByBulge_QNAME = new QName("http://www.opengis.net/gml/3.2", "ArcByBulge");
-    private static final QName _ArcByCenterPoint_QNAME = new QName("http://www.opengis.net/gml/3.2", "ArcByCenterPoint");
-    private static final QName _CircleByCenterPoint_QNAME = new QName("http://www.opengis.net/gml/3.2", "CircleByCenterPoint");
+    private static final QName _ArcByCenterPoint_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ArcByCenterPoint");
+    private static final QName _CircleByCenterPoint_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "CircleByCenterPoint");
     private static final QName _CubicSpline_QNAME = new QName("http://www.opengis.net/gml/3.2", "CubicSpline");
     private static final QName _BSpline_QNAME = new QName("http://www.opengis.net/gml/3.2", "BSpline");
     private static final QName _Bezier_QNAME = new QName("http://www.opengis.net/gml/3.2", "Bezier");
@@ -104,28 +119,35 @@ public class ObjectFactory {
     private static final QName _Geodesic_QNAME = new QName("http://www.opengis.net/gml/3.2", "Geodesic");
     private static final QName _Surface_QNAME = new QName("http://www.opengis.net/gml/3.2", "Surface");
     private static final QName _BaseSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "baseSurface");
-    private static final QName _OrientableSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "OrientableSurface");
-    private static final QName _AbstractSurfacePatch_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractSurfacePatch");
+    private static final QName _OrientableSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "OrientableSurface");
+    private static final QName _AbstractSurfacePatch_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractSurfacePatch");
     private static final QName _Patches_QNAME = new QName("http://www.opengis.net/gml/3.2", "patches");
     private static final QName _PolygonPatch_QNAME = new QName("http://www.opengis.net/gml/3.2", "PolygonPatch");
     private static final QName _Triangle_QNAME = new QName("http://www.opengis.net/gml/3.2", "Triangle");
     private static final QName _Rectangle_QNAME = new QName("http://www.opengis.net/gml/3.2", "Rectangle");
     private static final QName _Ring_QNAME = new QName("http://www.opengis.net/gml/3.2", "Ring");
     private static final QName _CurveMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "curveMember");
-    private static final QName _AbstractParametricCurveSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractParametricCurveSurface");
-    private static final QName _AbstractGriddedSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGriddedSurface");
+    private static final QName _AbstractParametricCurveSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractParametricCurveSurface");
+    private static final QName _AbstractGriddedSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGriddedSurface");
     private static final QName _Cone_QNAME = new QName("http://www.opengis.net/gml/3.2", "Cone");
     private static final QName _Cylinder_QNAME = new QName("http://www.opengis.net/gml/3.2", "Cylinder");
     private static final QName _Sphere_QNAME = new QName("http://www.opengis.net/gml/3.2", "Sphere");
-    private static final QName _PolyhedralSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "PolyhedralSurface");
-    private static final QName _TriangulatedSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "TriangulatedSurface");
+    private static final QName _PolyhedralSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "PolyhedralSurface");
+    private static final QName _TriangulatedSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "TriangulatedSurface");
     private static final QName _Tin_QNAME = new QName("http://www.opengis.net/gml/3.2", "Tin");
     private static final QName _AbstractSolid_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractSolid");
     private static final QName _SolidProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "solidProperty");
     private static final QName _Solid_QNAME = new QName("http://www.opengis.net/gml/3.2", "Solid");
     private static final QName _Shell_QNAME = new QName("http://www.opengis.net/gml/3.2", "Shell");
     private static final QName _SurfaceMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "surfaceMember");
-    private static final QName _AbstractGeometricAggregate_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeometricAggregate");
+    private static final QName _AbstractGeometricAggregate_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeometricAggregate");
     private static final QName _MultiGeometry_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiGeometry");
     private static final QName _GeometryMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "geometryMember");
     private static final QName _GeometryMembers_QNAME = new QName("http://www.opengis.net/gml/3.2", "geometryMembers");
@@ -139,12 +161,16 @@ public class ObjectFactory {
     private static final QName _MultiSolid_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiSolid");
     private static final QName _SolidMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "solidMember");
     private static final QName _SolidMembers_QNAME = new QName("http://www.opengis.net/gml/3.2", "solidMembers");
-    private static final QName _AbstractTimeObject_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeObject");
-    private static final QName _AbstractTimePrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimePrimitive");
+    private static final QName _AbstractTimeObject_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimeObject");
+    private static final QName _AbstractTimePrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimePrimitive");
     private static final QName _ValidTime_QNAME = new QName("http://www.opengis.net/gml/3.2", "validTime");
     private static final QName _AixmValidTime_QNAME = new QName("http://www.opengis.net/gml/3.2", "aixmValidTime");
-    private static final QName _AbstractTimeComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeComplex");
-    private static final QName _AbstractTimeGeometricPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeGeometricPrimitive");
+    private static final QName _AbstractTimeComplex_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimeComplex");
+    private static final QName _AbstractTimeGeometricPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimeGeometricPrimitive");
     private static final QName _TimeInstant_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeInstant");
     private static final QName _TimePeriod_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimePeriod");
     private static final QName _TimePosition_QNAME = new QName("http://www.opengis.net/gml/3.2", "timePosition");
@@ -152,23 +178,32 @@ public class ObjectFactory {
     private static final QName _TimeInterval_QNAME = new QName("http://www.opengis.net/gml/3.2", "timeInterval");
     private static final QName _AbstractFeature_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractFeature");
     private static final QName _BoundedBy_QNAME = new QName("http://www.opengis.net/gml/3.2", "boundedBy");
-    private static final QName _EnvelopeWithTimePeriod_QNAME = new QName("http://www.opengis.net/gml/3.2", "EnvelopeWithTimePeriod");
+    private static final QName _EnvelopeWithTimePeriod_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "EnvelopeWithTimePeriod");
     private static final QName _LocationName_QNAME = new QName("http://www.opengis.net/gml/3.2", "locationName");
-    private static final QName _LocationReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "locationReference");
+    private static final QName _LocationReference_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "locationReference");
     private static final QName _Direction_QNAME = new QName("http://www.opengis.net/gml/3.2", "direction");
     private static final QName _DataSource_QNAME = new QName("http://www.opengis.net/gml/3.2", "dataSource");
-    private static final QName _DataSourceReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "dataSourceReference");
+    private static final QName _DataSourceReference_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "dataSourceReference");
     private static final QName _DynamicFeature_QNAME = new QName("http://www.opengis.net/gml/3.2", "DynamicFeature");
-    private static final QName _DynamicFeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2", "DynamicFeatureCollection");
+    private static final QName _DynamicFeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "DynamicFeatureCollection");
     private static final QName _DynamicMembers_QNAME = new QName("http://www.opengis.net/gml/3.2", "dynamicMembers");
-    private static final QName _AbstractTimeSlice_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeSlice");
+    private static final QName _AbstractTimeSlice_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimeSlice");
     private static final QName _History_QNAME = new QName("http://www.opengis.net/gml/3.2", "history");
-    private static final QName _GeometricComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "GeometricComplex");
+    private static final QName _GeometricComplex_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "GeometricComplex");
     private static final QName _CompositeCurve_QNAME = new QName("http://www.opengis.net/gml/3.2", "CompositeCurve");
-    private static final QName _CompositeSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "CompositeSurface");
+    private static final QName _CompositeSurface_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "CompositeSurface");
     private static final QName _CompositeSolid_QNAME = new QName("http://www.opengis.net/gml/3.2", "CompositeSolid");
-    private static final QName _AbstractTopology_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTopology");
-    private static final QName _AbstractTopoPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTopoPrimitive");
+    private static final QName _AbstractTopology_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTopology");
+    private static final QName _AbstractTopoPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTopoPrimitive");
     private static final QName _Node_QNAME = new QName("http://www.opengis.net/gml/3.2", "Node");
     private static final QName _DirectedNode_QNAME = new QName("http://www.opengis.net/gml/3.2", "directedNode");
     private static final QName _Edge_QNAME = new QName("http://www.opengis.net/gml/3.2", "Edge");
@@ -176,26 +211,35 @@ public class ObjectFactory {
     private static final QName _Face_QNAME = new QName("http://www.opengis.net/gml/3.2", "Face");
     private static final QName _DirectedFace_QNAME = new QName("http://www.opengis.net/gml/3.2", "directedFace");
     private static final QName _TopoSolid_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoSolid");
-    private static final QName _DirectedTopoSolid_QNAME = new QName("http://www.opengis.net/gml/3.2", "directedTopoSolid");
+    private static final QName _DirectedTopoSolid_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "directedTopoSolid");
     private static final QName _TopoPoint_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoPoint");
-    private static final QName _TopoPointProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoPointProperty");
+    private static final QName _TopoPointProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoPointProperty");
     private static final QName _TopoCurve_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoCurve");
-    private static final QName _TopoCurveProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoCurveProperty");
+    private static final QName _TopoCurveProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoCurveProperty");
     private static final QName _TopoSurface_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoSurface");
-    private static final QName _TopoSurfaceProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoSurfaceProperty");
+    private static final QName _TopoSurfaceProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoSurfaceProperty");
     private static final QName _TopoVolume_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoVolume");
-    private static final QName _TopoVolumeProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoVolumeProperty");
+    private static final QName _TopoVolumeProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoVolumeProperty");
     private static final QName _TopoComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "TopoComplex");
     private static final QName _SubComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "subComplex");
     private static final QName _SuperComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "superComplex");
     private static final QName _MaximalComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "maximalComplex");
-    private static final QName _TopoPrimitiveMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoPrimitiveMember");
-    private static final QName _TopoPrimitiveMembers_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoPrimitiveMembers");
+    private static final QName _TopoPrimitiveMember_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoPrimitiveMember");
+    private static final QName _TopoPrimitiveMembers_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoPrimitiveMembers");
     private static final QName _Boolean_QNAME = new QName("http://www.opengis.net/gml/3.2", "Boolean");
-    private static final QName _AbstractScalarValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractScalarValue");
+    private static final QName _AbstractScalarValue_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractScalarValue");
     private static final QName _AbstractValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractValue");
     private static final QName _BooleanList_QNAME = new QName("http://www.opengis.net/gml/3.2", "BooleanList");
-    private static final QName _AbstractScalarValueList_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractScalarValueList");
+    private static final QName _AbstractScalarValueList_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractScalarValueList");
     private static final QName _Category_QNAME = new QName("http://www.opengis.net/gml/3.2", "Category");
     private static final QName _CategoryList_QNAME = new QName("http://www.opengis.net/gml/3.2", "CategoryList");
     private static final QName _Count_QNAME = new QName("http://www.opengis.net/gml/3.2", "Count");
@@ -211,36 +255,50 @@ public class ObjectFactory {
     private static final QName _CountExtent_QNAME = new QName("http://www.opengis.net/gml/3.2", "CountExtent");
     private static final QName _QuantityExtent_QNAME = new QName("http://www.opengis.net/gml/3.2", "QuantityExtent");
     private static final QName _Grid_QNAME = new QName("http://www.opengis.net/gml/3.2", "Grid");
-    private static final QName _AbstractImplicitGeometry_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractImplicitGeometry");
+    private static final QName _AbstractImplicitGeometry_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractImplicitGeometry");
     private static final QName _RectifiedGrid_QNAME = new QName("http://www.opengis.net/gml/3.2", "RectifiedGrid");
-    private static final QName _AbstractCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCoverage");
-    private static final QName _AbstractDiscreteCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractDiscreteCoverage");
-    private static final QName _AbstractContinuousCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractContinuousCoverage");
+    private static final QName _AbstractCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractCoverage");
+    private static final QName _AbstractDiscreteCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractDiscreteCoverage");
+    private static final QName _AbstractContinuousCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractContinuousCoverage");
     private static final QName _DomainSet_QNAME = new QName("http://www.opengis.net/gml/3.2", "domainSet");
     private static final QName _RangeSet_QNAME = new QName("http://www.opengis.net/gml/3.2", "rangeSet");
     private static final QName _DataBlock_QNAME = new QName("http://www.opengis.net/gml/3.2", "DataBlock");
     private static final QName _RangeParameters_QNAME = new QName("http://www.opengis.net/gml/3.2", "rangeParameters");
     private static final QName _TupleList_QNAME = new QName("http://www.opengis.net/gml/3.2", "tupleList");
-    private static final QName _DoubleOrNilReasonTupleList_QNAME = new QName("http://www.opengis.net/gml/3.2", "doubleOrNilReasonTupleList");
+    private static final QName _DoubleOrNilReasonTupleList_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "doubleOrNilReasonTupleList");
     private static final QName _File_QNAME = new QName("http://www.opengis.net/gml/3.2", "File");
-    private static final QName _CoverageFunction_QNAME = new QName("http://www.opengis.net/gml/3.2", "coverageFunction");
-    private static final QName _CoverageMappingRule_QNAME = new QName("http://www.opengis.net/gml/3.2", "CoverageMappingRule");
+    private static final QName _CoverageFunction_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "coverageFunction");
+    private static final QName _CoverageMappingRule_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "CoverageMappingRule");
     private static final QName _GridFunction_QNAME = new QName("http://www.opengis.net/gml/3.2", "GridFunction");
-    private static final QName _MultiPointCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiPointCoverage");
-    private static final QName _MultiCurveCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiCurveCoverage");
-    private static final QName _MultiSurfaceCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiSurfaceCoverage");
-    private static final QName _MultiSolidCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "MultiSolidCoverage");
+    private static final QName _MultiPointCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "MultiPointCoverage");
+    private static final QName _MultiCurveCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "MultiCurveCoverage");
+    private static final QName _MultiSurfaceCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "MultiSurfaceCoverage");
+    private static final QName _MultiSolidCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "MultiSolidCoverage");
     private static final QName _GridCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "GridCoverage");
-    private static final QName _RectifiedGridCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "RectifiedGridCoverage");
+    private static final QName _RectifiedGridCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "RectifiedGridCoverage");
     private static final QName _AbstractCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCRS");
     private static final QName _Scope_QNAME = new QName("http://www.opengis.net/gml/3.2", "scope");
-    private static final QName _CoordinateSystemAxis_QNAME = new QName("http://www.opengis.net/gml/3.2", "CoordinateSystemAxis");
+    private static final QName _CoordinateSystemAxis_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "CoordinateSystemAxis");
     private static final QName _AxisAbbrev_QNAME = new QName("http://www.opengis.net/gml/3.2", "axisAbbrev");
     private static final QName _AxisDirection_QNAME = new QName("http://www.opengis.net/gml/3.2", "axisDirection");
     private static final QName _MinimumValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "minimumValue");
     private static final QName _MaximumValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "maximumValue");
     private static final QName _RangeMeaning_QNAME = new QName("http://www.opengis.net/gml/3.2", "rangeMeaning");
-    private static final QName _AbstractCoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCoordinateSystem");
+    private static final QName _AbstractCoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractCoordinateSystem");
     private static final QName _Axis_QNAME = new QName("http://www.opengis.net/gml/3.2", "axis");
     private static final QName _EllipsoidalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "EllipsoidalCS");
     private static final QName _CartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "CartesianCS");
@@ -253,191 +311,280 @@ public class ObjectFactory {
     private static final QName _CylindricalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "CylindricalCS");
     private static final QName _AffineCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "AffineCS");
     private static final QName _AbstractDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractDatum");
-    private static final QName _AnchorDefinition_QNAME = new QName("http://www.opengis.net/gml/3.2", "anchorDefinition");
-    private static final QName _RealizationEpoch_QNAME = new QName("http://www.opengis.net/gml/3.2", "realizationEpoch");
+    private static final QName _AnchorDefinition_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "anchorDefinition");
+    private static final QName _RealizationEpoch_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "realizationEpoch");
     private static final QName _GeodeticDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "GeodeticDatum");
-    private static final QName _PrimeMeridianPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "primeMeridian");
-    private static final QName _EllipsoidPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "ellipsoid");
+    private static final QName _PrimeMeridianPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "primeMeridian");
+    private static final QName _EllipsoidPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ellipsoid");
     private static final QName _Ellipsoid_QNAME = new QName("http://www.opengis.net/gml/3.2", "Ellipsoid");
     private static final QName _SemiMajorAxis_QNAME = new QName("http://www.opengis.net/gml/3.2", "semiMajorAxis");
     private static final QName _PrimeMeridian_QNAME = new QName("http://www.opengis.net/gml/3.2", "PrimeMeridian");
-    private static final QName _GreenwichLongitude_QNAME = new QName("http://www.opengis.net/gml/3.2", "greenwichLongitude");
-    private static final QName _EngineeringDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "EngineeringDatum");
+    private static final QName _GreenwichLongitude_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "greenwichLongitude");
+    private static final QName _EngineeringDatum_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "EngineeringDatum");
     private static final QName _ImageDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "ImageDatum");
     private static final QName _PixelInCell_QNAME = new QName("http://www.opengis.net/gml/3.2", "pixelInCell");
     private static final QName _VerticalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "VerticalDatum");
     private static final QName _TemporalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "TemporalDatum");
     private static final QName _Origin_QNAME = new QName("http://www.opengis.net/gml/3.2", "origin");
-    private static final QName _AbstractCoordinateOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractCoordinateOperation");
-    private static final QName _OperationVersion_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationVersion");
+    private static final QName _AbstractCoordinateOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractCoordinateOperation");
+    private static final QName _OperationVersion_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "operationVersion");
     private static final QName _SourceCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "sourceCRS");
     private static final QName _TargetCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "targetCRS");
-    private static final QName _AbstractSingleOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractSingleOperation");
-    private static final QName _AbstractGeneralConversion_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeneralConversion");
-    private static final QName _AbstractOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractOperation");
-    private static final QName _AbstractGeneralTransformation_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeneralTransformation");
-    private static final QName _ConcatenatedOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "ConcatenatedOperation");
+    private static final QName _AbstractSingleOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractSingleOperation");
+    private static final QName _AbstractGeneralConversion_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeneralConversion");
+    private static final QName _AbstractOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractOperation");
+    private static final QName _AbstractGeneralTransformation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeneralTransformation");
+    private static final QName _ConcatenatedOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ConcatenatedOperation");
     private static final QName _CoordOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordOperation");
-    private static final QName _PassThroughOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "PassThroughOperation");
-    private static final QName _ModifiedCoordinate_QNAME = new QName("http://www.opengis.net/gml/3.2", "modifiedCoordinate");
+    private static final QName _PassThroughOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "PassThroughOperation");
+    private static final QName _ModifiedCoordinate_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "modifiedCoordinate");
     private static final QName _Conversion_QNAME = new QName("http://www.opengis.net/gml/3.2", "Conversion");
     private static final QName _Method_QNAME = new QName("http://www.opengis.net/gml/3.2", "method");
-    private static final QName _ParameterValuePropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "parameterValue");
+    private static final QName _ParameterValuePropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "parameterValue");
     private static final QName _Transformation_QNAME = new QName("http://www.opengis.net/gml/3.2", "Transformation");
-    private static final QName _AbstractGeneralParameterValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeneralParameterValue");
+    private static final QName _AbstractGeneralParameterValue_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeneralParameterValue");
     private static final QName _ParameterValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "ParameterValue");
     private static final QName _Value_QNAME = new QName("http://www.opengis.net/gml/3.2", "value");
     private static final QName _StringValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "stringValue");
     private static final QName _IntegerValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "integerValue");
     private static final QName _BooleanValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "booleanValue");
     private static final QName _ValueList_QNAME = new QName("http://www.opengis.net/gml/3.2", "valueList");
-    private static final QName _IntegerValueList_QNAME = new QName("http://www.opengis.net/gml/3.2", "integerValueList");
+    private static final QName _IntegerValueList_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "integerValueList");
     private static final QName _ValueFile_QNAME = new QName("http://www.opengis.net/gml/3.2", "valueFile");
-    private static final QName _OperationParameterPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationParameter");
-    private static final QName _ParameterValueGroup_QNAME = new QName("http://www.opengis.net/gml/3.2", "ParameterValueGroup");
+    private static final QName _OperationParameterPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "operationParameter");
+    private static final QName _ParameterValueGroup_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ParameterValueGroup");
     private static final QName _Group_QNAME = new QName("http://www.opengis.net/gml/3.2", "group");
     private static final QName _OperationMethod_QNAME = new QName("http://www.opengis.net/gml/3.2", "OperationMethod");
     private static final QName _Formula_QNAME = new QName("http://www.opengis.net/gml/3.2", "formula");
-    private static final QName _SourceDimensions_QNAME = new QName("http://www.opengis.net/gml/3.2", "sourceDimensions");
-    private static final QName _TargetDimensions_QNAME = new QName("http://www.opengis.net/gml/3.2", "targetDimensions");
+    private static final QName _SourceDimensions_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "sourceDimensions");
+    private static final QName _TargetDimensions_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "targetDimensions");
     private static final QName _Parameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "parameter");
-    private static final QName _AbstractGeneralOperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeneralOperationParameter");
+    private static final QName _AbstractGeneralOperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeneralOperationParameter");
     private static final QName _MinimumOccurs_QNAME = new QName("http://www.opengis.net/gml/3.2", "minimumOccurs");
-    private static final QName _OperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "OperationParameter");
-    private static final QName _OperationParameterGroup_QNAME = new QName("http://www.opengis.net/gml/3.2", "OperationParameterGroup");
+    private static final QName _OperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "OperationParameter");
+    private static final QName _OperationParameterGroup_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "OperationParameterGroup");
     private static final QName _MaximumOccurs_QNAME = new QName("http://www.opengis.net/gml/3.2", "maximumOccurs");
-    private static final QName _AbstractSingleCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractSingleCRS");
-    private static final QName _AbstractGeneralDerivedCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractGeneralDerivedCRS");
-    private static final QName _ConversionPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "conversion");
+    private static final QName _AbstractSingleCRS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractSingleCRS");
+    private static final QName _AbstractGeneralDerivedCRS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractGeneralDerivedCRS");
+    private static final QName _ConversionPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "conversion");
     private static final QName _CompoundCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "CompoundCRS");
-    private static final QName _ComponentReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "componentReferenceSystem");
+    private static final QName _ComponentReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "componentReferenceSystem");
     private static final QName _GeodeticCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "GeodeticCRS");
-    private static final QName _EllipsoidalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "ellipsoidalCS");
-    private static final QName _CartesianCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "cartesianCS");
-    private static final QName _SphericalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "sphericalCS");
-    private static final QName _GeodeticDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "geodeticDatum");
+    private static final QName _EllipsoidalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ellipsoidalCS");
+    private static final QName _CartesianCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "cartesianCS");
+    private static final QName _SphericalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "sphericalCS");
+    private static final QName _GeodeticDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "geodeticDatum");
     private static final QName _VerticalCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "VerticalCRS");
-    private static final QName _VerticalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "verticalCS");
-    private static final QName _VerticalDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "verticalDatum");
+    private static final QName _VerticalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "verticalCS");
+    private static final QName _VerticalDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "verticalDatum");
     private static final QName _ProjectedCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "ProjectedCRS");
     private static final QName _BaseGeodeticCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "baseGeodeticCRS");
     private static final QName _DerivedCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "DerivedCRS");
     private static final QName _BaseCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "baseCRS");
     private static final QName _DerivedCRSType_QNAME = new QName("http://www.opengis.net/gml/3.2", "derivedCRSType");
-    private static final QName _CoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordinateSystem");
+    private static final QName _CoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "coordinateSystem");
     private static final QName _EngineeringCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "EngineeringCRS");
-    private static final QName _CylindricalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "cylindricalCS");
+    private static final QName _CylindricalCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "cylindricalCS");
     private static final QName _LinearCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "linearCS");
     private static final QName _PolarCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "polarCS");
-    private static final QName _UserDefinedCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "userDefinedCS");
-    private static final QName _EngineeringDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "engineeringDatum");
+    private static final QName _UserDefinedCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "userDefinedCS");
+    private static final QName _EngineeringDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "engineeringDatum");
     private static final QName _ImageCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "ImageCRS");
     private static final QName _AffineCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "affineCS");
-    private static final QName _ImageDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "imageDatum");
+    private static final QName _ImageDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "imageDatum");
     private static final QName _TemporalCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "TemporalCRS");
     private static final QName _TimeCSPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "timeCS");
-    private static final QName _TemporalDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2", "temporalDatum");
+    private static final QName _TemporalDatumPropertyElement_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "temporalDatum");
     private static final QName _Observation_QNAME = new QName("http://www.opengis.net/gml/3.2", "Observation");
     private static final QName _Using_QNAME = new QName("http://www.opengis.net/gml/3.2", "using");
     private static final QName _Target_QNAME = new QName("http://www.opengis.net/gml/3.2", "target");
     private static final QName _Subject_QNAME = new QName("http://www.opengis.net/gml/3.2", "subject");
     private static final QName _ResultOf_QNAME = new QName("http://www.opengis.net/gml/3.2", "resultOf");
-    private static final QName _DirectedObservation_QNAME = new QName("http://www.opengis.net/gml/3.2", "DirectedObservation");
-    private static final QName _DirectedObservationAtDistance_QNAME = new QName("http://www.opengis.net/gml/3.2", "DirectedObservationAtDistance");
-    private static final QName _AbstractTimeTopologyPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractTimeTopologyPrimitive");
-    private static final QName _TimeTopologyComplex_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeTopologyComplex");
+    private static final QName _DirectedObservation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "DirectedObservation");
+    private static final QName _DirectedObservationAtDistance_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "DirectedObservationAtDistance");
+    private static final QName _AbstractTimeTopologyPrimitive_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractTimeTopologyPrimitive");
+    private static final QName _TimeTopologyComplex_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "TimeTopologyComplex");
     private static final QName _TimeNode_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeNode");
     private static final QName _TimeEdge_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeEdge");
-    private static final QName _TimeReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeReferenceSystem");
-    private static final QName _TimeCoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeCoordinateSystem");
+    private static final QName _TimeReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "TimeReferenceSystem");
+    private static final QName _TimeCoordinateSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "TimeCoordinateSystem");
     private static final QName _TimeCalendar_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeCalendar");
     private static final QName _TimeCalendarEra_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeCalendarEra");
     private static final QName _TimeClock_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeClock");
-    private static final QName _TimeOrdinalReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeOrdinalReferenceSystem");
+    private static final QName _TimeOrdinalReferenceSystem_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "TimeOrdinalReferenceSystem");
     private static final QName _TimeOrdinalEra_QNAME = new QName("http://www.opengis.net/gml/3.2", "TimeOrdinalEra");
     private static final QName _Null_QNAME = new QName("http://www.opengis.net/gml/3.2", "Null");
     private static final QName _AnchorPoint_QNAME = new QName("http://www.opengis.net/gml/3.2", "anchorPoint");
     private static final QName _DatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "datumRef");
-    private static final QName _UsesPrimeMeridian_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesPrimeMeridian");
+    private static final QName _UsesPrimeMeridian_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesPrimeMeridian");
     private static final QName _UsesEllipsoid_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesEllipsoid");
-    private static final QName _GeodeticDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "geodeticDatumRef");
+    private static final QName _GeodeticDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "geodeticDatumRef");
     private static final QName _EllipsoidRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "ellipsoidRef");
-    private static final QName _PrimeMeridianRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "primeMeridianRef");
-    private static final QName _EngineeringDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "engineeringDatumRef");
+    private static final QName _PrimeMeridianRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "primeMeridianRef");
+    private static final QName _EngineeringDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "engineeringDatumRef");
     private static final QName _ImageDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "imageDatumRef");
-    private static final QName _VerticalDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "verticalDatumRef");
-    private static final QName _TemporalDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "temporalDatumRef");
-    private static final QName _CoordinateOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordinateOperationRef");
-    private static final QName _SingleOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "singleOperationRef");
+    private static final QName _VerticalDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "verticalDatumRef");
+    private static final QName _TemporalDatumRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "temporalDatumRef");
+    private static final QName _CoordinateOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "coordinateOperationRef");
+    private static final QName _SingleOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "singleOperationRef");
     private static final QName _OperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationRef");
-    private static final QName _GeneralConversionRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "generalConversionRef");
-    private static final QName _GeneralTransformationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "generalTransformationRef");
-    private static final QName _UsesSingleOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesSingleOperation");
-    private static final QName _ConcatenatedOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "concatenatedOperationRef");
+    private static final QName _GeneralConversionRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "generalConversionRef");
+    private static final QName _GeneralTransformationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "generalTransformationRef");
+    private static final QName _UsesSingleOperation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesSingleOperation");
+    private static final QName _ConcatenatedOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "concatenatedOperationRef");
     private static final QName _UsesOperation_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesOperation");
-    private static final QName _PassThroughOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "passThroughOperationRef");
+    private static final QName _PassThroughOperationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "passThroughOperationRef");
     private static final QName _UsesMethod_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesMethod");
     private static final QName _UsesValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesValue");
     private static final QName _ConversionRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "conversionRef");
-    private static final QName _TransformationRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "transformationRef");
+    private static final QName _TransformationRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "transformationRef");
     private static final QName _DmsAngleValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "dmsAngleValue");
-    private static final QName _ValueOfParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "valueOfParameter");
+    private static final QName _ValueOfParameter_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "valueOfParameter");
     private static final QName _IncludesValue_QNAME = new QName("http://www.opengis.net/gml/3.2", "includesValue");
     private static final QName _ValuesOfGroup_QNAME = new QName("http://www.opengis.net/gml/3.2", "valuesOfGroup");
     private static final QName _MethodFormula_QNAME = new QName("http://www.opengis.net/gml/3.2", "methodFormula");
     private static final QName _UsesParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesParameter");
-    private static final QName _GeneralOperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "generalOperationParameter");
-    private static final QName _OperationMethodRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationMethodRef");
-    private static final QName _AbstractGeneralOperationParameterRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "abstractGeneralOperationParameterRef");
-    private static final QName _OperationParameterRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationParameterRef");
-    private static final QName _IncludesParameter_QNAME = new QName("http://www.opengis.net/gml/3.2", "includesParameter");
-    private static final QName _OperationParameterGroupRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "operationParameterGroupRef");
-    private static final QName _ReferenceSystemRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "referenceSystemRef");
+    private static final QName _GeneralOperationParameter_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "generalOperationParameter");
+    private static final QName _OperationMethodRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "operationMethodRef");
+    private static final QName _AbstractGeneralOperationParameterRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "abstractGeneralOperationParameterRef");
+    private static final QName _OperationParameterRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "operationParameterRef");
+    private static final QName _IncludesParameter_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "includesParameter");
+    private static final QName _OperationParameterGroupRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "operationParameterGroupRef");
+    private static final QName _ReferenceSystemRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "referenceSystemRef");
     private static final QName _CrsRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "crsRef");
-    private static final QName _CoordinateSystemAxisRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordinateSystemAxisRef");
+    private static final QName _CoordinateSystemAxisRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "coordinateSystemAxisRef");
     private static final QName _UsesAxis_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesAxis");
-    private static final QName _CoordinateSystemRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordinateSystemRef");
-    private static final QName _EllipsoidalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "ellipsoidalCSRef");
+    private static final QName _CoordinateSystemRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "coordinateSystemRef");
+    private static final QName _EllipsoidalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ellipsoidalCSRef");
     private static final QName _CartesianCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "cartesianCSRef");
     private static final QName _VerticalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "verticalCSRef");
     private static final QName _TemporalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "TemporalCS");
     private static final QName _TemporalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "temporalCSRef");
     private static final QName _LinearCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "linearCSRef");
-    private static final QName _UserDefinedCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "userDefinedCSRef");
+    private static final QName _UserDefinedCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "userDefinedCSRef");
     private static final QName _SphericalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "sphericalCSRef");
     private static final QName _PolarCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "polarCSRef");
-    private static final QName _CylindricalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "cylindricalCSRef");
-    private static final QName _ObliqueCartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "ObliqueCartesianCS");
-    private static final QName _ObliqueCartesianCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "obliqueCartesianCSRef");
+    private static final QName _CylindricalCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "cylindricalCSRef");
+    private static final QName _ObliqueCartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "ObliqueCartesianCS");
+    private static final QName _ObliqueCartesianCSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "obliqueCartesianCSRef");
     private static final QName _SingleCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "singleCRSRef");
-    private static final QName _DefinedByConversion_QNAME = new QName("http://www.opengis.net/gml/3.2", "definedByConversion");
-    private static final QName _IncludesSingleCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "includesSingleCRS");
+    private static final QName _DefinedByConversion_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "definedByConversion");
+    private static final QName _IncludesSingleCRS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "includesSingleCRS");
     private static final QName _CompoundCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "compoundCRSRef");
-    private static final QName _UsesEllipsoidalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesEllipsoidalCS");
+    private static final QName _UsesEllipsoidalCS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesEllipsoidalCS");
     private static final QName _UsesCartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesCartesianCS");
     private static final QName _UsesSphericalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesSphericalCS");
-    private static final QName _UsesGeodeticDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesGeodeticDatum");
+    private static final QName _UsesGeodeticDatum_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesGeodeticDatum");
     private static final QName _UsesVerticalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesVerticalCS");
-    private static final QName _UsesVerticalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesVerticalDatum");
+    private static final QName _UsesVerticalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesVerticalDatum");
     private static final QName _VerticalCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "verticalCRSRef");
-    private static final QName _BaseGeographicCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "baseGeographicCRS");
+    private static final QName _BaseGeographicCRS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "baseGeographicCRS");
     private static final QName _ProjectedCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "projectedCRSRef");
     private static final QName _UsesCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesCS");
     private static final QName _DerivedCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "derivedCRSRef");
-    private static final QName _UsesEngineeringDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesEngineeringDatum");
-    private static final QName _EngineeringCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "engineeringCRSRef");
+    private static final QName _UsesEngineeringDatum_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesEngineeringDatum");
+    private static final QName _EngineeringCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "engineeringCRSRef");
     private static final QName _UsesAffineCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesAffineCS");
     private static final QName _UsesImageDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesImageDatum");
-    private static final QName _UsesObliqueCartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesObliqueCartesianCS");
+    private static final QName _UsesObliqueCartesianCS_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesObliqueCartesianCS");
     private static final QName _ImageCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "imageCRSRef");
     private static final QName _UsesTimeCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesTimeCS");
     private static final QName _UsesTemporalCS_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesTemporalCS");
-    private static final QName _UsesTemporalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2", "usesTemporalDatum");
+    private static final QName _UsesTemporalDatum_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "usesTemporalDatum");
     private static final QName _TemporalCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "temporalCRSRef");
     private static final QName _GeographicCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "GeographicCRS");
-    private static final QName _GeographicCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "geographicCRSRef");
+    private static final QName _GeographicCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "geographicCRSRef");
     private static final QName _GeocentricCRS_QNAME = new QName("http://www.opengis.net/gml/3.2", "GeocentricCRS");
-    private static final QName _GeocentricCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "geocentricCRSRef");
+    private static final QName _GeocentricCRSRef_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "geocentricCRSRef");
     private static final QName _DmsAngle_QNAME = new QName("http://www.opengis.net/gml/3.2", "dmsAngle");
     private static final QName _Degrees_QNAME = new QName("http://www.opengis.net/gml/3.2", "degrees");
     private static final QName _DecimalMinutes_QNAME = new QName("http://www.opengis.net/gml/3.2", "decimalMinutes");
@@ -445,25 +592,32 @@ public class ObjectFactory {
     private static final QName _Seconds_QNAME = new QName("http://www.opengis.net/gml/3.2", "seconds");
     private static final QName _Member_QNAME = new QName("http://www.opengis.net/gml/3.2", "member");
     private static final QName _Members_QNAME = new QName("http://www.opengis.net/gml/3.2", "members");
-    private static final QName _MetaDataProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "metaDataProperty");
+    private static final QName _MetaDataProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "metaDataProperty");
     private static final QName _Bag_QNAME = new QName("http://www.opengis.net/gml/3.2", "Bag");
     private static final QName _Array_QNAME = new QName("http://www.opengis.net/gml/3.2", "Array");
-    private static final QName _AbstractMetaData_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractMetaData");
+    private static final QName _AbstractMetaData_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractMetaData");
     private static final QName _GenericMetaData_QNAME = new QName("http://www.opengis.net/gml/3.2", "GenericMetaData");
     private static final QName _Coordinates_QNAME = new QName("http://www.opengis.net/gml/3.2", "coordinates");
     private static final QName _PointRep_QNAME = new QName("http://www.opengis.net/gml/3.2", "pointRep");
     private static final QName _Location_QNAME = new QName("http://www.opengis.net/gml/3.2", "location");
     private static final QName _LocationString_QNAME = new QName("http://www.opengis.net/gml/3.2", "LocationString");
     private static final QName _LocationKeyWord_QNAME = new QName("http://www.opengis.net/gml/3.2", "LocationKeyWord");
-    private static final QName _PriorityLocation_QNAME = new QName("http://www.opengis.net/gml/3.2", "priorityLocation");
+    private static final QName _PriorityLocation_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "priorityLocation");
     private static final QName _FeatureMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "featureMember");
     private static final QName _FeatureProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "featureProperty");
     private static final QName _FeatureMembers_QNAME = new QName("http://www.opengis.net/gml/3.2", "featureMembers");
-    private static final QName _AbstractFeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2", "AbstractFeatureCollection");
-    private static final QName _FeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2", "FeatureCollection");
+    private static final QName _AbstractFeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "AbstractFeatureCollection");
+    private static final QName _FeatureCollection_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "FeatureCollection");
     private static final QName _Track_QNAME = new QName("http://www.opengis.net/gml/3.2", "track");
-    private static final QName _DefinitionCollection_QNAME = new QName("http://www.opengis.net/gml/3.2", "DefinitionCollection");
-    private static final QName _DefinitionMember_QNAME = new QName("http://www.opengis.net/gml/3.2", "definitionMember");
+    private static final QName _DefinitionCollection_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "DefinitionCollection");
+    private static final QName _DefinitionMember_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "definitionMember");
     private static final QName _IndirectEntry_QNAME = new QName("http://www.opengis.net/gml/3.2", "indirectEntry");
     private static final QName _DefinitionProxy_QNAME = new QName("http://www.opengis.net/gml/3.2", "DefinitionProxy");
     private static final QName _DefinitionRef_QNAME = new QName("http://www.opengis.net/gml/3.2", "definitionRef");
@@ -476,44 +630,61 @@ public class ObjectFactory {
     private static final QName _MultiLocation_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiLocation");
     private static final QName _MultiCenterOf_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiCenterOf");
     private static final QName _MultiPosition_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiPosition");
-    private static final QName _MultiCenterLineOf_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiCenterLineOf");
+    private static final QName _MultiCenterLineOf_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiCenterLineOf");
     private static final QName _MultiEdgeOf_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiEdgeOf");
     private static final QName _MultiCoverage_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiCoverage");
     private static final QName _MultiExtentOf_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiExtentOf");
     private static final QName _PolygonPatches_QNAME = new QName("http://www.opengis.net/gml/3.2", "polygonPatches");
     private static final QName _TrianglePatches_QNAME = new QName("http://www.opengis.net/gml/3.2", "trianglePatches");
-    private static final QName _MultiPointDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiPointDomain");
-    private static final QName _MultiCurveDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiCurveDomain");
-    private static final QName _MultiSurfaceDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiSurfaceDomain");
-    private static final QName _MultiSolidDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiSolidDomain");
+    private static final QName _MultiPointDomain_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiPointDomain");
+    private static final QName _MultiCurveDomain_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiCurveDomain");
+    private static final QName _MultiSurfaceDomain_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiSurfaceDomain");
+    private static final QName _MultiSolidDomain_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiSolidDomain");
     private static final QName _GridDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "gridDomain");
-    private static final QName _RectifiedGridDomain_QNAME = new QName("http://www.opengis.net/gml/3.2", "rectifiedGridDomain");
-    private static final QName _MovingObjectStatus_QNAME = new QName("http://www.opengis.net/gml/3.2", "MovingObjectStatus");
+    private static final QName _RectifiedGridDomain_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "rectifiedGridDomain");
+    private static final QName _MovingObjectStatus_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "MovingObjectStatus");
     private static final QName _Status_QNAME = new QName("http://www.opengis.net/gml/3.2", "status");
     private static final QName _StatusReference_QNAME = new QName("http://www.opengis.net/gml/3.2", "statusReference");
-    private static final QName _TopoComplexProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "topoComplexProperty");
-    private static final QName _MultiPointProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiPointProperty");
-    private static final QName _MultiCurveProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiCurveProperty");
-    private static final QName _MultiSurfaceProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiSurfaceProperty");
-    private static final QName _MultiSolidProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiSolidProperty");
-    private static final QName _MultiGeometryProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "multiGeometryProperty");
-    private static final QName _PointArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "pointArrayProperty");
-    private static final QName _CurveArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "curveArrayProperty");
-    private static final QName _SurfaceArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "surfaceArrayProperty");
-    private static final QName _SolidArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2", "solidArrayProperty");
+    private static final QName _TopoComplexProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "topoComplexProperty");
+    private static final QName _MultiPointProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiPointProperty");
+    private static final QName _MultiCurveProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiCurveProperty");
+    private static final QName _MultiSurfaceProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiSurfaceProperty");
+    private static final QName _MultiSolidProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiSolidProperty");
+    private static final QName _MultiGeometryProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "multiGeometryProperty");
+    private static final QName _PointArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "pointArrayProperty");
+    private static final QName _CurveArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "curveArrayProperty");
+    private static final QName _SurfaceArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "surfaceArrayProperty");
+    private static final QName _SolidArrayProperty_QNAME = new QName("http://www.opengis.net/gml/3.2",
+            "solidArrayProperty");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.aixm.delorean.core.org.gml.v_3_2
-     * 
+     * Create a new ObjectFactory that can be used to create new instances of schema
+     * derived classes for package: com.aixm.delorean.core.org.gml.v_3_2
+     *
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link AssociationRoleType }
-     * 
-     * @return
-     *     the new instance of {@link AssociationRoleType }
+     *
+     * @return the new instance of {@link AssociationRoleType }
      */
     public AssociationRoleType createAssociationRoleType() {
         return new AssociationRoleType();
@@ -521,9 +692,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
-     * @return
-     *     the new instance of {@link ReferenceType }
+     *
+     * @return the new instance of {@link ReferenceType }
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -531,9 +701,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InlinePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link InlinePropertyType }
+     *
+     * @return the new instance of {@link InlinePropertyType }
      */
     public InlinePropertyType createInlinePropertyType() {
         return new InlinePropertyType();
@@ -541,9 +710,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StringOrRefType }
-     * 
-     * @return
-     *     the new instance of {@link StringOrRefType }
+     *
+     * @return the new instance of {@link StringOrRefType }
      */
     public StringOrRefType createStringOrRefType() {
         return new StringOrRefType();
@@ -551,9 +719,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CodeType }
-     * 
-     * @return
-     *     the new instance of {@link CodeType }
+     *
+     * @return the new instance of {@link CodeType }
      */
     public CodeType createCodeType() {
         return new CodeType();
@@ -561,9 +728,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CodeWithAuthorityType }
-     * 
-     * @return
-     *     the new instance of {@link CodeWithAuthorityType }
+     *
+     * @return the new instance of {@link CodeWithAuthorityType }
      */
     public CodeWithAuthorityType createCodeWithAuthorityType() {
         return new CodeWithAuthorityType();
@@ -571,9 +737,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DefinitionType }
-     * 
-     * @return
-     *     the new instance of {@link DefinitionType }
+     *
+     * @return the new instance of {@link DefinitionType }
      */
     public DefinitionType createDefinitionType() {
         return new DefinitionType();
@@ -581,9 +746,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DictionaryType }
-     * 
-     * @return
-     *     the new instance of {@link DictionaryType }
+     *
+     * @return the new instance of {@link DictionaryType }
      */
     public DictionaryType createDictionaryType() {
         return new DictionaryType();
@@ -591,9 +755,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DictionaryEntryType }
-     * 
-     * @return
-     *     the new instance of {@link DictionaryEntryType }
+     *
+     * @return the new instance of {@link DictionaryEntryType }
      */
     public DictionaryEntryType createDictionaryEntryType() {
         return new DictionaryEntryType();
@@ -601,9 +764,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnitOfMeasureType }
-     * 
-     * @return
-     *     the new instance of {@link UnitOfMeasureType }
+     *
+     * @return the new instance of {@link UnitOfMeasureType }
      */
     public UnitOfMeasureType createUnitOfMeasureType() {
         return new UnitOfMeasureType();
@@ -611,9 +773,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UnitDefinitionType }
-     * 
-     * @return
-     *     the new instance of {@link UnitDefinitionType }
+     *
+     * @return the new instance of {@link UnitDefinitionType }
      */
     public UnitDefinitionType createUnitDefinitionType() {
         return new UnitDefinitionType();
@@ -621,9 +782,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BaseUnitType }
-     * 
-     * @return
-     *     the new instance of {@link BaseUnitType }
+     *
+     * @return the new instance of {@link BaseUnitType }
      */
     public BaseUnitType createBaseUnitType() {
         return new BaseUnitType();
@@ -631,9 +791,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DerivedUnitType }
-     * 
-     * @return
-     *     the new instance of {@link DerivedUnitType }
+     *
+     * @return the new instance of {@link DerivedUnitType }
      */
     public DerivedUnitType createDerivedUnitType() {
         return new DerivedUnitType();
@@ -641,9 +800,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DerivationUnitTermType }
-     * 
-     * @return
-     *     the new instance of {@link DerivationUnitTermType }
+     *
+     * @return the new instance of {@link DerivationUnitTermType }
      */
     public DerivationUnitTermType createDerivationUnitTermType() {
         return new DerivationUnitTermType();
@@ -651,9 +809,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConventionalUnitType }
-     * 
-     * @return
-     *     the new instance of {@link ConventionalUnitType }
+     *
+     * @return the new instance of {@link ConventionalUnitType }
      */
     public ConventionalUnitType createConventionalUnitType() {
         return new ConventionalUnitType();
@@ -661,9 +818,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConversionToPreferredUnitType }
-     * 
-     * @return
-     *     the new instance of {@link ConversionToPreferredUnitType }
+     *
+     * @return the new instance of {@link ConversionToPreferredUnitType }
      */
     public ConversionToPreferredUnitType createConversionToPreferredUnitType() {
         return new ConversionToPreferredUnitType();
@@ -671,9 +827,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MeasureType }
-     * 
-     * @return
-     *     the new instance of {@link MeasureType }
+     *
+     * @return the new instance of {@link MeasureType }
      */
     public MeasureType createMeasureType() {
         return new MeasureType();
@@ -681,9 +836,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AngleType }
-     * 
-     * @return
-     *     the new instance of {@link AngleType }
+     *
+     * @return the new instance of {@link AngleType }
      */
     public AngleType createAngleType() {
         return new AngleType();
@@ -691,9 +845,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectPositionType }
-     * 
-     * @return
-     *     the new instance of {@link DirectPositionType }
+     *
+     * @return the new instance of {@link DirectPositionType }
      */
     public DirectPositionType createDirectPositionType() {
         return new DirectPositionType();
@@ -701,9 +854,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectPositionListType }
-     * 
-     * @return
-     *     the new instance of {@link DirectPositionListType }
+     *
+     * @return the new instance of {@link DirectPositionListType }
      */
     public DirectPositionListType createDirectPositionListType() {
         return new DirectPositionListType();
@@ -711,9 +863,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VectorType }
-     * 
-     * @return
-     *     the new instance of {@link VectorType }
+     *
+     * @return the new instance of {@link VectorType }
      */
     public VectorType createVectorType() {
         return new VectorType();
@@ -721,9 +872,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EnvelopeType }
-     * 
-     * @return
-     *     the new instance of {@link EnvelopeType }
+     *
+     * @return the new instance of {@link EnvelopeType }
      */
     public EnvelopeType createEnvelopeType() {
         return new EnvelopeType();
@@ -731,9 +881,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PointType }
-     * 
-     * @return
-     *     the new instance of {@link PointType }
+     *
+     * @return the new instance of {@link PointType }
      */
     public PointType createPointType() {
         return new PointType();
@@ -741,9 +890,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PointPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PointPropertyType }
+     *
+     * @return the new instance of {@link PointPropertyType }
      */
     public PointPropertyType createPointPropertyType() {
         return new PointPropertyType();
@@ -751,9 +899,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CurvePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CurvePropertyType }
+     *
+     * @return the new instance of {@link CurvePropertyType }
      */
     public CurvePropertyType createCurvePropertyType() {
         return new CurvePropertyType();
@@ -761,9 +908,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LineStringType }
-     * 
-     * @return
-     *     the new instance of {@link LineStringType }
+     *
+     * @return the new instance of {@link LineStringType }
      */
     public LineStringType createLineStringType() {
         return new LineStringType();
@@ -771,9 +917,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SurfacePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SurfacePropertyType }
+     *
+     * @return the new instance of {@link SurfacePropertyType }
      */
     public SurfacePropertyType createSurfacePropertyType() {
         return new SurfacePropertyType();
@@ -781,9 +926,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PolygonType }
-     * 
-     * @return
-     *     the new instance of {@link PolygonType }
+     *
+     * @return the new instance of {@link PolygonType }
      */
     public PolygonType createPolygonType() {
         return new PolygonType();
@@ -791,9 +935,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AbstractRingPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link AbstractRingPropertyType }
+     *
+     * @return the new instance of {@link AbstractRingPropertyType }
      */
     public AbstractRingPropertyType createAbstractRingPropertyType() {
         return new AbstractRingPropertyType();
@@ -801,9 +944,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearRingType }
-     * 
-     * @return
-     *     the new instance of {@link LinearRingType }
+     *
+     * @return the new instance of {@link LinearRingType }
      */
     public LinearRingType createLinearRingType() {
         return new LinearRingType();
@@ -811,9 +953,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CurveType }
-     * 
-     * @return
-     *     the new instance of {@link CurveType }
+     *
+     * @return the new instance of {@link CurveType }
      */
     public CurveType createCurveType() {
         return new CurveType();
@@ -821,9 +962,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OrientableCurveType }
-     * 
-     * @return
-     *     the new instance of {@link OrientableCurveType }
+     *
+     * @return the new instance of {@link OrientableCurveType }
      */
     public OrientableCurveType createOrientableCurveType() {
         return new OrientableCurveType();
@@ -831,9 +971,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CurveSegmentArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CurveSegmentArrayPropertyType }
+     *
+     * @return the new instance of {@link CurveSegmentArrayPropertyType }
      */
     public CurveSegmentArrayPropertyType createCurveSegmentArrayPropertyType() {
         return new CurveSegmentArrayPropertyType();
@@ -841,9 +980,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LineStringSegmentType }
-     * 
-     * @return
-     *     the new instance of {@link LineStringSegmentType }
+     *
+     * @return the new instance of {@link LineStringSegmentType }
      */
     public LineStringSegmentType createLineStringSegmentType() {
         return new LineStringSegmentType();
@@ -851,9 +989,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArcStringType }
-     * 
-     * @return
-     *     the new instance of {@link ArcStringType }
+     *
+     * @return the new instance of {@link ArcStringType }
      */
     public ArcStringType createArcStringType() {
         return new ArcStringType();
@@ -861,9 +998,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArcType }
-     * 
-     * @return
-     *     the new instance of {@link ArcType }
+     *
+     * @return the new instance of {@link ArcType }
      */
     public ArcType createArcType() {
         return new ArcType();
@@ -871,9 +1007,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CircleType }
-     * 
-     * @return
-     *     the new instance of {@link CircleType }
+     *
+     * @return the new instance of {@link CircleType }
      */
     public CircleType createCircleType() {
         return new CircleType();
@@ -881,9 +1016,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArcStringByBulgeType }
-     * 
-     * @return
-     *     the new instance of {@link ArcStringByBulgeType }
+     *
+     * @return the new instance of {@link ArcStringByBulgeType }
      */
     public ArcStringByBulgeType createArcStringByBulgeType() {
         return new ArcStringByBulgeType();
@@ -891,9 +1025,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArcByBulgeType }
-     * 
-     * @return
-     *     the new instance of {@link ArcByBulgeType }
+     *
+     * @return the new instance of {@link ArcByBulgeType }
      */
     public ArcByBulgeType createArcByBulgeType() {
         return new ArcByBulgeType();
@@ -901,9 +1034,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArcByCenterPointType }
-     * 
-     * @return
-     *     the new instance of {@link ArcByCenterPointType }
+     *
+     * @return the new instance of {@link ArcByCenterPointType }
      */
     public ArcByCenterPointType createArcByCenterPointType() {
         return new ArcByCenterPointType();
@@ -911,9 +1043,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CircleByCenterPointType }
-     * 
-     * @return
-     *     the new instance of {@link CircleByCenterPointType }
+     *
+     * @return the new instance of {@link CircleByCenterPointType }
      */
     public CircleByCenterPointType createCircleByCenterPointType() {
         return new CircleByCenterPointType();
@@ -921,9 +1052,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CubicSplineType }
-     * 
-     * @return
-     *     the new instance of {@link CubicSplineType }
+     *
+     * @return the new instance of {@link CubicSplineType }
      */
     public CubicSplineType createCubicSplineType() {
         return new CubicSplineType();
@@ -931,9 +1061,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BSplineType }
-     * 
-     * @return
-     *     the new instance of {@link BSplineType }
+     *
+     * @return the new instance of {@link BSplineType }
      */
     public BSplineType createBSplineType() {
         return new BSplineType();
@@ -941,9 +1070,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BezierType }
-     * 
-     * @return
-     *     the new instance of {@link BezierType }
+     *
+     * @return the new instance of {@link BezierType }
      */
     public BezierType createBezierType() {
         return new BezierType();
@@ -951,9 +1079,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OffsetCurveType }
-     * 
-     * @return
-     *     the new instance of {@link OffsetCurveType }
+     *
+     * @return the new instance of {@link OffsetCurveType }
      */
     public OffsetCurveType createOffsetCurveType() {
         return new OffsetCurveType();
@@ -961,9 +1088,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AffinePlacementType }
-     * 
-     * @return
-     *     the new instance of {@link AffinePlacementType }
+     *
+     * @return the new instance of {@link AffinePlacementType }
      */
     public AffinePlacementType createAffinePlacementType() {
         return new AffinePlacementType();
@@ -971,9 +1097,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ClothoidType }
-     * 
-     * @return
-     *     the new instance of {@link ClothoidType }
+     *
+     * @return the new instance of {@link ClothoidType }
      */
     public ClothoidType createClothoidType() {
         return new ClothoidType();
@@ -981,9 +1106,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodesicStringType }
-     * 
-     * @return
-     *     the new instance of {@link GeodesicStringType }
+     *
+     * @return the new instance of {@link GeodesicStringType }
      */
     public GeodesicStringType createGeodesicStringType() {
         return new GeodesicStringType();
@@ -991,9 +1115,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodesicType }
-     * 
-     * @return
-     *     the new instance of {@link GeodesicType }
+     *
+     * @return the new instance of {@link GeodesicType }
      */
     public GeodesicType createGeodesicType() {
         return new GeodesicType();
@@ -1001,9 +1124,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SurfaceType }
-     * 
-     * @return
-     *     the new instance of {@link SurfaceType }
+     *
+     * @return the new instance of {@link SurfaceType }
      */
     public SurfaceType createSurfaceType() {
         return new SurfaceType();
@@ -1011,9 +1133,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OrientableSurfaceType }
-     * 
-     * @return
-     *     the new instance of {@link OrientableSurfaceType }
+     *
+     * @return the new instance of {@link OrientableSurfaceType }
      */
     public OrientableSurfaceType createOrientableSurfaceType() {
         return new OrientableSurfaceType();
@@ -1021,9 +1142,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SurfacePatchArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SurfacePatchArrayPropertyType }
+     *
+     * @return the new instance of {@link SurfacePatchArrayPropertyType }
      */
     public SurfacePatchArrayPropertyType createSurfacePatchArrayPropertyType() {
         return new SurfacePatchArrayPropertyType();
@@ -1031,9 +1151,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PolygonPatchType }
-     * 
-     * @return
-     *     the new instance of {@link PolygonPatchType }
+     *
+     * @return the new instance of {@link PolygonPatchType }
      */
     public PolygonPatchType createPolygonPatchType() {
         return new PolygonPatchType();
@@ -1041,9 +1160,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TriangleType }
-     * 
-     * @return
-     *     the new instance of {@link TriangleType }
+     *
+     * @return the new instance of {@link TriangleType }
      */
     public TriangleType createTriangleType() {
         return new TriangleType();
@@ -1051,9 +1169,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RectangleType }
-     * 
-     * @return
-     *     the new instance of {@link RectangleType }
+     *
+     * @return the new instance of {@link RectangleType }
      */
     public RectangleType createRectangleType() {
         return new RectangleType();
@@ -1061,9 +1178,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RingType }
-     * 
-     * @return
-     *     the new instance of {@link RingType }
+     *
+     * @return the new instance of {@link RingType }
      */
     public RingType createRingType() {
         return new RingType();
@@ -1071,9 +1187,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConeType }
-     * 
-     * @return
-     *     the new instance of {@link ConeType }
+     *
+     * @return the new instance of {@link ConeType }
      */
     public ConeType createConeType() {
         return new ConeType();
@@ -1081,9 +1196,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CylinderType }
-     * 
-     * @return
-     *     the new instance of {@link CylinderType }
+     *
+     * @return the new instance of {@link CylinderType }
      */
     public CylinderType createCylinderType() {
         return new CylinderType();
@@ -1091,9 +1205,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SphereType }
-     * 
-     * @return
-     *     the new instance of {@link SphereType }
+     *
+     * @return the new instance of {@link SphereType }
      */
     public SphereType createSphereType() {
         return new SphereType();
@@ -1101,9 +1214,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TinType }
-     * 
-     * @return
-     *     the new instance of {@link TinType }
+     *
+     * @return the new instance of {@link TinType }
      */
     public TinType createTinType() {
         return new TinType();
@@ -1111,9 +1223,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AbstractSolidType }
-     * 
-     * @return
-     *     the new instance of {@link AbstractSolidType }
+     *
+     * @return the new instance of {@link AbstractSolidType }
      */
     public AbstractSolidType createAbstractSolidType() {
         return new AbstractSolidType();
@@ -1121,9 +1232,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SolidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SolidPropertyType }
+     *
+     * @return the new instance of {@link SolidPropertyType }
      */
     public SolidPropertyType createSolidPropertyType() {
         return new SolidPropertyType();
@@ -1131,9 +1241,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SolidType }
-     * 
-     * @return
-     *     the new instance of {@link SolidType }
+     *
+     * @return the new instance of {@link SolidType }
      */
     public SolidType createSolidType() {
         return new SolidType();
@@ -1141,9 +1250,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ShellType }
-     * 
-     * @return
-     *     the new instance of {@link ShellType }
+     *
+     * @return the new instance of {@link ShellType }
      */
     public ShellType createShellType() {
         return new ShellType();
@@ -1151,9 +1259,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiGeometryType }
-     * 
-     * @return
-     *     the new instance of {@link MultiGeometryType }
+     *
+     * @return the new instance of {@link MultiGeometryType }
      */
     public MultiGeometryType createMultiGeometryType() {
         return new MultiGeometryType();
@@ -1161,9 +1268,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeometryPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeometryPropertyType }
+     *
+     * @return the new instance of {@link GeometryPropertyType }
      */
     public GeometryPropertyType createGeometryPropertyType() {
         return new GeometryPropertyType();
@@ -1171,9 +1277,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeometryArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeometryArrayPropertyType }
+     *
+     * @return the new instance of {@link GeometryArrayPropertyType }
      */
     public GeometryArrayPropertyType createGeometryArrayPropertyType() {
         return new GeometryArrayPropertyType();
@@ -1181,9 +1286,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiPointType }
-     * 
-     * @return
-     *     the new instance of {@link MultiPointType }
+     *
+     * @return the new instance of {@link MultiPointType }
      */
     public MultiPointType createMultiPointType() {
         return new MultiPointType();
@@ -1191,9 +1295,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PointArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PointArrayPropertyType }
+     *
+     * @return the new instance of {@link PointArrayPropertyType }
      */
     public PointArrayPropertyType createPointArrayPropertyType() {
         return new PointArrayPropertyType();
@@ -1201,9 +1304,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiCurveType }
-     * 
-     * @return
-     *     the new instance of {@link MultiCurveType }
+     *
+     * @return the new instance of {@link MultiCurveType }
      */
     public MultiCurveType createMultiCurveType() {
         return new MultiCurveType();
@@ -1211,9 +1313,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CurveArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CurveArrayPropertyType }
+     *
+     * @return the new instance of {@link CurveArrayPropertyType }
      */
     public CurveArrayPropertyType createCurveArrayPropertyType() {
         return new CurveArrayPropertyType();
@@ -1221,9 +1322,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiSurfaceType }
-     * 
-     * @return
-     *     the new instance of {@link MultiSurfaceType }
+     *
+     * @return the new instance of {@link MultiSurfaceType }
      */
     public MultiSurfaceType createMultiSurfaceType() {
         return new MultiSurfaceType();
@@ -1231,9 +1331,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SurfaceArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SurfaceArrayPropertyType }
+     *
+     * @return the new instance of {@link SurfaceArrayPropertyType }
      */
     public SurfaceArrayPropertyType createSurfaceArrayPropertyType() {
         return new SurfaceArrayPropertyType();
@@ -1241,9 +1340,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiSolidType }
-     * 
-     * @return
-     *     the new instance of {@link MultiSolidType }
+     *
+     * @return the new instance of {@link MultiSolidType }
      */
     public MultiSolidType createMultiSolidType() {
         return new MultiSolidType();
@@ -1251,9 +1349,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SolidArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SolidArrayPropertyType }
+     *
+     * @return the new instance of {@link SolidArrayPropertyType }
      */
     public SolidArrayPropertyType createSolidArrayPropertyType() {
         return new SolidArrayPropertyType();
@@ -1261,9 +1358,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimePrimitivePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimePrimitivePropertyType }
+     *
+     * @return the new instance of {@link TimePrimitivePropertyType }
      */
     public TimePrimitivePropertyType createTimePrimitivePropertyType() {
         return new TimePrimitivePropertyType();
@@ -1271,9 +1367,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeInstantType }
-     * 
-     * @return
-     *     the new instance of {@link TimeInstantType }
+     *
+     * @return the new instance of {@link TimeInstantType }
      */
     public TimeInstantType createTimeInstantType() {
         return new TimeInstantType();
@@ -1281,9 +1376,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimePeriodType }
-     * 
-     * @return
-     *     the new instance of {@link TimePeriodType }
+     *
+     * @return the new instance of {@link TimePeriodType }
      */
     public TimePeriodType createTimePeriodType() {
         return new TimePeriodType();
@@ -1291,9 +1385,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimePositionType }
-     * 
-     * @return
-     *     the new instance of {@link TimePositionType }
+     *
+     * @return the new instance of {@link TimePositionType }
      */
     public TimePositionType createTimePositionType() {
         return new TimePositionType();
@@ -1301,9 +1394,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeIntervalLengthType }
-     * 
-     * @return
-     *     the new instance of {@link TimeIntervalLengthType }
+     *
+     * @return the new instance of {@link TimeIntervalLengthType }
      */
     public TimeIntervalLengthType createTimeIntervalLengthType() {
         return new TimeIntervalLengthType();
@@ -1311,9 +1403,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BoundingShapeType }
-     * 
-     * @return
-     *     the new instance of {@link BoundingShapeType }
+     *
+     * @return the new instance of {@link BoundingShapeType }
      */
     public BoundingShapeType createBoundingShapeType() {
         return new BoundingShapeType();
@@ -1321,9 +1412,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EnvelopeWithTimePeriodType }
-     * 
-     * @return
-     *     the new instance of {@link EnvelopeWithTimePeriodType }
+     *
+     * @return the new instance of {@link EnvelopeWithTimePeriodType }
      */
     public EnvelopeWithTimePeriodType createEnvelopeWithTimePeriodType() {
         return new EnvelopeWithTimePeriodType();
@@ -1331,9 +1421,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectionPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DirectionPropertyType }
+     *
+     * @return the new instance of {@link DirectionPropertyType }
      */
     public DirectionPropertyType createDirectionPropertyType() {
         return new DirectionPropertyType();
@@ -1341,9 +1430,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DynamicFeatureType }
-     * 
-     * @return
-     *     the new instance of {@link DynamicFeatureType }
+     *
+     * @return the new instance of {@link DynamicFeatureType }
      */
     public DynamicFeatureType createDynamicFeatureType() {
         return new DynamicFeatureType();
@@ -1351,9 +1439,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DynamicFeatureCollectionType }
-     * 
-     * @return
-     *     the new instance of {@link DynamicFeatureCollectionType }
+     *
+     * @return the new instance of {@link DynamicFeatureCollectionType }
      */
     public DynamicFeatureCollectionType createDynamicFeatureCollectionType() {
         return new DynamicFeatureCollectionType();
@@ -1361,9 +1448,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DynamicFeatureMemberType }
-     * 
-     * @return
-     *     the new instance of {@link DynamicFeatureMemberType }
+     *
+     * @return the new instance of {@link DynamicFeatureMemberType }
      */
     public DynamicFeatureMemberType createDynamicFeatureMemberType() {
         return new DynamicFeatureMemberType();
@@ -1371,9 +1457,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link HistoryPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link HistoryPropertyType }
+     *
+     * @return the new instance of {@link HistoryPropertyType }
      */
     public HistoryPropertyType createHistoryPropertyType() {
         return new HistoryPropertyType();
@@ -1381,9 +1466,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeometricComplexType }
-     * 
-     * @return
-     *     the new instance of {@link GeometricComplexType }
+     *
+     * @return the new instance of {@link GeometricComplexType }
      */
     public GeometricComplexType createGeometricComplexType() {
         return new GeometricComplexType();
@@ -1391,9 +1475,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompositeCurveType }
-     * 
-     * @return
-     *     the new instance of {@link CompositeCurveType }
+     *
+     * @return the new instance of {@link CompositeCurveType }
      */
     public CompositeCurveType createCompositeCurveType() {
         return new CompositeCurveType();
@@ -1401,9 +1484,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompositeSurfaceType }
-     * 
-     * @return
-     *     the new instance of {@link CompositeSurfaceType }
+     *
+     * @return the new instance of {@link CompositeSurfaceType }
      */
     public CompositeSurfaceType createCompositeSurfaceType() {
         return new CompositeSurfaceType();
@@ -1411,9 +1493,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompositeSolidType }
-     * 
-     * @return
-     *     the new instance of {@link CompositeSolidType }
+     *
+     * @return the new instance of {@link CompositeSolidType }
      */
     public CompositeSolidType createCompositeSolidType() {
         return new CompositeSolidType();
@@ -1421,9 +1502,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NodeType }
-     * 
-     * @return
-     *     the new instance of {@link NodeType }
+     *
+     * @return the new instance of {@link NodeType }
      */
     public NodeType createNodeType() {
         return new NodeType();
@@ -1431,9 +1511,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedNodePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedNodePropertyType }
+     *
+     * @return the new instance of {@link DirectedNodePropertyType }
      */
     public DirectedNodePropertyType createDirectedNodePropertyType() {
         return new DirectedNodePropertyType();
@@ -1441,9 +1520,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EdgeType }
-     * 
-     * @return
-     *     the new instance of {@link EdgeType }
+     *
+     * @return the new instance of {@link EdgeType }
      */
     public EdgeType createEdgeType() {
         return new EdgeType();
@@ -1451,9 +1529,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedEdgePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedEdgePropertyType }
+     *
+     * @return the new instance of {@link DirectedEdgePropertyType }
      */
     public DirectedEdgePropertyType createDirectedEdgePropertyType() {
         return new DirectedEdgePropertyType();
@@ -1461,9 +1538,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FaceType }
-     * 
-     * @return
-     *     the new instance of {@link FaceType }
+     *
+     * @return the new instance of {@link FaceType }
      */
     public FaceType createFaceType() {
         return new FaceType();
@@ -1471,9 +1547,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedFacePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedFacePropertyType }
+     *
+     * @return the new instance of {@link DirectedFacePropertyType }
      */
     public DirectedFacePropertyType createDirectedFacePropertyType() {
         return new DirectedFacePropertyType();
@@ -1481,9 +1556,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoSolidType }
-     * 
-     * @return
-     *     the new instance of {@link TopoSolidType }
+     *
+     * @return the new instance of {@link TopoSolidType }
      */
     public TopoSolidType createTopoSolidType() {
         return new TopoSolidType();
@@ -1491,9 +1565,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedTopoSolidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedTopoSolidPropertyType }
+     *
+     * @return the new instance of {@link DirectedTopoSolidPropertyType }
      */
     public DirectedTopoSolidPropertyType createDirectedTopoSolidPropertyType() {
         return new DirectedTopoSolidPropertyType();
@@ -1501,9 +1574,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoPointType }
-     * 
-     * @return
-     *     the new instance of {@link TopoPointType }
+     *
+     * @return the new instance of {@link TopoPointType }
      */
     public TopoPointType createTopoPointType() {
         return new TopoPointType();
@@ -1511,9 +1583,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoPointPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoPointPropertyType }
+     *
+     * @return the new instance of {@link TopoPointPropertyType }
      */
     public TopoPointPropertyType createTopoPointPropertyType() {
         return new TopoPointPropertyType();
@@ -1521,9 +1592,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoCurveType }
-     * 
-     * @return
-     *     the new instance of {@link TopoCurveType }
+     *
+     * @return the new instance of {@link TopoCurveType }
      */
     public TopoCurveType createTopoCurveType() {
         return new TopoCurveType();
@@ -1531,9 +1601,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoCurvePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoCurvePropertyType }
+     *
+     * @return the new instance of {@link TopoCurvePropertyType }
      */
     public TopoCurvePropertyType createTopoCurvePropertyType() {
         return new TopoCurvePropertyType();
@@ -1541,9 +1610,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoSurfaceType }
-     * 
-     * @return
-     *     the new instance of {@link TopoSurfaceType }
+     *
+     * @return the new instance of {@link TopoSurfaceType }
      */
     public TopoSurfaceType createTopoSurfaceType() {
         return new TopoSurfaceType();
@@ -1551,9 +1619,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoSurfacePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoSurfacePropertyType }
+     *
+     * @return the new instance of {@link TopoSurfacePropertyType }
      */
     public TopoSurfacePropertyType createTopoSurfacePropertyType() {
         return new TopoSurfacePropertyType();
@@ -1561,9 +1628,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoVolumeType }
-     * 
-     * @return
-     *     the new instance of {@link TopoVolumeType }
+     *
+     * @return the new instance of {@link TopoVolumeType }
      */
     public TopoVolumeType createTopoVolumeType() {
         return new TopoVolumeType();
@@ -1571,9 +1637,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoVolumePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoVolumePropertyType }
+     *
+     * @return the new instance of {@link TopoVolumePropertyType }
      */
     public TopoVolumePropertyType createTopoVolumePropertyType() {
         return new TopoVolumePropertyType();
@@ -1581,9 +1646,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoComplexType }
-     * 
-     * @return
-     *     the new instance of {@link TopoComplexType }
+     *
+     * @return the new instance of {@link TopoComplexType }
      */
     public TopoComplexType createTopoComplexType() {
         return new TopoComplexType();
@@ -1591,9 +1655,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoComplexPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoComplexPropertyType }
+     *
+     * @return the new instance of {@link TopoComplexPropertyType }
      */
     public TopoComplexPropertyType createTopoComplexPropertyType() {
         return new TopoComplexPropertyType();
@@ -1601,9 +1664,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoPrimitiveMemberType }
-     * 
-     * @return
-     *     the new instance of {@link TopoPrimitiveMemberType }
+     *
+     * @return the new instance of {@link TopoPrimitiveMemberType }
      */
     public TopoPrimitiveMemberType createTopoPrimitiveMemberType() {
         return new TopoPrimitiveMemberType();
@@ -1611,9 +1673,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoPrimitiveArrayAssociationType }
-     * 
-     * @return
-     *     the new instance of {@link TopoPrimitiveArrayAssociationType }
+     *
+     * @return the new instance of {@link TopoPrimitiveArrayAssociationType }
      */
     public TopoPrimitiveArrayAssociationType createTopoPrimitiveArrayAssociationType() {
         return new TopoPrimitiveArrayAssociationType();
@@ -1621,9 +1682,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }
-     * 
-     * @return
-     *     the new instance of {@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }
+     *
+     * @return the new instance of
+     *         {@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }
      */
     public com.aixm.delorean.core.org.gml.v_3_2.Boolean createBoolean() {
         return new com.aixm.delorean.core.org.gml.v_3_2.Boolean();
@@ -1631,9 +1692,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Category }
-     * 
-     * @return
-     *     the new instance of {@link Category }
+     *
+     * @return the new instance of {@link Category }
      */
     public Category createCategory() {
         return new Category();
@@ -1641,9 +1701,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CodeOrNilReasonListType }
-     * 
-     * @return
-     *     the new instance of {@link CodeOrNilReasonListType }
+     *
+     * @return the new instance of {@link CodeOrNilReasonListType }
      */
     public CodeOrNilReasonListType createCodeOrNilReasonListType() {
         return new CodeOrNilReasonListType();
@@ -1651,9 +1710,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Count }
-     * 
-     * @return
-     *     the new instance of {@link Count }
+     *
+     * @return the new instance of {@link Count }
      */
     public Count createCount() {
         return new Count();
@@ -1661,9 +1719,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Quantity }
-     * 
-     * @return
-     *     the new instance of {@link Quantity }
+     *
+     * @return the new instance of {@link Quantity }
      */
     public Quantity createQuantity() {
         return new Quantity();
@@ -1671,9 +1728,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MeasureOrNilReasonListType }
-     * 
-     * @return
-     *     the new instance of {@link MeasureOrNilReasonListType }
+     *
+     * @return the new instance of {@link MeasureOrNilReasonListType }
      */
     public MeasureOrNilReasonListType createMeasureOrNilReasonListType() {
         return new MeasureOrNilReasonListType();
@@ -1681,9 +1737,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ValuePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ValuePropertyType }
+     *
+     * @return the new instance of {@link ValuePropertyType }
      */
     public ValuePropertyType createValuePropertyType() {
         return new ValuePropertyType();
@@ -1691,9 +1746,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ValueArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ValueArrayPropertyType }
+     *
+     * @return the new instance of {@link ValueArrayPropertyType }
      */
     public ValueArrayPropertyType createValueArrayPropertyType() {
         return new ValueArrayPropertyType();
@@ -1701,9 +1755,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompositeValueType }
-     * 
-     * @return
-     *     the new instance of {@link CompositeValueType }
+     *
+     * @return the new instance of {@link CompositeValueType }
      */
     public CompositeValueType createCompositeValueType() {
         return new CompositeValueType();
@@ -1711,9 +1764,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ValueArrayType }
-     * 
-     * @return
-     *     the new instance of {@link ValueArrayType }
+     *
+     * @return the new instance of {@link ValueArrayType }
      */
     public ValueArrayType createValueArrayType() {
         return new ValueArrayType();
@@ -1721,9 +1773,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CategoryExtentType }
-     * 
-     * @return
-     *     the new instance of {@link CategoryExtentType }
+     *
+     * @return the new instance of {@link CategoryExtentType }
      */
     public CategoryExtentType createCategoryExtentType() {
         return new CategoryExtentType();
@@ -1731,9 +1782,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link QuantityExtentType }
-     * 
-     * @return
-     *     the new instance of {@link QuantityExtentType }
+     *
+     * @return the new instance of {@link QuantityExtentType }
      */
     public QuantityExtentType createQuantityExtentType() {
         return new QuantityExtentType();
@@ -1741,9 +1791,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GridType }
-     * 
-     * @return
-     *     the new instance of {@link GridType }
+     *
+     * @return the new instance of {@link GridType }
      */
     public GridType createGridType() {
         return new GridType();
@@ -1751,9 +1800,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RectifiedGridType }
-     * 
-     * @return
-     *     the new instance of {@link RectifiedGridType }
+     *
+     * @return the new instance of {@link RectifiedGridType }
      */
     public RectifiedGridType createRectifiedGridType() {
         return new RectifiedGridType();
@@ -1761,9 +1809,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DiscreteCoverageType }
-     * 
-     * @return
-     *     the new instance of {@link DiscreteCoverageType }
+     *
+     * @return the new instance of {@link DiscreteCoverageType }
      */
     public DiscreteCoverageType createDiscreteCoverageType() {
         return new DiscreteCoverageType();
@@ -1771,9 +1818,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DomainSetType }
-     * 
-     * @return
-     *     the new instance of {@link DomainSetType }
+     *
+     * @return the new instance of {@link DomainSetType }
      */
     public DomainSetType createDomainSetType() {
         return new DomainSetType();
@@ -1781,9 +1827,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RangeSetType }
-     * 
-     * @return
-     *     the new instance of {@link RangeSetType }
+     *
+     * @return the new instance of {@link RangeSetType }
      */
     public RangeSetType createRangeSetType() {
         return new RangeSetType();
@@ -1791,9 +1836,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DataBlockType }
-     * 
-     * @return
-     *     the new instance of {@link DataBlockType }
+     *
+     * @return the new instance of {@link DataBlockType }
      */
     public DataBlockType createDataBlockType() {
         return new DataBlockType();
@@ -1801,9 +1845,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinatesType }
-     * 
-     * @return
-     *     the new instance of {@link CoordinatesType }
+     *
+     * @return the new instance of {@link CoordinatesType }
      */
     public CoordinatesType createCoordinatesType() {
         return new CoordinatesType();
@@ -1811,9 +1854,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FileType }
-     * 
-     * @return
-     *     the new instance of {@link FileType }
+     *
+     * @return the new instance of {@link FileType }
      */
     public FileType createFileType() {
         return new FileType();
@@ -1821,9 +1863,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoverageFunctionType }
-     * 
-     * @return
-     *     the new instance of {@link CoverageFunctionType }
+     *
+     * @return the new instance of {@link CoverageFunctionType }
      */
     public CoverageFunctionType createCoverageFunctionType() {
         return new CoverageFunctionType();
@@ -1831,9 +1872,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MappingRuleType }
-     * 
-     * @return
-     *     the new instance of {@link MappingRuleType }
+     *
+     * @return the new instance of {@link MappingRuleType }
      */
     public MappingRuleType createMappingRuleType() {
         return new MappingRuleType();
@@ -1841,9 +1881,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GridFunctionType }
-     * 
-     * @return
-     *     the new instance of {@link GridFunctionType }
+     *
+     * @return the new instance of {@link GridFunctionType }
      */
     public GridFunctionType createGridFunctionType() {
         return new GridFunctionType();
@@ -1851,9 +1890,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DomainOfValidity }
-     * 
-     * @return
-     *     the new instance of {@link DomainOfValidity }
+     *
+     * @return the new instance of {@link DomainOfValidity }
      */
     public DomainOfValidity createDomainOfValidity() {
         return new DomainOfValidity();
@@ -1861,9 +1899,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinateSystemAxisType }
-     * 
-     * @return
-     *     the new instance of {@link CoordinateSystemAxisType }
+     *
+     * @return the new instance of {@link CoordinateSystemAxisType }
      */
     public CoordinateSystemAxisType createCoordinateSystemAxisType() {
         return new CoordinateSystemAxisType();
@@ -1871,9 +1908,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinateSystemAxisPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CoordinateSystemAxisPropertyType }
+     *
+     * @return the new instance of {@link CoordinateSystemAxisPropertyType }
      */
     public CoordinateSystemAxisPropertyType createCoordinateSystemAxisPropertyType() {
         return new CoordinateSystemAxisPropertyType();
@@ -1881,9 +1917,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EllipsoidalCSType }
-     * 
-     * @return
-     *     the new instance of {@link EllipsoidalCSType }
+     *
+     * @return the new instance of {@link EllipsoidalCSType }
      */
     public EllipsoidalCSType createEllipsoidalCSType() {
         return new EllipsoidalCSType();
@@ -1891,9 +1926,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CartesianCSType }
-     * 
-     * @return
-     *     the new instance of {@link CartesianCSType }
+     *
+     * @return the new instance of {@link CartesianCSType }
      */
     public CartesianCSType createCartesianCSType() {
         return new CartesianCSType();
@@ -1901,9 +1935,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalCSType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalCSType }
+     *
+     * @return the new instance of {@link VerticalCSType }
      */
     public VerticalCSType createVerticalCSType() {
         return new VerticalCSType();
@@ -1911,9 +1944,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCSType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCSType }
+     *
+     * @return the new instance of {@link TimeCSType }
      */
     public TimeCSType createTimeCSType() {
         return new TimeCSType();
@@ -1921,9 +1953,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearCSType }
-     * 
-     * @return
-     *     the new instance of {@link LinearCSType }
+     *
+     * @return the new instance of {@link LinearCSType }
      */
     public LinearCSType createLinearCSType() {
         return new LinearCSType();
@@ -1931,9 +1962,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UserDefinedCSType }
-     * 
-     * @return
-     *     the new instance of {@link UserDefinedCSType }
+     *
+     * @return the new instance of {@link UserDefinedCSType }
      */
     public UserDefinedCSType createUserDefinedCSType() {
         return new UserDefinedCSType();
@@ -1941,9 +1971,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SphericalCSType }
-     * 
-     * @return
-     *     the new instance of {@link SphericalCSType }
+     *
+     * @return the new instance of {@link SphericalCSType }
      */
     public SphericalCSType createSphericalCSType() {
         return new SphericalCSType();
@@ -1951,9 +1980,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PolarCSType }
-     * 
-     * @return
-     *     the new instance of {@link PolarCSType }
+     *
+     * @return the new instance of {@link PolarCSType }
      */
     public PolarCSType createPolarCSType() {
         return new PolarCSType();
@@ -1961,9 +1989,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CylindricalCSType }
-     * 
-     * @return
-     *     the new instance of {@link CylindricalCSType }
+     *
+     * @return the new instance of {@link CylindricalCSType }
      */
     public CylindricalCSType createCylindricalCSType() {
         return new CylindricalCSType();
@@ -1971,9 +1998,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AffineCSType }
-     * 
-     * @return
-     *     the new instance of {@link AffineCSType }
+     *
+     * @return the new instance of {@link AffineCSType }
      */
     public AffineCSType createAffineCSType() {
         return new AffineCSType();
@@ -1981,9 +2007,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodeticDatumType }
-     * 
-     * @return
-     *     the new instance of {@link GeodeticDatumType }
+     *
+     * @return the new instance of {@link GeodeticDatumType }
      */
     public GeodeticDatumType createGeodeticDatumType() {
         return new GeodeticDatumType();
@@ -1991,9 +2016,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrimeMeridianPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PrimeMeridianPropertyType }
+     *
+     * @return the new instance of {@link PrimeMeridianPropertyType }
      */
     public PrimeMeridianPropertyType createPrimeMeridianPropertyType() {
         return new PrimeMeridianPropertyType();
@@ -2001,9 +2025,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EllipsoidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link EllipsoidPropertyType }
+     *
+     * @return the new instance of {@link EllipsoidPropertyType }
      */
     public EllipsoidPropertyType createEllipsoidPropertyType() {
         return new EllipsoidPropertyType();
@@ -2011,9 +2034,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EllipsoidType }
-     * 
-     * @return
-     *     the new instance of {@link EllipsoidType }
+     *
+     * @return the new instance of {@link EllipsoidType }
      */
     public EllipsoidType createEllipsoidType() {
         return new EllipsoidType();
@@ -2021,9 +2043,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SecondDefiningParameterPropertyElement }
-     * 
-     * @return
-     *     the new instance of {@link SecondDefiningParameterPropertyElement }
+     *
+     * @return the new instance of {@link SecondDefiningParameterPropertyElement }
      */
     public SecondDefiningParameterPropertyElement createSecondDefiningParameterPropertyElement() {
         return new SecondDefiningParameterPropertyElement();
@@ -2031,9 +2052,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SecondDefiningParameter }
-     * 
-     * @return
-     *     the new instance of {@link SecondDefiningParameter }
+     *
+     * @return the new instance of {@link SecondDefiningParameter }
      */
     public SecondDefiningParameter createSecondDefiningParameter() {
         return new SecondDefiningParameter();
@@ -2041,9 +2061,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LengthType }
-     * 
-     * @return
-     *     the new instance of {@link LengthType }
+     *
+     * @return the new instance of {@link LengthType }
      */
     public LengthType createLengthType() {
         return new LengthType();
@@ -2051,9 +2070,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrimeMeridianType }
-     * 
-     * @return
-     *     the new instance of {@link PrimeMeridianType }
+     *
+     * @return the new instance of {@link PrimeMeridianType }
      */
     public PrimeMeridianType createPrimeMeridianType() {
         return new PrimeMeridianType();
@@ -2061,9 +2079,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EngineeringDatumType }
-     * 
-     * @return
-     *     the new instance of {@link EngineeringDatumType }
+     *
+     * @return the new instance of {@link EngineeringDatumType }
      */
     public EngineeringDatumType createEngineeringDatumType() {
         return new EngineeringDatumType();
@@ -2071,9 +2088,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ImageDatumType }
-     * 
-     * @return
-     *     the new instance of {@link ImageDatumType }
+     *
+     * @return the new instance of {@link ImageDatumType }
      */
     public ImageDatumType createImageDatumType() {
         return new ImageDatumType();
@@ -2081,9 +2097,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalDatumType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalDatumType }
+     *
+     * @return the new instance of {@link VerticalDatumType }
      */
     public VerticalDatumType createVerticalDatumType() {
         return new VerticalDatumType();
@@ -2091,9 +2106,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalDatumType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalDatumType }
+     *
+     * @return the new instance of {@link TemporalDatumType }
      */
     public TemporalDatumType createTemporalDatumType() {
         return new TemporalDatumType();
@@ -2101,9 +2115,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinateOperationAccuracy }
-     * 
-     * @return
-     *     the new instance of {@link CoordinateOperationAccuracy }
+     *
+     * @return the new instance of {@link CoordinateOperationAccuracy }
      */
     public CoordinateOperationAccuracy createCoordinateOperationAccuracy() {
         return new CoordinateOperationAccuracy();
@@ -2111,9 +2124,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CRSPropertyType }
+     *
+     * @return the new instance of {@link CRSPropertyType }
      */
     public CRSPropertyType createCRSPropertyType() {
         return new CRSPropertyType();
@@ -2121,9 +2133,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConcatenatedOperationType }
-     * 
-     * @return
-     *     the new instance of {@link ConcatenatedOperationType }
+     *
+     * @return the new instance of {@link ConcatenatedOperationType }
      */
     public ConcatenatedOperationType createConcatenatedOperationType() {
         return new ConcatenatedOperationType();
@@ -2131,9 +2142,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinateOperationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CoordinateOperationPropertyType }
+     *
+     * @return the new instance of {@link CoordinateOperationPropertyType }
      */
     public CoordinateOperationPropertyType createCoordinateOperationPropertyType() {
         return new CoordinateOperationPropertyType();
@@ -2141,9 +2151,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PassThroughOperationType }
-     * 
-     * @return
-     *     the new instance of {@link PassThroughOperationType }
+     *
+     * @return the new instance of {@link PassThroughOperationType }
      */
     public PassThroughOperationType createPassThroughOperationType() {
         return new PassThroughOperationType();
@@ -2151,9 +2160,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConversionType }
-     * 
-     * @return
-     *     the new instance of {@link ConversionType }
+     *
+     * @return the new instance of {@link ConversionType }
      */
     public ConversionType createConversionType() {
         return new ConversionType();
@@ -2161,9 +2169,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationMethodPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link OperationMethodPropertyType }
+     *
+     * @return the new instance of {@link OperationMethodPropertyType }
      */
     public OperationMethodPropertyType createOperationMethodPropertyType() {
         return new OperationMethodPropertyType();
@@ -2171,9 +2178,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AbstractGeneralParameterValuePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link AbstractGeneralParameterValuePropertyType }
+     *
+     * @return the new instance of {@link AbstractGeneralParameterValuePropertyType
+     *         }
      */
     public AbstractGeneralParameterValuePropertyType createAbstractGeneralParameterValuePropertyType() {
         return new AbstractGeneralParameterValuePropertyType();
@@ -2181,9 +2188,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformationType }
-     * 
-     * @return
-     *     the new instance of {@link TransformationType }
+     *
+     * @return the new instance of {@link TransformationType }
      */
     public TransformationType createTransformationType() {
         return new TransformationType();
@@ -2191,9 +2197,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ParameterValueType }
-     * 
-     * @return
-     *     the new instance of {@link ParameterValueType }
+     *
+     * @return the new instance of {@link ParameterValueType }
      */
     public ParameterValueType createParameterValueType() {
         return new ParameterValueType();
@@ -2201,9 +2206,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MeasureListType }
-     * 
-     * @return
-     *     the new instance of {@link MeasureListType }
+     *
+     * @return the new instance of {@link MeasureListType }
      */
     public MeasureListType createMeasureListType() {
         return new MeasureListType();
@@ -2211,9 +2215,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationParameterPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link OperationParameterPropertyType }
+     *
+     * @return the new instance of {@link OperationParameterPropertyType }
      */
     public OperationParameterPropertyType createOperationParameterPropertyType() {
         return new OperationParameterPropertyType();
@@ -2221,9 +2224,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ParameterValueGroupType }
-     * 
-     * @return
-     *     the new instance of {@link ParameterValueGroupType }
+     *
+     * @return the new instance of {@link ParameterValueGroupType }
      */
     public ParameterValueGroupType createParameterValueGroupType() {
         return new ParameterValueGroupType();
@@ -2231,9 +2233,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationParameterGroupPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link OperationParameterGroupPropertyType }
+     *
+     * @return the new instance of {@link OperationParameterGroupPropertyType }
      */
     public OperationParameterGroupPropertyType createOperationParameterGroupPropertyType() {
         return new OperationParameterGroupPropertyType();
@@ -2241,9 +2242,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationMethodType }
-     * 
-     * @return
-     *     the new instance of {@link OperationMethodType }
+     *
+     * @return the new instance of {@link OperationMethodType }
      */
     public OperationMethodType createOperationMethodType() {
         return new OperationMethodType();
@@ -2251,9 +2251,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FormulaCitation }
-     * 
-     * @return
-     *     the new instance of {@link FormulaCitation }
+     *
+     * @return the new instance of {@link FormulaCitation }
      */
     public FormulaCitation createFormulaCitation() {
         return new FormulaCitation();
@@ -2261,9 +2260,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AbstractGeneralOperationParameterPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link AbstractGeneralOperationParameterPropertyType }
+     *
+     * @return the new instance of
+     *         {@link AbstractGeneralOperationParameterPropertyType }
      */
     public AbstractGeneralOperationParameterPropertyType createAbstractGeneralOperationParameterPropertyType() {
         return new AbstractGeneralOperationParameterPropertyType();
@@ -2271,9 +2270,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationParameterType }
-     * 
-     * @return
-     *     the new instance of {@link OperationParameterType }
+     *
+     * @return the new instance of {@link OperationParameterType }
      */
     public OperationParameterType createOperationParameterType() {
         return new OperationParameterType();
@@ -2281,9 +2279,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationParameterGroupType }
-     * 
-     * @return
-     *     the new instance of {@link OperationParameterGroupType }
+     *
+     * @return the new instance of {@link OperationParameterGroupType }
      */
     public OperationParameterGroupType createOperationParameterGroupType() {
         return new OperationParameterGroupType();
@@ -2291,9 +2288,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeneralConversionPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeneralConversionPropertyType }
+     *
+     * @return the new instance of {@link GeneralConversionPropertyType }
      */
     public GeneralConversionPropertyType createGeneralConversionPropertyType() {
         return new GeneralConversionPropertyType();
@@ -2301,9 +2297,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompoundCRSType }
-     * 
-     * @return
-     *     the new instance of {@link CompoundCRSType }
+     *
+     * @return the new instance of {@link CompoundCRSType }
      */
     public CompoundCRSType createCompoundCRSType() {
         return new CompoundCRSType();
@@ -2311,9 +2306,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SingleCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SingleCRSPropertyType }
+     *
+     * @return the new instance of {@link SingleCRSPropertyType }
      */
     public SingleCRSPropertyType createSingleCRSPropertyType() {
         return new SingleCRSPropertyType();
@@ -2321,9 +2315,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodeticCRSType }
-     * 
-     * @return
-     *     the new instance of {@link GeodeticCRSType }
+     *
+     * @return the new instance of {@link GeodeticCRSType }
      */
     public GeodeticCRSType createGeodeticCRSType() {
         return new GeodeticCRSType();
@@ -2331,9 +2324,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EllipsoidalCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link EllipsoidalCSPropertyType }
+     *
+     * @return the new instance of {@link EllipsoidalCSPropertyType }
      */
     public EllipsoidalCSPropertyType createEllipsoidalCSPropertyType() {
         return new EllipsoidalCSPropertyType();
@@ -2341,9 +2333,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CartesianCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CartesianCSPropertyType }
+     *
+     * @return the new instance of {@link CartesianCSPropertyType }
      */
     public CartesianCSPropertyType createCartesianCSPropertyType() {
         return new CartesianCSPropertyType();
@@ -2351,9 +2342,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SphericalCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SphericalCSPropertyType }
+     *
+     * @return the new instance of {@link SphericalCSPropertyType }
      */
     public SphericalCSPropertyType createSphericalCSPropertyType() {
         return new SphericalCSPropertyType();
@@ -2361,9 +2351,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodeticDatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeodeticDatumPropertyType }
+     *
+     * @return the new instance of {@link GeodeticDatumPropertyType }
      */
     public GeodeticDatumPropertyType createGeodeticDatumPropertyType() {
         return new GeodeticDatumPropertyType();
@@ -2371,9 +2360,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalCRSType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalCRSType }
+     *
+     * @return the new instance of {@link VerticalCRSType }
      */
     public VerticalCRSType createVerticalCRSType() {
         return new VerticalCRSType();
@@ -2381,9 +2369,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalCSPropertyType }
+     *
+     * @return the new instance of {@link VerticalCSPropertyType }
      */
     public VerticalCSPropertyType createVerticalCSPropertyType() {
         return new VerticalCSPropertyType();
@@ -2391,9 +2378,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalDatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalDatumPropertyType }
+     *
+     * @return the new instance of {@link VerticalDatumPropertyType }
      */
     public VerticalDatumPropertyType createVerticalDatumPropertyType() {
         return new VerticalDatumPropertyType();
@@ -2401,9 +2387,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ProjectedCRSType }
-     * 
-     * @return
-     *     the new instance of {@link ProjectedCRSType }
+     *
+     * @return the new instance of {@link ProjectedCRSType }
      */
     public ProjectedCRSType createProjectedCRSType() {
         return new ProjectedCRSType();
@@ -2411,9 +2396,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeodeticCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeodeticCRSPropertyType }
+     *
+     * @return the new instance of {@link GeodeticCRSPropertyType }
      */
     public GeodeticCRSPropertyType createGeodeticCRSPropertyType() {
         return new GeodeticCRSPropertyType();
@@ -2421,9 +2405,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DerivedCRSType }
-     * 
-     * @return
-     *     the new instance of {@link DerivedCRSType }
+     *
+     * @return the new instance of {@link DerivedCRSType }
      */
     public DerivedCRSType createDerivedCRSType() {
         return new DerivedCRSType();
@@ -2431,9 +2414,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoordinateSystemPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CoordinateSystemPropertyType }
+     *
+     * @return the new instance of {@link CoordinateSystemPropertyType }
      */
     public CoordinateSystemPropertyType createCoordinateSystemPropertyType() {
         return new CoordinateSystemPropertyType();
@@ -2441,9 +2423,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EngineeringCRSType }
-     * 
-     * @return
-     *     the new instance of {@link EngineeringCRSType }
+     *
+     * @return the new instance of {@link EngineeringCRSType }
      */
     public EngineeringCRSType createEngineeringCRSType() {
         return new EngineeringCRSType();
@@ -2451,9 +2432,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CylindricalCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CylindricalCSPropertyType }
+     *
+     * @return the new instance of {@link CylindricalCSPropertyType }
      */
     public CylindricalCSPropertyType createCylindricalCSPropertyType() {
         return new CylindricalCSPropertyType();
@@ -2461,9 +2441,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LinearCSPropertyType }
+     *
+     * @return the new instance of {@link LinearCSPropertyType }
      */
     public LinearCSPropertyType createLinearCSPropertyType() {
         return new LinearCSPropertyType();
@@ -2471,9 +2450,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PolarCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PolarCSPropertyType }
+     *
+     * @return the new instance of {@link PolarCSPropertyType }
      */
     public PolarCSPropertyType createPolarCSPropertyType() {
         return new PolarCSPropertyType();
@@ -2481,9 +2459,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UserDefinedCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link UserDefinedCSPropertyType }
+     *
+     * @return the new instance of {@link UserDefinedCSPropertyType }
      */
     public UserDefinedCSPropertyType createUserDefinedCSPropertyType() {
         return new UserDefinedCSPropertyType();
@@ -2491,9 +2468,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EngineeringDatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link EngineeringDatumPropertyType }
+     *
+     * @return the new instance of {@link EngineeringDatumPropertyType }
      */
     public EngineeringDatumPropertyType createEngineeringDatumPropertyType() {
         return new EngineeringDatumPropertyType();
@@ -2501,9 +2477,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ImageCRSType }
-     * 
-     * @return
-     *     the new instance of {@link ImageCRSType }
+     *
+     * @return the new instance of {@link ImageCRSType }
      */
     public ImageCRSType createImageCRSType() {
         return new ImageCRSType();
@@ -2511,9 +2486,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AffineCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link AffineCSPropertyType }
+     *
+     * @return the new instance of {@link AffineCSPropertyType }
      */
     public AffineCSPropertyType createAffineCSPropertyType() {
         return new AffineCSPropertyType();
@@ -2521,9 +2495,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ImageDatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ImageDatumPropertyType }
+     *
+     * @return the new instance of {@link ImageDatumPropertyType }
      */
     public ImageDatumPropertyType createImageDatumPropertyType() {
         return new ImageDatumPropertyType();
@@ -2531,9 +2504,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalCRSType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalCRSType }
+     *
+     * @return the new instance of {@link TemporalCRSType }
      */
     public TemporalCRSType createTemporalCRSType() {
         return new TemporalCRSType();
@@ -2541,9 +2513,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCSPropertyType }
+     *
+     * @return the new instance of {@link TimeCSPropertyType }
      */
     public TimeCSPropertyType createTimeCSPropertyType() {
         return new TimeCSPropertyType();
@@ -2551,9 +2522,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalDatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalDatumPropertyType }
+     *
+     * @return the new instance of {@link TemporalDatumPropertyType }
      */
     public TemporalDatumPropertyType createTemporalDatumPropertyType() {
         return new TemporalDatumPropertyType();
@@ -2561,9 +2531,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ObservationType }
-     * 
-     * @return
-     *     the new instance of {@link ObservationType }
+     *
+     * @return the new instance of {@link ObservationType }
      */
     public ObservationType createObservationType() {
         return new ObservationType();
@@ -2571,9 +2540,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ProcedurePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ProcedurePropertyType }
+     *
+     * @return the new instance of {@link ProcedurePropertyType }
      */
     public ProcedurePropertyType createProcedurePropertyType() {
         return new ProcedurePropertyType();
@@ -2581,9 +2549,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TargetPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TargetPropertyType }
+     *
+     * @return the new instance of {@link TargetPropertyType }
      */
     public TargetPropertyType createTargetPropertyType() {
         return new TargetPropertyType();
@@ -2591,9 +2558,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ResultType }
-     * 
-     * @return
-     *     the new instance of {@link ResultType }
+     *
+     * @return the new instance of {@link ResultType }
      */
     public ResultType createResultType() {
         return new ResultType();
@@ -2601,9 +2567,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedObservationType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedObservationType }
+     *
+     * @return the new instance of {@link DirectedObservationType }
      */
     public DirectedObservationType createDirectedObservationType() {
         return new DirectedObservationType();
@@ -2611,9 +2576,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectedObservationAtDistanceType }
-     * 
-     * @return
-     *     the new instance of {@link DirectedObservationAtDistanceType }
+     *
+     * @return the new instance of {@link DirectedObservationAtDistanceType }
      */
     public DirectedObservationAtDistanceType createDirectedObservationAtDistanceType() {
         return new DirectedObservationAtDistanceType();
@@ -2621,9 +2585,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeNodeType }
-     * 
-     * @return
-     *     the new instance of {@link TimeNodeType }
+     *
+     * @return the new instance of {@link TimeNodeType }
      */
     public TimeNodeType createTimeNodeType() {
         return new TimeNodeType();
@@ -2631,9 +2594,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeEdgeType }
-     * 
-     * @return
-     *     the new instance of {@link TimeEdgeType }
+     *
+     * @return the new instance of {@link TimeEdgeType }
      */
     public TimeEdgeType createTimeEdgeType() {
         return new TimeEdgeType();
@@ -2641,9 +2603,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeReferenceSystemType }
-     * 
-     * @return
-     *     the new instance of {@link TimeReferenceSystemType }
+     *
+     * @return the new instance of {@link TimeReferenceSystemType }
      */
     public TimeReferenceSystemType createTimeReferenceSystemType() {
         return new TimeReferenceSystemType();
@@ -2651,9 +2612,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCoordinateSystemType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCoordinateSystemType }
+     *
+     * @return the new instance of {@link TimeCoordinateSystemType }
      */
     public TimeCoordinateSystemType createTimeCoordinateSystemType() {
         return new TimeCoordinateSystemType();
@@ -2661,9 +2621,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCalendarType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCalendarType }
+     *
+     * @return the new instance of {@link TimeCalendarType }
      */
     public TimeCalendarType createTimeCalendarType() {
         return new TimeCalendarType();
@@ -2671,9 +2630,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCalendarEraType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCalendarEraType }
+     *
+     * @return the new instance of {@link TimeCalendarEraType }
      */
     public TimeCalendarEraType createTimeCalendarEraType() {
         return new TimeCalendarEraType();
@@ -2681,9 +2639,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeClockType }
-     * 
-     * @return
-     *     the new instance of {@link TimeClockType }
+     *
+     * @return the new instance of {@link TimeClockType }
      */
     public TimeClockType createTimeClockType() {
         return new TimeClockType();
@@ -2691,9 +2648,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeOrdinalReferenceSystemType }
-     * 
-     * @return
-     *     the new instance of {@link TimeOrdinalReferenceSystemType }
+     *
+     * @return the new instance of {@link TimeOrdinalReferenceSystemType }
      */
     public TimeOrdinalReferenceSystemType createTimeOrdinalReferenceSystemType() {
         return new TimeOrdinalReferenceSystemType();
@@ -2701,9 +2657,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeOrdinalEraType }
-     * 
-     * @return
-     *     the new instance of {@link TimeOrdinalEraType }
+     *
+     * @return the new instance of {@link TimeOrdinalEraType }
      */
     public TimeOrdinalEraType createTimeOrdinalEraType() {
         return new TimeOrdinalEraType();
@@ -2711,9 +2666,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DatumPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DatumPropertyType }
+     *
+     * @return the new instance of {@link DatumPropertyType }
      */
     public DatumPropertyType createDatumPropertyType() {
         return new DatumPropertyType();
@@ -2721,9 +2675,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SingleOperationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link SingleOperationPropertyType }
+     *
+     * @return the new instance of {@link SingleOperationPropertyType }
      */
     public SingleOperationPropertyType createSingleOperationPropertyType() {
         return new SingleOperationPropertyType();
@@ -2731,9 +2684,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OperationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link OperationPropertyType }
+     *
+     * @return the new instance of {@link OperationPropertyType }
      */
     public OperationPropertyType createOperationPropertyType() {
         return new OperationPropertyType();
@@ -2741,9 +2693,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeneralTransformationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeneralTransformationPropertyType }
+     *
+     * @return the new instance of {@link GeneralTransformationPropertyType }
      */
     public GeneralTransformationPropertyType createGeneralTransformationPropertyType() {
         return new GeneralTransformationPropertyType();
@@ -2751,9 +2702,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConcatenatedOperationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ConcatenatedOperationPropertyType }
+     *
+     * @return the new instance of {@link ConcatenatedOperationPropertyType }
      */
     public ConcatenatedOperationPropertyType createConcatenatedOperationPropertyType() {
         return new ConcatenatedOperationPropertyType();
@@ -2761,9 +2711,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PassThroughOperationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PassThroughOperationPropertyType }
+     *
+     * @return the new instance of {@link PassThroughOperationPropertyType }
      */
     public PassThroughOperationPropertyType createPassThroughOperationPropertyType() {
         return new PassThroughOperationPropertyType();
@@ -2771,9 +2720,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConversionPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ConversionPropertyType }
+     *
+     * @return the new instance of {@link ConversionPropertyType }
      */
     public ConversionPropertyType createConversionPropertyType() {
         return new ConversionPropertyType();
@@ -2781,9 +2729,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TransformationPropertyType }
+     *
+     * @return the new instance of {@link TransformationPropertyType }
      */
     public TransformationPropertyType createTransformationPropertyType() {
         return new TransformationPropertyType();
@@ -2791,9 +2738,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DMSAngleType }
-     * 
-     * @return
-     *     the new instance of {@link DMSAngleType }
+     *
+     * @return the new instance of {@link DMSAngleType }
      */
     public DMSAngleType createDMSAngleType() {
         return new DMSAngleType();
@@ -2801,9 +2747,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalCSType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalCSType }
+     *
+     * @return the new instance of {@link TemporalCSType }
      */
     public TemporalCSType createTemporalCSType() {
         return new TemporalCSType();
@@ -2811,9 +2756,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalCSPropertyType }
+     *
+     * @return the new instance of {@link TemporalCSPropertyType }
      */
     public TemporalCSPropertyType createTemporalCSPropertyType() {
         return new TemporalCSPropertyType();
@@ -2821,9 +2765,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ObliqueCartesianCSType }
-     * 
-     * @return
-     *     the new instance of {@link ObliqueCartesianCSType }
+     *
+     * @return the new instance of {@link ObliqueCartesianCSType }
      */
     public ObliqueCartesianCSType createObliqueCartesianCSType() {
         return new ObliqueCartesianCSType();
@@ -2831,9 +2774,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ObliqueCartesianCSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ObliqueCartesianCSPropertyType }
+     *
+     * @return the new instance of {@link ObliqueCartesianCSPropertyType }
      */
     public ObliqueCartesianCSPropertyType createObliqueCartesianCSPropertyType() {
         return new ObliqueCartesianCSPropertyType();
@@ -2841,9 +2783,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CompoundCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CompoundCRSPropertyType }
+     *
+     * @return the new instance of {@link CompoundCRSPropertyType }
      */
     public CompoundCRSPropertyType createCompoundCRSPropertyType() {
         return new CompoundCRSPropertyType();
@@ -2851,9 +2792,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VerticalCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link VerticalCRSPropertyType }
+     *
+     * @return the new instance of {@link VerticalCRSPropertyType }
      */
     public VerticalCRSPropertyType createVerticalCRSPropertyType() {
         return new VerticalCRSPropertyType();
@@ -2861,9 +2801,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeographicCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeographicCRSPropertyType }
+     *
+     * @return the new instance of {@link GeographicCRSPropertyType }
      */
     public GeographicCRSPropertyType createGeographicCRSPropertyType() {
         return new GeographicCRSPropertyType();
@@ -2871,9 +2810,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ProjectedCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ProjectedCRSPropertyType }
+     *
+     * @return the new instance of {@link ProjectedCRSPropertyType }
      */
     public ProjectedCRSPropertyType createProjectedCRSPropertyType() {
         return new ProjectedCRSPropertyType();
@@ -2881,9 +2819,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DerivedCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link DerivedCRSPropertyType }
+     *
+     * @return the new instance of {@link DerivedCRSPropertyType }
      */
     public DerivedCRSPropertyType createDerivedCRSPropertyType() {
         return new DerivedCRSPropertyType();
@@ -2891,9 +2828,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EngineeringCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link EngineeringCRSPropertyType }
+     *
+     * @return the new instance of {@link EngineeringCRSPropertyType }
      */
     public EngineeringCRSPropertyType createEngineeringCRSPropertyType() {
         return new EngineeringCRSPropertyType();
@@ -2901,9 +2837,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ImageCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ImageCRSPropertyType }
+     *
+     * @return the new instance of {@link ImageCRSPropertyType }
      */
     public ImageCRSPropertyType createImageCRSPropertyType() {
         return new ImageCRSPropertyType();
@@ -2911,9 +2846,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TemporalCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TemporalCRSPropertyType }
+     *
+     * @return the new instance of {@link TemporalCRSPropertyType }
      */
     public TemporalCRSPropertyType createTemporalCRSPropertyType() {
         return new TemporalCRSPropertyType();
@@ -2921,9 +2855,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeographicCRSType }
-     * 
-     * @return
-     *     the new instance of {@link GeographicCRSType }
+     *
+     * @return the new instance of {@link GeographicCRSType }
      */
     public GeographicCRSType createGeographicCRSType() {
         return new GeographicCRSType();
@@ -2931,9 +2864,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeocentricCRSType }
-     * 
-     * @return
-     *     the new instance of {@link GeocentricCRSType }
+     *
+     * @return the new instance of {@link GeocentricCRSType }
      */
     public GeocentricCRSType createGeocentricCRSType() {
         return new GeocentricCRSType();
@@ -2941,9 +2873,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeocentricCRSPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeocentricCRSPropertyType }
+     *
+     * @return the new instance of {@link GeocentricCRSPropertyType }
      */
     public GeocentricCRSPropertyType createGeocentricCRSPropertyType() {
         return new GeocentricCRSPropertyType();
@@ -2951,9 +2882,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DegreesType }
-     * 
-     * @return
-     *     the new instance of {@link DegreesType }
+     *
+     * @return the new instance of {@link DegreesType }
      */
     public DegreesType createDegreesType() {
         return new DegreesType();
@@ -2961,9 +2891,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArrayAssociationType }
-     * 
-     * @return
-     *     the new instance of {@link ArrayAssociationType }
+     *
+     * @return the new instance of {@link ArrayAssociationType }
      */
     public ArrayAssociationType createArrayAssociationType() {
         return new ArrayAssociationType();
@@ -2971,9 +2900,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MetaDataPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MetaDataPropertyType }
+     *
+     * @return the new instance of {@link MetaDataPropertyType }
      */
     public MetaDataPropertyType createMetaDataPropertyType() {
         return new MetaDataPropertyType();
@@ -2981,9 +2909,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BagType }
-     * 
-     * @return
-     *     the new instance of {@link BagType }
+     *
+     * @return the new instance of {@link BagType }
      */
     public BagType createBagType() {
         return new BagType();
@@ -2991,9 +2918,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ArrayType }
-     * 
-     * @return
-     *     the new instance of {@link ArrayType }
+     *
+     * @return the new instance of {@link ArrayType }
      */
     public ArrayType createArrayType() {
         return new ArrayType();
@@ -3001,9 +2927,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GenericMetaDataType }
-     * 
-     * @return
-     *     the new instance of {@link GenericMetaDataType }
+     *
+     * @return the new instance of {@link GenericMetaDataType }
      */
     public GenericMetaDataType createGenericMetaDataType() {
         return new GenericMetaDataType();
@@ -3011,9 +2936,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LocationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LocationPropertyType }
+     *
+     * @return the new instance of {@link LocationPropertyType }
      */
     public LocationPropertyType createLocationPropertyType() {
         return new LocationPropertyType();
@@ -3021,9 +2945,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PriorityLocationPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link PriorityLocationPropertyType }
+     *
+     * @return the new instance of {@link PriorityLocationPropertyType }
      */
     public PriorityLocationPropertyType createPriorityLocationPropertyType() {
         return new PriorityLocationPropertyType();
@@ -3031,9 +2954,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FeaturePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link FeaturePropertyType }
+     *
+     * @return the new instance of {@link FeaturePropertyType }
      */
     public FeaturePropertyType createFeaturePropertyType() {
         return new FeaturePropertyType();
@@ -3041,9 +2963,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FeatureArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link FeatureArrayPropertyType }
+     *
+     * @return the new instance of {@link FeatureArrayPropertyType }
      */
     public FeatureArrayPropertyType createFeatureArrayPropertyType() {
         return new FeatureArrayPropertyType();
@@ -3051,9 +2972,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FeatureCollectionType }
-     * 
-     * @return
-     *     the new instance of {@link FeatureCollectionType }
+     *
+     * @return the new instance of {@link FeatureCollectionType }
      */
     public FeatureCollectionType createFeatureCollectionType() {
         return new FeatureCollectionType();
@@ -3061,9 +2981,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link IndirectEntryType }
-     * 
-     * @return
-     *     the new instance of {@link IndirectEntryType }
+     *
+     * @return the new instance of {@link IndirectEntryType }
      */
     public IndirectEntryType createIndirectEntryType() {
         return new IndirectEntryType();
@@ -3071,9 +2990,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DefinitionProxyType }
-     * 
-     * @return
-     *     the new instance of {@link DefinitionProxyType }
+     *
+     * @return the new instance of {@link DefinitionProxyType }
      */
     public DefinitionProxyType createDefinitionProxyType() {
         return new DefinitionProxyType();
@@ -3081,9 +2999,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiPointPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiPointPropertyType }
+     *
+     * @return the new instance of {@link MultiPointPropertyType }
      */
     public MultiPointPropertyType createMultiPointPropertyType() {
         return new MultiPointPropertyType();
@@ -3091,9 +3008,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiCurvePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiCurvePropertyType }
+     *
+     * @return the new instance of {@link MultiCurvePropertyType }
      */
     public MultiCurvePropertyType createMultiCurvePropertyType() {
         return new MultiCurvePropertyType();
@@ -3101,9 +3017,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiSurfacePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiSurfacePropertyType }
+     *
+     * @return the new instance of {@link MultiSurfacePropertyType }
      */
     public MultiSurfacePropertyType createMultiSurfacePropertyType() {
         return new MultiSurfacePropertyType();
@@ -3111,9 +3026,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MovingObjectStatusType }
-     * 
-     * @return
-     *     the new instance of {@link MovingObjectStatusType }
+     *
+     * @return the new instance of {@link MovingObjectStatusType }
      */
     public MovingObjectStatusType createMovingObjectStatusType() {
         return new MovingObjectStatusType();
@@ -3121,9 +3035,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiSolidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiSolidPropertyType }
+     *
+     * @return the new instance of {@link MultiSolidPropertyType }
      */
     public MultiSolidPropertyType createMultiSolidPropertyType() {
         return new MultiSolidPropertyType();
@@ -3131,9 +3044,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MultiGeometryPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link MultiGeometryPropertyType }
+     *
+     * @return the new instance of {@link MultiGeometryPropertyType }
      */
     public MultiGeometryPropertyType createMultiGeometryPropertyType() {
         return new MultiGeometryPropertyType();
@@ -3141,9 +3053,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CodeListType }
-     * 
-     * @return
-     *     the new instance of {@link CodeListType }
+     *
+     * @return the new instance of {@link CodeListType }
      */
     public CodeListType createCodeListType() {
         return new CodeListType();
@@ -3151,9 +3062,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DefinitionBaseType }
-     * 
-     * @return
-     *     the new instance of {@link DefinitionBaseType }
+     *
+     * @return the new instance of {@link DefinitionBaseType }
      */
     public DefinitionBaseType createDefinitionBaseType() {
         return new DefinitionBaseType();
@@ -3161,9 +3071,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FormulaType }
-     * 
-     * @return
-     *     the new instance of {@link FormulaType }
+     *
+     * @return the new instance of {@link FormulaType }
      */
     public FormulaType createFormulaType() {
         return new FormulaType();
@@ -3171,9 +3080,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ScaleType }
-     * 
-     * @return
-     *     the new instance of {@link ScaleType }
+     *
+     * @return the new instance of {@link ScaleType }
      */
     public ScaleType createScaleType() {
         return new ScaleType();
@@ -3181,9 +3089,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeType }
-     * 
-     * @return
-     *     the new instance of {@link TimeType }
+     *
+     * @return the new instance of {@link TimeType }
      */
     public TimeType createTimeType() {
         return new TimeType();
@@ -3191,9 +3098,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GridLengthType }
-     * 
-     * @return
-     *     the new instance of {@link GridLengthType }
+     *
+     * @return the new instance of {@link GridLengthType }
      */
     public GridLengthType createGridLengthType() {
         return new GridLengthType();
@@ -3201,9 +3107,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AreaType }
-     * 
-     * @return
-     *     the new instance of {@link AreaType }
+     *
+     * @return the new instance of {@link AreaType }
      */
     public AreaType createAreaType() {
         return new AreaType();
@@ -3211,9 +3116,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VolumeType }
-     * 
-     * @return
-     *     the new instance of {@link VolumeType }
+     *
+     * @return the new instance of {@link VolumeType }
      */
     public VolumeType createVolumeType() {
         return new VolumeType();
@@ -3221,9 +3125,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SpeedType }
-     * 
-     * @return
-     *     the new instance of {@link SpeedType }
+     *
+     * @return the new instance of {@link SpeedType }
      */
     public SpeedType createSpeedType() {
         return new SpeedType();
@@ -3231,9 +3134,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeometricPrimitivePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeometricPrimitivePropertyType }
+     *
+     * @return the new instance of {@link GeometricPrimitivePropertyType }
      */
     public GeometricPrimitivePropertyType createGeometricPrimitivePropertyType() {
         return new GeometricPrimitivePropertyType();
@@ -3241,9 +3143,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LinearRingPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LinearRingPropertyType }
+     *
+     * @return the new instance of {@link LinearRingPropertyType }
      */
     public LinearRingPropertyType createLinearRingPropertyType() {
         return new LinearRingPropertyType();
@@ -3251,9 +3152,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KnotType }
-     * 
-     * @return
-     *     the new instance of {@link KnotType }
+     *
+     * @return the new instance of {@link KnotType }
      */
     public KnotType createKnotType() {
         return new KnotType();
@@ -3261,9 +3161,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KnotPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link KnotPropertyType }
+     *
+     * @return the new instance of {@link KnotPropertyType }
      */
     public KnotPropertyType createKnotPropertyType() {
         return new KnotPropertyType();
@@ -3271,9 +3170,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RingPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link RingPropertyType }
+     *
+     * @return the new instance of {@link RingPropertyType }
      */
     public RingPropertyType createRingPropertyType() {
         return new RingPropertyType();
@@ -3281,9 +3179,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LineStringSegmentArrayPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link LineStringSegmentArrayPropertyType }
+     *
+     * @return the new instance of {@link LineStringSegmentArrayPropertyType }
      */
     public LineStringSegmentArrayPropertyType createLineStringSegmentArrayPropertyType() {
         return new LineStringSegmentArrayPropertyType();
@@ -3291,9 +3188,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ShellPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link ShellPropertyType }
+     *
+     * @return the new instance of {@link ShellPropertyType }
      */
     public ShellPropertyType createShellPropertyType() {
         return new ShellPropertyType();
@@ -3301,9 +3197,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RelatedTimeType }
-     * 
-     * @return
-     *     the new instance of {@link RelatedTimeType }
+     *
+     * @return the new instance of {@link RelatedTimeType }
      */
     public RelatedTimeType createRelatedTimeType() {
         return new RelatedTimeType();
@@ -3311,9 +3206,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeInstantPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeInstantPropertyType }
+     *
+     * @return the new instance of {@link TimeInstantPropertyType }
      */
     public TimeInstantPropertyType createTimeInstantPropertyType() {
         return new TimeInstantPropertyType();
@@ -3321,9 +3215,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimePeriodPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimePeriodPropertyType }
+     *
+     * @return the new instance of {@link TimePeriodPropertyType }
      */
     public TimePeriodPropertyType createTimePeriodPropertyType() {
         return new TimePeriodPropertyType();
@@ -3331,9 +3224,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectionVectorType }
-     * 
-     * @return
-     *     the new instance of {@link DirectionVectorType }
+     *
+     * @return the new instance of {@link DirectionVectorType }
      */
     public DirectionVectorType createDirectionVectorType() {
         return new DirectionVectorType();
@@ -3341,9 +3233,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DirectionDescriptionType }
-     * 
-     * @return
-     *     the new instance of {@link DirectionDescriptionType }
+     *
+     * @return the new instance of {@link DirectionDescriptionType }
      */
     public DirectionDescriptionType createDirectionDescriptionType() {
         return new DirectionDescriptionType();
@@ -3351,9 +3242,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeometricComplexPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link GeometricComplexPropertyType }
+     *
+     * @return the new instance of {@link GeometricComplexPropertyType }
      */
     public GeometricComplexPropertyType createGeometricComplexPropertyType() {
         return new GeometricComplexPropertyType();
@@ -3361,9 +3251,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NodeOrEdgePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link NodeOrEdgePropertyType }
+     *
+     * @return the new instance of {@link NodeOrEdgePropertyType }
      */
     public NodeOrEdgePropertyType createNodeOrEdgePropertyType() {
         return new NodeOrEdgePropertyType();
@@ -3371,9 +3260,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NodePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link NodePropertyType }
+     *
+     * @return the new instance of {@link NodePropertyType }
      */
     public NodePropertyType createNodePropertyType() {
         return new NodePropertyType();
@@ -3381,9 +3269,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FaceOrTopoSolidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link FaceOrTopoSolidPropertyType }
+     *
+     * @return the new instance of {@link FaceOrTopoSolidPropertyType }
      */
     public FaceOrTopoSolidPropertyType createFaceOrTopoSolidPropertyType() {
         return new FaceOrTopoSolidPropertyType();
@@ -3391,9 +3278,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopoSolidPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TopoSolidPropertyType }
+     *
+     * @return the new instance of {@link TopoSolidPropertyType }
      */
     public TopoSolidPropertyType createTopoSolidPropertyType() {
         return new TopoSolidPropertyType();
@@ -3401,9 +3287,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BooleanPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link BooleanPropertyType }
+     *
+     * @return the new instance of {@link BooleanPropertyType }
      */
     public BooleanPropertyType createBooleanPropertyType() {
         return new BooleanPropertyType();
@@ -3411,9 +3296,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CategoryPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CategoryPropertyType }
+     *
+     * @return the new instance of {@link CategoryPropertyType }
      */
     public CategoryPropertyType createCategoryPropertyType() {
         return new CategoryPropertyType();
@@ -3421,9 +3305,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link QuantityPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link QuantityPropertyType }
+     *
+     * @return the new instance of {@link QuantityPropertyType }
      */
     public QuantityPropertyType createQuantityPropertyType() {
         return new QuantityPropertyType();
@@ -3431,9 +3314,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CountPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link CountPropertyType }
+     *
+     * @return the new instance of {@link CountPropertyType }
      */
     public CountPropertyType createCountPropertyType() {
         return new CountPropertyType();
@@ -3441,9 +3323,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GridLimitsType }
-     * 
-     * @return
-     *     the new instance of {@link GridLimitsType }
+     *
+     * @return the new instance of {@link GridLimitsType }
      */
     public GridLimitsType createGridLimitsType() {
         return new GridLimitsType();
@@ -3451,9 +3332,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GridEnvelopeType }
-     * 
-     * @return
-     *     the new instance of {@link GridEnvelopeType }
+     *
+     * @return the new instance of {@link GridEnvelopeType }
      */
     public GridEnvelopeType createGridEnvelopeType() {
         return new GridEnvelopeType();
@@ -3461,9 +3341,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SequenceRuleType }
-     * 
-     * @return
-     *     the new instance of {@link SequenceRuleType }
+     *
+     * @return the new instance of {@link SequenceRuleType }
      */
     public SequenceRuleType createSequenceRuleType() {
         return new SequenceRuleType();
@@ -3471,9 +3350,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeTopologyPrimitivePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeTopologyPrimitivePropertyType }
+     *
+     * @return the new instance of {@link TimeTopologyPrimitivePropertyType }
      */
     public TimeTopologyPrimitivePropertyType createTimeTopologyPrimitivePropertyType() {
         return new TimeTopologyPrimitivePropertyType();
@@ -3481,9 +3359,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeTopologyComplexPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeTopologyComplexPropertyType }
+     *
+     * @return the new instance of {@link TimeTopologyComplexPropertyType }
      */
     public TimeTopologyComplexPropertyType createTimeTopologyComplexPropertyType() {
         return new TimeTopologyComplexPropertyType();
@@ -3491,9 +3368,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeNodePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeNodePropertyType }
+     *
+     * @return the new instance of {@link TimeNodePropertyType }
      */
     public TimeNodePropertyType createTimeNodePropertyType() {
         return new TimeNodePropertyType();
@@ -3501,9 +3377,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeEdgePropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeEdgePropertyType }
+     *
+     * @return the new instance of {@link TimeEdgePropertyType }
      */
     public TimeEdgePropertyType createTimeEdgePropertyType() {
         return new TimeEdgePropertyType();
@@ -3511,9 +3386,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCalendarPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCalendarPropertyType }
+     *
+     * @return the new instance of {@link TimeCalendarPropertyType }
      */
     public TimeCalendarPropertyType createTimeCalendarPropertyType() {
         return new TimeCalendarPropertyType();
@@ -3521,9 +3395,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeCalendarEraPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeCalendarEraPropertyType }
+     *
+     * @return the new instance of {@link TimeCalendarEraPropertyType }
      */
     public TimeCalendarEraPropertyType createTimeCalendarEraPropertyType() {
         return new TimeCalendarEraPropertyType();
@@ -3531,9 +3404,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeClockPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeClockPropertyType }
+     *
+     * @return the new instance of {@link TimeClockPropertyType }
      */
     public TimeClockPropertyType createTimeClockPropertyType() {
         return new TimeClockPropertyType();
@@ -3541,9 +3413,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TimeOrdinalEraPropertyType }
-     * 
-     * @return
-     *     the new instance of {@link TimeOrdinalEraPropertyType }
+     *
+     * @return the new instance of {@link TimeOrdinalEraPropertyType }
      */
     public TimeOrdinalEraPropertyType createTimeOrdinalEraPropertyType() {
         return new TimeOrdinalEraPropertyType();
@@ -3551,9 +3422,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AngleChoiceType }
-     * 
-     * @return
-     *     the new instance of {@link AngleChoiceType }
+     *
+     * @return the new instance of {@link AngleChoiceType }
      */
     public AngleChoiceType createAngleChoiceType() {
         return new AngleChoiceType();
@@ -3561,9 +3431,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ControlPoint }
-     * 
-     * @return
-     *     the new instance of {@link ControlPoint }
+     *
+     * @return the new instance of {@link ControlPoint }
      */
     public ControlPoint createControlPoint() {
         return new ControlPoint();
@@ -3571,9 +3440,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rows }
-     * 
-     * @return
-     *     the new instance of {@link Rows }
+     *
+     * @return the new instance of {@link Rows }
      */
     public Rows createRows() {
         return new Rows();
@@ -3581,9 +3449,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Row }
-     * 
-     * @return
-     *     the new instance of {@link Row }
+     *
+     * @return the new instance of {@link Row }
      */
     public Row createRow() {
         return new Row();
@@ -3591,9 +3458,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RefLocation }
-     * 
-     * @return
-     *     the new instance of {@link RefLocation }
+     *
+     * @return the new instance of {@link RefLocation }
      */
     public RefLocation createRefLocation() {
         return new RefLocation();
@@ -3601,11 +3467,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Object
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractObject")
     public JAXBElement<Object> createAbstractObject(Object value) {
@@ -3613,12 +3479,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGMLType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGMLType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGMLType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGMLType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGML", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<AbstractGMLType> createAbstractGML(AbstractGMLType value) {
@@ -3626,12 +3493,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AssociationRoleType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "abstractAssociationRole")
     public JAXBElement<AssociationRoleType> createAbstractAssociationRole(AssociationRoleType value) {
@@ -3639,12 +3507,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AssociationRoleType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "abstractStrictAssociationRole")
     public JAXBElement<AssociationRoleType> createAbstractStrictAssociationRole(AssociationRoleType value) {
@@ -3652,12 +3521,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "abstractReference")
     public JAXBElement<ReferenceType> createAbstractReference(ReferenceType value) {
@@ -3665,12 +3535,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link InlinePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link InlinePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link InlinePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link InlinePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "abstractInlineProperty")
     public JAXBElement<InlinePropertyType> createAbstractInlineProperty(InlinePropertyType value) {
@@ -3679,11 +3550,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "reversePropertyName")
     public JAXBElement<String> createReversePropertyName(String value) {
@@ -3691,12 +3562,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "description")
     public JAXBElement<StringOrRefType> createDescription(StringOrRefType value) {
@@ -3704,12 +3576,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "descriptionReference")
     public JAXBElement<ReferenceType> createDescriptionReference(ReferenceType value) {
@@ -3718,11 +3591,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "name")
     public JAXBElement<CodeType> createName(CodeType value) {
@@ -3730,12 +3603,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeWithAuthorityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "identifier")
     public JAXBElement<CodeWithAuthorityType> createIdentifier(CodeWithAuthorityType value) {
@@ -3744,11 +3618,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "targetElement")
     public JAXBElement<String> createTargetElement(String value) {
@@ -3757,11 +3631,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "associationName")
     public JAXBElement<String> createAssociationName(String value) {
@@ -3770,11 +3644,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "defaultCodeSpace")
     public JAXBElement<String> createDefaultCodeSpace(String value) {
@@ -3783,11 +3657,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "gmlProfileSchema")
     public JAXBElement<String> createGmlProfileSchema(String value) {
@@ -3795,12 +3669,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DefinitionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DefinitionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DefinitionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DefinitionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Definition", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<DefinitionType> createDefinition(DefinitionType value) {
@@ -3809,11 +3684,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "remarks")
     public JAXBElement<String> createRemarks(String value) {
@@ -3821,12 +3696,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DictionaryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DictionaryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Dictionary", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<DictionaryType> createDictionary(DictionaryType value) {
@@ -3834,12 +3710,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DictionaryEntryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dictionaryEntry")
     public JAXBElement<DictionaryEntryType> createDictionaryEntry(DictionaryEntryType value) {
@@ -3847,12 +3724,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UnitOfMeasureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnitOfMeasureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UnitOfMeasureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UnitOfMeasureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "unitOfMeasure")
     public JAXBElement<UnitOfMeasureType> createUnitOfMeasure(UnitOfMeasureType value) {
@@ -3860,12 +3738,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UnitDefinitionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnitDefinitionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UnitDefinitionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UnitDefinitionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "UnitDefinition", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<UnitDefinitionType> createUnitDefinition(UnitDefinitionType value) {
@@ -3873,12 +3752,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "quantityType")
     public JAXBElement<StringOrRefType> createQuantityType(StringOrRefType value) {
@@ -3886,12 +3766,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "quantityTypeReference")
     public JAXBElement<ReferenceType> createQuantityTypeReference(ReferenceType value) {
@@ -3900,11 +3781,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "catalogSymbol")
     public JAXBElement<CodeType> createCatalogSymbol(CodeType value) {
@@ -3912,12 +3793,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BaseUnitType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BaseUnitType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BaseUnitType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BaseUnitType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "BaseUnit", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "UnitDefinition")
     public JAXBElement<BaseUnitType> createBaseUnit(BaseUnitType value) {
@@ -3925,12 +3807,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DerivedUnitType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DerivedUnitType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DerivedUnitType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DerivedUnitType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DerivedUnit", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "UnitDefinition")
     public JAXBElement<DerivedUnitType> createDerivedUnit(DerivedUnitType value) {
@@ -3938,12 +3821,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DerivationUnitTermType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DerivationUnitTermType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DerivationUnitTermType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DerivationUnitTermType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "derivationUnitTerm")
     public JAXBElement<DerivationUnitTermType> createDerivationUnitTerm(DerivationUnitTermType value) {
@@ -3951,12 +3835,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConventionalUnitType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConventionalUnitType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConventionalUnitType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConventionalUnitType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ConventionalUnit", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "UnitDefinition")
     public JAXBElement<ConventionalUnitType> createConventionalUnit(ConventionalUnitType value) {
@@ -3964,38 +3849,44 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConversionToPreferredUnitType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConversionToPreferredUnitType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConversionToPreferredUnitType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConversionToPreferredUnitType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "conversionToPreferredUnit")
-    public JAXBElement<ConversionToPreferredUnitType> createConversionToPreferredUnit(ConversionToPreferredUnitType value) {
+    public JAXBElement<ConversionToPreferredUnitType> createConversionToPreferredUnit(
+            ConversionToPreferredUnitType value) {
         return new JAXBElement<>(_ConversionToPreferredUnit_QNAME, ConversionToPreferredUnitType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConversionToPreferredUnitType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConversionToPreferredUnitType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConversionToPreferredUnitType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConversionToPreferredUnitType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "roughConversionToPreferredUnit")
-    public JAXBElement<ConversionToPreferredUnitType> createRoughConversionToPreferredUnit(ConversionToPreferredUnitType value) {
-        return new JAXBElement<>(_RoughConversionToPreferredUnit_QNAME, ConversionToPreferredUnitType.class, null, value);
+    public JAXBElement<ConversionToPreferredUnitType> createRoughConversionToPreferredUnit(
+            ConversionToPreferredUnitType value) {
+        return new JAXBElement<>(_RoughConversionToPreferredUnit_QNAME, ConversionToPreferredUnitType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link MeasureType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "measure")
     public JAXBElement<MeasureType> createMeasure(MeasureType value) {
@@ -4003,12 +3894,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link AngleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "angle")
     public JAXBElement<AngleType> createAngle(AngleType value) {
@@ -4016,12 +3908,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeometryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeometry", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<AbstractGeometryType> createAbstractGeometry(AbstractGeometryType value) {
@@ -4029,12 +3922,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectPositionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DirectPositionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectPositionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectPositionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pos")
     public JAXBElement<DirectPositionType> createPos(DirectPositionType value) {
@@ -4042,12 +3936,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectPositionListType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectPositionListType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectPositionListType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectPositionListType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "posList")
     public JAXBElement<DirectPositionListType> createPosList(DirectPositionListType value) {
@@ -4055,12 +3950,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VectorType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link VectorType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VectorType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link VectorType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "vector")
     public JAXBElement<VectorType> createVector(VectorType value) {
@@ -4068,12 +3964,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EnvelopeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link EnvelopeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EnvelopeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EnvelopeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Envelope", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<EnvelopeType> createEnvelope(EnvelopeType value) {
@@ -4081,25 +3978,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeometricPrimitive", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometry")
-    public JAXBElement<AbstractGeometricPrimitiveType> createAbstractGeometricPrimitive(AbstractGeometricPrimitiveType value) {
+    public JAXBElement<AbstractGeometricPrimitiveType> createAbstractGeometricPrimitive(
+            AbstractGeometricPrimitiveType value) {
         return new JAXBElement<>(_AbstractGeometricPrimitive_QNAME, AbstractGeometricPrimitiveType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link PointType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Point", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricPrimitive")
     public JAXBElement<PointType> createPoint(PointType value) {
@@ -4107,12 +4007,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pointProperty")
     public JAXBElement<PointPropertyType> createPointProperty(PointPropertyType value) {
@@ -4120,12 +4021,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCurveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricPrimitive")
     public JAXBElement<AbstractCurveType> createAbstractCurve(AbstractCurveType value) {
@@ -4133,12 +4035,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "curveProperty")
     public JAXBElement<CurvePropertyType> createCurveProperty(CurvePropertyType value) {
@@ -4146,12 +4049,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link LineStringType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LineStringType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LineString", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurve")
     public JAXBElement<LineStringType> createLineString(LineStringType value) {
@@ -4159,12 +4063,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractSurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricPrimitive")
     public JAXBElement<AbstractSurfaceType> createAbstractSurface(AbstractSurfaceType value) {
@@ -4172,12 +4077,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "surfaceProperty")
     public JAXBElement<SurfacePropertyType> createSurfaceProperty(SurfacePropertyType value) {
@@ -4185,12 +4091,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PolygonType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link PolygonType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Polygon", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurface")
     public JAXBElement<PolygonType> createPolygon(PolygonType value) {
@@ -4198,12 +4105,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractRingPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractRingPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractRingPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractRingPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "exterior")
     public JAXBElement<AbstractRingPropertyType> createExterior(AbstractRingPropertyType value) {
@@ -4211,12 +4119,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractRingPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractRingPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractRingPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractRingPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "interior")
     public JAXBElement<AbstractRingPropertyType> createInterior(AbstractRingPropertyType value) {
@@ -4224,12 +4133,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractRingType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractRingType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractRingType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractRingType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractRing", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<AbstractRingType> createAbstractRing(AbstractRingType value) {
@@ -4237,12 +4147,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LinearRingType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link LinearRingType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LinearRingType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LinearRingType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LinearRing", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractRing")
     public JAXBElement<LinearRingType> createLinearRing(LinearRingType value) {
@@ -4250,12 +4161,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CurveType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Curve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurve")
     public JAXBElement<CurveType> createCurve(CurveType value) {
@@ -4263,12 +4175,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "baseCurve")
     public JAXBElement<CurvePropertyType> createBaseCurve(CurvePropertyType value) {
@@ -4276,12 +4189,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrientableCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OrientableCurveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OrientableCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurve")
     public JAXBElement<OrientableCurveType> createOrientableCurve(OrientableCurveType value) {
@@ -4289,12 +4203,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCurveSegmentType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCurveSegmentType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCurveSegmentType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCurveSegmentType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCurveSegment", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<AbstractCurveSegmentType> createAbstractCurveSegment(AbstractCurveSegmentType value) {
@@ -4302,12 +4217,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurveSegmentArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CurveSegmentArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurveSegmentArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurveSegmentArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "segments")
     public JAXBElement<CurveSegmentArrayPropertyType> createSegments(CurveSegmentArrayPropertyType value) {
@@ -4315,12 +4231,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LineStringSegmentType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link LineStringSegmentType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LineStringSegmentType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LineStringSegmentType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LineStringSegment", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<LineStringSegmentType> createLineStringSegment(LineStringSegmentType value) {
@@ -4328,12 +4245,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArcStringType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArcStringType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArcStringType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ArcStringType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ArcString", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<ArcStringType> createArcString(ArcStringType value) {
@@ -4342,11 +4260,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArcType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArcType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ArcType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Arc", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "ArcString")
     public JAXBElement<ArcType> createArc(ArcType value) {
@@ -4354,12 +4272,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CircleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CircleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CircleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CircleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Circle", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Arc")
     public JAXBElement<CircleType> createCircle(CircleType value) {
@@ -4367,12 +4286,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArcStringByBulgeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ArcStringByBulgeType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArcStringByBulgeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ArcStringByBulgeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ArcStringByBulge", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<ArcStringByBulgeType> createArcStringByBulge(ArcStringByBulgeType value) {
@@ -4380,12 +4300,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArcByBulgeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArcByBulgeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArcByBulgeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ArcByBulgeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ArcByBulge", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "ArcStringByBulge")
     public JAXBElement<ArcByBulgeType> createArcByBulge(ArcByBulgeType value) {
@@ -4393,12 +4314,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArcByCenterPointType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ArcByCenterPointType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArcByCenterPointType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ArcByCenterPointType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ArcByCenterPoint", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<ArcByCenterPointType> createArcByCenterPoint(ArcByCenterPointType value) {
@@ -4406,12 +4328,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CircleByCenterPointType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CircleByCenterPointType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CircleByCenterPointType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CircleByCenterPointType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CircleByCenterPoint", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "ArcByCenterPoint")
     public JAXBElement<CircleByCenterPointType> createCircleByCenterPoint(CircleByCenterPointType value) {
@@ -4419,12 +4342,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CubicSplineType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CubicSplineType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CubicSplineType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CubicSplineType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CubicSpline", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<CubicSplineType> createCubicSpline(CubicSplineType value) {
@@ -4432,12 +4356,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BSplineType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BSplineType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BSplineType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BSplineType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "BSpline", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<BSplineType> createBSpline(BSplineType value) {
@@ -4445,12 +4370,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BezierType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BezierType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BezierType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BezierType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Bezier", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "BSpline")
     public JAXBElement<BezierType> createBezier(BezierType value) {
@@ -4458,12 +4384,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OffsetCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link OffsetCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OffsetCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OffsetCurveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OffsetCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<OffsetCurveType> createOffsetCurve(OffsetCurveType value) {
@@ -4471,12 +4398,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AffinePlacementType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AffinePlacementType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AffinePlacementType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AffinePlacementType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AffinePlacement", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<AffinePlacementType> createAffinePlacement(AffinePlacementType value) {
@@ -4484,12 +4412,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ClothoidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ClothoidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ClothoidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ClothoidType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Clothoid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<ClothoidType> createClothoid(ClothoidType value) {
@@ -4497,12 +4426,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodesicStringType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeodesicStringType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodesicStringType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodesicStringType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeodesicString", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurveSegment")
     public JAXBElement<GeodesicStringType> createGeodesicString(GeodesicStringType value) {
@@ -4510,12 +4440,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodesicType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeodesicType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodesicType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link GeodesicType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Geodesic", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "GeodesicString")
     public JAXBElement<GeodesicType> createGeodesic(GeodesicType value) {
@@ -4523,12 +4454,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Surface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurface")
     public JAXBElement<SurfaceType> createSurface(SurfaceType value) {
@@ -4536,12 +4468,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "baseSurface")
     public JAXBElement<SurfacePropertyType> createBaseSurface(SurfacePropertyType value) {
@@ -4549,12 +4482,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OrientableSurfaceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OrientableSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OrientableSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurface")
     public JAXBElement<OrientableSurfaceType> createOrientableSurface(OrientableSurfaceType value) {
@@ -4562,12 +4496,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractSurfacePatchType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractSurfacePatchType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractSurfacePatchType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractSurfacePatchType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractSurfacePatch")
     public JAXBElement<AbstractSurfacePatchType> createAbstractSurfacePatch(AbstractSurfacePatchType value) {
@@ -4575,12 +4510,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "patches")
     public JAXBElement<SurfacePatchArrayPropertyType> createPatches(SurfacePatchArrayPropertyType value) {
@@ -4588,12 +4524,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PolygonPatchType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PolygonPatchType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PolygonPatchType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PolygonPatchType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "PolygonPatch", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurfacePatch")
     public JAXBElement<PolygonPatchType> createPolygonPatch(PolygonPatchType value) {
@@ -4601,12 +4538,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TriangleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TriangleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TriangleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TriangleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Triangle", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurfacePatch")
     public JAXBElement<TriangleType> createTriangle(TriangleType value) {
@@ -4614,12 +4552,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RectangleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link RectangleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RectangleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RectangleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Rectangle", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurfacePatch")
     public JAXBElement<RectangleType> createRectangle(RectangleType value) {
@@ -4628,11 +4567,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RingType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RingType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RingType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Ring", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractRing")
     public JAXBElement<RingType> createRing(RingType value) {
@@ -4640,12 +4579,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "curveMember")
     public JAXBElement<CurvePropertyType> createCurveMember(CurvePropertyType value) {
@@ -4653,25 +4593,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractParametricCurveSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractParametricCurveSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurfacePatch")
-    public JAXBElement<AbstractParametricCurveSurfaceType> createAbstractParametricCurveSurface(AbstractParametricCurveSurfaceType value) {
-        return new JAXBElement<>(_AbstractParametricCurveSurface_QNAME, AbstractParametricCurveSurfaceType.class, null, value);
+    public JAXBElement<AbstractParametricCurveSurfaceType> createAbstractParametricCurveSurface(
+            AbstractParametricCurveSurfaceType value) {
+        return new JAXBElement<>(_AbstractParametricCurveSurface_QNAME, AbstractParametricCurveSurfaceType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGriddedSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGriddedSurfaceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGriddedSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGriddedSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGriddedSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractParametricCurveSurface")
     public JAXBElement<AbstractGriddedSurfaceType> createAbstractGriddedSurface(AbstractGriddedSurfaceType value) {
@@ -4680,11 +4624,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ConeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ConeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Cone", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGriddedSurface")
     public JAXBElement<ConeType> createCone(ConeType value) {
@@ -4692,12 +4636,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CylinderType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CylinderType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CylinderType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CylinderType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Cylinder", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGriddedSurface")
     public JAXBElement<CylinderType> createCylinder(CylinderType value) {
@@ -4705,12 +4650,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SphereType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SphereType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SphereType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SphereType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Sphere", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGriddedSurface")
     public JAXBElement<SphereType> createSphere(SphereType value) {
@@ -4718,12 +4664,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "PolyhedralSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Surface")
     public JAXBElement<SurfaceType> createPolyhedralSurface(SurfaceType value) {
@@ -4731,12 +4678,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SurfaceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TriangulatedSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Surface")
     public JAXBElement<SurfaceType> createTriangulatedSurface(SurfaceType value) {
@@ -4745,11 +4693,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TinType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Tin", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "TriangulatedSurface")
     public JAXBElement<TinType> createTin(TinType value) {
@@ -4757,12 +4705,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractSolidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractSolidType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractSolid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricPrimitive")
     public JAXBElement<AbstractSolidType> createAbstractSolid(AbstractSolidType value) {
@@ -4770,12 +4719,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SolidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SolidPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SolidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SolidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "solidProperty")
     public JAXBElement<SolidPropertyType> createSolidProperty(SolidPropertyType value) {
@@ -4783,12 +4733,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SolidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SolidType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Solid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSolid")
     public JAXBElement<SolidType> createSolid(SolidType value) {
@@ -4796,12 +4747,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ShellType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ShellType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ShellType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ShellType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Shell", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<ShellType> createShell(ShellType value) {
@@ -4809,12 +4761,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "surfaceMember")
     public JAXBElement<SurfacePropertyType> createSurfaceMember(SurfacePropertyType value) {
@@ -4822,25 +4775,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeometricAggregateType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeometricAggregate", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometry")
-    public JAXBElement<AbstractGeometricAggregateType> createAbstractGeometricAggregate(AbstractGeometricAggregateType value) {
+    public JAXBElement<AbstractGeometricAggregateType> createAbstractGeometricAggregate(
+            AbstractGeometricAggregateType value) {
         return new JAXBElement<>(_AbstractGeometricAggregate_QNAME, AbstractGeometricAggregateType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiGeometryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiGeometryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiGeometry", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricAggregate")
     public JAXBElement<MultiGeometryType> createMultiGeometry(MultiGeometryType value) {
@@ -4848,12 +4804,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeometryPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeometryPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeometryPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeometryPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geometryMember")
     public JAXBElement<GeometryPropertyType> createGeometryMember(GeometryPropertyType value) {
@@ -4861,12 +4818,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeometryArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeometryArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeometryArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeometryArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geometryMembers")
     public JAXBElement<GeometryArrayPropertyType> createGeometryMembers(GeometryArrayPropertyType value) {
@@ -4874,12 +4832,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiPointType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiPoint", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricAggregate")
     public JAXBElement<MultiPointType> createMultiPoint(MultiPointType value) {
@@ -4887,12 +4846,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pointMember")
     public JAXBElement<PointPropertyType> createPointMember(PointPropertyType value) {
@@ -4900,12 +4860,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PointArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pointMembers")
     public JAXBElement<PointArrayPropertyType> createPointMembers(PointArrayPropertyType value) {
@@ -4913,12 +4874,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiCurveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricAggregate")
     public JAXBElement<MultiCurveType> createMultiCurve(MultiCurveType value) {
@@ -4926,12 +4888,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurveArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CurveArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurveArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurveArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "curveMembers")
     public JAXBElement<CurveArrayPropertyType> createCurveMembers(CurveArrayPropertyType value) {
@@ -4939,12 +4902,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricAggregate")
     public JAXBElement<MultiSurfaceType> createMultiSurface(MultiSurfaceType value) {
@@ -4952,12 +4916,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SurfaceArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfaceArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "surfaceMembers")
     public JAXBElement<SurfaceArrayPropertyType> createSurfaceMembers(SurfaceArrayPropertyType value) {
@@ -4965,12 +4930,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSolidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSolidType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiSolid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometricAggregate")
     public JAXBElement<MultiSolidType> createMultiSolid(MultiSolidType value) {
@@ -4978,12 +4944,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SolidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SolidPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SolidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SolidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "solidMember")
     public JAXBElement<SolidPropertyType> createSolidMember(SolidPropertyType value) {
@@ -4991,12 +4958,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SolidArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SolidArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SolidArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SolidArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "solidMembers")
     public JAXBElement<SolidArrayPropertyType> createSolidMembers(SolidArrayPropertyType value) {
@@ -5004,12 +4972,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimeObjectType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeObjectType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimeObject", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<AbstractTimeObjectType> createAbstractTimeObject(AbstractTimeObjectType value) {
@@ -5017,12 +4986,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimePrimitiveType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimePrimitiveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimePrimitive", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeObject")
     public JAXBElement<AbstractTimePrimitiveType> createAbstractTimePrimitive(AbstractTimePrimitiveType value) {
@@ -5030,12 +5000,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimePrimitivePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimePrimitivePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimePrimitivePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimePrimitivePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "validTime")
     public JAXBElement<TimePrimitivePropertyType> createValidTime(TimePrimitivePropertyType value) {
@@ -5043,22 +5014,23 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeloreanTimeSliceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DeloreanTimeSliceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DeloreanTimeSliceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DeloreanTimeSliceType }{@code >}
      */
-    
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimeComplexType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeComplexType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimeComplex", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeObject")
     public JAXBElement<AbstractTimeComplexType> createAbstractTimeComplex(AbstractTimeComplexType value) {
@@ -5066,25 +5038,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimeGeometricPrimitive", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimePrimitive")
-    public JAXBElement<AbstractTimeGeometricPrimitiveType> createAbstractTimeGeometricPrimitive(AbstractTimeGeometricPrimitiveType value) {
-        return new JAXBElement<>(_AbstractTimeGeometricPrimitive_QNAME, AbstractTimeGeometricPrimitiveType.class, null, value);
+    public JAXBElement<AbstractTimeGeometricPrimitiveType> createAbstractTimeGeometricPrimitive(
+            AbstractTimeGeometricPrimitiveType value) {
+        return new JAXBElement<>(_AbstractTimeGeometricPrimitive_QNAME, AbstractTimeGeometricPrimitiveType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeInstantType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeInstantType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeInstant", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeGeometricPrimitive")
     public JAXBElement<TimeInstantType> createTimeInstant(TimeInstantType value) {
@@ -5092,12 +5068,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimePeriodType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimePeriodType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimePeriod", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeGeometricPrimitive")
     public JAXBElement<TimePeriodType> createTimePeriod(TimePeriodType value) {
@@ -5105,12 +5082,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimePositionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimePositionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimePositionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimePositionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "timePosition")
     public JAXBElement<TimePositionType> createTimePosition(TimePositionType value) {
@@ -5119,11 +5097,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Duration }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Duration
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "duration")
     public JAXBElement<Duration> createDuration(Duration value) {
@@ -5131,12 +5109,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeIntervalLengthType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimeIntervalLengthType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeIntervalLengthType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeIntervalLengthType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "timeInterval")
     public JAXBElement<TimeIntervalLengthType> createTimeInterval(TimeIntervalLengthType value) {
@@ -5144,12 +5123,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractFeatureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractFeatureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractFeatureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractFeatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractFeature", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<AbstractFeatureType> createAbstractFeature(AbstractFeatureType value) {
@@ -5157,12 +5137,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BoundingShapeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BoundingShapeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BoundingShapeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link BoundingShapeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "boundedBy")
     public JAXBElement<BoundingShapeType> createBoundedBy(BoundingShapeType value) {
@@ -5170,12 +5151,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EnvelopeWithTimePeriodType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "EnvelopeWithTimePeriod", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Envelope")
     public JAXBElement<EnvelopeWithTimePeriodType> createEnvelopeWithTimePeriod(EnvelopeWithTimePeriodType value) {
@@ -5184,11 +5166,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "locationName")
     public JAXBElement<CodeType> createLocationName(CodeType value) {
@@ -5196,12 +5178,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "locationReference")
     public JAXBElement<ReferenceType> createLocationReference(ReferenceType value) {
@@ -5209,12 +5192,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectionPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectionPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectionPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectionPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "direction")
     public JAXBElement<DirectionPropertyType> createDirection(DirectionPropertyType value) {
@@ -5222,12 +5206,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dataSource")
     public JAXBElement<StringOrRefType> createDataSource(StringOrRefType value) {
@@ -5235,12 +5220,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dataSourceReference")
     public JAXBElement<ReferenceType> createDataSourceReference(ReferenceType value) {
@@ -5248,12 +5234,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DynamicFeatureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DynamicFeatureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DynamicFeatureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DynamicFeatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DynamicFeature", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
     public JAXBElement<DynamicFeatureType> createDynamicFeature(DynamicFeatureType value) {
@@ -5261,25 +5248,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DynamicFeatureCollectionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DynamicFeatureCollectionType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DynamicFeatureCollectionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DynamicFeatureCollectionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DynamicFeatureCollection", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "DynamicFeature")
-    public JAXBElement<DynamicFeatureCollectionType> createDynamicFeatureCollection(DynamicFeatureCollectionType value) {
+    public JAXBElement<DynamicFeatureCollectionType> createDynamicFeatureCollection(
+            DynamicFeatureCollectionType value) {
         return new JAXBElement<>(_DynamicFeatureCollection_QNAME, DynamicFeatureCollectionType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DynamicFeatureMemberType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DynamicFeatureMemberType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DynamicFeatureMemberType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DynamicFeatureMemberType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dynamicMembers")
     public JAXBElement<DynamicFeatureMemberType> createDynamicMembers(DynamicFeatureMemberType value) {
@@ -5287,12 +5277,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeSliceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimeSliceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimeSliceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeSliceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimeSlice", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<AbstractTimeSliceType> createAbstractTimeSlice(AbstractTimeSliceType value) {
@@ -5300,12 +5291,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link HistoryPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "history")
     public JAXBElement<HistoryPropertyType> createHistory(HistoryPropertyType value) {
@@ -5313,12 +5305,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeometricComplexType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeometricComplexType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeometricComplex", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometry")
     public JAXBElement<GeometricComplexType> createGeometricComplex(GeometricComplexType value) {
@@ -5326,12 +5319,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompositeCurveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CompositeCurve", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCurve")
     public JAXBElement<CompositeCurveType> createCompositeCurve(CompositeCurveType value) {
@@ -5339,12 +5333,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CompositeSurfaceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompositeSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CompositeSurface", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSurface")
     public JAXBElement<CompositeSurfaceType> createCompositeSurface(CompositeSurfaceType value) {
@@ -5352,12 +5347,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeSolidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompositeSolidType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CompositeSolid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSolid")
     public JAXBElement<CompositeSolidType> createCompositeSolid(CompositeSolidType value) {
@@ -5365,12 +5361,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTopologyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTopologyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTopologyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTopologyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTopology", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<AbstractTopologyType> createAbstractTopology(AbstractTopologyType value) {
@@ -5378,12 +5375,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTopoPrimitiveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTopoPrimitive", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopology")
     public JAXBElement<AbstractTopoPrimitiveType> createAbstractTopoPrimitive(AbstractTopoPrimitiveType value) {
@@ -5392,11 +5390,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link NodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link NodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link NodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Node", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopoPrimitive")
     public JAXBElement<NodeType> createNode(NodeType value) {
@@ -5404,12 +5402,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedNodePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedNodePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedNodePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedNodePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "directedNode")
     public JAXBElement<DirectedNodePropertyType> createDirectedNode(DirectedNodePropertyType value) {
@@ -5418,11 +5417,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EdgeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EdgeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Edge", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopoPrimitive")
     public JAXBElement<EdgeType> createEdge(EdgeType value) {
@@ -5430,12 +5429,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedEdgePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedEdgePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedEdgePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedEdgePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "directedEdge")
     public JAXBElement<DirectedEdgePropertyType> createDirectedEdge(DirectedEdgePropertyType value) {
@@ -5444,11 +5444,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FaceType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link FaceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Face", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopoPrimitive")
     public JAXBElement<FaceType> createFace(FaceType value) {
@@ -5456,12 +5456,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedFacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedFacePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedFacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedFacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "directedFace")
     public JAXBElement<DirectedFacePropertyType> createDirectedFace(DirectedFacePropertyType value) {
@@ -5469,12 +5470,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoSolidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoSolidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TopoSolidType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoSolid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopoPrimitive")
     public JAXBElement<TopoSolidType> createTopoSolid(TopoSolidType value) {
@@ -5482,12 +5484,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedTopoSolidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedTopoSolidPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedTopoSolidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedTopoSolidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "directedTopoSolid")
     public JAXBElement<DirectedTopoSolidPropertyType> createDirectedTopoSolid(DirectedTopoSolidPropertyType value) {
@@ -5495,12 +5498,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoPointType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoPointType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoPointType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TopoPointType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoPoint")
     public JAXBElement<TopoPointType> createTopoPoint(TopoPointType value) {
@@ -5508,12 +5512,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoPointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoPointPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoPointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoPointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoPointProperty")
     public JAXBElement<TopoPointPropertyType> createTopoPointProperty(TopoPointPropertyType value) {
@@ -5521,12 +5526,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoCurveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoCurveType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoCurveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TopoCurveType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoCurve")
     public JAXBElement<TopoCurveType> createTopoCurve(TopoCurveType value) {
@@ -5534,12 +5540,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoCurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoCurvePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoCurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoCurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoCurveProperty")
     public JAXBElement<TopoCurvePropertyType> createTopoCurveProperty(TopoCurvePropertyType value) {
@@ -5547,12 +5554,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoSurfaceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoSurfaceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoSurfaceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoSurfaceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoSurface")
     public JAXBElement<TopoSurfaceType> createTopoSurface(TopoSurfaceType value) {
@@ -5560,12 +5568,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoSurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoSurfacePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoSurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoSurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoSurfaceProperty")
     public JAXBElement<TopoSurfacePropertyType> createTopoSurfaceProperty(TopoSurfacePropertyType value) {
@@ -5573,12 +5582,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoVolumeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoVolumeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoVolumeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoVolumeType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoVolume")
     public JAXBElement<TopoVolumeType> createTopoVolume(TopoVolumeType value) {
@@ -5586,12 +5596,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoVolumePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoVolumePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoVolumePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoVolumePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoVolumeProperty")
     public JAXBElement<TopoVolumePropertyType> createTopoVolumeProperty(TopoVolumePropertyType value) {
@@ -5599,12 +5610,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoComplexType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoComplexType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TopoComplex", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTopology")
     public JAXBElement<TopoComplexType> createTopoComplex(TopoComplexType value) {
@@ -5612,12 +5624,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoComplexPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "subComplex")
     public JAXBElement<TopoComplexPropertyType> createSubComplex(TopoComplexPropertyType value) {
@@ -5625,12 +5638,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoComplexPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "superComplex")
     public JAXBElement<TopoComplexPropertyType> createSuperComplex(TopoComplexPropertyType value) {
@@ -5638,12 +5652,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoComplexPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "maximalComplex")
     public JAXBElement<TopoComplexPropertyType> createMaximalComplex(TopoComplexPropertyType value) {
@@ -5651,12 +5666,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoPrimitiveMemberType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoPrimitiveMemberType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoPrimitiveMemberType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoPrimitiveMemberType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoPrimitiveMember")
     public JAXBElement<TopoPrimitiveMemberType> createTopoPrimitiveMember(TopoPrimitiveMemberType value) {
@@ -5664,38 +5680,42 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoPrimitiveArrayAssociationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoPrimitiveArrayAssociationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoPrimitiveArrayAssociationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoPrimitiveArrayAssociationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoPrimitiveMembers")
-    public JAXBElement<TopoPrimitiveArrayAssociationType> createTopoPrimitiveMembers(TopoPrimitiveArrayAssociationType value) {
+    public JAXBElement<TopoPrimitiveArrayAssociationType> createTopoPrimitiveMembers(
+            TopoPrimitiveArrayAssociationType value) {
         return new JAXBElement<>(_TopoPrimitiveMembers_QNAME, TopoPrimitiveArrayAssociationType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Boolean", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValue")
-    public JAXBElement<com.aixm.delorean.core.org.gml.v_3_2.Boolean> createBoolean(com.aixm.delorean.core.org.gml.v_3_2.Boolean value) {
+    public JAXBElement<com.aixm.delorean.core.org.gml.v_3_2.Boolean> createBoolean(
+            com.aixm.delorean.core.org.gml.v_3_2.Boolean value) {
         return new JAXBElement<>(_Boolean_QNAME, com.aixm.delorean.core.org.gml.v_3_2.Boolean.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Object
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractScalarValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<Object> createAbstractScalarValue(Object value) {
@@ -5704,11 +5724,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Object
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<Object> createAbstractValue(Object value) {
@@ -5716,25 +5736,26 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link String }{@code >}{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link List
+     *         }{@code <}{@link String }{@code >}{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "BooleanList", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValueList")
     public JAXBElement<List<String>> createBooleanList(List<String> value) {
-        return new JAXBElement<>(_BooleanList_QNAME, ((Class) List.class), null, ((List<String> ) value));
+        return new JAXBElement<>(_BooleanList_QNAME, ((Class) List.class), null, ((List<String>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Object
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractScalarValueList", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<Object> createAbstractScalarValueList(Object value) {
@@ -5743,11 +5764,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Category }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Category }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Category
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Category", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValue")
     public JAXBElement<Category> createCategory(Category value) {
@@ -5755,12 +5776,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeOrNilReasonListType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeOrNilReasonListType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeOrNilReasonListType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeOrNilReasonListType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CategoryList", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValueList")
     public JAXBElement<CodeOrNilReasonListType> createCategoryList(CodeOrNilReasonListType value) {
@@ -5769,11 +5791,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Count }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Count }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Count
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Count", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValue")
     public JAXBElement<Count> createCount(Count value) {
@@ -5781,25 +5803,26 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link String }{@code >}{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link List
+     *         }{@code <}{@link String }{@code >}{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CountList", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValueList")
     public JAXBElement<List<String>> createCountList(List<String> value) {
-        return new JAXBElement<>(_CountList_QNAME, ((Class) List.class), null, ((List<String> ) value));
+        return new JAXBElement<>(_CountList_QNAME, ((Class) List.class), null, ((List<String>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Quantity }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Quantity }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Quantity
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Quantity", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValue")
     public JAXBElement<Quantity> createQuantity(Quantity value) {
@@ -5807,12 +5830,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureOrNilReasonListType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MeasureOrNilReasonListType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureOrNilReasonListType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MeasureOrNilReasonListType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "QuantityList", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractScalarValueList")
     public JAXBElement<MeasureOrNilReasonListType> createQuantityList(MeasureOrNilReasonListType value) {
@@ -5820,12 +5844,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValuePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValuePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ValuePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ValuePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueProperty")
     public JAXBElement<ValuePropertyType> createValueProperty(ValuePropertyType value) {
@@ -5833,12 +5858,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValuePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValuePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ValuePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ValuePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueComponent")
     public JAXBElement<ValuePropertyType> createValueComponent(ValuePropertyType value) {
@@ -5846,12 +5872,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValueArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ValueArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ValueArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ValueArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueComponents")
     public JAXBElement<ValueArrayPropertyType> createValueComponents(ValueArrayPropertyType value) {
@@ -5859,12 +5886,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeValueType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompositeValueType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompositeValueType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompositeValueType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CompositeValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<CompositeValueType> createCompositeValue(CompositeValueType value) {
@@ -5872,12 +5900,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValueArrayType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValueArrayType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ValueArrayType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ValueArrayType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ValueArray", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "CompositeValue")
     public JAXBElement<ValueArrayType> createValueArray(ValueArrayType value) {
@@ -5885,12 +5914,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CategoryExtentType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CategoryExtentType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CategoryExtentType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CategoryExtentType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CategoryExtent", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<CategoryExtentType> createCategoryExtent(CategoryExtentType value) {
@@ -5898,25 +5928,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link String }{@code >}{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link List
+     *         }{@code <}{@link String }{@code >}{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CountExtent", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<List<String>> createCountExtent(List<String> value) {
-        return new JAXBElement<>(_CountExtent_QNAME, ((Class) List.class), null, ((List<String> ) value));
+        return new JAXBElement<>(_CountExtent_QNAME, ((Class) List.class), null, ((List<String>) value));
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link QuantityExtentType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link QuantityExtentType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link QuantityExtentType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link QuantityExtentType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "QuantityExtent", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractValue")
     public JAXBElement<QuantityExtentType> createQuantityExtent(QuantityExtentType value) {
@@ -5925,11 +5957,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link GridType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Grid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractImplicitGeometry")
     public JAXBElement<GridType> createGrid(GridType value) {
@@ -5937,12 +5969,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeometryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractImplicitGeometry", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeometry")
     public JAXBElement<AbstractGeometryType> createAbstractImplicitGeometry(AbstractGeometryType value) {
@@ -5950,12 +5983,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link RectifiedGridType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link RectifiedGridType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "RectifiedGrid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Grid")
     public JAXBElement<RectifiedGridType> createRectifiedGrid(RectifiedGridType value) {
@@ -5963,12 +5997,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
     public JAXBElement<AbstractCoverageType> createAbstractCoverage(AbstractCoverageType value) {
@@ -5976,12 +6011,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractDiscreteCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoverage")
     public JAXBElement<DiscreteCoverageType> createAbstractDiscreteCoverage(DiscreteCoverageType value) {
@@ -5989,25 +6025,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractContinuousCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractContinuousCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractContinuousCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractContinuousCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractContinuousCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
-    public JAXBElement<AbstractContinuousCoverageType> createAbstractContinuousCoverage(AbstractContinuousCoverageType value) {
+    public JAXBElement<AbstractContinuousCoverageType> createAbstractContinuousCoverage(
+            AbstractContinuousCoverageType value) {
         return new JAXBElement<>(_AbstractContinuousCoverage_QNAME, AbstractContinuousCoverageType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "domainSet")
     public JAXBElement<DomainSetType> createDomainSet(DomainSetType value) {
@@ -6015,12 +6054,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RangeSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link RangeSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RangeSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RangeSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "rangeSet")
     public JAXBElement<RangeSetType> createRangeSet(RangeSetType value) {
@@ -6028,12 +6068,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DataBlockType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DataBlockType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DataBlockType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DataBlockType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DataBlock", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<DataBlockType> createDataBlock(DataBlockType value) {
@@ -6041,12 +6082,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AssociationRoleType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "rangeParameters")
     public JAXBElement<AssociationRoleType> createRangeParameters(AssociationRoleType value) {
@@ -6054,12 +6096,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinatesType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinatesType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinatesType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinatesType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "tupleList")
     public JAXBElement<CoordinatesType> createTupleList(CoordinatesType value) {
@@ -6067,25 +6110,26 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link String }{@code >}{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link List
+     *         }{@code <}{@link String }{@code >}{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "doubleOrNilReasonTupleList")
     public JAXBElement<List<String>> createDoubleOrNilReasonTupleList(List<String> value) {
-        return new JAXBElement<>(_DoubleOrNilReasonTupleList_QNAME, ((Class) List.class), null, ((List<String> ) value));
+        return new JAXBElement<>(_DoubleOrNilReasonTupleList_QNAME, ((Class) List.class), null, ((List<String>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FileType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FileType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link FileType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "File", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<FileType> createFile(FileType value) {
@@ -6093,12 +6137,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoverageFunctionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoverageFunctionType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoverageFunctionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoverageFunctionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coverageFunction", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<CoverageFunctionType> createCoverageFunction(CoverageFunctionType value) {
@@ -6106,12 +6151,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MappingRuleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MappingRuleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MappingRuleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MappingRuleType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CoverageMappingRule", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<MappingRuleType> createCoverageMappingRule(MappingRuleType value) {
@@ -6119,12 +6165,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GridFunctionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GridFunctionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GridFunctionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GridFunctionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GridFunction", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<GridFunctionType> createGridFunction(GridFunctionType value) {
@@ -6132,12 +6179,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiPointCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createMultiPointCoverage(DiscreteCoverageType value) {
@@ -6145,12 +6193,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiCurveCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createMultiCurveCoverage(DiscreteCoverageType value) {
@@ -6158,12 +6207,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiSurfaceCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createMultiSurfaceCoverage(DiscreteCoverageType value) {
@@ -6171,12 +6221,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MultiSolidCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createMultiSolidCoverage(DiscreteCoverageType value) {
@@ -6184,12 +6235,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GridCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createGridCoverage(DiscreteCoverageType value) {
@@ -6197,12 +6249,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DiscreteCoverageType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "RectifiedGridCoverage", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDiscreteCoverage")
     public JAXBElement<DiscreteCoverageType> createRectifiedGridCoverage(DiscreteCoverageType value) {
@@ -6210,12 +6263,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<AbstractCRSType> createAbstractCRS(AbstractCRSType value) {
@@ -6224,11 +6278,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "scope")
     public JAXBElement<String> createScope(String value) {
@@ -6236,12 +6290,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemAxisType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemAxisType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CoordinateSystemAxis", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<CoordinateSystemAxisType> createCoordinateSystemAxis(CoordinateSystemAxisType value) {
@@ -6250,11 +6305,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "axisAbbrev")
     public JAXBElement<CodeType> createAxisAbbrev(CodeType value) {
@@ -6262,12 +6317,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeWithAuthorityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "axisDirection")
     public JAXBElement<CodeWithAuthorityType> createAxisDirection(CodeWithAuthorityType value) {
@@ -6276,11 +6332,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Double
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "minimumValue")
     public JAXBElement<Double> createMinimumValue(Double value) {
@@ -6289,11 +6345,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Double }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Double
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "maximumValue")
     public JAXBElement<Double> createMaximumValue(Double value) {
@@ -6301,12 +6357,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeWithAuthorityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "rangeMeaning")
     public JAXBElement<CodeWithAuthorityType> createRangeMeaning(CodeWithAuthorityType value) {
@@ -6314,25 +6371,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateSystemType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCoordinateSystemType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateSystemType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCoordinateSystemType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCoordinateSystem", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
-    public JAXBElement<AbstractCoordinateSystemType> createAbstractCoordinateSystem(AbstractCoordinateSystemType value) {
+    public JAXBElement<AbstractCoordinateSystemType> createAbstractCoordinateSystem(
+            AbstractCoordinateSystemType value) {
         return new JAXBElement<>(_AbstractCoordinateSystem_QNAME, AbstractCoordinateSystemType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "axis")
     public JAXBElement<CoordinateSystemAxisPropertyType> createAxis(CoordinateSystemAxisPropertyType value) {
@@ -6340,12 +6400,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidalCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "EllipsoidalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<EllipsoidalCSType> createEllipsoidalCS(EllipsoidalCSType value) {
@@ -6353,12 +6414,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CartesianCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CartesianCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CartesianCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<CartesianCSType> createCartesianCS(CartesianCSType value) {
@@ -6366,12 +6428,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "VerticalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<VerticalCSType> createVerticalCS(VerticalCSType value) {
@@ -6379,12 +6442,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TimeCSType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<TimeCSType> createTimeCS(TimeCSType value) {
@@ -6392,12 +6456,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link LinearCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link LinearCSType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LinearCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<LinearCSType> createLinearCS(LinearCSType value) {
@@ -6405,12 +6470,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserDefinedCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link UserDefinedCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UserDefinedCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UserDefinedCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "UserDefinedCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<UserDefinedCSType> createUserDefinedCS(UserDefinedCSType value) {
@@ -6418,12 +6484,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SphericalCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SphericalCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SphericalCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SphericalCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "SphericalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<SphericalCSType> createSphericalCS(SphericalCSType value) {
@@ -6431,12 +6498,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PolarCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link PolarCSType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "PolarCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<PolarCSType> createPolarCS(PolarCSType value) {
@@ -6444,12 +6512,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CylindricalCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CylindricalCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CylindricalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<CylindricalCSType> createCylindricalCS(CylindricalCSType value) {
@@ -6457,12 +6526,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AffineCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link AffineCSType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AffineCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<AffineCSType> createAffineCS(AffineCSType value) {
@@ -6470,12 +6540,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractDatumType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<AbstractDatumType> createAbstractDatum(AbstractDatumType value) {
@@ -6484,11 +6555,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "anchorDefinition")
     public JAXBElement<CodeType> createAnchorDefinition(CodeType value) {
@@ -6496,12 +6567,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link XMLGregorianCalendar }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "realizationEpoch")
     public JAXBElement<XMLGregorianCalendar> createRealizationEpoch(XMLGregorianCalendar value) {
@@ -6509,12 +6581,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticDatumType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeodeticDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDatum")
     public JAXBElement<GeodeticDatumType> createGeodeticDatum(GeodeticDatumType value) {
@@ -6522,12 +6595,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PrimeMeridianPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "primeMeridian")
     public JAXBElement<PrimeMeridianPropertyType> createPrimeMeridianPropertyElement(PrimeMeridianPropertyType value) {
@@ -6535,12 +6609,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ellipsoid")
     public JAXBElement<EllipsoidPropertyType> createEllipsoidPropertyElement(EllipsoidPropertyType value) {
@@ -6548,12 +6623,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EllipsoidType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Ellipsoid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<EllipsoidType> createEllipsoid(EllipsoidType value) {
@@ -6561,12 +6637,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link MeasureType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "semiMajorAxis")
     public JAXBElement<MeasureType> createSemiMajorAxis(MeasureType value) {
@@ -6574,12 +6651,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PrimeMeridianType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PrimeMeridianType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PrimeMeridianType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PrimeMeridianType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "PrimeMeridian", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<PrimeMeridianType> createPrimeMeridian(PrimeMeridianType value) {
@@ -6587,12 +6665,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AngleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AngleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link AngleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "greenwichLongitude")
     public JAXBElement<AngleType> createGreenwichLongitude(AngleType value) {
@@ -6600,12 +6679,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EngineeringDatumType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "EngineeringDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDatum")
     public JAXBElement<EngineeringDatumType> createEngineeringDatum(EngineeringDatumType value) {
@@ -6613,12 +6693,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ImageDatumType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ImageDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ImageDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDatum")
     public JAXBElement<ImageDatumType> createImageDatum(ImageDatumType value) {
@@ -6626,12 +6707,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeWithAuthorityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pixelInCell")
     public JAXBElement<CodeWithAuthorityType> createPixelInCell(CodeWithAuthorityType value) {
@@ -6639,12 +6721,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalDatumType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "VerticalDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDatum")
     public JAXBElement<VerticalDatumType> createVerticalDatum(VerticalDatumType value) {
@@ -6652,12 +6735,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalDatumType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalDatumType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalDatumType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalDatumType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TemporalDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractDatum")
     public JAXBElement<TemporalDatumType> createTemporalDatum(TemporalDatumType value) {
@@ -6665,12 +6749,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link XMLGregorianCalendar }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "origin")
     public JAXBElement<XMLGregorianCalendar> createOrigin(XMLGregorianCalendar value) {
@@ -6678,25 +6763,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCoordinateOperationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractCoordinateOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
-    public JAXBElement<AbstractCoordinateOperationType> createAbstractCoordinateOperation(AbstractCoordinateOperationType value) {
-        return new JAXBElement<>(_AbstractCoordinateOperation_QNAME, AbstractCoordinateOperationType.class, null, value);
+    public JAXBElement<AbstractCoordinateOperationType> createAbstractCoordinateOperation(
+            AbstractCoordinateOperationType value) {
+        return new JAXBElement<>(_AbstractCoordinateOperation_QNAME, AbstractCoordinateOperationType.class, null,
+                value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationVersion")
     public JAXBElement<String> createOperationVersion(String value) {
@@ -6704,12 +6792,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "sourceCRS")
     public JAXBElement<CRSPropertyType> createSourceCRS(CRSPropertyType value) {
@@ -6717,12 +6806,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "targetCRS")
     public JAXBElement<CRSPropertyType> createTargetCRS(CRSPropertyType value) {
@@ -6730,38 +6820,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCoordinateOperationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractSingleOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateOperation")
-    public JAXBElement<AbstractCoordinateOperationType> createAbstractSingleOperation(AbstractCoordinateOperationType value) {
+    public JAXBElement<AbstractCoordinateOperationType> createAbstractSingleOperation(
+            AbstractCoordinateOperationType value) {
         return new JAXBElement<>(_AbstractSingleOperation_QNAME, AbstractCoordinateOperationType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralConversionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralConversionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeneralConversion", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractOperation")
-    public JAXBElement<AbstractGeneralConversionType> createAbstractGeneralConversion(AbstractGeneralConversionType value) {
+    public JAXBElement<AbstractGeneralConversionType> createAbstractGeneralConversion(
+            AbstractGeneralConversionType value) {
         return new JAXBElement<>(_AbstractGeneralConversion_QNAME, AbstractGeneralConversionType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCoordinateOperationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCoordinateOperationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleOperation")
     public JAXBElement<AbstractCoordinateOperationType> createAbstractOperation(AbstractCoordinateOperationType value) {
@@ -6769,25 +6864,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralTransformationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralTransformationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralTransformationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralTransformationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeneralTransformation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractOperation")
-    public JAXBElement<AbstractGeneralTransformationType> createAbstractGeneralTransformation(AbstractGeneralTransformationType value) {
-        return new JAXBElement<>(_AbstractGeneralTransformation_QNAME, AbstractGeneralTransformationType.class, null, value);
+    public JAXBElement<AbstractGeneralTransformationType> createAbstractGeneralTransformation(
+            AbstractGeneralTransformationType value) {
+        return new JAXBElement<>(_AbstractGeneralTransformation_QNAME, AbstractGeneralTransformationType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConcatenatedOperationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConcatenatedOperationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConcatenatedOperationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConcatenatedOperationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ConcatenatedOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateOperation")
     public JAXBElement<ConcatenatedOperationType> createConcatenatedOperation(ConcatenatedOperationType value) {
@@ -6795,12 +6894,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordOperation")
     public JAXBElement<CoordinateOperationPropertyType> createCoordOperation(CoordinateOperationPropertyType value) {
@@ -6808,12 +6908,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PassThroughOperationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PassThroughOperationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PassThroughOperationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PassThroughOperationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "PassThroughOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleOperation")
     public JAXBElement<PassThroughOperationType> createPassThroughOperation(PassThroughOperationType value) {
@@ -6821,12 +6922,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "modifiedCoordinate")
     public JAXBElement<BigInteger> createModifiedCoordinate(BigInteger value) {
@@ -6834,12 +6936,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConversionType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConversionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConversionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Conversion", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralConversion")
     public JAXBElement<ConversionType> createConversion(ConversionType value) {
@@ -6847,12 +6950,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationMethodPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "method")
     public JAXBElement<OperationMethodPropertyType> createMethod(OperationMethodPropertyType value) {
@@ -6860,25 +6964,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "parameterValue")
-    public JAXBElement<AbstractGeneralParameterValuePropertyType> createParameterValuePropertyElement(AbstractGeneralParameterValuePropertyType value) {
-        return new JAXBElement<>(_ParameterValuePropertyElement_QNAME, AbstractGeneralParameterValuePropertyType.class, null, value);
+    public JAXBElement<AbstractGeneralParameterValuePropertyType> createParameterValuePropertyElement(
+            AbstractGeneralParameterValuePropertyType value) {
+        return new JAXBElement<>(_ParameterValuePropertyElement_QNAME, AbstractGeneralParameterValuePropertyType.class,
+                null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TransformationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TransformationType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TransformationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TransformationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Transformation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralTransformation")
     public JAXBElement<TransformationType> createTransformation(TransformationType value) {
@@ -6886,25 +6994,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValueType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralParameterValueType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValueType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralParameterValueType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeneralParameterValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
-    public JAXBElement<AbstractGeneralParameterValueType> createAbstractGeneralParameterValue(AbstractGeneralParameterValueType value) {
-        return new JAXBElement<>(_AbstractGeneralParameterValue_QNAME, AbstractGeneralParameterValueType.class, null, value);
+    public JAXBElement<AbstractGeneralParameterValueType> createAbstractGeneralParameterValue(
+            AbstractGeneralParameterValueType value) {
+        return new JAXBElement<>(_AbstractGeneralParameterValue_QNAME, AbstractGeneralParameterValueType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ParameterValueType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ParameterValueType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ParameterValueType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ParameterValueType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ParameterValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralParameterValue")
     public JAXBElement<ParameterValueType> createParameterValue(ParameterValueType value) {
@@ -6912,12 +7024,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link MeasureType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "value")
     public JAXBElement<MeasureType> createValue(MeasureType value) {
@@ -6926,11 +7039,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "stringValue")
     public JAXBElement<String> createStringValue(String value) {
@@ -6938,12 +7051,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "integerValue")
     public JAXBElement<BigInteger> createIntegerValue(BigInteger value) {
@@ -6951,12 +7065,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link java.lang.Boolean }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link java.lang.Boolean }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link java.lang.Boolean }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link java.lang.Boolean }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "booleanValue")
     public JAXBElement<java.lang.Boolean> createBooleanValue(java.lang.Boolean value) {
@@ -6964,12 +7079,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureListType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureListType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MeasureListType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MeasureListType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueList")
     public JAXBElement<MeasureListType> createValueList(MeasureListType value) {
@@ -6977,25 +7093,26 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link BigInteger }{@code >}{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link BigInteger }{@code >}{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link BigInteger }{@code >}{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link List
+     *         }{@code <}{@link BigInteger }{@code >}{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "integerValueList")
     public JAXBElement<List<BigInteger>> createIntegerValueList(List<BigInteger> value) {
-        return new JAXBElement<>(_IntegerValueList_QNAME, ((Class) List.class), null, ((List<BigInteger> ) value));
+        return new JAXBElement<>(_IntegerValueList_QNAME, ((Class) List.class), null, ((List<BigInteger>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueFile")
     public JAXBElement<String> createValueFile(String value) {
@@ -7003,25 +7120,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationParameter")
-    public JAXBElement<OperationParameterPropertyType> createOperationParameterPropertyElement(OperationParameterPropertyType value) {
-        return new JAXBElement<>(_OperationParameterPropertyElement_QNAME, OperationParameterPropertyType.class, null, value);
+    public JAXBElement<OperationParameterPropertyType> createOperationParameterPropertyElement(
+            OperationParameterPropertyType value) {
+        return new JAXBElement<>(_OperationParameterPropertyElement_QNAME, OperationParameterPropertyType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ParameterValueGroupType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ParameterValueGroupType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ParameterValueGroupType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ParameterValueGroupType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ParameterValueGroup", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralParameterValue")
     public JAXBElement<ParameterValueGroupType> createParameterValueGroup(ParameterValueGroupType value) {
@@ -7029,12 +7150,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "group")
     public JAXBElement<OperationParameterGroupPropertyType> createGroup(OperationParameterGroupPropertyType value) {
@@ -7042,12 +7164,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationMethodType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link OperationMethodType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationMethodType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationMethodType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OperationMethod", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<OperationMethodType> createOperationMethod(OperationMethodType value) {
@@ -7056,11 +7179,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "formula")
     public JAXBElement<CodeType> createFormula(CodeType value) {
@@ -7068,12 +7191,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "sourceDimensions")
     public JAXBElement<BigInteger> createSourceDimensions(BigInteger value) {
@@ -7081,12 +7205,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "targetDimensions")
     public JAXBElement<BigInteger> createTargetDimensions(BigInteger value) {
@@ -7094,38 +7219,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterPropertyType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "parameter")
-    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createParameter(AbstractGeneralOperationParameterPropertyType value) {
+    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createParameter(
+            AbstractGeneralOperationParameterPropertyType value) {
         return new JAXBElement<>(_Parameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeneralOperationParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
-    public JAXBElement<AbstractGeneralOperationParameterType> createAbstractGeneralOperationParameter(AbstractGeneralOperationParameterType value) {
-        return new JAXBElement<>(_AbstractGeneralOperationParameter_QNAME, AbstractGeneralOperationParameterType.class, null, value);
+    public JAXBElement<AbstractGeneralOperationParameterType> createAbstractGeneralOperationParameter(
+            AbstractGeneralOperationParameterType value) {
+        return new JAXBElement<>(_AbstractGeneralOperationParameter_QNAME, AbstractGeneralOperationParameterType.class,
+                null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "minimumOccurs")
     public JAXBElement<BigInteger> createMinimumOccurs(BigInteger value) {
@@ -7133,12 +7265,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OperationParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralOperationParameter")
     public JAXBElement<OperationParameterType> createOperationParameter(OperationParameterType value) {
@@ -7146,12 +7279,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterGroupType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterGroupType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "OperationParameterGroup", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralOperationParameter")
     public JAXBElement<OperationParameterGroupType> createOperationParameterGroup(OperationParameterGroupType value) {
@@ -7159,12 +7293,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigInteger
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "maximumOccurs")
     public JAXBElement<BigInteger> createMaximumOccurs(BigInteger value) {
@@ -7172,12 +7307,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractSingleCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCRS")
     public JAXBElement<AbstractCRSType> createAbstractSingleCRS(AbstractCRSType value) {
@@ -7185,38 +7321,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralDerivedCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralDerivedCRSType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralDerivedCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralDerivedCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractGeneralDerivedCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
-    public JAXBElement<AbstractGeneralDerivedCRSType> createAbstractGeneralDerivedCRS(AbstractGeneralDerivedCRSType value) {
+    public JAXBElement<AbstractGeneralDerivedCRSType> createAbstractGeneralDerivedCRS(
+            AbstractGeneralDerivedCRSType value) {
         return new JAXBElement<>(_AbstractGeneralDerivedCRS_QNAME, AbstractGeneralDerivedCRSType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeneralConversionPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "conversion")
-    public JAXBElement<GeneralConversionPropertyType> createConversionPropertyElement(GeneralConversionPropertyType value) {
+    public JAXBElement<GeneralConversionPropertyType> createConversionPropertyElement(
+            GeneralConversionPropertyType value) {
         return new JAXBElement<>(_ConversionPropertyElement_QNAME, GeneralConversionPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompoundCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CompoundCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompoundCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompoundCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "CompoundCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCRS")
     public JAXBElement<CompoundCRSType> createCompoundCRS(CompoundCRSType value) {
@@ -7224,12 +7365,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SingleCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "componentReferenceSystem")
     public JAXBElement<SingleCRSPropertyType> createComponentReferenceSystem(SingleCRSPropertyType value) {
@@ -7237,12 +7379,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeodeticCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<GeodeticCRSType> createGeodeticCRS(GeodeticCRSType value) {
@@ -7250,12 +7393,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ellipsoidalCS")
     public JAXBElement<EllipsoidalCSPropertyType> createEllipsoidalCSPropertyElement(EllipsoidalCSPropertyType value) {
@@ -7263,12 +7407,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "cartesianCS")
     public JAXBElement<CartesianCSPropertyType> createCartesianCSPropertyElement(CartesianCSPropertyType value) {
@@ -7276,12 +7421,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SphericalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "sphericalCS")
     public JAXBElement<SphericalCSPropertyType> createSphericalCSPropertyElement(SphericalCSPropertyType value) {
@@ -7289,12 +7435,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geodeticDatum")
     public JAXBElement<GeodeticDatumPropertyType> createGeodeticDatumPropertyElement(GeodeticDatumPropertyType value) {
@@ -7302,12 +7449,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "VerticalCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<VerticalCRSType> createVerticalCRS(VerticalCRSType value) {
@@ -7315,12 +7463,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "verticalCS")
     public JAXBElement<VerticalCSPropertyType> createVerticalCSPropertyElement(VerticalCSPropertyType value) {
@@ -7328,12 +7477,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "verticalDatum")
     public JAXBElement<VerticalDatumPropertyType> createVerticalDatumPropertyElement(VerticalDatumPropertyType value) {
@@ -7341,12 +7491,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProjectedCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProjectedCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ProjectedCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ProjectedCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ProjectedCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralDerivedCRS")
     public JAXBElement<ProjectedCRSType> createProjectedCRS(ProjectedCRSType value) {
@@ -7354,12 +7505,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeodeticCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "baseGeodeticCRS")
     public JAXBElement<GeodeticCRSPropertyType> createBaseGeodeticCRS(GeodeticCRSPropertyType value) {
@@ -7367,12 +7519,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DerivedCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DerivedCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DerivedCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DerivedCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DerivedCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGeneralDerivedCRS")
     public JAXBElement<DerivedCRSType> createDerivedCRS(DerivedCRSType value) {
@@ -7380,12 +7533,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SingleCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "baseCRS")
     public JAXBElement<SingleCRSPropertyType> createBaseCRS(SingleCRSPropertyType value) {
@@ -7393,12 +7547,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeWithAuthorityType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CodeWithAuthorityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "derivedCRSType")
     public JAXBElement<CodeWithAuthorityType> createDerivedCRSType(CodeWithAuthorityType value) {
@@ -7406,12 +7561,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordinateSystem")
     public JAXBElement<CoordinateSystemPropertyType> createCoordinateSystem(CoordinateSystemPropertyType value) {
@@ -7419,12 +7575,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "EngineeringCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<EngineeringCRSType> createEngineeringCRS(EngineeringCRSType value) {
@@ -7432,12 +7589,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CylindricalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CylindricalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CylindricalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CylindricalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "cylindricalCS")
     public JAXBElement<CylindricalCSPropertyType> createCylindricalCSPropertyElement(CylindricalCSPropertyType value) {
@@ -7445,12 +7603,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LinearCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link LinearCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LinearCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LinearCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "linearCS")
     public JAXBElement<LinearCSPropertyType> createLinearCSPropertyElement(LinearCSPropertyType value) {
@@ -7458,12 +7617,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PolarCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "polarCS")
     public JAXBElement<PolarCSPropertyType> createPolarCSPropertyElement(PolarCSPropertyType value) {
@@ -7471,12 +7631,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserDefinedCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link UserDefinedCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UserDefinedCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UserDefinedCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "userDefinedCS")
     public JAXBElement<UserDefinedCSPropertyType> createUserDefinedCSPropertyElement(UserDefinedCSPropertyType value) {
@@ -7484,25 +7645,29 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "engineeringDatum")
-    public JAXBElement<EngineeringDatumPropertyType> createEngineeringDatumPropertyElement(EngineeringDatumPropertyType value) {
-        return new JAXBElement<>(_EngineeringDatumPropertyElement_QNAME, EngineeringDatumPropertyType.class, null, value);
+    public JAXBElement<EngineeringDatumPropertyType> createEngineeringDatumPropertyElement(
+            EngineeringDatumPropertyType value) {
+        return new JAXBElement<>(_EngineeringDatumPropertyElement_QNAME, EngineeringDatumPropertyType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ImageCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ImageCRSType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ImageCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<ImageCRSType> createImageCRS(ImageCRSType value) {
@@ -7510,12 +7675,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AffineCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AffineCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "affineCS")
     public JAXBElement<AffineCSPropertyType> createAffineCSPropertyElement(AffineCSPropertyType value) {
@@ -7523,12 +7689,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ImageDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "imageDatum")
     public JAXBElement<ImageDatumPropertyType> createImageDatumPropertyElement(ImageDatumPropertyType value) {
@@ -7536,12 +7703,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TemporalCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<TemporalCRSType> createTemporalCRS(TemporalCRSType value) {
@@ -7549,12 +7717,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "timeCS")
     public JAXBElement<TimeCSPropertyType> createTimeCSPropertyElement(TimeCSPropertyType value) {
@@ -7562,12 +7731,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "temporalDatum")
     public JAXBElement<TemporalDatumPropertyType> createTemporalDatumPropertyElement(TemporalDatumPropertyType value) {
@@ -7575,12 +7745,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObservationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObservationType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ObservationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ObservationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Observation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
     public JAXBElement<ObservationType> createObservation(ObservationType value) {
@@ -7588,12 +7759,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProcedurePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ProcedurePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ProcedurePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ProcedurePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "using")
     public JAXBElement<ProcedurePropertyType> createUsing(ProcedurePropertyType value) {
@@ -7601,12 +7773,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TargetPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TargetPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "target")
     public JAXBElement<TargetPropertyType> createTarget(TargetPropertyType value) {
@@ -7614,12 +7787,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TargetPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TargetPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TargetPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "subject", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "target")
     public JAXBElement<TargetPropertyType> createSubject(TargetPropertyType value) {
@@ -7627,12 +7801,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ResultType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResultType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ResultType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ResultType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "resultOf")
     public JAXBElement<ResultType> createResultOf(ResultType value) {
@@ -7640,12 +7815,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedObservationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedObservationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedObservationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedObservationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DirectedObservation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Observation")
     public JAXBElement<DirectedObservationType> createDirectedObservation(DirectedObservationType value) {
@@ -7653,38 +7829,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DirectedObservationAtDistance", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "DirectedObservation")
-    public JAXBElement<DirectedObservationAtDistanceType> createDirectedObservationAtDistance(DirectedObservationAtDistanceType value) {
-        return new JAXBElement<>(_DirectedObservationAtDistance_QNAME, DirectedObservationAtDistanceType.class, null, value);
+    public JAXBElement<DirectedObservationAtDistanceType> createDirectedObservationAtDistance(
+            DirectedObservationAtDistanceType value) {
+        return new JAXBElement<>(_DirectedObservationAtDistance_QNAME, DirectedObservationAtDistanceType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractTimeTopologyPrimitive", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimePrimitive")
-    public JAXBElement<AbstractTimeTopologyPrimitiveType> createAbstractTimeTopologyPrimitive(AbstractTimeTopologyPrimitiveType value) {
-        return new JAXBElement<>(_AbstractTimeTopologyPrimitive_QNAME, AbstractTimeTopologyPrimitiveType.class, null, value);
+    public JAXBElement<AbstractTimeTopologyPrimitiveType> createAbstractTimeTopologyPrimitive(
+            AbstractTimeTopologyPrimitiveType value) {
+        return new JAXBElement<>(_AbstractTimeTopologyPrimitive_QNAME, AbstractTimeTopologyPrimitiveType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeTopologyComplexType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimeTopologyComplexType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeTopologyComplexType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeTopologyComplexType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeTopologyComplex", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeComplex")
     public JAXBElement<TimeTopologyComplexType> createTimeTopologyComplex(TimeTopologyComplexType value) {
@@ -7692,12 +7875,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeNodeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TimeNodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeNode", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeTopologyPrimitive")
     public JAXBElement<TimeNodeType> createTimeNode(TimeNodeType value) {
@@ -7705,12 +7889,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeEdgeType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TimeEdgeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeEdge", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeTopologyPrimitive")
     public JAXBElement<TimeEdgeType> createTimeEdge(TimeEdgeType value) {
@@ -7718,12 +7903,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeReferenceSystemType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimeReferenceSystemType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeReferenceSystemType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeReferenceSystemType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeReferenceSystem", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<TimeReferenceSystemType> createTimeReferenceSystem(TimeReferenceSystemType value) {
@@ -7731,12 +7917,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCoordinateSystemType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimeCoordinateSystemType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCoordinateSystemType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeCoordinateSystemType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeCoordinateSystem", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "TimeReferenceSystem")
     public JAXBElement<TimeCoordinateSystemType> createTimeCoordinateSystem(TimeCoordinateSystemType value) {
@@ -7744,12 +7931,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCalendarType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCalendarType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCalendarType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeCalendarType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeCalendar", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "TimeReferenceSystem")
     public JAXBElement<TimeCalendarType> createTimeCalendar(TimeCalendarType value) {
@@ -7757,12 +7945,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCalendarEraType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCalendarEraType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCalendarEraType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeCalendarEraType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeCalendarEra")
     public JAXBElement<TimeCalendarEraType> createTimeCalendarEra(TimeCalendarEraType value) {
@@ -7770,12 +7959,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeClockType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeClockType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeClockType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TimeClockType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeClock", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "TimeReferenceSystem")
     public JAXBElement<TimeClockType> createTimeClock(TimeClockType value) {
@@ -7783,25 +7973,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeOrdinalReferenceSystemType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TimeOrdinalReferenceSystemType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeOrdinalReferenceSystemType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeOrdinalReferenceSystemType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeOrdinalReferenceSystem", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "TimeReferenceSystem")
-    public JAXBElement<TimeOrdinalReferenceSystemType> createTimeOrdinalReferenceSystem(TimeOrdinalReferenceSystemType value) {
+    public JAXBElement<TimeOrdinalReferenceSystemType> createTimeOrdinalReferenceSystem(
+            TimeOrdinalReferenceSystemType value) {
         return new JAXBElement<>(_TimeOrdinalReferenceSystem_QNAME, TimeOrdinalReferenceSystemType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeOrdinalEraType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeOrdinalEraType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeOrdinalEraType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeOrdinalEraType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TimeOrdinalEra")
     public JAXBElement<TimeOrdinalEraType> createTimeOrdinalEra(TimeOrdinalEraType value) {
@@ -7810,11 +8003,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link String
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Null")
     public JAXBElement<String> createNull(String value) {
@@ -7823,11 +8016,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "anchorPoint", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "anchorDefinition")
     public JAXBElement<CodeType> createAnchorPoint(CodeType value) {
@@ -7835,12 +8028,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DatumPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "datumRef")
     public JAXBElement<DatumPropertyType> createDatumRef(DatumPropertyType value) {
@@ -7848,12 +8042,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PrimeMeridianPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesPrimeMeridian", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "primeMeridian")
     public JAXBElement<PrimeMeridianPropertyType> createUsesPrimeMeridian(PrimeMeridianPropertyType value) {
@@ -7861,12 +8056,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesEllipsoid", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "ellipsoid")
     public JAXBElement<EllipsoidPropertyType> createUsesEllipsoid(EllipsoidPropertyType value) {
@@ -7874,12 +8070,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geodeticDatumRef")
     public JAXBElement<GeodeticDatumPropertyType> createGeodeticDatumRef(GeodeticDatumPropertyType value) {
@@ -7887,12 +8084,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ellipsoidRef")
     public JAXBElement<EllipsoidPropertyType> createEllipsoidRef(EllipsoidPropertyType value) {
@@ -7900,12 +8098,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PrimeMeridianPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PrimeMeridianPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "primeMeridianRef")
     public JAXBElement<PrimeMeridianPropertyType> createPrimeMeridianRef(PrimeMeridianPropertyType value) {
@@ -7913,12 +8112,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "engineeringDatumRef")
     public JAXBElement<EngineeringDatumPropertyType> createEngineeringDatumRef(EngineeringDatumPropertyType value) {
@@ -7926,12 +8126,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ImageDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "imageDatumRef")
     public JAXBElement<ImageDatumPropertyType> createImageDatumRef(ImageDatumPropertyType value) {
@@ -7939,12 +8140,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "verticalDatumRef")
     public JAXBElement<VerticalDatumPropertyType> createVerticalDatumRef(VerticalDatumPropertyType value) {
@@ -7952,12 +8154,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "temporalDatumRef")
     public JAXBElement<TemporalDatumPropertyType> createTemporalDatumRef(TemporalDatumPropertyType value) {
@@ -7965,25 +8168,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordinateOperationRef")
-    public JAXBElement<CoordinateOperationPropertyType> createCoordinateOperationRef(CoordinateOperationPropertyType value) {
+    public JAXBElement<CoordinateOperationPropertyType> createCoordinateOperationRef(
+            CoordinateOperationPropertyType value) {
         return new JAXBElement<>(_CoordinateOperationRef_QNAME, CoordinateOperationPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SingleOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SingleOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SingleOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SingleOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "singleOperationRef")
     public JAXBElement<SingleOperationPropertyType> createSingleOperationRef(SingleOperationPropertyType value) {
@@ -7991,12 +8197,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationRef")
     public JAXBElement<OperationPropertyType> createOperationRef(OperationPropertyType value) {
@@ -8004,12 +8211,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeneralConversionPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "generalConversionRef")
     public JAXBElement<GeneralConversionPropertyType> createGeneralConversionRef(GeneralConversionPropertyType value) {
@@ -8017,51 +8225,58 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeneralTransformationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeneralTransformationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeneralTransformationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeneralTransformationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "generalTransformationRef")
-    public JAXBElement<GeneralTransformationPropertyType> createGeneralTransformationRef(GeneralTransformationPropertyType value) {
+    public JAXBElement<GeneralTransformationPropertyType> createGeneralTransformationRef(
+            GeneralTransformationPropertyType value) {
         return new JAXBElement<>(_GeneralTransformationRef_QNAME, GeneralTransformationPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesSingleOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "coordOperation")
-    public JAXBElement<CoordinateOperationPropertyType> createUsesSingleOperation(CoordinateOperationPropertyType value) {
+    public JAXBElement<CoordinateOperationPropertyType> createUsesSingleOperation(
+            CoordinateOperationPropertyType value) {
         return new JAXBElement<>(_UsesSingleOperation_QNAME, CoordinateOperationPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConcatenatedOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConcatenatedOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConcatenatedOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConcatenatedOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "concatenatedOperationRef")
-    public JAXBElement<ConcatenatedOperationPropertyType> createConcatenatedOperationRef(ConcatenatedOperationPropertyType value) {
+    public JAXBElement<ConcatenatedOperationPropertyType> createConcatenatedOperationRef(
+            ConcatenatedOperationPropertyType value) {
         return new JAXBElement<>(_ConcatenatedOperationRef_QNAME, ConcatenatedOperationPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesOperation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "coordOperation")
     public JAXBElement<CoordinateOperationPropertyType> createUsesOperation(CoordinateOperationPropertyType value) {
@@ -8069,25 +8284,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PassThroughOperationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PassThroughOperationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PassThroughOperationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PassThroughOperationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "passThroughOperationRef")
-    public JAXBElement<PassThroughOperationPropertyType> createPassThroughOperationRef(PassThroughOperationPropertyType value) {
+    public JAXBElement<PassThroughOperationPropertyType> createPassThroughOperationRef(
+            PassThroughOperationPropertyType value) {
         return new JAXBElement<>(_PassThroughOperationRef_QNAME, PassThroughOperationPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationMethodPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesMethod", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "method")
     public JAXBElement<OperationMethodPropertyType> createUsesMethod(OperationMethodPropertyType value) {
@@ -8095,25 +8313,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "parameterValue")
-    public JAXBElement<AbstractGeneralParameterValuePropertyType> createUsesValue(AbstractGeneralParameterValuePropertyType value) {
+    public JAXBElement<AbstractGeneralParameterValuePropertyType> createUsesValue(
+            AbstractGeneralParameterValuePropertyType value) {
         return new JAXBElement<>(_UsesValue_QNAME, AbstractGeneralParameterValuePropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConversionPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ConversionPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConversionPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ConversionPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "conversionRef")
     public JAXBElement<ConversionPropertyType> createConversionRef(ConversionPropertyType value) {
@@ -8121,12 +8342,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TransformationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TransformationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TransformationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TransformationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "transformationRef")
     public JAXBElement<TransformationPropertyType> createTransformationRef(TransformationPropertyType value) {
@@ -8134,12 +8356,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DMSAngleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DMSAngleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DMSAngleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DMSAngleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dmsAngleValue")
     public JAXBElement<DMSAngleType> createDmsAngleValue(DMSAngleType value) {
@@ -8147,12 +8370,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valueOfParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "operationParameter")
     public JAXBElement<OperationParameterPropertyType> createValueOfParameter(OperationParameterPropertyType value) {
@@ -8160,38 +8384,42 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralParameterValuePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "includesValue", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "parameterValue")
-    public JAXBElement<AbstractGeneralParameterValuePropertyType> createIncludesValue(AbstractGeneralParameterValuePropertyType value) {
+    public JAXBElement<AbstractGeneralParameterValuePropertyType> createIncludesValue(
+            AbstractGeneralParameterValuePropertyType value) {
         return new JAXBElement<>(_IncludesValue_QNAME, AbstractGeneralParameterValuePropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterGroupPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "valuesOfGroup", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "group")
-    public JAXBElement<OperationParameterGroupPropertyType> createValuesOfGroup(OperationParameterGroupPropertyType value) {
+    public JAXBElement<OperationParameterGroupPropertyType> createValuesOfGroup(
+            OperationParameterGroupPropertyType value) {
         return new JAXBElement<>(_ValuesOfGroup_QNAME, OperationParameterGroupPropertyType.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "methodFormula", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "formula")
     public JAXBElement<CodeType> createMethodFormula(CodeType value) {
@@ -8199,38 +8427,47 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterPropertyType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "generalOperationParameter")
-    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createUsesParameter(AbstractGeneralOperationParameterPropertyType value) {
-        return new JAXBElement<>(_UsesParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null, value);
+    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createUsesParameter(
+            AbstractGeneralOperationParameterPropertyType value) {
+        return new JAXBElement<>(_UsesParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterPropertyType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "generalOperationParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "parameter")
-    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createGeneralOperationParameter(AbstractGeneralOperationParameterPropertyType value) {
-        return new JAXBElement<>(_GeneralOperationParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null, value);
+    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createGeneralOperationParameter(
+            AbstractGeneralOperationParameterPropertyType value) {
+        return new JAXBElement<>(_GeneralOperationParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class,
+                null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationMethodPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationMethodPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationMethodRef")
     public JAXBElement<OperationMethodPropertyType> createOperationMethodRef(OperationMethodPropertyType value) {
@@ -8238,64 +8475,77 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterPropertyType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "abstractGeneralOperationParameterRef")
-    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createAbstractGeneralOperationParameterRef(AbstractGeneralOperationParameterPropertyType value) {
-        return new JAXBElement<>(_AbstractGeneralOperationParameterRef_QNAME, AbstractGeneralOperationParameterPropertyType.class, null, value);
+    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createAbstractGeneralOperationParameterRef(
+            AbstractGeneralOperationParameterPropertyType value) {
+        return new JAXBElement<>(_AbstractGeneralOperationParameterRef_QNAME,
+                AbstractGeneralOperationParameterPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationParameterRef")
-    public JAXBElement<OperationParameterPropertyType> createOperationParameterRef(OperationParameterPropertyType value) {
+    public JAXBElement<OperationParameterPropertyType> createOperationParameterRef(
+            OperationParameterPropertyType value) {
         return new JAXBElement<>(_OperationParameterRef_QNAME, OperationParameterPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractGeneralOperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractGeneralOperationParameterPropertyType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "includesParameter", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "parameter")
-    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createIncludesParameter(AbstractGeneralOperationParameterPropertyType value) {
-        return new JAXBElement<>(_IncludesParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null, value);
+    public JAXBElement<AbstractGeneralOperationParameterPropertyType> createIncludesParameter(
+            AbstractGeneralOperationParameterPropertyType value) {
+        return new JAXBElement<>(_IncludesParameter_QNAME, AbstractGeneralOperationParameterPropertyType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link OperationParameterPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link OperationParameterPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "operationParameterGroupRef")
-    public JAXBElement<OperationParameterPropertyType> createOperationParameterGroupRef(OperationParameterPropertyType value) {
+    public JAXBElement<OperationParameterPropertyType> createOperationParameterGroupRef(
+            OperationParameterPropertyType value) {
         return new JAXBElement<>(_OperationParameterGroupRef_QNAME, OperationParameterPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "referenceSystemRef")
     public JAXBElement<CRSPropertyType> createReferenceSystemRef(CRSPropertyType value) {
@@ -8303,12 +8553,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CRSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "crsRef")
     public JAXBElement<CRSPropertyType> createCrsRef(CRSPropertyType value) {
@@ -8316,25 +8567,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordinateSystemAxisRef")
-    public JAXBElement<CoordinateSystemAxisPropertyType> createCoordinateSystemAxisRef(CoordinateSystemAxisPropertyType value) {
+    public JAXBElement<CoordinateSystemAxisPropertyType> createCoordinateSystemAxisRef(
+            CoordinateSystemAxisPropertyType value) {
         return new JAXBElement<>(_CoordinateSystemAxisRef_QNAME, CoordinateSystemAxisPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemAxisPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesAxis", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "axis")
     public JAXBElement<CoordinateSystemAxisPropertyType> createUsesAxis(CoordinateSystemAxisPropertyType value) {
@@ -8342,12 +8596,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordinateSystemRef")
     public JAXBElement<CoordinateSystemPropertyType> createCoordinateSystemRef(CoordinateSystemPropertyType value) {
@@ -8355,12 +8610,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ellipsoidalCSRef")
     public JAXBElement<EllipsoidalCSPropertyType> createEllipsoidalCSRef(EllipsoidalCSPropertyType value) {
@@ -8368,12 +8624,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "cartesianCSRef")
     public JAXBElement<CartesianCSPropertyType> createCartesianCSRef(CartesianCSPropertyType value) {
@@ -8381,12 +8638,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "verticalCSRef")
     public JAXBElement<VerticalCSPropertyType> createVerticalCSRef(VerticalCSPropertyType value) {
@@ -8394,12 +8652,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "TemporalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<TemporalCSType> createTemporalCS(TemporalCSType value) {
@@ -8407,12 +8666,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "temporalCSRef")
     public JAXBElement<TemporalCSPropertyType> createTemporalCSRef(TemporalCSPropertyType value) {
@@ -8420,12 +8680,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LinearCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link LinearCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LinearCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LinearCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "linearCSRef")
     public JAXBElement<LinearCSPropertyType> createLinearCSRef(LinearCSPropertyType value) {
@@ -8433,12 +8694,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserDefinedCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link UserDefinedCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UserDefinedCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link UserDefinedCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "userDefinedCSRef")
     public JAXBElement<UserDefinedCSPropertyType> createUserDefinedCSRef(UserDefinedCSPropertyType value) {
@@ -8446,12 +8708,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SphericalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "sphericalCSRef")
     public JAXBElement<SphericalCSPropertyType> createSphericalCSRef(SphericalCSPropertyType value) {
@@ -8459,12 +8722,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PolarCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PolarCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "polarCSRef")
     public JAXBElement<PolarCSPropertyType> createPolarCSRef(PolarCSPropertyType value) {
@@ -8472,12 +8736,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CylindricalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CylindricalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CylindricalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CylindricalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "cylindricalCSRef")
     public JAXBElement<CylindricalCSPropertyType> createCylindricalCSRef(CylindricalCSPropertyType value) {
@@ -8485,12 +8750,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ObliqueCartesianCSType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ObliqueCartesianCSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "ObliqueCartesianCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractCoordinateSystem")
     public JAXBElement<ObliqueCartesianCSType> createObliqueCartesianCS(ObliqueCartesianCSType value) {
@@ -8498,25 +8764,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "obliqueCartesianCSRef")
-    public JAXBElement<ObliqueCartesianCSPropertyType> createObliqueCartesianCSRef(ObliqueCartesianCSPropertyType value) {
+    public JAXBElement<ObliqueCartesianCSPropertyType> createObliqueCartesianCSRef(
+            ObliqueCartesianCSPropertyType value) {
         return new JAXBElement<>(_ObliqueCartesianCSRef_QNAME, ObliqueCartesianCSPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SingleCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "singleCRSRef")
     public JAXBElement<SingleCRSPropertyType> createSingleCRSRef(SingleCRSPropertyType value) {
@@ -8524,12 +8793,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeneralConversionPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "definedByConversion", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "conversion")
     public JAXBElement<GeneralConversionPropertyType> createDefinedByConversion(GeneralConversionPropertyType value) {
@@ -8537,12 +8807,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SingleCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "includesSingleCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "componentReferenceSystem")
     public JAXBElement<SingleCRSPropertyType> createIncludesSingleCRS(SingleCRSPropertyType value) {
@@ -8550,12 +8821,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CompoundCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CompoundCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CompoundCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CompoundCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "compoundCRSRef")
     public JAXBElement<CompoundCRSPropertyType> createCompoundCRSRef(CompoundCRSPropertyType value) {
@@ -8563,12 +8835,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EllipsoidalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesEllipsoidalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "ellipsoidalCS")
     public JAXBElement<EllipsoidalCSPropertyType> createUsesEllipsoidalCS(EllipsoidalCSPropertyType value) {
@@ -8576,12 +8849,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesCartesianCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "cartesianCS")
     public JAXBElement<CartesianCSPropertyType> createUsesCartesianCS(CartesianCSPropertyType value) {
@@ -8589,12 +8863,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SphericalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SphericalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesSphericalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "sphericalCS")
     public JAXBElement<SphericalCSPropertyType> createUsesSphericalCS(SphericalCSPropertyType value) {
@@ -8602,12 +8877,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeodeticDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeodeticDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesGeodeticDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "geodeticDatum")
     public JAXBElement<GeodeticDatumPropertyType> createUsesGeodeticDatum(GeodeticDatumPropertyType value) {
@@ -8615,12 +8891,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesVerticalCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "verticalCS")
     public JAXBElement<VerticalCSPropertyType> createUsesVerticalCS(VerticalCSPropertyType value) {
@@ -8628,12 +8905,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesVerticalDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "verticalDatum")
     public JAXBElement<VerticalDatumPropertyType> createUsesVerticalDatum(VerticalDatumPropertyType value) {
@@ -8641,12 +8919,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerticalCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link VerticalCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link VerticalCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link VerticalCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "verticalCRSRef")
     public JAXBElement<VerticalCRSPropertyType> createVerticalCRSRef(VerticalCRSPropertyType value) {
@@ -8654,12 +8933,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeographicCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeographicCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeographicCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeographicCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "baseGeographicCRS")
     public JAXBElement<GeographicCRSPropertyType> createBaseGeographicCRS(GeographicCRSPropertyType value) {
@@ -8667,12 +8947,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProjectedCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ProjectedCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ProjectedCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ProjectedCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "projectedCRSRef")
     public JAXBElement<ProjectedCRSPropertyType> createProjectedCRSRef(ProjectedCRSPropertyType value) {
@@ -8680,12 +8961,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinateSystemPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinateSystemPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "coordinateSystem")
     public JAXBElement<CoordinateSystemPropertyType> createUsesCS(CoordinateSystemPropertyType value) {
@@ -8693,12 +8975,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DerivedCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link DerivedCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DerivedCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DerivedCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "derivedCRSRef")
     public JAXBElement<DerivedCRSPropertyType> createDerivedCRSRef(DerivedCRSPropertyType value) {
@@ -8706,12 +8989,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesEngineeringDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "engineeringDatum")
     public JAXBElement<EngineeringDatumPropertyType> createUsesEngineeringDatum(EngineeringDatumPropertyType value) {
@@ -8719,12 +9003,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EngineeringCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link EngineeringCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EngineeringCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link EngineeringCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "engineeringCRSRef")
     public JAXBElement<EngineeringCRSPropertyType> createEngineeringCRSRef(EngineeringCRSPropertyType value) {
@@ -8732,12 +9017,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AffineCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AffineCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesAffineCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "affineCS")
     public JAXBElement<AffineCSPropertyType> createUsesAffineCS(AffineCSPropertyType value) {
@@ -8745,12 +9031,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ImageDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesImageDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "imageDatum")
     public JAXBElement<ImageDatumPropertyType> createUsesImageDatum(ImageDatumPropertyType value) {
@@ -8758,25 +9045,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ObliqueCartesianCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesObliqueCartesianCS")
-    public JAXBElement<ObliqueCartesianCSPropertyType> createUsesObliqueCartesianCS(ObliqueCartesianCSPropertyType value) {
+    public JAXBElement<ObliqueCartesianCSPropertyType> createUsesObliqueCartesianCS(
+            ObliqueCartesianCSPropertyType value) {
         return new JAXBElement<>(_UsesObliqueCartesianCS_QNAME, ObliqueCartesianCSPropertyType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ImageCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ImageCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ImageCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ImageCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "imageCRSRef")
     public JAXBElement<ImageCRSPropertyType> createImageCRSRef(ImageCRSPropertyType value) {
@@ -8784,12 +9074,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TimeCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TimeCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesTimeCS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "timeCS")
     public JAXBElement<TimeCSPropertyType> createUsesTimeCS(TimeCSPropertyType value) {
@@ -8797,12 +9088,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalCSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalCSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalCSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesTemporalCS")
     public JAXBElement<TemporalCSPropertyType> createUsesTemporalCS(TemporalCSPropertyType value) {
@@ -8810,12 +9102,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalDatumPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalDatumPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "usesTemporalDatum", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "temporalDatum")
     public JAXBElement<TemporalDatumPropertyType> createUsesTemporalDatum(TemporalDatumPropertyType value) {
@@ -8823,12 +9116,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TemporalCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TemporalCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TemporalCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TemporalCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "temporalCRSRef")
     public JAXBElement<TemporalCRSPropertyType> createTemporalCRSRef(TemporalCRSPropertyType value) {
@@ -8836,12 +9130,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeographicCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeographicCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeographicCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeographicCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeographicCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<GeographicCRSType> createGeographicCRS(GeographicCRSType value) {
@@ -8849,12 +9144,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeographicCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeographicCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeographicCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeographicCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geographicCRSRef")
     public JAXBElement<GeographicCRSPropertyType> createGeographicCRSRef(GeographicCRSPropertyType value) {
@@ -8862,12 +9158,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeocentricCRSType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GeocentricCRSType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeocentricCRSType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeocentricCRSType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GeocentricCRS", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractSingleCRS")
     public JAXBElement<GeocentricCRSType> createGeocentricCRS(GeocentricCRSType value) {
@@ -8875,12 +9172,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GeocentricCRSPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link GeocentricCRSPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GeocentricCRSPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GeocentricCRSPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "geocentricCRSRef")
     public JAXBElement<GeocentricCRSPropertyType> createGeocentricCRSRef(GeocentricCRSPropertyType value) {
@@ -8888,12 +9186,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DMSAngleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DMSAngleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DMSAngleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DMSAngleType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "dmsAngle")
     public JAXBElement<DMSAngleType> createDmsAngle(DMSAngleType value) {
@@ -8901,12 +9200,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DegreesType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DegreesType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DegreesType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DegreesType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "degrees")
     public JAXBElement<DegreesType> createDegrees(DegreesType value) {
@@ -8914,12 +9214,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "decimalMinutes")
     public JAXBElement<BigDecimal> createDecimalMinutes(BigDecimal value) {
@@ -8928,11 +9229,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Integer
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "minutes")
     public JAXBElement<Integer> createMinutes(Integer value) {
@@ -8940,12 +9241,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BigDecimal }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BigDecimal
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "seconds")
     public JAXBElement<BigDecimal> createSeconds(BigDecimal value) {
@@ -8953,12 +9255,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link AssociationRoleType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AssociationRoleType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AssociationRoleType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "member")
     public JAXBElement<AssociationRoleType> createMember(AssociationRoleType value) {
@@ -8966,12 +9269,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayAssociationType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link ArrayAssociationType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayAssociationType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link ArrayAssociationType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "members")
     public JAXBElement<ArrayAssociationType> createMembers(ArrayAssociationType value) {
@@ -8979,12 +9283,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MetaDataPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MetaDataPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MetaDataPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MetaDataPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "metaDataProperty")
     public JAXBElement<MetaDataPropertyType> createMetaDataProperty(MetaDataPropertyType value) {
@@ -8993,11 +9298,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BagType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link BagType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link BagType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Bag", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<BagType> createBag(BagType value) {
@@ -9005,12 +9310,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ArrayType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ArrayType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "Array", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractGML")
     public JAXBElement<ArrayType> createArray(ArrayType value) {
@@ -9018,12 +9324,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractMetaDataType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractMetaDataType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractMetaDataType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractMetaDataType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractMetaData", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractObject")
     public JAXBElement<AbstractMetaDataType> createAbstractMetaData(AbstractMetaDataType value) {
@@ -9031,12 +9338,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GenericMetaDataType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link GenericMetaDataType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GenericMetaDataType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link GenericMetaDataType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "GenericMetaData", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractMetaData")
     public JAXBElement<GenericMetaDataType> createGenericMetaData(GenericMetaDataType value) {
@@ -9044,12 +9352,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinatesType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CoordinatesType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CoordinatesType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CoordinatesType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "coordinates")
     public JAXBElement<CoordinatesType> createCoordinates(CoordinatesType value) {
@@ -9057,12 +9366,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pointRep")
     public JAXBElement<PointPropertyType> createPointRep(PointPropertyType value) {
@@ -9070,12 +9380,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LocationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link LocationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link LocationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link LocationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "location")
     public JAXBElement<LocationPropertyType> createLocation(LocationPropertyType value) {
@@ -9083,12 +9394,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LocationString")
     public JAXBElement<StringOrRefType> createLocationString(StringOrRefType value) {
@@ -9097,11 +9409,11 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
-     * 
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CodeType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link CodeType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "LocationKeyWord")
     public JAXBElement<CodeType> createLocationKeyWord(CodeType value) {
@@ -9109,12 +9421,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PriorityLocationPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PriorityLocationPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PriorityLocationPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PriorityLocationPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "priorityLocation", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "location")
     public JAXBElement<PriorityLocationPropertyType> createPriorityLocation(PriorityLocationPropertyType value) {
@@ -9122,12 +9435,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link FeaturePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "featureMember")
     public JAXBElement<FeaturePropertyType> createFeatureMember(FeaturePropertyType value) {
@@ -9135,12 +9449,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FeaturePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link FeaturePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "featureProperty")
     public JAXBElement<FeaturePropertyType> createFeatureProperty(FeaturePropertyType value) {
@@ -9148,12 +9463,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FeatureArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link FeatureArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FeatureArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link FeatureArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "featureMembers")
     public JAXBElement<FeatureArrayPropertyType> createFeatureMembers(FeatureArrayPropertyType value) {
@@ -9161,25 +9477,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractFeatureCollectionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link AbstractFeatureCollectionType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link AbstractFeatureCollectionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link AbstractFeatureCollectionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "AbstractFeatureCollection", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
-    public JAXBElement<AbstractFeatureCollectionType> createAbstractFeatureCollection(AbstractFeatureCollectionType value) {
+    public JAXBElement<AbstractFeatureCollectionType> createAbstractFeatureCollection(
+            AbstractFeatureCollectionType value) {
         return new JAXBElement<>(_AbstractFeatureCollection_QNAME, AbstractFeatureCollectionType.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FeatureCollectionType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link FeatureCollectionType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link FeatureCollectionType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link FeatureCollectionType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "FeatureCollection", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractFeature")
     public JAXBElement<FeatureCollectionType> createFeatureCollection(FeatureCollectionType value) {
@@ -9187,12 +9506,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link HistoryPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link HistoryPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "track", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "history")
     public JAXBElement<HistoryPropertyType> createTrack(HistoryPropertyType value) {
@@ -9200,12 +9520,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DictionaryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DictionaryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DefinitionCollection", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<DictionaryType> createDefinitionCollection(DictionaryType value) {
@@ -9213,12 +9534,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DictionaryEntryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DictionaryEntryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "definitionMember", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "dictionaryEntry")
     public JAXBElement<DictionaryEntryType> createDefinitionMember(DictionaryEntryType value) {
@@ -9226,12 +9548,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link IndirectEntryType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link IndirectEntryType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link IndirectEntryType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link IndirectEntryType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "indirectEntry")
     public JAXBElement<IndirectEntryType> createIndirectEntry(IndirectEntryType value) {
@@ -9239,12 +9562,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DefinitionProxyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DefinitionProxyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DefinitionProxyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link DefinitionProxyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "DefinitionProxy", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "Definition")
     public JAXBElement<DefinitionProxyType> createDefinitionProxy(DefinitionProxyType value) {
@@ -9252,12 +9576,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "definitionRef")
     public JAXBElement<ReferenceType> createDefinitionRef(ReferenceType value) {
@@ -9265,12 +9590,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MappingRule")
     public JAXBElement<StringOrRefType> createMappingRule(StringOrRefType value) {
@@ -9278,12 +9604,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "centerOf")
     public JAXBElement<PointPropertyType> createCenterOf(PointPropertyType value) {
@@ -9291,12 +9618,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link PointPropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "position")
     public JAXBElement<PointPropertyType> createPosition(PointPropertyType value) {
@@ -9304,12 +9632,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "extentOf")
     public JAXBElement<SurfacePropertyType> createExtentOf(SurfacePropertyType value) {
@@ -9317,12 +9646,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "edgeOf")
     public JAXBElement<CurvePropertyType> createEdgeOf(CurvePropertyType value) {
@@ -9330,12 +9660,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link CurvePropertyType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "centerLineOf")
     public JAXBElement<CurvePropertyType> createCenterLineOf(CurvePropertyType value) {
@@ -9343,12 +9674,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiPointPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiPointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiLocation")
     public JAXBElement<MultiPointPropertyType> createMultiLocation(MultiPointPropertyType value) {
@@ -9356,12 +9688,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiPointPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiPointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiCenterOf")
     public JAXBElement<MultiPointPropertyType> createMultiCenterOf(MultiPointPropertyType value) {
@@ -9369,12 +9702,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiPointPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiPointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiPosition")
     public JAXBElement<MultiPointPropertyType> createMultiPosition(MultiPointPropertyType value) {
@@ -9382,12 +9716,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiCurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiCenterLineOf")
     public JAXBElement<MultiCurvePropertyType> createMultiCenterLineOf(MultiCurvePropertyType value) {
@@ -9395,12 +9730,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiCurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiEdgeOf")
     public JAXBElement<MultiCurvePropertyType> createMultiEdgeOf(MultiCurvePropertyType value) {
@@ -9408,12 +9744,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiCoverage")
     public JAXBElement<MultiSurfacePropertyType> createMultiCoverage(MultiSurfacePropertyType value) {
@@ -9421,12 +9758,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiExtentOf")
     public JAXBElement<MultiSurfacePropertyType> createMultiExtentOf(MultiSurfacePropertyType value) {
@@ -9434,12 +9772,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "polygonPatches", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "patches")
     public JAXBElement<SurfacePatchArrayPropertyType> createPolygonPatches(SurfacePatchArrayPropertyType value) {
@@ -9447,12 +9786,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfacePatchArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "trianglePatches", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "patches")
     public JAXBElement<SurfacePatchArrayPropertyType> createTrianglePatches(SurfacePatchArrayPropertyType value) {
@@ -9460,12 +9800,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiPointDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createMultiPointDomain(DomainSetType value) {
@@ -9473,12 +9814,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiCurveDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createMultiCurveDomain(DomainSetType value) {
@@ -9486,12 +9828,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiSurfaceDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createMultiSurfaceDomain(DomainSetType value) {
@@ -9499,12 +9842,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiSolidDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createMultiSolidDomain(DomainSetType value) {
@@ -9512,12 +9856,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "gridDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createGridDomain(DomainSetType value) {
@@ -9525,12 +9870,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DomainSetType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DomainSetType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "rectifiedGridDomain", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "domainSet")
     public JAXBElement<DomainSetType> createRectifiedGridDomain(DomainSetType value) {
@@ -9538,12 +9884,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MovingObjectStatusType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MovingObjectStatusType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MovingObjectStatusType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MovingObjectStatusType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "MovingObjectStatus", substitutionHeadNamespace = "http://www.opengis.net/gml/3.2", substitutionHeadName = "AbstractTimeSlice")
     public JAXBElement<MovingObjectStatusType> createMovingObjectStatus(MovingObjectStatusType value) {
@@ -9551,12 +9898,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link StringOrRefType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link StringOrRefType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link StringOrRefType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "status")
     public JAXBElement<StringOrRefType> createStatus(StringOrRefType value) {
@@ -9564,12 +9912,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     * }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReferenceType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link ReferenceType
+     *         }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "statusReference")
     public JAXBElement<ReferenceType> createStatusReference(ReferenceType value) {
@@ -9577,12 +9926,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TopoComplexPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link TopoComplexPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "topoComplexProperty")
     public JAXBElement<TopoComplexPropertyType> createTopoComplexProperty(TopoComplexPropertyType value) {
@@ -9590,12 +9940,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiPointPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiPointPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiPointPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiPointProperty")
     public JAXBElement<MultiPointPropertyType> createMultiPointProperty(MultiPointPropertyType value) {
@@ -9603,12 +9954,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiCurvePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiCurvePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiCurveProperty")
     public JAXBElement<MultiCurvePropertyType> createMultiCurveProperty(MultiCurvePropertyType value) {
@@ -9616,12 +9968,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSurfacePropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSurfacePropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiSurfaceProperty")
     public JAXBElement<MultiSurfacePropertyType> createMultiSurfaceProperty(MultiSurfacePropertyType value) {
@@ -9629,12 +9982,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiSolidPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiSolidPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiSolidPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiSolidPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiSolidProperty")
     public JAXBElement<MultiSolidPropertyType> createMultiSolidProperty(MultiSolidPropertyType value) {
@@ -9642,12 +9996,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MultiGeometryPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link MultiGeometryPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link MultiGeometryPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link MultiGeometryPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "multiGeometryProperty")
     public JAXBElement<MultiGeometryPropertyType> createMultiGeometryProperty(MultiGeometryPropertyType value) {
@@ -9655,12 +10010,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PointArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link PointArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link PointArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link PointArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "pointArrayProperty")
     public JAXBElement<PointArrayPropertyType> createPointArrayProperty(PointArrayPropertyType value) {
@@ -9668,12 +10024,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CurveArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link CurveArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CurveArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link CurveArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "curveArrayProperty")
     public JAXBElement<CurveArrayPropertyType> createCurveArrayProperty(CurveArrayPropertyType value) {
@@ -9681,12 +10038,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SurfaceArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SurfaceArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SurfaceArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SurfaceArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "surfaceArrayProperty")
     public JAXBElement<SurfaceArrayPropertyType> createSurfaceArrayProperty(SurfaceArrayPropertyType value) {
@@ -9694,12 +10052,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SolidArrayPropertyType }{@code >}
-     * 
+     * Create an instance of {@link JAXBElement
+     * }{@code <}{@link SolidArrayPropertyType }{@code >}
+     *
      * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SolidArrayPropertyType }{@code >}
+     *            Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement
+     *         }{@code <}{@link SolidArrayPropertyType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "solidArrayProperty")
     public JAXBElement<SolidArrayPropertyType> createSolidArrayProperty(SolidArrayPropertyType value) {

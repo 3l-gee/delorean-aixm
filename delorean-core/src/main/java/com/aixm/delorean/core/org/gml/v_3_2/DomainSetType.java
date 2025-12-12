@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -12,6 +11,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,12 +25,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DomainSetType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DomainSetType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DomainSetType">
  *   <complexContent>
@@ -41,33 +46,36 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}AbstractTimeObject"/>
  *         </choice>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DomainSetType", propOrder = {
-    "abstractGeometry",
-    "abstractTimeObject"
-})
-public class DomainSetType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "DomainSetType", propOrder = {"abstractGeometry", "abstractTimeObject"})
+public class DomainSetType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
-     * 
+     * The AbstractGeometry element is the abstract head of the substitution group
+     * for all geometry elements of GML. This includes pre-defined and user-defined
+     * geometry elements. Any geometry element shall be a direct or indirect
+     * extension/restriction of AbstractGeometryType and shall be directly or
+     * indirectly in the substitution group of AbstractGeometry.
+     *
      */
     @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractGeometryType> abstractGeometry;
     /**
-     * gml:AbstractTimeObject acts as the head of a substitution group for all temporal primitives and complexes.
-     * 
+     * gml:AbstractTimeObject acts as the head of a substitution group for all
+     * temporal primitives and complexes.
+     *
      */
     @XmlElementRef(name = "AbstractTimeObject", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractTimeObjectType> abstractTimeObject;
@@ -94,40 +102,43 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
     protected ActuateType actuate;
 
     /**
-     * The AbstractGeometry element is the abstract head of the substitution group for all geometry elements of GML. This includes pre-defined and user-defined geometry elements. Any geometry element shall be a direct or indirect extension/restriction of AbstractGeometryType and shall be directly or indirectly in the substitution group of AbstractGeometry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *     
+     * The AbstractGeometry element is the abstract head of the substitution group
+     * for all geometry elements of GML. This includes pre-defined and user-defined
+     * geometry elements. Any geometry element shall be a direct or indirect
+     * extension/restriction of AbstractGeometryType and shall be directly or
+     * indirectly in the substitution group of AbstractGeometry.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractGeometryType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link CompositeSurfaceType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link PointType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SolidType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *
      */
     public JAXBElement<? extends AbstractGeometryType> getAbstractGeometry() {
         return abstractGeometry;
@@ -135,39 +146,41 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the abstractGeometry property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link AbstractGeometricAggregateType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link AbstractGeometryType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link AbstractGeometryType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSolidType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link AbstractSurfaceType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeCurveType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link CompositeSolidType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CompositeSurfaceType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link CurveType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link GeometricComplexType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link GridType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link OrientableSurfaceType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link PointType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link PolygonType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link RectifiedGridType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link SolidType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link SurfaceType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link TinType }{@code >}
+     *
      * @see #getAbstractGeometry()
      */
     public void setAbstractGeometry(JAXBElement<? extends AbstractGeometryType> value) {
@@ -175,25 +188,28 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetAbstractGeometry() {
-        return (this.abstractGeometry!= null);
+        return (this.abstractGeometry != null);
     }
 
     /**
-     * gml:AbstractTimeObject acts as the head of a substitution group for all temporal primitives and complexes.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeTopologyComplexType }{@code >}
-     *     
+     * gml:AbstractTimeObject acts as the head of a substitution group for all
+     * temporal primitives and complexes.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeComplexType }{@code >}
+     *         {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType
+     *         }{@code >} {@link JAXBElement
+     *         }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimeTopologyComplexType
+     *         }{@code >}
+     *
      */
     public JAXBElement<? extends AbstractTimeObjectType> getAbstractTimeObject() {
         return abstractTimeObject;
@@ -201,20 +217,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the abstractTimeObject property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeTopologyComplexType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AbstractTimeComplexType }{@code >}
+     *            {@link JAXBElement
+     *            }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link AbstractTimeObjectType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link AbstractTimePrimitiveType }{@code >}
+     *            {@link JAXBElement
+     *            }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link TimeTopologyComplexType
+     *            }{@code >}
+     *
      * @see #getAbstractTimeObject()
      */
     public void setAbstractTimeObject(JAXBElement<? extends AbstractTimeObjectType> value) {
@@ -222,16 +242,14 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetAbstractTimeObject() {
-        return (this.abstractTimeObject!= null);
+        return (this.abstractTimeObject != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -243,18 +261,17 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -263,11 +280,9 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -275,27 +290,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -303,27 +315,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -331,27 +340,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -359,27 +365,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -387,27 +390,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -415,27 +415,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -443,27 +440,24 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -471,18 +465,17 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     @Override
@@ -498,8 +491,9 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -507,27 +501,40 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
         }
         final DomainSetType that = ((DomainSetType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractTimeObject();
-            boolean rhsFieldIsSet = that.isSetAbstractTimeObject();
-            JAXBElement<? extends AbstractTimeObjectType> lhsField;
-            lhsField = this.getAbstractTimeObject();
-            JAXBElement<? extends AbstractTimeObjectType> rhsField;
-            rhsField = that.getAbstractTimeObject();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeObject", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeObject", rhsField);
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            String lhsField;
+            lhsField = this.getRemoteSchema();
+            String rhsField;
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -536,9 +543,9 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -559,27 +566,27 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractGeometry();
-            boolean rhsFieldIsSet = that.isSetAbstractGeometry();
-            JAXBElement<? extends AbstractGeometryType> lhsField;
-            lhsField = this.getAbstractGeometry();
-            JAXBElement<? extends AbstractGeometryType> rhsField;
-            rhsField = that.getAbstractGeometry();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
+            boolean lhsFieldIsSet = this.isSetArcrole();
+            boolean rhsFieldIsSet = that.isSetArcrole();
+            String lhsField;
+            lhsField = this.getArcrole();
+            String rhsField;
+            rhsField = that.getArcrole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
-            String lhsField;
-            lhsField = this.getRemoteSchema();
-            String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -611,40 +618,27 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
-            String lhsField;
-            lhsField = this.getSimpleLinkTitle();
-            String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractGeometry();
+            boolean rhsFieldIsSet = that.isSetAbstractGeometry();
+            JAXBElement<? extends AbstractGeometryType> lhsField;
+            lhsField = this.getAbstractGeometry();
+            JAXBElement<? extends AbstractGeometryType> rhsField;
+            rhsField = that.getAbstractGeometry();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetArcrole();
-            boolean rhsFieldIsSet = that.isSetArcrole();
-            String lhsField;
-            lhsField = this.getArcrole();
-            String rhsField;
-            rhsField = that.getArcrole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "arcrole", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "arcrole", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractTimeObject();
+            boolean rhsFieldIsSet = that.isSetAbstractTimeObject();
+            JAXBElement<? extends AbstractTimeObjectType> lhsField;
+            lhsField = this.getAbstractTimeObject();
+            JAXBElement<? extends AbstractTimeObjectType> rhsField;
+            rhsField = that.getAbstractTimeObject();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractTimeObject", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractTimeObject", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -682,7 +676,7 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -782,7 +776,7 @@ public class DomainSetType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         {

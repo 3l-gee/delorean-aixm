@@ -124,6 +124,8 @@ public class TimeSliceHelper {
 
         DeloreanTimeSliceType aixmTime = new DeloreanTimeSliceType();
 
+        aixmTime.setTimePeriodId(v.getId());
+
         if (begin == null && end == null) {
             throw new IllegalArgumentException("Invalid time period " + v.getClass().getName());
 
@@ -170,6 +172,7 @@ public class TimeSliceHelper {
 
         timePeriod.setBeginPosition(beginPosition);
         timePeriod.setEndPosition(endPosition);
+        timePeriod.setId(v.getTimePeriodId());
 
         return timePeriod;
     }

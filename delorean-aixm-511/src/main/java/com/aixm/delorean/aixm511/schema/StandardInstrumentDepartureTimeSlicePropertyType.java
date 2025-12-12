@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,35 +35,40 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for StandardInstrumentDepartureTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for StandardInstrumentDepartureTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="StandardInstrumentDepartureTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}StandardInstrumentDepartureTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}StandardInstrumentDepartureTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StandardInstrumentDepartureTimeSlicePropertyType", propOrder = {
-    "standardInstrumentDepartureTimeSlice"
-})
+        "standardInstrumentDepartureTimeSlice"})
 @Entity(name = "StandardInstrumentDepartureTimeSlicePropertyType")
 @Table(name = "standardinstrumentdeparture_tsp", schema = "procedure")
-public class StandardInstrumentDepartureTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class StandardInstrumentDepartureTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "StandardInstrumentDepartureTimeSlice", required = true)
@@ -77,15 +82,12 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
 
     /**
      * Gets the value of the standardInstrumentDepartureTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StandardInstrumentDepartureTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link StandardInstrumentDepartureTimeSliceType }
+     *
      */
     @OneToOne(targetEntity = StandardInstrumentDepartureTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public StandardInstrumentDepartureTimeSliceType getStandardInstrumentDepartureTimeSlice() {
         return standardInstrumentDepartureTimeSlice;
@@ -93,11 +95,11 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
 
     /**
      * Sets the value of the standardInstrumentDepartureTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StandardInstrumentDepartureTimeSliceType }
-     *     
+     *            allowed object is {@link StandardInstrumentDepartureTimeSliceType
+     *            }
+     *
      */
     public void setStandardInstrumentDepartureTimeSlice(StandardInstrumentDepartureTimeSliceType value) {
         this.standardInstrumentDepartureTimeSlice = value;
@@ -105,16 +107,14 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
 
     @Transient
     public boolean isSetStandardInstrumentDepartureTimeSlice() {
-        return (this.standardInstrumentDepartureTimeSlice!= null);
+        return (this.standardInstrumentDepartureTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +128,10 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +139,7 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +147,10 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +161,21 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +184,11 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,8 +207,9 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -223,27 +217,29 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
         }
         final StandardInstrumentDepartureTimeSlicePropertyType that = ((StandardInstrumentDepartureTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetStandardInstrumentDepartureTimeSlice();
             boolean rhsFieldIsSet = that.isSetStandardInstrumentDepartureTimeSlice();
             StandardInstrumentDepartureTimeSliceType lhsField;
             lhsField = this.getStandardInstrumentDepartureTimeSlice();
             StandardInstrumentDepartureTimeSliceType rhsField;
             rhsField = that.getStandardInstrumentDepartureTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentDepartureTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentDepartureTimeSlice", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardInstrumentDepartureTimeSlice",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardInstrumentDepartureTimeSlice",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -268,13 +264,14 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
             boolean theFieldIsSet = this.isSetStandardInstrumentDepartureTimeSlice();
             StandardInstrumentDepartureTimeSliceType theField;
             theField = this.getStandardInstrumentDepartureTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "standardInstrumentDepartureTimeSlice", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "standardInstrumentDepartureTimeSlice",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -307,12 +304,13 @@ public class StandardInstrumentDepartureTimeSlicePropertyType implements Seriali
             boolean theFieldIsSet = this.isSetStandardInstrumentDepartureTimeSlice();
             StandardInstrumentDepartureTimeSliceType theField;
             theField = this.getStandardInstrumentDepartureTimeSlice();
-            strategy.appendField(locator, this, "standardInstrumentDepartureTimeSlice", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "standardInstrumentDepartureTimeSlice", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

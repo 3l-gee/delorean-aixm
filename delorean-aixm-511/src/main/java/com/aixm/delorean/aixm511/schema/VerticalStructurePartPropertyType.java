@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for VerticalStructurePartPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for VerticalStructurePartPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="VerticalStructurePartPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}VerticalStructurePart"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}VerticalStructurePart"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "VerticalStructurePartPropertyType", propOrder = {
-    "verticalStructurePart"
-})
+@XmlType(name = "VerticalStructurePartPropertyType", propOrder = {"verticalStructurePart"})
 @Entity(name = "VerticalStructurePartPropertyType")
 @Table(name = "verticalstructurepart_pt", schema = "obstacle")
-public class VerticalStructurePartPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class VerticalStructurePartPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "VerticalStructurePart", required = true)
@@ -56,15 +58,11 @@ public class VerticalStructurePartPropertyType
 
     /**
      * Gets the value of the verticalStructurePart property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link VerticalStructurePartType }
-     *     
+     *
+     * @return possible object is {@link VerticalStructurePartType }
+     *
      */
-    @OneToOne(targetEntity = VerticalStructurePartType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = VerticalStructurePartType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "verticalstructurepart_id", referencedColumnName = "hjid")
     public VerticalStructurePartType getVerticalStructurePart() {
         return verticalStructurePart;
@@ -72,11 +70,10 @@ public class VerticalStructurePartPropertyType
 
     /**
      * Sets the value of the verticalStructurePart property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link VerticalStructurePartType }
-     *     
+     *            allowed object is {@link VerticalStructurePartType }
+     *
      */
     public void setVerticalStructurePart(VerticalStructurePartType value) {
         this.verticalStructurePart = value;
@@ -84,12 +81,13 @@ public class VerticalStructurePartPropertyType
 
     @Transient
     public boolean isSetVerticalStructurePart() {
-        return (this.verticalStructurePart!= null);
+        return (this.verticalStructurePart != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

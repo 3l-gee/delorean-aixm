@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import com.aixm.delorean.core.org.gco.v2007.DatePropertyType;
@@ -12,54 +9,64 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * Information about the scope and frequency of updating
- * 
- * <p>Java class for MD_MaintenanceInformation_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for MD_MaintenanceInformation_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_MaintenanceInformation_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="maintenanceAndUpdateFrequency" type="{http://www.isotc211.org/2005/gmd}MD_MaintenanceFrequencyCode_PropertyType"/>
- *         <element name="dateOfNextUpdate" type="{http://www.isotc211.org/2005/gco}Date_PropertyType" minOccurs="0"/>
- *         <element name="userDefinedMaintenanceFrequency" type="{http://www.isotc211.org/2005/gts}TM_PeriodDuration_PropertyType" minOccurs="0"/>
- *         <element name="updateScope" type="{http://www.isotc211.org/2005/gmd}MD_ScopeCode_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="updateScopeDescription" type="{http://www.isotc211.org/2005/gmd}MD_ScopeDescription_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="maintenanceNote" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="contact" type="{http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="maintenanceAndUpdateFrequency" type=
+"{http://www.isotc211.org/2005/gmd}MD_MaintenanceFrequencyCode_PropertyType"/>
+ *         <element name="dateOfNextUpdate" type=
+"{http://www.isotc211.org/2005/gco}Date_PropertyType" minOccurs="0"/>
+ *         <element name="userDefinedMaintenanceFrequency" type=
+"{http://www.isotc211.org/2005/gts}TM_PeriodDuration_PropertyType" minOccurs=
+"0"/>
+ *         <element name="updateScope" type=
+"{http://www.isotc211.org/2005/gmd}MD_ScopeCode_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="updateScopeDescription" type=
+"{http://www.isotc211.org/2005/gmd}MD_ScopeDescription_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="maintenanceNote" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="contact" type=
+"{http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_MaintenanceInformation_Type", propOrder = {
-    "maintenanceAndUpdateFrequency",
-    "dateOfNextUpdate",
-    "userDefinedMaintenanceFrequency",
-    "updateScope",
-    "updateScopeDescription",
-    "maintenanceNote",
-    "contact"
-})
-public class MDMaintenanceInformationType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "MD_MaintenanceInformation_Type", propOrder = {"maintenanceAndUpdateFrequency", "dateOfNextUpdate",
+        "userDefinedMaintenanceFrequency", "updateScope", "updateScopeDescription", "maintenanceNote", "contact"})
+public class MDMaintenanceInformationType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -73,11 +80,9 @@ public class MDMaintenanceInformationType
 
     /**
      * Gets the value of the maintenanceAndUpdateFrequency property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDMaintenanceFrequencyCodePropertyType }
-     *     
+     *
+     * @return possible object is {@link MDMaintenanceFrequencyCodePropertyType }
+     *
      */
     public MDMaintenanceFrequencyCodePropertyType getMaintenanceAndUpdateFrequency() {
         return maintenanceAndUpdateFrequency;
@@ -85,27 +90,24 @@ public class MDMaintenanceInformationType
 
     /**
      * Sets the value of the maintenanceAndUpdateFrequency property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDMaintenanceFrequencyCodePropertyType }
-     *     
+     *            allowed object is {@link MDMaintenanceFrequencyCodePropertyType }
+     *
      */
     public void setMaintenanceAndUpdateFrequency(MDMaintenanceFrequencyCodePropertyType value) {
         this.maintenanceAndUpdateFrequency = value;
     }
 
     public boolean isSetMaintenanceAndUpdateFrequency() {
-        return (this.maintenanceAndUpdateFrequency!= null);
+        return (this.maintenanceAndUpdateFrequency != null);
     }
 
     /**
      * Gets the value of the dateOfNextUpdate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DatePropertyType }
-     *     
+     *
+     * @return possible object is {@link DatePropertyType }
+     *
      */
     public DatePropertyType getDateOfNextUpdate() {
         return dateOfNextUpdate;
@@ -113,27 +115,24 @@ public class MDMaintenanceInformationType
 
     /**
      * Sets the value of the dateOfNextUpdate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DatePropertyType }
-     *     
+     *            allowed object is {@link DatePropertyType }
+     *
      */
     public void setDateOfNextUpdate(DatePropertyType value) {
         this.dateOfNextUpdate = value;
     }
 
     public boolean isSetDateOfNextUpdate() {
-        return (this.dateOfNextUpdate!= null);
+        return (this.dateOfNextUpdate != null);
     }
 
     /**
      * Gets the value of the userDefinedMaintenanceFrequency property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMPeriodDurationPropertyType }
-     *     
+     *
+     * @return possible object is {@link TMPeriodDurationPropertyType }
+     *
      */
     public TMPeriodDurationPropertyType getUserDefinedMaintenanceFrequency() {
         return userDefinedMaintenanceFrequency;
@@ -141,41 +140,41 @@ public class MDMaintenanceInformationType
 
     /**
      * Sets the value of the userDefinedMaintenanceFrequency property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TMPeriodDurationPropertyType }
-     *     
+     *            allowed object is {@link TMPeriodDurationPropertyType }
+     *
      */
     public void setUserDefinedMaintenanceFrequency(TMPeriodDurationPropertyType value) {
         this.userDefinedMaintenanceFrequency = value;
     }
 
     public boolean isSetUserDefinedMaintenanceFrequency() {
-        return (this.userDefinedMaintenanceFrequency!= null);
+        return (this.userDefinedMaintenanceFrequency != null);
     }
 
     /**
      * Gets the value of the updateScope property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the updateScope property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the updateScope property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getUpdateScope().add(newItem);
+     * getUpdateScope().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDScopeCodePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDScopeCodePropertyType> getUpdateScope() {
         if (updateScope == null) {
@@ -185,15 +184,15 @@ public class MDMaintenanceInformationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setUpdateScope(List<MDScopeCodePropertyType> updateScope) {
         this.updateScope = updateScope;
     }
 
     public boolean isSetUpdateScope() {
-        return ((this.updateScope!= null)&&(!this.updateScope.isEmpty()));
+        return ((this.updateScope != null) && (!this.updateScope.isEmpty()));
     }
 
     public void unsetUpdateScope() {
@@ -202,25 +201,26 @@ public class MDMaintenanceInformationType
 
     /**
      * Gets the value of the updateScopeDescription property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the updateScopeDescription property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the updateScopeDescription property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getUpdateScopeDescription().add(newItem);
+     * getUpdateScopeDescription().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MDScopeDescriptionPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<MDScopeDescriptionPropertyType> getUpdateScopeDescription() {
         if (updateScopeDescription == null) {
@@ -230,15 +230,15 @@ public class MDMaintenanceInformationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setUpdateScopeDescription(List<MDScopeDescriptionPropertyType> updateScopeDescription) {
         this.updateScopeDescription = updateScopeDescription;
     }
 
     public boolean isSetUpdateScopeDescription() {
-        return ((this.updateScopeDescription!= null)&&(!this.updateScopeDescription.isEmpty()));
+        return ((this.updateScopeDescription != null) && (!this.updateScopeDescription.isEmpty()));
     }
 
     public void unsetUpdateScopeDescription() {
@@ -247,25 +247,26 @@ public class MDMaintenanceInformationType
 
     /**
      * Gets the value of the maintenanceNote property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the maintenanceNote property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the maintenanceNote property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getMaintenanceNote().add(newItem);
+     * getMaintenanceNote().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CharacterStringPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<CharacterStringPropertyType> getMaintenanceNote() {
         if (maintenanceNote == null) {
@@ -275,15 +276,15 @@ public class MDMaintenanceInformationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setMaintenanceNote(List<CharacterStringPropertyType> maintenanceNote) {
         this.maintenanceNote = maintenanceNote;
     }
 
     public boolean isSetMaintenanceNote() {
-        return ((this.maintenanceNote!= null)&&(!this.maintenanceNote.isEmpty()));
+        return ((this.maintenanceNote != null) && (!this.maintenanceNote.isEmpty()));
     }
 
     public void unsetMaintenanceNote() {
@@ -292,25 +293,26 @@ public class MDMaintenanceInformationType
 
     /**
      * Gets the value of the contact property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the contact property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the contact property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getContact().add(newItem);
+     * getContact().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CIResponsiblePartyPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<CIResponsiblePartyPropertyType> getContact() {
         if (contact == null) {
@@ -320,15 +322,15 @@ public class MDMaintenanceInformationType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setContact(List<CIResponsiblePartyPropertyType> contact) {
         this.contact = contact;
     }
 
     public boolean isSetContact() {
-        return ((this.contact!= null)&&(!this.contact.isEmpty()));
+        return ((this.contact != null) && (!this.contact.isEmpty()));
     }
 
     public void unsetContact() {
@@ -336,8 +338,9 @@ public class MDMaintenanceInformationType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -348,12 +351,53 @@ public class MDMaintenanceInformationType
         }
         final MDMaintenanceInformationType that = ((MDMaintenanceInformationType) object);
         {
+            boolean lhsFieldIsSet = this.isSetUserDefinedMaintenanceFrequency();
+            boolean rhsFieldIsSet = that.isSetUserDefinedMaintenanceFrequency();
+            TMPeriodDurationPropertyType lhsField;
+            lhsField = this.getUserDefinedMaintenanceFrequency();
+            TMPeriodDurationPropertyType rhsField;
+            rhsField = that.getUserDefinedMaintenanceFrequency();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedMaintenanceFrequency",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedMaintenanceFrequency",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpdateScopeDescription();
+            boolean rhsFieldIsSet = that.isSetUpdateScopeDescription();
+            List<MDScopeDescriptionPropertyType> lhsField;
+            lhsField = (this.isSetUpdateScopeDescription() ? this.getUpdateScopeDescription() : null);
+            List<MDScopeDescriptionPropertyType> rhsField;
+            rhsField = (that.isSetUpdateScopeDescription() ? that.getUpdateScopeDescription() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScopeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScopeDescription", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpdateScope();
+            boolean rhsFieldIsSet = that.isSetUpdateScope();
+            List<MDScopeCodePropertyType> lhsField;
+            lhsField = (this.isSetUpdateScope() ? this.getUpdateScope() : null);
+            List<MDScopeCodePropertyType> rhsField;
+            rhsField = (that.isSetUpdateScope() ? that.getUpdateScope() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScope", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScope", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaintenanceNote();
             boolean rhsFieldIsSet = that.isSetMaintenanceNote();
             List<CharacterStringPropertyType> lhsField;
-            lhsField = (this.isSetMaintenanceNote()?this.getMaintenanceNote():null);
+            lhsField = (this.isSetMaintenanceNote() ? this.getMaintenanceNote() : null);
             List<CharacterStringPropertyType> rhsField;
-            rhsField = (that.isSetMaintenanceNote()?that.getMaintenanceNote():null);
+            rhsField = (that.isSetMaintenanceNote() ? that.getMaintenanceNote() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceNote", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceNote", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -367,21 +411,10 @@ public class MDMaintenanceInformationType
             lhsField = this.getMaintenanceAndUpdateFrequency();
             MDMaintenanceFrequencyCodePropertyType rhsField;
             rhsField = that.getMaintenanceAndUpdateFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUserDefinedMaintenanceFrequency();
-            boolean rhsFieldIsSet = that.isSetUserDefinedMaintenanceFrequency();
-            TMPeriodDurationPropertyType lhsField;
-            lhsField = this.getUserDefinedMaintenanceFrequency();
-            TMPeriodDurationPropertyType rhsField;
-            rhsField = that.getUserDefinedMaintenanceFrequency();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "userDefinedMaintenanceFrequency", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "userDefinedMaintenanceFrequency", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maintenanceAndUpdateFrequency",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maintenanceAndUpdateFrequency",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -400,38 +433,12 @@ public class MDMaintenanceInformationType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUpdateScope();
-            boolean rhsFieldIsSet = that.isSetUpdateScope();
-            List<MDScopeCodePropertyType> lhsField;
-            lhsField = (this.isSetUpdateScope()?this.getUpdateScope():null);
-            List<MDScopeCodePropertyType> rhsField;
-            rhsField = (that.isSetUpdateScope()?that.getUpdateScope():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScope", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScope", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpdateScopeDescription();
-            boolean rhsFieldIsSet = that.isSetUpdateScopeDescription();
-            List<MDScopeDescriptionPropertyType> lhsField;
-            lhsField = (this.isSetUpdateScopeDescription()?this.getUpdateScopeDescription():null);
-            List<MDScopeDescriptionPropertyType> rhsField;
-            rhsField = (that.isSetUpdateScopeDescription()?that.getUpdateScopeDescription():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "updateScopeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "updateScopeDescription", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetContact();
             boolean rhsFieldIsSet = that.isSetContact();
             List<CIResponsiblePartyPropertyType> lhsField;
-            lhsField = (this.isSetContact()?this.getContact():null);
+            lhsField = (this.isSetContact() ? this.getContact() : null);
             List<CIResponsiblePartyPropertyType> rhsField;
-            rhsField = (that.isSetContact()?that.getContact():null);
+            rhsField = (that.isSetContact() ? that.getContact() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -468,28 +475,28 @@ public class MDMaintenanceInformationType
         {
             boolean theFieldIsSet = this.isSetUpdateScope();
             List<MDScopeCodePropertyType> theField;
-            theField = (this.isSetUpdateScope()?this.getUpdateScope():null);
+            theField = (this.isSetUpdateScope() ? this.getUpdateScope() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "updateScope", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUpdateScopeDescription();
             List<MDScopeDescriptionPropertyType> theField;
-            theField = (this.isSetUpdateScopeDescription()?this.getUpdateScopeDescription():null);
+            theField = (this.isSetUpdateScopeDescription() ? this.getUpdateScopeDescription() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "updateScopeDescription", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMaintenanceNote();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetMaintenanceNote()?this.getMaintenanceNote():null);
+            theField = (this.isSetMaintenanceNote() ? this.getMaintenanceNote() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "maintenanceNote", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetContact();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (this.isSetContact()?this.getContact():null);
+            theField = (this.isSetContact() ? this.getContact() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "contact", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -520,25 +527,25 @@ public class MDMaintenanceInformationType
         {
             boolean theFieldIsSet = this.isSetUpdateScope();
             List<MDScopeCodePropertyType> theField;
-            theField = (this.isSetUpdateScope()?this.getUpdateScope():null);
+            theField = (this.isSetUpdateScope() ? this.getUpdateScope() : null);
             strategy.appendField(locator, this, "updateScope", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUpdateScopeDescription();
             List<MDScopeDescriptionPropertyType> theField;
-            theField = (this.isSetUpdateScopeDescription()?this.getUpdateScopeDescription():null);
+            theField = (this.isSetUpdateScopeDescription() ? this.getUpdateScopeDescription() : null);
             strategy.appendField(locator, this, "updateScopeDescription", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetMaintenanceNote();
             List<CharacterStringPropertyType> theField;
-            theField = (this.isSetMaintenanceNote()?this.getMaintenanceNote():null);
+            theField = (this.isSetMaintenanceNote() ? this.getMaintenanceNote() : null);
             strategy.appendField(locator, this, "maintenanceNote", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetContact();
             List<CIResponsiblePartyPropertyType> theField;
-            theField = (this.isSetContact()?this.getContact():null);
+            theField = (this.isSetContact() ? this.getContact() : null);
             strategy.appendField(locator, this, "contact", buffer, theField, theFieldIsSet);
         }
         return buffer;

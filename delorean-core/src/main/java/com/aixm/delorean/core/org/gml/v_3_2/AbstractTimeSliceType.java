@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.time.adapter.TimePrimitivePropertyTypeAdapter;
 import com.aixm.delorean.core.time.type.DeloreanTimeSliceType;
 import jakarta.persistence.AttributeOverride;
@@ -16,78 +15,76 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractTimeSliceType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractGMLType">
  *       <sequence>
  *         <element ref="{http://www.opengis.net/gml/3.2}aixmValidTime"/>
- *         <element ref="{http://www.opengis.net/gml/3.2}dataSource" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}dataSource" minOccurs=
+"0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractTimeSliceType", propOrder = {
-    "validTime",
-    "dataSource"
-})
-@XmlSeeAlso({
-    MovingObjectStatusType.class
-})
+@XmlType(name = "AbstractTimeSliceType", propOrder = {"validTime", "dataSource"})
+@XmlSeeAlso({MovingObjectStatusType.class})
 @MappedSuperclass
-public abstract class AbstractTimeSliceType
-    extends AbstractGMLType
-    implements Serializable
-{
+public abstract class AbstractTimeSliceType extends AbstractGMLType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "validTime", required = true, type = TimePrimitivePropertyType.class)
     @XmlJavaTypeAdapter(TimePrimitivePropertyTypeAdapter.class)
     protected DeloreanTimeSliceType validTime;
     /**
-     * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference property that indicates the source of the temporal data. The remote link attributes of the gml:dataSource element have been deprecated along with its current type.
-     * 
+     * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference
+     * property that indicates the source of the temporal data. The remote link
+     * attributes of the gml:dataSource element have been deprecated along with its
+     * current type.
+     *
      */
     protected StringOrRefType dataSource;
 
     /**
      * Gets the value of the validTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
-@jakarta.persistence.Embedded
-@jakarta.persistence.AttributeOverrides({ @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin")), @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end")) })
+    @jakarta.persistence.Embedded
     public DeloreanTimeSliceType getValidTime() {
         return validTime;
     }
 
     /**
      * Sets the value of the validTime property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setValidTime(DeloreanTimeSliceType value) {
         this.validTime = value;
@@ -95,39 +92,37 @@ public abstract class AbstractTimeSliceType
 
     @Transient
     public boolean isSetValidTime() {
-        return (this.validTime!= null);
+        return (this.validTime != null);
     }
 
     /**
-     * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference property that indicates the source of the temporal data. The remote link attributes of the gml:dataSource element have been deprecated along with its current type.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StringOrRefType }
-     *     
+     * Evidence is represented by a simple gml:dataSource or gml:dataSourceReference
+     * property that indicates the source of the temporal data. The remote link
+     * attributes of the gml:dataSource element have been deprecated along with its
+     * current type.
+     *
+     * @return possible object is {@link StringOrRefType }
+     *
      */
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "DATA_SOURCE_VALUE", length = 255)),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "DATA_SOURCE_NIL_REASON", length = 255)),
-        @AttributeOverride(name = "href", column = @Column(name = "DATA_SOURCE_HREF")),
-        @AttributeOverride(name = "role", column = @Column(name = "DATA_SOURCE_ROLE")),
-        @AttributeOverride(name = "arcrole", column = @Column(name = "DATA_SOURCE_ARCROLE")),
-        @AttributeOverride(name = "simpleLinkTitle", column = @Column(name = "DATA_SOURCE_SIMPLE_LINK_TITLE", length = 255)),
-        @AttributeOverride(name = "show", column = @Column(name = "DATA_SOURCE_SHOW", length = 255)),
-        @AttributeOverride(name = "actuate", column = @Column(name = "DATA_SOURCE_ACTUATE", length = 255))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "DATA_SOURCE_VALUE", length = 255)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "DATA_SOURCE_NIL_REASON", length = 255)),
+            @AttributeOverride(name = "href", column = @Column(name = "DATA_SOURCE_HREF")),
+            @AttributeOverride(name = "role", column = @Column(name = "DATA_SOURCE_ROLE")),
+            @AttributeOverride(name = "arcrole", column = @Column(name = "DATA_SOURCE_ARCROLE")),
+            @AttributeOverride(name = "simpleLinkTitle", column = @Column(name = "DATA_SOURCE_SIMPLE_LINK_TITLE", length = 255)),
+            @AttributeOverride(name = "show", column = @Column(name = "DATA_SOURCE_SHOW", length = 255)),
+            @AttributeOverride(name = "actuate", column = @Column(name = "DATA_SOURCE_ACTUATE", length = 255))})
     public StringOrRefType getDataSource() {
         return dataSource;
     }
 
     /**
      * Sets the value of the dataSource property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link StringOrRefType }
-     *     
+     *            allowed object is {@link StringOrRefType }
+     *
      * @see #getDataSource()
      */
     public void setDataSource(StringOrRefType value) {
@@ -136,12 +131,13 @@ public abstract class AbstractTimeSliceType
 
     @Transient
     public boolean isSetDataSource() {
-        return (this.dataSource!= null);
+        return (this.dataSource != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -24,6 +20,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -31,26 +31,35 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RadioCommunicationChannelTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RadioCommunicationChannelTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RadioCommunicationChannelTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RadioCommunicationChannelPropertyGroup"/>
+ *         <group ref=
+"{http://www.aixm.aero/schema/5.1.1}RadioCommunicationChannelPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRadioCommunicationChannelExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRadioCommunicationChannelExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -60,32 +69,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RadioCommunicationChannelTimeSliceType", propOrder = {
-    "mode",
-    "rank",
-    "frequencyTransmission",
-    "frequencyReception",
-    "channel",
-    "logon",
-    "emissionType",
-    "selectiveCall",
-    "flightChecked",
-    "trafficDirection",
-    "location",
-    "availability",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "RadioCommunicationChannelTimeSliceType", propOrder = {"mode", "rank", "frequencyTransmission",
+        "frequencyReception", "channel", "logon", "emissionType", "selectiveCall", "flightChecked", "trafficDirection",
+        "location", "availability", "annotation", "extension"})
 @Entity(name = "RadioCommunicationChannelTimeSliceType")
 @Table(name = "radiocommunicationchannel_ts", schema = "service")
-public class RadioCommunicationChannelTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RadioCommunicationChannelTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "mode", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -118,11 +111,10 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Gets the value of the mode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationModeType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeCommunicationModeType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeCommunicationModeType> getMode() {
@@ -131,11 +123,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the mode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationModeType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeCommunicationModeType }{@code >}
+     *
      */
     public void setMode(JAXBElement<CodeCommunicationModeType> value) {
         this.mode = value;
@@ -143,16 +135,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetMode() {
-        return (this.mode!= null);
+        return (this.mode != null);
     }
 
     /**
      * Gets the value of the rank property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeFacilityRankingType> getRank() {
@@ -161,11 +152,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the rank property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeFacilityRankingType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeFacilityRankingType }{@code >}
+     *
      */
     public void setRank(JAXBElement<CodeFacilityRankingType> value) {
         this.rank = value;
@@ -173,16 +164,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetRank() {
-        return (this.rank!= null);
+        return (this.rank != null);
     }
 
     /**
      * Gets the value of the frequencyTransmission property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValFrequencyType> getFrequencyTransmission() {
@@ -191,11 +181,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the frequencyTransmission property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     public void setFrequencyTransmission(JAXBElement<ValFrequencyType> value) {
         this.frequencyTransmission = value;
@@ -203,16 +193,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetFrequencyTransmission() {
-        return (this.frequencyTransmission!= null);
+        return (this.frequencyTransmission != null);
     }
 
     /**
      * Gets the value of the frequencyReception property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<ValFrequencyType> getFrequencyReception() {
@@ -221,11 +210,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the frequencyReception property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ValFrequencyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ValFrequencyType }{@code >}
+     *
      */
     public void setFrequencyReception(JAXBElement<ValFrequencyType> value) {
         this.frequencyReception = value;
@@ -233,16 +222,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetFrequencyReception() {
-        return (this.frequencyReception!= null);
+        return (this.frequencyReception != null);
     }
 
     /**
      * Gets the value of the channel property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationChannelType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeCommunicationChannelType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeCommunicationChannelType> getChannel() {
@@ -251,11 +239,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the channel property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationChannelType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeCommunicationChannelType }{@code >}
+     *
      */
     public void setChannel(JAXBElement<CodeCommunicationChannelType> value) {
         this.channel = value;
@@ -263,16 +251,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetChannel() {
-        return (this.channel!= null);
+        return (this.channel != null);
     }
 
     /**
      * Gets the value of the logon property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextDesignatorType> getLogon() {
@@ -281,11 +268,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the logon property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     public void setLogon(JAXBElement<TextDesignatorType> value) {
         this.logon = value;
@@ -293,16 +280,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetLogon() {
-        return (this.logon!= null);
+        return (this.logon != null);
     }
 
     /**
      * Gets the value of the emissionType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRadioEmissionType> getEmissionType() {
@@ -311,11 +297,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the emissionType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRadioEmissionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRadioEmissionType }{@code >}
+     *
      */
     public void setEmissionType(JAXBElement<CodeRadioEmissionType> value) {
         this.emissionType = value;
@@ -323,16 +309,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetEmissionType() {
-        return (this.emissionType!= null);
+        return (this.emissionType != null);
     }
 
     /**
      * Gets the value of the selectiveCall property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getSelectiveCall() {
@@ -341,11 +326,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the selectiveCall property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setSelectiveCall(JAXBElement<CodeYesNoType> value) {
         this.selectiveCall = value;
@@ -353,16 +338,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetSelectiveCall() {
-        return (this.selectiveCall!= null);
+        return (this.selectiveCall != null);
     }
 
     /**
      * Gets the value of the flightChecked property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getFlightChecked() {
@@ -371,11 +355,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the flightChecked property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setFlightChecked(JAXBElement<CodeYesNoType> value) {
         this.flightChecked = value;
@@ -383,16 +367,15 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetFlightChecked() {
-        return (this.flightChecked!= null);
+        return (this.flightChecked != null);
     }
 
     /**
      * Gets the value of the trafficDirection property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationDirectionType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeCommunicationDirectionType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeCommunicationDirectionType> getTrafficDirection() {
@@ -401,11 +384,11 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Sets the value of the trafficDirection property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeCommunicationDirectionType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeCommunicationDirectionType }{@code >}
+     *
      */
     public void setTrafficDirection(JAXBElement<CodeCommunicationDirectionType> value) {
         this.trafficDirection = value;
@@ -413,39 +396,37 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetTrafficDirection() {
-        return (this.trafficDirection!= null);
+        return (this.trafficDirection != null);
     }
 
     /**
      * Gets the value of the location property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the location property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the location property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getLocation().add(newItem);
+     * getLocation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AIXMElevatedPointPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "location_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "location", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "location", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")})
     public List<AIXMElevatedPointPropertyType> getLocation() {
         if (location == null) {
             location = new ArrayList<>();
@@ -454,8 +435,8 @@ public class RadioCommunicationChannelTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setLocation(List<AIXMElevatedPointPropertyType> location) {
         this.location = location;
@@ -463,7 +444,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetLocation() {
-        return ((this.location!= null)&&(!this.location.isEmpty()));
+        return ((this.location != null) && (!this.location.isEmpty()));
     }
 
     public void unsetLocation() {
@@ -472,34 +453,32 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Gets the value of the availability property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the availability property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the availability property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAvailability().add(newItem);
+     * getAvailability().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadioCommunicationOperationalStatusPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = RadioCommunicationOperationalStatusPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "availability_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "availability", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "availability", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")})
     public List<RadioCommunicationOperationalStatusPropertyType> getAvailability() {
         if (availability == null) {
             availability = new ArrayList<>();
@@ -508,8 +487,8 @@ public class RadioCommunicationChannelTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAvailability(List<RadioCommunicationOperationalStatusPropertyType> availability) {
         this.availability = availability;
@@ -517,7 +496,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetAvailability() {
-        return ((this.availability!= null)&&(!this.availability.isEmpty()));
+        return ((this.availability != null) && (!this.availability.isEmpty()));
     }
 
     public void unsetAvailability() {
@@ -526,34 +505,31 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_radiocommunicationchannel_link", schema = "service", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radiocommunicationchannelpropertygroup", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -562,8 +538,8 @@ public class RadioCommunicationChannelTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -571,7 +547,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -580,29 +556,29 @@ public class RadioCommunicationChannelTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadioCommunicationChannelExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = RadioCommunicationChannelExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_RADIO_COMMUNICATIO_0")
     public List<RadioCommunicationChannelExtensionType> getExtension() {
         if (extension == null) {
@@ -612,8 +588,8 @@ public class RadioCommunicationChannelTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RadioCommunicationChannelExtensionType> extension) {
         this.extension = extension;
@@ -621,7 +597,7 @@ public class RadioCommunicationChannelTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -629,140 +605,144 @@ public class RadioCommunicationChannelTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "mode")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "mode_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "mode")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "mode_nilreason"))})
     public CodeCommunicationModeType getModeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCommunicationModeType.class, this.getMode());
     }
 
     public void setModeItem(CodeCommunicationModeType target) {
-        setMode(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationModeType.class, new QName("http://www.aixm.aero/schema/5.1.1", "mode"), RadioCommunicationChannelTimeSliceType.class, target));
+        setMode(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationModeType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "mode"), RadioCommunicationChannelTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "rank")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "rank_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "rank")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "rank_nilreason"))})
     public CodeFacilityRankingType getRankItem() {
         return XmlAdapterUtils.unmarshallSource(CodeFacilityRankingType.class, this.getRank());
     }
 
     public void setRankItem(CodeFacilityRankingType target) {
-        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class, new QName("http://www.aixm.aero/schema/5.1.1", "rank"), RadioCommunicationChannelTimeSliceType.class, target));
+        setRank(XmlAdapterUtils.marshallJAXBElement(CodeFacilityRankingType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "rank"), RadioCommunicationChannelTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frequencytransmission")),
-        @AttributeOverride(name = "uom", column = @Column(name = "frequencytransmission_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "frequencytransmission_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "frequencytransmission", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "frequencytransmission_uom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "frequencytransmission_nilreason"))})
     public ValFrequencyType getFrequencyTransmissionItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrequencyType.class, this.getFrequencyTransmission());
     }
 
     public void setFrequencyTransmissionItem(ValFrequencyType target) {
-        setFrequencyTransmission(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "frequencyTransmission"), RadioCommunicationChannelTimeSliceType.class, target));
+        setFrequencyTransmission(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "frequencyTransmission"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "frequencyreception")),
-        @AttributeOverride(name = "uom", column = @Column(name = "frequencyreception_uom")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "frequencyreception_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "frequencyreception", columnDefinition = "NUMERIC")),
+            @AttributeOverride(name = "uom", column = @Column(name = "frequencyreception_uom")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "frequencyreception_nilreason"))})
     public ValFrequencyType getFrequencyReceptionItem() {
         return XmlAdapterUtils.unmarshallSource(ValFrequencyType.class, this.getFrequencyReception());
     }
 
     public void setFrequencyReceptionItem(ValFrequencyType target) {
-        setFrequencyReception(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "frequencyReception"), RadioCommunicationChannelTimeSliceType.class, target));
+        setFrequencyReception(XmlAdapterUtils.marshallJAXBElement(ValFrequencyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "frequencyReception"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "channel")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "channel_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "channel")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "channel_nilreason"))})
     public CodeCommunicationChannelType getChannelItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCommunicationChannelType.class, this.getChannel());
     }
 
     public void setChannelItem(CodeCommunicationChannelType target) {
-        setChannel(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationChannelType.class, new QName("http://www.aixm.aero/schema/5.1.1", "channel"), RadioCommunicationChannelTimeSliceType.class, target));
+        setChannel(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationChannelType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "channel"), RadioCommunicationChannelTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "logon")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "logon_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "logon", columnDefinition = "VARCHAR", length = 16)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "logon_nilreason"))})
     public TextDesignatorType getLogonItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getLogon());
     }
 
     public void setLogonItem(TextDesignatorType target) {
-        setLogon(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "logon"), RadioCommunicationChannelTimeSliceType.class, target));
+        setLogon(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "logon"), RadioCommunicationChannelTimeSliceType.class,
+                target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "emissiontype")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "emissiontype_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "emissiontype")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "emissiontype_nilreason"))})
     public CodeRadioEmissionType getEmissionTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRadioEmissionType.class, this.getEmissionType());
     }
 
     public void setEmissionTypeItem(CodeRadioEmissionType target) {
-        setEmissionType(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "emissionType"), RadioCommunicationChannelTimeSliceType.class, target));
+        setEmissionType(XmlAdapterUtils.marshallJAXBElement(CodeRadioEmissionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "emissionType"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "selectivecall")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "selectivecall_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "selectivecall")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "selectivecall_nilreason"))})
     public CodeYesNoType getSelectiveCallItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getSelectiveCall());
     }
 
     public void setSelectiveCallItem(CodeYesNoType target) {
-        setSelectiveCall(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "selectiveCall"), RadioCommunicationChannelTimeSliceType.class, target));
+        setSelectiveCall(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "selectiveCall"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "flightchecked")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "flightchecked_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "flightchecked")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "flightchecked_nilreason"))})
     public CodeYesNoType getFlightCheckedItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getFlightChecked());
     }
 
     public void setFlightCheckedItem(CodeYesNoType target) {
-        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "flightChecked"), RadioCommunicationChannelTimeSliceType.class, target));
+        setFlightChecked(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "flightChecked"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "trafficdirection")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "trafficdirection_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "trafficdirection")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "trafficdirection_nilreason"))})
     public CodeCommunicationDirectionType getTrafficDirectionItem() {
         return XmlAdapterUtils.unmarshallSource(CodeCommunicationDirectionType.class, this.getTrafficDirection());
     }
 
     public void setTrafficDirectionItem(CodeCommunicationDirectionType target) {
-        setTrafficDirection(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationDirectionType.class, new QName("http://www.aixm.aero/schema/5.1.1", "trafficDirection"), RadioCommunicationChannelTimeSliceType.class, target));
+        setTrafficDirection(XmlAdapterUtils.marshallJAXBElement(CodeCommunicationDirectionType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "trafficDirection"),
+                RadioCommunicationChannelTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -772,71 +752,6 @@ public class RadioCommunicationChannelTimeSliceType
             return false;
         }
         final RadioCommunicationChannelTimeSliceType that = ((RadioCommunicationChannelTimeSliceType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            List<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = (this.isSetLocation()?this.getLocation():null);
-            List<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = (that.isSetLocation()?that.getLocation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrequencyTransmission();
-            boolean rhsFieldIsSet = that.isSetFrequencyTransmission();
-            JAXBElement<ValFrequencyType> lhsField;
-            lhsField = this.getFrequencyTransmission();
-            JAXBElement<ValFrequencyType> rhsField;
-            rhsField = that.getFrequencyTransmission();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyTransmission", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyTransmission", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRank();
-            boolean rhsFieldIsSet = that.isSetRank();
-            JAXBElement<CodeFacilityRankingType> lhsField;
-            lhsField = this.getRank();
-            JAXBElement<CodeFacilityRankingType> rhsField;
-            rhsField = that.getRank();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<RadioCommunicationOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability()?this.getAvailability():null);
-            List<RadioCommunicationOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability()?that.getAvailability():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetFrequencyReception();
             boolean rhsFieldIsSet = that.isSetFrequencyReception();
@@ -864,6 +779,19 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetFrequencyTransmission();
+            boolean rhsFieldIsSet = that.isSetFrequencyTransmission();
+            JAXBElement<ValFrequencyType> lhsField;
+            lhsField = this.getFrequencyTransmission();
+            JAXBElement<ValFrequencyType> rhsField;
+            rhsField = that.getFrequencyTransmission();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "frequencyTransmission", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "frequencyTransmission", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSelectiveCall();
             boolean rhsFieldIsSet = that.isSetSelectiveCall();
             JAXBElement<CodeYesNoType> lhsField;
@@ -872,6 +800,19 @@ public class RadioCommunicationChannelTimeSliceType
             rhsField = that.getSelectiveCall();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selectiveCall", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selectiveCall", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -890,14 +831,14 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTrafficDirection();
+            boolean rhsFieldIsSet = that.isSetTrafficDirection();
+            JAXBElement<CodeCommunicationDirectionType> lhsField;
+            lhsField = this.getTrafficDirection();
+            JAXBElement<CodeCommunicationDirectionType> rhsField;
+            rhsField = that.getTrafficDirection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trafficDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trafficDirection", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -906,9 +847,9 @@ public class RadioCommunicationChannelTimeSliceType
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<RadioCommunicationChannelExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<RadioCommunicationChannelExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -929,19 +870,6 @@ public class RadioCommunicationChannelTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTrafficDirection();
-            boolean rhsFieldIsSet = that.isSetTrafficDirection();
-            JAXBElement<CodeCommunicationDirectionType> lhsField;
-            lhsField = this.getTrafficDirection();
-            JAXBElement<CodeCommunicationDirectionType> rhsField;
-            rhsField = that.getTrafficDirection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "trafficDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "trafficDirection", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetMode();
             boolean rhsFieldIsSet = that.isSetMode();
             JAXBElement<CodeCommunicationModeType> lhsField;
@@ -950,6 +878,58 @@ public class RadioCommunicationChannelTimeSliceType
             rhsField = that.getMode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            List<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = (this.isSetLocation() ? this.getLocation() : null);
+            List<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = (that.isSetLocation() ? that.getLocation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<RadioCommunicationOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<RadioCommunicationOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRank();
+            boolean rhsFieldIsSet = that.isSetRank();
+            JAXBElement<CodeFacilityRankingType> lhsField;
+            lhsField = this.getRank();
+            JAXBElement<CodeFacilityRankingType> rhsField;
+            rhsField = that.getRank();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rank", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rank", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1033,28 +1013,28 @@ public class RadioCommunicationChannelTimeSliceType
         {
             boolean theFieldIsSet = this.isSetLocation();
             List<AIXMElevatedPointPropertyType> theField;
-            theField = (this.isSetLocation()?this.getLocation():null);
+            theField = (this.isSetLocation() ? this.getLocation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "location", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RadioCommunicationOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "availability", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RadioCommunicationChannelExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -1127,25 +1107,25 @@ public class RadioCommunicationChannelTimeSliceType
         {
             boolean theFieldIsSet = this.isSetLocation();
             List<AIXMElevatedPointPropertyType> theField;
-            theField = (this.isSetLocation()?this.getLocation():null);
+            theField = (this.isSetLocation() ? this.getLocation() : null);
             strategy.appendField(locator, this, "location", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAvailability();
             List<RadioCommunicationOperationalStatusPropertyType> theField;
-            theField = (this.isSetAvailability()?this.getAvailability():null);
+            theField = (this.isSetAvailability() ? this.getAvailability() : null);
             strategy.appendField(locator, this, "availability", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RadioCommunicationChannelExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

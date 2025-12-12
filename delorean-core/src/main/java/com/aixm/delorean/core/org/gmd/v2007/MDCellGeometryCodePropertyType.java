@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,33 +21,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for MD_CellGeometryCode_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MD_CellGeometryCode_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_CellGeometryCode_PropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.isotc211.org/2005/gmd}MD_CellGeometryCode"/>
+ *         <element ref=
+"{http://www.isotc211.org/2005/gmd}MD_CellGeometryCode"/>
  *       </sequence>
  *       <attribute ref="{http://www.isotc211.org/2005/gco}nilReason"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_CellGeometryCode_PropertyType", propOrder = {
-    "mdCellGeometryCode"
-})
-public class MDCellGeometryCodePropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "MD_CellGeometryCode_PropertyType", propOrder = {"mdCellGeometryCode"})
+public class MDCellGeometryCodePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_CellGeometryCode")
@@ -57,11 +60,9 @@ public class MDCellGeometryCodePropertyType implements Serializable, Equals, Has
 
     /**
      * Gets the value of the mdCellGeometryCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeListValueType }
-     *     
+     *
+     * @return possible object is {@link CodeListValueType }
+     *
      */
     public CodeListValueType getMDCellGeometryCode() {
         return mdCellGeometryCode;
@@ -69,27 +70,24 @@ public class MDCellGeometryCodePropertyType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the mdCellGeometryCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CodeListValueType }
-     *     
+     *            allowed object is {@link CodeListValueType }
+     *
      */
     public void setMDCellGeometryCode(CodeListValueType value) {
         this.mdCellGeometryCode = value;
     }
 
     public boolean isSetMDCellGeometryCode() {
-        return (this.mdCellGeometryCode!= null);
+        return (this.mdCellGeometryCode != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -97,18 +95,17 @@ public class MDCellGeometryCodePropertyType implements Serializable, Equals, Has
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -124,27 +121,15 @@ public class MDCellGeometryCodePropertyType implements Serializable, Equals, Has
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MDCellGeometryCodePropertyType that = ((MDCellGeometryCodePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetMDCellGeometryCode();
-            boolean rhsFieldIsSet = that.isSetMDCellGeometryCode();
-            CodeListValueType lhsField;
-            lhsField = this.getMDCellGeometryCode();
-            CodeListValueType rhsField;
-            rhsField = that.getMDCellGeometryCode();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCellGeometryCode", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCellGeometryCode", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetNilReason();
             boolean rhsFieldIsSet = that.isSetNilReason();
@@ -154,6 +139,19 @@ public class MDCellGeometryCodePropertyType implements Serializable, Equals, Has
             rhsField = that.getNilReason();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMDCellGeometryCode();
+            boolean rhsFieldIsSet = that.isSetMDCellGeometryCode();
+            CodeListValueType lhsField;
+            lhsField = this.getMDCellGeometryCode();
+            CodeListValueType rhsField;
+            rhsField = that.getMDCellGeometryCode();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdCellGeometryCode", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdCellGeometryCode", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

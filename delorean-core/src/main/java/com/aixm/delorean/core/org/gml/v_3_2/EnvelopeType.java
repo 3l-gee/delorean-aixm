@@ -1,16 +1,16 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,22 +24,30 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for EnvelopeType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for EnvelopeType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="EnvelopeType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
  *         <sequence>
- *           <element name="lowerCorner" type="{http://www.opengis.net/gml/3.2}DirectPositionType"/>
- *           <element name="upperCorner" type="{http://www.opengis.net/gml/3.2}DirectPositionType"/>
+ *           <element name="lowerCorner" type=
+"{http://www.opengis.net/gml/3.2}DirectPositionType"/>
+ *           <element name="upperCorner" type=
+"{http://www.opengis.net/gml/3.2}DirectPositionType"/>
  *         </sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}pos" maxOccurs="2" minOccurs="2"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}pos" maxOccurs=
+"2" minOccurs="2"/>
  *         <element ref="{http://www.opengis.net/gml/3.2}coordinates"/>
  *       </choice>
  *       <attGroup ref="{http://www.opengis.net/gml/3.2}SRSReferenceGroup"/>
@@ -47,21 +55,13 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EnvelopeType", propOrder = {
-    "lowerCorner",
-    "upperCorner",
-    "pos",
-    "coordinates"
-})
-@XmlSeeAlso({
-    EnvelopeWithTimePeriodType.class
-})
-public class EnvelopeType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "EnvelopeType", propOrder = {"lowerCorner", "upperCorner", "pos", "coordinates"})
+@XmlSeeAlso({EnvelopeWithTimePeriodType.class})
+public class EnvelopeType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected DirectPositionType lowerCorner;
@@ -81,11 +81,9 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the lowerCorner property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DirectPositionType }
-     *     
+     *
+     * @return possible object is {@link DirectPositionType }
+     *
      */
     public DirectPositionType getLowerCorner() {
         return lowerCorner;
@@ -93,27 +91,24 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the lowerCorner property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DirectPositionType }
-     *     
+     *            allowed object is {@link DirectPositionType }
+     *
      */
     public void setLowerCorner(DirectPositionType value) {
         this.lowerCorner = value;
     }
 
     public boolean isSetLowerCorner() {
-        return (this.lowerCorner!= null);
+        return (this.lowerCorner != null);
     }
 
     /**
      * Gets the value of the upperCorner property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DirectPositionType }
-     *     
+     *
+     * @return possible object is {@link DirectPositionType }
+     *
      */
     public DirectPositionType getUpperCorner() {
         return upperCorner;
@@ -121,41 +116,41 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the upperCorner property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DirectPositionType }
-     *     
+     *            allowed object is {@link DirectPositionType }
+     *
      */
     public void setUpperCorner(DirectPositionType value) {
         this.upperCorner = value;
     }
 
     public boolean isSetUpperCorner() {
-        return (this.upperCorner!= null);
+        return (this.upperCorner != null);
     }
 
     /**
      * Gets the value of the pos property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the pos property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the pos property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getPos().add(newItem);
+     * getPos().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DirectPositionType }
-     * 
-     * 
+     *
+     *
      */
     public List<DirectPositionType> getPos() {
         if (pos == null) {
@@ -165,15 +160,15 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setPos(List<DirectPositionType> pos) {
         this.pos = pos;
     }
 
     public boolean isSetPos() {
-        return ((this.pos!= null)&&(!this.pos.isEmpty()));
+        return ((this.pos != null) && (!this.pos.isEmpty()));
     }
 
     public void unsetPos() {
@@ -182,11 +177,9 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the coordinates property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CoordinatesType }
-     *     
+     *
+     * @return possible object is {@link CoordinatesType }
+     *
      */
     public CoordinatesType getCoordinates() {
         return coordinates;
@@ -194,27 +187,24 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the coordinates property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CoordinatesType }
-     *     
+     *            allowed object is {@link CoordinatesType }
+     *
      */
     public void setCoordinates(CoordinatesType value) {
         this.coordinates = value;
     }
 
     public boolean isSetCoordinates() {
-        return (this.coordinates!= null);
+        return (this.coordinates != null);
     }
 
     /**
      * Gets the value of the srsName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSrsName() {
         return srsName;
@@ -222,27 +212,24 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the srsName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSrsName(String value) {
         this.srsName = value;
     }
 
     public boolean isSetSrsName() {
-        return (this.srsName!= null);
+        return (this.srsName != null);
     }
 
     /**
      * Gets the value of the srsDimension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is {@link BigInteger }
+     *
      */
     public BigInteger getSrsDimension() {
         return srsDimension;
@@ -250,41 +237,40 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the srsDimension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *            allowed object is {@link BigInteger }
+     *
      */
     public void setSrsDimension(BigInteger value) {
         this.srsDimension = value;
     }
 
     public boolean isSetSrsDimension() {
-        return (this.srsDimension!= null);
+        return (this.srsDimension != null);
     }
 
     /**
      * Gets the value of the axisLabels property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the axisLabels property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the axisLabels property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAxisLabels().add(newItem);
+     * getAxisLabels().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link String }
+     *
+     *
      */
     public List<String> getAxisLabels() {
         if (axisLabels == null) {
@@ -294,15 +280,15 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAxisLabels(List<String> axisLabels) {
         this.axisLabels = axisLabels;
     }
 
     public boolean isSetAxisLabels() {
-        return ((this.axisLabels!= null)&&(!this.axisLabels.isEmpty()));
+        return ((this.axisLabels != null) && (!this.axisLabels.isEmpty()));
     }
 
     public void unsetAxisLabels() {
@@ -311,25 +297,25 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the uomLabels property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the uomLabels property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the uomLabels property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getUomLabels().add(newItem);
+     * getUomLabels().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link String }
+     *
+     *
      */
     public List<String> getUomLabels() {
         if (uomLabels == null) {
@@ -339,15 +325,15 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setUomLabels(List<String> uomLabels) {
         this.uomLabels = uomLabels;
     }
 
     public boolean isSetUomLabels() {
-        return ((this.uomLabels!= null)&&(!this.uomLabels.isEmpty()));
+        return ((this.uomLabels != null) && (!this.uomLabels.isEmpty()));
     }
 
     public void unsetUomLabels() {
@@ -367,40 +353,15 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final EnvelopeType that = ((EnvelopeType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetCoordinates();
-            boolean rhsFieldIsSet = that.isSetCoordinates();
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAxisLabels();
-            boolean rhsFieldIsSet = that.isSetAxisLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisLabels()?this.getAxisLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisLabels()?that.getAxisLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetSrsDimension();
             boolean rhsFieldIsSet = that.isSetSrsDimension();
@@ -415,27 +376,14 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPos();
-            boolean rhsFieldIsSet = that.isSetPos();
-            List<DirectPositionType> lhsField;
-            lhsField = (this.isSetPos()?this.getPos():null);
-            List<DirectPositionType> rhsField;
-            rhsField = (that.isSetPos()?that.getPos():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperCorner();
-            boolean rhsFieldIsSet = that.isSetUpperCorner();
-            DirectPositionType lhsField;
-            lhsField = this.getUpperCorner();
-            DirectPositionType rhsField;
-            rhsField = that.getUpperCorner();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperCorner", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperCorner", rhsField);
+            boolean lhsFieldIsSet = this.isSetUomLabels();
+            boolean rhsFieldIsSet = that.isSetUomLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetUomLabels() ? this.getUomLabels() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetUomLabels() ? that.getUomLabels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -454,14 +402,14 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUomLabels();
-            boolean rhsFieldIsSet = that.isSetUomLabels();
-            List<String> lhsField;
-            lhsField = (this.isSetUomLabels()?this.getUomLabels():null);
-            List<String> rhsField;
-            rhsField = (that.isSetUomLabels()?that.getUomLabels():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uomLabels", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uomLabels", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -475,6 +423,45 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getLowerCorner();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerCorner", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerCorner", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperCorner();
+            boolean rhsFieldIsSet = that.isSetUpperCorner();
+            DirectPositionType lhsField;
+            lhsField = this.getUpperCorner();
+            DirectPositionType rhsField;
+            rhsField = that.getUpperCorner();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperCorner", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperCorner", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisLabels();
+            boolean rhsFieldIsSet = that.isSetAxisLabels();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisLabels() ? that.getAxisLabels() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisLabels", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPos();
+            boolean rhsFieldIsSet = that.isSetPos();
+            List<DirectPositionType> lhsField;
+            lhsField = (this.isSetPos() ? this.getPos() : null);
+            List<DirectPositionType> rhsField;
+            rhsField = (that.isSetPos() ? that.getPos() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -512,7 +499,7 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetPos();
             List<DirectPositionType> theField;
-            theField = (this.isSetPos()?this.getPos():null);
+            theField = (this.isSetPos() ? this.getPos() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "pos", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -540,14 +527,14 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "axisLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels()?this.getUomLabels():null);
+            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "uomLabels", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -591,7 +578,7 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetPos();
             List<DirectPositionType> theField;
-            theField = (this.isSetPos()?this.getPos():null);
+            theField = (this.isSetPos() ? this.getPos() : null);
             strategy.appendField(locator, this, "pos", buffer, theField, theFieldIsSet);
         }
         {
@@ -615,13 +602,13 @@ public class EnvelopeType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetAxisLabels();
             List<String> theField;
-            theField = (this.isSetAxisLabels()?this.getAxisLabels():null);
+            theField = (this.isSetAxisLabels() ? this.getAxisLabels() : null);
             strategy.appendField(locator, this, "axisLabels", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetUomLabels();
             List<String> theField;
-            theField = (this.isSetUomLabels()?this.getUomLabels():null);
+            theField = (this.isSetUomLabels() ? this.getUomLabels() : null);
             strategy.appendField(locator, this, "uomLabels", buffer, theField, theFieldIsSet);
         }
         return buffer;

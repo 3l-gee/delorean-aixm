@@ -5,20 +5,26 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
-
 /**
- * These values are interpreted as follows: 
- * -	"unknown" indicates that no specific value for temporal position is provided.
- * -	"now" indicates that the specified value shall be replaced with the current temporal position whenever the value is accessed.
- * -	"before" indicates that the actual temporal position is unknown, but it is known to be before the specified value.
- * -	"after" indicates that the actual temporal position is unknown, but it is known to be after the specified value.
- * A value for indeterminatePosition may 
- * -	be used either alone, or 
- * -	qualify a specific value for temporal position.
- * 
- * <p>Java class for TimeIndeterminateValueType</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * These values are interpreted as follows: - "unknown" indicates that no
+ * specific value for temporal position is provided. - "now" indicates that the
+ * specified value shall be replaced with the current temporal position whenever
+ * the value is accessed. - "before" indicates that the actual temporal position
+ * is unknown, but it is known to be before the specified value. - "after"
+ * indicates that the actual temporal position is unknown, but it is known to be
+ * after the specified value. A value for indeterminatePosition may - be used
+ * either alone, or - qualify a specific value for temporal position.
+ *
+ * <p>
+ * Java class for TimeIndeterminateValueType
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <simpleType name="TimeIndeterminateValueType">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -29,19 +35,16 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- * 
+ *
  */
 @XmlType(name = "TimeIndeterminateValueType")
 @XmlEnum
 public enum TimeIndeterminateValueType {
 
     @XmlEnumValue("after")
-    AFTER("after"),
-    @XmlEnumValue("before")
-    BEFORE("before"),
-    @XmlEnumValue("now")
-    NOW("now"),
-    @XmlEnumValue("unknown")
+    AFTER("after"), @XmlEnumValue("before")
+    BEFORE("before"), @XmlEnumValue("now")
+    NOW("now"), @XmlEnumValue("unknown")
     UNKNOWN("unknown");
     private final String value;
 
@@ -51,9 +54,8 @@ public enum TimeIndeterminateValueType {
 
     /**
      * Gets the value associated to the enum constant.
-     * 
-     * @return
-     *     The value linked to the enum.
+     *
+     * @return The value linked to the enum.
      */
     public String value() {
         return value;
@@ -61,16 +63,15 @@ public enum TimeIndeterminateValueType {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     * 
+     *
      * @param v
-     *     The value to get the enum from.
-     * @return
-     *     The enum which corresponds to the value, if it exists.
+     *            The value to get the enum from.
+     * @return The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *     If no value matches in the enum declaration.
+     *             If no value matches in the enum declaration.
      */
     public static TimeIndeterminateValueType fromValue(String v) {
-        for (TimeIndeterminateValueType c: TimeIndeterminateValueType.values()) {
+        for (TimeIndeterminateValueType c : TimeIndeterminateValueType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

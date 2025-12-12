@@ -1,49 +1,51 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RingType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RingType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RingType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractRingType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}curveMember" maxOccurs="unbounded"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}curveMember" maxOccurs=
+"unbounded"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RingType", propOrder = {
-    "curveMember"
-})
-public class RingType
-    extends AbstractRingType
-    implements Serializable
-{
+@XmlType(name = "RingType", propOrder = {"curveMember"})
+public class RingType extends AbstractRingType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -53,25 +55,26 @@ public class RingType
 
     /**
      * Gets the value of the curveMember property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the curveMember property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the curveMember property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getCurveMember().add(newItem);
+     * getCurveMember().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CurvePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<CurvePropertyType> getCurveMember() {
         if (curveMember == null) {
@@ -81,15 +84,15 @@ public class RingType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setCurveMember(List<CurvePropertyType> curveMember) {
         this.curveMember = curveMember;
     }
 
     public boolean isSetCurveMember() {
-        return ((this.curveMember!= null)&&(!this.curveMember.isEmpty()));
+        return ((this.curveMember != null) && (!this.curveMember.isEmpty()));
     }
 
     public void unsetCurveMember() {
@@ -98,11 +101,9 @@ public class RingType
 
     /**
      * Gets the value of the aggregationType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AggregationType }
-     *     
+     *
+     * @return possible object is {@link AggregationType }
+     *
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -110,23 +111,23 @@ public class RingType
 
     /**
      * Sets the value of the aggregationType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AggregationType }
-     *     
+     *            allowed object is {@link AggregationType }
+     *
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType!= null);
+        return (this.aggregationType != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -153,9 +154,9 @@ public class RingType
             boolean lhsFieldIsSet = this.isSetCurveMember();
             boolean rhsFieldIsSet = that.isSetCurveMember();
             List<CurvePropertyType> lhsField;
-            lhsField = (this.isSetCurveMember()?this.getCurveMember():null);
+            lhsField = (this.isSetCurveMember() ? this.getCurveMember() : null);
             List<CurvePropertyType> rhsField;
-            rhsField = (that.isSetCurveMember()?that.getCurveMember():null);
+            rhsField = (that.isSetCurveMember() ? that.getCurveMember() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -171,7 +172,7 @@ public class RingType
         {
             boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (this.isSetCurveMember()?this.getCurveMember():null);
+            theField = (this.isSetCurveMember() ? this.getCurveMember() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "curveMember", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -191,7 +192,7 @@ public class RingType
         {
             boolean theFieldIsSet = this.isSetCurveMember();
             List<CurvePropertyType> theField;
-            theField = (this.isSetCurveMember()?this.getCurveMember():null);
+            theField = (this.isSetCurveMember() ? this.getCurveMember() : null);
             strategy.appendField(locator, this, "curveMember", buffer, theField, theFieldIsSet);
         }
         {

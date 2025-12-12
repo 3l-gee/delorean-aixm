@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -12,6 +11,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,44 +25,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:MeasureType supports recording an amount encoded as a value of XML Schema double, together with a units of measure indicated by an attribute uom, short for "units Of measure". The value of the uom attribute identifies a reference system for the amount, usually a ratio or interval scale.
- * 
- * <p>Java class for MeasureType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:MeasureType supports recording an amount encoded as a value of XML Schema
+ * double, together with a units of measure indicated by an attribute uom, short
+ * for "units Of measure". The value of the uom attribute identifies a reference
+ * system for the amount, usually a ratio or interval scale.
+ *
+ * <p>
+ * Java class for MeasureType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MeasureType">
  *   <simpleContent>
  *     <extension base="<http://www.w3.org/2001/XMLSchema>double">
- *       <attribute name="uom" use="required" type="{http://www.opengis.net/gml/3.2}UomIdentifier" />
+ *       <attribute name="uom" use="required" type=
+"{http://www.opengis.net/gml/3.2}UomIdentifier" />
  *     </extension>
  *   </simpleContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MeasureType", propOrder = {
-    "value"
-})
-@XmlSeeAlso({
-    AngleType.class,
-    Quantity.class,
-    LengthType.class,
-    ScaleType.class,
-    TimeType.class,
-    GridLengthType.class,
-    AreaType.class,
-    VolumeType.class,
-    SpeedType.class
-})
+@XmlType(name = "MeasureType", propOrder = {"value"})
+@XmlSeeAlso({AngleType.class, Quantity.class, LengthType.class, ScaleType.class, TimeType.class, GridLengthType.class,
+        AreaType.class, VolumeType.class, SpeedType.class})
 @Embeddable
-public class MeasureType implements Serializable, Equals, HashCode, ToString
-{
+public class MeasureType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -72,7 +69,7 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the value property.
-     * 
+     *
      */
     @Basic
     @Column(name = "VALUE_")
@@ -82,7 +79,7 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the value property.
-     * 
+     *
      */
     public void setValue(double value) {
         this.value = value;
@@ -95,11 +92,9 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the uom property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     @Basic
     @Column(name = "UOM")
@@ -109,11 +104,10 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the uom property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setUom(String value) {
         this.uom = value;
@@ -121,7 +115,7 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
 
     @Transient
     public boolean isSetUom() {
-        return (this.uom!= null);
+        return (this.uom != null);
     }
 
     @Override
@@ -137,27 +131,15 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MeasureType that = ((MeasureType) object);
-        {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getValue();
-            double rhsField;
-            rhsField = that.getValue();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetUom();
             boolean rhsFieldIsSet = that.isSetUom();
@@ -167,6 +149,19 @@ public class MeasureType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getUom();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "uom", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "uom", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getValue();
+            double rhsField;
+            rhsField = that.getValue();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

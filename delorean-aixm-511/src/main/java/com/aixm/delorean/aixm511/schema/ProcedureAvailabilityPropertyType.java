@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ProcedureAvailabilityPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ProcedureAvailabilityPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ProcedureAvailabilityPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}ProcedureAvailability"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}ProcedureAvailability"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProcedureAvailabilityPropertyType", propOrder = {
-    "procedureAvailability"
-})
+@XmlType(name = "ProcedureAvailabilityPropertyType", propOrder = {"procedureAvailability"})
 @Entity(name = "ProcedureAvailabilityPropertyType")
 @Table(name = "procedureavailability_pt", schema = "procedure")
-public class ProcedureAvailabilityPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class ProcedureAvailabilityPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ProcedureAvailability", required = true)
@@ -56,15 +58,11 @@ public class ProcedureAvailabilityPropertyType
 
     /**
      * Gets the value of the procedureAvailability property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ProcedureAvailabilityType }
-     *     
+     *
+     * @return possible object is {@link ProcedureAvailabilityType }
+     *
      */
-    @OneToOne(targetEntity = ProcedureAvailabilityType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ProcedureAvailabilityType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "procedureavailability_id", referencedColumnName = "hjid")
     public ProcedureAvailabilityType getProcedureAvailability() {
         return procedureAvailability;
@@ -72,11 +70,10 @@ public class ProcedureAvailabilityPropertyType
 
     /**
      * Sets the value of the procedureAvailability property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ProcedureAvailabilityType }
-     *     
+     *            allowed object is {@link ProcedureAvailabilityType }
+     *
      */
     public void setProcedureAvailability(ProcedureAvailabilityType value) {
         this.procedureAvailability = value;
@@ -84,12 +81,13 @@ public class ProcedureAvailabilityPropertyType
 
     @Transient
     public boolean isSetProcedureAvailability() {
-        return (this.procedureAvailability!= null);
+        return (this.procedureAvailability != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

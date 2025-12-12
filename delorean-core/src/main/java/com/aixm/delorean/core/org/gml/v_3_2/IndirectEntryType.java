@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,12 +19,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for IndirectEntryType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for IndirectEntryType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="IndirectEntryType">
  *   <complexContent>
@@ -36,15 +41,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "IndirectEntryType", propOrder = {
-    "definitionProxy"
-})
-public class IndirectEntryType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "IndirectEntryType", propOrder = {"definitionProxy"})
+public class IndirectEntryType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DefinitionProxy", required = true)
@@ -52,11 +54,9 @@ public class IndirectEntryType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Gets the value of the definitionProxy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DefinitionProxyType }
-     *     
+     *
+     * @return possible object is {@link DefinitionProxyType }
+     *
      */
     public DefinitionProxyType getDefinitionProxy() {
         return definitionProxy;
@@ -64,18 +64,17 @@ public class IndirectEntryType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the definitionProxy property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DefinitionProxyType }
-     *     
+     *            allowed object is {@link DefinitionProxyType }
+     *
      */
     public void setDefinitionProxy(DefinitionProxyType value) {
         this.definitionProxy = value;
     }
 
     public boolean isSetDefinitionProxy() {
-        return (this.definitionProxy!= null);
+        return (this.definitionProxy != null);
     }
 
     @Override
@@ -91,8 +90,9 @@ public class IndirectEntryType implements Serializable, Equals, HashCode, ToStri
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

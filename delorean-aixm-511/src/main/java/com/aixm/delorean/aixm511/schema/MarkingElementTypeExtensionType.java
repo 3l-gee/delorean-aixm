@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,35 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractMarkingElementExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractMarkingElementExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractMarkingElementExtension"
-})
+@XmlType(name = "", propOrder = {"abstractMarkingElementExtension"})
 @Entity(name = "MarkingElementTypeExtensionType")
 @Table(name = "markingelement_ext", schema = "airport_heliport")
-public class MarkingElementTypeExtensionType implements Serializable, Equals, HashCode, ToString
-{
+public class MarkingElementTypeExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractMarkingElementExtension")
@@ -77,15 +81,11 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
 
     /**
      * Gets the value of the abstractMarkingElementExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractmarkingelementextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingElementExtension() {
         return abstractMarkingElementExtension;
@@ -93,11 +93,10 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
 
     /**
      * Sets the value of the abstractMarkingElementExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractMarkingElementExtension(AbstractExtensionType value) {
         this.abstractMarkingElementExtension = value;
@@ -105,16 +104,14 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
 
     @Transient
     public boolean isSetAbstractMarkingElementExtension() {
-        return (this.abstractMarkingElementExtension!= null);
+        return (this.abstractMarkingElementExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +125,10 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +136,7 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +144,10 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +158,21 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +181,11 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,8 +204,9 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -229,8 +220,10 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
             lhsField = this.getAbstractMarkingElementExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractMarkingElementExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingElementExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingElementExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractMarkingElementExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractMarkingElementExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -239,9 +232,9 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -274,7 +267,7 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +305,7 @@ public class MarkingElementTypeExtensionType implements Serializable, Equals, Ha
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

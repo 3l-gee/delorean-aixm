@@ -14,6 +14,7 @@ import com.aixm.delorean.aixm511.schema.ValDistanceType;
 import com.aixm.delorean.aixm511.schema.ValDistanceVerticalType;
 import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
 import com.aixm.delorean.aixm511.schema.ElevatedPointType;
+import com.aixm.delorean.aixm511.schema.PointType;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -150,7 +151,7 @@ public class AixmElevatedPointType extends com.aixm.delorean.core.gis.type.Point
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), ElevatedPointType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), PointType.class, target));
     }
 
     @Transient

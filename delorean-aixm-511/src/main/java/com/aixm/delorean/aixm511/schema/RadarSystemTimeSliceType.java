@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
@@ -25,6 +21,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -32,26 +32,35 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for RadarSystemTimeSliceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RadarSystemTimeSliceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RadarSystemTimeSliceType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMTimeSliceType">
  *       <sequence>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}RadarSystemPropertyGroup"/>
+ *         <group ref=
+"{http://www.aixm.aero/schema/5.1.1}RadarSystemPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <sequence>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRadarSystemExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRadarSystemExtension"/>
  *                 </sequence>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -61,29 +70,16 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RadarSystemTimeSliceType", propOrder = {
-    "type",
-    "model",
-    "generalTerrainMonitor",
-    "broadcastIdentifier",
-    "radarEquipment",
-    "office",
-    "airportHeliport",
-    "parRunway",
-    "location",
-    "annotation",
-    "extension"
-})
+@XmlType(name = "RadarSystemTimeSliceType", propOrder = {"type", "model", "generalTerrainMonitor",
+        "broadcastIdentifier", "radarEquipment", "office", "airportHeliport", "parRunway", "location", "annotation",
+        "extension"})
 @Entity(name = "RadarSystemTimeSliceType")
 @Table(name = "radarsystem_ts", schema = "surveillance")
-public class RadarSystemTimeSliceType
-    extends AbstractAIXMTimeSliceType
-    implements Serializable
-{
+public class RadarSystemTimeSliceType extends AbstractAIXMTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "type", namespace = "http://www.aixm.aero/schema/5.1.1", type = JAXBElement.class, required = false)
@@ -110,11 +106,10 @@ public class RadarSystemTimeSliceType
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeRadarServiceType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeRadarServiceType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeRadarServiceType> getType() {
@@ -123,11 +118,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the type property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeRadarServiceType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeRadarServiceType }{@code >}
+     *
      */
     public void setType(JAXBElement<CodeRadarServiceType> value) {
         this.type = value;
@@ -135,16 +130,15 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
     /**
      * Gets the value of the model property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link TextNameType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextNameType> getModel() {
@@ -153,11 +147,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the model property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextNameType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link TextNameType
+     *            }{@code >}
+     *
      */
     public void setModel(JAXBElement<TextNameType> value) {
         this.model = value;
@@ -165,16 +159,15 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetModel() {
-        return (this.model!= null);
+        return (this.model != null);
     }
 
     /**
      * Gets the value of the generalTerrainMonitor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link CodeYesNoType
+     *         }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CodeYesNoType> getGeneralTerrainMonitor() {
@@ -183,11 +176,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the generalTerrainMonitor property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeYesNoType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeYesNoType }{@code >}
+     *
      */
     public void setGeneralTerrainMonitor(JAXBElement<CodeYesNoType> value) {
         this.generalTerrainMonitor = value;
@@ -195,16 +188,15 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetGeneralTerrainMonitor() {
-        return (this.generalTerrainMonitor!= null);
+        return (this.generalTerrainMonitor != null);
     }
 
     /**
      * Gets the value of the broadcastIdentifier property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<TextDesignatorType> getBroadcastIdentifier() {
@@ -213,11 +205,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the broadcastIdentifier property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link TextDesignatorType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link TextDesignatorType }{@code >}
+     *
      */
     public void setBroadcastIdentifier(JAXBElement<TextDesignatorType> value) {
         this.broadcastIdentifier = value;
@@ -225,39 +217,36 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetBroadcastIdentifier() {
-        return (this.broadcastIdentifier!= null);
+        return (this.broadcastIdentifier != null);
     }
 
     /**
      * Gets the value of the radarEquipment property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the radarEquipment property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the radarEquipment property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getRadarEquipment().add(newItem);
+     * getRadarEquipment().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadarComponentPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = RadarComponentPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = RadarComponentPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "radarequipment_radarsystem_link", schema = "surveillance", joinColumns = {
-        @JoinColumn(name = "radarequipment", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "radarequipment", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")})
     public List<RadarComponentPropertyType> getRadarEquipment() {
         if (radarEquipment == null) {
             radarEquipment = new ArrayList<>();
@@ -266,8 +255,8 @@ public class RadarSystemTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setRadarEquipment(List<RadarComponentPropertyType> radarEquipment) {
         this.radarEquipment = radarEquipment;
@@ -275,7 +264,7 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetRadarEquipment() {
-        return ((this.radarEquipment!= null)&&(!this.radarEquipment.isEmpty()));
+        return ((this.radarEquipment != null) && (!this.radarEquipment.isEmpty()));
     }
 
     public void unsetRadarEquipment() {
@@ -284,34 +273,32 @@ public class RadarSystemTimeSliceType
 
     /**
      * Gets the value of the office property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the office property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the office property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getOffice().add(newItem);
+     * getOffice().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "office_radarsystem_link", schema = "surveillance", joinColumns = {
-        @JoinColumn(name = "office", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "office", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getOffice() {
         if (office == null) {
             office = new ArrayList<>();
@@ -320,8 +307,8 @@ public class RadarSystemTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setOffice(List<OrganisationAuthorityPropertyType> office) {
         this.office = office;
@@ -329,7 +316,7 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetOffice() {
-        return ((this.office!= null)&&(!this.office.isEmpty()));
+        return ((this.office != null) && (!this.office.isEmpty()));
     }
 
     public void unsetOffice() {
@@ -338,11 +325,10 @@ public class RadarSystemTimeSliceType
 
     /**
      * Gets the value of the airportHeliport property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AirportHeliportPropertyType> getAirportHeliport() {
@@ -351,11 +337,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the airportHeliport property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AirportHeliportPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AirportHeliportPropertyType }{@code >}
+     *
      */
     public void setAirportHeliport(JAXBElement<AirportHeliportPropertyType> value) {
         this.airportHeliport = value;
@@ -363,39 +349,36 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetAirportHeliport() {
-        return (this.airportHeliport!= null);
+        return (this.airportHeliport != null);
     }
 
     /**
      * Gets the value of the parRunway property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the parRunway property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the parRunway property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getPARRunway().add(newItem);
+     * getPARRunway().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RunwayPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = RunwayPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = RunwayPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "parrunway_radarsystem_link", schema = "surveillance", joinColumns = {
-        @JoinColumn(name = "parrunway", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "parrunway", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")})
     public List<RunwayPropertyType> getPARRunway() {
         if (parRunway == null) {
             parRunway = new ArrayList<>();
@@ -404,8 +387,8 @@ public class RadarSystemTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setPARRunway(List<RunwayPropertyType> parRunway) {
         this.parRunway = parRunway;
@@ -413,7 +396,7 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetPARRunway() {
-        return ((this.parRunway!= null)&&(!this.parRunway.isEmpty()));
+        return ((this.parRunway != null) && (!this.parRunway.isEmpty()));
     }
 
     public void unsetPARRunway() {
@@ -422,11 +405,10 @@ public class RadarSystemTimeSliceType
 
     /**
      * Gets the value of the location property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMElevatedPointPropertyType> getLocation() {
@@ -435,11 +417,11 @@ public class RadarSystemTimeSliceType
 
     /**
      * Sets the value of the location property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMElevatedPointPropertyType }{@code >}
+     *
      */
     public void setLocation(JAXBElement<AIXMElevatedPointPropertyType> value) {
         this.location = value;
@@ -447,39 +429,36 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetLocation() {
-        return (this.location!= null);
+        return (this.location != null);
     }
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_radarsystem_link", schema = "surveillance", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "radarsystempropertygroup", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -488,8 +467,8 @@ public class RadarSystemTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -497,7 +476,7 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -506,29 +485,28 @@ public class RadarSystemTimeSliceType
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link RadarSystemExtensionType }
-     * 
-     * 
+     *
+     *
      */
-    @OneToMany(targetEntity = RadarSystemExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = RadarSystemExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_RADAR_SYSTEM_TIME__0")
     public List<RadarSystemExtensionType> getExtension() {
         if (extension == null) {
@@ -538,8 +516,8 @@ public class RadarSystemTimeSliceType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<RadarSystemExtensionType> extension) {
         this.extension = extension;
@@ -547,7 +525,7 @@ public class RadarSystemTimeSliceType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
@@ -555,84 +533,84 @@ public class RadarSystemTimeSliceType
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "type")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "type")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "type_nilreason"))})
     public CodeRadarServiceType getTypeItem() {
         return XmlAdapterUtils.unmarshallSource(CodeRadarServiceType.class, this.getType());
     }
 
     public void setTypeItem(CodeRadarServiceType target) {
-        setType(XmlAdapterUtils.marshallJAXBElement(CodeRadarServiceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "type"), RadarSystemTimeSliceType.class, target));
+        setType(XmlAdapterUtils.marshallJAXBElement(CodeRadarServiceType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "type"), RadarSystemTimeSliceType.class, target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "model")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "model_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "model", columnDefinition = "VARCHAR", length = 60)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "model_nilreason"))})
     public TextNameType getModelItem() {
         return XmlAdapterUtils.unmarshallSource(TextNameType.class, this.getModel());
     }
 
     public void setModelItem(TextNameType target) {
-        setModel(XmlAdapterUtils.marshallJAXBElement(TextNameType.class, new QName("http://www.aixm.aero/schema/5.1.1", "model"), RadarSystemTimeSliceType.class, target));
+        setModel(XmlAdapterUtils.marshallJAXBElement(TextNameType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "model"), RadarSystemTimeSliceType.class, target));
     }
 
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "generalterrainmonitor")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "generalterrainmonitor_nilreason"))
-    })
+    @AttributeOverrides({@AttributeOverride(name = "value", column = @Column(name = "generalterrainmonitor")),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "generalterrainmonitor_nilreason"))})
     public CodeYesNoType getGeneralTerrainMonitorItem() {
         return XmlAdapterUtils.unmarshallSource(CodeYesNoType.class, this.getGeneralTerrainMonitor());
     }
 
     public void setGeneralTerrainMonitorItem(CodeYesNoType target) {
-        setGeneralTerrainMonitor(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class, new QName("http://www.aixm.aero/schema/5.1.1", "generalTerrainMonitor"), RadarSystemTimeSliceType.class, target));
+        setGeneralTerrainMonitor(XmlAdapterUtils.marshallJAXBElement(CodeYesNoType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "generalTerrainMonitor"), RadarSystemTimeSliceType.class,
+                target));
     }
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "value", column = @Column(name = "broadcastidentifier")),
-        @AttributeOverride(name = "nilReason", column = @Column(name = "broadcastidentifier_nilreason"))
-    })
+            @AttributeOverride(name = "value", column = @Column(name = "broadcastidentifier", columnDefinition = "VARCHAR", length = 16)),
+            @AttributeOverride(name = "nilReason", column = @Column(name = "broadcastidentifier_nilreason"))})
     public TextDesignatorType getBroadcastIdentifierItem() {
         return XmlAdapterUtils.unmarshallSource(TextDesignatorType.class, this.getBroadcastIdentifier());
     }
 
     public void setBroadcastIdentifierItem(TextDesignatorType target) {
-        setBroadcastIdentifier(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class, new QName("http://www.aixm.aero/schema/5.1.1", "broadcastIdentifier"), RadarSystemTimeSliceType.class, target));
+        setBroadcastIdentifier(XmlAdapterUtils.marshallJAXBElement(TextDesignatorType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "broadcastIdentifier"), RadarSystemTimeSliceType.class,
+                target));
     }
 
-    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AirportHeliportPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "airportheliport_id", referencedColumnName = "hjid")
     public AirportHeliportPropertyType getAirportHeliportItem() {
         return XmlAdapterUtils.unmarshallSource(AirportHeliportPropertyType.class, this.getAirportHeliport());
     }
 
     public void setAirportHeliportItem(AirportHeliportPropertyType target) {
-        setAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "airportHeliport"), RadarSystemTimeSliceType.class, target));
+        setAirportHeliport(XmlAdapterUtils.marshallJAXBElement(AirportHeliportPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "airportHeliport"), RadarSystemTimeSliceType.class,
+                target));
     }
 
-    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMElevatedPointPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "location_id", referencedColumnName = "hjid")
     public AIXMElevatedPointPropertyType getLocationItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMElevatedPointPropertyType.class, this.getLocation());
     }
 
     public void setLocationItem(AIXMElevatedPointPropertyType target) {
-        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "location"), RadarSystemTimeSliceType.class, target));
+        setLocation(XmlAdapterUtils.marshallJAXBElement(AIXMElevatedPointPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "location"), RadarSystemTimeSliceType.class, target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -643,14 +621,40 @@ public class RadarSystemTimeSliceType
         }
         final RadarSystemTimeSliceType that = ((RadarSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAirportHeliport();
-            boolean rhsFieldIsSet = that.isSetAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getAirportHeliport();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getAirportHeliport();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            boolean lhsFieldIsSet = this.isSetGeneralTerrainMonitor();
+            boolean rhsFieldIsSet = that.isSetGeneralTerrainMonitor();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getGeneralTerrainMonitor();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getGeneralTerrainMonitor();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "generalTerrainMonitor", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "generalTerrainMonitor", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadarEquipment();
+            boolean rhsFieldIsSet = that.isSetRadarEquipment();
+            List<RadarComponentPropertyType> lhsField;
+            lhsField = (this.isSetRadarEquipment() ? this.getRadarEquipment() : null);
+            List<RadarComponentPropertyType> rhsField;
+            rhsField = (that.isSetRadarEquipment() ? that.getRadarEquipment() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPARRunway();
+            boolean rhsFieldIsSet = that.isSetPARRunway();
+            List<RunwayPropertyType> lhsField;
+            lhsField = (this.isSetPARRunway() ? this.getPARRunway() : null);
+            List<RunwayPropertyType> rhsField;
+            rhsField = (that.isSetPARRunway() ? that.getPARRunway() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parRunway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parRunway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -672,9 +676,9 @@ public class RadarSystemTimeSliceType
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -695,6 +699,32 @@ public class RadarSystemTimeSliceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAirportHeliport();
+            boolean rhsFieldIsSet = that.isSetAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getAirportHeliport();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getAirportHeliport();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "airportHeliport", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "airportHeliport", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RadarSystemExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RadarSystemExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetBroadcastIdentifier();
             boolean rhsFieldIsSet = that.isSetBroadcastIdentifier();
             JAXBElement<TextDesignatorType> lhsField;
@@ -708,71 +738,6 @@ public class RadarSystemTimeSliceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOffice();
-            boolean rhsFieldIsSet = that.isSetOffice();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetOffice()?this.getOffice():null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetOffice()?that.getOffice():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "office", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "office", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RadarSystemExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
-            List<RadarSystemExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRadarEquipment();
-            boolean rhsFieldIsSet = that.isSetRadarEquipment();
-            List<RadarComponentPropertyType> lhsField;
-            lhsField = (this.isSetRadarEquipment()?this.getRadarEquipment():null);
-            List<RadarComponentPropertyType> rhsField;
-            rhsField = (that.isSetRadarEquipment()?that.getRadarEquipment():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radarEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radarEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPARRunway();
-            boolean rhsFieldIsSet = that.isSetPARRunway();
-            List<RunwayPropertyType> lhsField;
-            lhsField = (this.isSetPARRunway()?this.getPARRunway():null);
-            List<RunwayPropertyType> rhsField;
-            rhsField = (that.isSetPARRunway()?that.getPARRunway():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "parRunway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "parRunway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetGeneralTerrainMonitor();
-            boolean rhsFieldIsSet = that.isSetGeneralTerrainMonitor();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getGeneralTerrainMonitor();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getGeneralTerrainMonitor();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "generalTerrainMonitor", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "generalTerrainMonitor", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLocation();
             boolean rhsFieldIsSet = that.isSetLocation();
             JAXBElement<AIXMElevatedPointPropertyType> lhsField;
@@ -781,6 +746,19 @@ public class RadarSystemTimeSliceType
             rhsField = that.getLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOffice();
+            boolean rhsFieldIsSet = that.isSetOffice();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetOffice() ? this.getOffice() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetOffice() ? that.getOffice() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "office", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "office", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -822,14 +800,14 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetRadarEquipment();
             List<RadarComponentPropertyType> theField;
-            theField = (this.isSetRadarEquipment()?this.getRadarEquipment():null);
+            theField = (this.isSetRadarEquipment() ? this.getRadarEquipment() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "radarEquipment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOffice();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetOffice()?this.getOffice():null);
+            theField = (this.isSetOffice() ? this.getOffice() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "office", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -843,7 +821,7 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetPARRunway();
             List<RunwayPropertyType> theField;
-            theField = (this.isSetPARRunway()?this.getPARRunway():null);
+            theField = (this.isSetPARRunway() ? this.getPARRunway() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "parRunway", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -857,14 +835,14 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RadarSystemExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -901,13 +879,13 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetRadarEquipment();
             List<RadarComponentPropertyType> theField;
-            theField = (this.isSetRadarEquipment()?this.getRadarEquipment():null);
+            theField = (this.isSetRadarEquipment() ? this.getRadarEquipment() : null);
             strategy.appendField(locator, this, "radarEquipment", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOffice();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetOffice()?this.getOffice():null);
+            theField = (this.isSetOffice() ? this.getOffice() : null);
             strategy.appendField(locator, this, "office", buffer, theField, theFieldIsSet);
         }
         {
@@ -919,7 +897,7 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetPARRunway();
             List<RunwayPropertyType> theField;
-            theField = (this.isSetPARRunway()?this.getPARRunway():null);
+            theField = (this.isSetPARRunway() ? this.getPARRunway() : null);
             strategy.appendField(locator, this, "parRunway", buffer, theField, theFieldIsSet);
         }
         {
@@ -931,13 +909,13 @@ public class RadarSystemTimeSliceType
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<RadarSystemExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

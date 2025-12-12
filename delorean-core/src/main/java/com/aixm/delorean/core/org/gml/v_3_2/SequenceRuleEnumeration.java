@@ -5,13 +5,19 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
-
 /**
- * 
- * 
- * <p>Java class for SequenceRuleEnumeration</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ *
+ *
+ * <p>
+ * Java class for SequenceRuleEnumeration
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <simpleType name="SequenceRuleEnumeration">
  *   <restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -24,23 +30,18 @@ import jakarta.xml.bind.annotation.XmlType;
  *   </restriction>
  * </simpleType>
  * }</pre>
- * 
+ *
  */
 @XmlType(name = "SequenceRuleEnumeration")
 @XmlEnum
 public enum SequenceRuleEnumeration {
 
     @XmlEnumValue("Linear")
-    LINEAR("Linear"),
-    @XmlEnumValue("Boustrophedonic")
-    BOUSTROPHEDONIC("Boustrophedonic"),
-    @XmlEnumValue("Cantor-diagonal")
-    CANTOR_DIAGONAL("Cantor-diagonal"),
-    @XmlEnumValue("Spiral")
-    SPIRAL("Spiral"),
-    @XmlEnumValue("Morton")
-    MORTON("Morton"),
-    @XmlEnumValue("Hilbert")
+    LINEAR("Linear"), @XmlEnumValue("Boustrophedonic")
+    BOUSTROPHEDONIC("Boustrophedonic"), @XmlEnumValue("Cantor-diagonal")
+    CANTOR_DIAGONAL("Cantor-diagonal"), @XmlEnumValue("Spiral")
+    SPIRAL("Spiral"), @XmlEnumValue("Morton")
+    MORTON("Morton"), @XmlEnumValue("Hilbert")
     HILBERT("Hilbert");
     private final String value;
 
@@ -50,9 +51,8 @@ public enum SequenceRuleEnumeration {
 
     /**
      * Gets the value associated to the enum constant.
-     * 
-     * @return
-     *     The value linked to the enum.
+     *
+     * @return The value linked to the enum.
      */
     public String value() {
         return value;
@@ -60,16 +60,15 @@ public enum SequenceRuleEnumeration {
 
     /**
      * Gets the enum associated to the value passed as parameter.
-     * 
+     *
      * @param v
-     *     The value to get the enum from.
-     * @return
-     *     The enum which corresponds to the value, if it exists.
+     *            The value to get the enum from.
+     * @return The enum which corresponds to the value, if it exists.
      * @throws IllegalArgumentException
-     *     If no value matches in the enum declaration.
+     *             If no value matches in the enum declaration.
      */
     public static SequenceRuleEnumeration fromValue(String v) {
-        for (SequenceRuleEnumeration c: SequenceRuleEnumeration.values()) {
+        for (SequenceRuleEnumeration c : SequenceRuleEnumeration.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

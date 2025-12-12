@@ -10,6 +10,7 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 import com.aixm.delorean.aixm511.schema.CodeVerticalDatumType;
 import com.aixm.delorean.aixm511.schema.ElevatedPointType;
 import com.aixm.delorean.aixm511.schema.ElevatedSurfaceType;
+import com.aixm.delorean.aixm511.schema.SurfaceType;
 import com.aixm.delorean.aixm511.schema.ElevatedSurfaceTypeExtension;
 import com.aixm.delorean.aixm511.schema.NotePropertyType;
 import com.aixm.delorean.aixm511.schema.ValDistanceSignedType;
@@ -150,7 +151,7 @@ public class AixmElevatedSurfaceType extends com.aixm.delorean.core.gis.type.Sur
     }
 
     public void setHorizontalAccuracyItem(ValDistanceType target) {
-        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), ElevatedSurfaceType.class, target));
+        setHorizontalAccuracy(XmlAdapterUtils.marshallJAXBElement(ValDistanceType.class, new QName("http://www.aixm.aero/schema/5.1.1", "horizontalAccuracy"), SurfaceType.class, target));
     }
 
     @Transient

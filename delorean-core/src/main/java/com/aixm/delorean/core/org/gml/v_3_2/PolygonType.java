@@ -1,64 +1,69 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for PolygonType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for PolygonType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="PolygonType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractSurfaceType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}exterior" minOccurs="0"/>
- *         <element ref="{http://www.opengis.net/gml/3.2}interior" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}exterior" minOccurs=
+"0"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}interior" maxOccurs=
+"unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PolygonType", propOrder = {
-    "exterior",
-    "interior"
-})
-public class PolygonType
-    extends AbstractSurfaceType
-    implements Serializable
-{
+@XmlType(name = "PolygonType", propOrder = {"exterior", "interior"})
+public class PolygonType extends AbstractSurfaceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
-     * 
+     * A boundary of a surface consists of a number of rings. In the normal 2D case,
+     * one of these rings is distinguished as being the exterior boundary. In a
+     * general manifold this is not always possible, in which case all boundaries
+     * shall be listed as interior boundaries, and the exterior will be empty.
+     *
      */
     protected AbstractRingPropertyType exterior;
     protected List<AbstractRingPropertyType> interior;
 
     /**
-     * A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractRingPropertyType }
-     *     
+     * A boundary of a surface consists of a number of rings. In the normal 2D case,
+     * one of these rings is distinguished as being the exterior boundary. In a
+     * general manifold this is not always possible, in which case all boundaries
+     * shall be listed as interior boundaries, and the exterior will be empty.
+     *
+     * @return possible object is {@link AbstractRingPropertyType }
+     *
      */
     public AbstractRingPropertyType getExterior() {
         return exterior;
@@ -66,11 +71,10 @@ public class PolygonType
 
     /**
      * Sets the value of the exterior property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractRingPropertyType }
-     *     
+     *            allowed object is {@link AbstractRingPropertyType }
+     *
      * @see #getExterior()
      */
     public void setExterior(AbstractRingPropertyType value) {
@@ -78,30 +82,33 @@ public class PolygonType
     }
 
     public boolean isSetExterior() {
-        return (this.exterior!= null);
+        return (this.exterior != null);
     }
 
     /**
-     * A boundary of a surface consists of a number of rings. The "interior" rings separate the surface / surface patch from the area enclosed by the rings.Gets the value of the interior property.
-     * 
+     * A boundary of a surface consists of a number of rings. The "interior" rings
+     * separate the surface / surface patch from the area enclosed by the rings.Gets
+     * the value of the interior property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the interior property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the interior property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getInterior().add(newItem);
+     * getInterior().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AbstractRingPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<AbstractRingPropertyType> getInterior() {
         if (interior == null) {
@@ -111,15 +118,16 @@ public class PolygonType
     }
 
     /**
-     * A boundary of a surface consists of a number of rings. The "interior" rings separate the surface / surface patch from the area enclosed by the rings.
-     * 
+     * A boundary of a surface consists of a number of rings. The "interior" rings
+     * separate the surface / surface patch from the area enclosed by the rings.
+     *
      */
     public void setInterior(List<AbstractRingPropertyType> interior) {
         this.interior = interior;
     }
 
     public boolean isSetInterior() {
-        return ((this.interior!= null)&&(!this.interior.isEmpty()));
+        return ((this.interior != null) && (!this.interior.isEmpty()));
     }
 
     public void unsetInterior() {
@@ -127,8 +135,9 @@ public class PolygonType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -139,19 +148,6 @@ public class PolygonType
         }
         final PolygonType that = ((PolygonType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInterior();
-            boolean rhsFieldIsSet = that.isSetInterior();
-            List<AbstractRingPropertyType> lhsField;
-            lhsField = (this.isSetInterior()?this.getInterior():null);
-            List<AbstractRingPropertyType> rhsField;
-            rhsField = (that.isSetInterior()?that.getInterior():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExterior();
             boolean rhsFieldIsSet = that.isSetExterior();
             AbstractRingPropertyType lhsField;
@@ -160,6 +156,19 @@ public class PolygonType
             rhsField = that.getExterior();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterior();
+            boolean rhsFieldIsSet = that.isSetInterior();
+            List<AbstractRingPropertyType> lhsField;
+            lhsField = (this.isSetInterior() ? this.getInterior() : null);
+            List<AbstractRingPropertyType> rhsField;
+            rhsField = (that.isSetInterior() ? that.getInterior() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -180,7 +189,7 @@ public class PolygonType
         {
             boolean theFieldIsSet = this.isSetInterior();
             List<AbstractRingPropertyType> theField;
-            theField = (this.isSetInterior()?this.getInterior():null);
+            theField = (this.isSetInterior() ? this.getInterior() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "interior", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -199,7 +208,7 @@ public class PolygonType
         {
             boolean theFieldIsSet = this.isSetInterior();
             List<AbstractRingPropertyType> theField;
-            theField = (this.isSetInterior()?this.getInterior():null);
+            theField = (this.isSetInterior() ? this.getInterior() : null);
             strategy.appendField(locator, this, "interior", buffer, theField, theFieldIsSet);
         }
         return buffer;

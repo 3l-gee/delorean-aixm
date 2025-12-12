@@ -1,47 +1,48 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for RS_Identifier_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for RS_Identifier_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RS_Identifier_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gmd}MD_Identifier_Type">
  *       <sequence>
- *         <element name="codeSpace" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="version" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="codeSpace" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="version" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RS_Identifier_Type", propOrder = {
-    "codeSpace",
-    "version"
-})
-public class RSIdentifierType
-    extends MDIdentifierType
-    implements Serializable
-{
+@XmlType(name = "RS_Identifier_Type", propOrder = {"codeSpace", "version"})
+public class RSIdentifierType extends MDIdentifierType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     protected CharacterStringPropertyType codeSpace;
@@ -49,11 +50,9 @@ public class RSIdentifierType
 
     /**
      * Gets the value of the codeSpace property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getCodeSpace() {
         return codeSpace;
@@ -61,27 +60,24 @@ public class RSIdentifierType
 
     /**
      * Sets the value of the codeSpace property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setCodeSpace(CharacterStringPropertyType value) {
         this.codeSpace = value;
     }
 
     public boolean isSetCodeSpace() {
-        return (this.codeSpace!= null);
+        return (this.codeSpace != null);
     }
 
     /**
      * Gets the value of the version property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getVersion() {
         return version;
@@ -89,23 +85,23 @@ public class RSIdentifierType
 
     /**
      * Sets the value of the version property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setVersion(CharacterStringPropertyType value) {
         this.version = value;
     }
 
     public boolean isSetVersion() {
-        return (this.version!= null);
+        return (this.version != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

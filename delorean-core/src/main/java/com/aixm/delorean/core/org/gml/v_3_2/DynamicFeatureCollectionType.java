@@ -1,23 +1,28 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DynamicFeatureCollectionType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DynamicFeatureCollectionType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DynamicFeatureCollectionType">
  *   <complexContent>
@@ -29,17 +34,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DynamicFeatureCollectionType", propOrder = {
-    "dynamicMembers"
-})
-public class DynamicFeatureCollectionType
-    extends DynamicFeatureType
-    implements Serializable
-{
+@XmlType(name = "DynamicFeatureCollectionType", propOrder = {"dynamicMembers"})
+public class DynamicFeatureCollectionType extends DynamicFeatureType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -47,11 +47,9 @@ public class DynamicFeatureCollectionType
 
     /**
      * Gets the value of the dynamicMembers property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DynamicFeatureMemberType }
-     *     
+     *
+     * @return possible object is {@link DynamicFeatureMemberType }
+     *
      */
     public DynamicFeatureMemberType getDynamicMembers() {
         return dynamicMembers;
@@ -59,23 +57,23 @@ public class DynamicFeatureCollectionType
 
     /**
      * Sets the value of the dynamicMembers property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DynamicFeatureMemberType }
-     *     
+     *            allowed object is {@link DynamicFeatureMemberType }
+     *
      */
     public void setDynamicMembers(DynamicFeatureMemberType value) {
         this.dynamicMembers = value;
     }
 
     public boolean isSetDynamicMembers() {
-        return (this.dynamicMembers!= null);
+        return (this.dynamicMembers != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

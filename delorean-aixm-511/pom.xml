@@ -355,30 +355,30 @@
                         <executions>
                             <execution>
                                 <id>format-generated-sources</id>
+                                <phase>verify</phase> 
                                 <goals>
                                     <goal>apply</goal> 
                                 </goals>
-                                <phase>process-sources</phase> 
+                                <configuration>
+                                    <java>
+                                        <includes>
+                                            <include>src/main/java/com/aixm/delorean/aixm511/schema/**/*.java</include>
+                                        </includes>
+                                        <eclipse>
+                                            <version>4.29</version>
+                                        </eclipse>
+                                        <indent>
+                                            <spaces>true</spaces>
+                                            <spacesPerTab>4</spacesPerTab> 
+                                        </indent>
+                                        <endWithNewline/>
+                                        <trimTrailingWhitespace/>
+                                        <removeUnusedImports/>
+                                        <importOrder/>
+                                    </java>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <java>
-                                <includes>
-                                    <include>${project.basedir}/src/main/java/com/aixm/delorean/aixm511/schema/**/*.java</include>
-                                </includes>
-                                <googleJavaFormat>
-                                    <version>1.17.0</version>
-                                </googleJavaFormat>
-                                <indent>
-                                    <spaces>true</spaces>
-                                    <spacesPerTab>4</spacesPerTab> 
-                                </indent>
-                                <endWithNewline/>
-                                <trimTrailingWhitespace/>
-                                <removeUnusedImports/>
-                                <importOrder/>
-                            </java>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>

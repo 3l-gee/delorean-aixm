@@ -808,8 +808,10 @@ class HyperJAXB:
         return f'''</hj:embedded>'''
     
     @staticmethod
-    def attribute_override(name, column):
-        return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}"/></orm:attribute-override>'''
+    def attribute_override(name, column, constraints=None):
+        if constraints is None :
+            return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}" /></orm:attribute-override>'''
+        return f'''<orm:attribute-override name="{str(name)}"><orm:column name="{Util.snake_case_column(str(column))}" {constraints} /></orm:attribute-override>'''
     
     @staticmethod
     def embeddabl_start():

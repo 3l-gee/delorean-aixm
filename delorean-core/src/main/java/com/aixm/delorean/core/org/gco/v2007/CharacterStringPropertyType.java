@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gmd.v2007.LocalisedCharacterStringType;
 import com.aixm.delorean.core.org.gmd.v2007.MDObligationCodeType;
 import com.aixm.delorean.core.org.gmd.v2007.MDPixelOrientationCodeType;
@@ -14,6 +13,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -27,12 +27,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for CharacterString_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for CharacterString_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CharacterString_PropertyType">
  *   <complexContent>
@@ -45,18 +50,13 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CharacterString_PropertyType", propOrder = {
-    "characterString"
-})
-@XmlSeeAlso({
-    PTFreeTextPropertyType.class
-})
-public class CharacterStringPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "CharacterString_PropertyType", propOrder = {"characterString"})
+@XmlSeeAlso({PTFreeTextPropertyType.class})
+public class CharacterStringPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "CharacterString", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
@@ -66,42 +66,42 @@ public class CharacterStringPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Gets the value of the characterString property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LocalisedCharacterStringType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDObligationCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDPixelOrientationCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDTopicCategoryCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link LocalisedCharacterStringType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MDObligationCodeType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link MDPixelOrientationCodeType
+     *         }{@code >} {@link JAXBElement
+     *         }{@code <}{@link MDTopicCategoryCodeType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link String }{@code >}
+     *
      */
     public JAXBElement<?> getCharacterString() {
         return characterString;
@@ -109,58 +109,57 @@ public class CharacterStringPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the characterString property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CodeListValueType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LocalisedCharacterStringType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDObligationCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDPixelOrientationCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link MDTopicCategoryCodeType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link CodeListValueType }{@code >} {@link JAXBElement
+     *            }{@code <}{@link LocalisedCharacterStringType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MDObligationCodeType
+     *            }{@code >} {@link JAXBElement
+     *            }{@code <}{@link MDPixelOrientationCodeType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link MDTopicCategoryCodeType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >}
+     *
      */
     public void setCharacterString(JAXBElement<?> value) {
         this.characterString = value;
     }
 
     public boolean isSetCharacterString() {
-        return (this.characterString!= null);
+        return (this.characterString != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -168,18 +167,17 @@ public class CharacterStringPropertyType implements Serializable, Equals, HashCo
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -195,8 +193,9 @@ public class CharacterStringPropertyType implements Serializable, Equals, HashCo
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

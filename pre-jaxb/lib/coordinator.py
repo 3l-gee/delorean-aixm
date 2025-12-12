@@ -21,6 +21,7 @@ class Coordinator:
         self.xjb = self.init_xjb(self.xsds)
         self.generate_xjb()
         self.export_xjb()
+        Content.save_transposition()
 
         self.save_entity_class(Content.get_entity(), "entities.txt")
 
@@ -32,11 +33,11 @@ class Coordinator:
     def generate_xjb(self):
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(
-                SimpleType.generate_simple_types(value["simple_type"]["type"], value["simple_type"]["graph"], value["simple_type"]["transposition"]))
+                SimpleType.generate_simple_types(value["simple_type"]["type"], value["simple_type"]["graph"]))
                         
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(
-                ComplexType.generate_complex_types(value["complex_type"]["type"], value["simple_type"]["transposition"]))
+                ComplexType.generate_complex_types(value["complex_type"]["type"]))
                         
         for key, value in Content.get_content().items() :
             self.xjb[key]["auto"]["default"].extend(

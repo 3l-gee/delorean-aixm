@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,35 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for SpecialNavigationStationTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for SpecialNavigationStationTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="SpecialNavigationStationTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}SpecialNavigationStationTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}SpecialNavigationStationTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SpecialNavigationStationTimeSlicePropertyType", propOrder = {
-    "specialNavigationStationTimeSlice"
-})
+@XmlType(name = "SpecialNavigationStationTimeSlicePropertyType", propOrder = {"specialNavigationStationTimeSlice"})
 @Entity(name = "SpecialNavigationStationTimeSlicePropertyType")
 @Table(name = "specialnavigationstation_tsp", schema = "navaids_point")
-public class SpecialNavigationStationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class SpecialNavigationStationTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SpecialNavigationStationTimeSlice", required = true)
@@ -77,15 +81,12 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
 
     /**
      * Gets the value of the specialNavigationStationTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SpecialNavigationStationTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link SpecialNavigationStationTimeSliceType }
+     *
      */
     @OneToOne(targetEntity = SpecialNavigationStationTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public SpecialNavigationStationTimeSliceType getSpecialNavigationStationTimeSlice() {
         return specialNavigationStationTimeSlice;
@@ -93,11 +94,10 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the specialNavigationStationTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SpecialNavigationStationTimeSliceType }
-     *     
+     *            allowed object is {@link SpecialNavigationStationTimeSliceType }
+     *
      */
     public void setSpecialNavigationStationTimeSlice(SpecialNavigationStationTimeSliceType value) {
         this.specialNavigationStationTimeSlice = value;
@@ -105,16 +105,14 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetSpecialNavigationStationTimeSlice() {
-        return (this.specialNavigationStationTimeSlice!= null);
+        return (this.specialNavigationStationTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +126,10 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +137,7 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +145,10 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +159,21 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +182,11 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,8 +205,9 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -223,27 +215,29 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
         }
         final SpecialNavigationStationTimeSlicePropertyType that = ((SpecialNavigationStationTimeSlicePropertyType) object);
         {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialNavigationStationTimeSlice();
             boolean rhsFieldIsSet = that.isSetSpecialNavigationStationTimeSlice();
             SpecialNavigationStationTimeSliceType lhsField;
             lhsField = this.getSpecialNavigationStationTimeSlice();
             SpecialNavigationStationTimeSliceType rhsField;
             rhsField = that.getSpecialNavigationStationTimeSlice();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationTimeSlice", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationTimeSlice", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialNavigationStationTimeSlice",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialNavigationStationTimeSlice",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -268,13 +262,14 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
             boolean theFieldIsSet = this.isSetSpecialNavigationStationTimeSlice();
             SpecialNavigationStationTimeSliceType theField;
             theField = this.getSpecialNavigationStationTimeSlice();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialNavigationStationTimeSlice", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialNavigationStationTimeSlice",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +307,7 @@ public class SpecialNavigationStationTimeSlicePropertyType implements Serializab
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,56 +19,59 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * gml:KnotPropertyType encapsulates a knot to use it in a geometric type.
- * 
- * <p>Java class for KnotPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for KnotPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="KnotPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="Knot" type="{http://www.opengis.net/gml/3.2}KnotType"/>
+ *         <element name="Knot" type=
+"{http://www.opengis.net/gml/3.2}KnotType"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KnotPropertyType", propOrder = {
-    "knot"
-})
-public class KnotPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "KnotPropertyType", propOrder = {"knot"})
+public class KnotPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A knot is a breakpoint on a piecewise spline curve.
-     * value is the value of the parameter at the knot of the spline (see ISO 19107:2003, 6.4.24.2).
-     * multiplicity is the multiplicity of this knot used in the definition of the spline (with the same weight).
-     * weight is the value of the averaging weight used for this knot of the spline.
-     * 
+     * A knot is a breakpoint on a piecewise spline curve. value is the value of the
+     * parameter at the knot of the spline (see ISO 19107:2003, 6.4.24.2).
+     * multiplicity is the multiplicity of this knot used in the definition of the
+     * spline (with the same weight). weight is the value of the averaging weight
+     * used for this knot of the spline.
+     *
      */
     @XmlElement(name = "Knot", required = true)
     protected KnotType knot;
 
     /**
-     * A knot is a breakpoint on a piecewise spline curve.
-     * value is the value of the parameter at the knot of the spline (see ISO 19107:2003, 6.4.24.2).
-     * multiplicity is the multiplicity of this knot used in the definition of the spline (with the same weight).
-     * weight is the value of the averaging weight used for this knot of the spline.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KnotType }
-     *     
+     * A knot is a breakpoint on a piecewise spline curve. value is the value of the
+     * parameter at the knot of the spline (see ISO 19107:2003, 6.4.24.2).
+     * multiplicity is the multiplicity of this knot used in the definition of the
+     * spline (with the same weight). weight is the value of the averaging weight
+     * used for this knot of the spline.
+     *
+     * @return possible object is {@link KnotType }
+     *
      */
     public KnotType getKnot() {
         return knot;
@@ -76,11 +79,10 @@ public class KnotPropertyType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Sets the value of the knot property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link KnotType }
-     *     
+     *            allowed object is {@link KnotType }
+     *
      * @see #getKnot()
      */
     public void setKnot(KnotType value) {
@@ -88,7 +90,7 @@ public class KnotPropertyType implements Serializable, Equals, HashCode, ToStrin
     }
 
     public boolean isSetKnot() {
-        return (this.knot!= null);
+        return (this.knot != null);
     }
 
     @Override
@@ -104,8 +106,9 @@ public class KnotPropertyType implements Serializable, Equals, HashCode, ToStrin
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

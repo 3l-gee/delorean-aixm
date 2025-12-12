@@ -1,14 +1,14 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,12 +22,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FeatureArrayPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FeatureArrayPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FeatureArrayPropertyType">
  *   <complexContent>
@@ -39,15 +44,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FeatureArrayPropertyType", propOrder = {
-    "abstractFeature"
-})
-public class FeatureArrayPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "FeatureArrayPropertyType", propOrder = {"abstractFeature"})
+public class FeatureArrayPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractFeature", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -55,41 +57,42 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
 
     /**
      * Gets the value of the abstractFeature property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractFeature property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractFeature property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractFeature().add(newItem);
+     * getAbstractFeature().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link DynamicFeatureCollectionType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DynamicFeatureType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DiscreteCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractContinuousCoverageType }{@code >}
-     * {@link JAXBElement }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link DynamicFeatureCollectionType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DynamicFeatureType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DiscreteCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractContinuousCoverageType }{@code >} {@link JAXBElement
+     * }{@code <}{@link DirectedObservationAtDistanceType }{@code >}
      * {@link JAXBElement }{@code <}{@link DirectedObservationType }{@code >}
      * {@link JAXBElement }{@code <}{@link ObservationType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractFeatureCollectionType }{@code >}
      * {@link JAXBElement }{@code <}{@link FeatureCollectionType }{@code >}
      * {@link JAXBElement }{@code <}{@link AbstractFeatureType }{@code >}
-     * 
-     * 
+     *
+     *
      */
     public List<JAXBElement<? extends AbstractFeatureType>> getAbstractFeature() {
         if (abstractFeature == null) {
@@ -99,15 +102,15 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAbstractFeature(List<JAXBElement<? extends AbstractFeatureType>> abstractFeature) {
         this.abstractFeature = abstractFeature;
     }
 
     public boolean isSetAbstractFeature() {
-        return ((this.abstractFeature!= null)&&(!this.abstractFeature.isEmpty()));
+        return ((this.abstractFeature != null) && (!this.abstractFeature.isEmpty()));
     }
 
     public void unsetAbstractFeature() {
@@ -127,8 +130,9 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -139,9 +143,9 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
             boolean lhsFieldIsSet = this.isSetAbstractFeature();
             boolean rhsFieldIsSet = that.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> lhsField;
-            lhsField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
+            lhsField = (this.isSetAbstractFeature() ? this.getAbstractFeature() : null);
             List<JAXBElement<? extends AbstractFeatureType>> rhsField;
-            rhsField = (that.isSetAbstractFeature()?that.getAbstractFeature():null);
+            rhsField = (that.isSetAbstractFeature() ? that.getAbstractFeature() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFeature", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFeature", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -167,7 +171,7 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> theField;
-            theField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
+            theField = (this.isSetAbstractFeature() ? this.getAbstractFeature() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractFeature", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -199,7 +203,7 @@ public class FeatureArrayPropertyType implements Serializable, Equals, HashCode,
         {
             boolean theFieldIsSet = this.isSetAbstractFeature();
             List<JAXBElement<? extends AbstractFeatureType>> theField;
-            theField = (this.isSetAbstractFeature()?this.getAbstractFeature():null);
+            theField = (this.isSetAbstractFeature() ? this.getAbstractFeature() : null);
             strategy.appendField(locator, this, "abstractFeature", buffer, theField, theFieldIsSet);
         }
         return buffer;

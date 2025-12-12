@@ -1,24 +1,29 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for OrientableSurfaceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for OrientableSurfaceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="OrientableSurfaceType">
  *   <complexContent>
@@ -26,27 +31,27 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <element ref="{http://www.opengis.net/gml/3.2}baseSurface"/>
  *       </sequence>
- *       <attribute name="orientation" type="{http://www.opengis.net/gml/3.2}SignType" default="+" />
+ *       <attribute name="orientation" type=
+"{http://www.opengis.net/gml/3.2}SignType" default="+" />
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OrientableSurfaceType", propOrder = {
-    "baseSurface"
-})
-public class OrientableSurfaceType
-    extends AbstractSurfaceType
-    implements Serializable
-{
+@XmlType(name = "OrientableSurfaceType", propOrder = {"baseSurface"})
+public class OrientableSurfaceType extends AbstractSurfaceType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The property baseSurface references or contains the base surface. The property baseSurface either references the base surface via the XLink-attributes or contains the surface element. A surface element is any element which is substitutable for gml:AbstractSurface. The base surface has positive orientation.
-     * 
+     * The property baseSurface references or contains the base surface. The
+     * property baseSurface either references the base surface via the
+     * XLink-attributes or contains the surface element. A surface element is any
+     * element which is substitutable for gml:AbstractSurface. The base surface has
+     * positive orientation.
+     *
      */
     @XmlElement(required = true)
     protected SurfacePropertyType baseSurface;
@@ -54,12 +59,14 @@ public class OrientableSurfaceType
     protected SignType orientation;
 
     /**
-     * The property baseSurface references or contains the base surface. The property baseSurface either references the base surface via the XLink-attributes or contains the surface element. A surface element is any element which is substitutable for gml:AbstractSurface. The base surface has positive orientation.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SurfacePropertyType }
-     *     
+     * The property baseSurface references or contains the base surface. The
+     * property baseSurface either references the base surface via the
+     * XLink-attributes or contains the surface element. A surface element is any
+     * element which is substitutable for gml:AbstractSurface. The base surface has
+     * positive orientation.
+     *
+     * @return possible object is {@link SurfacePropertyType }
+     *
      */
     public SurfacePropertyType getBaseSurface() {
         return baseSurface;
@@ -67,11 +74,10 @@ public class OrientableSurfaceType
 
     /**
      * Sets the value of the baseSurface property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SurfacePropertyType }
-     *     
+     *            allowed object is {@link SurfacePropertyType }
+     *
      * @see #getBaseSurface()
      */
     public void setBaseSurface(SurfacePropertyType value) {
@@ -79,16 +85,14 @@ public class OrientableSurfaceType
     }
 
     public boolean isSetBaseSurface() {
-        return (this.baseSurface!= null);
+        return (this.baseSurface != null);
     }
 
     /**
      * Gets the value of the orientation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignType }
-     *     
+     *
+     * @return possible object is {@link SignType }
+     *
      */
     public SignType getOrientation() {
         if (orientation == null) {
@@ -100,23 +104,23 @@ public class OrientableSurfaceType
 
     /**
      * Sets the value of the orientation property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SignType }
-     *     
+     *            allowed object is {@link SignType }
+     *
      */
     public void setOrientation(SignType value) {
         this.orientation = value;
     }
 
     public boolean isSetOrientation() {
-        return (this.orientation!= null);
+        return (this.orientation != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -127,19 +131,6 @@ public class OrientableSurfaceType
         }
         final OrientableSurfaceType that = ((OrientableSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetBaseSurface();
-            boolean rhsFieldIsSet = that.isSetBaseSurface();
-            SurfacePropertyType lhsField;
-            lhsField = this.getBaseSurface();
-            SurfacePropertyType rhsField;
-            rhsField = that.getBaseSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOrientation();
             boolean rhsFieldIsSet = that.isSetOrientation();
             SignType lhsField;
@@ -148,6 +139,19 @@ public class OrientableSurfaceType
             rhsField = that.getOrientation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetBaseSurface();
+            boolean rhsFieldIsSet = that.isSetBaseSurface();
+            SurfacePropertyType lhsField;
+            lhsField = this.getBaseSurface();
+            SurfacePropertyType rhsField;
+            rhsField = that.getBaseSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseSurface", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

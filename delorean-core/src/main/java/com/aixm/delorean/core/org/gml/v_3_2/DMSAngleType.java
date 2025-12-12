@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.math.BigDecimal;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,12 +21,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DMSAngleType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DMSAngleType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DMSAngleType">
  *   <complexContent>
@@ -37,7 +42,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *           <element ref="{http://www.opengis.net/gml/3.2}decimalMinutes"/>
  *           <sequence>
  *             <element ref="{http://www.opengis.net/gml/3.2}minutes"/>
- *             <element ref="{http://www.opengis.net/gml/3.2}seconds" minOccurs="0"/>
+ *             <element ref="{http://www.opengis.net/gml/3.2}seconds" minOccurs=
+"0"/>
  *           </sequence>
  *         </choice>
  *       </sequence>
@@ -45,18 +51,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DMSAngleType", propOrder = {
-    "degrees",
-    "decimalMinutes",
-    "minutes",
-    "seconds"
-})
-public class DMSAngleType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "DMSAngleType", propOrder = {"degrees", "decimalMinutes", "minutes", "seconds"})
+public class DMSAngleType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -68,11 +68,9 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the degrees property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DegreesType }
-     *     
+     *
+     * @return possible object is {@link DegreesType }
+     *
      */
     public DegreesType getDegrees() {
         return degrees;
@@ -80,27 +78,24 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the degrees property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DegreesType }
-     *     
+     *            allowed object is {@link DegreesType }
+     *
      */
     public void setDegrees(DegreesType value) {
         this.degrees = value;
     }
 
     public boolean isSetDegrees() {
-        return (this.degrees!= null);
+        return (this.degrees != null);
     }
 
     /**
      * Gets the value of the decimalMinutes property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is {@link BigDecimal }
+     *
      */
     public BigDecimal getDecimalMinutes() {
         return decimalMinutes;
@@ -108,27 +103,24 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the decimalMinutes property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *            allowed object is {@link BigDecimal }
+     *
      */
     public void setDecimalMinutes(BigDecimal value) {
         this.decimalMinutes = value;
     }
 
     public boolean isSetDecimalMinutes() {
-        return (this.decimalMinutes!= null);
+        return (this.decimalMinutes != null);
     }
 
     /**
      * Gets the value of the minutes property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is {@link Integer }
+     *
      */
     public Integer getMinutes() {
         return minutes;
@@ -136,27 +128,24 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the minutes property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *            allowed object is {@link Integer }
+     *
      */
     public void setMinutes(Integer value) {
         this.minutes = value;
     }
 
     public boolean isSetMinutes() {
-        return (this.minutes!= null);
+        return (this.minutes != null);
     }
 
     /**
      * Gets the value of the seconds property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
+     *
+     * @return possible object is {@link BigDecimal }
+     *
      */
     public BigDecimal getSeconds() {
         return seconds;
@@ -164,18 +153,17 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the seconds property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
+     *            allowed object is {@link BigDecimal }
+     *
      */
     public void setSeconds(BigDecimal value) {
         this.seconds = value;
     }
 
     public boolean isSetSeconds() {
-        return (this.seconds!= null);
+        return (this.seconds != null);
     }
 
     @Override
@@ -191,27 +179,15 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final DMSAngleType that = ((DMSAngleType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetMinutes();
-            boolean rhsFieldIsSet = that.isSetMinutes();
-            Integer lhsField;
-            lhsField = this.getMinutes();
-            Integer rhsField;
-            rhsField = that.getMinutes();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minutes", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minutes", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetDecimalMinutes();
             boolean rhsFieldIsSet = that.isSetDecimalMinutes();
@@ -226,19 +202,6 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDegrees();
-            boolean rhsFieldIsSet = that.isSetDegrees();
-            DegreesType lhsField;
-            lhsField = this.getDegrees();
-            DegreesType rhsField;
-            rhsField = that.getDegrees();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeconds();
             boolean rhsFieldIsSet = that.isSetSeconds();
             BigDecimal lhsField;
@@ -247,6 +210,32 @@ public class DMSAngleType implements Serializable, Equals, HashCode, ToString
             rhsField = that.getSeconds();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "seconds", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "seconds", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinutes();
+            boolean rhsFieldIsSet = that.isSetMinutes();
+            Integer lhsField;
+            lhsField = this.getMinutes();
+            Integer rhsField;
+            rhsField = that.getMinutes();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minutes", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minutes", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDegrees();
+            boolean rhsFieldIsSet = that.isSetDegrees();
+            DegreesType lhsField;
+            lhsField = this.getDegrees();
+            DegreesType rhsField;
+            rhsField = that.getDegrees();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "degrees", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "degrees", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

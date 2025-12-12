@@ -1,49 +1,51 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for TopoSurfaceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TopoSurfaceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TopoSurfaceType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractTopologyType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}directedFace" maxOccurs="unbounded"/>
+ *         <element ref="{http://www.opengis.net/gml/3.2}directedFace" maxOccurs
+="unbounded"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TopoSurfaceType", propOrder = {
-    "directedFace"
-})
-public class TopoSurfaceType
-    extends AbstractTopologyType
-    implements Serializable
-{
+@XmlType(name = "TopoSurfaceType", propOrder = {"directedFace"})
+public class TopoSurfaceType extends AbstractTopologyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -52,26 +54,33 @@ public class TopoSurfaceType
     protected AggregationType aggregationType;
 
     /**
-     * The gml:directedFace property element describes the boundary of topology solids, in the coBoundary of topology edges and is used in the support of surface features via the gml:TopoSurface expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included face is used i.e. inward or outward with respect to the surface normal in any geometric realisation.Gets the value of the directedFace property.
-     * 
+     * The gml:directedFace property element describes the boundary of topology
+     * solids, in the coBoundary of topology edges and is used in the support of
+     * surface features via the gml:TopoSurface expression, see below. The
+     * orientation attribute of type gml:SignType expresses the sense in which the
+     * included face is used i.e. inward or outward with respect to the surface
+     * normal in any geometric realisation.Gets the value of the directedFace
+     * property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the directedFace property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the directedFace property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getDirectedFace().add(newItem);
+     * getDirectedFace().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DirectedFacePropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<DirectedFacePropertyType> getDirectedFace() {
         if (directedFace == null) {
@@ -81,15 +90,20 @@ public class TopoSurfaceType
     }
 
     /**
-     * The gml:directedFace property element describes the boundary of topology solids, in the coBoundary of topology edges and is used in the support of surface features via the gml:TopoSurface expression, see below. The orientation attribute of type gml:SignType expresses the sense in which the included face is used i.e. inward or outward with respect to the surface normal in any geometric realisation.
-     * 
+     * The gml:directedFace property element describes the boundary of topology
+     * solids, in the coBoundary of topology edges and is used in the support of
+     * surface features via the gml:TopoSurface expression, see below. The
+     * orientation attribute of type gml:SignType expresses the sense in which the
+     * included face is used i.e. inward or outward with respect to the surface
+     * normal in any geometric realisation.
+     *
      */
     public void setDirectedFace(List<DirectedFacePropertyType> directedFace) {
         this.directedFace = directedFace;
     }
 
     public boolean isSetDirectedFace() {
-        return ((this.directedFace!= null)&&(!this.directedFace.isEmpty()));
+        return ((this.directedFace != null) && (!this.directedFace.isEmpty()));
     }
 
     public void unsetDirectedFace() {
@@ -98,11 +112,9 @@ public class TopoSurfaceType
 
     /**
      * Gets the value of the aggregationType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AggregationType }
-     *     
+     *
+     * @return possible object is {@link AggregationType }
+     *
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -110,23 +122,23 @@ public class TopoSurfaceType
 
     /**
      * Sets the value of the aggregationType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AggregationType }
-     *     
+     *            allowed object is {@link AggregationType }
+     *
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType!= null);
+        return (this.aggregationType != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -136,6 +148,19 @@ public class TopoSurfaceType
             return false;
         }
         final TopoSurfaceType that = ((TopoSurfaceType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedFace();
+            boolean rhsFieldIsSet = that.isSetDirectedFace();
+            List<DirectedFacePropertyType> lhsField;
+            lhsField = (this.isSetDirectedFace() ? this.getDirectedFace() : null);
+            List<DirectedFacePropertyType> rhsField;
+            rhsField = (that.isSetDirectedFace() ? that.getDirectedFace() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
@@ -149,19 +174,6 @@ public class TopoSurfaceType
                 return false;
             }
         }
-        {
-            boolean lhsFieldIsSet = this.isSetDirectedFace();
-            boolean rhsFieldIsSet = that.isSetDirectedFace();
-            List<DirectedFacePropertyType> lhsField;
-            lhsField = (this.isSetDirectedFace()?this.getDirectedFace():null);
-            List<DirectedFacePropertyType> rhsField;
-            rhsField = (that.isSetDirectedFace()?that.getDirectedFace():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedFace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedFace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -171,7 +183,7 @@ public class TopoSurfaceType
         {
             boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace() ? this.getDirectedFace() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "directedFace", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -191,7 +203,7 @@ public class TopoSurfaceType
         {
             boolean theFieldIsSet = this.isSetDirectedFace();
             List<DirectedFacePropertyType> theField;
-            theField = (this.isSetDirectedFace()?this.getDirectedFace():null);
+            theField = (this.isSetDirectedFace() ? this.getDirectedFace() : null);
             strategy.appendField(locator, this, "directedFace", buffer, theField, theFieldIsSet);
         }
         {

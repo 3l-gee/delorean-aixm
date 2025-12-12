@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,37 +20,40 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element name="inverseFlattening" type="{http://www.opengis.net/gml/3.2}MeasureType"/>
- *         <element name="semiMinorAxis" type="{http://www.opengis.net/gml/3.2}LengthType"/>
- *         <element name="isSphere" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         <element name="inverseFlattening" type=
+"{http://www.opengis.net/gml/3.2}MeasureType"/>
+ *         <element name="semiMinorAxis" type=
+"{http://www.opengis.net/gml/3.2}LengthType"/>
+ *         <element name="isSphere" type=
+"{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       </choice>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "inverseFlattening",
-    "semiMinorAxis",
-    "isSphere"
-})
+@XmlType(name = "", propOrder = {"inverseFlattening", "semiMinorAxis", "isSphere"})
 @XmlRootElement(name = "SecondDefiningParameter")
-public class SecondDefiningParameter implements Serializable, Equals, HashCode, ToString
-{
+public class SecondDefiningParameter implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected MeasureType inverseFlattening;
@@ -60,11 +63,9 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
 
     /**
      * Gets the value of the inverseFlattening property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MeasureType }
-     *     
+     *
+     * @return possible object is {@link MeasureType }
+     *
      */
     public MeasureType getInverseFlattening() {
         return inverseFlattening;
@@ -72,27 +73,24 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the inverseFlattening property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MeasureType }
-     *     
+     *            allowed object is {@link MeasureType }
+     *
      */
     public void setInverseFlattening(MeasureType value) {
         this.inverseFlattening = value;
     }
 
     public boolean isSetInverseFlattening() {
-        return (this.inverseFlattening!= null);
+        return (this.inverseFlattening != null);
     }
 
     /**
      * Gets the value of the semiMinorAxis property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LengthType }
-     *     
+     *
+     * @return possible object is {@link LengthType }
+     *
      */
     public LengthType getSemiMinorAxis() {
         return semiMinorAxis;
@@ -100,27 +98,24 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the semiMinorAxis property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link LengthType }
-     *     
+     *            allowed object is {@link LengthType }
+     *
      */
     public void setSemiMinorAxis(LengthType value) {
         this.semiMinorAxis = value;
     }
 
     public boolean isSetSemiMinorAxis() {
-        return (this.semiMinorAxis!= null);
+        return (this.semiMinorAxis != null);
     }
 
     /**
      * Gets the value of the isSphere property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public java.lang.Boolean getIsSphere() {
         return isSphere;
@@ -128,18 +123,17 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
 
     /**
      * Sets the value of the isSphere property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setIsSphere(java.lang.Boolean value) {
         this.isSphere = value;
     }
 
     public boolean isSetIsSphere() {
-        return (this.isSphere!= null);
+        return (this.isSphere != null);
     }
 
     @Override
@@ -155,14 +149,28 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final SecondDefiningParameter that = ((SecondDefiningParameter) object);
+        {
+            boolean lhsFieldIsSet = this.isSetInverseFlattening();
+            boolean rhsFieldIsSet = that.isSetInverseFlattening();
+            MeasureType lhsField;
+            lhsField = this.getInverseFlattening();
+            MeasureType rhsField;
+            rhsField = that.getInverseFlattening();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetIsSphere();
             boolean rhsFieldIsSet = that.isSetIsSphere();
@@ -185,19 +193,6 @@ public class SecondDefiningParameter implements Serializable, Equals, HashCode, 
             rhsField = that.getSemiMinorAxis();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "semiMinorAxis", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "semiMinorAxis", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetInverseFlattening();
-            boolean rhsFieldIsSet = that.isSetInverseFlattening();
-            MeasureType lhsField;
-            lhsField = this.getInverseFlattening();
-            MeasureType rhsField;
-            rhsField = that.getInverseFlattening();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "inverseFlattening", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "inverseFlattening", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

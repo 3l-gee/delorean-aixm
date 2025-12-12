@@ -1,23 +1,28 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for GeocentricCRSType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for GeocentricCRSType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GeocentricCRSType">
  *   <complexContent>
@@ -33,19 +38,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeocentricCRSType", propOrder = {
-    "usesCartesianCS",
-    "usesSphericalCS",
-    "usesGeodeticDatum"
-})
-public class GeocentricCRSType
-    extends AbstractCRSType
-    implements Serializable
-{
+@XmlType(name = "GeocentricCRSType", propOrder = {"usesCartesianCS", "usesSphericalCS", "usesGeodeticDatum"})
+public class GeocentricCRSType extends AbstractCRSType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     protected CartesianCSPropertyType usesCartesianCS;
@@ -55,11 +53,9 @@ public class GeocentricCRSType
 
     /**
      * Gets the value of the usesCartesianCS property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CartesianCSPropertyType }
-     *     
+     *
+     * @return possible object is {@link CartesianCSPropertyType }
+     *
      */
     public CartesianCSPropertyType getUsesCartesianCS() {
         return usesCartesianCS;
@@ -67,27 +63,24 @@ public class GeocentricCRSType
 
     /**
      * Sets the value of the usesCartesianCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CartesianCSPropertyType }
-     *     
+     *            allowed object is {@link CartesianCSPropertyType }
+     *
      */
     public void setUsesCartesianCS(CartesianCSPropertyType value) {
         this.usesCartesianCS = value;
     }
 
     public boolean isSetUsesCartesianCS() {
-        return (this.usesCartesianCS!= null);
+        return (this.usesCartesianCS != null);
     }
 
     /**
      * Gets the value of the usesSphericalCS property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SphericalCSPropertyType }
-     *     
+     *
+     * @return possible object is {@link SphericalCSPropertyType }
+     *
      */
     public SphericalCSPropertyType getUsesSphericalCS() {
         return usesSphericalCS;
@@ -95,27 +88,24 @@ public class GeocentricCRSType
 
     /**
      * Sets the value of the usesSphericalCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SphericalCSPropertyType }
-     *     
+     *            allowed object is {@link SphericalCSPropertyType }
+     *
      */
     public void setUsesSphericalCS(SphericalCSPropertyType value) {
         this.usesSphericalCS = value;
     }
 
     public boolean isSetUsesSphericalCS() {
-        return (this.usesSphericalCS!= null);
+        return (this.usesSphericalCS != null);
     }
 
     /**
      * Gets the value of the usesGeodeticDatum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link GeodeticDatumPropertyType }
-     *     
+     *
+     * @return possible object is {@link GeodeticDatumPropertyType }
+     *
      */
     public GeodeticDatumPropertyType getUsesGeodeticDatum() {
         return usesGeodeticDatum;
@@ -123,23 +113,23 @@ public class GeocentricCRSType
 
     /**
      * Sets the value of the usesGeodeticDatum property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link GeodeticDatumPropertyType }
-     *     
+     *            allowed object is {@link GeodeticDatumPropertyType }
+     *
      */
     public void setUsesGeodeticDatum(GeodeticDatumPropertyType value) {
         this.usesGeodeticDatum = value;
     }
 
     public boolean isSetUsesGeodeticDatum() {
-        return (this.usesGeodeticDatum!= null);
+        return (this.usesGeodeticDatum != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -149,19 +139,6 @@ public class GeocentricCRSType
             return false;
         }
         final GeocentricCRSType that = ((GeocentricCRSType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetUsesCartesianCS();
-            boolean rhsFieldIsSet = that.isSetUsesCartesianCS();
-            CartesianCSPropertyType lhsField;
-            lhsField = this.getUsesCartesianCS();
-            CartesianCSPropertyType rhsField;
-            rhsField = that.getUsesCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesCartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesCartesianCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetUsesGeodeticDatum();
             boolean rhsFieldIsSet = that.isSetUsesGeodeticDatum();
@@ -184,6 +161,19 @@ public class GeocentricCRSType
             rhsField = that.getUsesSphericalCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesSphericalCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesSphericalCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUsesCartesianCS();
+            boolean rhsFieldIsSet = that.isSetUsesCartesianCS();
+            CartesianCSPropertyType lhsField;
+            lhsField = this.getUsesCartesianCS();
+            CartesianCSPropertyType rhsField;
+            rhsField = that.getUsesCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesCartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesCartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

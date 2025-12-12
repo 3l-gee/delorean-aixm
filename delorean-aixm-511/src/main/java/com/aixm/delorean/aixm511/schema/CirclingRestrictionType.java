@@ -1,10 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.namespace.QName;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,6 +17,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.namespace.QName;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -28,30 +28,46 @@ import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
 
-
 /**
- * <p>Java class for CirclingRestrictionType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for CirclingRestrictionType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CirclingRestrictionType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleType">
  *       <sequence>
- *         <element name="timeInterval" type="{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="annotation" type="{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="specialDateAuthority" type="{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs="unbounded" minOccurs="0"/>
- *         <group ref="{http://www.aixm.aero/schema/5.1.1}CirclingRestrictionPropertyGroup"/>
+ *         <element name="timeInterval" type=
+"{http://www.aixm.aero/schema/5.1.1}TimesheetPropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="annotation" type=
+"{http://www.aixm.aero/schema/5.1.1}NotePropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
+ *         <element name="specialDateAuthority" type=
+"{http://www.aixm.aero/schema/5.1.1}OrganisationAuthorityPropertyType" maxOccurs
+="unbounded" minOccurs="0"/>
+ *         <group ref=
+"{http://www.aixm.aero/schema/5.1.1}CirclingRestrictionPropertyGroup"/>
  *         <element name="extension" maxOccurs="unbounded" minOccurs="0">
  *           <complexType>
  *             <complexContent>
  *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 <choice>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
- *                   <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractCirclingRestrictionExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractPropertiesWithScheduleExtension"/>
+ *                   <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractCirclingRestrictionExtension"/>
  *                 </choice>
- *                 <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *                 <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *               </restriction>
  *             </complexContent>
  *           </complexType>
@@ -61,24 +77,15 @@ import org.jvnet.hyperjaxb.xml.bind.annotation.adapters.XmlAdapterUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CirclingRestrictionType", propOrder = {
-    "timeInterval",
-    "annotation",
-    "specialDateAuthority",
-    "sectorDescription",
-    "restrictionArea",
-    "extension"
-})
+@XmlType(name = "CirclingRestrictionType", propOrder = {"timeInterval", "annotation", "specialDateAuthority",
+        "sectorDescription", "restrictionArea", "extension"})
 @Entity(name = "CirclingRestrictionType")
 @Table(name = "circlingrestriction", schema = "procedure")
-public class CirclingRestrictionType
-    extends AbstractPropertiesWithScheduleType
-    implements Serializable
-{
+public class CirclingRestrictionType extends AbstractPropertiesWithScheduleType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(nillable = true)
@@ -95,34 +102,31 @@ public class CirclingRestrictionType
 
     /**
      * Gets the value of the timeInterval property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the timeInterval property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the timeInterval property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTimeInterval().add(newItem);
+     * getTimeInterval().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TimesheetPropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = TimesheetPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "timeinterval_circlingrestriction_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "timeinterval", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")})
     public List<TimesheetPropertyType> getTimeInterval() {
         if (timeInterval == null) {
             timeInterval = new ArrayList<>();
@@ -131,8 +135,8 @@ public class CirclingRestrictionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTimeInterval(List<TimesheetPropertyType> timeInterval) {
         this.timeInterval = timeInterval;
@@ -140,7 +144,7 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetTimeInterval() {
-        return ((this.timeInterval!= null)&&(!this.timeInterval.isEmpty()));
+        return ((this.timeInterval != null) && (!this.timeInterval.isEmpty()));
     }
 
     public void unsetTimeInterval() {
@@ -149,34 +153,31 @@ public class CirclingRestrictionType
 
     /**
      * Gets the value of the annotation property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the annotation property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the annotation property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAnnotation().add(newItem);
+     * getAnnotation().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link NotePropertyType }
-     * 
-     * 
+     *
+     *
      */
-    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = NotePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "annotation_circlingrestriction_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "annotation", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "annotation", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")})
     public List<NotePropertyType> getAnnotation() {
         if (annotation == null) {
             annotation = new ArrayList<>();
@@ -185,8 +186,8 @@ public class CirclingRestrictionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAnnotation(List<NotePropertyType> annotation) {
         this.annotation = annotation;
@@ -194,7 +195,7 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetAnnotation() {
-        return ((this.annotation!= null)&&(!this.annotation.isEmpty()));
+        return ((this.annotation != null) && (!this.annotation.isEmpty()));
     }
 
     public void unsetAnnotation() {
@@ -203,34 +204,32 @@ public class CirclingRestrictionType
 
     /**
      * Gets the value of the specialDateAuthority property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the specialDateAuthority property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the specialDateAuthority property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getSpecialDateAuthority().add(newItem);
+     * getSpecialDateAuthority().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OrganisationAuthorityPropertyType }
-     * 
-     * 
+     *
+     *
      */
     @ManyToMany(targetEntity = OrganisationAuthorityPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "specialdateauthority_circlingrestriction_link", schema = "procedure", joinColumns = {
-        @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")
-    }, inverseJoinColumns = {
-        @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")
-    })
+            @JoinColumn(name = "specialdateauthority", referencedColumnName = "hjid")}, inverseJoinColumns = {
+                    @JoinColumn(name = "circlingrestrictiontype", referencedColumnName = "hjid")})
     public List<OrganisationAuthorityPropertyType> getSpecialDateAuthority() {
         if (specialDateAuthority == null) {
             specialDateAuthority = new ArrayList<>();
@@ -239,8 +238,8 @@ public class CirclingRestrictionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setSpecialDateAuthority(List<OrganisationAuthorityPropertyType> specialDateAuthority) {
         this.specialDateAuthority = specialDateAuthority;
@@ -248,7 +247,7 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetSpecialDateAuthority() {
-        return ((this.specialDateAuthority!= null)&&(!this.specialDateAuthority.isEmpty()));
+        return ((this.specialDateAuthority != null) && (!this.specialDateAuthority.isEmpty()));
     }
 
     public void unsetSpecialDateAuthority() {
@@ -257,11 +256,10 @@ public class CirclingRestrictionType
 
     /**
      * Gets the value of the sectorDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<CircleSectorPropertyType> getSectorDescription() {
@@ -270,11 +268,11 @@ public class CirclingRestrictionType
 
     /**
      * Sets the value of the sectorDescription property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CircleSectorPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CircleSectorPropertyType }{@code >}
+     *
      */
     public void setSectorDescription(JAXBElement<CircleSectorPropertyType> value) {
         this.sectorDescription = value;
@@ -282,16 +280,15 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetSectorDescription() {
-        return (this.sectorDescription!= null);
+        return (this.sectorDescription != null);
     }
 
     /**
      * Gets the value of the restrictionArea property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *
      */
     @Transient
     public JAXBElement<AIXMSurfacePropertyType> getRestrictionArea() {
@@ -300,11 +297,11 @@ public class CirclingRestrictionType
 
     /**
      * Sets the value of the restrictionArea property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AIXMSurfacePropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AIXMSurfacePropertyType }{@code >}
+     *
      */
     public void setRestrictionArea(JAXBElement<AIXMSurfacePropertyType> value) {
         this.restrictionArea = value;
@@ -312,34 +309,34 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetRestrictionArea() {
-        return (this.restrictionArea!= null);
+        return (this.restrictionArea != null);
     }
 
     /**
      * Gets the value of the extension property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the extension property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the extension property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getExtension().add(newItem);
+     * getExtension().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CirclingRestrictionTypeExtensionType }
-     * 
-     * 
+     *
+     *
      */
     @OneToMany(targetEntity = CirclingRestrictionTypeExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "EXTENSION_CIRCLING_RESTRICTI_0")
     public List<CirclingRestrictionTypeExtensionType> getExtension() {
         if (extension == null) {
@@ -349,8 +346,8 @@ public class CirclingRestrictionType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setExtension(List<CirclingRestrictionTypeExtensionType> extension) {
         this.extension = extension;
@@ -358,40 +355,41 @@ public class CirclingRestrictionType
 
     @Transient
     public boolean isSetExtension() {
-        return ((this.extension!= null)&&(!this.extension.isEmpty()));
+        return ((this.extension != null) && (!this.extension.isEmpty()));
     }
 
     public void unsetExtension() {
         this.extension = null;
     }
 
-    @ManyToOne(targetEntity = CircleSectorPropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = CircleSectorPropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "sectordescription_id", referencedColumnName = "hjid")
     public CircleSectorPropertyType getSectorDescriptionItem() {
         return XmlAdapterUtils.unmarshallSource(CircleSectorPropertyType.class, this.getSectorDescription());
     }
 
     public void setSectorDescriptionItem(CircleSectorPropertyType target) {
-        setSectorDescription(XmlAdapterUtils.marshallJAXBElement(CircleSectorPropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "sectorDescription"), CirclingRestrictionType.class, target));
+        setSectorDescription(XmlAdapterUtils.marshallJAXBElement(CircleSectorPropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "sectorDescription"), CirclingRestrictionType.class,
+                target));
     }
 
-    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = AIXMSurfacePropertyType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "restrictionarea_id", referencedColumnName = "hjid")
     public AIXMSurfacePropertyType getRestrictionAreaItem() {
         return XmlAdapterUtils.unmarshallSource(AIXMSurfacePropertyType.class, this.getRestrictionArea());
     }
 
     public void setRestrictionAreaItem(AIXMSurfacePropertyType target) {
-        setRestrictionArea(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class, new QName("http://www.aixm.aero/schema/5.1.1", "restrictionArea"), CirclingRestrictionType.class, target));
+        setRestrictionArea(XmlAdapterUtils.marshallJAXBElement(AIXMSurfacePropertyType.class,
+                new QName("http://www.aixm.aero/schema/5.1.1", "restrictionArea"), CirclingRestrictionType.class,
+                target));
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -402,53 +400,14 @@ public class CirclingRestrictionType
         }
         final CirclingRestrictionType that = ((CirclingRestrictionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval()?this.getTimeInterval():null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval()?that.getTimeInterval():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation()?this.getAnnotation():null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation()?that.getAnnotation():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<CirclingRestrictionTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension()?this.getExtension():null);
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
             List<CirclingRestrictionTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension()?that.getExtension():null);
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRestrictionArea();
-            boolean rhsFieldIsSet = that.isSetRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> lhsField;
-            lhsField = this.getRestrictionArea();
-            JAXBElement<AIXMSurfacePropertyType> rhsField;
-            rhsField = that.getRestrictionArea();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -467,12 +426,51 @@ public class CirclingRestrictionType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRestrictionArea();
+            boolean rhsFieldIsSet = that.isSetRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> lhsField;
+            lhsField = this.getRestrictionArea();
+            JAXBElement<AIXMSurfacePropertyType> rhsField;
+            rhsField = that.getRestrictionArea();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "restrictionArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "restrictionArea", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
             boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
             List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority()?that.getSpecialDateAuthority():null);
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -488,21 +486,21 @@ public class CirclingRestrictionType
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "timeInterval", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "annotation", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "specialDateAuthority", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -523,7 +521,7 @@ public class CirclingRestrictionType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CirclingRestrictionTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "extension", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -536,19 +534,19 @@ public class CirclingRestrictionType
         {
             boolean theFieldIsSet = this.isSetTimeInterval();
             List<TimesheetPropertyType> theField;
-            theField = (this.isSetTimeInterval()?this.getTimeInterval():null);
+            theField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
             strategy.appendField(locator, this, "timeInterval", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAnnotation();
             List<NotePropertyType> theField;
-            theField = (this.isSetAnnotation()?this.getAnnotation():null);
+            theField = (this.isSetAnnotation() ? this.getAnnotation() : null);
             strategy.appendField(locator, this, "annotation", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetSpecialDateAuthority();
             List<OrganisationAuthorityPropertyType> theField;
-            theField = (this.isSetSpecialDateAuthority()?this.getSpecialDateAuthority():null);
+            theField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
             strategy.appendField(locator, this, "specialDateAuthority", buffer, theField, theFieldIsSet);
         }
         {
@@ -566,7 +564,7 @@ public class CirclingRestrictionType
         {
             boolean theFieldIsSet = this.isSetExtension();
             List<CirclingRestrictionTypeExtensionType> theField;
-            theField = (this.isSetExtension()?this.getExtension():null);
+            theField = (this.isSetExtension() ? this.getExtension() : null);
             strategy.appendField(locator, this, "extension", buffer, theField, theFieldIsSet);
         }
         return buffer;

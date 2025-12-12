@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,14 +19,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * A property with the content model of gml:LinearRingPropertyType encapsulates a linear ring to represent a component of a surface boundary.
- * 
- * <p>Java class for LinearRingPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * A property with the content model of gml:LinearRingPropertyType encapsulates
+ * a linear ring to represent a component of a surface boundary.
+ *
+ * <p>
+ * Java class for LinearRingPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="LinearRingPropertyType">
  *   <complexContent>
@@ -38,31 +44,32 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LinearRingPropertyType", propOrder = {
-    "linearRing"
-})
-public class LinearRingPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "LinearRingPropertyType", propOrder = {"linearRing"})
+public class LinearRingPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A LinearRing is defined by four or more coordinate tuples, with linear interpolation between them; the first and last coordinates shall be coincident. The number of direct positions in the list shall be at least four.
-     * 
+     * A LinearRing is defined by four or more coordinate tuples, with linear
+     * interpolation between them; the first and last coordinates shall be
+     * coincident. The number of direct positions in the list shall be at least
+     * four.
+     *
      */
     @XmlElement(name = "LinearRing", required = true)
     protected LinearRingType linearRing;
 
     /**
-     * A LinearRing is defined by four or more coordinate tuples, with linear interpolation between them; the first and last coordinates shall be coincident. The number of direct positions in the list shall be at least four.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LinearRingType }
-     *     
+     * A LinearRing is defined by four or more coordinate tuples, with linear
+     * interpolation between them; the first and last coordinates shall be
+     * coincident. The number of direct positions in the list shall be at least
+     * four.
+     *
+     * @return possible object is {@link LinearRingType }
+     *
      */
     public LinearRingType getLinearRing() {
         return linearRing;
@@ -70,11 +77,10 @@ public class LinearRingPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the linearRing property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link LinearRingType }
-     *     
+     *            allowed object is {@link LinearRingType }
+     *
      * @see #getLinearRing()
      */
     public void setLinearRing(LinearRingType value) {
@@ -82,7 +88,7 @@ public class LinearRingPropertyType implements Serializable, Equals, HashCode, T
     }
 
     public boolean isSetLinearRing() {
-        return (this.linearRing!= null);
+        return (this.linearRing != null);
     }
 
     @Override
@@ -98,8 +104,9 @@ public class LinearRingPropertyType implements Serializable, Equals, HashCode, T
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

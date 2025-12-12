@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,12 +20,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DegreesType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DegreesType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DegreesType">
  *   <simpleContent>
@@ -46,15 +51,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </simpleContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DegreesType", propOrder = {
-    "value"
-})
-public class DegreesType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "DegreesType", propOrder = {"value"})
+public class DegreesType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlValue
@@ -64,7 +66,7 @@ public class DegreesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the value property.
-     * 
+     *
      */
     public int getValue() {
         return value;
@@ -72,7 +74,7 @@ public class DegreesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the value property.
-     * 
+     *
      */
     public void setValue(int value) {
         this.value = value;
@@ -84,11 +86,9 @@ public class DegreesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the direction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDirection() {
         return direction;
@@ -96,18 +96,17 @@ public class DegreesType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the direction property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setDirection(String value) {
         this.direction = value;
     }
 
     public boolean isSetDirection() {
-        return (this.direction!= null);
+        return (this.direction != null);
     }
 
     @Override
@@ -123,8 +122,9 @@ public class DegreesType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

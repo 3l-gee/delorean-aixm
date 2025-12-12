@@ -1,50 +1,53 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for CompoundCRSType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for CompoundCRSType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CompoundCRSType">
  *   <complexContent>
  *     <extension base="{http://www.opengis.net/gml/3.2}AbstractCRSType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}componentReferenceSystem" maxOccurs="unbounded" minOccurs="2"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}componentReferenceSystem" maxOccurs=
+"unbounded" minOccurs="2"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AggregationAttributeGroup"/>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CompoundCRSType", propOrder = {
-    "componentReferenceSystem"
-})
-public class CompoundCRSType
-    extends AbstractCRSType
-    implements Serializable
-{
+@XmlType(name = "CompoundCRSType", propOrder = {"componentReferenceSystem"})
+public class CompoundCRSType extends AbstractCRSType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "componentReferenceSystem", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -53,27 +56,32 @@ public class CompoundCRSType
     protected AggregationType aggregationType;
 
     /**
-     * The gml:componentReferenceSystem elements are an ordered sequence of associations to all the component coordinate reference systems included in this compound coordinate reference system. The gml:AggregationAttributeGroup should be used to specify that the gml:componentReferenceSystem properties are ordered.Gets the value of the componentReferenceSystem property.
-     * 
+     * The gml:componentReferenceSystem elements are an ordered sequence of
+     * associations to all the component coordinate reference systems included in
+     * this compound coordinate reference system. The gml:AggregationAttributeGroup
+     * should be used to specify that the gml:componentReferenceSystem properties
+     * are ordered.Gets the value of the componentReferenceSystem property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the componentReferenceSystem property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the componentReferenceSystem property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getComponentReferenceSystem().add(newItem);
+     * getComponentReferenceSystem().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SingleCRSPropertyType }{@code >}
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SingleCRSPropertyType }{@code >}
+     *
+     *
      */
     public List<JAXBElement<SingleCRSPropertyType>> getComponentReferenceSystem() {
         if (componentReferenceSystem == null) {
@@ -83,15 +91,19 @@ public class CompoundCRSType
     }
 
     /**
-     * The gml:componentReferenceSystem elements are an ordered sequence of associations to all the component coordinate reference systems included in this compound coordinate reference system. The gml:AggregationAttributeGroup should be used to specify that the gml:componentReferenceSystem properties are ordered.
-     * 
+     * The gml:componentReferenceSystem elements are an ordered sequence of
+     * associations to all the component coordinate reference systems included in
+     * this compound coordinate reference system. The gml:AggregationAttributeGroup
+     * should be used to specify that the gml:componentReferenceSystem properties
+     * are ordered.
+     *
      */
     public void setComponentReferenceSystem(List<JAXBElement<SingleCRSPropertyType>> componentReferenceSystem) {
         this.componentReferenceSystem = componentReferenceSystem;
     }
 
     public boolean isSetComponentReferenceSystem() {
-        return ((this.componentReferenceSystem!= null)&&(!this.componentReferenceSystem.isEmpty()));
+        return ((this.componentReferenceSystem != null) && (!this.componentReferenceSystem.isEmpty()));
     }
 
     public void unsetComponentReferenceSystem() {
@@ -100,11 +112,9 @@ public class CompoundCRSType
 
     /**
      * Gets the value of the aggregationType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AggregationType }
-     *     
+     *
+     * @return possible object is {@link AggregationType }
+     *
      */
     public AggregationType getAggregationType() {
         return aggregationType;
@@ -112,23 +122,23 @@ public class CompoundCRSType
 
     /**
      * Sets the value of the aggregationType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AggregationType }
-     *     
+     *            allowed object is {@link AggregationType }
+     *
      */
     public void setAggregationType(AggregationType value) {
         this.aggregationType = value;
     }
 
     public boolean isSetAggregationType() {
-        return (this.aggregationType!= null);
+        return (this.aggregationType != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -142,9 +152,9 @@ public class CompoundCRSType
             boolean lhsFieldIsSet = this.isSetComponentReferenceSystem();
             boolean rhsFieldIsSet = that.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> lhsField;
-            lhsField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
+            lhsField = (this.isSetComponentReferenceSystem() ? this.getComponentReferenceSystem() : null);
             List<JAXBElement<SingleCRSPropertyType>> rhsField;
-            rhsField = (that.isSetComponentReferenceSystem()?that.getComponentReferenceSystem():null);
+            rhsField = (that.isSetComponentReferenceSystem() ? that.getComponentReferenceSystem() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "componentReferenceSystem", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "componentReferenceSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -173,7 +183,7 @@ public class CompoundCRSType
         {
             boolean theFieldIsSet = this.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> theField;
-            theField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
+            theField = (this.isSetComponentReferenceSystem() ? this.getComponentReferenceSystem() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "componentReferenceSystem", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -193,7 +203,7 @@ public class CompoundCRSType
         {
             boolean theFieldIsSet = this.isSetComponentReferenceSystem();
             List<JAXBElement<SingleCRSPropertyType>> theField;
-            theField = (this.isSetComponentReferenceSystem()?this.getComponentReferenceSystem():null);
+            theField = (this.isSetComponentReferenceSystem() ? this.getComponentReferenceSystem() : null);
             strategy.appendField(locator, this, "componentReferenceSystem", buffer, theField, theFieldIsSet);
         }
         {

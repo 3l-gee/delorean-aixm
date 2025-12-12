@@ -4,16 +4,16 @@ from .annotation import Annox, Jpa, Tag, Jaxb
 
 class SimpleType: 
     @staticmethod
-    def generate_simple_types(type, graph, transposition):
+    def generate_simple_types(type, graph):
         res = []
         for element in type:
-            result = SimpleType.runner(element, graph, transposition)
+            result = SimpleType.runner(element, graph)
             if result:
                 res.extend(result)
         return res 
 
     @staticmethod
-    def runner(element, graph, transposition) :
+    def runner(element, graph) :
         node = []
 
         if element is None :    

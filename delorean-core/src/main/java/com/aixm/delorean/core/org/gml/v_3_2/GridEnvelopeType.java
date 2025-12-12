@@ -1,15 +1,15 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlList;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,34 +23,37 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for GridEnvelopeType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for GridEnvelopeType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GridEnvelopeType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="low" type="{http://www.opengis.net/gml/3.2}integerList"/>
- *         <element name="high" type="{http://www.opengis.net/gml/3.2}integerList"/>
+ *         <element name="low" type=
+"{http://www.opengis.net/gml/3.2}integerList"/>
+ *         <element name="high" type=
+"{http://www.opengis.net/gml/3.2}integerList"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GridEnvelopeType", propOrder = {
-    "low",
-    "high"
-})
-public class GridEnvelopeType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "GridEnvelopeType", propOrder = {"low", "high"})
+public class GridEnvelopeType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlList
@@ -62,25 +65,25 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Gets the value of the low property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the low property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the low property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getLow().add(newItem);
+     * getLow().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link BigInteger }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link BigInteger }
+     *
+     *
      */
     public List<BigInteger> getLow() {
         if (low == null) {
@@ -90,15 +93,15 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setLow(List<BigInteger> low) {
         this.low = low;
     }
 
     public boolean isSetLow() {
-        return ((this.low!= null)&&(!this.low.isEmpty()));
+        return ((this.low != null) && (!this.low.isEmpty()));
     }
 
     public void unsetLow() {
@@ -107,25 +110,25 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Gets the value of the high property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the high property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the high property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getHigh().add(newItem);
+     * getHigh().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link BigInteger }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link BigInteger }
+     *
+     *
      */
     public List<BigInteger> getHigh() {
         if (high == null) {
@@ -135,15 +138,15 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setHigh(List<BigInteger> high) {
         this.high = high;
     }
 
     public boolean isSetHigh() {
-        return ((this.high!= null)&&(!this.high.isEmpty()));
+        return ((this.high != null) && (!this.high.isEmpty()));
     }
 
     public void unsetHigh() {
@@ -163,8 +166,9 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -175,9 +179,9 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
             boolean lhsFieldIsSet = this.isSetLow();
             boolean rhsFieldIsSet = that.isSetLow();
             List<BigInteger> lhsField;
-            lhsField = (this.isSetLow()?this.getLow():null);
+            lhsField = (this.isSetLow() ? this.getLow() : null);
             List<BigInteger> rhsField;
-            rhsField = (that.isSetLow()?that.getLow():null);
+            rhsField = (that.isSetLow() ? that.getLow() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "low", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "low", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -188,9 +192,9 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
             boolean lhsFieldIsSet = this.isSetHigh();
             boolean rhsFieldIsSet = that.isSetHigh();
             List<BigInteger> lhsField;
-            lhsField = (this.isSetHigh()?this.getHigh():null);
+            lhsField = (this.isSetHigh() ? this.getHigh() : null);
             List<BigInteger> rhsField;
-            rhsField = (that.isSetHigh()?that.getHigh():null);
+            rhsField = (that.isSetHigh() ? that.getHigh() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "high", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "high", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -216,14 +220,14 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
         {
             boolean theFieldIsSet = this.isSetLow();
             List<BigInteger> theField;
-            theField = (this.isSetLow()?this.getLow():null);
+            theField = (this.isSetLow() ? this.getLow() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "low", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHigh();
             List<BigInteger> theField;
-            theField = (this.isSetHigh()?this.getHigh():null);
+            theField = (this.isSetHigh() ? this.getHigh() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "high", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -255,13 +259,13 @@ public class GridEnvelopeType implements Serializable, Equals, HashCode, ToStrin
         {
             boolean theFieldIsSet = this.isSetLow();
             List<BigInteger> theField;
-            theField = (this.isSetLow()?this.getLow():null);
+            theField = (this.isSetLow() ? this.getLow() : null);
             strategy.appendField(locator, this, "low", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetHigh();
             List<BigInteger> theField;
-            theField = (this.isSetHigh()?this.getHigh():null);
+            theField = (this.isSetHigh() ? this.getHigh() : null);
             strategy.appendField(locator, this, "high", buffer, theField, theFieldIsSet);
         }
         return buffer;

@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,14 +19,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * A property with the content model of gml:ShellPropertyType encapsulates a shell to represent a component of a solid boundary.
- * 
- * <p>Java class for ShellPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * A property with the content model of gml:ShellPropertyType encapsulates a
+ * shell to represent a component of a solid boundary.
+ *
+ * <p>
+ * Java class for ShellPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ShellPropertyType">
  *   <complexContent>
@@ -38,35 +44,36 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ShellPropertyType", propOrder = {
-    "shell"
-})
-public class ShellPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "ShellPropertyType", propOrder = {"shell"})
+public class ShellPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A shell is used to represent a single connected component of a solid boundary as specified in ISO 19107:2003, 6.3.8.
-     * Every gml:surfaceMember references or contains one surface, i.e. any element which is substitutable for gml:AbstractSurface. In the context of a shell, the surfaces describe the boundary of the solid. 
-     * If provided, the aggregationType attribute shall have the value "set".
-     * 
+     * A shell is used to represent a single connected component of a solid boundary
+     * as specified in ISO 19107:2003, 6.3.8. Every gml:surfaceMember references or
+     * contains one surface, i.e. any element which is substitutable for
+     * gml:AbstractSurface. In the context of a shell, the surfaces describe the
+     * boundary of the solid. If provided, the aggregationType attribute shall have
+     * the value "set".
+     *
      */
     @XmlElement(name = "Shell", required = true)
     protected ShellType shell;
 
     /**
-     * A shell is used to represent a single connected component of a solid boundary as specified in ISO 19107:2003, 6.3.8.
-     * Every gml:surfaceMember references or contains one surface, i.e. any element which is substitutable for gml:AbstractSurface. In the context of a shell, the surfaces describe the boundary of the solid. 
-     * If provided, the aggregationType attribute shall have the value "set".
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShellType }
-     *     
+     * A shell is used to represent a single connected component of a solid boundary
+     * as specified in ISO 19107:2003, 6.3.8. Every gml:surfaceMember references or
+     * contains one surface, i.e. any element which is substitutable for
+     * gml:AbstractSurface. In the context of a shell, the surfaces describe the
+     * boundary of the solid. If provided, the aggregationType attribute shall have
+     * the value "set".
+     *
+     * @return possible object is {@link ShellType }
+     *
      */
     public ShellType getShell() {
         return shell;
@@ -74,11 +81,10 @@ public class ShellPropertyType implements Serializable, Equals, HashCode, ToStri
 
     /**
      * Sets the value of the shell property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShellType }
-     *     
+     *            allowed object is {@link ShellType }
+     *
      * @see #getShell()
      */
     public void setShell(ShellType value) {
@@ -86,7 +92,7 @@ public class ShellPropertyType implements Serializable, Equals, HashCode, ToStri
     }
 
     public boolean isSetShell() {
-        return (this.shell!= null);
+        return (this.shell != null);
     }
 
     @Override
@@ -102,8 +108,9 @@ public class ShellPropertyType implements Serializable, Equals, HashCode, ToStri
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,12 +21,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for MD_ObligationCode_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MD_ObligationCode_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_ObligationCode_PropertyType">
  *   <complexContent>
@@ -39,15 +44,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_ObligationCode_PropertyType", propOrder = {
-    "mdObligationCode"
-})
-public class MDObligationCodePropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "MD_ObligationCode_PropertyType", propOrder = {"mdObligationCode"})
+public class MDObligationCodePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_ObligationCode")
@@ -58,11 +60,9 @@ public class MDObligationCodePropertyType implements Serializable, Equals, HashC
 
     /**
      * Gets the value of the mdObligationCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDObligationCodeType }
-     *     
+     *
+     * @return possible object is {@link MDObligationCodeType }
+     *
      */
     public MDObligationCodeType getMDObligationCode() {
         return mdObligationCode;
@@ -70,27 +70,24 @@ public class MDObligationCodePropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the mdObligationCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDObligationCodeType }
-     *     
+     *            allowed object is {@link MDObligationCodeType }
+     *
      */
     public void setMDObligationCode(MDObligationCodeType value) {
         this.mdObligationCode = value;
     }
 
     public boolean isSetMDObligationCode() {
-        return (this.mdObligationCode!= null);
+        return (this.mdObligationCode != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -98,18 +95,17 @@ public class MDObligationCodePropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -125,8 +121,9 @@ public class MDObligationCodePropertyType implements Serializable, Equals, HashC
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

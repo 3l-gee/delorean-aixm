@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,12 +20,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for TopoPointPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for TopoPointPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="TopoPointPropertyType">
  *   <complexContent>
@@ -33,25 +38,25 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <element ref="{http://www.opengis.net/gml/3.2}TopoPoint"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TopoPointPropertyType", propOrder = {
-    "topoPoint"
-})
-public class TopoPointPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "TopoPointPropertyType", propOrder = {"topoPoint"})
+public class TopoPointPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The intended use of gml:TopoPoint is to appear within a point feature to express the structural and possibly geometric relationships of this feature to other features via shared node definitions.
-     * 
+     * The intended use of gml:TopoPoint is to appear within a point feature to
+     * express the structural and possibly geometric relationships of this feature
+     * to other features via shared node definitions.
+     *
      */
     @XmlElement(name = "TopoPoint", required = true)
     protected TopoPointType topoPoint;
@@ -59,12 +64,12 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
     protected java.lang.Boolean owns;
 
     /**
-     * The intended use of gml:TopoPoint is to appear within a point feature to express the structural and possibly geometric relationships of this feature to other features via shared node definitions.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TopoPointType }
-     *     
+     * The intended use of gml:TopoPoint is to appear within a point feature to
+     * express the structural and possibly geometric relationships of this feature
+     * to other features via shared node definitions.
+     *
+     * @return possible object is {@link TopoPointType }
+     *
      */
     public TopoPointType getTopoPoint() {
         return topoPoint;
@@ -72,11 +77,10 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the topoPoint property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link TopoPointType }
-     *     
+     *            allowed object is {@link TopoPointType }
+     *
      * @see #getTopoPoint()
      */
     public void setTopoPoint(TopoPointType value) {
@@ -84,16 +88,14 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
     }
 
     public boolean isSetTopoPoint() {
-        return (this.topoPoint!= null);
+        return (this.topoPoint != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -105,18 +107,17 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -136,8 +137,9 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -161,9 +163,9 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -196,7 +198,7 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -234,7 +236,7 @@ public class TopoPointPropertyType implements Serializable, Equals, HashCode, To
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

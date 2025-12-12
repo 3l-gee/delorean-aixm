@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,46 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for EquipmentUnavailableAdjustmentColumnPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for EquipmentUnavailableAdjustmentColumnPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="EquipmentUnavailableAdjustmentColumnPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentColumn"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}EquipmentUnavailableAdjustmentColumn"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EquipmentUnavailableAdjustmentColumnPropertyType", propOrder = {
-    "equipmentUnavailableAdjustmentColumn"
-})
+        "equipmentUnavailableAdjustmentColumn"})
 @Entity(name = "EquipmentUnavailableAdjustmentColumnPropertyType")
 @Table(name = "equipmentunavailableadjustmentcolumn_pt", schema = "procedure")
-public class EquipmentUnavailableAdjustmentColumnPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class EquipmentUnavailableAdjustmentColumnPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "EquipmentUnavailableAdjustmentColumn", required = true)
@@ -56,15 +59,12 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
 
     /**
      * Gets the value of the equipmentUnavailableAdjustmentColumn property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EquipmentUnavailableAdjustmentColumnType }
-     *     
+     *
+     * @return possible object is {@link EquipmentUnavailableAdjustmentColumnType }
+     *
      */
     @OneToOne(targetEntity = EquipmentUnavailableAdjustmentColumnType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+            CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "equipmentunavailableadjustmentcolumn_id", referencedColumnName = "hjid")
     public EquipmentUnavailableAdjustmentColumnType getEquipmentUnavailableAdjustmentColumn() {
         return equipmentUnavailableAdjustmentColumn;
@@ -72,11 +72,11 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
 
     /**
      * Sets the value of the equipmentUnavailableAdjustmentColumn property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link EquipmentUnavailableAdjustmentColumnType }
-     *     
+     *            allowed object is {@link EquipmentUnavailableAdjustmentColumnType
+     *            }
+     *
      */
     public void setEquipmentUnavailableAdjustmentColumn(EquipmentUnavailableAdjustmentColumnType value) {
         this.equipmentUnavailableAdjustmentColumn = value;
@@ -84,12 +84,13 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
 
     @Transient
     public boolean isSetEquipmentUnavailableAdjustmentColumn() {
-        return (this.equipmentUnavailableAdjustmentColumn!= null);
+        return (this.equipmentUnavailableAdjustmentColumn != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -106,8 +107,10 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
             lhsField = this.getEquipmentUnavailableAdjustmentColumn();
             EquipmentUnavailableAdjustmentColumnType rhsField;
             rhsField = that.getEquipmentUnavailableAdjustmentColumn();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentUnavailableAdjustmentColumn", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentUnavailableAdjustmentColumn", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "equipmentUnavailableAdjustmentColumn",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "equipmentUnavailableAdjustmentColumn",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -122,7 +125,8 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
             boolean theFieldIsSet = this.isSetEquipmentUnavailableAdjustmentColumn();
             EquipmentUnavailableAdjustmentColumnType theField;
             theField = this.getEquipmentUnavailableAdjustmentColumn();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "equipmentUnavailableAdjustmentColumn", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "equipmentUnavailableAdjustmentColumn",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         return currentHashCode;
@@ -135,7 +139,8 @@ public class EquipmentUnavailableAdjustmentColumnPropertyType
             boolean theFieldIsSet = this.isSetEquipmentUnavailableAdjustmentColumn();
             EquipmentUnavailableAdjustmentColumnType theField;
             theField = this.getEquipmentUnavailableAdjustmentColumn();
-            strategy.appendField(locator, this, "equipmentUnavailableAdjustmentColumn", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "equipmentUnavailableAdjustmentColumn", buffer, theField,
+                    theFieldIsSet);
         }
         return buffer;
     }

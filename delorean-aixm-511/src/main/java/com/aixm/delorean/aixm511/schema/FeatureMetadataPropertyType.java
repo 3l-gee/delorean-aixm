@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gmd.v2007.MDMetadataType;
 import com.aixm.delorean.core.org.gml.v_3_2.AbstractMetadataPropertyType;
 import jakarta.persistence.Column;
@@ -18,22 +17,29 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FeatureMetadataPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FeatureMetadataPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FeatureMetadataPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
+ *     <extension base=
+"{http://www.opengis.net/gml/3.2}AbstractMetadataPropertyType">
  *       <sequence minOccurs="0">
  *         <element ref="{http://www.isotc211.org/2005/gmd}MD_Metadata"/>
  *       </sequence>
@@ -41,19 +47,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FeatureMetadataPropertyType", propOrder = {
-    "mdMetadata"
-})
+@XmlType(name = "FeatureMetadataPropertyType", propOrder = {"mdMetadata"})
 @Entity(name = "FeatureMetadataPropertyType")
 @Table(name = "feature_metadata", schema = "aixm")
-public class FeatureMetadataPropertyType
-    extends AbstractMetadataPropertyType
-    implements Serializable
-{
+public class FeatureMetadataPropertyType extends AbstractMetadataPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_Metadata", namespace = "http://www.isotc211.org/2005/gmd")
@@ -65,11 +66,9 @@ public class FeatureMetadataPropertyType
 
     /**
      * Gets the value of the mdMetadata property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDMetadataType }
-     *     
+     *
+     * @return possible object is {@link MDMetadataType }
+     *
      */
     @Transient
     public MDMetadataType getMDMetadata() {
@@ -78,11 +77,10 @@ public class FeatureMetadataPropertyType
 
     /**
      * Sets the value of the mdMetadata property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDMetadataType }
-     *     
+     *            allowed object is {@link MDMetadataType }
+     *
      */
     public void setMDMetadata(MDMetadataType value) {
         this.mdMetadata = value;
@@ -90,16 +88,14 @@ public class FeatureMetadataPropertyType
 
     @Transient
     public boolean isSetMDMetadata() {
-        return (this.mdMetadata!= null);
+        return (this.mdMetadata != null);
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -110,24 +106,21 @@ public class FeatureMetadataPropertyType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -136,20 +129,20 @@ public class FeatureMetadataPropertyType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

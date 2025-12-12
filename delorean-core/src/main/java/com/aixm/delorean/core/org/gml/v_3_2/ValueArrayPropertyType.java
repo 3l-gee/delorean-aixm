@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -11,6 +8,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlElementRefs;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -24,12 +24,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ValueArrayPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ValueArrayPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ValueArrayPropertyType">
  *   <complexContent>
@@ -37,108 +42,107 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence maxOccurs="unbounded">
  *         <group ref="{http://www.opengis.net/gml/3.2}Value"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ValueArrayPropertyType", propOrder = {
-    "abstractValueOrAbstractGeometryOrAbstractTimeObject"
-})
-public class ValueArrayPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "ValueArrayPropertyType", propOrder = {"abstractValueOrAbstractGeometryOrAbstractTimeObject"})
+public class ValueArrayPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRefs({
-        @XmlElementRef(name = "AbstractValue", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
-        @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
-        @XmlElementRef(name = "AbstractTimeObject", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
-        @XmlElementRef(name = "Null", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
-    })
+            @XmlElementRef(name = "AbstractValue", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
+            @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
+            @XmlElementRef(name = "AbstractTimeObject", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class),
+            @XmlElementRef(name = "Null", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)})
     protected List<JAXBElement<?>> abstractValueOrAbstractGeometryOrAbstractTimeObject;
     @XmlAttribute(name = "owns")
     protected java.lang.Boolean owns;
 
     /**
-     * Gets the value of the abstractValueOrAbstractGeometryOrAbstractTimeObject property.
-     * 
+     * Gets the value of the abstractValueOrAbstractGeometryOrAbstractTimeObject
+     * property.
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractValueOrAbstractGeometryOrAbstractTimeObject property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractValueOrAbstractGeometryOrAbstractTimeObject property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractValueOrAbstractGeometryOrAbstractTimeObject().add(newItem);
+     * getAbstractValueOrAbstractGeometryOrAbstractTimeObject().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
-     * {@link JAXBElement }{@code <}{@link Category }{@code >}
-     * {@link JAXBElement }{@code <}{@link Count }{@code >}
-     * {@link JAXBElement }{@code <}{@link Quantity }{@code >}
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
-     * {@link JAXBElement }{@code <}{@link CodeOrNilReasonListType }{@code >}
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link com.aixm.delorean.core.org.gml.v_3_2.Boolean }{@code >}
+     * {@link JAXBElement }{@code <}{@link Category }{@code >} {@link JAXBElement
+     * }{@code <}{@link Count }{@code >} {@link JAXBElement
+     * }{@code <}{@link Quantity }{@code >} {@link JAXBElement
+     * }{@code <}{@link Object }{@code >} {@link JAXBElement }{@code <}{@link List
+     * }{@code <}{@link String }{@code >}{@code >} {@link JAXBElement
+     * }{@code <}{@link CodeOrNilReasonListType }{@code >} {@link JAXBElement
+     * }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link MeasureOrNilReasonListType }{@code >}
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link JAXBElement }{@code <}{@link ValueArrayType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeValueType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CategoryExtentType }{@code >}
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
+     * {@link JAXBElement }{@code <}{@link Object }{@code >} {@link JAXBElement
+     * }{@code <}{@link ValueArrayType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeValueType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CategoryExtentType }{@code >} {@link JAXBElement
+     * }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link QuantityExtentType }{@code >}
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     * {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TimeInstantType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TimePeriodType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
+     * {@link JAXBElement }{@code <}{@link Object }{@code >} {@link JAXBElement
+     * }{@code <}{@link PointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link LineStringType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link OrientableCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link PolygonType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link TinType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link OrientableSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricPrimitiveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiGeometryType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiPointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricAggregateType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GeometricComplexType }{@code >} {@link JAXBElement
+     * }{@code <}{@link RectifiedGridType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GridType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >} {@link JAXBElement
+     * }{@code <}{@link TimeInstantType }{@code >} {@link JAXBElement
+     * }{@code <}{@link TimePeriodType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractTimeGeometricPrimitiveType }{@code >}
      * {@link JAXBElement }{@code <}{@link TimeNodeType }{@code >}
      * {@link JAXBElement }{@code <}{@link TimeEdgeType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TimeTopologyComplexType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractTimeComplexType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractTimeObjectType }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
-     * 
+     * {@link JAXBElement }{@code <}{@link AbstractTimeTopologyPrimitiveType
+     * }{@code >} {@link JAXBElement }{@code <}{@link AbstractTimePrimitiveType
+     * }{@code >} {@link JAXBElement }{@code <}{@link TimeTopologyComplexType
+     * }{@code >} {@link JAXBElement }{@code <}{@link AbstractTimeComplexType
+     * }{@code >} {@link JAXBElement }{@code <}{@link AbstractTimeObjectType
+     * }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >}
+     *
+     *
      */
     public List<JAXBElement<?>> getAbstractValueOrAbstractGeometryOrAbstractTimeObject() {
         if (abstractValueOrAbstractGeometryOrAbstractTimeObject == null) {
@@ -148,15 +152,17 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
-    public void setAbstractValueOrAbstractGeometryOrAbstractTimeObject(List<JAXBElement<?>> abstractValueOrAbstractGeometryOrAbstractTimeObject) {
+    public void setAbstractValueOrAbstractGeometryOrAbstractTimeObject(
+            List<JAXBElement<?>> abstractValueOrAbstractGeometryOrAbstractTimeObject) {
         this.abstractValueOrAbstractGeometryOrAbstractTimeObject = abstractValueOrAbstractGeometryOrAbstractTimeObject;
     }
 
     public boolean isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject() {
-        return ((this.abstractValueOrAbstractGeometryOrAbstractTimeObject!= null)&&(!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
+        return ((this.abstractValueOrAbstractGeometryOrAbstractTimeObject != null)
+                && (!this.abstractValueOrAbstractGeometryOrAbstractTimeObject.isEmpty()));
     }
 
     public void unsetAbstractValueOrAbstractGeometryOrAbstractTimeObject() {
@@ -165,11 +171,9 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -181,18 +185,17 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -212,8 +215,9 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -221,27 +225,33 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
         }
         final ValueArrayPropertyType that = ((ValueArrayPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
-            boolean rhsFieldIsSet = that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
-            List<JAXBElement<?>> lhsField;
-            lhsField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()?this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            List<JAXBElement<?>> rhsField;
-            rhsField = (that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()?that.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
+            boolean rhsFieldIsSet = that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
+            List<JAXBElement<?>> lhsField;
+            lhsField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    ? this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    : null);
+            List<JAXBElement<?>> rhsField;
+            rhsField = (that.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    ? that.getAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractValueOrAbstractGeometryOrAbstractTimeObject", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractValueOrAbstractGeometryOrAbstractTimeObject", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -265,14 +275,17 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
             List<JAXBElement<?>> theField;
-            theField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()?this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractValueOrAbstractGeometryOrAbstractTimeObject", theField);
+            theField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    ? this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    : null);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator,
+                    "abstractValueOrAbstractGeometryOrAbstractTimeObject", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -304,13 +317,16 @@ public class ValueArrayPropertyType implements Serializable, Equals, HashCode, T
         {
             boolean theFieldIsSet = this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject();
             List<JAXBElement<?>> theField;
-            theField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()?this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject():null);
-            strategy.appendField(locator, this, "abstractValueOrAbstractGeometryOrAbstractTimeObject", buffer, theField, theFieldIsSet);
+            theField = (this.isSetAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    ? this.getAbstractValueOrAbstractGeometryOrAbstractTimeObject()
+                    : null);
+            strategy.appendField(locator, this, "abstractValueOrAbstractGeometryOrAbstractTimeObject", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

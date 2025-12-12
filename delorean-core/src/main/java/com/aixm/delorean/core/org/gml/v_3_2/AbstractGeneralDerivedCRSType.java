@@ -1,25 +1,30 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractGeneralDerivedCRSType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractGeneralDerivedCRSType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractGeneralDerivedCRSType">
  *   <complexContent>
@@ -31,38 +36,32 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractGeneralDerivedCRSType", propOrder = {
-    "conversion"
-})
-@XmlSeeAlso({
-    ProjectedCRSType.class,
-    DerivedCRSType.class
-})
-public abstract class AbstractGeneralDerivedCRSType
-    extends AbstractCRSType
-    implements Serializable
-{
+@XmlType(name = "AbstractGeneralDerivedCRSType", propOrder = {"conversion"})
+@XmlSeeAlso({ProjectedCRSType.class, DerivedCRSType.class})
+public abstract class AbstractGeneralDerivedCRSType extends AbstractCRSType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:conversion is an association role to the coordinate conversion used to define the derived CRS.
-     * 
+     * gml:conversion is an association role to the coordinate conversion used to
+     * define the derived CRS.
+     *
      */
     @XmlElementRef(name = "conversion", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<GeneralConversionPropertyType> conversion;
 
     /**
-     * gml:conversion is an association role to the coordinate conversion used to define the derived CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     *     
+     * gml:conversion is an association role to the coordinate conversion used to
+     * define the derived CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<GeneralConversionPropertyType> getConversion() {
         return conversion;
@@ -70,12 +69,13 @@ public abstract class AbstractGeneralDerivedCRSType
 
     /**
      * Sets the value of the conversion property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link GeneralConversionPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link GeneralConversionPropertyType
+     *            }{@code >}
+     *
      * @see #getConversion()
      */
     public void setConversion(JAXBElement<GeneralConversionPropertyType> value) {
@@ -83,12 +83,13 @@ public abstract class AbstractGeneralDerivedCRSType
     }
 
     public boolean isSetConversion() {
-        return (this.conversion!= null);
+        return (this.conversion != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

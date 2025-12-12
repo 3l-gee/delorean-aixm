@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,37 +35,41 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractStandMarkingExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractMarkingExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractStandMarkingExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractMarkingExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractStandMarkingExtension",
-    "abstractMarkingExtension"
-})
+@XmlType(name = "", propOrder = {"abstractStandMarkingExtension", "abstractMarkingExtension"})
 @Entity(name = "StandMarkingExtensionType")
 @Table(name = "standmarking_ext", schema = "airport_heliport")
-public class StandMarkingExtensionType implements Serializable, Equals, HashCode, ToString
-{
+public class StandMarkingExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractStandMarkingExtension")
@@ -81,15 +85,11 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     /**
      * Gets the value of the abstractStandMarkingExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractstandmarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractStandMarkingExtension() {
         return abstractStandMarkingExtension;
@@ -97,11 +97,10 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the abstractStandMarkingExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractStandMarkingExtension(AbstractExtensionType value) {
         this.abstractStandMarkingExtension = value;
@@ -109,20 +108,16 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     @Transient
     public boolean isSetAbstractStandMarkingExtension() {
-        return (this.abstractStandMarkingExtension!= null);
+        return (this.abstractStandMarkingExtension != null);
     }
 
     /**
      * Gets the value of the abstractMarkingExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractmarkingextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractMarkingExtension() {
         return abstractMarkingExtension;
@@ -130,11 +125,10 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the abstractMarkingExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractMarkingExtension(AbstractExtensionType value) {
         this.abstractMarkingExtension = value;
@@ -142,16 +136,14 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     @Transient
     public boolean isSetAbstractMarkingExtension() {
-        return (this.abstractMarkingExtension!= null);
+        return (this.abstractMarkingExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -165,11 +157,10 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -177,7 +168,7 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -185,12 +176,10 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -201,24 +190,21 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -227,12 +213,11 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -251,27 +236,15 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final StandMarkingExtensionType that = ((StandMarkingExtensionType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetAbstractMarkingExtension();
             boolean rhsFieldIsSet = that.isSetAbstractMarkingExtension();
@@ -292,8 +265,23 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
             lhsField = this.getAbstractStandMarkingExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractStandMarkingExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandMarkingExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandMarkingExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractStandMarkingExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractStandMarkingExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -331,7 +319,7 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -375,7 +363,7 @@ public class StandMarkingExtensionType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

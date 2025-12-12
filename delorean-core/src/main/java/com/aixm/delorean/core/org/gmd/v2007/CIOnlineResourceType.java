@@ -1,59 +1,63 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.CharacterStringPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * Information about online sources from which the dataset, specification, or community profile name and extended metadata elements can be obtained.
- * 
- * <p>Java class for CI_OnlineResource_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * Information about online sources from which the dataset, specification, or
+ * community profile name and extended metadata elements can be obtained.
+ *
+ * <p>
+ * Java class for CI_OnlineResource_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CI_OnlineResource_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="linkage" type="{http://www.isotc211.org/2005/gmd}URL_PropertyType"/>
- *         <element name="protocol" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="applicationProfile" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="name" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="description" type="{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
- *         <element name="function" type="{http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode_PropertyType" minOccurs="0"/>
+ *         <element name="linkage" type=
+"{http://www.isotc211.org/2005/gmd}URL_PropertyType"/>
+ *         <element name="protocol" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="applicationProfile" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="name" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="description" type=
+"{http://www.isotc211.org/2005/gco}CharacterString_PropertyType" minOccurs="0"/>
+ *         <element name="function" type=
+"{http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode_PropertyType" minOccurs
+="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CI_OnlineResource_Type", propOrder = {
-    "linkage",
-    "protocol",
-    "applicationProfile",
-    "name",
-    "description",
-    "function"
-})
-public class CIOnlineResourceType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "CI_OnlineResource_Type", propOrder = {"linkage", "protocol", "applicationProfile", "name",
+        "description", "function"})
+public class CIOnlineResourceType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -66,11 +70,9 @@ public class CIOnlineResourceType
 
     /**
      * Gets the value of the linkage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link URLPropertyType }
-     *     
+     *
+     * @return possible object is {@link URLPropertyType }
+     *
      */
     public URLPropertyType getLinkage() {
         return linkage;
@@ -78,27 +80,24 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the linkage property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link URLPropertyType }
-     *     
+     *            allowed object is {@link URLPropertyType }
+     *
      */
     public void setLinkage(URLPropertyType value) {
         this.linkage = value;
     }
 
     public boolean isSetLinkage() {
-        return (this.linkage!= null);
+        return (this.linkage != null);
     }
 
     /**
      * Gets the value of the protocol property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getProtocol() {
         return protocol;
@@ -106,27 +105,24 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the protocol property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setProtocol(CharacterStringPropertyType value) {
         this.protocol = value;
     }
 
     public boolean isSetProtocol() {
-        return (this.protocol!= null);
+        return (this.protocol != null);
     }
 
     /**
      * Gets the value of the applicationProfile property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getApplicationProfile() {
         return applicationProfile;
@@ -134,27 +130,24 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the applicationProfile property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setApplicationProfile(CharacterStringPropertyType value) {
         this.applicationProfile = value;
     }
 
     public boolean isSetApplicationProfile() {
-        return (this.applicationProfile!= null);
+        return (this.applicationProfile != null);
     }
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getName() {
         return name;
@@ -162,27 +155,24 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setName(CharacterStringPropertyType value) {
         this.name = value;
     }
 
     public boolean isSetName() {
-        return (this.name!= null);
+        return (this.name != null);
     }
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *
+     * @return possible object is {@link CharacterStringPropertyType }
+     *
      */
     public CharacterStringPropertyType getDescription() {
         return description;
@@ -190,27 +180,24 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the description property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CharacterStringPropertyType }
-     *     
+     *            allowed object is {@link CharacterStringPropertyType }
+     *
      */
     public void setDescription(CharacterStringPropertyType value) {
         this.description = value;
     }
 
     public boolean isSetDescription() {
-        return (this.description!= null);
+        return (this.description != null);
     }
 
     /**
      * Gets the value of the function property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CIOnLineFunctionCodePropertyType }
-     *     
+     *
+     * @return possible object is {@link CIOnLineFunctionCodePropertyType }
+     *
      */
     public CIOnLineFunctionCodePropertyType getFunction() {
         return function;
@@ -218,23 +205,23 @@ public class CIOnlineResourceType
 
     /**
      * Sets the value of the function property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CIOnLineFunctionCodePropertyType }
-     *     
+     *            allowed object is {@link CIOnLineFunctionCodePropertyType }
+     *
      */
     public void setFunction(CIOnLineFunctionCodePropertyType value) {
         this.function = value;
     }
 
     public boolean isSetFunction() {
-        return (this.function!= null);
+        return (this.function != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -245,27 +232,14 @@ public class CIOnlineResourceType
         }
         final CIOnlineResourceType that = ((CIOnlineResourceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetName();
-            boolean rhsFieldIsSet = that.isSetName();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getName();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLinkage();
-            boolean rhsFieldIsSet = that.isSetLinkage();
-            URLPropertyType lhsField;
-            lhsField = this.getLinkage();
-            URLPropertyType rhsField;
-            rhsField = that.getLinkage();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
+            boolean lhsFieldIsSet = this.isSetFunction();
+            boolean rhsFieldIsSet = that.isSetFunction();
+            CIOnLineFunctionCodePropertyType lhsField;
+            lhsField = this.getFunction();
+            CIOnLineFunctionCodePropertyType rhsField;
+            rhsField = that.getFunction();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -284,6 +258,19 @@ public class CIOnlineResourceType
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getProtocol();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetDescription();
             boolean rhsFieldIsSet = that.isSetDescription();
             CharacterStringPropertyType lhsField;
@@ -297,27 +284,27 @@ public class CIOnlineResourceType
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFunction();
-            boolean rhsFieldIsSet = that.isSetFunction();
-            CIOnLineFunctionCodePropertyType lhsField;
-            lhsField = this.getFunction();
-            CIOnLineFunctionCodePropertyType rhsField;
-            rhsField = that.getFunction();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "function", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "function", rhsField);
+            boolean lhsFieldIsSet = this.isSetLinkage();
+            boolean rhsFieldIsSet = that.isSetLinkage();
+            URLPropertyType lhsField;
+            lhsField = this.getLinkage();
+            URLPropertyType rhsField;
+            rhsField = that.getLinkage();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
+            boolean lhsFieldIsSet = this.isSetName();
+            boolean rhsFieldIsSet = that.isSetName();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getProtocol();
+            lhsField = this.getName();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
+            rhsField = that.getName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.w3.xlink.ActuateType;
 import com.aixm.delorean.core.org.w3.xlink.ShowType;
 import com.aixm.delorean.core.org.w3.xlink.TypeType;
@@ -12,6 +11,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -25,40 +25,54 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:CoordinateSystemPropertyType is a property type for association roles to a coordinate system, either referencing or containing the definition of that coordinate system.
- * 
- * <p>Java class for CoordinateSystemPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:CoordinateSystemPropertyType is a property type for association roles to
+ * a coordinate system, either referencing or containing the definition of that
+ * coordinate system.
+ *
+ * <p>
+ * Java class for CoordinateSystemPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CoordinateSystemPropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.opengis.net/gml/3.2}AbstractCoordinateSystem"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}AbstractCoordinateSystem"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}AssociationAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CoordinateSystemPropertyType", propOrder = {
-    "abstractCoordinateSystem"
-})
-public class CoordinateSystemPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "CoordinateSystemPropertyType", propOrder = {"abstractCoordinateSystem"})
+public class CoordinateSystemPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:AbstractCoordinateSystem is a coordinate system (CS) is the non-repeating sequence of coordinate system axes that spans a given coordinate space. A CS is derived from a set of mathematical rules for specifying how coordinates in a given space are to be assigned to points. The coordinate values in a coordinate tuple shall be recorded in the order in which the coordinate system axes associations are recorded. This abstract complex type shall not be used, extended, or restricted, in an Application Schema, to define a concrete subtype with a meaning equivalent to a concrete subtype specified in this document.
-     * 
+     * gml:AbstractCoordinateSystem is a coordinate system (CS) is the non-repeating
+     * sequence of coordinate system axes that spans a given coordinate space. A CS
+     * is derived from a set of mathematical rules for specifying how coordinates in
+     * a given space are to be assigned to points. The coordinate values in a
+     * coordinate tuple shall be recorded in the order in which the coordinate
+     * system axes associations are recorded. This abstract complex type shall not
+     * be used, extended, or restricted, in an Application Schema, to define a
+     * concrete subtype with a meaning equivalent to a concrete subtype specified in
+     * this document.
+     *
      */
     @XmlElementRef(name = "AbstractCoordinateSystem", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<? extends AbstractCoordinateSystemType> abstractCoordinateSystem;
@@ -83,24 +97,31 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
     protected ActuateType actuate;
 
     /**
-     * gml:AbstractCoordinateSystem is a coordinate system (CS) is the non-repeating sequence of coordinate system axes that spans a given coordinate space. A CS is derived from a set of mathematical rules for specifying how coordinates in a given space are to be assigned to points. The coordinate values in a coordinate tuple shall be recorded in the order in which the coordinate system axes associations are recorded. This abstract complex type shall not be used, extended, or restricted, in an Application Schema, to define a concrete subtype with a meaning equivalent to a concrete subtype specified in this document.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateSystemType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PolarCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SphericalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TemporalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link UserDefinedCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link VerticalCSType }{@code >}
-     *     
+     * gml:AbstractCoordinateSystem is a coordinate system (CS) is the non-repeating
+     * sequence of coordinate system axes that spans a given coordinate space. A CS
+     * is derived from a set of mathematical rules for specifying how coordinates in
+     * a given space are to be assigned to points. The coordinate values in a
+     * coordinate tuple shall be recorded in the order in which the coordinate
+     * system axes associations are recorded. This abstract complex type shall not
+     * be used, extended, or restricted, in an Application Schema, to define a
+     * concrete subtype with a meaning equivalent to a concrete subtype specified in
+     * this document.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AbstractCoordinateSystemType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link PolarCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link SphericalCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TemporalCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link TimeCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link UserDefinedCSType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link VerticalCSType }{@code >}
+     *
      */
     public JAXBElement<? extends AbstractCoordinateSystemType> getAbstractCoordinateSystem() {
         return abstractCoordinateSystem;
@@ -108,23 +129,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the abstractCoordinateSystem property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AbstractCoordinateSystemType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link PolarCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link SphericalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TemporalCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link TimeCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link UserDefinedCSType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link VerticalCSType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AbstractCoordinateSystemType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link AffineCSType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link CartesianCSType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link CylindricalCSType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link EllipsoidalCSType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link LinearCSType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link ObliqueCartesianCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link PolarCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link SphericalCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link TemporalCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link TimeCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link UserDefinedCSType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link VerticalCSType
+     *            }{@code >}
+     *
      * @see #getAbstractCoordinateSystem()
      */
     public void setAbstractCoordinateSystem(JAXBElement<? extends AbstractCoordinateSystemType> value) {
@@ -132,16 +154,14 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
     }
 
     public boolean isSetAbstractCoordinateSystem() {
-        return (this.abstractCoordinateSystem!= null);
+        return (this.abstractCoordinateSystem != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -149,27 +169,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     /**
      * Gets the value of the remoteSchema property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRemoteSchema() {
         return remoteSchema;
@@ -177,27 +194,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the remoteSchema property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRemoteSchema(String value) {
         this.remoteSchema = value;
     }
 
     public boolean isSetRemoteSchema() {
-        return (this.remoteSchema!= null);
+        return (this.remoteSchema != null);
     }
 
     /**
      * Gets the value of the href property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHref() {
         return href;
@@ -205,27 +219,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the href property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setHref(String value) {
         this.href = value;
     }
 
     public boolean isSetHref() {
-        return (this.href!= null);
+        return (this.href != null);
     }
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRole() {
         return role;
@@ -233,27 +244,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the role property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setRole(String value) {
         this.role = value;
     }
 
     public boolean isSetRole() {
-        return (this.role!= null);
+        return (this.role != null);
     }
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -261,27 +269,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the simpleLinkTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSimpleLinkTitle() {
         return simpleLinkTitle;
@@ -289,27 +294,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the simpleLinkTitle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setSimpleLinkTitle(String value) {
         this.simpleLinkTitle = value;
     }
 
     public boolean isSetSimpleLinkTitle() {
-        return (this.simpleLinkTitle!= null);
+        return (this.simpleLinkTitle != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -317,27 +319,24 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -345,18 +344,17 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     @Override
@@ -372,8 +370,9 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -381,66 +380,14 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
         }
         final CoordinateSystemPropertyType that = ((CoordinateSystemPropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractCoordinateSystem();
-            boolean rhsFieldIsSet = that.isSetAbstractCoordinateSystem();
-            JAXBElement<? extends AbstractCoordinateSystemType> lhsField;
-            lhsField = this.getAbstractCoordinateSystem();
-            JAXBElement<? extends AbstractCoordinateSystemType> rhsField;
-            rhsField = that.getAbstractCoordinateSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCoordinateSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCoordinateSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
-            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            boolean lhsFieldIsSet = this.isSetRemoteSchema();
+            boolean rhsFieldIsSet = that.isSetRemoteSchema();
             String lhsField;
-            lhsField = this.getSimpleLinkTitle();
+            lhsField = this.getRemoteSchema();
             String rhsField;
-            rhsField = that.getSimpleLinkTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetShow();
-            boolean rhsFieldIsSet = that.isSetShow();
-            ShowType lhsField;
-            lhsField = this.getShow();
-            ShowType rhsField;
-            rhsField = that.getShow();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetRole();
-            boolean rhsFieldIsSet = that.isSetRole();
-            String lhsField;
-            lhsField = this.getRole();
-            String rhsField;
-            rhsField = that.getRole();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            rhsField = that.getRemoteSchema();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -459,14 +406,66 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRemoteSchema();
-            boolean rhsFieldIsSet = that.isSetRemoteSchema();
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
             String lhsField;
-            lhsField = this.getRemoteSchema();
+            lhsField = this.getNilReason();
             String rhsField;
-            rhsField = that.getRemoteSchema();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "remoteSchema", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "remoteSchema", rhsField);
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetHref();
+            boolean rhsFieldIsSet = that.isSetHref();
+            String lhsField;
+            lhsField = this.getHref();
+            String rhsField;
+            rhsField = that.getHref();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSimpleLinkTitle();
+            boolean rhsFieldIsSet = that.isSetSimpleLinkTitle();
+            String lhsField;
+            lhsField = this.getSimpleLinkTitle();
+            String rhsField;
+            rhsField = that.getSimpleLinkTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "simpleLinkTitle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "simpleLinkTitle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRole();
+            boolean rhsFieldIsSet = that.isSetRole();
+            String lhsField;
+            lhsField = this.getRole();
+            String rhsField;
+            rhsField = that.getRole();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "role", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "role", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetShow();
+            boolean rhsFieldIsSet = that.isSetShow();
+            ShowType lhsField;
+            lhsField = this.getShow();
+            ShowType rhsField;
+            rhsField = that.getShow();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "show", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "show", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -485,14 +484,14 @@ public class CoordinateSystemPropertyType implements Serializable, Equals, HashC
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHref();
-            boolean rhsFieldIsSet = that.isSetHref();
-            String lhsField;
-            lhsField = this.getHref();
-            String rhsField;
-            rhsField = that.getHref();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "href", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "href", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractCoordinateSystem();
+            boolean rhsFieldIsSet = that.isSetAbstractCoordinateSystem();
+            JAXBElement<? extends AbstractCoordinateSystemType> lhsField;
+            lhsField = this.getAbstractCoordinateSystem();
+            JAXBElement<? extends AbstractCoordinateSystemType> rhsField;
+            rhsField = that.getAbstractCoordinateSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCoordinateSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCoordinateSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

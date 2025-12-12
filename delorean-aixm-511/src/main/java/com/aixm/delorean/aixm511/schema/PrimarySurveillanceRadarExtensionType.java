@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,39 +35,44 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractPrimarySurveillanceRadarExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractSurveillanceRadarExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractRadarEquipmentExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractPrimarySurveillanceRadarExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractSurveillanceRadarExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractRadarEquipmentExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractPrimarySurveillanceRadarExtension",
-    "abstractSurveillanceRadarExtension",
-    "abstractRadarEquipmentExtension"
-})
+@XmlType(name = "", propOrder = {"abstractPrimarySurveillanceRadarExtension", "abstractSurveillanceRadarExtension",
+        "abstractRadarEquipmentExtension"})
 @Entity(name = "PrimarySurveillanceRadarExtensionType")
 @Table(name = "primarysurveillanceradar_ext", schema = "surveillance")
-public class PrimarySurveillanceRadarExtensionType implements Serializable, Equals, HashCode, ToString
-{
+public class PrimarySurveillanceRadarExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractPrimarySurveillanceRadarExtension")
@@ -85,15 +90,11 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     /**
      * Gets the value of the abstractPrimarySurveillanceRadarExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractprimarysurveillanceradarextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractPrimarySurveillanceRadarExtension() {
         return abstractPrimarySurveillanceRadarExtension;
@@ -101,11 +102,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     /**
      * Sets the value of the abstractPrimarySurveillanceRadarExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractPrimarySurveillanceRadarExtension(AbstractExtensionType value) {
         this.abstractPrimarySurveillanceRadarExtension = value;
@@ -113,20 +113,16 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     @Transient
     public boolean isSetAbstractPrimarySurveillanceRadarExtension() {
-        return (this.abstractPrimarySurveillanceRadarExtension!= null);
+        return (this.abstractPrimarySurveillanceRadarExtension != null);
     }
 
     /**
      * Gets the value of the abstractSurveillanceRadarExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractsurveillanceradarextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractSurveillanceRadarExtension() {
         return abstractSurveillanceRadarExtension;
@@ -134,11 +130,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     /**
      * Sets the value of the abstractSurveillanceRadarExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractSurveillanceRadarExtension(AbstractExtensionType value) {
         this.abstractSurveillanceRadarExtension = value;
@@ -146,20 +141,16 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     @Transient
     public boolean isSetAbstractSurveillanceRadarExtension() {
-        return (this.abstractSurveillanceRadarExtension!= null);
+        return (this.abstractSurveillanceRadarExtension != null);
     }
 
     /**
      * Gets the value of the abstractRadarEquipmentExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractradarequipmentextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractRadarEquipmentExtension() {
         return abstractRadarEquipmentExtension;
@@ -167,11 +158,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     /**
      * Sets the value of the abstractRadarEquipmentExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractRadarEquipmentExtension(AbstractExtensionType value) {
         this.abstractRadarEquipmentExtension = value;
@@ -179,16 +169,14 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     @Transient
     public boolean isSetAbstractRadarEquipmentExtension() {
-        return (this.abstractRadarEquipmentExtension!= null);
+        return (this.abstractRadarEquipmentExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -202,11 +190,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -214,7 +201,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -222,12 +209,10 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -238,24 +223,21 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -264,12 +246,11 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -288,8 +269,9 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -297,14 +279,29 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         }
         final PrimarySurveillanceRadarExtensionType that = ((PrimarySurveillanceRadarExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractSurveillanceRadarExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractSurveillanceRadarExtension();
+            lhsField = this.getAbstractRadarEquipmentExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractSurveillanceRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurveillanceRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurveillanceRadarExtension", rhsField);
+            rhsField = that.getAbstractRadarEquipmentExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -316,34 +313,25 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
             lhsField = this.getAbstractPrimarySurveillanceRadarExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractPrimarySurveillanceRadarExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractPrimarySurveillanceRadarExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractPrimarySurveillanceRadarExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractPrimarySurveillanceRadarExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractPrimarySurveillanceRadarExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractRadarEquipmentExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractRadarEquipmentExtension();
+            boolean lhsFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractSurveillanceRadarExtension();
             AbstractExtensionType lhsField;
-            lhsField = this.getAbstractRadarEquipmentExtension();
+            lhsField = this.getAbstractSurveillanceRadarExtension();
             AbstractExtensionType rhsField;
-            rhsField = that.getAbstractRadarEquipmentExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractRadarEquipmentExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractRadarEquipmentExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            rhsField = that.getAbstractSurveillanceRadarExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractSurveillanceRadarExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractSurveillanceRadarExtension",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -368,14 +356,16 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
             boolean theFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPrimarySurveillanceRadarExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPrimarySurveillanceRadarExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractPrimarySurveillanceRadarExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractSurveillanceRadarExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurveillanceRadarExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractSurveillanceRadarExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -388,7 +378,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -421,7 +411,8 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
             boolean theFieldIsSet = this.isSetAbstractPrimarySurveillanceRadarExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractPrimarySurveillanceRadarExtension();
-            strategy.appendField(locator, this, "abstractPrimarySurveillanceRadarExtension", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "abstractPrimarySurveillanceRadarExtension", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractSurveillanceRadarExtension();
@@ -438,7 +429,7 @@ public class PrimarySurveillanceRadarExtensionType implements Serializable, Equa
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

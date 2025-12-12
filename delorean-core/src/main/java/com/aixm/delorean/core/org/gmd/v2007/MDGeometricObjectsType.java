@@ -1,49 +1,50 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import com.aixm.delorean.core.org.gco.v2007.IntegerPropertyType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for MD_GeometricObjects_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MD_GeometricObjects_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_GeometricObjects_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="geometricObjectType" type="{http://www.isotc211.org/2005/gmd}MD_GeometricObjectTypeCode_PropertyType"/>
- *         <element name="geometricObjectCount" type="{http://www.isotc211.org/2005/gco}Integer_PropertyType" minOccurs="0"/>
+ *         <element name="geometricObjectType" type=
+"{http://www.isotc211.org/2005/gmd}MD_GeometricObjectTypeCode_PropertyType"/>
+ *         <element name="geometricObjectCount" type=
+"{http://www.isotc211.org/2005/gco}Integer_PropertyType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_GeometricObjects_Type", propOrder = {
-    "geometricObjectType",
-    "geometricObjectCount"
-})
-public class MDGeometricObjectsType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "MD_GeometricObjects_Type", propOrder = {"geometricObjectType", "geometricObjectCount"})
+public class MDGeometricObjectsType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -52,11 +53,9 @@ public class MDGeometricObjectsType
 
     /**
      * Gets the value of the geometricObjectType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDGeometricObjectTypeCodePropertyType }
-     *     
+     *
+     * @return possible object is {@link MDGeometricObjectTypeCodePropertyType }
+     *
      */
     public MDGeometricObjectTypeCodePropertyType getGeometricObjectType() {
         return geometricObjectType;
@@ -64,27 +63,24 @@ public class MDGeometricObjectsType
 
     /**
      * Sets the value of the geometricObjectType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDGeometricObjectTypeCodePropertyType }
-     *     
+     *            allowed object is {@link MDGeometricObjectTypeCodePropertyType }
+     *
      */
     public void setGeometricObjectType(MDGeometricObjectTypeCodePropertyType value) {
         this.geometricObjectType = value;
     }
 
     public boolean isSetGeometricObjectType() {
-        return (this.geometricObjectType!= null);
+        return (this.geometricObjectType != null);
     }
 
     /**
      * Gets the value of the geometricObjectCount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link IntegerPropertyType }
-     *     
+     *
+     * @return possible object is {@link IntegerPropertyType }
+     *
      */
     public IntegerPropertyType getGeometricObjectCount() {
         return geometricObjectCount;
@@ -92,23 +88,23 @@ public class MDGeometricObjectsType
 
     /**
      * Sets the value of the geometricObjectCount property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link IntegerPropertyType }
-     *     
+     *            allowed object is {@link IntegerPropertyType }
+     *
      */
     public void setGeometricObjectCount(IntegerPropertyType value) {
         this.geometricObjectCount = value;
     }
 
     public boolean isSetGeometricObjectCount() {
-        return (this.geometricObjectCount!= null);
+        return (this.geometricObjectCount != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

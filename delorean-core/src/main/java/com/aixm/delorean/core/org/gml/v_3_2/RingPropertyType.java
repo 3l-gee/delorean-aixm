@@ -1,11 +1,11 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -19,14 +19,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * A property with the content model of gml:RingPropertyType encapsulates a ring to represent a component of a surface boundary.
- * 
- * <p>Java class for RingPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * A property with the content model of gml:RingPropertyType encapsulates a ring
+ * to represent a component of a surface boundary.
+ *
+ * <p>
+ * Java class for RingPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="RingPropertyType">
  *   <complexContent>
@@ -38,35 +44,38 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RingPropertyType", propOrder = {
-    "ring"
-})
-public class RingPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "RingPropertyType", propOrder = {"ring"})
+public class RingPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * A ring is used to represent a single connected component of a surface boundary as specified in ISO 19107:2003, 6.3.6.
-     * Every gml:curveMember references or contains one curve, i.e. any element which is substitutable for gml:AbstractCurve. In the context of a ring, the curves describe the boundary of the surface. The sequence of curves shall be contiguous and connected in a cycle.
-     * If provided, the aggregationType attribute shall have the value "sequence".
-     * 
+     * A ring is used to represent a single connected component of a surface
+     * boundary as specified in ISO 19107:2003, 6.3.6. Every gml:curveMember
+     * references or contains one curve, i.e. any element which is substitutable for
+     * gml:AbstractCurve. In the context of a ring, the curves describe the boundary
+     * of the surface. The sequence of curves shall be contiguous and connected in a
+     * cycle. If provided, the aggregationType attribute shall have the value
+     * "sequence".
+     *
      */
     @XmlElement(name = "Ring", required = true)
     protected RingType ring;
 
     /**
-     * A ring is used to represent a single connected component of a surface boundary as specified in ISO 19107:2003, 6.3.6.
-     * Every gml:curveMember references or contains one curve, i.e. any element which is substitutable for gml:AbstractCurve. In the context of a ring, the curves describe the boundary of the surface. The sequence of curves shall be contiguous and connected in a cycle.
-     * If provided, the aggregationType attribute shall have the value "sequence".
-     * 
-     * @return
-     *     possible object is
-     *     {@link RingType }
-     *     
+     * A ring is used to represent a single connected component of a surface
+     * boundary as specified in ISO 19107:2003, 6.3.6. Every gml:curveMember
+     * references or contains one curve, i.e. any element which is substitutable for
+     * gml:AbstractCurve. In the context of a ring, the curves describe the boundary
+     * of the surface. The sequence of curves shall be contiguous and connected in a
+     * cycle. If provided, the aggregationType attribute shall have the value
+     * "sequence".
+     *
+     * @return possible object is {@link RingType }
+     *
      */
     public RingType getRing() {
         return ring;
@@ -74,11 +83,10 @@ public class RingPropertyType implements Serializable, Equals, HashCode, ToStrin
 
     /**
      * Sets the value of the ring property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RingType }
-     *     
+     *            allowed object is {@link RingType }
+     *
      * @see #getRing()
      */
     public void setRing(RingType value) {
@@ -86,7 +94,7 @@ public class RingPropertyType implements Serializable, Equals, HashCode, ToStrin
     }
 
     public boolean isSetRing() {
-        return (this.ring!= null);
+        return (this.ring != null);
     }
 
     @Override
@@ -102,8 +110,9 @@ public class RingPropertyType implements Serializable, Equals, HashCode, ToStrin
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

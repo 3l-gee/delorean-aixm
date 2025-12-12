@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gco.v2007.CodeListValueType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,33 +21,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for DS_AssociationTypeCode_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for DS_AssociationTypeCode_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="DS_AssociationTypeCode_PropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.isotc211.org/2005/gmd}DS_AssociationTypeCode"/>
+ *         <element ref=
+"{http://www.isotc211.org/2005/gmd}DS_AssociationTypeCode"/>
  *       </sequence>
  *       <attribute ref="{http://www.isotc211.org/2005/gco}nilReason"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DS_AssociationTypeCode_PropertyType", propOrder = {
-    "dsAssociationTypeCode"
-})
-public class DSAssociationTypeCodePropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "DS_AssociationTypeCode_PropertyType", propOrder = {"dsAssociationTypeCode"})
+public class DSAssociationTypeCodePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "DS_AssociationTypeCode")
@@ -57,11 +60,9 @@ public class DSAssociationTypeCodePropertyType implements Serializable, Equals, 
 
     /**
      * Gets the value of the dsAssociationTypeCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeListValueType }
-     *     
+     *
+     * @return possible object is {@link CodeListValueType }
+     *
      */
     public CodeListValueType getDSAssociationTypeCode() {
         return dsAssociationTypeCode;
@@ -69,27 +70,24 @@ public class DSAssociationTypeCodePropertyType implements Serializable, Equals, 
 
     /**
      * Sets the value of the dsAssociationTypeCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CodeListValueType }
-     *     
+     *            allowed object is {@link CodeListValueType }
+     *
      */
     public void setDSAssociationTypeCode(CodeListValueType value) {
         this.dsAssociationTypeCode = value;
     }
 
     public boolean isSetDSAssociationTypeCode() {
-        return (this.dsAssociationTypeCode!= null);
+        return (this.dsAssociationTypeCode != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -97,18 +95,17 @@ public class DSAssociationTypeCodePropertyType implements Serializable, Equals, 
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -124,8 +121,9 @@ public class DSAssociationTypeCodePropertyType implements Serializable, Equals, 
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

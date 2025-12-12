@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,35 +35,39 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for VerticalStructureTimeSlicePropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for VerticalStructureTimeSlicePropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="VerticalStructureTimeSlicePropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}VerticalStructureTimeSlice"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}VerticalStructureTimeSlice"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "VerticalStructureTimeSlicePropertyType", propOrder = {
-    "verticalStructureTimeSlice"
-})
+@XmlType(name = "VerticalStructureTimeSlicePropertyType", propOrder = {"verticalStructureTimeSlice"})
 @Entity(name = "VerticalStructureTimeSlicePropertyType")
 @Table(name = "verticalstructure_tsp", schema = "obstacle")
-public class VerticalStructureTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString
-{
+public class VerticalStructureTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "VerticalStructureTimeSlice", required = true)
@@ -77,15 +81,11 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Gets the value of the verticalStructureTimeSlice property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link VerticalStructureTimeSliceType }
-     *     
+     *
+     * @return possible object is {@link VerticalStructureTimeSliceType }
+     *
      */
-    @OneToOne(targetEntity = VerticalStructureTimeSliceType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = VerticalStructureTimeSliceType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "ts_id", referencedColumnName = "hjid")
     public VerticalStructureTimeSliceType getVerticalStructureTimeSlice() {
         return verticalStructureTimeSlice;
@@ -93,11 +93,10 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Sets the value of the verticalStructureTimeSlice property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link VerticalStructureTimeSliceType }
-     *     
+     *            allowed object is {@link VerticalStructureTimeSliceType }
+     *
      */
     public void setVerticalStructureTimeSlice(VerticalStructureTimeSliceType value) {
         this.verticalStructureTimeSlice = value;
@@ -105,16 +104,14 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
 
     @Transient
     public boolean isSetVerticalStructureTimeSlice() {
-        return (this.verticalStructureTimeSlice!= null);
+        return (this.verticalStructureTimeSlice != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -128,11 +125,10 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -140,7 +136,7 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -148,12 +144,10 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -164,24 +158,21 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -190,12 +181,11 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -214,27 +204,15 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final VerticalStructureTimeSlicePropertyType that = ((VerticalStructureTimeSlicePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetVerticalStructureTimeSlice();
             boolean rhsFieldIsSet = that.isSetVerticalStructureTimeSlice();
@@ -244,6 +222,19 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
             rhsField = that.getVerticalStructureTimeSlice();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "verticalStructureTimeSlice", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "verticalStructureTimeSlice", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -274,7 +265,7 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -312,7 +303,7 @@ public class VerticalStructureTimeSlicePropertyType implements Serializable, Equ
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

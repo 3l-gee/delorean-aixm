@@ -1,9 +1,6 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -14,6 +11,9 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -27,12 +27,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AbstractMetaDataType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AbstractMetaDataType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractMetaDataType">
  *   <complexContent>
@@ -44,25 +49,23 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractMetaDataType", propOrder = {
-    "content"
-})
-@XmlSeeAlso({
-    GenericMetaDataType.class
-})
-public abstract class AbstractMetaDataType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "AbstractMetaDataType", propOrder = {"content"})
+@XmlSeeAlso({GenericMetaDataType.class})
+public abstract class AbstractMetaDataType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlMixed
     protected List<String> content;
     /**
-     * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
-     * 
+     * The attribute gml:id supports provision of a handle for the XML element
+     * representing a GML Object. Its use is mandatory for all GML objects. It is of
+     * XML type ID, so is constrained to be unique in the XML document within which
+     * it occurs.
+     *
      */
     @XmlAttribute(name = "id", namespace = "http://www.opengis.net/gml/3.2")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -72,25 +75,25 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the content property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getContent().add(newItem);
+     * getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link String }
+     *
+     *
      */
     public List<String> getContent() {
         if (content == null) {
@@ -100,15 +103,15 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setContent(List<String> content) {
         this.content = content;
     }
 
     public boolean isSetContent() {
-        return ((this.content!= null)&&(!this.content.isEmpty()));
+        return ((this.content != null) && (!this.content.isEmpty()));
     }
 
     public void unsetContent() {
@@ -116,12 +119,13 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
     }
 
     /**
-     * The attribute gml:id supports provision of a handle for the XML element representing a GML Object. Its use is mandatory for all GML objects. It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * The attribute gml:id supports provision of a handle for the XML element
+     * representing a GML Object. Its use is mandatory for all GML objects. It is of
+     * XML type ID, so is constrained to be unique in the XML document within which
+     * it occurs.
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getId() {
         return id;
@@ -129,11 +133,10 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      * @see #getId()
      */
     public void setId(String value) {
@@ -141,7 +144,7 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
     @Override
@@ -157,27 +160,15 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final AbstractMetaDataType that = ((AbstractMetaDataType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            List<String> lhsField;
-            lhsField = (this.isSetContent()?this.getContent():null);
-            List<String> rhsField;
-            rhsField = (that.isSetContent()?that.getContent():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetId();
             boolean rhsFieldIsSet = that.isSetId();
@@ -187,6 +178,19 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
             rhsField = that.getId();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "id", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "id", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            List<String> lhsField;
+            lhsField = (this.isSetContent() ? this.getContent() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetContent() ? that.getContent() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -210,7 +214,7 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetContent();
             List<String> theField;
-            theField = (this.isSetContent()?this.getContent():null);
+            theField = (this.isSetContent() ? this.getContent() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "content", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -249,7 +253,7 @@ public abstract class AbstractMetaDataType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetContent();
             List<String> theField;
-            theField = (this.isSetContent()?this.getContent():null);
+            theField = (this.isSetContent() ? this.getContent() : null);
             strategy.appendField(locator, this, "content", buffer, theField, theFieldIsSet);
         }
         {

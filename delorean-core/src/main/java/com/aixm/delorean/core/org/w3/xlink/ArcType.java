@@ -1,15 +1,15 @@
 
 package com.aixm.delorean.core.org.w3.xlink;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,12 +23,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for arcType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for arcType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="arcType">
  *   <complexContent>
@@ -39,15 +44,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "arcType", propOrder = {
-    "title"
-})
-public class ArcType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "arcType", propOrder = {"title"})
+public class ArcType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     protected List<TitleEltType> title;
@@ -66,7 +68,7 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
     protected String from;
     /**
      * from and to have default behavior when values are missing
-     * 
+     *
      */
     @XmlAttribute(name = "to", namespace = "http://www.w3.org/1999/xlink")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -74,25 +76,26 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the title property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the title property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the title property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getTitle().add(newItem);
+     * getTitle().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TitleEltType }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link TitleEltType
+     * }
+     *
+     *
      */
     public List<TitleEltType> getTitle() {
         if (title == null) {
@@ -102,15 +105,15 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setTitle(List<TitleEltType> title) {
         this.title = title;
     }
 
     public boolean isSetTitle() {
-        return ((this.title!= null)&&(!this.title.isEmpty()));
+        return ((this.title != null) && (!this.title.isEmpty()));
     }
 
     public void unsetTitle() {
@@ -119,11 +122,9 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the arcrole property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArcrole() {
         return arcrole;
@@ -131,27 +132,24 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the arcrole property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setArcrole(String value) {
         this.arcrole = value;
     }
 
     public boolean isSetArcrole() {
-        return (this.arcrole!= null);
+        return (this.arcrole != null);
     }
 
     /**
      * Gets the value of the titleAttribute property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTitleAttribute() {
         return titleAttribute;
@@ -159,27 +157,24 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the titleAttribute property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setTitleAttribute(String value) {
         this.titleAttribute = value;
     }
 
     public boolean isSetTitleAttribute() {
-        return (this.titleAttribute!= null);
+        return (this.titleAttribute != null);
     }
 
     /**
      * Gets the value of the show property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShowType }
-     *     
+     *
+     * @return possible object is {@link ShowType }
+     *
      */
     public ShowType getShow() {
         return show;
@@ -187,27 +182,24 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the show property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ShowType }
-     *     
+     *            allowed object is {@link ShowType }
+     *
      */
     public void setShow(ShowType value) {
         this.show = value;
     }
 
     public boolean isSetShow() {
-        return (this.show!= null);
+        return (this.show != null);
     }
 
     /**
      * Gets the value of the actuate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ActuateType }
-     *     
+     *
+     * @return possible object is {@link ActuateType }
+     *
      */
     public ActuateType getActuate() {
         return actuate;
@@ -215,27 +207,24 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the actuate property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ActuateType }
-     *     
+     *            allowed object is {@link ActuateType }
+     *
      */
     public void setActuate(ActuateType value) {
         this.actuate = value;
     }
 
     public boolean isSetActuate() {
-        return (this.actuate!= null);
+        return (this.actuate != null);
     }
 
     /**
      * Gets the value of the from property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFrom() {
         return from;
@@ -243,27 +232,24 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the from property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setFrom(String value) {
         this.from = value;
     }
 
     public boolean isSetFrom() {
-        return (this.from!= null);
+        return (this.from != null);
     }
 
     /**
      * from and to have default behavior when values are missing
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTo() {
         return to;
@@ -271,11 +257,10 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the to property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      * @see #getTo()
      */
     public void setTo(String value) {
@@ -283,7 +268,7 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetTo() {
-        return (this.to!= null);
+        return (this.to != null);
     }
 
     @Override
@@ -299,14 +284,54 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final ArcType that = ((ArcType) object);
+        {
+            boolean lhsFieldIsSet = this.isSetFrom();
+            boolean rhsFieldIsSet = that.isSetFrom();
+            String lhsField;
+            lhsField = this.getFrom();
+            String rhsField;
+            rhsField = that.getFrom();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "from", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "from", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitleAttribute();
+            boolean rhsFieldIsSet = that.isSetTitleAttribute();
+            String lhsField;
+            lhsField = this.getTitleAttribute();
+            String rhsField;
+            rhsField = that.getTitleAttribute();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            List<TitleEltType> lhsField;
+            lhsField = (this.isSetTitle() ? this.getTitle() : null);
+            List<TitleEltType> rhsField;
+            rhsField = (that.isSetTitle() ? that.getTitle() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
         {
             boolean lhsFieldIsSet = this.isSetTo();
             boolean rhsFieldIsSet = that.isSetTo();
@@ -334,45 +359,6 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            List<TitleEltType> lhsField;
-            lhsField = (this.isSetTitle()?this.getTitle():null);
-            List<TitleEltType> rhsField;
-            rhsField = (that.isSetTitle()?that.getTitle():null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetActuate();
-            boolean rhsFieldIsSet = that.isSetActuate();
-            ActuateType lhsField;
-            lhsField = this.getActuate();
-            ActuateType rhsField;
-            rhsField = that.getActuate();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFrom();
-            boolean rhsFieldIsSet = that.isSetFrom();
-            String lhsField;
-            lhsField = this.getFrom();
-            String rhsField;
-            rhsField = that.getFrom();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "from", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "from", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetArcrole();
             boolean rhsFieldIsSet = that.isSetArcrole();
             String lhsField;
@@ -386,14 +372,14 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitleAttribute();
-            boolean rhsFieldIsSet = that.isSetTitleAttribute();
-            String lhsField;
-            lhsField = this.getTitleAttribute();
-            String rhsField;
-            rhsField = that.getTitleAttribute();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "titleAttribute", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "titleAttribute", rhsField);
+            boolean lhsFieldIsSet = this.isSetActuate();
+            boolean rhsFieldIsSet = that.isSetActuate();
+            ActuateType lhsField;
+            lhsField = this.getActuate();
+            ActuateType rhsField;
+            rhsField = that.getActuate();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "actuate", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "actuate", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -417,7 +403,7 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetTitle();
             List<TitleEltType> theField;
-            theField = (this.isSetTitle()?this.getTitle():null);
+            theField = (this.isSetTitle() ? this.getTitle() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "title", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -491,7 +477,7 @@ public class ArcType implements Serializable, Equals, HashCode, ToString
         {
             boolean theFieldIsSet = this.isSetTitle();
             List<TitleEltType> theField;
-            theField = (this.isSetTitle()?this.getTitle():null);
+            theField = (this.isSetTitle() ? this.getTitle() : null);
             strategy.appendField(locator, this, "title", buffer, theField, theFieldIsSet);
         }
         {

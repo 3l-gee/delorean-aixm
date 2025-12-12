@@ -1,15 +1,15 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -23,15 +23,23 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * If a feature has a property which takes an array of geometry elements as its value, this is called a geometry array property. A generic type for such a geometry property is GeometryArrayPropertyType. 
- * The elements are always contained inline in the array property, referencing geometry elements or arrays of geometry elements via XLinks is not supported.
- * 
- * <p>Java class for GeometryArrayPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * If a feature has a property which takes an array of geometry elements as its
+ * value, this is called a geometry array property. A generic type for such a
+ * geometry property is GeometryArrayPropertyType. The elements are always
+ * contained inline in the array property, referencing geometry elements or
+ * arrays of geometry elements via XLinks is not supported.
+ *
+ * <p>
+ * Java class for GeometryArrayPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="GeometryArrayPropertyType">
  *   <complexContent>
@@ -39,20 +47,18 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence maxOccurs="unbounded" minOccurs="0">
  *         <element ref="{http://www.opengis.net/gml/3.2}AbstractGeometry"/>
  *       </sequence>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GeometryArrayPropertyType", propOrder = {
-    "abstractGeometry"
-})
-public class GeometryArrayPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "GeometryArrayPropertyType", propOrder = {"abstractGeometry"})
+public class GeometryArrayPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractGeometry", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -62,53 +68,54 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Gets the value of the abstractGeometry property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractGeometry property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractGeometry property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractGeometry().add(newItem);
+     * getAbstractGeometry().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link PointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link LineStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link OrientableCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link PolygonType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link TinType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link OrientableSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link SolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CompositeSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometricPrimitiveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiGeometryType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiSurfaceType }{@code >}
-     * {@link JAXBElement }{@code <}{@link MultiSolidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometricAggregateType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GeometricComplexType }{@code >}
-     * {@link JAXBElement }{@code <}{@link RectifiedGridType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GridType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractGeometryType }{@code >}
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link PointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link LineStringType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link OrientableCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link PolygonType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link TinType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link OrientableSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link SolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CompositeSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricPrimitiveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiGeometryType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiPointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiSurfaceType }{@code >} {@link JAXBElement
+     * }{@code <}{@link MultiSolidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometricAggregateType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GeometricComplexType }{@code >} {@link JAXBElement
+     * }{@code <}{@link RectifiedGridType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GridType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractGeometryType }{@code >}
+     *
+     *
      */
     public List<JAXBElement<? extends AbstractGeometryType>> getAbstractGeometry() {
         if (abstractGeometry == null) {
@@ -118,15 +125,15 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAbstractGeometry(List<JAXBElement<? extends AbstractGeometryType>> abstractGeometry) {
         this.abstractGeometry = abstractGeometry;
     }
 
     public boolean isSetAbstractGeometry() {
-        return ((this.abstractGeometry!= null)&&(!this.abstractGeometry.isEmpty()));
+        return ((this.abstractGeometry != null) && (!this.abstractGeometry.isEmpty()));
     }
 
     public void unsetAbstractGeometry() {
@@ -135,11 +142,9 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.Boolean }
-     *     
+     *
+     * @return possible object is {@link java.lang.Boolean }
+     *
      */
     public boolean getOwns() {
         if (owns == null) {
@@ -151,18 +156,17 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link java.lang.Boolean }
-     *     
+     *            allowed object is {@link java.lang.Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
     }
 
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -182,8 +186,9 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -194,9 +199,9 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
             boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -207,9 +212,9 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
             boolean lhsFieldIsSet = this.isSetAbstractGeometry();
             boolean rhsFieldIsSet = that.isSetAbstractGeometry();
             List<JAXBElement<? extends AbstractGeometryType>> lhsField;
-            lhsField = (this.isSetAbstractGeometry()?this.getAbstractGeometry():null);
+            lhsField = (this.isSetAbstractGeometry() ? this.getAbstractGeometry() : null);
             List<JAXBElement<? extends AbstractGeometryType>> rhsField;
-            rhsField = (that.isSetAbstractGeometry()?that.getAbstractGeometry():null);
+            rhsField = (that.isSetAbstractGeometry() ? that.getAbstractGeometry() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractGeometry", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractGeometry", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -235,14 +240,14 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetAbstractGeometry();
             List<JAXBElement<? extends AbstractGeometryType>> theField;
-            theField = (this.isSetAbstractGeometry()?this.getAbstractGeometry():null);
+            theField = (this.isSetAbstractGeometry() ? this.getAbstractGeometry() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractGeometry", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -274,13 +279,13 @@ public class GeometryArrayPropertyType implements Serializable, Equals, HashCode
         {
             boolean theFieldIsSet = this.isSetAbstractGeometry();
             List<JAXBElement<? extends AbstractGeometryType>> theField;
-            theField = (this.isSetAbstractGeometry()?this.getAbstractGeometry():null);
+            theField = (this.isSetAbstractGeometry() ? this.getAbstractGeometry() : null);
             strategy.appendField(locator, this, "abstractGeometry", buffer, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

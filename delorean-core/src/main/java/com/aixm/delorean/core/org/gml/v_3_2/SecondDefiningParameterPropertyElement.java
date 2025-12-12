@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,33 +20,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{http://www.opengis.net/gml/3.2}SecondDefiningParameter"/>
+ *         <element ref=
+"{http://www.opengis.net/gml/3.2}SecondDefiningParameter"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "secondDefiningParameter"
-})
+@XmlType(name = "", propOrder = {"secondDefiningParameter"})
 @XmlRootElement(name = "SecondDefiningParameterPropertyElement")
-public class SecondDefiningParameterPropertyElement implements Serializable, Equals, HashCode, ToString
-{
+public class SecondDefiningParameterPropertyElement implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "SecondDefiningParameter", required = true)
@@ -54,11 +57,9 @@ public class SecondDefiningParameterPropertyElement implements Serializable, Equ
 
     /**
      * Gets the value of the secondDefiningParameter property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SecondDefiningParameter }
-     *     
+     *
+     * @return possible object is {@link SecondDefiningParameter }
+     *
      */
     public SecondDefiningParameter getSecondDefiningParameter() {
         return secondDefiningParameter;
@@ -66,18 +67,17 @@ public class SecondDefiningParameterPropertyElement implements Serializable, Equ
 
     /**
      * Sets the value of the secondDefiningParameter property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link SecondDefiningParameter }
-     *     
+     *            allowed object is {@link SecondDefiningParameter }
+     *
      */
     public void setSecondDefiningParameter(SecondDefiningParameter value) {
         this.secondDefiningParameter = value;
     }
 
     public boolean isSetSecondDefiningParameter() {
-        return (this.secondDefiningParameter!= null);
+        return (this.secondDefiningParameter != null);
     }
 
     @Override
@@ -93,8 +93,9 @@ public class SecondDefiningParameterPropertyElement implements Serializable, Equ
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,24 +1,29 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ImageCRSType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ImageCRSType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ImageCRSType">
  *   <complexContent>
@@ -27,7 +32,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *         <choice>
  *           <element ref="{http://www.opengis.net/gml/3.2}cartesianCS"/>
  *           <element ref="{http://www.opengis.net/gml/3.2}affineCS"/>
- *           <element ref="{http://www.opengis.net/gml/3.2}usesObliqueCartesianCS"/>
+ *           <element ref=
+"{http://www.opengis.net/gml/3.2}usesObliqueCartesianCS"/>
  *         </choice>
  *         <element ref="{http://www.opengis.net/gml/3.2}imageDatum"/>
  *       </sequence>
@@ -35,50 +41,45 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ImageCRSType", propOrder = {
-    "cartesianCS",
-    "affineCS",
-    "usesObliqueCartesianCS",
-    "imageDatum"
-})
-public class ImageCRSType
-    extends AbstractCRSType
-    implements Serializable
-{
+@XmlType(name = "ImageCRSType", propOrder = {"cartesianCS", "affineCS", "usesObliqueCartesianCS", "imageDatum"})
+public class ImageCRSType extends AbstractCRSType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
-     * 
+     * gml:cartesianCS is an association role to the Cartesian coordinate system
+     * used by this CRS.
+     *
      */
     @XmlElementRef(name = "cartesianCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<CartesianCSPropertyType> cartesianCS;
     /**
-     * gml:affineCS is an association role to the affine coordinate system used by this CRS.
-     * 
+     * gml:affineCS is an association role to the affine coordinate system used by
+     * this CRS.
+     *
      */
     @XmlElementRef(name = "affineCS", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class, required = false)
     protected JAXBElement<AffineCSPropertyType> affineCS;
     protected ObliqueCartesianCSPropertyType usesObliqueCartesianCS;
     /**
      * gml:imageDatum is an association role to the image datum used by this CRS.
-     * 
+     *
      */
     @XmlElementRef(name = "imageDatum", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
     protected JAXBElement<ImageDatumPropertyType> imageDatum;
 
     /**
-     * gml:cartesianCS is an association role to the Cartesian coordinate system used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     
+     * gml:cartesianCS is an association role to the Cartesian coordinate system
+     * used by this CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *         {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
+     *         }{@code >}
+     *
      */
     public JAXBElement<CartesianCSPropertyType> getCartesianCS() {
         return cartesianCS;
@@ -86,12 +87,13 @@ public class ImageCRSType
 
     /**
      * Sets the value of the cartesianCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link CartesianCSPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link CartesianCSPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link CartesianCSPropertyType
+     *            }{@code >}
+     *
      * @see #getCartesianCS()
      */
     public void setCartesianCS(JAXBElement<CartesianCSPropertyType> value) {
@@ -99,17 +101,17 @@ public class ImageCRSType
     }
 
     public boolean isSetCartesianCS() {
-        return (this.cartesianCS!= null);
+        return (this.cartesianCS != null);
     }
 
     /**
-     * gml:affineCS is an association role to the affine coordinate system used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     *     
+     * gml:affineCS is an association role to the affine coordinate system used by
+     * this CRS.
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link AffineCSPropertyType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link AffineCSPropertyType }{@code >}
+     *
      */
     public JAXBElement<AffineCSPropertyType> getAffineCS() {
         return affineCS;
@@ -117,12 +119,13 @@ public class ImageCRSType
 
     /**
      * Sets the value of the affineCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link AffineCSPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link AffineCSPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link AffineCSPropertyType
+     *            }{@code >}
+     *
      * @see #getAffineCS()
      */
     public void setAffineCS(JAXBElement<AffineCSPropertyType> value) {
@@ -130,16 +133,14 @@ public class ImageCRSType
     }
 
     public boolean isSetAffineCS() {
-        return (this.affineCS!= null);
+        return (this.affineCS != null);
     }
 
     /**
      * Gets the value of the usesObliqueCartesianCS property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ObliqueCartesianCSPropertyType }
-     *     
+     *
+     * @return possible object is {@link ObliqueCartesianCSPropertyType }
+     *
      */
     public ObliqueCartesianCSPropertyType getUsesObliqueCartesianCS() {
         return usesObliqueCartesianCS;
@@ -147,28 +148,26 @@ public class ImageCRSType
 
     /**
      * Sets the value of the usesObliqueCartesianCS property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ObliqueCartesianCSPropertyType }
-     *     
+     *            allowed object is {@link ObliqueCartesianCSPropertyType }
+     *
      */
     public void setUsesObliqueCartesianCS(ObliqueCartesianCSPropertyType value) {
         this.usesObliqueCartesianCS = value;
     }
 
     public boolean isSetUsesObliqueCartesianCS() {
-        return (this.usesObliqueCartesianCS!= null);
+        return (this.usesObliqueCartesianCS != null);
     }
 
     /**
      * gml:imageDatum is an association role to the image datum used by this CRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement
+     *         }{@code <}{@link ImageDatumPropertyType }{@code >} {@link JAXBElement
+     *         }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *
      */
     public JAXBElement<ImageDatumPropertyType> getImageDatum() {
         return imageDatum;
@@ -176,12 +175,13 @@ public class ImageCRSType
 
     /**
      * Sets the value of the imageDatum property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link ImageDatumPropertyType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement
+     *            }{@code <}{@link ImageDatumPropertyType }{@code >}
+     *            {@link JAXBElement }{@code <}{@link ImageDatumPropertyType
+     *            }{@code >}
+     *
      * @see #getImageDatum()
      */
     public void setImageDatum(JAXBElement<ImageDatumPropertyType> value) {
@@ -189,12 +189,13 @@ public class ImageCRSType
     }
 
     public boolean isSetImageDatum() {
-        return (this.imageDatum!= null);
+        return (this.imageDatum != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -204,32 +205,6 @@ public class ImageCRSType
             return false;
         }
         final ImageCRSType that = ((ImageCRSType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetAffineCS();
-            boolean rhsFieldIsSet = that.isSetAffineCS();
-            JAXBElement<AffineCSPropertyType> lhsField;
-            lhsField = this.getAffineCS();
-            JAXBElement<AffineCSPropertyType> rhsField;
-            rhsField = that.getAffineCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCartesianCS();
-            boolean rhsFieldIsSet = that.isSetCartesianCS();
-            JAXBElement<CartesianCSPropertyType> lhsField;
-            lhsField = this.getCartesianCS();
-            JAXBElement<CartesianCSPropertyType> rhsField;
-            rhsField = that.getCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetImageDatum();
             boolean rhsFieldIsSet = that.isSetImageDatum();
@@ -252,6 +227,32 @@ public class ImageCRSType
             rhsField = that.getUsesObliqueCartesianCS();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usesObliqueCartesianCS", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usesObliqueCartesianCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAffineCS();
+            boolean rhsFieldIsSet = that.isSetAffineCS();
+            JAXBElement<AffineCSPropertyType> lhsField;
+            lhsField = this.getAffineCS();
+            JAXBElement<AffineCSPropertyType> rhsField;
+            rhsField = that.getAffineCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affineCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affineCS", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
+            JAXBElement<CartesianCSPropertyType> lhsField;
+            lhsField = this.getCartesianCS();
+            JAXBElement<CartesianCSPropertyType> rhsField;
+            rhsField = that.getCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -1,12 +1,12 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -20,12 +20,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FileType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FileType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FileType">
  *   <complexContent>
@@ -33,31 +38,29 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *       <sequence>
  *         <element ref="{http://www.opengis.net/gml/3.2}rangeParameters"/>
  *         <choice>
- *           <element name="fileName" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
- *           <element name="fileReference" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
+ *           <element name="fileName" type=
+"{http://www.w3.org/2001/XMLSchema}anyURI"/>
+ *           <element name="fileReference" type=
+"{http://www.w3.org/2001/XMLSchema}anyURI"/>
  *         </choice>
- *         <element name="fileStructure" type="{http://www.opengis.net/gml/3.2}CodeType"/>
- *         <element name="mimeType" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
- *         <element name="compression" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
+ *         <element name="fileStructure" type=
+"{http://www.opengis.net/gml/3.2}CodeType"/>
+ *         <element name="mimeType" type=
+"{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
+ *         <element name="compression" type=
+"{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FileType", propOrder = {
-    "rangeParameters",
-    "fileName",
-    "fileReference",
-    "fileStructure",
-    "mimeType",
-    "compression"
-})
-public class FileType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "FileType", propOrder = {"rangeParameters", "fileName", "fileReference", "fileStructure", "mimeType",
+        "compression"})
+public class FileType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -75,11 +78,9 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Gets the value of the rangeParameters property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AssociationRoleType }
-     *     
+     *
+     * @return possible object is {@link AssociationRoleType }
+     *
      */
     public AssociationRoleType getRangeParameters() {
         return rangeParameters;
@@ -87,27 +88,24 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the rangeParameters property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AssociationRoleType }
-     *     
+     *            allowed object is {@link AssociationRoleType }
+     *
      */
     public void setRangeParameters(AssociationRoleType value) {
         this.rangeParameters = value;
     }
 
     public boolean isSetRangeParameters() {
-        return (this.rangeParameters!= null);
+        return (this.rangeParameters != null);
     }
 
     /**
      * Gets the value of the fileName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFileName() {
         return fileName;
@@ -115,27 +113,24 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the fileName property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setFileName(String value) {
         this.fileName = value;
     }
 
     public boolean isSetFileName() {
-        return (this.fileName!= null);
+        return (this.fileName != null);
     }
 
     /**
      * Gets the value of the fileReference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFileReference() {
         return fileReference;
@@ -143,27 +138,24 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the fileReference property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setFileReference(String value) {
         this.fileReference = value;
     }
 
     public boolean isSetFileReference() {
-        return (this.fileReference!= null);
+        return (this.fileReference != null);
     }
 
     /**
      * Gets the value of the fileStructure property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeType }
-     *     
+     *
+     * @return possible object is {@link CodeType }
+     *
      */
     public CodeType getFileStructure() {
         return fileStructure;
@@ -171,27 +163,24 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the fileStructure property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CodeType }
-     *     
+     *            allowed object is {@link CodeType }
+     *
      */
     public void setFileStructure(CodeType value) {
         this.fileStructure = value;
     }
 
     public boolean isSetFileStructure() {
-        return (this.fileStructure!= null);
+        return (this.fileStructure != null);
     }
 
     /**
      * Gets the value of the mimeType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getMimeType() {
         return mimeType;
@@ -199,27 +188,24 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the mimeType property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setMimeType(String value) {
         this.mimeType = value;
     }
 
     public boolean isSetMimeType() {
-        return (this.mimeType!= null);
+        return (this.mimeType != null);
     }
 
     /**
      * Gets the value of the compression property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCompression() {
         return compression;
@@ -227,18 +213,17 @@ public class FileType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the compression property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setCompression(String value) {
         this.compression = value;
     }
 
     public boolean isSetCompression() {
-        return (this.compression!= null);
+        return (this.compression != null);
     }
 
     @Override
@@ -254,8 +239,9 @@ public class FileType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -289,14 +275,14 @@ public class FileType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRangeParameters();
-            boolean rhsFieldIsSet = that.isSetRangeParameters();
-            AssociationRoleType lhsField;
-            lhsField = this.getRangeParameters();
-            AssociationRoleType rhsField;
-            rhsField = that.getRangeParameters();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
+            boolean lhsFieldIsSet = this.isSetCompression();
+            boolean rhsFieldIsSet = that.isSetCompression();
+            String lhsField;
+            lhsField = this.getCompression();
+            String rhsField;
+            rhsField = that.getCompression();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compression", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compression", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -328,14 +314,14 @@ public class FileType implements Serializable, Equals, HashCode, ToString
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCompression();
-            boolean rhsFieldIsSet = that.isSetCompression();
-            String lhsField;
-            lhsField = this.getCompression();
-            String rhsField;
-            rhsField = that.getCompression();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compression", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compression", rhsField);
+            boolean lhsFieldIsSet = this.isSetRangeParameters();
+            boolean rhsFieldIsSet = that.isSetRangeParameters();
+            AssociationRoleType lhsField;
+            lhsField = this.getRangeParameters();
+            AssociationRoleType rhsField;
+            rhsField = that.getRangeParameters();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "rangeParameters", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "rangeParameters", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

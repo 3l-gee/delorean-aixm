@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.core.org.gco.v2007;
 
-import java.io.Serializable;
 import com.aixm.delorean.core.org.gml.v_3_2.LengthType;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -9,6 +8,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,12 +22,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for Length_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for Length_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="Length_PropertyType">
  *   <complexContent>
@@ -40,15 +45,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Length_PropertyType", propOrder = {
-    "length"
-})
-public class LengthPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "Length_PropertyType", propOrder = {"length"})
+public class LengthPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "Length", namespace = "http://www.isotc211.org/2005/gco", type = JAXBElement.class, required = false)
@@ -58,12 +60,10 @@ public class LengthPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Gets the value of the length property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *     
+     *
+     * @return possible object is {@link JAXBElement }{@code <}{@link LengthType
+     *         }{@code >} {@link JAXBElement }{@code <}{@link LengthType }{@code >}
+     *
      */
     public JAXBElement<LengthType> getLength() {
         return length;
@@ -71,28 +71,26 @@ public class LengthPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the length property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *     {@link JAXBElement }{@code <}{@link LengthType }{@code >}
-     *     
+     *            allowed object is {@link JAXBElement }{@code <}{@link LengthType
+     *            }{@code >} {@link JAXBElement }{@code <}{@link LengthType
+     *            }{@code >}
+     *
      */
     public void setLength(JAXBElement<LengthType> value) {
         this.length = value;
     }
 
     public boolean isSetLength() {
-        return (this.length!= null);
+        return (this.length != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -100,18 +98,17 @@ public class LengthPropertyType implements Serializable, Equals, HashCode, ToStr
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -127,8 +124,9 @@ public class LengthPropertyType implements Serializable, Equals, HashCode, ToStr
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

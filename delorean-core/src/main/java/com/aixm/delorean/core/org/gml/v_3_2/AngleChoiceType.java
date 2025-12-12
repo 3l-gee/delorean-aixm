@@ -1,10 +1,10 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -18,12 +18,17 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for AngleChoiceType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for AngleChoiceType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AngleChoiceType">
  *   <complexContent>
@@ -36,32 +41,28 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AngleChoiceType", propOrder = {
-    "angle",
-    "dmsAngle"
-})
-public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "AngleChoiceType", propOrder = {"angle", "dmsAngle"})
+public class AngleChoiceType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     /**
-     * The gml:angle property element is used to record the value of an angle quantity as a single number, with its units.
-     * 
+     * The gml:angle property element is used to record the value of an angle
+     * quantity as a single number, with its units.
+     *
      */
     protected AngleType angle;
     protected DMSAngleType dmsAngle;
 
     /**
-     * The gml:angle property element is used to record the value of an angle quantity as a single number, with its units.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AngleType }
-     *     
+     * The gml:angle property element is used to record the value of an angle
+     * quantity as a single number, with its units.
+     *
+     * @return possible object is {@link AngleType }
+     *
      */
     public AngleType getAngle() {
         return angle;
@@ -69,11 +70,10 @@ public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the angle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AngleType }
-     *     
+     *            allowed object is {@link AngleType }
+     *
      * @see #getAngle()
      */
     public void setAngle(AngleType value) {
@@ -81,16 +81,14 @@ public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
     }
 
     public boolean isSetAngle() {
-        return (this.angle!= null);
+        return (this.angle != null);
     }
 
     /**
      * Gets the value of the dmsAngle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DMSAngleType }
-     *     
+     *
+     * @return possible object is {@link DMSAngleType }
+     *
      */
     public DMSAngleType getDmsAngle() {
         return dmsAngle;
@@ -98,18 +96,17 @@ public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
 
     /**
      * Sets the value of the dmsAngle property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link DMSAngleType }
-     *     
+     *            allowed object is {@link DMSAngleType }
+     *
      */
     public void setDmsAngle(DMSAngleType value) {
         this.dmsAngle = value;
     }
 
     public boolean isSetDmsAngle() {
-        return (this.dmsAngle!= null);
+        return (this.dmsAngle != null);
     }
 
     @Override
@@ -125,8 +122,9 @@ public class AngleChoiceType implements Serializable, Equals, HashCode, ToString
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

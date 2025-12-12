@@ -2,7 +2,6 @@ package com.aixm.delorean.core.time.type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -11,12 +10,22 @@ public class DeloreanTimeSliceType implements Serializable {
 
     private static final long serialVersionUID = 20240610L;
 
+    @Column(name = "time_period_id", length = 255)
+    protected String timePeriodId;
+
     @Column(name = "begin_position", columnDefinition = "TIMESTAMP")
     protected Instant beginPosition;
     
     @Column(name = "end_position", columnDefinition = "TIMESTAMP")
     protected Instant endPosition;
     
+    public void setTimePeriodId(String timePeriodId) {
+        this.timePeriodId = timePeriodId;
+    }
+
+    public String getTimePeriodId() {
+        return this.timePeriodId;
+    }
 
     public void setBeginPosition(Instant beginPosition) {
         this.beginPosition = beginPosition;
@@ -33,5 +42,4 @@ public class DeloreanTimeSliceType implements Serializable {
     public Instant getEndPosition() {
         return endPosition;
     }
-
 }

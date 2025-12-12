@@ -1,52 +1,54 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import com.aixm.delorean.core.org.gco.v2007.AbstractObjectType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
  * Description of the spatial and temporal reference systems used in the dataset
- * 
- * <p>Java class for AbstractRS_ReferenceSystem_Type complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ *
+ * <p>
+ * Java class for AbstractRS_ReferenceSystem_Type complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="AbstractRS_ReferenceSystem_Type">
  *   <complexContent>
  *     <extension base="{http://www.isotc211.org/2005/gco}AbstractObject_Type">
  *       <sequence>
- *         <element name="name" type="{http://www.isotc211.org/2005/gmd}RS_Identifier_PropertyType"/>
- *         <element name="domainOfValidity" type="{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <element name="name" type=
+"{http://www.isotc211.org/2005/gmd}RS_Identifier_PropertyType"/>
+ *         <element name="domainOfValidity" type=
+"{http://www.isotc211.org/2005/gmd}EX_Extent_PropertyType" maxOccurs=
+"unbounded" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AbstractRS_ReferenceSystem_Type", propOrder = {
-    "name",
-    "domainOfValidity"
-})
-public abstract class AbstractRSReferenceSystemType
-    extends AbstractObjectType
-    implements Serializable
-{
+@XmlType(name = "AbstractRS_ReferenceSystem_Type", propOrder = {"name", "domainOfValidity"})
+public abstract class AbstractRSReferenceSystemType extends AbstractObjectType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -55,11 +57,9 @@ public abstract class AbstractRSReferenceSystemType
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RSIdentifierPropertyType }
-     *     
+     *
+     * @return possible object is {@link RSIdentifierPropertyType }
+     *
      */
     public RSIdentifierPropertyType getName() {
         return name;
@@ -67,41 +67,41 @@ public abstract class AbstractRSReferenceSystemType
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link RSIdentifierPropertyType }
-     *     
+     *            allowed object is {@link RSIdentifierPropertyType }
+     *
      */
     public void setName(RSIdentifierPropertyType value) {
         this.name = value;
     }
 
     public boolean isSetName() {
-        return (this.name!= null);
+        return (this.name != null);
     }
 
     /**
      * Gets the value of the domainOfValidity property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the domainOfValidity property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the domainOfValidity property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getDomainOfValidity().add(newItem);
+     * getDomainOfValidity().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EXExtentPropertyType }
-     * 
-     * 
+     *
+     *
      */
     public List<EXExtentPropertyType> getDomainOfValidity() {
         if (domainOfValidity == null) {
@@ -111,15 +111,15 @@ public abstract class AbstractRSReferenceSystemType
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setDomainOfValidity(List<EXExtentPropertyType> domainOfValidity) {
         this.domainOfValidity = domainOfValidity;
     }
 
     public boolean isSetDomainOfValidity() {
-        return ((this.domainOfValidity!= null)&&(!this.domainOfValidity.isEmpty()));
+        return ((this.domainOfValidity != null) && (!this.domainOfValidity.isEmpty()));
     }
 
     public void unsetDomainOfValidity() {
@@ -127,8 +127,9 @@ public abstract class AbstractRSReferenceSystemType
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -155,9 +156,9 @@ public abstract class AbstractRSReferenceSystemType
             boolean lhsFieldIsSet = this.isSetDomainOfValidity();
             boolean rhsFieldIsSet = that.isSetDomainOfValidity();
             List<EXExtentPropertyType> lhsField;
-            lhsField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
+            lhsField = (this.isSetDomainOfValidity() ? this.getDomainOfValidity() : null);
             List<EXExtentPropertyType> rhsField;
-            rhsField = (that.isSetDomainOfValidity()?that.getDomainOfValidity():null);
+            rhsField = (that.isSetDomainOfValidity() ? that.getDomainOfValidity() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "domainOfValidity", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "domainOfValidity", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -180,7 +181,7 @@ public abstract class AbstractRSReferenceSystemType
         {
             boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity() ? this.getDomainOfValidity() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "domainOfValidity", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -199,7 +200,7 @@ public abstract class AbstractRSReferenceSystemType
         {
             boolean theFieldIsSet = this.isSetDomainOfValidity();
             List<EXExtentPropertyType> theField;
-            theField = (this.isSetDomainOfValidity()?this.getDomainOfValidity():null);
+            theField = (this.isSetDomainOfValidity() ? this.getDomainOfValidity() : null);
             strategy.appendField(locator, this, "domainOfValidity", buffer, theField, theFieldIsSet);
         }
         return buffer;

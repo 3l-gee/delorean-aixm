@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,42 +12,45 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for ObstacleAssessmentAreaPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for ObstacleAssessmentAreaPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="ObstacleAssessmentAreaPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentArea"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}ObstacleAssessmentArea"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ObstacleAssessmentAreaPropertyType", propOrder = {
-    "obstacleAssessmentArea"
-})
+@XmlType(name = "ObstacleAssessmentAreaPropertyType", propOrder = {"obstacleAssessmentArea"})
 @Entity(name = "ObstacleAssessmentAreaPropertyType")
 @Table(name = "obstacleassessmentarea_pt", schema = "shared")
-public class ObstacleAssessmentAreaPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class ObstacleAssessmentAreaPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "ObstacleAssessmentArea", required = true)
@@ -56,15 +58,11 @@ public class ObstacleAssessmentAreaPropertyType
 
     /**
      * Gets the value of the obstacleAssessmentArea property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ObstacleAssessmentAreaType }
-     *     
+     *
+     * @return possible object is {@link ObstacleAssessmentAreaType }
+     *
      */
-    @OneToOne(targetEntity = ObstacleAssessmentAreaType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ObstacleAssessmentAreaType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "obstacleassessmentarea_id", referencedColumnName = "hjid")
     public ObstacleAssessmentAreaType getObstacleAssessmentArea() {
         return obstacleAssessmentArea;
@@ -72,11 +70,10 @@ public class ObstacleAssessmentAreaPropertyType
 
     /**
      * Sets the value of the obstacleAssessmentArea property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link ObstacleAssessmentAreaType }
-     *     
+     *            allowed object is {@link ObstacleAssessmentAreaType }
+     *
      */
     public void setObstacleAssessmentArea(ObstacleAssessmentAreaType value) {
         this.obstacleAssessmentArea = value;
@@ -84,12 +81,13 @@ public class ObstacleAssessmentAreaPropertyType
 
     @Transient
     public boolean isSetObstacleAssessmentArea() {
-        return (this.obstacleAssessmentArea!= null);
+        return (this.obstacleAssessmentArea != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

@@ -1,13 +1,13 @@
 
 package com.aixm.delorean.core.org.gmd.v2007;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -21,33 +21,36 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for MD_PixelOrientationCode_PropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for MD_PixelOrientationCode_PropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="MD_PixelOrientationCode_PropertyType">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence minOccurs="0">
- *         <element ref="{http://www.isotc211.org/2005/gmd}MD_PixelOrientationCode"/>
+ *         <element ref=
+"{http://www.isotc211.org/2005/gmd}MD_PixelOrientationCode"/>
  *       </sequence>
  *       <attribute ref="{http://www.isotc211.org/2005/gco}nilReason"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MD_PixelOrientationCode_PropertyType", propOrder = {
-    "mdPixelOrientationCode"
-})
-public class MDPixelOrientationCodePropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "MD_PixelOrientationCode_PropertyType", propOrder = {"mdPixelOrientationCode"})
+public class MDPixelOrientationCodePropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "MD_PixelOrientationCode")
@@ -58,11 +61,9 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
 
     /**
      * Gets the value of the mdPixelOrientationCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MDPixelOrientationCodeType }
-     *     
+     *
+     * @return possible object is {@link MDPixelOrientationCodeType }
+     *
      */
     public MDPixelOrientationCodeType getMDPixelOrientationCode() {
         return mdPixelOrientationCode;
@@ -70,27 +71,24 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
 
     /**
      * Sets the value of the mdPixelOrientationCode property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link MDPixelOrientationCodeType }
-     *     
+     *            allowed object is {@link MDPixelOrientationCodeType }
+     *
      */
     public void setMDPixelOrientationCode(MDPixelOrientationCodeType value) {
         this.mdPixelOrientationCode = value;
     }
 
     public boolean isSetMDPixelOrientationCode() {
-        return (this.mdPixelOrientationCode!= null);
+        return (this.mdPixelOrientationCode != null);
     }
 
     /**
      * Gets the value of the nilReason property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNilReason() {
         return nilReason;
@@ -98,18 +96,17 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
 
     /**
      * Sets the value of the nilReason property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     *
      */
     public void setNilReason(String value) {
         this.nilReason = value;
     }
 
     public boolean isSetNilReason() {
-        return (this.nilReason!= null);
+        return (this.nilReason != null);
     }
 
     @Override
@@ -125,27 +122,15 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
             return true;
         }
         final MDPixelOrientationCodePropertyType that = ((MDPixelOrientationCodePropertyType) object);
-        {
-            boolean lhsFieldIsSet = this.isSetNilReason();
-            boolean rhsFieldIsSet = that.isSetNilReason();
-            String lhsField;
-            lhsField = this.getNilReason();
-            String rhsField;
-            rhsField = that.getNilReason();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
         {
             boolean lhsFieldIsSet = this.isSetMDPixelOrientationCode();
             boolean rhsFieldIsSet = that.isSetMDPixelOrientationCode();
@@ -155,6 +140,19 @@ public class MDPixelOrientationCodePropertyType implements Serializable, Equals,
             rhsField = that.getMDPixelOrientationCode();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "mdPixelOrientationCode", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "mdPixelOrientationCode", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetNilReason();
+            boolean rhsFieldIsSet = that.isSetNilReason();
+            String lhsField;
+            lhsField = this.getNilReason();
+            String rhsField;
+            rhsField = that.getNilReason();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "nilReason", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "nilReason", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

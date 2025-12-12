@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -35,39 +35,44 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for anonymous complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for anonymous complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <choice>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirportClearanceServiceExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractAirportGroundServiceExtension"/>
- *         <element ref="{http://www.aixm.aero/schema/5.1.1}AbstractServiceExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAirportClearanceServiceExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAirportGroundServiceExtension"/>
+ *         <element ref=
+"{http://www.aixm.aero/schema/5.1.1}AbstractServiceExtension"/>
  *       </choice>
- *       <attGroup ref="{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
+ *       <attGroup ref=
+"{http://www.opengis.net/gml/3.2}OwnershipAttributeGroup"/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "abstractAirportClearanceServiceExtension",
-    "abstractAirportGroundServiceExtension",
-    "abstractServiceExtension"
-})
+@XmlType(name = "", propOrder = {"abstractAirportClearanceServiceExtension", "abstractAirportGroundServiceExtension",
+        "abstractServiceExtension"})
 @Entity(name = "AirportClearanceServiceExtensionType")
 @Table(name = "airportclearanceservice_ext", schema = "service")
-public class AirportClearanceServiceExtensionType implements Serializable, Equals, HashCode, ToString
-{
+public class AirportClearanceServiceExtensionType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "AbstractAirportClearanceServiceExtension")
@@ -85,15 +90,11 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     /**
      * Gets the value of the abstractAirportClearanceServiceExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractairportclearanceserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportClearanceServiceExtension() {
         return abstractAirportClearanceServiceExtension;
@@ -101,11 +102,10 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the abstractAirportClearanceServiceExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractAirportClearanceServiceExtension(AbstractExtensionType value) {
         this.abstractAirportClearanceServiceExtension = value;
@@ -113,20 +113,16 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetAbstractAirportClearanceServiceExtension() {
-        return (this.abstractAirportClearanceServiceExtension!= null);
+        return (this.abstractAirportClearanceServiceExtension != null);
     }
 
     /**
      * Gets the value of the abstractAirportGroundServiceExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractairportgroundserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractAirportGroundServiceExtension() {
         return abstractAirportGroundServiceExtension;
@@ -134,11 +130,10 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the abstractAirportGroundServiceExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractAirportGroundServiceExtension(AbstractExtensionType value) {
         this.abstractAirportGroundServiceExtension = value;
@@ -146,20 +141,16 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetAbstractAirportGroundServiceExtension() {
-        return (this.abstractAirportGroundServiceExtension!= null);
+        return (this.abstractAirportGroundServiceExtension != null);
     }
 
     /**
      * Gets the value of the abstractServiceExtension property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AbstractExtensionType }
-     *     
+     *
+     * @return possible object is {@link AbstractExtensionType }
+     *
      */
-    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = AbstractExtensionType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "abstractserviceextension_id", referencedColumnName = "hjid")
     public AbstractExtensionType getAbstractServiceExtension() {
         return abstractServiceExtension;
@@ -167,11 +158,10 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the abstractServiceExtension property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link AbstractExtensionType }
-     *     
+     *            allowed object is {@link AbstractExtensionType }
+     *
      */
     public void setAbstractServiceExtension(AbstractExtensionType value) {
         this.abstractServiceExtension = value;
@@ -179,16 +169,14 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetAbstractServiceExtension() {
-        return (this.abstractServiceExtension!= null);
+        return (this.abstractServiceExtension != null);
     }
 
     /**
      * Gets the value of the owns property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is {@link Boolean }
+     *
      */
     @Basic
     @Column(name = "OWNS")
@@ -202,11 +190,10 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     /**
      * Sets the value of the owns property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     *
      */
     public void setOwns(boolean value) {
         this.owns = value;
@@ -214,7 +201,7 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
 
     @Transient
     public boolean isSetOwns() {
-        return (this.owns!= null);
+        return (this.owns != null);
     }
 
     public void unsetOwns() {
@@ -222,12 +209,10 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Id
     @Column(name = "HJID")
@@ -238,24 +223,21 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjid(Long value) {
         this.hjid = value;
     }
 
     /**
-     * 
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     *
+     * @return possible object is {@link Long }
+     *
      */
     @Version
     @Column(name = "hjversion")
@@ -264,12 +246,11 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *            allowed object is {@link Long }
+     *
      */
     public void sethjversion(Long value) {
         this.hjversion = value;
@@ -288,8 +269,9 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -303,8 +285,38 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
             lhsField = this.getAbstractAirportGroundServiceExtension();
             AbstractExtensionType rhsField;
             rhsField = that.getAbstractAirportGroundServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportGroundServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension", rhsField);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportGroundServiceExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportGroundServiceExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractAirportClearanceServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAirportClearanceServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAirportClearanceServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAirportClearanceServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "abstractAirportClearanceServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "abstractAirportClearanceServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -318,32 +330,6 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAbstractAirportClearanceServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAirportClearanceServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAirportClearanceServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAirportClearanceServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAirportClearanceServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAirportClearanceServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns()?this.getOwns():false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns()?that.getOwns():false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -368,14 +354,16 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
             boolean theFieldIsSet = this.isSetAbstractAirportClearanceServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportClearanceServiceExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAirportClearanceServiceExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAirportClearanceServiceExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportGroundServiceExtension();
-            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAirportGroundServiceExtension", theField);
+            ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractAirportGroundServiceExtension",
+                    theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
         {
@@ -388,7 +376,7 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "owns", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -421,13 +409,15 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
             boolean theFieldIsSet = this.isSetAbstractAirportClearanceServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportClearanceServiceExtension();
-            strategy.appendField(locator, this, "abstractAirportClearanceServiceExtension", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "abstractAirportClearanceServiceExtension", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractAirportGroundServiceExtension();
             AbstractExtensionType theField;
             theField = this.getAbstractAirportGroundServiceExtension();
-            strategy.appendField(locator, this, "abstractAirportGroundServiceExtension", buffer, theField, theFieldIsSet);
+            strategy.appendField(locator, this, "abstractAirportGroundServiceExtension", buffer, theField,
+                    theFieldIsSet);
         }
         {
             boolean theFieldIsSet = this.isSetAbstractServiceExtension();
@@ -438,7 +428,7 @@ public class AirportClearanceServiceExtensionType implements Serializable, Equal
         {
             boolean theFieldIsSet = this.isSetOwns();
             boolean theField;
-            theField = (this.isSetOwns()?this.getOwns():false);
+            theField = (this.isSetOwns() ? this.getOwns() : false);
             strategy.appendField(locator, this, "owns", buffer, theField, theFieldIsSet);
         }
         return buffer;

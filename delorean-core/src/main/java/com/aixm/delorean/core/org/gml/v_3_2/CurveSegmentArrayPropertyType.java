@@ -1,14 +1,14 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElementRef;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -22,14 +22,20 @@ import org.jvnet.basicjaxb.locator.DefaultRootObjectLocator;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * gml:CurveSegmentArrayPropertyType is a container for an array of curve segments.
- * 
- * <p>Java class for CurveSegmentArrayPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * gml:CurveSegmentArrayPropertyType is a container for an array of curve
+ * segments.
+ *
+ * <p>
+ * Java class for CurveSegmentArrayPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="CurveSegmentArrayPropertyType">
  *   <complexContent>
@@ -41,15 +47,12 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CurveSegmentArrayPropertyType", propOrder = {
-    "abstractCurveSegment"
-})
-public class CurveSegmentArrayPropertyType implements Serializable, Equals, HashCode, ToString
-{
+@XmlType(name = "CurveSegmentArrayPropertyType", propOrder = {"abstractCurveSegment"})
+public class CurveSegmentArrayPropertyType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElementRef(name = "AbstractCurveSegment", namespace = "http://www.opengis.net/gml/3.2", type = JAXBElement.class)
@@ -57,40 +60,41 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
 
     /**
      * Gets the value of the abstractCurveSegment property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the abstractCurveSegment property.
-     * 
+     * This accessor method returns a reference to the live list, not a snapshot.
+     * Therefore any modification you make to the returned list will be present
+     * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+     * for the abstractCurveSegment property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
+     *
      * <pre>
-     *    getAbstractCurveSegment().add(newItem);
+     * getAbstractCurveSegment().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link LineStringSegmentType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CircleType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ArcType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ArcStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ArcByBulgeType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ArcStringByBulgeType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CircleByCenterPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ArcByCenterPointType }{@code >}
-     * {@link JAXBElement }{@code <}{@link CubicSplineType }{@code >}
-     * {@link JAXBElement }{@code <}{@link BezierType }{@code >}
-     * {@link JAXBElement }{@code <}{@link BSplineType }{@code >}
-     * {@link JAXBElement }{@code <}{@link OffsetCurveType }{@code >}
-     * {@link JAXBElement }{@code <}{@link ClothoidType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GeodesicType }{@code >}
-     * {@link JAXBElement }{@code <}{@link GeodesicStringType }{@code >}
-     * {@link JAXBElement }{@code <}{@link AbstractCurveSegmentType }{@code >}
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link JAXBElement
+     * }{@code <}{@link LineStringSegmentType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CircleType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ArcType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ArcStringType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ArcByBulgeType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ArcStringByBulgeType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CircleByCenterPointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ArcByCenterPointType }{@code >} {@link JAXBElement
+     * }{@code <}{@link CubicSplineType }{@code >} {@link JAXBElement
+     * }{@code <}{@link BezierType }{@code >} {@link JAXBElement
+     * }{@code <}{@link BSplineType }{@code >} {@link JAXBElement
+     * }{@code <}{@link OffsetCurveType }{@code >} {@link JAXBElement
+     * }{@code <}{@link ClothoidType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GeodesicType }{@code >} {@link JAXBElement
+     * }{@code <}{@link GeodesicStringType }{@code >} {@link JAXBElement
+     * }{@code <}{@link AbstractCurveSegmentType }{@code >}
+     *
+     *
      */
     public List<JAXBElement<? extends AbstractCurveSegmentType>> getAbstractCurveSegment() {
         if (abstractCurveSegment == null) {
@@ -100,15 +104,15 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public void setAbstractCurveSegment(List<JAXBElement<? extends AbstractCurveSegmentType>> abstractCurveSegment) {
         this.abstractCurveSegment = abstractCurveSegment;
     }
 
     public boolean isSetAbstractCurveSegment() {
-        return ((this.abstractCurveSegment!= null)&&(!this.abstractCurveSegment.isEmpty()));
+        return ((this.abstractCurveSegment != null) && (!this.abstractCurveSegment.isEmpty()));
     }
 
     public void unsetAbstractCurveSegment() {
@@ -128,8 +132,9 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
@@ -140,9 +145,9 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
             boolean lhsFieldIsSet = this.isSetAbstractCurveSegment();
             boolean rhsFieldIsSet = that.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> lhsField;
-            lhsField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
+            lhsField = (this.isSetAbstractCurveSegment() ? this.getAbstractCurveSegment() : null);
             List<JAXBElement<? extends AbstractCurveSegmentType>> rhsField;
-            rhsField = (that.isSetAbstractCurveSegment()?that.getAbstractCurveSegment():null);
+            rhsField = (that.isSetAbstractCurveSegment() ? that.getAbstractCurveSegment() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractCurveSegment", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractCurveSegment", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
@@ -168,7 +173,7 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> theField;
-            theField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
+            theField = (this.isSetAbstractCurveSegment() ? this.getAbstractCurveSegment() : null);
             ObjectLocator theFieldLocator = LocatorUtils.property(locator, "abstractCurveSegment", theField);
             currentHashCode = strategy.hashCode(theFieldLocator, currentHashCode, theField, theFieldIsSet);
         }
@@ -200,7 +205,7 @@ public class CurveSegmentArrayPropertyType implements Serializable, Equals, Hash
         {
             boolean theFieldIsSet = this.isSetAbstractCurveSegment();
             List<JAXBElement<? extends AbstractCurveSegmentType>> theField;
-            theField = (this.isSetAbstractCurveSegment()?this.getAbstractCurveSegment():null);
+            theField = (this.isSetAbstractCurveSegment() ? this.getAbstractCurveSegment() : null);
             strategy.appendField(locator, this, "abstractCurveSegment", buffer, theField, theFieldIsSet);
         }
         return buffer;

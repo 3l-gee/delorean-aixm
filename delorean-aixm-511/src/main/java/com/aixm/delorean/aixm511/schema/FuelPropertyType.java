@@ -1,7 +1,6 @@
 
 package com.aixm.delorean.aixm511.schema;
 
-import java.io.Serializable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +12,29 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for FuelPropertyType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for FuelPropertyType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="FuelPropertyType">
  *   <complexContent>
- *     <extension base="{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
+ *     <extension base=
+"{http://www.aixm.aero/schema/5.1.1}AbstractAIXMPropertyType">
  *       <sequence>
  *         <element ref="{http://www.aixm.aero/schema/5.1.1}Fuel"/>
  *       </sequence>
@@ -36,19 +42,14 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FuelPropertyType", propOrder = {
-    "fuel"
-})
+@XmlType(name = "FuelPropertyType", propOrder = {"fuel"})
 @Entity(name = "FuelPropertyType")
 @Table(name = "fuel_pt", schema = "service")
-public class FuelPropertyType
-    extends AbstractAIXMPropertyType
-    implements Serializable
-{
+public class FuelPropertyType extends AbstractAIXMPropertyType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(name = "Fuel", required = true)
@@ -56,15 +57,11 @@ public class FuelPropertyType
 
     /**
      * Gets the value of the fuel property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link FuelType }
-     *     
+     *
+     * @return possible object is {@link FuelType }
+     *
      */
-    @OneToOne(targetEntity = FuelType.class, cascade = {
-        CascadeType.ALL
-    }, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = FuelType.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "fuel_id", referencedColumnName = "hjid")
     public FuelType getFuel() {
         return fuel;
@@ -72,11 +69,10 @@ public class FuelPropertyType
 
     /**
      * Sets the value of the fuel property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link FuelType }
-     *     
+     *            allowed object is {@link FuelType }
+     *
      */
     public void setFuel(FuelType value) {
         this.fuel = value;
@@ -84,12 +80,13 @@ public class FuelPropertyType
 
     @Transient
     public boolean isSetFuel() {
-        return (this.fuel!= null);
+        return (this.fuel != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {

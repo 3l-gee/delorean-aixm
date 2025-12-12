@@ -1,49 +1,51 @@
 
 package com.aixm.delorean.core.org.gml.v_3_2;
 
-import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
 import org.jvnet.basicjaxb.locator.ObjectLocator;
 import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 
-
 /**
- * <p>Java class for OffsetCurveType complex type</p>.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.</p>
- * 
+ * <p>
+ * Java class for OffsetCurveType complex type
+ * </p>
+ * .
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * </p>
+ *
  * <pre>{@code
  * <complexType name="OffsetCurveType">
  *   <complexContent>
- *     <extension base="{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
+ *     <extension base=
+"{http://www.opengis.net/gml/3.2}AbstractCurveSegmentType">
  *       <sequence>
- *         <element name="offsetBase" type="{http://www.opengis.net/gml/3.2}CurvePropertyType"/>
- *         <element name="distance" type="{http://www.opengis.net/gml/3.2}LengthType"/>
- *         <element name="refDirection" type="{http://www.opengis.net/gml/3.2}VectorType" minOccurs="0"/>
+ *         <element name="offsetBase" type=
+"{http://www.opengis.net/gml/3.2}CurvePropertyType"/>
+ *         <element name="distance" type=
+"{http://www.opengis.net/gml/3.2}LengthType"/>
+ *         <element name="refDirection" type=
+"{http://www.opengis.net/gml/3.2}VectorType" minOccurs="0"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
  * </complexType>
  * }</pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OffsetCurveType", propOrder = {
-    "offsetBase",
-    "distance",
-    "refDirection"
-})
-public class OffsetCurveType
-    extends AbstractCurveSegmentType
-    implements Serializable
-{
+@XmlType(name = "OffsetCurveType", propOrder = {"offsetBase", "distance", "refDirection"})
+public class OffsetCurveType extends AbstractCurveSegmentType implements Serializable {
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
@@ -54,11 +56,9 @@ public class OffsetCurveType
 
     /**
      * Gets the value of the offsetBase property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CurvePropertyType }
-     *     
+     *
+     * @return possible object is {@link CurvePropertyType }
+     *
      */
     public CurvePropertyType getOffsetBase() {
         return offsetBase;
@@ -66,27 +66,24 @@ public class OffsetCurveType
 
     /**
      * Sets the value of the offsetBase property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link CurvePropertyType }
-     *     
+     *            allowed object is {@link CurvePropertyType }
+     *
      */
     public void setOffsetBase(CurvePropertyType value) {
         this.offsetBase = value;
     }
 
     public boolean isSetOffsetBase() {
-        return (this.offsetBase!= null);
+        return (this.offsetBase != null);
     }
 
     /**
      * Gets the value of the distance property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LengthType }
-     *     
+     *
+     * @return possible object is {@link LengthType }
+     *
      */
     public LengthType getDistance() {
         return distance;
@@ -94,27 +91,24 @@ public class OffsetCurveType
 
     /**
      * Sets the value of the distance property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link LengthType }
-     *     
+     *            allowed object is {@link LengthType }
+     *
      */
     public void setDistance(LengthType value) {
         this.distance = value;
     }
 
     public boolean isSetDistance() {
-        return (this.distance!= null);
+        return (this.distance != null);
     }
 
     /**
      * Gets the value of the refDirection property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link VectorType }
-     *     
+     *
+     * @return possible object is {@link VectorType }
+     *
      */
     public VectorType getRefDirection() {
         return refDirection;
@@ -122,23 +116,23 @@ public class OffsetCurveType
 
     /**
      * Sets the value of the refDirection property.
-     * 
+     *
      * @param value
-     *     allowed object is
-     *     {@link VectorType }
-     *     
+     *            allowed object is {@link VectorType }
+     *
      */
     public void setRefDirection(VectorType value) {
         this.refDirection = value;
     }
 
     public boolean isSetRefDirection() {
-        return (this.refDirection!= null);
+        return (this.refDirection != null);
     }
 
     @Override
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object, EqualsStrategy strategy) {
-        if ((object == null)||(this.getClass()!= object.getClass())) {
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, Object object,
+            EqualsStrategy strategy) {
+        if ((object == null) || (this.getClass() != object.getClass())) {
             return false;
         }
         if (this == object) {
