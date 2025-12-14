@@ -784,6 +784,14 @@ class Annox:
 class HyperJAXB:
     
     @staticmethod
+    def orm_tsp_filter():
+        return f'''@org.hibernate.annotations.Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")'''
+    
+    @staticmethod
+    def orm_tsp_filter_def():
+        return f'''@org.hibernate.annotations.FilterDef(name = "TSPHjidFilter", parameters = @org.hibernate.annotations.ParamDef(name = "ids", type = Long.class))'''
+    
+    @staticmethod
     def orm_table(annotation):
         return f'''<orm:table {annotation} />'''
 

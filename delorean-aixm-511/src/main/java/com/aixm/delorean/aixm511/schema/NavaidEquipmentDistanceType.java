@@ -320,14 +320,27 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
         }
         final NavaidEquipmentDistanceType that = ((NavaidEquipmentDistanceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDistanceAccuracy();
-            boolean rhsFieldIsSet = that.isSetDistanceAccuracy();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getDistanceAccuracy();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getDistanceAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceAccuracy", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
+            NavaidEquipmentPropertyType lhsField;
+            lhsField = this.getTheNavaidEquipment();
+            NavaidEquipmentPropertyType rhsField;
+            rhsField = that.getTheNavaidEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidEquipmentDistanceTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidEquipmentDistanceTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -359,27 +372,14 @@ public class NavaidEquipmentDistanceType extends AbstractAIXMObjectType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidEquipmentDistanceTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidEquipmentDistanceTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
-            NavaidEquipmentPropertyType lhsField;
-            lhsField = this.getTheNavaidEquipment();
-            NavaidEquipmentPropertyType rhsField;
-            rhsField = that.getTheNavaidEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
+            boolean lhsFieldIsSet = this.isSetDistanceAccuracy();
+            boolean rhsFieldIsSet = that.isSetDistanceAccuracy();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getDistanceAccuracy();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getDistanceAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "distanceAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "distanceAccuracy", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

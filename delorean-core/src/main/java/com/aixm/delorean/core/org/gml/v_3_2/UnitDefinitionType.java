@@ -180,6 +180,19 @@ public class UnitDefinitionType extends DefinitionType implements Serializable {
         }
         final UnitDefinitionType that = ((UnitDefinitionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetQuantityType();
+            boolean rhsFieldIsSet = that.isSetQuantityType();
+            StringOrRefType lhsField;
+            lhsField = this.getQuantityType();
+            StringOrRefType rhsField;
+            rhsField = that.getQuantityType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "quantityType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "quantityType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetCatalogSymbol();
             boolean rhsFieldIsSet = that.isSetCatalogSymbol();
             CodeType lhsField;
@@ -201,19 +214,6 @@ public class UnitDefinitionType extends DefinitionType implements Serializable {
             rhsField = that.getQuantityTypeReference();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "quantityTypeReference", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "quantityTypeReference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetQuantityType();
-            boolean rhsFieldIsSet = that.isSetQuantityType();
-            StringOrRefType lhsField;
-            lhsField = this.getQuantityType();
-            StringOrRefType rhsField;
-            rhsField = that.getQuantityType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "quantityType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "quantityType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

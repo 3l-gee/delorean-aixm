@@ -22,6 +22,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -66,6 +69,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GroundTrafficControlServiceTimeSlicePropertyType", propOrder = {
         "groundTrafficControlServiceTimeSlice"})
+@FilterDef(name = "TSPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "GroundTrafficControlServiceTimeSlicePropertyType")
 @Table(name = "groundtrafficcontrolservice_tsp", schema = "service")
 public class GroundTrafficControlServiceTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
@@ -76,9 +81,9 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
     @XmlAttribute(name = "owns")
     protected Boolean owns;
     @XmlTransient
-    protected Long hjid;
+    protected java.lang.Long hjid;
     @XmlTransient
-    protected Long hjversion;
+    protected java.lang.Long hjversion;
 
     /**
      * Gets the value of the groundTrafficControlServiceTimeSlice property.
@@ -149,14 +154,14 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
     /**
      *
      *
-     * @return possible object is {@link Long }
+     * @return possible object is {@link java.lang.Long }
      *
      */
     @Id
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long gethjid() {
+    public java.lang.Long gethjid() {
         return hjid;
     }
 
@@ -164,22 +169,22 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *            allowed object is {@link java.lang.Long }
      *
      */
-    public void sethjid(Long value) {
+    public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
      *
      *
-     * @return possible object is {@link Long }
+     * @return possible object is {@link java.lang.Long }
      *
      */
     @Version
     @Column(name = "hjversion")
-    public Long gethjversion() {
+    public java.lang.Long gethjversion() {
         return hjversion;
     }
 
@@ -187,10 +192,10 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *            allowed object is {@link java.lang.Long }
      *
      */
-    public void sethjversion(Long value) {
+    public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
     }
 
@@ -217,19 +222,6 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
         }
         final GroundTrafficControlServiceTimeSlicePropertyType that = ((GroundTrafficControlServiceTimeSlicePropertyType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetGroundTrafficControlServiceTimeSlice();
             boolean rhsFieldIsSet = that.isSetGroundTrafficControlServiceTimeSlice();
             GroundTrafficControlServiceTimeSliceType lhsField;
@@ -240,6 +232,19 @@ public class GroundTrafficControlServiceTimeSlicePropertyType implements Seriali
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "groundTrafficControlServiceTimeSlice",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

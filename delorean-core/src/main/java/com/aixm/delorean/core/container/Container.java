@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PublicKey;
+import java.time.Instant;
 
 import javax.xml.namespace.QName;
 
@@ -202,6 +203,15 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         ConsoleLogger.log(LogLevel.INFO, "Merged <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
 
+    public void integrate() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }   
+        this.databaseBinding.integrate(this.message);
+        String stats = this.databaseBinding.statistics();
+        ConsoleLogger.log(LogLevel.INFO, "Integrated <" + rootClass.getSimpleName() + ">  to: " + this.databaseBinding.getUrl() + " stats: " + stats);
+    }
+
     public void extract(Object id) {
         if (this.databaseBinding == null) {
             throw new RuntimeException("DatabaseBinding is not set");
@@ -211,5 +221,24 @@ public class Container<ROOT, FEATURE, TIMESLICE, OBJECT> {
         String stats = this.deloreanEngine.statistics(this.message);
         ConsoleLogger.log(LogLevel.INFO, "Extracted <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
     }
+
+    public void predicate() {
+        if (this.databaseBinding == null) {
+            throw new RuntimeException("DatabaseBinding is not set");
+        }   
+        Instant time = Instant.now();
+        this.message = (ROOT) this.databaseBinding.predicateValidTimeslice(this.rootClass, time);
+        String stats = this.deloreanEngine.statistics(this.message);
+        ConsoleLogger.log(LogLevel.INFO, "Predicated <" + rootClass.getSimpleName() + "> from: " + this.databaseBinding.getUrl() + " stats: " + stats);
+    }
+
+
+    // public void serialization(String path) {
+
+    // }
+
+    // public void mapping(){
+
+    // }
 
 }

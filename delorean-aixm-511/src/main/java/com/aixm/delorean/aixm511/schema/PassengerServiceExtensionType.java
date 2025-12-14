@@ -279,14 +279,14 @@ public class PassengerServiceExtensionType implements Serializable, Equals, Hash
         }
         final PassengerServiceExtensionType that = ((PassengerServiceExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -322,14 +322,14 @@ public class PassengerServiceExtensionType implements Serializable, Equals, Hash
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

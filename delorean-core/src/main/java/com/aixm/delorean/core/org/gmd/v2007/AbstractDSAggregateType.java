@@ -265,19 +265,6 @@ public abstract class AbstractDSAggregateType extends AbstractObjectType impleme
         }
         final AbstractDSAggregateType that = ((AbstractDSAggregateType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSubset();
-            boolean rhsFieldIsSet = that.isSetSubset();
-            List<DSAggregatePropertyType> lhsField;
-            lhsField = (this.isSetSubset() ? this.getSubset() : null);
-            List<DSAggregatePropertyType> rhsField;
-            rhsField = (that.isSetSubset() ? that.getSubset() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSeriesMetadata();
             boolean rhsFieldIsSet = that.isSetSeriesMetadata();
             List<MDMetadataPropertyType> lhsField;
@@ -312,6 +299,19 @@ public abstract class AbstractDSAggregateType extends AbstractObjectType impleme
             rhsField = (that.isSetComposedOf() ? that.getComposedOf() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "composedOf", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "composedOf", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSubset();
+            boolean rhsFieldIsSet = that.isSetSubset();
+            List<DSAggregatePropertyType> lhsField;
+            lhsField = (this.isSetSubset() ? this.getSubset() : null);
+            List<DSAggregatePropertyType> rhsField;
+            rhsField = (that.isSetSubset() ? that.getSubset() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "subset", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "subset", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

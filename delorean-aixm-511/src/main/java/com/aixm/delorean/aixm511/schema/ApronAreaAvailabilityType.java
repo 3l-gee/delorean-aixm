@@ -457,19 +457,6 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
         }
         final ApronAreaAvailabilityType that = ((ApronAreaAvailabilityType) object);
         {
-            boolean lhsFieldIsSet = this.isSetWarning();
-            boolean rhsFieldIsSet = that.isSetWarning();
-            JAXBElement<CodeAirportWarningType> lhsField;
-            lhsField = this.getWarning();
-            JAXBElement<CodeAirportWarningType> rhsField;
-            rhsField = that.getWarning();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -478,19 +465,6 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -543,6 +517,32 @@ public class ApronAreaAvailabilityType extends AbstractPropertiesWithScheduleTyp
             rhsField = (that.isSetUsage() ? that.getUsage() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "usage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "usage", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWarning();
+            boolean rhsFieldIsSet = that.isSetWarning();
+            JAXBElement<CodeAirportWarningType> lhsField;
+            lhsField = this.getWarning();
+            JAXBElement<CodeAirportWarningType> rhsField;
+            rhsField = that.getWarning();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "warning", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "warning", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

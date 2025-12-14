@@ -279,19 +279,6 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
         }
         final MissedApproachLegExtensionType that = ((MissedApproachLegExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractMissedApproachLegExtension();
             boolean rhsFieldIsSet = that.isSetAbstractMissedApproachLegExtension();
             AbstractExtensionType lhsField;
@@ -317,6 +304,19 @@ public class MissedApproachLegExtensionType implements Serializable, Equals, Has
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractApproachLegExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

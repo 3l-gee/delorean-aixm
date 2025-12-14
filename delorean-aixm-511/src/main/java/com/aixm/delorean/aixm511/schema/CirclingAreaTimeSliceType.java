@@ -446,19 +446,6 @@ public class CirclingAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<CirclingAreaExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<CirclingAreaExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -467,6 +454,19 @@ public class CirclingAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetApproach();
+            boolean rhsFieldIsSet = that.isSetApproach();
+            JAXBElement<InstrumentApproachProcedurePropertyType> lhsField;
+            lhsField = this.getApproach();
+            JAXBElement<InstrumentApproachProcedurePropertyType> rhsField;
+            rhsField = that.getApproach();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approach", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approach", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -511,14 +511,14 @@ public class CirclingAreaTimeSliceType extends AbstractAIXMTimeSliceType impleme
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetApproach();
-            boolean rhsFieldIsSet = that.isSetApproach();
-            JAXBElement<InstrumentApproachProcedurePropertyType> lhsField;
-            lhsField = this.getApproach();
-            JAXBElement<InstrumentApproachProcedurePropertyType> rhsField;
-            rhsField = that.getApproach();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "approach", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "approach", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<CirclingAreaExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<CirclingAreaExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

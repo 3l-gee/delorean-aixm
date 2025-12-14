@@ -214,19 +214,6 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
         }
         final FinalProfileTypeExtensionType that = ((FinalProfileTypeExtensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAbstractFinalProfileExtension();
             boolean rhsFieldIsSet = that.isSetAbstractFinalProfileExtension();
             AbstractExtensionType lhsField;
@@ -237,6 +224,19 @@ public class FinalProfileTypeExtensionType implements Serializable, Equals, Hash
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFinalProfileExtension",
                     rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

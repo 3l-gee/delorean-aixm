@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 from .orm_handler import OrmHandler
-from .annotation import Tag, Jaxb, Xpath
+from .annotation import Tag, Jaxb, Xpath, Annox, HyperJAXB
 from .content import Content
 
 class FieldHandler: 
@@ -203,6 +203,10 @@ class FieldHandler:
 
         else :
             raise Exception("Element has no name or ref attribute : " + ET.tostring(element, encoding='unicode', method='xml'))
+
+        # special case timeslice filter
+        if element.attrib.get("name") == "timeSlice":
+            node.append(Annox.field_add(HyperJAXB.orm_tsp_filter()))
 
         # spacial cases name must be renamed to aixmName
         if element.attrib.get("name") == "name":

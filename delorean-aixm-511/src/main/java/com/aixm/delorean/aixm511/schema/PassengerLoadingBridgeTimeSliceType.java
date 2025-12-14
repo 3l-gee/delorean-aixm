@@ -341,32 +341,6 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
         }
         final PassengerLoadingBridgeTimeSliceType that = ((PassengerLoadingBridgeTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeLoadingBridgeType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeLoadingBridgeType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtent();
             boolean rhsFieldIsSet = that.isSetExtent();
             JAXBElement<AIXMElevatedSurfacePropertyType> lhsField;
@@ -393,6 +367,19 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAssociatedStand();
             boolean rhsFieldIsSet = that.isSetAssociatedStand();
             List<AircraftStandPropertyType> lhsField;
@@ -401,6 +388,19 @@ public class PassengerLoadingBridgeTimeSliceType extends AbstractAIXMTimeSliceTy
             rhsField = (that.isSetAssociatedStand() ? that.getAssociatedStand() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "associatedStand", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "associatedStand", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeLoadingBridgeType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeLoadingBridgeType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -417,6 +417,58 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
         }
         final SpecialDateTimeSliceType that = ((SpecialDateTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAixmName();
+            boolean rhsFieldIsSet = that.isSetAixmName();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getAixmName();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getAixmName();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateYear();
+            boolean rhsFieldIsSet = that.isSetDateYear();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateYear();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateYear();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateDay();
+            boolean rhsFieldIsSet = that.isSetDateDay();
+            JAXBElement<DateMonthDayType> lhsField;
+            lhsField = this.getDateDay();
+            JAXBElement<DateMonthDayType> rhsField;
+            rhsField = that.getDateDay();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<SpecialDateExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<SpecialDateExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAuthority();
             boolean rhsFieldIsSet = that.isSetAuthority();
             JAXBElement<OrganisationAuthorityPropertyType> lhsField;
@@ -443,19 +495,6 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDateDay();
-            boolean rhsFieldIsSet = that.isSetDateDay();
-            JAXBElement<DateMonthDayType> lhsField;
-            lhsField = this.getDateDay();
-            JAXBElement<DateMonthDayType> rhsField;
-            rhsField = that.getDateDay();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateDay", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateDay", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -464,45 +503,6 @@ public class SpecialDateTimeSliceType extends AbstractAIXMTimeSliceType implemen
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAixmName();
-            boolean rhsFieldIsSet = that.isSetAixmName();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getAixmName();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getAixmName();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aixmName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aixmName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<SpecialDateExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<SpecialDateExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateYear();
-            boolean rhsFieldIsSet = that.isSetDateYear();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateYear();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateYear();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateYear", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateYear", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

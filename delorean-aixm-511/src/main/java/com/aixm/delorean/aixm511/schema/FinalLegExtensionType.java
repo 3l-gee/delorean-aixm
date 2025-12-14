@@ -294,19 +294,6 @@ public class FinalLegExtensionType implements Serializable, Equals, HashCode, To
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractFinalLegExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractFinalLegExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractFinalLegExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractFinalLegExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFinalLegExtension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFinalLegExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOwns();
             boolean rhsFieldIsSet = that.isSetOwns();
             boolean lhsField;
@@ -315,6 +302,19 @@ public class FinalLegExtensionType implements Serializable, Equals, HashCode, To
             rhsField = (that.isSetOwns() ? that.getOwns() : false);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAbstractFinalLegExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractFinalLegExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractFinalLegExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractFinalLegExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractFinalLegExtension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractFinalLegExtension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

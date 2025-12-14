@@ -197,19 +197,6 @@ public class MDDigitalTransferOptionsType extends AbstractObjectType implements 
         }
         final MDDigitalTransferOptionsType that = ((MDDigitalTransferOptionsType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOnLine();
-            boolean rhsFieldIsSet = that.isSetOnLine();
-            List<CIOnlineResourcePropertyType> lhsField;
-            lhsField = (this.isSetOnLine() ? this.getOnLine() : null);
-            List<CIOnlineResourcePropertyType> rhsField;
-            rhsField = (that.isSetOnLine() ? that.getOnLine() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetUnitsOfDistribution();
             boolean rhsFieldIsSet = that.isSetUnitsOfDistribution();
             CharacterStringPropertyType lhsField;
@@ -244,6 +231,19 @@ public class MDDigitalTransferOptionsType extends AbstractObjectType implements 
             rhsField = that.getOffLine();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "offLine", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "offLine", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOnLine();
+            boolean rhsFieldIsSet = that.isSetOnLine();
+            List<CIOnlineResourcePropertyType> lhsField;
+            lhsField = (this.isSetOnLine() ? this.getOnLine() : null);
+            List<CIOnlineResourcePropertyType> rhsField;
+            rhsField = (that.isSetOnLine() ? that.getOnLine() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "onLine", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "onLine", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -143,14 +143,14 @@ public class TimeEdgeType extends AbstractTimeTopologyPrimitiveType implements S
         }
         final TimeEdgeType that = ((TimeEdgeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetStart();
-            boolean rhsFieldIsSet = that.isSetStart();
+            boolean lhsFieldIsSet = this.isSetEnd();
+            boolean rhsFieldIsSet = that.isSetEnd();
             TimeNodePropertyType lhsField;
-            lhsField = this.getStart();
+            lhsField = this.getEnd();
             TimeNodePropertyType rhsField;
-            rhsField = that.getStart();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
+            rhsField = that.getEnd();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -169,14 +169,14 @@ public class TimeEdgeType extends AbstractTimeTopologyPrimitiveType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetEnd();
-            boolean rhsFieldIsSet = that.isSetEnd();
+            boolean lhsFieldIsSet = this.isSetStart();
+            boolean rhsFieldIsSet = that.isSetStart();
             TimeNodePropertyType lhsField;
-            lhsField = this.getEnd();
+            lhsField = this.getStart();
             TimeNodePropertyType rhsField;
-            rhsField = that.getEnd();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "end", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "end", rhsField);
+            rhsField = that.getStart();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "start", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "start", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

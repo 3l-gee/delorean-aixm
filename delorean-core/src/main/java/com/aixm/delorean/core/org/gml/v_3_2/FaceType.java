@@ -352,27 +352,14 @@ public class FaceType extends AbstractTopoPrimitiveType implements Serializable 
         }
         final FaceType that = ((FaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAggregationType();
-            boolean rhsFieldIsSet = that.isSetAggregationType();
-            AggregationType lhsField;
-            lhsField = this.getAggregationType();
-            AggregationType rhsField;
-            rhsField = that.getAggregationType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDirectedEdge();
-            boolean rhsFieldIsSet = that.isSetDirectedEdge();
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            boolean lhsFieldIsSet = this.isSetUniversal();
+            boolean rhsFieldIsSet = that.isSetUniversal();
+            boolean lhsField;
+            lhsField = (this.isSetUniversal() ? this.getUniversal() : false);
+            boolean rhsField;
+            rhsField = (that.isSetUniversal() ? that.getUniversal() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -391,14 +378,27 @@ public class FaceType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetUniversal();
-            boolean rhsFieldIsSet = that.isSetUniversal();
-            boolean lhsField;
-            lhsField = (this.isSetUniversal() ? this.getUniversal() : false);
-            boolean rhsField;
-            rhsField = (that.isSetUniversal() ? that.getUniversal() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "universal", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "universal", rhsField);
+            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
+            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
+            List<DirectedTopoSolidPropertyType> lhsField;
+            lhsField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
+            List<DirectedTopoSolidPropertyType> rhsField;
+            rhsField = (that.isSetDirectedTopoSolid() ? that.getDirectedTopoSolid() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -417,14 +417,14 @@ public class FaceType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
-            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
-            List<DirectedTopoSolidPropertyType> lhsField;
-            lhsField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
-            List<DirectedTopoSolidPropertyType> rhsField;
-            rhsField = (that.isSetDirectedTopoSolid() ? that.getDirectedTopoSolid() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
+            boolean lhsFieldIsSet = this.isSetAggregationType();
+            boolean rhsFieldIsSet = that.isSetAggregationType();
+            AggregationType lhsField;
+            lhsField = this.getAggregationType();
+            AggregationType rhsField;
+            rhsField = that.getAggregationType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

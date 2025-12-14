@@ -202,6 +202,19 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
         }
         final DQQuantitativeResultType that = ((DQQuantitativeResultType) object);
         {
+            boolean lhsFieldIsSet = this.isSetValueType();
+            boolean rhsFieldIsSet = that.isSetValueType();
+            RecordTypePropertyType lhsField;
+            lhsField = this.getValueType();
+            RecordTypePropertyType rhsField;
+            rhsField = that.getValueType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetValueUnit();
             boolean rhsFieldIsSet = that.isSetValueUnit();
             UnitOfMeasurePropertyType lhsField;
@@ -210,19 +223,6 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
             rhsField = that.getValueUnit();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueUnit", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueUnit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetValue();
-            boolean rhsFieldIsSet = that.isSetValue();
-            List<RecordPropertyType> lhsField;
-            lhsField = (this.isSetValue() ? this.getValue() : null);
-            List<RecordPropertyType> rhsField;
-            rhsField = (that.isSetValue() ? that.getValue() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -241,14 +241,14 @@ public class DQQuantitativeResultType extends AbstractDQResultType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValueType();
-            boolean rhsFieldIsSet = that.isSetValueType();
-            RecordTypePropertyType lhsField;
-            lhsField = this.getValueType();
-            RecordTypePropertyType rhsField;
-            rhsField = that.getValueType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueType", rhsField);
+            boolean lhsFieldIsSet = this.isSetValue();
+            boolean rhsFieldIsSet = that.isSetValue();
+            List<RecordPropertyType> lhsField;
+            lhsField = (this.isSetValue() ? this.getValue() : null);
+            List<RecordPropertyType> rhsField;
+            rhsField = (that.isSetValue() ? that.getValue() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "value", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "value", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

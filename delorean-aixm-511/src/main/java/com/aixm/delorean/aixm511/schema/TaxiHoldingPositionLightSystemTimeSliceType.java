@@ -529,6 +529,19 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
         }
         final TaxiHoldingPositionLightSystemTimeSliceType that = ((TaxiHoldingPositionLightSystemTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetColour();
+            boolean rhsFieldIsSet = that.isSetColour();
+            JAXBElement<CodeColourType> lhsField;
+            lhsField = this.getColour();
+            JAXBElement<CodeColourType> rhsField;
+            rhsField = that.getColour();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetIntensityLevel();
             boolean rhsFieldIsSet = that.isSetIntensityLevel();
             JAXBElement<CodeLightIntensityType> lhsField;
@@ -542,14 +555,14 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiHoldingPositionLightSystemExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TaxiHoldingPositionLightSystemExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeLightHoldingPositionType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeLightHoldingPositionType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -568,19 +581,6 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTaxiHolding();
-            boolean rhsFieldIsSet = that.isSetTaxiHolding();
-            JAXBElement<TaxiHoldingPositionPropertyType> lhsField;
-            lhsField = this.getTaxiHolding();
-            JAXBElement<TaxiHoldingPositionPropertyType> rhsField;
-            rhsField = that.getTaxiHolding();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHolding", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHolding", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAvailability();
             boolean rhsFieldIsSet = that.isSetAvailability();
             List<GroundLightingAvailabilityPropertyType> lhsField;
@@ -594,27 +594,14 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetColour();
-            boolean rhsFieldIsSet = that.isSetColour();
-            JAXBElement<CodeColourType> lhsField;
-            lhsField = this.getColour();
-            JAXBElement<CodeColourType> rhsField;
-            rhsField = that.getColour();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "colour", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "colour", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeLightHoldingPositionType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeLightHoldingPositionType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiHoldingPositionLightSystemExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TaxiHoldingPositionLightSystemExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -641,6 +628,19 @@ public class TaxiHoldingPositionLightSystemTimeSliceType extends AbstractAIXMTim
             rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTaxiHolding();
+            boolean rhsFieldIsSet = that.isSetTaxiHolding();
+            JAXBElement<TaxiHoldingPositionPropertyType> lhsField;
+            lhsField = this.getTaxiHolding();
+            JAXBElement<TaxiHoldingPositionPropertyType> rhsField;
+            rhsField = that.getTaxiHolding();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "taxiHolding", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "taxiHolding", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

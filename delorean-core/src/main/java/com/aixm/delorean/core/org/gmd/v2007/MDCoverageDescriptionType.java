@@ -172,14 +172,14 @@ public class MDCoverageDescriptionType extends AbstractMDContentInformationType 
         }
         final MDCoverageDescriptionType that = ((MDCoverageDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetContentType();
-            boolean rhsFieldIsSet = that.isSetContentType();
-            MDCoverageContentTypeCodePropertyType lhsField;
-            lhsField = this.getContentType();
-            MDCoverageContentTypeCodePropertyType rhsField;
-            rhsField = that.getContentType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contentType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contentType", rhsField);
+            boolean lhsFieldIsSet = this.isSetAttributeDescription();
+            boolean rhsFieldIsSet = that.isSetAttributeDescription();
+            RecordTypePropertyType lhsField;
+            lhsField = this.getAttributeDescription();
+            RecordTypePropertyType rhsField;
+            rhsField = that.getAttributeDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -198,14 +198,14 @@ public class MDCoverageDescriptionType extends AbstractMDContentInformationType 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAttributeDescription();
-            boolean rhsFieldIsSet = that.isSetAttributeDescription();
-            RecordTypePropertyType lhsField;
-            lhsField = this.getAttributeDescription();
-            RecordTypePropertyType rhsField;
-            rhsField = that.getAttributeDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "attributeDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "attributeDescription", rhsField);
+            boolean lhsFieldIsSet = this.isSetContentType();
+            boolean rhsFieldIsSet = that.isSetContentType();
+            MDCoverageContentTypeCodePropertyType lhsField;
+            lhsField = this.getContentType();
+            MDCoverageContentTypeCodePropertyType rhsField;
+            rhsField = that.getContentType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contentType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contentType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

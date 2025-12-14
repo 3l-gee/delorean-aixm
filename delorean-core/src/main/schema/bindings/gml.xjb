@@ -12,7 +12,7 @@
 
 	<jaxb:bindings schemaLocation="../gml/3.2.1/basicTypes.xsd" node="/xs:schema">
 		<jaxb:bindings node="//xs:complexType[@name='CodeType']">
-			<hj:embeddable/>
+			<hj:mapped-superclass/>
 		</jaxb:bindings>
 		<jaxb:bindings node="//xs:complexType[@name='CodeWithAuthorityType']">
 			<hj:embeddable/>

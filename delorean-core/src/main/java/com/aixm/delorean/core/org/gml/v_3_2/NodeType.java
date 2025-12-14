@@ -235,19 +235,6 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointProperty();
-            boolean rhsFieldIsSet = that.isSetPointProperty();
-            PointPropertyType lhsField;
-            lhsField = this.getPointProperty();
-            PointPropertyType rhsField;
-            rhsField = that.getPointProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDirectedEdge();
             boolean rhsFieldIsSet = that.isSetDirectedEdge();
             List<DirectedEdgePropertyType> lhsField;
@@ -256,6 +243,19 @@ public class NodeType extends AbstractTopoPrimitiveType implements Serializable 
             rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
+            PointPropertyType lhsField;
+            lhsField = this.getPointProperty();
+            PointPropertyType rhsField;
+            rhsField = that.getPointProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

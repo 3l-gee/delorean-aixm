@@ -141,19 +141,6 @@ public class MDMetadataExtensionInformationType extends AbstractObjectType imple
         }
         final MDMetadataExtensionInformationType that = ((MDMetadataExtensionInformationType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExtendedElementInformation();
-            boolean rhsFieldIsSet = that.isSetExtendedElementInformation();
-            List<MDExtendedElementInformationPropertyType> lhsField;
-            lhsField = (this.isSetExtendedElementInformation() ? this.getExtendedElementInformation() : null);
-            List<MDExtendedElementInformationPropertyType> rhsField;
-            rhsField = (that.isSetExtendedElementInformation() ? that.getExtendedElementInformation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedElementInformation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedElementInformation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetExtensionOnLineResource();
             boolean rhsFieldIsSet = that.isSetExtensionOnLineResource();
             CIOnlineResourcePropertyType lhsField;
@@ -162,6 +149,19 @@ public class MDMetadataExtensionInformationType extends AbstractObjectType imple
             rhsField = that.getExtensionOnLineResource();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extensionOnLineResource", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extensionOnLineResource", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtendedElementInformation();
+            boolean rhsFieldIsSet = that.isSetExtendedElementInformation();
+            List<MDExtendedElementInformationPropertyType> lhsField;
+            lhsField = (this.isSetExtendedElementInformation() ? this.getExtendedElementInformation() : null);
+            List<MDExtendedElementInformationPropertyType> rhsField;
+            rhsField = (that.isSetExtendedElementInformation() ? that.getExtendedElementInformation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extendedElementInformation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extendedElementInformation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -10,6 +10,8 @@ import com.aixm.delorean.core.xml.XmlBindingService;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.time.Instant;
+
 
 /*
 Simple lifecycle test for AIXM 5.1.1 Delorean container 
@@ -125,7 +127,7 @@ public class SimpleAixm511E2E {
     void databaseExtract() {
 
         // do
-        container.extract(1);
+        container.predicate();
 
         // check that
     }

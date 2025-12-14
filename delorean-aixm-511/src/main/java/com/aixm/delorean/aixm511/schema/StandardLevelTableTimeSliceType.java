@@ -298,19 +298,6 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStandardICAO();
-            boolean rhsFieldIsSet = that.isSetStandardICAO();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getStandardICAO();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getStandardICAO();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -319,6 +306,19 @@ public class StandardLevelTableTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStandardICAO();
+            boolean rhsFieldIsSet = that.isSetStandardICAO();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getStandardICAO();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getStandardICAO();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "standardICAO", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "standardICAO", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

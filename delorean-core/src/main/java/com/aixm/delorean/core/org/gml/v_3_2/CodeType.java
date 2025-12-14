@@ -3,7 +3,7 @@ package com.aixm.delorean.core.org.gml.v_3_2;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -58,7 +58,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CodeType", propOrder = {"value"})
 @XmlSeeAlso({CodeWithAuthorityType.class, Category.class})
-@Embeddable
+@MappedSuperclass
 public class CodeType implements Serializable, Equals, HashCode, ToString {
 
     private static final long serialVersionUID = 20251104L;

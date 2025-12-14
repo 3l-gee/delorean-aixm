@@ -387,6 +387,19 @@ public class TaxiHoldingPositionMarkingTimeSliceType extends AbstractAIXMTimeSli
         }
         final TaxiHoldingPositionMarkingTimeSliceType that = ((TaxiHoldingPositionMarkingTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TaxiHoldingPositionMarkingExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TaxiHoldingPositionMarkingExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetElement();
             boolean rhsFieldIsSet = that.isSetElement();
             List<MarkingElementPropertyType> lhsField;
@@ -395,32 +408,6 @@ public class TaxiHoldingPositionMarkingTimeSliceType extends AbstractAIXMTimeSli
             rhsField = (that.isSetElement() ? that.getElement() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "element", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "element", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkedTaxiHold();
-            boolean rhsFieldIsSet = that.isSetMarkedTaxiHold();
-            JAXBElement<TaxiHoldingPositionPropertyType> lhsField;
-            lhsField = this.getMarkedTaxiHold();
-            JAXBElement<TaxiHoldingPositionPropertyType> rhsField;
-            rhsField = that.getMarkedTaxiHold();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiHold", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiHold", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
-            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getMarkingICAOStandard();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getMarkingICAOStandard();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -439,14 +426,14 @@ public class TaxiHoldingPositionMarkingTimeSliceType extends AbstractAIXMTimeSli
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TaxiHoldingPositionMarkingExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TaxiHoldingPositionMarkingExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetMarkedTaxiHold();
+            boolean rhsFieldIsSet = that.isSetMarkedTaxiHold();
+            JAXBElement<TaxiHoldingPositionPropertyType> lhsField;
+            lhsField = this.getMarkedTaxiHold();
+            JAXBElement<TaxiHoldingPositionPropertyType> rhsField;
+            rhsField = that.getMarkedTaxiHold();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markedTaxiHold", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markedTaxiHold", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -460,6 +447,19 @@ public class TaxiHoldingPositionMarkingTimeSliceType extends AbstractAIXMTimeSli
             rhsField = that.getCondition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "condition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "condition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkingICAOStandard();
+            boolean rhsFieldIsSet = that.isSetMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getMarkingICAOStandard();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getMarkingICAOStandard();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markingICAOStandard", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markingICAOStandard", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

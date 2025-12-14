@@ -162,14 +162,14 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
         }
         final ProjectedCRSType that = ((ProjectedCRSType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCartesianCS();
-            boolean rhsFieldIsSet = that.isSetCartesianCS();
-            JAXBElement<CartesianCSPropertyType> lhsField;
-            lhsField = this.getCartesianCS();
-            JAXBElement<CartesianCSPropertyType> rhsField;
-            rhsField = that.getCartesianCS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
+            boolean lhsFieldIsSet = this.isSetBaseGeodeticCRS();
+            boolean rhsFieldIsSet = that.isSetBaseGeodeticCRS();
+            GeodeticCRSPropertyType lhsField;
+            lhsField = this.getBaseGeodeticCRS();
+            GeodeticCRSPropertyType rhsField;
+            rhsField = that.getBaseGeodeticCRS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeodeticCRS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeodeticCRS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -188,14 +188,14 @@ public class ProjectedCRSType extends AbstractGeneralDerivedCRSType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetBaseGeodeticCRS();
-            boolean rhsFieldIsSet = that.isSetBaseGeodeticCRS();
-            GeodeticCRSPropertyType lhsField;
-            lhsField = this.getBaseGeodeticCRS();
-            GeodeticCRSPropertyType rhsField;
-            rhsField = that.getBaseGeodeticCRS();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseGeodeticCRS", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseGeodeticCRS", rhsField);
+            boolean lhsFieldIsSet = this.isSetCartesianCS();
+            boolean rhsFieldIsSet = that.isSetCartesianCS();
+            JAXBElement<CartesianCSPropertyType> lhsField;
+            lhsField = this.getCartesianCS();
+            JAXBElement<CartesianCSPropertyType> rhsField;
+            rhsField = that.getCartesianCS();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "cartesianCS", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "cartesianCS", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

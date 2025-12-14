@@ -144,19 +144,6 @@ public class TimeCoordinateSystemType extends TimeReferenceSystemType implements
         }
         final TimeCoordinateSystemType that = ((TimeCoordinateSystemType) object);
         {
-            boolean lhsFieldIsSet = this.isSetInterval();
-            boolean rhsFieldIsSet = that.isSetInterval();
-            TimeIntervalLengthType lhsField;
-            lhsField = this.getInterval();
-            TimeIntervalLengthType rhsField;
-            rhsField = that.getInterval();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interval", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetOrigin();
             boolean rhsFieldIsSet = that.isSetOrigin();
             TimeInstantPropertyType lhsField;
@@ -165,6 +152,19 @@ public class TimeCoordinateSystemType extends TimeReferenceSystemType implements
             rhsField = that.getOrigin();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "origin", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "origin", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetInterval();
+            boolean rhsFieldIsSet = that.isSetInterval();
+            TimeIntervalLengthType lhsField;
+            lhsField = this.getInterval();
+            TimeIntervalLengthType rhsField;
+            rhsField = that.getInterval();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

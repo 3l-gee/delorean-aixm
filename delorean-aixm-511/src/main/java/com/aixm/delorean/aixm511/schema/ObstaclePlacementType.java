@@ -378,6 +378,19 @@ public class ObstaclePlacementType extends AbstractAIXMObjectType implements Ser
         }
         final ObstaclePlacementType that = ((ObstaclePlacementType) object);
         {
+            boolean lhsFieldIsSet = this.isSetObstacleBearing();
+            boolean rhsFieldIsSet = that.isSetObstacleBearing();
+            JAXBElement<ValBearingType> lhsField;
+            lhsField = this.getObstacleBearing();
+            JAXBElement<ValBearingType> rhsField;
+            rhsField = that.getObstacleBearing();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleBearing", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleBearing", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetObstaclePlacement();
             boolean rhsFieldIsSet = that.isSetObstaclePlacement();
             JAXBElement<CodeSideType> lhsField;
@@ -386,6 +399,32 @@ public class ObstaclePlacementType extends AbstractAIXMObjectType implements Ser
             rhsField = that.getObstaclePlacement();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstaclePlacement", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstaclePlacement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointType();
+            boolean rhsFieldIsSet = that.isSetPointType();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getPointType();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getPointType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointType", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -412,45 +451,6 @@ public class ObstaclePlacementType extends AbstractAIXMObjectType implements Ser
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetObstacleBearing();
-            boolean rhsFieldIsSet = that.isSetObstacleBearing();
-            JAXBElement<ValBearingType> lhsField;
-            lhsField = this.getObstacleBearing();
-            JAXBElement<ValBearingType> rhsField;
-            rhsField = that.getObstacleBearing();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "obstacleBearing", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "obstacleBearing", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointType();
-            boolean rhsFieldIsSet = that.isSetPointType();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getPointType();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getPointType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointType", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointType", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

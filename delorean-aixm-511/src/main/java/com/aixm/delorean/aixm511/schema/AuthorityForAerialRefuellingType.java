@@ -274,32 +274,6 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
         }
         final AuthorityForAerialRefuellingType that = ((AuthorityForAerialRefuellingType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
-            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType lhsField;
-            lhsField = this.getTheOrganisationAuthority();
-            OrganisationAuthorityPropertyType rhsField;
-            rhsField = that.getTheOrganisationAuthority();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeAuthorityType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeAuthorityType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -321,6 +295,32 @@ public class AuthorityForAerialRefuellingType extends AbstractAIXMObjectType imp
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeAuthorityType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeAuthorityType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheOrganisationAuthority();
+            boolean rhsFieldIsSet = that.isSetTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType lhsField;
+            lhsField = this.getTheOrganisationAuthority();
+            OrganisationAuthorityPropertyType rhsField;
+            rhsField = that.getTheOrganisationAuthority();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theOrganisationAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theOrganisationAuthority", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

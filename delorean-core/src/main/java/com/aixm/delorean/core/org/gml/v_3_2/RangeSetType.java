@@ -324,19 +324,6 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetValueArray();
-            boolean rhsFieldIsSet = that.isSetValueArray();
-            List<ValueArrayType> lhsField;
-            lhsField = (this.isSetValueArray() ? this.getValueArray() : null);
-            List<ValueArrayType> rhsField;
-            rhsField = (that.isSetValueArray() ? that.getValueArray() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDataBlock();
             boolean rhsFieldIsSet = that.isSetDataBlock();
             DataBlockType lhsField;
@@ -345,6 +332,19 @@ public class RangeSetType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getDataBlock();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dataBlock", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dataBlock", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetValueArray();
+            boolean rhsFieldIsSet = that.isSetValueArray();
+            List<ValueArrayType> lhsField;
+            lhsField = (this.isSetValueArray() ? this.getValueArray() : null);
+            List<ValueArrayType> rhsField;
+            rhsField = (that.isSetValueArray() ? that.getValueArray() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "valueArray", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "valueArray", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

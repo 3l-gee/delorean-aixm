@@ -296,19 +296,6 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
         }
         final LandingTakeoffAreaCollectionType that = ((LandingTakeoffAreaCollectionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRunway();
-            boolean rhsFieldIsSet = that.isSetRunway();
-            List<RunwayDirectionPropertyType> lhsField;
-            lhsField = (this.isSetRunway() ? this.getRunway() : null);
-            List<RunwayDirectionPropertyType> rhsField;
-            rhsField = (that.isSetRunway() ? that.getRunway() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetTLOF();
             boolean rhsFieldIsSet = that.isSetTLOF();
             List<TouchDownLiftOffPropertyType> lhsField;
@@ -317,6 +304,19 @@ public class LandingTakeoffAreaCollectionType extends AbstractAIXMObjectType imp
             rhsField = (that.isSetTLOF() ? that.getTLOF() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "tlof", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "tlof", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRunway();
+            boolean rhsFieldIsSet = that.isSetRunway();
+            List<RunwayDirectionPropertyType> lhsField;
+            lhsField = (this.isSetRunway() ? this.getRunway() : null);
+            List<RunwayDirectionPropertyType> rhsField;
+            rhsField = (that.isSetRunway() ? that.getRunway() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "runway", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "runway", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

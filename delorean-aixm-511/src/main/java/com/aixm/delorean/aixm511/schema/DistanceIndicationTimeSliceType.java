@@ -640,19 +640,6 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
         }
         final DistanceIndicationTimeSliceType that = ((DistanceIndicationTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetMinimumReceptionAltitude();
-            boolean rhsFieldIsSet = that.isSetMinimumReceptionAltitude();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumReceptionAltitude();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumReceptionAltitude();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionAltitude", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionAltitude", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointChoicePosition();
             boolean rhsFieldIsSet = that.isSetPointChoicePosition();
             JAXBElement<AIXMPointPropertyType> lhsField;
@@ -666,14 +653,27 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeDistanceIndicationType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeDistanceIndicationType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetMinimumReceptionAltitude();
+            boolean rhsFieldIsSet = that.isSetMinimumReceptionAltitude();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumReceptionAltitude();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumReceptionAltitude();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumReceptionAltitude", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumReceptionAltitude", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointChoiceAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointChoiceAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -707,6 +707,47 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
+            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> lhsField;
+            lhsField = this.getPointChoiceFixDesignatedPoint();
+            JAXBElement<DesignatedPointPropertyType> rhsField;
+            rhsField = that.getPointChoiceFixDesignatedPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointChoiceNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointChoiceNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetExtension();
             boolean rhsFieldIsSet = that.isSetExtension();
             List<DistanceIndicationExtensionType> lhsField;
@@ -733,6 +774,19 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeDistanceIndicationType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeDistanceIndicationType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPointChoiceRunwayPoint();
             boolean rhsFieldIsSet = that.isSetPointChoiceRunwayPoint();
             JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
@@ -741,60 +795,6 @@ public class DistanceIndicationTimeSliceType extends AbstractAIXMTimeSliceType i
             rhsField = that.getPointChoiceRunwayPoint();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceRunwayPoint", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointChoiceNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointChoiceNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointChoiceAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointChoiceAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointChoiceFixDesignatedPoint();
-            boolean rhsFieldIsSet = that.isSetPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> lhsField;
-            lhsField = this.getPointChoiceFixDesignatedPoint();
-            JAXBElement<DesignatedPointPropertyType> rhsField;
-            rhsField = that.getPointChoiceFixDesignatedPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointChoiceFixDesignatedPoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointChoiceFixDesignatedPoint",
-                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -405,27 +405,27 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
         }
         final NavaidOperationalStatusType that = ((NavaidOperationalStatusType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetOperationalStatus();
+            boolean rhsFieldIsSet = that.isSetOperationalStatus();
+            JAXBElement<CodeStatusNavaidType> lhsField;
+            lhsField = this.getOperationalStatus();
+            JAXBElement<CodeStatusNavaidType> rhsField;
+            rhsField = that.getOperationalStatus();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<NavaidOperationalStatusTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<NavaidOperationalStatusTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -444,19 +444,6 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetOperationalStatus();
-            boolean rhsFieldIsSet = that.isSetOperationalStatus();
-            JAXBElement<CodeStatusNavaidType> lhsField;
-            lhsField = this.getOperationalStatus();
-            JAXBElement<CodeStatusNavaidType> rhsField;
-            rhsField = that.getOperationalStatus();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "operationalStatus", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "operationalStatus", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetSignalType();
             boolean rhsFieldIsSet = that.isSetSignalType();
             JAXBElement<CodeRadioSignalType> lhsField;
@@ -470,14 +457,27 @@ public class NavaidOperationalStatusType extends AbstractPropertiesWithScheduleT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<NavaidOperationalStatusTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<NavaidOperationalStatusTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -131,19 +131,6 @@ public class OrientableSurfaceType extends AbstractSurfaceType implements Serial
         }
         final OrientableSurfaceType that = ((OrientableSurfaceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrientation();
-            boolean rhsFieldIsSet = that.isSetOrientation();
-            SignType lhsField;
-            lhsField = this.getOrientation();
-            SignType rhsField;
-            rhsField = that.getOrientation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetBaseSurface();
             boolean rhsFieldIsSet = that.isSetBaseSurface();
             SurfacePropertyType lhsField;
@@ -152,6 +139,19 @@ public class OrientableSurfaceType extends AbstractSurfaceType implements Serial
             rhsField = that.getBaseSurface();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "baseSurface", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "baseSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrientation();
+            boolean rhsFieldIsSet = that.isSetOrientation();
+            SignType lhsField;
+            lhsField = this.getOrientation();
+            SignType rhsField;
+            rhsField = that.getOrientation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orientation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orientation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

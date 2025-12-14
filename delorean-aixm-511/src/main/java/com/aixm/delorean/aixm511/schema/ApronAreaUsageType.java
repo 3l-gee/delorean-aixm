@@ -413,27 +413,14 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContact();
-            boolean rhsFieldIsSet = that.isSetContact();
-            List<ContactInformationPropertyType> lhsField;
-            lhsField = (this.isSetContact() ? this.getContact() : null);
-            List<ContactInformationPropertyType> rhsField;
-            rhsField = (that.isSetContact() ? that.getContact() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSelection();
-            boolean rhsFieldIsSet = that.isSetSelection();
-            JAXBElement<ConditionCombinationPropertyType> lhsField;
-            lhsField = this.getSelection();
-            JAXBElement<ConditionCombinationPropertyType> rhsField;
-            rhsField = that.getSelection();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ApronAreaUsageTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ApronAreaUsageTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -465,14 +452,27 @@ public class ApronAreaUsageType extends AbstractUsageConditionType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ApronAreaUsageTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ApronAreaUsageTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetSelection();
+            boolean rhsFieldIsSet = that.isSetSelection();
+            JAXBElement<ConditionCombinationPropertyType> lhsField;
+            lhsField = this.getSelection();
+            JAXBElement<ConditionCombinationPropertyType> rhsField;
+            rhsField = that.getSelection();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "selection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "selection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContact();
+            boolean rhsFieldIsSet = that.isSetContact();
+            List<ContactInformationPropertyType> lhsField;
+            lhsField = (this.isSetContact() ? this.getContact() : null);
+            List<ContactInformationPropertyType> rhsField;
+            rhsField = (that.isSetContact() ? that.getContact() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contact", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contact", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

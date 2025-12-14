@@ -146,19 +146,6 @@ public class TopoCurveType extends AbstractTopologyType implements Serializable 
         }
         final TopoCurveType that = ((TopoCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirectedEdge();
-            boolean rhsFieldIsSet = that.isSetDirectedEdge();
-            List<DirectedEdgePropertyType> lhsField;
-            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
-            List<DirectedEdgePropertyType> rhsField;
-            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
@@ -167,6 +154,19 @@ public class TopoCurveType extends AbstractTopologyType implements Serializable 
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedEdge();
+            boolean rhsFieldIsSet = that.isSetDirectedEdge();
+            List<DirectedEdgePropertyType> lhsField;
+            lhsField = (this.isSetDirectedEdge() ? this.getDirectedEdge() : null);
+            List<DirectedEdgePropertyType> rhsField;
+            rhsField = (that.isSetDirectedEdge() ? that.getDirectedEdge() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedEdge", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedEdge", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

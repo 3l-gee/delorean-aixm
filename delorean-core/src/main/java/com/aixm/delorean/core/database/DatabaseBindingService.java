@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import com.aixm.delorean.core.log.ConsoleLogger;
 import com.aixm.delorean.core.log.LogLevel;
+import com.aixm.delorean.core.schema.a5_2.aixm.message.AIXMBasicMessageType;
+
 import org.hibernate.Transaction;
 
 import jakarta.persistence.Tuple;
@@ -16,13 +18,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.SQLException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import java.util.function.Function;
+import java.util.Arrays;
 
-import java.sql.SQLException;
 
 import com.aixm.delorean.core.DeloreanUtility;
 
@@ -289,9 +292,25 @@ public class DatabaseBindingService<ROOT, FEATURE> {
         }
     }
 
+    public Object predicateValidTimeslice(Class<ROOT> structure, Instant time) {
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("Sessionfactory is not init");
+        }
+
+        return this.databaseHelper.predicateValidTimeslice(this.sessionFactory, time);
+    }
+
     public void merge(Object object) {
         if (this.sessionFactory == null){
-            throw new IllegalArgumentException("sessionfactory is not init");
+            throw new IllegalArgumentException("Sessionfactory is not init");
+        }
+
+        this.databaseHelper.merge(this.sessionFactory, object);
+    }
+
+    public void integrate(Object object) {
+        if (this.sessionFactory == null){
+            throw new IllegalArgumentException("Sessionfactory is not init");
         }
 
         this.databaseHelper.merge(this.sessionFactory, object);

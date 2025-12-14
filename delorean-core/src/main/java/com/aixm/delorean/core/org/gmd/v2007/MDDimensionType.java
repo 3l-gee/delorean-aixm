@@ -145,14 +145,14 @@ public class MDDimensionType extends AbstractObjectType implements Serializable 
         }
         final MDDimensionType that = ((MDDimensionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetResolution();
-            boolean rhsFieldIsSet = that.isSetResolution();
-            MeasurePropertyType lhsField;
-            lhsField = this.getResolution();
-            MeasurePropertyType rhsField;
-            rhsField = that.getResolution();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
+            boolean lhsFieldIsSet = this.isSetDimensionSize();
+            boolean rhsFieldIsSet = that.isSetDimensionSize();
+            IntegerPropertyType lhsField;
+            lhsField = this.getDimensionSize();
+            IntegerPropertyType rhsField;
+            rhsField = that.getDimensionSize();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionSize", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionSize", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -171,14 +171,14 @@ public class MDDimensionType extends AbstractObjectType implements Serializable 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDimensionSize();
-            boolean rhsFieldIsSet = that.isSetDimensionSize();
-            IntegerPropertyType lhsField;
-            lhsField = this.getDimensionSize();
-            IntegerPropertyType rhsField;
-            rhsField = that.getDimensionSize();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dimensionSize", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dimensionSize", rhsField);
+            boolean lhsFieldIsSet = this.isSetResolution();
+            boolean rhsFieldIsSet = that.isSetResolution();
+            MeasurePropertyType lhsField;
+            lhsField = this.getResolution();
+            MeasurePropertyType rhsField;
+            rhsField = that.getResolution();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "resolution", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "resolution", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

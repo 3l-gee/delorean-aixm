@@ -22,6 +22,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 import org.jvnet.basicjaxb.lang.Equals;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCode;
@@ -66,6 +69,8 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AirportProtectionAreaMarkingTimeSlicePropertyType", propOrder = {
         "airportProtectionAreaMarkingTimeSlice"})
+@FilterDef(name = "TSPHjidFilter", parameters = {@ParamDef(name = "ids", type = Long.class)})
+@Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
 @Entity(name = "AirportProtectionAreaMarkingTimeSlicePropertyType")
 @Table(name = "airportprotectionareamarking_tsp", schema = "airport_heliport")
 public class AirportProtectionAreaMarkingTimeSlicePropertyType implements Serializable, Equals, HashCode, ToString {
@@ -76,9 +81,9 @@ public class AirportProtectionAreaMarkingTimeSlicePropertyType implements Serial
     @XmlAttribute(name = "owns")
     protected Boolean owns;
     @XmlTransient
-    protected Long hjid;
+    protected java.lang.Long hjid;
     @XmlTransient
-    protected Long hjversion;
+    protected java.lang.Long hjversion;
 
     /**
      * Gets the value of the airportProtectionAreaMarkingTimeSlice property.
@@ -149,14 +154,14 @@ public class AirportProtectionAreaMarkingTimeSlicePropertyType implements Serial
     /**
      *
      *
-     * @return possible object is {@link Long }
+     * @return possible object is {@link java.lang.Long }
      *
      */
     @Id
     @Column(name = "HJID")
     @GeneratedValue(generator = "delorean_seq_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "delorean_seq_gen", sequenceName = "delorean_seq_gen", allocationSize = 1)
-    public Long gethjid() {
+    public java.lang.Long gethjid() {
         return hjid;
     }
 
@@ -164,22 +169,22 @@ public class AirportProtectionAreaMarkingTimeSlicePropertyType implements Serial
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *            allowed object is {@link java.lang.Long }
      *
      */
-    public void sethjid(Long value) {
+    public void sethjid(java.lang.Long value) {
         this.hjid = value;
     }
 
     /**
      *
      *
-     * @return possible object is {@link Long }
+     * @return possible object is {@link java.lang.Long }
      *
      */
     @Version
     @Column(name = "hjversion")
-    public Long gethjversion() {
+    public java.lang.Long gethjversion() {
         return hjversion;
     }
 
@@ -187,10 +192,10 @@ public class AirportProtectionAreaMarkingTimeSlicePropertyType implements Serial
      *
      *
      * @param value
-     *            allowed object is {@link Long }
+     *            allowed object is {@link java.lang.Long }
      *
      */
-    public void sethjversion(Long value) {
+    public void sethjversion(java.lang.Long value) {
         this.hjversion = value;
     }
 

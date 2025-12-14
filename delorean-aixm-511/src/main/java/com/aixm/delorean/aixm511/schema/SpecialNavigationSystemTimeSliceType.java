@@ -383,27 +383,14 @@ public class SpecialNavigationSystemTimeSliceType extends AbstractAIXMTimeSliceT
         }
         final SpecialNavigationSystemTimeSliceType that = ((SpecialNavigationSystemTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
-            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
-            JAXBElement<AuthorityForSpecialNavigationSystemPropertyType> lhsField;
-            lhsField = this.getResponsibleOrganisation();
-            JAXBElement<AuthorityForSpecialNavigationSystemPropertyType> rhsField;
-            rhsField = that.getResponsibleOrganisation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeSpecialNavigationSystemType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeSpecialNavigationSystemType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -435,14 +422,27 @@ public class SpecialNavigationSystemTimeSliceType extends AbstractAIXMTimeSliceT
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeSpecialNavigationSystemType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeSpecialNavigationSystemType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            boolean lhsFieldIsSet = this.isSetResponsibleOrganisation();
+            boolean rhsFieldIsSet = that.isSetResponsibleOrganisation();
+            JAXBElement<AuthorityForSpecialNavigationSystemPropertyType> lhsField;
+            lhsField = this.getResponsibleOrganisation();
+            JAXBElement<AuthorityForSpecialNavigationSystemPropertyType> rhsField;
+            rhsField = that.getResponsibleOrganisation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "responsibleOrganisation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "responsibleOrganisation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeSpecialNavigationChainDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

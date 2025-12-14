@@ -171,19 +171,6 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString {
         }
         final FormulaType that = ((FormulaType) object);
         {
-            boolean lhsFieldIsSet = this.isSetA();
-            boolean rhsFieldIsSet = that.isSetA();
-            Double lhsField;
-            lhsField = this.getA();
-            Double rhsField;
-            rhsField = that.getA();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "a", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "a", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = true;
             boolean rhsFieldIsSet = true;
             double lhsField;
@@ -192,6 +179,19 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString {
             rhsField = that.getC();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "c", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "c", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = true;
+            boolean rhsFieldIsSet = true;
+            double lhsField;
+            lhsField = this.getB();
+            double rhsField;
+            rhsField = that.getB();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "b", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "b", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -210,14 +210,14 @@ public class FormulaType implements Serializable, Equals, HashCode, ToString {
             }
         }
         {
-            boolean lhsFieldIsSet = true;
-            boolean rhsFieldIsSet = true;
-            double lhsField;
-            lhsField = this.getB();
-            double rhsField;
-            rhsField = that.getB();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "b", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "b", rhsField);
+            boolean lhsFieldIsSet = this.isSetA();
+            boolean rhsFieldIsSet = that.isSetA();
+            Double lhsField;
+            lhsField = this.getA();
+            Double rhsField;
+            rhsField = that.getA();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "a", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "a", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -286,14 +286,14 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
-            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
-            SegmentLegPropertyType lhsField;
-            lhsField = this.getTheSegmentLeg();
-            SegmentLegPropertyType rhsField;
-            rhsField = that.getTheSegmentLeg();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<ProcedureTransitionLegTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<ProcedureTransitionLegTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -312,14 +312,14 @@ public class ProcedureTransitionLegType extends AbstractAIXMObjectType implement
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<ProcedureTransitionLegTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<ProcedureTransitionLegTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetTheSegmentLeg();
+            boolean rhsFieldIsSet = that.isSetTheSegmentLeg();
+            SegmentLegPropertyType lhsField;
+            lhsField = this.getTheSegmentLeg();
+            SegmentLegPropertyType rhsField;
+            rhsField = that.getTheSegmentLeg();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theSegmentLeg", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theSegmentLeg", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

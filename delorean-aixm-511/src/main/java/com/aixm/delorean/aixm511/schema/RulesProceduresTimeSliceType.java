@@ -435,27 +435,14 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
         }
         final RulesProceduresTimeSliceType that = ((RulesProceduresTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCategory();
-            boolean rhsFieldIsSet = that.isSetCategory();
-            JAXBElement<CodeRuleProcedureType> lhsField;
-            lhsField = this.getCategory();
-            JAXBElement<CodeRuleProcedureType> rhsField;
-            rhsField = that.getCategory();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<RulesProceduresExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<RulesProceduresExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAffectedArea();
+            boolean rhsFieldIsSet = that.isSetAffectedArea();
+            List<AirspacePropertyType> lhsField;
+            lhsField = (this.isSetAffectedArea() ? this.getAffectedArea() : null);
+            List<AirspacePropertyType> rhsField;
+            rhsField = (that.isSetAffectedArea() ? that.getAffectedArea() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedArea", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedArea", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -474,14 +461,27 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetTitle();
-            boolean rhsFieldIsSet = that.isSetTitle();
-            JAXBElement<CodeRuleProcedureTitleType> lhsField;
-            lhsField = this.getTitle();
-            JAXBElement<CodeRuleProcedureTitleType> rhsField;
-            rhsField = that.getTitle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
+            boolean lhsFieldIsSet = this.isSetContent();
+            boolean rhsFieldIsSet = that.isSetContent();
+            JAXBElement<XHTMLType> lhsField;
+            lhsField = this.getContent();
+            JAXBElement<XHTMLType> rhsField;
+            rhsField = that.getContent();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCategory();
+            boolean rhsFieldIsSet = that.isSetCategory();
+            JAXBElement<CodeRuleProcedureType> lhsField;
+            lhsField = this.getCategory();
+            JAXBElement<CodeRuleProcedureType> rhsField;
+            rhsField = that.getCategory();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "category", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "category", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -500,27 +500,27 @@ public class RulesProceduresTimeSliceType extends AbstractAIXMTimeSliceType impl
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAffectedArea();
-            boolean rhsFieldIsSet = that.isSetAffectedArea();
-            List<AirspacePropertyType> lhsField;
-            lhsField = (this.isSetAffectedArea() ? this.getAffectedArea() : null);
-            List<AirspacePropertyType> rhsField;
-            rhsField = (that.isSetAffectedArea() ? that.getAffectedArea() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "affectedArea", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "affectedArea", rhsField);
+            boolean lhsFieldIsSet = this.isSetTitle();
+            boolean rhsFieldIsSet = that.isSetTitle();
+            JAXBElement<CodeRuleProcedureTitleType> lhsField;
+            lhsField = this.getTitle();
+            JAXBElement<CodeRuleProcedureTitleType> rhsField;
+            rhsField = that.getTitle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "title", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "title", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetContent();
-            boolean rhsFieldIsSet = that.isSetContent();
-            JAXBElement<XHTMLType> lhsField;
-            lhsField = this.getContent();
-            JAXBElement<XHTMLType> rhsField;
-            rhsField = that.getContent();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "content", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "content", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<RulesProceduresExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<RulesProceduresExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -16,6 +16,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.annotations.Filter;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -58,6 +59,7 @@ public class SecondarySurveillanceRadarType extends AbstractSurveillanceRadarTyp
 
     private static final long serialVersionUID = 20251104L;
     @XmlElement(required = true)
+    @Filter(name = "TSPHjidFilter", condition = "hjid IN (:ids)")
     protected List<SecondarySurveillanceRadarTimeSlicePropertyType> timeSlice;
 
     /**

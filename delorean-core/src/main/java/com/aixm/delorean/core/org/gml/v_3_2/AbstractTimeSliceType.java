@@ -75,6 +75,10 @@ public abstract class AbstractTimeSliceType extends AbstractGMLType implements S
      *
      */
     @jakarta.persistence.Embedded
+    @jakarta.persistence.AttributeOverrides({
+            @jakarta.persistence.AttributeOverride(name = "beginPosition", column = @jakarta.persistence.Column(name = "valid_time_begin", columnDefinition = "TIMESTAMP")),
+            @jakarta.persistence.AttributeOverride(name = "endPosition", column = @jakarta.persistence.Column(name = "valid_time_end", columnDefinition = "TIMESTAMP")),
+            @jakarta.persistence.AttributeOverride(name = "timePeriodId", column = @jakarta.persistence.Column(name = "valid_time_id"))})
     public DeloreanTimeSliceType getValidTime() {
         return validTime;
     }

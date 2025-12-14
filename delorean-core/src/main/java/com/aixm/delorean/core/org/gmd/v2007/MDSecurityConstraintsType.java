@@ -187,14 +187,14 @@ public class MDSecurityConstraintsType extends MDConstraintsType implements Seri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetClassificationSystem();
-            boolean rhsFieldIsSet = that.isSetClassificationSystem();
+            boolean lhsFieldIsSet = this.isSetHandlingDescription();
+            boolean rhsFieldIsSet = that.isSetHandlingDescription();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getClassificationSystem();
+            lhsField = this.getHandlingDescription();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getClassificationSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
+            rhsField = that.getHandlingDescription();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -213,14 +213,14 @@ public class MDSecurityConstraintsType extends MDConstraintsType implements Seri
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetHandlingDescription();
-            boolean rhsFieldIsSet = that.isSetHandlingDescription();
+            boolean lhsFieldIsSet = this.isSetClassificationSystem();
+            boolean rhsFieldIsSet = that.isSetClassificationSystem();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getHandlingDescription();
+            lhsField = this.getClassificationSystem();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getHandlingDescription();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "handlingDescription", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "handlingDescription", rhsField);
+            rhsField = that.getClassificationSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "classificationSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "classificationSystem", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

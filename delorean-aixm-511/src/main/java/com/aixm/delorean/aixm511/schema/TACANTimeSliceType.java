@@ -843,53 +843,14 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
         }
         final TACANTimeSliceType that = ((TACANTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
-            lhsField = this.getLocation();
-            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDesignator();
-            boolean rhsFieldIsSet = that.isSetDesignator();
-            JAXBElement<CodeNavaidDesignatorType> lhsField;
-            lhsField = this.getDesignator();
-            JAXBElement<CodeNavaidDesignatorType> rhsField;
-            rhsField = that.getDesignator();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
-            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
-            JAXBElement<DateYearType> lhsField;
-            lhsField = this.getDateMagneticVariation();
-            JAXBElement<DateYearType> rhsField;
-            rhsField = that.getDateMagneticVariation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMonitoring();
-            boolean rhsFieldIsSet = that.isSetMonitoring();
-            List<NavaidEquipmentMonitoringPropertyType> lhsField;
-            lhsField = (this.isSetMonitoring() ? this.getMonitoring() : null);
-            List<NavaidEquipmentMonitoringPropertyType> rhsField;
-            rhsField = (that.isSetMonitoring() ? that.getMonitoring() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
+            boolean lhsFieldIsSet = this.isSetEmissionClass();
+            boolean rhsFieldIsSet = that.isSetEmissionClass();
+            JAXBElement<CodeRadioEmissionType> lhsField;
+            lhsField = this.getEmissionClass();
+            JAXBElement<CodeRadioEmissionType> rhsField;
+            rhsField = that.getEmissionClass();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -921,14 +882,27 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAvailability();
-            boolean rhsFieldIsSet = that.isSetAvailability();
-            List<NavaidOperationalStatusPropertyType> lhsField;
-            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
-            List<NavaidOperationalStatusPropertyType> rhsField;
-            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
+            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
+            JAXBElement<ValAngleType> lhsField;
+            lhsField = this.getMagneticVariationAccuracy();
+            JAXBElement<ValAngleType> rhsField;
+            rhsField = that.getMagneticVariationAccuracy();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDesignator();
+            boolean rhsFieldIsSet = that.isSetDesignator();
+            JAXBElement<CodeNavaidDesignatorType> lhsField;
+            lhsField = this.getDesignator();
+            JAXBElement<CodeNavaidDesignatorType> rhsField;
+            rhsField = that.getDesignator();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designator", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designator", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -947,32 +921,6 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDeclination();
-            boolean rhsFieldIsSet = that.isSetDeclination();
-            JAXBElement<ValMagneticVariationType> lhsField;
-            lhsField = this.getDeclination();
-            JAXBElement<ValMagneticVariationType> rhsField;
-            rhsField = that.getDeclination();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declination", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declination", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetEmissionClass();
-            boolean rhsFieldIsSet = that.isSetEmissionClass();
-            JAXBElement<CodeRadioEmissionType> lhsField;
-            lhsField = this.getEmissionClass();
-            JAXBElement<CodeRadioEmissionType> rhsField;
-            rhsField = that.getEmissionClass();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "emissionClass", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "emissionClass", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetChannel();
             boolean rhsFieldIsSet = that.isSetChannel();
             JAXBElement<CodeTACANChannelType> lhsField;
@@ -986,14 +934,66 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<TACANExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<TACANExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetAvailability();
+            boolean rhsFieldIsSet = that.isSetAvailability();
+            List<NavaidOperationalStatusPropertyType> lhsField;
+            lhsField = (this.isSetAvailability() ? this.getAvailability() : null);
+            List<NavaidOperationalStatusPropertyType> rhsField;
+            rhsField = (that.isSetAvailability() ? that.getAvailability() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "availability", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "availability", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightChecked();
+            boolean rhsFieldIsSet = that.isSetFlightChecked();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getFlightChecked();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getFlightChecked();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDeclination();
+            boolean rhsFieldIsSet = that.isSetDeclination();
+            JAXBElement<ValMagneticVariationType> lhsField;
+            lhsField = this.getDeclination();
+            JAXBElement<ValMagneticVariationType> rhsField;
+            rhsField = that.getDeclination();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "declination", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "declination", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDateMagneticVariation();
+            boolean rhsFieldIsSet = that.isSetDateMagneticVariation();
+            JAXBElement<DateYearType> lhsField;
+            lhsField = this.getDateMagneticVariation();
+            JAXBElement<DateYearType> rhsField;
+            rhsField = that.getDateMagneticVariation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "dateMagneticVariation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "dateMagneticVariation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMonitoring();
+            boolean rhsFieldIsSet = that.isSetMonitoring();
+            List<NavaidEquipmentMonitoringPropertyType> lhsField;
+            lhsField = (this.isSetMonitoring() ? this.getMonitoring() : null);
+            List<NavaidEquipmentMonitoringPropertyType> rhsField;
+            rhsField = (that.isSetMonitoring() ? that.getMonitoring() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "monitoring", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "monitoring", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1012,14 +1012,14 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMagneticVariationAccuracy();
-            boolean rhsFieldIsSet = that.isSetMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> lhsField;
-            lhsField = this.getMagneticVariationAccuracy();
-            JAXBElement<ValAngleType> rhsField;
-            rhsField = that.getMagneticVariationAccuracy();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "magneticVariationAccuracy", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "magneticVariationAccuracy", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<TACANExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<TACANExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1038,14 +1038,14 @@ public class TACANTimeSliceType extends AbstractAIXMTimeSliceType implements Ser
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightChecked();
-            boolean rhsFieldIsSet = that.isSetFlightChecked();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getFlightChecked();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getFlightChecked();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightChecked", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightChecked", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> lhsField;
+            lhsField = this.getLocation();
+            JAXBElement<AIXMElevatedPointPropertyType> rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

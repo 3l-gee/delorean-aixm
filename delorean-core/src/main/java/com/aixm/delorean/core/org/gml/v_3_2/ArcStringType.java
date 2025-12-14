@@ -213,6 +213,19 @@ public class ArcStringType extends AbstractCurveSegmentType implements Serializa
         }
         final ArcStringType that = ((ArcStringType) object);
         {
+            boolean lhsFieldIsSet = this.isSetNumArc();
+            boolean rhsFieldIsSet = that.isSetNumArc();
+            BigInteger lhsField;
+            lhsField = this.getNumArc();
+            BigInteger rhsField;
+            rhsField = that.getNumArc();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPosList();
             boolean rhsFieldIsSet = that.isSetPosList();
             DirectPositionListType lhsField;
@@ -249,19 +262,6 @@ public class ArcStringType extends AbstractCurveSegmentType implements Serializa
                     lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "posOrPointPropertyOrPointRep",
                     rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetNumArc();
-            boolean rhsFieldIsSet = that.isSetNumArc();
-            BigInteger lhsField;
-            lhsField = this.getNumArc();
-            BigInteger rhsField;
-            rhsField = that.getNumArc();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "numArc", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "numArc", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

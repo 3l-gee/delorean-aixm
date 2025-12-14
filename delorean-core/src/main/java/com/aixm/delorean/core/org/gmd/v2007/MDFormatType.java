@@ -255,19 +255,6 @@ public class MDFormatType extends AbstractObjectType implements Serializable {
         }
         final MDFormatType that = ((MDFormatType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecification();
-            boolean rhsFieldIsSet = that.isSetSpecification();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getSpecification();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getSpecification();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetFileDecompressionTechnique();
             boolean rhsFieldIsSet = that.isSetFileDecompressionTechnique();
             CharacterStringPropertyType lhsField;
@@ -294,14 +281,14 @@ public class MDFormatType extends AbstractObjectType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetVersion();
-            boolean rhsFieldIsSet = that.isSetVersion();
+            boolean lhsFieldIsSet = this.isSetSpecification();
+            boolean rhsFieldIsSet = that.isSetSpecification();
             CharacterStringPropertyType lhsField;
-            lhsField = this.getVersion();
+            lhsField = this.getSpecification();
             CharacterStringPropertyType rhsField;
-            rhsField = that.getVersion();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
+            rhsField = that.getSpecification();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specification", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specification", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -315,6 +302,19 @@ public class MDFormatType extends AbstractObjectType implements Serializable {
             rhsField = that.getName();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "name", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "name", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetVersion();
+            boolean rhsFieldIsSet = that.isSetVersion();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getVersion();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getVersion();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "version", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "version", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

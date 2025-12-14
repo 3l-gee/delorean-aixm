@@ -540,45 +540,6 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLighting();
-            boolean rhsFieldIsSet = that.isSetLighting();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getLighting();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getLighting();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
-            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
-            lhsField = this.getSurfaceProperties();
-            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
-            rhsField = that.getSurfaceProperties();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLength();
             boolean rhsFieldIsSet = that.isSetLength();
             JAXBElement<ValDistanceType> lhsField;
@@ -592,14 +553,14 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -626,6 +587,45 @@ public class TouchDownLiftOffSafeAreaTimeSliceType extends AbstractAIXMTimeSlice
             rhsField = that.getExtent();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extent", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extent", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSurfaceProperties();
+            boolean rhsFieldIsSet = that.isSetSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> lhsField;
+            lhsField = this.getSurfaceProperties();
+            JAXBElement<SurfaceCharacteristicsPropertyType> rhsField;
+            rhsField = that.getSurfaceProperties();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "surfaceProperties", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "surfaceProperties", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetLighting();
+            boolean rhsFieldIsSet = that.isSetLighting();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getLighting();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getLighting();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lighting", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lighting", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

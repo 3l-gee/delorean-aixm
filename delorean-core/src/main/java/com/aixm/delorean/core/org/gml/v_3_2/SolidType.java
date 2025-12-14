@@ -135,19 +135,6 @@ public class SolidType extends AbstractSolidType implements Serializable {
         }
         final SolidType that = ((SolidType) object);
         {
-            boolean lhsFieldIsSet = this.isSetExterior();
-            boolean rhsFieldIsSet = that.isSetExterior();
-            ShellPropertyType lhsField;
-            lhsField = this.getExterior();
-            ShellPropertyType rhsField;
-            rhsField = that.getExterior();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetInterior();
             boolean rhsFieldIsSet = that.isSetInterior();
             List<ShellPropertyType> lhsField;
@@ -156,6 +143,19 @@ public class SolidType extends AbstractSolidType implements Serializable {
             rhsField = (that.isSetInterior() ? that.getInterior() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "interior", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "interior", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExterior();
+            boolean rhsFieldIsSet = that.isSetExterior();
+            ShellPropertyType lhsField;
+            lhsField = this.getExterior();
+            ShellPropertyType rhsField;
+            rhsField = that.getExterior();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "exterior", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "exterior", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

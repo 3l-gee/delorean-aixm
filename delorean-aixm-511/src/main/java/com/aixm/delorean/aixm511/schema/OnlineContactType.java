@@ -492,27 +492,14 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
         }
         final OnlineContactType that = ((OnlineContactType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
-            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
-            List<OrganisationAuthorityPropertyType> lhsField;
-            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
-            List<OrganisationAuthorityPropertyType> rhsField;
-            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetTimeInterval();
-            boolean rhsFieldIsSet = that.isSetTimeInterval();
-            List<TimesheetPropertyType> lhsField;
-            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
-            List<TimesheetPropertyType> rhsField;
-            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -526,32 +513,6 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             rhsField = that.getLinkage();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "linkage", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "linkage", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetProtocol();
-            boolean rhsFieldIsSet = that.isSetProtocol();
-            JAXBElement<TextNameType> lhsField;
-            lhsField = this.getProtocol();
-            JAXBElement<TextNameType> rhsField;
-            rhsField = that.getProtocol();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<OnlineContactTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<OnlineContactTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -583,14 +544,53 @@ public class OnlineContactType extends AbstractPropertiesWithScheduleType implem
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            boolean lhsFieldIsSet = this.isSetTimeInterval();
+            boolean rhsFieldIsSet = that.isSetTimeInterval();
+            List<TimesheetPropertyType> lhsField;
+            lhsField = (this.isSetTimeInterval() ? this.getTimeInterval() : null);
+            List<TimesheetPropertyType> rhsField;
+            rhsField = (that.isSetTimeInterval() ? that.getTimeInterval() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "timeInterval", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "timeInterval", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<OnlineContactTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<OnlineContactTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpecialDateAuthority();
+            boolean rhsFieldIsSet = that.isSetSpecialDateAuthority();
+            List<OrganisationAuthorityPropertyType> lhsField;
+            lhsField = (this.isSetSpecialDateAuthority() ? this.getSpecialDateAuthority() : null);
+            List<OrganisationAuthorityPropertyType> rhsField;
+            rhsField = (that.isSetSpecialDateAuthority() ? that.getSpecialDateAuthority() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "specialDateAuthority", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "specialDateAuthority", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetProtocol();
+            boolean rhsFieldIsSet = that.isSetProtocol();
+            JAXBElement<TextNameType> lhsField;
+            lhsField = this.getProtocol();
+            JAXBElement<TextNameType> rhsField;
+            rhsField = that.getProtocol();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "protocol", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "protocol", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

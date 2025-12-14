@@ -359,45 +359,6 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
         }
         final NavaidComponentType that = ((NavaidComponentType) object);
         {
-            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
-            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
-            NavaidEquipmentPropertyType lhsField;
-            lhsField = this.getTheNavaidEquipment();
-            NavaidEquipmentPropertyType rhsField;
-            rhsField = that.getTheNavaidEquipment();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetCollocationGroup();
-            boolean rhsFieldIsSet = that.isSetCollocationGroup();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getCollocationGroup();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getCollocationGroup();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMarkerPosition();
-            boolean rhsFieldIsSet = that.isSetMarkerPosition();
-            JAXBElement<CodePositionInILSType> lhsField;
-            lhsField = this.getMarkerPosition();
-            JAXBElement<CodePositionInILSType> rhsField;
-            rhsField = that.getMarkerPosition();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -424,6 +385,32 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetCollocationGroup();
+            boolean rhsFieldIsSet = that.isSetCollocationGroup();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getCollocationGroup();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getCollocationGroup();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "collocationGroup", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "collocationGroup", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetTheNavaidEquipment();
+            boolean rhsFieldIsSet = that.isSetTheNavaidEquipment();
+            NavaidEquipmentPropertyType lhsField;
+            lhsField = this.getTheNavaidEquipment();
+            NavaidEquipmentPropertyType rhsField;
+            rhsField = that.getTheNavaidEquipment();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "theNavaidEquipment", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "theNavaidEquipment", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetProvidesNavigableLocation();
             boolean rhsFieldIsSet = that.isSetProvidesNavigableLocation();
             JAXBElement<CodeYesNoType> lhsField;
@@ -432,6 +419,19 @@ public class NavaidComponentType extends AbstractAIXMObjectType implements Seria
             rhsField = that.getProvidesNavigableLocation();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "providesNavigableLocation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "providesNavigableLocation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMarkerPosition();
+            boolean rhsFieldIsSet = that.isSetMarkerPosition();
+            JAXBElement<CodePositionInILSType> lhsField;
+            lhsField = this.getMarkerPosition();
+            JAXBElement<CodePositionInILSType> rhsField;
+            rhsField = that.getMarkerPosition();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "markerPosition", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "markerPosition", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

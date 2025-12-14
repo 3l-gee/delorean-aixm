@@ -194,32 +194,6 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
         }
         final DirectionDescriptionType that = ((DirectionDescriptionType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCompassPoint();
-            boolean rhsFieldIsSet = that.isSetCompassPoint();
-            CompassPointEnumeration lhsField;
-            lhsField = this.getCompassPoint();
-            CompassPointEnumeration rhsField;
-            rhsField = that.getCompassPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compassPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compassPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetReference();
-            boolean rhsFieldIsSet = that.isSetReference();
-            ReferenceType lhsField;
-            lhsField = this.getReference();
-            ReferenceType rhsField;
-            rhsField = that.getReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reference", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetKeyword();
             boolean rhsFieldIsSet = that.isSetKeyword();
             CodeType lhsField;
@@ -241,6 +215,32 @@ public class DirectionDescriptionType implements Serializable, Equals, HashCode,
             rhsField = that.getDescription();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "description", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "description", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCompassPoint();
+            boolean rhsFieldIsSet = that.isSetCompassPoint();
+            CompassPointEnumeration lhsField;
+            lhsField = this.getCompassPoint();
+            CompassPointEnumeration rhsField;
+            rhsField = that.getCompassPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "compassPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "compassPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetReference();
+            boolean rhsFieldIsSet = that.isSetReference();
+            ReferenceType lhsField;
+            lhsField = this.getReference();
+            ReferenceType rhsField;
+            rhsField = that.getReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "reference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "reference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

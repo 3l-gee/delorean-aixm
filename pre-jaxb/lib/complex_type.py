@@ -1,4 +1,4 @@
-from .annotation import Jaxb, HyperJAXB
+from .annotation import Jaxb, HyperJAXB, Annox
 from .view import View
 from .content import Content
 from .field_handler import FieldHandler
@@ -75,6 +75,10 @@ class ComplexType:
             node.append(HyperJAXB.embeddable_end())
             return node
         
+        if "TimeSlicePropertyType" in element.attrib.get("name"):
+            node.append(Annox.class_add(HyperJAXB.orm_tsp_filter_def()))
+            node.append(Annox.class_add(HyperJAXB.orm_tsp_filter()))
+
         Content.append_entity(element.attrib["name"])
         node.append(HyperJAXB.hj_entity_start())
         node.append(HyperJAXB.table(element.attrib["name"],schema, None, suffix))

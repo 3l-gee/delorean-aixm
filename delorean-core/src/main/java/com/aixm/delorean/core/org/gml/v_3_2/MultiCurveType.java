@@ -142,19 +142,6 @@ public class MultiCurveType extends AbstractGeometricAggregateType implements Se
         }
         final MultiCurveType that = ((MultiCurveType) object);
         {
-            boolean lhsFieldIsSet = this.isSetCurveMembers();
-            boolean rhsFieldIsSet = that.isSetCurveMembers();
-            CurveArrayPropertyType lhsField;
-            lhsField = this.getCurveMembers();
-            CurveArrayPropertyType rhsField;
-            rhsField = that.getCurveMembers();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMembers", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMembers", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetCurveMember();
             boolean rhsFieldIsSet = that.isSetCurveMember();
             List<CurvePropertyType> lhsField;
@@ -163,6 +150,19 @@ public class MultiCurveType extends AbstractGeometricAggregateType implements Se
             rhsField = (that.isSetCurveMember() ? that.getCurveMember() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMember", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMember", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCurveMembers();
+            boolean rhsFieldIsSet = that.isSetCurveMembers();
+            CurveArrayPropertyType lhsField;
+            lhsField = this.getCurveMembers();
+            CurveArrayPropertyType rhsField;
+            rhsField = that.getCurveMembers();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "curveMembers", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "curveMembers", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

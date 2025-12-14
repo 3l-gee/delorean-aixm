@@ -214,14 +214,14 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
         }
         final AffinePlacementType that = ((AffinePlacementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetRefDirection();
-            boolean rhsFieldIsSet = that.isSetRefDirection();
-            List<VectorType> lhsField;
-            lhsField = (this.isSetRefDirection() ? this.getRefDirection() : null);
-            List<VectorType> rhsField;
-            rhsField = (that.isSetRefDirection() ? that.getRefDirection() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            boolean lhsFieldIsSet = this.isSetLocation();
+            boolean rhsFieldIsSet = that.isSetLocation();
+            DirectPositionType lhsField;
+            lhsField = this.getLocation();
+            DirectPositionType rhsField;
+            rhsField = that.getLocation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -240,6 +240,19 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetRefDirection();
+            boolean rhsFieldIsSet = that.isSetRefDirection();
+            List<VectorType> lhsField;
+            lhsField = (this.isSetRefDirection() ? this.getRefDirection() : null);
+            List<VectorType> rhsField;
+            rhsField = (that.isSetRefDirection() ? that.getRefDirection() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "refDirection", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "refDirection", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetOutDimension();
             boolean rhsFieldIsSet = that.isSetOutDimension();
             BigInteger lhsField;
@@ -248,19 +261,6 @@ public class AffinePlacementType implements Serializable, Equals, HashCode, ToSt
             rhsField = that.getOutDimension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "outDimension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "outDimension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLocation();
-            boolean rhsFieldIsSet = that.isSetLocation();
-            DirectPositionType lhsField;
-            lhsField = this.getLocation();
-            DirectPositionType rhsField;
-            rhsField = that.getLocation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "location", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "location", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

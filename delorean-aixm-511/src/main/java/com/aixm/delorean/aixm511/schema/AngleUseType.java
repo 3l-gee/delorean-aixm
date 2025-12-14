@@ -270,19 +270,6 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
         }
         final AngleUseType that = ((AngleUseType) object);
         {
-            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
-            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> lhsField;
-            lhsField = this.getAlongCourseGuidance();
-            JAXBElement<CodeYesNoType> rhsField;
-            rhsField = that.getAlongCourseGuidance();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -317,6 +304,19 @@ public class AngleUseType extends AbstractAIXMObjectType implements Serializable
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAlongCourseGuidance();
+            boolean rhsFieldIsSet = that.isSetAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> lhsField;
+            lhsField = this.getAlongCourseGuidance();
+            JAXBElement<CodeYesNoType> rhsField;
+            rhsField = that.getAlongCourseGuidance();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "alongCourseGuidance", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "alongCourseGuidance", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

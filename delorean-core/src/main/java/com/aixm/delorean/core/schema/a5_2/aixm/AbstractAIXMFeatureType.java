@@ -23,6 +23,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 import org.jvnet.basicjaxb.lang.EqualsStrategy;
 import org.jvnet.basicjaxb.lang.HashCodeStrategy;
 import org.jvnet.basicjaxb.lang.ToStringStrategy;
@@ -58,7 +62,7 @@ import org.jvnet.basicjaxb.locator.util.LocatorUtils;
 @XmlSeeAlso({
     DMEType.class
 })
-@Entity(name = "AbstractAIXMFeatureType")
+@FilterDef( name = "hjidFilter", parameters = @ParamDef(name = "ids", type = Long.class) ) 
 @Table(name = "abstract_aixm_feature", schema = "public")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class AbstractAIXMFeatureType

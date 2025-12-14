@@ -279,6 +279,21 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
         }
         final AircraftGroundServiceExtensionType that = ((AircraftGroundServiceExtensionType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAbstractAircraftGroundServiceExtension();
+            boolean rhsFieldIsSet = that.isSetAbstractAircraftGroundServiceExtension();
+            AbstractExtensionType lhsField;
+            lhsField = this.getAbstractAircraftGroundServiceExtension();
+            AbstractExtensionType rhsField;
+            rhsField = that.getAbstractAircraftGroundServiceExtension();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAircraftGroundServiceExtension",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAircraftGroundServiceExtension",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAbstractServiceExtension();
             boolean rhsFieldIsSet = that.isSetAbstractServiceExtension();
             AbstractExtensionType lhsField;
@@ -287,19 +302,6 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
             rhsField = that.getAbstractServiceExtension();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractServiceExtension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractServiceExtension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetOwns();
-            boolean rhsFieldIsSet = that.isSetOwns();
-            boolean lhsField;
-            lhsField = (this.isSetOwns() ? this.getOwns() : false);
-            boolean rhsField;
-            rhsField = (that.isSetOwns() ? that.getOwns() : false);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -320,16 +322,14 @@ public class AircraftGroundServiceExtensionType implements Serializable, Equals,
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAbstractAircraftGroundServiceExtension();
-            boolean rhsFieldIsSet = that.isSetAbstractAircraftGroundServiceExtension();
-            AbstractExtensionType lhsField;
-            lhsField = this.getAbstractAircraftGroundServiceExtension();
-            AbstractExtensionType rhsField;
-            rhsField = that.getAbstractAircraftGroundServiceExtension();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "abstractAircraftGroundServiceExtension",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "abstractAircraftGroundServiceExtension",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetOwns();
+            boolean rhsFieldIsSet = that.isSetOwns();
+            boolean lhsField;
+            lhsField = (this.isSetOwns() ? this.getOwns() : false);
+            boolean rhsField;
+            rhsField = (that.isSetOwns() ? that.getOwns() : false);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "owns", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "owns", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

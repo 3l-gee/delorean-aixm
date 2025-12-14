@@ -174,6 +174,19 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
         }
         final MDStandardOrderProcessType that = ((MDStandardOrderProcessType) object);
         {
+            boolean lhsFieldIsSet = this.isSetFees();
+            boolean rhsFieldIsSet = that.isSetFees();
+            CharacterStringPropertyType lhsField;
+            lhsField = this.getFees();
+            CharacterStringPropertyType rhsField;
+            rhsField = that.getFees();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fees", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fees", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetPlannedAvailableDateTime();
             boolean rhsFieldIsSet = that.isSetPlannedAvailableDateTime();
             DateTimePropertyType lhsField;
@@ -195,19 +208,6 @@ public class MDStandardOrderProcessType extends AbstractObjectType implements Se
             rhsField = that.getOrderingInstructions();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderingInstructions", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderingInstructions", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetFees();
-            boolean rhsFieldIsSet = that.isSetFees();
-            CharacterStringPropertyType lhsField;
-            lhsField = this.getFees();
-            CharacterStringPropertyType rhsField;
-            rhsField = that.getFees();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "fees", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "fees", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

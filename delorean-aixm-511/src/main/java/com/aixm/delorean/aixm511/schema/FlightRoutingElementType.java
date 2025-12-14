@@ -1009,14 +1009,27 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
         }
         final FlightRoutingElementType that = ((FlightRoutingElementType) object);
         {
-            boolean lhsFieldIsSet = this.isSetOrderNumber();
-            boolean rhsFieldIsSet = that.isSetOrderNumber();
-            JAXBElement<NoSequenceType> lhsField;
-            lhsField = this.getOrderNumber();
-            JAXBElement<NoSequenceType> rhsField;
-            rhsField = that.getOrderNumber();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderNumber", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderNumber", rhsField);
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<FlightRoutingElementTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<FlightRoutingElementTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetFlightLevel();
+            boolean rhsFieldIsSet = that.isSetFlightLevel();
+            List<FlightRestrictionLevelPropertyType> lhsField;
+            lhsField = (this.isSetFlightLevel() ? this.getFlightLevel() : null);
+            List<FlightRestrictionLevelPropertyType> rhsField;
+            rhsField = (that.isSetFlightLevel() ? that.getFlightLevel() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1035,73 +1048,6 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElementAirspaceElement();
-            boolean rhsFieldIsSet = that.isSetElementAirspaceElement();
-            JAXBElement<AirspacePropertyType> lhsField;
-            lhsField = this.getElementAirspaceElement();
-            JAXBElement<AirspacePropertyType> rhsField;
-            rhsField = that.getElementAirspaceElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirspaceElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirspaceElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementNavaidSystem();
-            boolean rhsFieldIsSet = that.isSetPointElementNavaidSystem();
-            JAXBElement<NavaidPropertyType> lhsField;
-            lhsField = this.getPointElementNavaidSystem();
-            JAXBElement<NavaidPropertyType> rhsField;
-            rhsField = that.getPointElementNavaidSystem();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementNavaidSystem", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementNavaidSystem", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementAerialRefuellingElement();
-            boolean rhsFieldIsSet = that.isSetElementAerialRefuellingElement();
-            JAXBElement<AerialRefuellingPropertyType> lhsField;
-            lhsField = this.getElementAerialRefuellingElement();
-            JAXBElement<AerialRefuellingPropertyType> rhsField;
-            rhsField = that.getElementAerialRefuellingElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAerialRefuellingElement",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAerialRefuellingElement",
-                    rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetElementDirectFlightElement();
-            boolean rhsFieldIsSet = that.isSetElementDirectFlightElement();
-            JAXBElement<DirectFlightSegmentPropertyType> lhsField;
-            lhsField = this.getElementDirectFlightElement();
-            JAXBElement<DirectFlightSegmentPropertyType> rhsField;
-            rhsField = that.getElementDirectFlightElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementDirectFlightElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementDirectFlightElement", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetPointElementPosition();
             boolean rhsFieldIsSet = that.isSetPointElementPosition();
             JAXBElement<AIXMPointPropertyType> lhsField;
@@ -1110,6 +1056,19 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             rhsField = that.getPointElementPosition();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementPosition", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementPosition", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementAirspaceElement();
+            boolean rhsFieldIsSet = that.isSetElementAirspaceElement();
+            JAXBElement<AirspacePropertyType> lhsField;
+            lhsField = this.getElementAirspaceElement();
+            JAXBElement<AirspacePropertyType> rhsField;
+            rhsField = that.getElementAirspaceElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAirspaceElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAirspaceElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1128,16 +1087,27 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetPointElementAirportReferencePoint();
-            boolean rhsFieldIsSet = that.isSetPointElementAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> lhsField;
-            lhsField = this.getPointElementAirportReferencePoint();
-            JAXBElement<AirportHeliportPropertyType> rhsField;
-            rhsField = that.getPointElementAirportReferencePoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAirportReferencePoint",
-                    lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAirportReferencePoint",
-                    rhsField);
+            boolean lhsFieldIsSet = this.isSetPointElementNavaidSystem();
+            boolean rhsFieldIsSet = that.isSetPointElementNavaidSystem();
+            JAXBElement<NavaidPropertyType> lhsField;
+            lhsField = this.getPointElementNavaidSystem();
+            JAXBElement<NavaidPropertyType> rhsField;
+            rhsField = that.getPointElementNavaidSystem();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementNavaidSystem", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementNavaidSystem", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetOrderNumber();
+            boolean rhsFieldIsSet = that.isSetOrderNumber();
+            JAXBElement<NoSequenceType> lhsField;
+            lhsField = this.getOrderNumber();
+            JAXBElement<NoSequenceType> rhsField;
+            rhsField = that.getOrderNumber();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "orderNumber", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "orderNumber", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1158,53 +1128,16 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeed();
-            boolean rhsFieldIsSet = that.isSetSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementAimingPoint();
-            boolean rhsFieldIsSet = that.isSetPointElementAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
-            lhsField = this.getPointElementAimingPoint();
-            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
-            rhsField = that.getPointElementAimingPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAimingPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAimingPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointElementRunwayPoint();
-            boolean rhsFieldIsSet = that.isSetPointElementRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
-            lhsField = this.getPointElementRunwayPoint();
-            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
-            rhsField = that.getPointElementRunwayPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementRunwayPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementRunwayPoint", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<FlightRoutingElementTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<FlightRoutingElementTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentDepartureElement();
+            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentDepartureElement();
+            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
+            lhsField = this.getElementStandardInstrumentDepartureElement();
+            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
+            rhsField = that.getElementStandardInstrumentDepartureElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
+                    "elementStandardInstrumentDepartureElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
+                    "elementStandardInstrumentDepartureElement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1225,29 +1158,55 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetFlightLevel();
-            boolean rhsFieldIsSet = that.isSetFlightLevel();
-            List<FlightRestrictionLevelPropertyType> lhsField;
-            lhsField = (this.isSetFlightLevel() ? this.getFlightLevel() : null);
-            List<FlightRestrictionLevelPropertyType> rhsField;
-            rhsField = (that.isSetFlightLevel() ? that.getFlightLevel() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "flightLevel", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "flightLevel", rhsField);
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetElementStandardInstrumentDepartureElement();
-            boolean rhsFieldIsSet = that.isSetElementStandardInstrumentDepartureElement();
-            JAXBElement<StandardInstrumentDeparturePropertyType> lhsField;
-            lhsField = this.getElementStandardInstrumentDepartureElement();
-            JAXBElement<StandardInstrumentDeparturePropertyType> rhsField;
-            rhsField = that.getElementStandardInstrumentDepartureElement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator,
-                    "elementStandardInstrumentDepartureElement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator,
-                    "elementStandardInstrumentDepartureElement", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeedCriteria();
+            boolean rhsFieldIsSet = that.isSetSpeedCriteria();
+            JAXBElement<CodeComparisonType> lhsField;
+            lhsField = this.getSpeedCriteria();
+            JAXBElement<CodeComparisonType> rhsField;
+            rhsField = that.getSpeedCriteria();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedCriteria", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedCriteria", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementAerialRefuellingElement();
+            boolean rhsFieldIsSet = that.isSetElementAerialRefuellingElement();
+            JAXBElement<AerialRefuellingPropertyType> lhsField;
+            lhsField = this.getElementAerialRefuellingElement();
+            JAXBElement<AerialRefuellingPropertyType> rhsField;
+            rhsField = that.getElementAerialRefuellingElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementAerialRefuellingElement",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementAerialRefuellingElement",
+                    rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSpeed();
+            boolean rhsFieldIsSet = that.isSetSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -1268,14 +1227,55 @@ public class FlightRoutingElementType extends AbstractAIXMObjectType implements 
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetSpeedCriteria();
-            boolean rhsFieldIsSet = that.isSetSpeedCriteria();
-            JAXBElement<CodeComparisonType> lhsField;
-            lhsField = this.getSpeedCriteria();
-            JAXBElement<CodeComparisonType> rhsField;
-            rhsField = that.getSpeedCriteria();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speedCriteria", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speedCriteria", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointElementRunwayPoint();
+            boolean rhsFieldIsSet = that.isSetPointElementRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> lhsField;
+            lhsField = this.getPointElementRunwayPoint();
+            JAXBElement<RunwayCentrelinePointPropertyType> rhsField;
+            rhsField = that.getPointElementRunwayPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementRunwayPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementRunwayPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementAimingPoint();
+            boolean rhsFieldIsSet = that.isSetPointElementAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> lhsField;
+            lhsField = this.getPointElementAimingPoint();
+            JAXBElement<TouchDownLiftOffPropertyType> rhsField;
+            rhsField = that.getPointElementAimingPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAimingPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAimingPoint", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetElementDirectFlightElement();
+            boolean rhsFieldIsSet = that.isSetElementDirectFlightElement();
+            JAXBElement<DirectFlightSegmentPropertyType> lhsField;
+            lhsField = this.getElementDirectFlightElement();
+            JAXBElement<DirectFlightSegmentPropertyType> rhsField;
+            rhsField = that.getElementDirectFlightElement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "elementDirectFlightElement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "elementDirectFlightElement", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointElementAirportReferencePoint();
+            boolean rhsFieldIsSet = that.isSetPointElementAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> lhsField;
+            lhsField = this.getPointElementAirportReferencePoint();
+            JAXBElement<AirportHeliportPropertyType> rhsField;
+            rhsField = that.getPointElementAirportReferencePoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointElementAirportReferencePoint",
+                    lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointElementAirportReferencePoint",
+                    rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

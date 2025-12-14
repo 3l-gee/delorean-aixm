@@ -148,19 +148,6 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
         }
         final TopoVolumeType that = ((TopoVolumeType) object);
         {
-            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
-            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
-            List<DirectedTopoSolidPropertyType> lhsField;
-            lhsField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
-            List<DirectedTopoSolidPropertyType> rhsField;
-            rhsField = (that.isSetDirectedTopoSolid() ? that.getDirectedTopoSolid() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetAggregationType();
             boolean rhsFieldIsSet = that.isSetAggregationType();
             AggregationType lhsField;
@@ -169,6 +156,19 @@ public class TopoVolumeType extends AbstractTopologyType implements Serializable
             rhsField = that.getAggregationType();
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "aggregationType", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "aggregationType", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetDirectedTopoSolid();
+            boolean rhsFieldIsSet = that.isSetDirectedTopoSolid();
+            List<DirectedTopoSolidPropertyType> lhsField;
+            lhsField = (this.isSetDirectedTopoSolid() ? this.getDirectedTopoSolid() : null);
+            List<DirectedTopoSolidPropertyType> rhsField;
+            rhsField = (that.isSetDirectedTopoSolid() ? that.getDirectedTopoSolid() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "directedTopoSolid", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "directedTopoSolid", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

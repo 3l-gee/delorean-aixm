@@ -377,14 +377,14 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
         }
         final ApproachTimingTableType that = ((ApproachTimingTableType) object);
         {
-            boolean lhsFieldIsSet = this.isSetSpeed();
-            boolean rhsFieldIsSet = that.isSetSpeed();
-            JAXBElement<ValSpeedType> lhsField;
-            lhsField = this.getSpeed();
-            JAXBElement<ValSpeedType> rhsField;
-            rhsField = that.getSpeed();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
+            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
+            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> lhsField;
+            lhsField = this.getStartingMeasurementPoint();
+            JAXBElement<CodeProcedureDistanceType> rhsField;
+            rhsField = that.getStartingMeasurementPoint();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -429,14 +429,14 @@ public class ApproachTimingTableType extends AbstractAIXMObjectType implements S
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetStartingMeasurementPoint();
-            boolean rhsFieldIsSet = that.isSetStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> lhsField;
-            lhsField = this.getStartingMeasurementPoint();
-            JAXBElement<CodeProcedureDistanceType> rhsField;
-            rhsField = that.getStartingMeasurementPoint();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startingMeasurementPoint", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startingMeasurementPoint", rhsField);
+            boolean lhsFieldIsSet = this.isSetSpeed();
+            boolean rhsFieldIsSet = that.isSetSpeed();
+            JAXBElement<ValSpeedType> lhsField;
+            lhsField = this.getSpeed();
+            JAXBElement<ValSpeedType> rhsField;
+            rhsField = that.getSpeed();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "speed", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "speed", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

@@ -236,19 +236,6 @@ public class GridType extends AbstractGeometryType implements Serializable {
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetAxisName();
-            boolean rhsFieldIsSet = that.isSetAxisName();
-            List<String> lhsField;
-            lhsField = (this.isSetAxisName() ? this.getAxisName() : null);
-            List<String> rhsField;
-            rhsField = (that.isSetAxisName() ? that.getAxisName() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetDimension();
             boolean rhsFieldIsSet = that.isSetDimension();
             BigInteger lhsField;
@@ -270,6 +257,19 @@ public class GridType extends AbstractGeometryType implements Serializable {
             rhsField = (that.isSetGridAxisLabels() ? that.getGridAxisLabels() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "gridAxisLabels", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "gridAxisLabels", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetAxisName();
+            boolean rhsFieldIsSet = that.isSetAxisName();
+            List<String> lhsField;
+            lhsField = (this.isSetAxisName() ? this.getAxisName() : null);
+            List<String> rhsField;
+            rhsField = (that.isSetAxisName() ? that.getAxisName() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "axisName", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "axisName", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

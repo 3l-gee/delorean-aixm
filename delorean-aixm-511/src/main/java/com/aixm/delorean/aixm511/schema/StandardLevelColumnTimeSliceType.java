@@ -429,14 +429,27 @@ public class StandardLevelColumnTimeSliceType extends AbstractAIXMTimeSliceType 
         }
         final StandardLevelColumnTimeSliceType that = ((StandardLevelColumnTimeSliceType) object);
         {
-            boolean lhsFieldIsSet = this.isSetUnitOfMeasurement();
-            boolean rhsFieldIsSet = that.isSetUnitOfMeasurement();
-            JAXBElement<String> lhsField;
-            lhsField = this.getUnitOfMeasurement();
-            JAXBElement<String> rhsField;
-            rhsField = that.getUnitOfMeasurement();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitOfMeasurement", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitOfMeasurement", rhsField);
+            boolean lhsFieldIsSet = this.isSetLevel();
+            boolean rhsFieldIsSet = that.isSetLevel();
+            List<StandardLevelPropertyType> lhsField;
+            lhsField = (this.isSetLevel() ? this.getLevel() : null);
+            List<StandardLevelPropertyType> rhsField;
+            rhsField = (that.isSetLevel() ? that.getLevel() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeries();
+            boolean rhsFieldIsSet = that.isSetSeries();
+            JAXBElement<CodeLevelSeriesType> lhsField;
+            lhsField = this.getSeries();
+            JAXBElement<CodeLevelSeriesType> rhsField;
+            rhsField = that.getSeries();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -450,6 +463,32 @@ public class StandardLevelColumnTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = (that.isSetExtension() ? that.getExtension() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetSeparation();
+            boolean rhsFieldIsSet = that.isSetSeparation();
+            JAXBElement<CodeRVSMType> lhsField;
+            lhsField = this.getSeparation();
+            JAXBElement<CodeRVSMType> rhsField;
+            rhsField = that.getSeparation();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "separation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "separation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUnitOfMeasurement();
+            boolean rhsFieldIsSet = that.isSetUnitOfMeasurement();
+            JAXBElement<String> lhsField;
+            lhsField = this.getUnitOfMeasurement();
+            JAXBElement<String> rhsField;
+            rhsField = that.getUnitOfMeasurement();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "unitOfMeasurement", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "unitOfMeasurement", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -476,45 +515,6 @@ public class StandardLevelColumnTimeSliceType extends AbstractAIXMTimeSliceType 
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetLevel();
-            boolean rhsFieldIsSet = that.isSetLevel();
-            List<StandardLevelPropertyType> lhsField;
-            lhsField = (this.isSetLevel() ? this.getLevel() : null);
-            List<StandardLevelPropertyType> rhsField;
-            rhsField = (that.isSetLevel() ? that.getLevel() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "level", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "level", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSeparation();
-            boolean rhsFieldIsSet = that.isSetSeparation();
-            JAXBElement<CodeRVSMType> lhsField;
-            lhsField = this.getSeparation();
-            JAXBElement<CodeRVSMType> rhsField;
-            rhsField = that.getSeparation();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "separation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "separation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetSeries();
-            boolean rhsFieldIsSet = that.isSetSeries();
-            JAXBElement<CodeLevelSeriesType> lhsField;
-            lhsField = this.getSeries();
-            JAXBElement<CodeLevelSeriesType> rhsField;
-            rhsField = that.getSeries();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "series", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "series", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

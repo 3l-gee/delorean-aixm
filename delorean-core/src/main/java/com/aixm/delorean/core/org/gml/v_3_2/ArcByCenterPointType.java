@@ -306,27 +306,14 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
         }
         final ArcByCenterPointType that = ((ArcByCenterPointType) object);
         {
-            boolean lhsFieldIsSet = this.isSetPointRep();
-            boolean rhsFieldIsSet = that.isSetPointRep();
-            PointPropertyType lhsField;
-            lhsField = this.getPointRep();
-            PointPropertyType rhsField;
-            rhsField = that.getPointRep();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetStartAngle();
-            boolean rhsFieldIsSet = that.isSetStartAngle();
-            AngleType lhsField;
-            lhsField = this.getStartAngle();
-            AngleType rhsField;
-            rhsField = that.getStartAngle();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
+            boolean lhsFieldIsSet = this.isSetPos();
+            boolean rhsFieldIsSet = that.isSetPos();
+            DirectPositionType lhsField;
+            lhsField = this.getPos();
+            DirectPositionType rhsField;
+            rhsField = that.getPos();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -345,40 +332,14 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetRadius();
-            boolean rhsFieldIsSet = that.isSetRadius();
-            LengthType lhsField;
-            lhsField = this.getRadius();
-            LengthType rhsField;
-            rhsField = that.getRadius();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPointProperty();
-            boolean rhsFieldIsSet = that.isSetPointProperty();
-            PointPropertyType lhsField;
-            lhsField = this.getPointProperty();
-            PointPropertyType rhsField;
-            rhsField = that.getPointProperty();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetPos();
-            boolean rhsFieldIsSet = that.isSetPos();
-            DirectPositionType lhsField;
-            lhsField = this.getPos();
-            DirectPositionType rhsField;
-            rhsField = that.getPos();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pos", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pos", rhsField);
+            boolean lhsFieldIsSet = this.isSetCoordinates();
+            boolean rhsFieldIsSet = that.isSetCoordinates();
+            CoordinatesType lhsField;
+            lhsField = this.getCoordinates();
+            CoordinatesType rhsField;
+            rhsField = that.getCoordinates();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -397,14 +358,53 @@ public class ArcByCenterPointType extends AbstractCurveSegmentType implements Se
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCoordinates();
-            boolean rhsFieldIsSet = that.isSetCoordinates();
-            CoordinatesType lhsField;
-            lhsField = this.getCoordinates();
-            CoordinatesType rhsField;
-            rhsField = that.getCoordinates();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "coordinates", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "coordinates", rhsField);
+            boolean lhsFieldIsSet = this.isSetPointProperty();
+            boolean rhsFieldIsSet = that.isSetPointProperty();
+            PointPropertyType lhsField;
+            lhsField = this.getPointProperty();
+            PointPropertyType rhsField;
+            rhsField = that.getPointProperty();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointProperty", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointProperty", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetStartAngle();
+            boolean rhsFieldIsSet = that.isSetStartAngle();
+            AngleType lhsField;
+            lhsField = this.getStartAngle();
+            AngleType rhsField;
+            rhsField = that.getStartAngle();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "startAngle", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "startAngle", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetRadius();
+            boolean rhsFieldIsSet = that.isSetRadius();
+            LengthType lhsField;
+            lhsField = this.getRadius();
+            LengthType rhsField;
+            rhsField = that.getRadius();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "radius", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "radius", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetPointRep();
+            boolean rhsFieldIsSet = that.isSetPointRep();
+            PointPropertyType lhsField;
+            lhsField = this.getPointRep();
+            PointPropertyType rhsField;
+            rhsField = that.getPointRep();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "pointRep", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "pointRep", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

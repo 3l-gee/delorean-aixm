@@ -732,6 +732,84 @@ public class AirspaceVolumeType extends AbstractAIXMObjectType implements Serial
         }
         final AirspaceVolumeType that = ((AirspaceVolumeType) object);
         {
+            boolean lhsFieldIsSet = this.isSetAnnotation();
+            boolean rhsFieldIsSet = that.isSetAnnotation();
+            List<NotePropertyType> lhsField;
+            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
+            List<NotePropertyType> rhsField;
+            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetUpperLimit();
+            boolean rhsFieldIsSet = that.isSetUpperLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getUpperLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getUpperLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetCentreline();
+            boolean rhsFieldIsSet = that.isSetCentreline();
+            JAXBElement<AIXMCurvePropertyType> lhsField;
+            lhsField = this.getCentreline();
+            JAXBElement<AIXMCurvePropertyType> rhsField;
+            rhsField = that.getCentreline();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centreline", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centreline", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetContributorAirspace();
+            boolean rhsFieldIsSet = that.isSetContributorAirspace();
+            JAXBElement<AirspaceVolumeDependencyPropertyType> lhsField;
+            lhsField = this.getContributorAirspace();
+            JAXBElement<AirspaceVolumeDependencyPropertyType> rhsField;
+            rhsField = that.getContributorAirspace();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contributorAirspace", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contributorAirspace", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMaximumLimitReference();
+            boolean rhsFieldIsSet = that.isSetMaximumLimitReference();
+            JAXBElement<CodeVerticalReferenceType> lhsField;
+            lhsField = this.getMaximumLimitReference();
+            JAXBElement<CodeVerticalReferenceType> rhsField;
+            rhsField = that.getMaximumLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumLimitReference", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetExtension();
+            boolean rhsFieldIsSet = that.isSetExtension();
+            List<AirspaceVolumeTypeExtensionType> lhsField;
+            lhsField = (this.isSetExtension() ? this.getExtension() : null);
+            List<AirspaceVolumeTypeExtensionType> rhsField;
+            rhsField = (that.isSetExtension() ? that.getExtension() : null);
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetMaximumLimit();
             boolean rhsFieldIsSet = that.isSetMaximumLimit();
             JAXBElement<ValDistanceVerticalType> lhsField;
@@ -758,71 +836,6 @@ public class AirspaceVolumeType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetLowerLimit();
-            boolean rhsFieldIsSet = that.isSetLowerLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getLowerLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getLowerLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetWidth();
-            boolean rhsFieldIsSet = that.isSetWidth();
-            JAXBElement<ValDistanceType> lhsField;
-            lhsField = this.getWidth();
-            JAXBElement<ValDistanceType> rhsField;
-            rhsField = that.getWidth();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetUpperLimit();
-            boolean rhsFieldIsSet = that.isSetUpperLimit();
-            JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getUpperLimit();
-            JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getUpperLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "upperLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "upperLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetContributorAirspace();
-            boolean rhsFieldIsSet = that.isSetContributorAirspace();
-            JAXBElement<AirspaceVolumeDependencyPropertyType> lhsField;
-            lhsField = this.getContributorAirspace();
-            JAXBElement<AirspaceVolumeDependencyPropertyType> rhsField;
-            rhsField = that.getContributorAirspace();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "contributorAirspace", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "contributorAirspace", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetExtension();
-            boolean rhsFieldIsSet = that.isSetExtension();
-            List<AirspaceVolumeTypeExtensionType> lhsField;
-            lhsField = (this.isSetExtension() ? this.getExtension() : null);
-            List<AirspaceVolumeTypeExtensionType> rhsField;
-            rhsField = (that.isSetExtension() ? that.getExtension() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "extension", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "extension", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetLowerLimitReference();
             boolean rhsFieldIsSet = that.isSetLowerLimitReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
@@ -836,53 +849,14 @@ public class AirspaceVolumeType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetCentreline();
-            boolean rhsFieldIsSet = that.isSetCentreline();
-            JAXBElement<AIXMCurvePropertyType> lhsField;
-            lhsField = this.getCentreline();
-            JAXBElement<AIXMCurvePropertyType> rhsField;
-            rhsField = that.getCentreline();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "centreline", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "centreline", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumLimit();
-            boolean rhsFieldIsSet = that.isSetMinimumLimit();
+            boolean lhsFieldIsSet = this.isSetLowerLimit();
+            boolean rhsFieldIsSet = that.isSetLowerLimit();
             JAXBElement<ValDistanceVerticalType> lhsField;
-            lhsField = this.getMinimumLimit();
+            lhsField = this.getLowerLimit();
             JAXBElement<ValDistanceVerticalType> rhsField;
-            rhsField = that.getMinimumLimit();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumLimit", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumLimit", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetAnnotation();
-            boolean rhsFieldIsSet = that.isSetAnnotation();
-            List<NotePropertyType> lhsField;
-            lhsField = (this.isSetAnnotation() ? this.getAnnotation() : null);
-            List<NotePropertyType> rhsField;
-            rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetMinimumLimitReference();
-            boolean rhsFieldIsSet = that.isSetMinimumLimitReference();
-            JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMinimumLimitReference();
-            JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMinimumLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumLimitReference", rhsField);
+            rhsField = that.getLowerLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "lowerLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "lowerLimit", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
@@ -901,14 +875,40 @@ public class AirspaceVolumeType extends AbstractAIXMObjectType implements Serial
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetMaximumLimitReference();
-            boolean rhsFieldIsSet = that.isSetMaximumLimitReference();
+            boolean lhsFieldIsSet = this.isSetMinimumLimit();
+            boolean rhsFieldIsSet = that.isSetMinimumLimit();
+            JAXBElement<ValDistanceVerticalType> lhsField;
+            lhsField = this.getMinimumLimit();
+            JAXBElement<ValDistanceVerticalType> rhsField;
+            rhsField = that.getMinimumLimit();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumLimit", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumLimit", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetWidth();
+            boolean rhsFieldIsSet = that.isSetWidth();
+            JAXBElement<ValDistanceType> lhsField;
+            lhsField = this.getWidth();
+            JAXBElement<ValDistanceType> rhsField;
+            rhsField = that.getWidth();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "width", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "width", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsFieldIsSet = this.isSetMinimumLimitReference();
+            boolean rhsFieldIsSet = that.isSetMinimumLimitReference();
             JAXBElement<CodeVerticalReferenceType> lhsField;
-            lhsField = this.getMaximumLimitReference();
+            lhsField = this.getMinimumLimitReference();
             JAXBElement<CodeVerticalReferenceType> rhsField;
-            rhsField = that.getMaximumLimitReference();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "maximumLimitReference", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "maximumLimitReference", rhsField);
+            rhsField = that.getMinimumLimitReference();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "minimumLimitReference", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "minimumLimitReference", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }

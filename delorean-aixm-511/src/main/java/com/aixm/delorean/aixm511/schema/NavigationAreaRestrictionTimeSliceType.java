@@ -384,6 +384,19 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
         }
         final NavigationAreaRestrictionTimeSliceType that = ((NavigationAreaRestrictionTimeSliceType) object);
         {
+            boolean lhsFieldIsSet = this.isSetType();
+            boolean rhsFieldIsSet = that.isSetType();
+            JAXBElement<CodeNavigationAreaRestrictionType> lhsField;
+            lhsField = this.getType();
+            JAXBElement<CodeNavigationAreaRestrictionType> rhsField;
+            rhsField = that.getType();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetSectorDefinition();
             boolean rhsFieldIsSet = that.isSetSectorDefinition();
             JAXBElement<CircleSectorPropertyType> lhsField;
@@ -410,19 +423,6 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
             }
         }
         {
-            boolean lhsFieldIsSet = this.isSetDesignSurface();
-            boolean rhsFieldIsSet = that.isSetDesignSurface();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
-            lhsField = this.getDesignSurface();
-            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
-            rhsField = that.getDesignSurface();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
             boolean lhsFieldIsSet = this.isSetProcedure();
             boolean rhsFieldIsSet = that.isSetProcedure();
             List<ProcedurePropertyType> lhsField;
@@ -436,6 +436,19 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
             }
         }
         {
+            boolean lhsFieldIsSet = this.isSetDesignSurface();
+            boolean rhsFieldIsSet = that.isSetDesignSurface();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> lhsField;
+            lhsField = this.getDesignSurface();
+            JAXBElement<ObstacleAssessmentAreaPropertyType> rhsField;
+            rhsField = that.getDesignSurface();
+            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "designSurface", lhsField);
+            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "designSurface", rhsField);
+            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
+                return false;
+            }
+        }
+        {
             boolean lhsFieldIsSet = this.isSetAnnotation();
             boolean rhsFieldIsSet = that.isSetAnnotation();
             List<NotePropertyType> lhsField;
@@ -444,19 +457,6 @@ public class NavigationAreaRestrictionTimeSliceType extends AbstractAIXMTimeSlic
             rhsField = (that.isSetAnnotation() ? that.getAnnotation() : null);
             ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "annotation", lhsField);
             ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "annotation", rhsField);
-            if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsFieldIsSet = this.isSetType();
-            boolean rhsFieldIsSet = that.isSetType();
-            JAXBElement<CodeNavigationAreaRestrictionType> lhsField;
-            lhsField = this.getType();
-            JAXBElement<CodeNavigationAreaRestrictionType> rhsField;
-            rhsField = that.getType();
-            ObjectLocator lhsFieldLocator = LocatorUtils.property(thisLocator, "type", lhsField);
-            ObjectLocator rhsFieldLocator = LocatorUtils.property(thatLocator, "type", rhsField);
             if (!strategy.equals(lhsFieldLocator, rhsFieldLocator, lhsField, rhsField, lhsFieldIsSet, rhsFieldIsSet)) {
                 return false;
             }
