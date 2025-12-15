@@ -24,8 +24,8 @@ export function Navbar({ onNavigate , onCleanBackground}) {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const logoSrc = lightTheme
-    ? "/src/assets/logo/delorean-aixm-logo-big-light.png"
-    : "/src/assets/logo/delorean-aixm-logo-big-dark.png";
+    ? "../assets/logo/delorean-aixm-logo-big-light.png"
+    : "../assets/logo/delorean-aixm-logo-big-dark.png";
 
   useEffect(() => {
     const handleScroll = () => {
